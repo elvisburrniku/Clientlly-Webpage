@@ -333,35 +333,37 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-4 overflow-hidden">
+      <section className="relative pt-20 pb-32 px-4 overflow-hidden min-h-screen flex items-center">
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-12">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="text-center space-y-16">
             {/* Trust Badge */}
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-8 slide-in-up">
+            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-8 slide-in-up shadow-lg">
               <Star className="w-4 h-4 mr-2 fill-current text-yellow-500" />
-              {t('landing.trustBadge', 'Trusted by over 10,000 businesses worldwide')}
+              {t('landing.trust', 'Trusted by over 10,000+ businesses worldwide')}
             </div>
             
             {/* Main Heading */}
-            <div className="space-y-8">
-              <h1 className="text-6xl lg:text-8xl font-bold leading-tight tracking-tight">
-                <span className="text-foreground block fade-in stagger-1">
-                  {t('landing.heroTitle1', 'Everything you need to')}
+            <div className="space-y-10">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight">
+                <span className="text-foreground block fade-in stagger-1 mb-4">
+                  Everything you need to
                 </span>
-                <span className="gradient-text block fade-in stagger-2">
-                  {t('landing.heroTitle2', 'run your business')}
+                <span className="gradient-text block fade-in stagger-2 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
+                  run your business
                 </span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-3">
-                {t('landing.heroDescription', 'Our comprehensive platform combines invoicing, expense tracking, CRM, HR management, and contract tools in one powerful solution.')}
+                Our comprehensive platform combines invoicing, expense tracking, CRM, HR management, and contract tools in one powerful solution.
               </p>
             </div>
 
@@ -369,92 +371,92 @@ export default function Landing() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in stagger-4">
               <Button 
                 size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
               >
-                {t('landing.tryItFree', 'Try It Free')}
+                Try It Free
               </Button>
               <Button 
                 size="lg" 
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
               >
-                {t('landing.buyNowSave', 'Buy Now & Save 17%')}
+                Buy Now & Save 17%
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-foreground/20 hover:bg-foreground hover:text-background px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
+                className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-10 py-5 text-xl font-semibold rounded-2xl transition-all duration-300 min-w-[200px]"
                 onClick={() => setShowDemoModal(true)}
               >
-                {t('landing.requestDemo', 'Request Demo')}
+                Request Demo
               </Button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground fade-in stagger-5">
-              <div className="flex items-center space-x-2">
-                <Check className="h-5 w-5 text-green-500" />
-                <span className="font-medium">{t('landing.benefits.freeSetup', 'Free setup & migration')}</span>
+            <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground fade-in stagger-5 pt-8">
+              <div className="flex items-center space-x-3">
+                <Check className="h-6 w-6 text-green-500" />
+                <span className="font-medium">Free setup & migration</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Check className="h-5 w-5 text-green-500" />
-                <span className="font-medium">{t('landing.benefits.cancelAnytime', 'Cancel anytime')}</span>
+              <div className="flex items-center space-x-3">
+                <Check className="h-6 w-6 text-green-500" />
+                <span className="font-medium">Cancel anytime</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Check className="h-5 w-5 text-green-500" />
-                <span className="font-medium">{t('landing.benefits.support', '24/7 expert support')}</span>
+              <div className="flex items-center space-x-3">
+                <Check className="h-6 w-6 text-green-500" />
+                <span className="font-medium">24/7 expert support</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-green-500" />
-                <span className="font-medium">{t('landing.benefits.security', 'Bank-level security')}</span>
+              <div className="flex items-center space-x-3">
+                <Shield className="h-6 w-6 text-green-500" />
+                <span className="font-medium">Bank-level security</span>
               </div>
             </div>
           </div>
 
           {/* Feature Preview Cards */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in stagger-6">
+          <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in stagger-6">
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-300 hover:scale-105">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                  <FileText className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
+                  <FileText className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{t('landing.features.invoicing.title', 'Professional Invoicing')}</h3>
-                <p className="text-muted-foreground leading-relaxed">{t('landing.features.invoicing.desc', 'Create beautiful invoices, track payments, and get paid faster with automated reminders.')}</p>
+                <h3 className="text-xl font-bold text-foreground mb-4">Professional Invoicing</h3>
+                <p className="text-muted-foreground leading-relaxed">Create beautiful invoices, track payments, and get paid faster with automated reminders.</p>
               </div>
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-green-600/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-green-500/50 transition-all duration-300 hover:scale-105">
-                <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Receipt className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-green-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
+                  <Receipt className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{t('landing.features.expenses.title', 'Smart Expense Tracking')}</h3>
-                <p className="text-muted-foreground leading-relaxed">{t('landing.features.expenses.desc', 'Capture receipts, categorize expenses automatically, and generate tax-ready reports.')}</p>
+                <h3 className="text-xl font-bold text-foreground mb-4">Smart Expense Tracking</h3>
+                <p className="text-muted-foreground leading-relaxed">Capture receipts, categorize expenses automatically, and generate tax-ready reports.</p>
               </div>
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-purple-600/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
-                <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Users className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
+                  <Users className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{t('landing.features.crm.title', 'Powerful CRM')}</h3>
-                <p className="text-muted-foreground leading-relaxed">{t('landing.features.crm.desc', 'Manage customer relationships, track deals, and grow your business with data-driven insights.')}</p>
+                <h3 className="text-xl font-bold text-foreground mb-4">Powerful CRM</h3>
+                <p className="text-muted-foreground leading-relaxed">Manage customer relationships, track deals, and grow your business with data-driven insights.</p>
               </div>
             </div>
 
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-background/80 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-orange-500/50 transition-all duration-300 hover:scale-105">
-                <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6">
-                  <Handshake className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-orange-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
+                  <Handshake className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{t('landing.features.contracts.title', 'Contract Management')}</h3>
-                <p className="text-muted-foreground leading-relaxed">{t('landing.features.contracts.desc', 'Create, send, and sign contracts digitally with built-in e-signature capabilities.')}</p>
+                <h3 className="text-xl font-bold text-foreground mb-4">Contract Management</h3>
+                <p className="text-muted-foreground leading-relaxed">Create, send, and sign contracts digitally with built-in e-signature capabilities.</p>
               </div>
             </div>
           </div>
