@@ -14,26 +14,79 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2023-10-16",
 });
 
-// Subscription plan configurations
+// Detailed subscription plan configurations with categorized features
 const SUBSCRIPTION_PLANS = {
   basic: {
     id: "basic",
     name: "Basic",
     price: 2900, // $29.00 in cents
     stripePriceId: process.env.STRIPE_BASIC_PRICE_ID || "price_basic",
+    description: "Perfect for freelancers and small teams getting started",
     features: [
       "Up to 100 invoices/month",
       "Basic expense tracking",
       "CRM for up to 500 contacts",
       "Email support",
       "2 team members"
-    ]
+    ],
+    detailedFeatures: {
+      invoicing: {
+        "Monthly invoices": "100",
+        "Custom templates": "3 templates",
+        "Payment tracking": "✓",
+        "Tax calculations": "Basic",
+        "Late payment reminders": "✓"
+      },
+      expenses: {
+        "Expense categories": "10 categories",
+        "Receipt scanning": "✓",
+        "Mileage tracking": "Manual",
+        "Bank integration": "1 account",
+        "Expense reports": "Basic"
+      },
+      crm: {
+        "Contact management": "500 contacts",
+        "Deal pipeline": "Basic",
+        "Email templates": "5 templates",
+        "Activity tracking": "✓",
+        "Lead scoring": "❌"
+      },
+      hr: {
+        "Employee profiles": "2 employees",
+        "Time tracking": "Basic",
+        "Leave management": "❌",
+        "Performance reviews": "❌",
+        "Payroll integration": "❌"
+      },
+      contracts: {
+        "Contract templates": "3 templates",
+        "Digital signatures": "❌",
+        "Version control": "❌",
+        "Approval workflows": "❌",
+        "Contract analytics": "❌"
+      },
+      analytics: {
+        "Basic dashboards": "✓",
+        "Financial reports": "5 reports",
+        "Export data": "CSV",
+        "Custom reports": "❌",
+        "Advanced analytics": "❌"
+      },
+      support: {
+        "Support channel": "Email only",
+        "Response time": "48 hours",
+        "Knowledge base": "✓",
+        "Video tutorials": "✓",
+        "Dedicated manager": "❌"
+      }
+    }
   },
   professional: {
     id: "professional",
     name: "Professional",
     price: 7900, // $79.00 in cents
     stripePriceId: process.env.STRIPE_PROFESSIONAL_PRICE_ID || "price_professional",
+    description: "Ideal for growing businesses with advanced needs",
     features: [
       "Unlimited invoices",
       "Advanced expense management",
@@ -42,13 +95,65 @@ const SUBSCRIPTION_PLANS = {
       "Contract management",
       "Priority support",
       "Up to 10 team members"
-    ]
+    ],
+    detailedFeatures: {
+      invoicing: {
+        "Monthly invoices": "Unlimited",
+        "Custom templates": "Unlimited",
+        "Payment tracking": "✓",
+        "Tax calculations": "Advanced",
+        "Late payment reminders": "Automated"
+      },
+      expenses: {
+        "Expense categories": "Unlimited",
+        "Receipt scanning": "AI-powered",
+        "Mileage tracking": "GPS tracking",
+        "Bank integration": "5 accounts",
+        "Expense reports": "Advanced"
+      },
+      crm: {
+        "Contact management": "5,000 contacts",
+        "Deal pipeline": "Advanced",
+        "Email templates": "Unlimited",
+        "Activity tracking": "Advanced",
+        "Lead scoring": "✓"
+      },
+      hr: {
+        "Employee profiles": "10 employees",
+        "Time tracking": "Advanced",
+        "Leave management": "✓",
+        "Performance reviews": "✓",
+        "Payroll integration": "Basic"
+      },
+      contracts: {
+        "Contract templates": "Unlimited",
+        "Digital signatures": "✓",
+        "Version control": "✓",
+        "Approval workflows": "✓",
+        "Contract analytics": "Basic"
+      },
+      analytics: {
+        "Basic dashboards": "✓",
+        "Financial reports": "20 reports",
+        "Export data": "CSV, Excel, PDF",
+        "Custom reports": "✓",
+        "Advanced analytics": "✓"
+      },
+      support: {
+        "Support channel": "Email & Chat",
+        "Response time": "4 hours",
+        "Knowledge base": "✓",
+        "Video tutorials": "✓",
+        "Dedicated manager": "❌"
+      }
+    }
   },
   business: {
     id: "business",
     name: "Business Plus",
     price: 15900, // $159.00 in cents
     stripePriceId: process.env.STRIPE_BUSINESS_PRICE_ID || "price_business",
+    description: "For large teams and enterprises requiring maximum capabilities",
     features: [
       "Everything in Professional",
       "Unlimited contacts & users",
@@ -56,7 +161,58 @@ const SUBSCRIPTION_PLANS = {
       "Custom integrations",
       "Dedicated account manager",
       "24/7 phone support"
-    ]
+    ],
+    detailedFeatures: {
+      invoicing: {
+        "Monthly invoices": "Unlimited",
+        "Custom templates": "Unlimited + Custom branding",
+        "Payment tracking": "✓",
+        "Tax calculations": "Multi-jurisdiction",
+        "Late payment reminders": "AI-optimized"
+      },
+      expenses: {
+        "Expense categories": "Unlimited + Custom fields",
+        "Receipt scanning": "AI + Machine learning",
+        "Mileage tracking": "GPS + Route optimization",
+        "Bank integration": "Unlimited accounts",
+        "Expense reports": "Enterprise-grade"
+      },
+      crm: {
+        "Contact management": "Unlimited",
+        "Deal pipeline": "Enterprise",
+        "Email templates": "Unlimited + AI suggestions",
+        "Activity tracking": "Enterprise",
+        "Lead scoring": "AI-powered"
+      },
+      hr: {
+        "Employee profiles": "Unlimited",
+        "Time tracking": "Enterprise",
+        "Leave management": "Advanced",
+        "Performance reviews": "360° reviews",
+        "Payroll integration": "Full integration"
+      },
+      contracts: {
+        "Contract templates": "Unlimited + Legal library",
+        "Digital signatures": "Advanced + Bulk signing",
+        "Version control": "Enterprise",
+        "Approval workflows": "Complex workflows",
+        "Contract analytics": "AI insights"
+      },
+      analytics: {
+        "Basic dashboards": "✓",
+        "Financial reports": "Unlimited",
+        "Export data": "All formats + API",
+        "Custom reports": "Advanced builder",
+        "Advanced analytics": "AI-powered insights"
+      },
+      support: {
+        "Support channel": "Email, Chat, Phone",
+        "Response time": "1 hour",
+        "Knowledge base": "✓",
+        "Video tutorials": "✓",
+        "Dedicated manager": "✓"
+      }
+    }
   }
 };
 

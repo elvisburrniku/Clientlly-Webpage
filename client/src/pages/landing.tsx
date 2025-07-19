@@ -502,10 +502,21 @@ export default function Landing() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-4">Need a custom solution?</p>
-            <Button variant="link" onClick={() => setShowDemoModal(true)} className="text-primary hover:text-primary/80">
-              Contact our sales team →
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+              <Button 
+                variant="outline" 
+                onClick={() => window.location.href = "/compare"}
+                className="text-primary border-primary hover:bg-primary hover:text-white"
+              >
+                Compare All Features →
+              </Button>
+              <Button variant="link" onClick={() => setShowDemoModal(true)} className="text-primary hover:text-primary/80">
+                Contact Sales Team
+              </Button>
+            </div>
+            <p className="text-muted-foreground text-sm">
+              Need a custom solution? Our team is here to help.
+            </p>
           </div>
         </div>
       </section>
