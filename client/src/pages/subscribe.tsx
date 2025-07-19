@@ -22,7 +22,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 interface SubscriptionPlan {
   id: string;
   name: string;
-  price: number;
+  monthlyPrice: number;
+  yearlyPrice: number;
   features: string[];
 }
 
@@ -143,13 +144,19 @@ export default function Subscribe() {
   const [location, navigate] = useLocation();
   const [selectedPlanId, setSelectedPlanId] = useState<string>("");
   const [clientSecret, setClientSecret] = useState("");
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
 
-  // Get plan from URL
+  // Get plan and billing period from URL
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const planFromUrl = urlParams.get('plan');
+    const billingFromUrl = urlParams.get('billing') as 'monthly' | 'yearly';
+    
     if (planFromUrl) {
       setSelectedPlanId(planFromUrl);
+    }
+    if (billingFromUrl && (billingFromUrl === 'monthly' || billingFromUrl === 'yearly')) {
+      setBillingPeriod(billingFromUrl);
     }
   }, []);
 
@@ -253,9 +260,32 @@ export default function Subscribe() {
           <h1 className="text-4xl font-bold text-foreground mb-4">
             Choose Your <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Business Plan</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Unlock the full potential of your business with our comprehensive management platform.
           </p>
+          
+          {/* Billing Period Toggle */}
+          <div className="flex items-center justify-center mb-8">
+            <div className="bg-muted/50 p-1 rounded-xl">
+              <Button
+                variant={billingPeriod === 'monthly' ? 'default' : 'ghost'}
+                onClick={() => setBillingPeriod('monthly')}
+                className="px-6 py-2"
+              >
+                Monthly
+              </Button>
+              <Button
+                variant={billingPeriod === 'yearly' ? 'default' : 'ghost'}
+                onClick={() => setBillingPeriod('yearly')}
+                className="px-6 py-2 relative"
+              >
+                Yearly
+                <Badge className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1">
+                  Save 17%
+                </Badge>
+              </Button>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -277,8 +307,14 @@ export default function Subscribe() {
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
                   <div className="text-4xl font-bold text-foreground mb-1">
-                    ${Math.floor(plan.price / 100)}<span className="text-lg text-muted-foreground">/month</span>
+                    ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
+                    <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                   </div>
+                  {billingPeriod === 'yearly' && (
+                    <div className="text-sm text-muted-foreground mb-2">
+                      Billed ${Math.floor(plan.yearlyPrice / 100)} yearly
+                    </div>
+                  )}
                   <p className="text-muted-foreground">
                     {plan.id === 'basic' && "Perfect for freelancers and small teams"}
                     {plan.id === 'professional' && "Ideal for growing businesses"}

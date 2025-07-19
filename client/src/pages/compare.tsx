@@ -15,7 +15,8 @@ interface PlanFeatures {
 interface SubscriptionPlan {
   id: string;
   name: string;
-  price: number;
+  monthlyPrice: number;
+  yearlyPrice: number;
   description: string;
   features: string[];
   detailedFeatures: PlanFeatures;
@@ -34,6 +35,7 @@ const featureCategories = {
 export default function Compare() {
   const [location, navigate] = useLocation();
   const [selectedCategory, setSelectedCategory] = useState<string>("invoicing");
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
 
   const { data: plans = [], isLoading } = useQuery<SubscriptionPlan[]>({
     queryKey: ["/api/subscription-plans"],
@@ -94,9 +96,32 @@ export default function Compare() {
           <h1 className="text-4xl font-bold text-foreground mb-4">
             Compare <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Plans & Features</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Detailed feature comparison to help you choose the perfect plan for your business needs.
           </p>
+          
+          {/* Billing Period Toggle */}
+          <div className="flex items-center justify-center mb-8">
+            <div className="bg-muted/50 p-1 rounded-xl">
+              <Button
+                variant={billingPeriod === 'monthly' ? 'default' : 'ghost'}
+                onClick={() => setBillingPeriod('monthly')}
+                className="px-6 py-2"
+              >
+                Monthly
+              </Button>
+              <Button
+                variant={billingPeriod === 'yearly' ? 'default' : 'ghost'}
+                onClick={() => setBillingPeriod('yearly')}
+                className="px-6 py-2 relative"
+              >
+                Yearly
+                <Badge className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1">
+                  Save 17%
+                </Badge>
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* Plan Overview Cards */}
@@ -121,9 +146,14 @@ export default function Compare() {
               <CardHeader className="text-center pb-6 pt-8">
                 <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
                 <div className="text-4xl font-bold text-primary mt-4">
-                  ${Math.floor(plan.price / 100)}
-                  <span className="text-lg text-muted-foreground font-normal">/month</span>
+                  ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
+                  <span className="text-lg text-muted-foreground font-normal">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                 </div>
+                {billingPeriod === 'yearly' && (
+                  <div className="text-sm text-muted-foreground mt-2">
+                    Billed ${Math.floor(plan.yearlyPrice / 100)} yearly
+                  </div>
+                )}
                 <p className="text-muted-foreground mt-3 px-2">{plan.description}</p>
               </CardHeader>
               
@@ -149,7 +179,7 @@ export default function Compare() {
                       : 'hover:bg-primary hover:text-white'
                   }`}
                   variant={index === 1 ? "default" : "outline"}
-                  onClick={() => navigate(`/subscribe?plan=${plan.id}`)}
+                  onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                 >
                   Choose {plan.name}
                 </Button>
@@ -201,7 +231,7 @@ export default function Compare() {
                       }`}>
                         <div className="text-lg">{plan.name}</div>
                         <div className="text-2xl font-bold mt-1">
-                          ${Math.floor(plan.price / 100)}
+                          ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
                         </div>
                         <div className="text-sm font-normal text-muted-foreground">
                           per month

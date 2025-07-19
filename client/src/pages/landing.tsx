@@ -34,7 +34,8 @@ import {
 interface SubscriptionPlan {
   id: string;
   name: string;
-  price: number;
+  monthlyPrice: number;
+  yearlyPrice: number;
   features: string[];
 }
 
@@ -43,6 +44,7 @@ export default function Landing() {
   const [activeTab, setActiveTab] = useState("invoices");
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [demoForm, setDemoForm] = useState({
     fullName: "",
     email: "",
@@ -444,9 +446,32 @@ export default function Landing() {
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Choose the perfect plan for <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">your business</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
               Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
             </p>
+            
+            {/* Billing Period Toggle */}
+            <div className="flex items-center justify-center mb-8">
+              <div className="bg-muted/50 p-1 rounded-xl">
+                <Button
+                  variant={billingPeriod === 'monthly' ? 'default' : 'ghost'}
+                  onClick={() => setBillingPeriod('monthly')}
+                  className="px-6 py-2"
+                >
+                  Monthly
+                </Button>
+                <Button
+                  variant={billingPeriod === 'yearly' ? 'default' : 'ghost'}
+                  onClick={() => setBillingPeriod('yearly')}
+                  className="px-6 py-2 relative"
+                >
+                  Yearly
+                  <Badge className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1">
+                    Save 17%
+                  </Badge>
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -467,8 +492,14 @@ export default function Landing() {
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
                     <div className="text-4xl font-bold gradient-text mb-1">
-                      ${Math.floor(plan.price / 100)}<span className="text-lg text-muted-foreground">/month</span>
+                      ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
+                      <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     </div>
+                    {billingPeriod === 'yearly' && (
+                      <div className="text-sm text-muted-foreground mb-2">
+                        Billed ${Math.floor(plan.yearlyPrice / 100)} yearly
+                      </div>
+                    )}
                     <p className="text-muted-foreground">
                       {plan.id === 'basic' && "Perfect for freelancers and small teams"}
                       {plan.id === 'professional' && "Ideal for growing businesses"}
@@ -492,7 +523,7 @@ export default function Landing() {
                         : 'glow-border'
                     }`}
                     variant={index === 1 ? "default" : "outline"}
-                    onClick={() => window.location.href = `/subscribe?plan=${plan.id}`}
+                    onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                   >
                     Choose {plan.name}
                   </Button>

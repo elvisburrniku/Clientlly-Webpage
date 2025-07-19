@@ -19,8 +19,12 @@ const SUBSCRIPTION_PLANS = {
   basic: {
     id: "basic",
     name: "Basic",
-    price: 2900, // $29.00 in cents
-    stripePriceId: process.env.STRIPE_BASIC_PRICE_ID || "price_basic",
+    monthlyPrice: 2900, // $29.00 in cents
+    yearlyPrice: 29000, // $290.00 in cents (2 months free)
+    stripePriceId: {
+      monthly: process.env.STRIPE_BASIC_MONTHLY_PRICE_ID || "price_basic_monthly",
+      yearly: process.env.STRIPE_BASIC_YEARLY_PRICE_ID || "price_basic_yearly"
+    },
     description: "Perfect for freelancers and small teams getting started",
     features: [
       "Up to 100 invoices/month",
@@ -84,8 +88,12 @@ const SUBSCRIPTION_PLANS = {
   professional: {
     id: "professional",
     name: "Professional",
-    price: 7900, // $79.00 in cents
-    stripePriceId: process.env.STRIPE_PROFESSIONAL_PRICE_ID || "price_professional",
+    monthlyPrice: 7900, // $79.00 in cents
+    yearlyPrice: 79000, // $790.00 in cents (2 months free)
+    stripePriceId: {
+      monthly: process.env.STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID || "price_professional_monthly",
+      yearly: process.env.STRIPE_PROFESSIONAL_YEARLY_PRICE_ID || "price_professional_yearly"
+    },
     description: "Ideal for growing businesses with advanced needs",
     features: [
       "Unlimited invoices",
@@ -151,8 +159,12 @@ const SUBSCRIPTION_PLANS = {
   business: {
     id: "business",
     name: "Business Plus",
-    price: 15900, // $159.00 in cents
-    stripePriceId: process.env.STRIPE_BUSINESS_PRICE_ID || "price_business",
+    monthlyPrice: 15900, // $159.00 in cents
+    yearlyPrice: 159000, // $1590.00 in cents (2 months free)
+    stripePriceId: {
+      monthly: process.env.STRIPE_BUSINESS_MONTHLY_PRICE_ID || "price_business_monthly",
+      yearly: process.env.STRIPE_BUSINESS_YEARLY_PRICE_ID || "price_business_yearly"
+    },
     description: "For large teams and enterprises requiring maximum capabilities",
     features: [
       "Everything in Professional",
