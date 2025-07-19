@@ -14,6 +14,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
   throw new Error('Missing required Stripe key: VITE_STRIPE_PUBLIC_KEY');
@@ -232,6 +234,7 @@ export default function Subscribe() {
   const { toast } = useToast();
   const [location] = useLocation();
   const [currentStep, setCurrentStep] = useState(0);
+  const { t } = useTranslation();
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [userData, setUserData] = useState<UserData>({
@@ -648,8 +651,11 @@ export default function Subscribe() {
               <Building className="h-4 w-4 text-white" />
             </div>
             <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
+            <div className="ml-8">
+              <LanguageSelector />
+            </div>
           </div>
-          <p className="text-muted-foreground">Complete your subscription in just a few steps</p>
+          <p className="text-muted-foreground">{t('subscribe.title', 'Complete your subscription in just a few steps')}</p>
         </div>
 
         {renderStepIndicator()}

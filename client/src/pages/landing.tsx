@@ -31,6 +31,8 @@ import {
   MapPin,
   Clock
 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 interface SubscriptionPlan {
   id: string;
@@ -42,6 +44,7 @@ interface SubscriptionPlan {
 
 export default function Landing() {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("invoices");
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -221,22 +224,23 @@ export default function Landing() {
             </div>
             
             <div className="hidden md:flex items-center space-x-8 slide-in-right">
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Features</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Pricing</a>
-              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Calculator</Link>
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.features', 'Features')}</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.pricing.title', 'Pricing')}</a>
+              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('calculator.title', 'Calculator')}</Link>
               <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">About</a>
+              <LanguageSelector />
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDemoModal(true)} 
                 className="text-secondary hover:text-secondary/80 glow-border transition-all duration-300"
               >
-                Request Demo
+                {t('landing.requestDemo', 'Request Demo')}
               </Button>
               <Button 
                 onClick={() => window.location.href = "/api/login"}
                 className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
-                Start Free Trial
+                {t('landing.getStarted', 'Start Free Trial')}
               </Button>
             </div>
 
