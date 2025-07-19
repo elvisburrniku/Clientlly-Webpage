@@ -100,32 +100,53 @@ export default function Compare() {
         </div>
 
         {/* Plan Overview Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {plans.map((plan, index) => (
             <Card 
               key={plan.id} 
-              className={`relative transition-all duration-300 hover:shadow-lg ${
-                index === 1 ? 'border-2 border-primary shadow-lg' : 'border border-border'
+              className={`relative transition-all duration-500 hover:shadow-2xl hover:scale-105 ${
+                index === 1 
+                  ? 'border-2 border-primary shadow-xl bg-gradient-to-b from-primary/5 to-secondary/5' 
+                  : 'border border-border hover:border-primary/30'
               }`}
             >
               {index === 1 && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-gradient-to-r from-primary to-secondary text-white">Most Popular</Badge>
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 text-sm shadow-lg">
+                    ⭐ Most Popular
+                  </Badge>
                 </div>
               )}
               
-              <CardHeader className="text-center pb-4">
-                <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                <div className="text-3xl font-bold text-primary">
-                  ${Math.floor(plan.price / 100)}<span className="text-lg text-muted-foreground font-normal">/month</span>
+              <CardHeader className="text-center pb-6 pt-8">
+                <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
+                <div className="text-4xl font-bold text-primary mt-4">
+                  ${Math.floor(plan.price / 100)}
+                  <span className="text-lg text-muted-foreground font-normal">/month</span>
                 </div>
-                <p className="text-muted-foreground text-sm">{plan.description}</p>
+                <p className="text-muted-foreground mt-3 px-2">{plan.description}</p>
               </CardHeader>
               
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 pb-8">
+                <div className="space-y-3 mb-6">
+                  {plan.features.slice(0, 3).map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center space-x-3">
+                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">{feature}</span>
+                    </div>
+                  ))}
+                  {plan.features.length > 3 && (
+                    <div className="text-sm text-primary font-medium">
+                      +{plan.features.length - 3} more features
+                    </div>
+                  )}
+                </div>
+                
                 <Button 
-                  className={`w-full ${
-                    index === 1 ? 'bg-gradient-to-r from-primary to-secondary' : ''
+                  className={`w-full transition-all duration-300 hover:scale-105 ${
+                    index === 1 
+                      ? 'bg-gradient-to-r from-primary to-secondary hover:shadow-lg' 
+                      : 'hover:bg-primary hover:text-white'
                   }`}
                   variant={index === 1 ? "default" : "outline"}
                   onClick={() => navigate(`/subscribe?plan=${plan.id}`)}
@@ -139,68 +160,94 @@ export default function Compare() {
 
         {/* Feature Category Tabs */}
         <div className="mb-8">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {Object.entries(featureCategories).map(([key, label]) => (
-              <Button
-                key={key}
-                variant={selectedCategory === key ? "default" : "outline"}
-                onClick={() => setSelectedCategory(key)}
-                className={`${
-                  selectedCategory === key 
-                    ? 'bg-gradient-to-r from-primary to-secondary' 
-                    : 'hover:bg-muted'
-                }`}
-              >
-                {label}
-              </Button>
-            ))}
+          <div className="bg-muted/50 p-2 rounded-xl">
+            <div className="flex flex-wrap gap-1 justify-center">
+              {Object.entries(featureCategories).map(([key, label]) => (
+                <Button
+                  key={key}
+                  variant={selectedCategory === key ? "default" : "ghost"}
+                  onClick={() => setSelectedCategory(key)}
+                  className={`transition-all duration-200 ${
+                    selectedCategory === key 
+                      ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105' 
+                      : 'hover:bg-white dark:hover:bg-slate-800 text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {label}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Feature Comparison Table */}
-        <Card className="overflow-hidden">
-          <CardHeader>
-            <CardTitle className="text-xl">
-              {featureCategories[selectedCategory as keyof typeof featureCategories]} Features
+        <Card className="overflow-hidden shadow-lg border-2 border-border/50">
+          <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5 border-b">
+            <CardTitle className="text-2xl text-center">
+              {featureCategories[selectedCategory as keyof typeof featureCategories]}
             </CardTitle>
           </CardHeader>
           <CardContent className="p-0">
             <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-muted/50">
-                  <tr>
-                    <th className="text-left p-4 font-semibold min-w-[200px]">Feature</th>
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-700">
+                    <th className="text-left p-6 font-bold text-lg min-w-[300px] border-r border-border/30">
+                      Feature
+                    </th>
                     {plans.map((plan, index) => (
-                      <th key={plan.id} className={`text-center p-4 font-semibold min-w-[150px] ${
-                        index === 1 ? 'bg-primary/10' : ''
+                      <th key={plan.id} className={`text-center p-6 font-bold min-w-[180px] border-r border-border/30 ${
+                        index === 1 ? 'bg-gradient-to-b from-primary/20 to-primary/10 text-primary' : ''
                       }`}>
-                        {plan.name}
-                        <div className="text-sm font-normal text-muted-foreground">
-                          ${Math.floor(plan.price / 100)}/mo
+                        <div className="text-lg">{plan.name}</div>
+                        <div className="text-2xl font-bold mt-1">
+                          ${Math.floor(plan.price / 100)}
                         </div>
+                        <div className="text-sm font-normal text-muted-foreground">
+                          per month
+                        </div>
+                        {index === 1 && (
+                          <Badge className="mt-2 bg-gradient-to-r from-primary to-secondary text-white text-xs">
+                            Most Popular
+                          </Badge>
+                        )}
                       </th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {getAllFeaturesForCategory(selectedCategory).map((feature, featureIndex) => (
-                    <tr key={feature} className={`border-b ${featureIndex % 2 === 0 ? 'bg-background' : 'bg-muted/20'}`}>
-                      <td className="p-4 font-medium">{feature}</td>
+                    <tr key={feature} className={`border-b border-border/30 hover:bg-muted/30 transition-colors ${
+                      featureIndex % 2 === 0 ? 'bg-background' : 'bg-muted/10'
+                    }`}>
+                      <td className="p-4 font-medium text-foreground border-r border-border/30 pl-6">
+                        {feature}
+                      </td>
                       {plans.map((plan, planIndex) => {
                         const value = getFeatureValue(plan, selectedCategory, feature);
                         const isAvailable = isFeatureAvailable(value);
                         
                         return (
-                          <td key={plan.id} className={`p-4 text-center ${
+                          <td key={plan.id} className={`p-4 text-center border-r border-border/30 ${
                             planIndex === 1 ? 'bg-primary/5' : ''
                           }`}>
                             {value === "✓" ? (
-                              <Check className="h-5 w-5 text-green-500 mx-auto" />
+                              <div className="flex justify-center">
+                                <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                                  <Check className="h-5 w-5 text-green-600 dark:text-green-400" />
+                                </div>
+                              </div>
                             ) : value === "❌" ? (
-                              <X className="h-5 w-5 text-red-400 mx-auto" />
+                              <div className="flex justify-center">
+                                <div className="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center">
+                                  <X className="h-5 w-5 text-red-500 dark:text-red-400" />
+                                </div>
+                              </div>
                             ) : (
-                              <span className={`${
-                                isAvailable ? 'text-foreground font-medium' : 'text-muted-foreground'
+                              <span className={`font-medium px-3 py-1 rounded-full ${
+                                isAvailable 
+                                  ? 'text-foreground bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300' 
+                                  : 'text-muted-foreground bg-gray-100 dark:bg-gray-800'
                               }`}>
                                 {value}
                               </span>
