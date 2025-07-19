@@ -140,7 +140,6 @@ const CheckoutForm = ({ planId, plan }: { planId: string; plan: SubscriptionPlan
 
 export default function Subscribe() {
   const { toast } = useToast();
-  const { user, isLoading: isAuthLoading } = useAuth();
   const [location, navigate] = useLocation();
   const [selectedPlanId, setSelectedPlanId] = useState<string>("");
   const [clientSecret, setClientSecret] = useState("");
@@ -154,63 +153,24 @@ export default function Subscribe() {
     }
   }, []);
 
-  // For demo purposes, we'll allow subscription without authentication
-  useEffect(() => {
-    if (!isAuthLoading && !user) {
-      console.log("Demo mode: Proceeding without authentication");
-    }
-  }, [user, isAuthLoading]);
-
   // Fetch subscription plans
   const { data: plans = [], isLoading: isLoadingPlans } = useQuery<SubscriptionPlan[]>({
     queryKey: ["/api/subscription-plans"],
   });
 
-  // Create subscription mutation
-  const createSubscriptionMutation = useMutation({
-    mutationFn: async (planId: string) => {
-      console.log("Creating subscription for plan:", planId);
-      const response = await apiRequest("POST", "/api/create-subscription", { planId });
-      return response.json();
-    },
-    onSuccess: (data) => {
-      console.log("Subscription creation response:", data);
-      if (data.status === 'existing') {
-        toast({
-          title: "Already Subscribed",
-          description: "You already have an active subscription.",
-        });
-        navigate("/");
-      } else {
-        setClientSecret(data.clientSecret);
-      }
-    },
-    onError: (error) => {
-      console.error("Subscription creation error:", error);
-      if (isUnauthorizedError(error)) {
-        toast({
-          title: "Please Log In",
-          description: "You need to log in to subscribe to a plan.",
-          variant: "destructive",
-        });
-        setTimeout(() => {
-          window.location.href = "/api/login";
-        }, 500);
-        return;
-      }
-      toast({
-        title: "Error",
-        description: error.message || "Failed to create subscription. Please try again.",
-        variant: "destructive",
-      });
-    }
-  });
+  // Demo subscription - no backend call needed
+  const [isProcessingSelection, setIsProcessingSelection] = useState(false);
 
-  const handlePlanSelect = (planId: string) => {
+  const handlePlanSelect = async (planId: string) => {
+    setIsProcessingSelection(true);
     setSelectedPlanId(planId);
-    // For demo purposes, directly set a demo client secret
+    
+    // Simulate loading for better UX
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
     console.log("Demo: Plan selected:", planId);
     setClientSecret("demo_client_secret_" + planId);
+    setIsProcessingSelection(false);
   };
 
   if (isLoadingPlans) {
@@ -344,9 +304,9 @@ export default function Subscribe() {
                     e.stopPropagation();
                     handlePlanSelect(plan.id);
                   }}
-                  disabled={createSubscriptionMutation.isPending}
+                  disabled={isProcessingSelection}
                 >
-                  {createSubscriptionMutation.isPending && selectedPlanId === plan.id
+                  {isProcessingSelection && selectedPlanId === plan.id
                     ? "Processing..." 
                     : `Choose ${plan.name}`
                   }
