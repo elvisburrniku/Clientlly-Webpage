@@ -109,42 +109,71 @@ export async function detectUserLocation(): Promise<{
   }
 }
 
+// Simple language state management
+let globalLanguage = 'en';
+let globalLocationInfo: any = null;
+let subscribers: Array<() => void> = [];
+
+// Initialize language on module load
+const initLanguage = () => {
+  const saved = localStorage.getItem('preferred-language');
+  if (saved && SUPPORTED_LANGUAGES.find(lang => lang.code === saved)) {
+    globalLanguage = saved;
+  } else {
+    globalLanguage = detectUserLanguage();
+  }
+  
+  // Initialize location
+  detectUserLocation().then(location => {
+    globalLocationInfo = location;
+    notifySubscribers();
+  });
+};
+
+const notifySubscribers = () => {
+  subscribers.forEach(callback => callback());
+};
+
 // Hook for managing language state
 export function useLanguage() {
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
+  const [currentLanguage, setCurrentLanguage] = useState<string>(globalLanguage);
   const [isLoading, setIsLoading] = useState(true);
   const [locationInfo, setLocationInfo] = useState<{
     country: string;
     currency: string;
     timezone: string;
     currencySymbol: string;
-  } | null>(null);
+  } | null>(globalLocationInfo);
 
   useEffect(() => {
-    const initializeLanguageAndLocation = async () => {
-      try {
-        // Detect language
-        const detected = detectUserLanguage();
-        setCurrentLanguage(detected);
-
-        // Detect location
-        const location = await detectUserLocation();
-        setLocationInfo(location);
-        
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error initializing language/location:', error);
-        setIsLoading(false);
-      }
+    // Subscribe to global state changes
+    const updateState = () => {
+      setCurrentLanguage(globalLanguage);
+      setLocationInfo(globalLocationInfo);
+      setIsLoading(false);
     };
 
-    initializeLanguageAndLocation();
+    subscribers.push(updateState);
+    
+    // Initialize if needed
+    if (!globalLocationInfo) {
+      initLanguage();
+    } else {
+      setIsLoading(false);
+    }
+
+    // Cleanup subscription
+    return () => {
+      subscribers = subscribers.filter(sub => sub !== updateState);
+    };
   }, []);
 
   const changeLanguage = (langCode: string) => {
     if (SUPPORTED_LANGUAGES.find(lang => lang.code === langCode)) {
-      setCurrentLanguage(langCode);
+      console.log('Changing language from', globalLanguage, 'to', langCode);
+      globalLanguage = langCode;
       localStorage.setItem('preferred-language', langCode);
+      notifySubscribers();
     }
   };
 
