@@ -179,6 +179,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Contact form endpoint
+  app.post('/api/contact', async (req, res) => {
+    try {
+      const contactData = req.body;
+      
+      // Here you would typically save to database and/or send notification email
+      console.log('Contact form submission received:', contactData);
+      
+      // Log contact details for demo purposes
+      console.log(`Contact from: ${contactData.firstName} ${contactData.lastName} (${contactData.email})`);
+      console.log(`Company: ${contactData.company}`);
+      console.log(`Subject: ${contactData.subject}`);
+      console.log(`Message: ${contactData.message}`);
+      
+      res.json({ 
+        success: true, 
+        message: 'Contact message sent successfully' 
+      });
+    } catch (error: any) {
+      console.error('Contact form error:', error);
+      res.status(500).json({ message: 'Failed to send contact message' });
+    }
+  });
+
   // Stripe webhook endpoint
   app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
     const sig = req.headers['stripe-signature'] as string;

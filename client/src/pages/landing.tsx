@@ -24,7 +24,11 @@ import {
   Globe,
   Headphones,
   Menu,
-  X
+  X,
+  Mail,
+  Phone,
+  MapPin,
+  Clock
 } from "lucide-react";
 
 interface SubscriptionPlan {
@@ -44,6 +48,15 @@ export default function Landing() {
     email: "",
     companyName: "",
     companySize: "",
+    message: ""
+  });
+
+  const [contactForm, setContactForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    subject: "",
     message: ""
   });
 
@@ -77,6 +90,39 @@ export default function Landing() {
   const handleDemoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     demoRequestMutation.mutate(demoForm);
+  };
+
+  // Contact form mutation
+  const contactMutation = useMutation({
+    mutationFn: async (data: typeof contactForm) => {
+      return apiRequest("POST", "/api/contact", data);
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message Sent!",
+        description: "We've received your message and will get back to you within 24 hours.",
+      });
+      setContactForm({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        subject: "",
+        message: ""
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    contactMutation.mutate(contactForm);
   };
 
   const features = {
@@ -468,10 +514,10 @@ export default function Landing() {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Loved by businesses <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">worldwide</span>
+            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
+              Loved by businesses <span className="gradient-text">worldwide</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground fade-in stagger-1">
               See what our customers have to say about transforming their business operations.
             </p>
           </div>
@@ -514,6 +560,192 @@ export default function Landing() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-muted/30 via-primary/5 to-secondary/5 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl floating-element"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl floating-delayed"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
+              Get in <span className="gradient-text">Touch</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto fade-in stagger-1">
+              Have questions? Need a custom solution? Our team is here to help you transform your business operations.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Contact Info */}
+            <div className="space-y-8 slide-in-left">
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4 scale-in stagger-1">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
+                    <Mail className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Email Us</h3>
+                    <p className="text-muted-foreground">Get in touch via email for detailed inquiries</p>
+                    <a href="mailto:hello@businessflowpro.com" className="text-primary hover:text-primary/80 font-medium">
+                      hello@businessflowpro.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 scale-in stagger-2">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
+                    <Phone className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Call Us</h3>
+                    <p className="text-muted-foreground">Speak directly with our team</p>
+                    <a href="tel:+1-555-123-4567" className="text-primary hover:text-primary/80 font-medium">
+                      +1 (555) 123-4567
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 scale-in stagger-3">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Visit Us</h3>
+                    <p className="text-muted-foreground">Our headquarters</p>
+                    <p className="text-primary font-medium">
+                      123 Business Ave<br />
+                      San Francisco, CA 94105
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 scale-in stagger-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
+                    <Clock className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-2">Business Hours</h3>
+                    <p className="text-muted-foreground">
+                      Monday - Friday: 9:00 AM - 6:00 PM PST<br />
+                      Weekend: 10:00 AM - 4:00 PM PST
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <Card className="glass-effect border-primary/20 slide-in-right">
+              <CardContent className="p-8">
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="fade-in stagger-1">
+                      <Label htmlFor="firstName" className="text-sm font-medium">First Name</Label>
+                      <Input
+                        id="firstName"
+                        value={contactForm.firstName}
+                        onChange={(e) => setContactForm({...contactForm, firstName: e.target.value})}
+                        placeholder="John"
+                        className="glow-border transition-all duration-300"
+                        required
+                      />
+                    </div>
+                    <div className="fade-in stagger-2">
+                      <Label htmlFor="lastName" className="text-sm font-medium">Last Name</Label>
+                      <Input
+                        id="lastName"
+                        value={contactForm.lastName}
+                        onChange={(e) => setContactForm({...contactForm, lastName: e.target.value})}
+                        placeholder="Doe"
+                        className="glow-border transition-all duration-300"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="fade-in stagger-3">
+                    <Label htmlFor="contactEmail" className="text-sm font-medium">Email Address</Label>
+                    <Input
+                      id="contactEmail"
+                      type="email"
+                      value={contactForm.email}
+                      onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                      placeholder="john@company.com"
+                      className="glow-border transition-all duration-300"
+                      required
+                    />
+                  </div>
+
+                  <div className="fade-in stagger-4">
+                    <Label htmlFor="contactCompany" className="text-sm font-medium">Company Name</Label>
+                    <Input
+                      id="contactCompany"
+                      value={contactForm.company}
+                      onChange={(e) => setContactForm({...contactForm, company: e.target.value})}
+                      placeholder="Your Company Inc."
+                      className="glow-border transition-all duration-300"
+                      required
+                    />
+                  </div>
+
+                  <div className="fade-in stagger-5">
+                    <Label htmlFor="contactSubject" className="text-sm font-medium">Subject</Label>
+                    <Select 
+                      value={contactForm.subject} 
+                      onValueChange={(value) => setContactForm({...contactForm, subject: value})}
+                    >
+                      <SelectTrigger className="glow-border transition-all duration-300">
+                        <SelectValue placeholder="Select a topic" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="general">General Inquiry</SelectItem>
+                        <SelectItem value="sales">Sales Questions</SelectItem>
+                        <SelectItem value="support">Technical Support</SelectItem>
+                        <SelectItem value="partnership">Partnership</SelectItem>
+                        <SelectItem value="demo">Request Demo</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="fade-in stagger-6">
+                    <Label htmlFor="contactMessage" className="text-sm font-medium">Message</Label>
+                    <Textarea
+                      id="contactMessage"
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+                      placeholder="Tell us about your needs and how we can help..."
+                      className="glow-border transition-all duration-300 min-h-[120px]"
+                      required
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-xl hover:scale-105 transition-all duration-300 pulse-glow fade-in stagger-7"
+                    disabled={contactMutation.isPending}
+                  >
+                    {contactMutation.isPending ? (
+                      <div className="flex items-center space-x-2">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Sending...</span>
+                      </div>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </Button>
+
+                  <p className="text-sm text-muted-foreground text-center fade-in stagger-8">
+                    We'll get back to you within 24 hours. For urgent matters, please call us directly.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
