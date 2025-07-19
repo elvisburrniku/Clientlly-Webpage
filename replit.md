@@ -18,6 +18,9 @@ Preferred communication style: Simple, everyday language.
 ✓ Built authenticated dashboard for business management
 ✓ Created detailed Laravel integration guide with webhooks
 ✓ Implemented PostgreSQL database with user and subscription tracking
+✓ Built interactive pricing calculator with real-time recommendations
+✓ Created step-by-step subscription flow with email collection (FreshBooks-style)
+✓ Added comprehensive user onboarding with account creation, company details, and payment steps
 
 ## System Architecture
 

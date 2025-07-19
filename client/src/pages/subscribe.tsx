@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
-import { isUnauthorizedError } from "@/lib/authUtils";
 import { apiRequest } from "@/lib/queryClient";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowLeft, ChartLine, Shield, CreditCard } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Separator } from "@/components/ui/separator";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building } from "lucide-react";
 
-// Make sure to call `loadStripe` outside of a component's render to avoid
-// recreating the `Stripe` object on every render.
 if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
   throw new Error('Missing required Stripe key: VITE_STRIPE_PUBLIC_KEY');
 }
@@ -27,7 +28,26 @@ interface SubscriptionPlan {
   features: string[];
 }
 
-const CheckoutForm = ({ planId, plan }: { planId: string; plan: SubscriptionPlan }) => {
+interface UserData {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  firstName: string;
+  lastName: string;
+  companyName: string;
+  companySize: string;
+  industry: string;
+  agreeToTerms: boolean;
+}
+
+const stepIcons = [Home, User, Users, CreditCard];
+const stepTitles = ["Choose Plan", "Create Account", "Team & Add-ons", "Review & Pay"];
+
+const CheckoutForm = ({ userData, plan, billingPeriod }: { 
+  userData: UserData; 
+  plan: SubscriptionPlan; 
+  billingPeriod: 'monthly' | 'yearly' 
+}) => {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -36,20 +56,21 @@ const CheckoutForm = ({ planId, plan }: { planId: string; plan: SubscriptionPlan
     setIsProcessing(true);
 
     try {
-      // Demo payment simulation
-      console.log("Demo: Processing payment for plan:", plan.name);
+      console.log("Demo: Processing subscription for:", {
+        user: userData,
+        plan: plan.name,
+        billing: billingPeriod
+      });
       
-      // Simulate processing time
       await new Promise(resolve => setTimeout(resolve, 2000));
 
       toast({
-        title: "Payment Successful!",
-        description: `Welcome to BusinessFlow Pro ${plan.name} plan! Your subscription is now active.`,
+        title: "Subscription Successful!",
+        description: `Welcome to BusinessFlow Pro! Your ${plan.name} plan is now active.`,
       });
 
-      // Redirect to dashboard after successful payment
       setTimeout(() => {
-        window.location.href = "/?payment=success";
+        window.location.href = "/dashboard";
       }, 1000);
 
     } catch (error) {
@@ -63,324 +84,500 @@ const CheckoutForm = ({ planId, plan }: { planId: string; plan: SubscriptionPlan
     setIsProcessing(false);
   };
 
+  const price = billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
+  const savings = billingPeriod === 'yearly' ? ((plan.monthlyPrice * 12 - plan.yearlyPrice) / (plan.monthlyPrice * 12)) * 100 : 0;
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="p-4 bg-muted/30 rounded-lg">
-        <div className="flex justify-between items-center">
-          <span className="font-medium">{plan.name} Plan</span>
-          <span className="font-bold">${Math.floor(plan.price / 100)}/month</span>
+      <div className="p-6 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg border">
+        <div className="flex justify-between items-center mb-4">
+          <div>
+            <h3 className="font-bold text-lg">{plan.name} Plan</h3>
+            <p className="text-muted-foreground">
+              {billingPeriod === 'yearly' ? 'Billed yearly' : 'Billed monthly'}
+            </p>
+          </div>
+          <div className="text-right">
+            <div className="font-bold text-2xl">${Math.floor(price / 100)}</div>
+            <div className="text-sm text-muted-foreground">
+              /{billingPeriod === 'yearly' ? 'year' : 'month'}
+            </div>
+            {billingPeriod === 'yearly' && savings > 0 && (
+              <div className="text-sm text-green-600 font-medium">
+                Save {Math.round(savings)}%
+              </div>
+            )}
+          </div>
+        </div>
+        
+        <Separator className="my-4" />
+        
+        <div className="space-y-2">
+          <h4 className="font-medium">Account Details:</h4>
+          <p className="text-sm text-muted-foreground">{userData.firstName} {userData.lastName}</p>
+          <p className="text-sm text-muted-foreground">{userData.email}</p>
+          <p className="text-sm text-muted-foreground">{userData.companyName}</p>
         </div>
       </div>
 
       <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-foreground mb-2">
-            Demo Payment Information
-          </label>
-          <div className="border border-border rounded-lg p-4 bg-muted/20">
-            <p className="text-sm text-muted-foreground mb-4">
-              This is a demo environment. No real payment will be processed.
-            </p>
-            <div className="space-y-3">
-              <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1">Card Number</label>
-                <input 
-                  type="text" 
-                  className="w-full p-2 border rounded bg-background" 
-                  placeholder="4242 4242 4242 4242" 
-                  disabled 
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-medium text-muted-foreground mb-1">Expiry</label>
-                  <input 
-                    type="text" 
-                    className="w-full p-2 border rounded bg-background" 
-                    placeholder="12/34" 
-                    disabled 
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-medium text-muted-foreground mb-1">CVC</label>
-                  <input 
-                    type="text" 
-                    className="w-full p-2 border rounded bg-background" 
-                    placeholder="123" 
-                    disabled 
-                  />
-                </div>
-              </div>
-            </div>
+        <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="flex items-center space-x-2 text-blue-700">
+            <Shield className="h-4 w-4" />
+            <span className="text-sm font-medium">Demo Mode - No Real Payment Required</span>
           </div>
+          <p className="text-sm text-blue-600 mt-1">
+            This is a demonstration. Click "Complete Subscription" to simulate the payment process.
+          </p>
         </div>
-      </div>
 
-      <div className="p-4 bg-blue-50 rounded-lg">
-        <div className="flex items-start space-x-2">
-          <Shield className="h-5 w-5 text-blue-600 mt-0.5" />
-          <div>
-            <p className="text-sm text-blue-700 font-medium">Secure Payment</p>
-            <p className="text-xs text-blue-600">
-              Your payment information is secure and encrypted. You can cancel anytime from your account settings.
-            </p>
-          </div>
-        </div>
+        <Button 
+          type="submit" 
+          size="lg" 
+          className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-lg"
+          disabled={isProcessing}
+        >
+          {isProcessing ? "Processing..." : "Complete Subscription"}
+        </Button>
       </div>
-
-      <Button 
-        type="submit" 
-        className="w-full bg-gradient-to-r from-primary to-secondary"
-        disabled={isProcessing}
-      >
-        {isProcessing ? "Processing Demo Payment..." : `Demo: Subscribe to ${plan.name}`}
-      </Button>
     </form>
   );
 };
 
 export default function Subscribe() {
   const { toast } = useToast();
-  const [location, navigate] = useLocation();
-  const [selectedPlanId, setSelectedPlanId] = useState<string>("");
-  const [clientSecret, setClientSecret] = useState("");
+  const [location] = useLocation();
+  const [currentStep, setCurrentStep] = useState(0);
+  const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
-
-  // Get plan and billing period from URL
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const planFromUrl = urlParams.get('plan');
-    const billingFromUrl = urlParams.get('billing') as 'monthly' | 'yearly';
-    
-    if (planFromUrl) {
-      setSelectedPlanId(planFromUrl);
-    }
-    if (billingFromUrl && (billingFromUrl === 'monthly' || billingFromUrl === 'yearly')) {
-      setBillingPeriod(billingFromUrl);
-    }
-  }, []);
-
-  // Fetch subscription plans
-  const { data: plans = [], isLoading: isLoadingPlans } = useQuery<SubscriptionPlan[]>({
-    queryKey: ["/api/subscription-plans"],
+  const [userData, setUserData] = useState<UserData>({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    firstName: '',
+    lastName: '',
+    companyName: '',
+    companySize: '',
+    industry: '',
+    agreeToTerms: false
   });
 
-  // Demo subscription - no backend call needed
-  const [isProcessingSelection, setIsProcessingSelection] = useState(false);
+  const { data: plans } = useQuery<SubscriptionPlan[]>({
+    queryKey: ['/api/subscription-plans'],
+  });
 
-  const handlePlanSelect = async (planId: string) => {
-    setIsProcessingSelection(true);
-    setSelectedPlanId(planId);
+  useEffect(() => {
+    const params = new URLSearchParams(location.split('?')[1] || '');
+    const planFromUrl = params.get('plan');
+    const billingFromUrl = params.get('billing') as 'monthly' | 'yearly';
     
-    // Simulate loading for better UX
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    console.log("Demo: Plan selected:", planId);
-    setClientSecret("demo_client_secret_" + planId);
-    setIsProcessingSelection(false);
+    if (planFromUrl) {
+      setSelectedPlan(planFromUrl);
+      setCurrentStep(1); // Skip plan selection if coming from pricing page
+    }
+    if (billingFromUrl) {
+      setBillingPeriod(billingFromUrl);
+    }
+  }, [location]);
+
+  const selectedPlanData = plans?.find(p => p.id === selectedPlan);
+
+  const nextStep = () => {
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    }
   };
 
-  if (isLoadingPlans) {
-    return (
-      <div className="min-h-screen w-full flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
-      </div>
-    );
-  }
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
 
-  const selectedPlan = plans.find(plan => plan.id === selectedPlanId);
+  const canProceedToNext = () => {
+    switch (currentStep) {
+      case 0:
+        return selectedPlan !== '';
+      case 1:
+        return userData.email && userData.password && userData.confirmPassword && 
+               userData.firstName && userData.lastName && userData.agreeToTerms &&
+               userData.password === userData.confirmPassword;
+      case 2:
+        return userData.companyName && userData.companySize && userData.industry;
+      default:
+        return true;
+    }
+  };
 
-  if (clientSecret && selectedPlan) {
-    return (
-      <div className="min-h-screen bg-background">
-        {/* Navigation */}
-        <nav className="bg-white border-b border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <ChartLine className="h-4 w-4 text-white" />
-                </div>
-                <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
+  const renderStepIndicator = () => (
+    <div className="flex items-center justify-center space-x-4 mb-8">
+      {stepTitles.map((title, index) => {
+        const Icon = stepIcons[index];
+        const isActive = index === currentStep;
+        const isCompleted = index < currentStep;
+        
+        return (
+          <div key={index} className="flex items-center">
+            <div className={`flex items-center space-x-2 ${
+              isActive ? 'text-primary' : isCompleted ? 'text-green-600' : 'text-muted-foreground'
+            }`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
+                isActive ? 'border-primary bg-primary/10' : 
+                isCompleted ? 'border-green-600 bg-green-50' : 'border-muted'
+              }`}>
+                {isCompleted ? <Check className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
               </div>
-              <Button variant="ghost" onClick={() => navigate("/")}>
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Dashboard
-              </Button>
+              <span className="hidden sm:block font-medium text-sm">{title}</span>
             </div>
+            {index < stepTitles.length - 1 && (
+              <div className={`w-8 h-0.5 mx-4 ${
+                isCompleted ? 'bg-green-600' : 'bg-muted'
+              }`} />
+            )}
           </div>
-        </nav>
+        );
+      })}
+    </div>
+  );
 
-        <div className="max-w-2xl mx-auto px-4 py-12">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Complete Your Subscription</h1>
-            <p className="text-muted-foreground">
-              You're just one step away from unlocking all BusinessFlow Pro features.
-            </p>
+  const renderPlanSelection = () => (
+    <Card className="max-w-4xl mx-auto">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl">Choose Your Plan</CardTitle>
+        <p className="text-muted-foreground">
+          Select the plan that best fits your business needs
+        </p>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <div className="flex justify-center">
+          <div className="flex items-center space-x-4 p-1 bg-muted rounded-lg">
+            <button
+              onClick={() => setBillingPeriod('monthly')}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                billingPeriod === 'monthly' 
+                  ? 'bg-white shadow-sm text-foreground' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingPeriod('yearly')}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                billingPeriod === 'yearly' 
+                  ? 'bg-white shadow-sm text-foreground' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Yearly
+              <Badge variant="secondary" className="ml-2">Save 17%</Badge>
+            </button>
           </div>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <CreditCard className="h-5 w-5" />
-                <span>Payment Details</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CheckoutForm planId={selectedPlanId} plan={selectedPlan} />
-            </CardContent>
-          </Card>
         </div>
-      </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {plans?.map((plan, index) => {
+            const price = billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
+            const isSelected = selectedPlan === plan.id;
+            
+            return (
+              <Card 
+                key={plan.id} 
+                className={`cursor-pointer transition-all duration-300 ${
+                  isSelected ? 'ring-2 ring-primary shadow-lg' : 'hover:shadow-md'
+                } ${index === 1 ? 'border-primary/50' : ''}`}
+                onClick={() => setSelectedPlan(plan.id)}
+              >
+                <CardContent className="p-6">
+                  {index === 1 && (
+                    <Badge className="mb-4 bg-gradient-to-r from-primary to-secondary">
+                      Most Popular
+                    </Badge>
+                  )}
+                  
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold">{plan.name}</h3>
+                    <div className="mt-2">
+                      <span className="text-3xl font-bold">${Math.floor(price / 100)}</span>
+                      <span className="text-muted-foreground">
+                        /{billingPeriod === 'yearly' ? 'year' : 'month'}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <ul className="space-y-2 mb-6">
+                    {plan.features.slice(0, 4).map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-2">
+                        <Check className="h-4 w-4 text-green-500" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Button 
+                    variant={isSelected ? "default" : "outline"}
+                    className="w-full"
+                    onClick={() => setSelectedPlan(plan.id)}
+                  >
+                    {isSelected ? 'Selected' : 'Select Plan'}
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+  const renderAccountCreation = () => (
+    <Card className="max-w-lg mx-auto">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl">Create Your Account</CardTitle>
+        <p className="text-muted-foreground">
+          Set up your BusinessFlow Pro account to get started
+        </p>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label htmlFor="firstName">First Name</Label>
+            <Input
+              id="firstName"
+              value={userData.firstName}
+              onChange={(e) => setUserData({...userData, firstName: e.target.value})}
+              placeholder="John"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="lastName">Last Name</Label>
+            <Input
+              id="lastName"
+              value={userData.lastName}
+              onChange={(e) => setUserData({...userData, lastName: e.target.value})}
+              placeholder="Doe"
+              required
+            />
+          </div>
+        </div>
+
+        <div>
+          <Label htmlFor="email">Email Address</Label>
+          <Input
+            id="email"
+            type="email"
+            value={userData.email}
+            onChange={(e) => setUserData({...userData, email: e.target.value})}
+            placeholder="john@company.com"
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="password">Password</Label>
+          <Input
+            id="password"
+            type="password"
+            value={userData.password}
+            onChange={(e) => setUserData({...userData, password: e.target.value})}
+            placeholder="Minimum 8 characters"
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="confirmPassword">Confirm Password</Label>
+          <Input
+            id="confirmPassword"
+            type="password"
+            value={userData.confirmPassword}
+            onChange={(e) => setUserData({...userData, confirmPassword: e.target.value})}
+            placeholder="Confirm your password"
+            required
+          />
+          {userData.password && userData.confirmPassword && userData.password !== userData.confirmPassword && (
+            <p className="text-sm text-red-600 mt-1">Passwords do not match</p>
+          )}
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <Checkbox
+            id="terms"
+            checked={userData.agreeToTerms}
+            onCheckedChange={(checked) => setUserData({...userData, agreeToTerms: checked as boolean})}
+          />
+          <Label htmlFor="terms" className="text-sm">
+            I agree to the{" "}
+            <a href="#" className="text-primary hover:underline">Terms of Service</a>
+            {" "}and{" "}
+            <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+          </Label>
+        </div>
+
+        <div className="text-center pt-4">
+          <p className="text-sm text-muted-foreground">
+            Already have an account?{" "}
+            <a href="/api/login" className="text-primary hover:underline">
+              Log In
+            </a>
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+  const renderTeamSetup = () => (
+    <Card className="max-w-lg mx-auto">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl">Company Details</CardTitle>
+        <p className="text-muted-foreground">
+          Tell us about your business to customize your experience
+        </p>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div>
+          <Label htmlFor="companyName">Company Name</Label>
+          <Input
+            id="companyName"
+            value={userData.companyName}
+            onChange={(e) => setUserData({...userData, companyName: e.target.value})}
+            placeholder="Your Company Inc."
+            required
+          />
+        </div>
+
+        <div>
+          <Label htmlFor="companySize">Company Size</Label>
+          <Select value={userData.companySize} onValueChange={(value) => setUserData({...userData, companySize: value})}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select company size" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1-5">1-5 employees</SelectItem>
+              <SelectItem value="6-20">6-20 employees</SelectItem>
+              <SelectItem value="21-50">21-50 employees</SelectItem>
+              <SelectItem value="51-200">51-200 employees</SelectItem>
+              <SelectItem value="200+">200+ employees</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
+          <Label htmlFor="industry">Industry</Label>
+          <Select value={userData.industry} onValueChange={(value) => setUserData({...userData, industry: value})}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select your industry" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="technology">Technology</SelectItem>
+              <SelectItem value="consulting">Consulting</SelectItem>
+              <SelectItem value="finance">Finance & Accounting</SelectItem>
+              <SelectItem value="healthcare">Healthcare</SelectItem>
+              <SelectItem value="education">Education</SelectItem>
+              <SelectItem value="retail">Retail & E-commerce</SelectItem>
+              <SelectItem value="manufacturing">Manufacturing</SelectItem>
+              <SelectItem value="real-estate">Real Estate</SelectItem>
+              <SelectItem value="legal">Legal Services</SelectItem>
+              <SelectItem value="other">Other</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <h4 className="font-medium text-blue-900 mb-2">What's Next?</h4>
+          <p className="text-sm text-blue-700">
+            After setup, you'll be able to invite team members, customize your workspace, and start managing your business operations.
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+  const renderReviewAndPay = () => {
+    if (!selectedPlanData) return null;
+
+    return (
+      <Card className="max-w-lg mx-auto">
+        <CardHeader className="text-center">
+          <CardTitle className="text-2xl">Review & Complete</CardTitle>
+          <p className="text-muted-foreground">
+            Review your order and complete your subscription
+          </p>
+        </CardHeader>
+        <CardContent>
+          <CheckoutForm 
+            userData={userData} 
+            plan={selectedPlanData} 
+            billingPeriod={billingPeriod}
+          />
+        </CardContent>
+      </Card>
     );
-  }
+  };
+
+  const renderCurrentStep = () => {
+    switch (currentStep) {
+      case 0:
+        return renderPlanSelection();
+      case 1:
+        return renderAccountCreation();
+      case 2:
+        return renderTeamSetup();
+      case 3:
+        return renderReviewAndPay();
+      default:
+        return renderPlanSelection();
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                <ChartLine className="h-4 w-4 text-white" />
-              </div>
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-8 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+              <Building className="h-4 w-4 text-white" />
             </div>
-            <Button variant="ghost" onClick={() => navigate("/")}>
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Dashboard
-            </Button>
+            <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
           </div>
-        </div>
-      </nav>
-
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Choose Your <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Business Plan</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Unlock the full potential of your business with our comprehensive management platform.
-          </p>
-          
-          {/* Billing Period Toggle */}
-          <div className="flex flex-col items-center justify-center mb-8">
-            <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
-              {/* Monthly Button */}
-              <button
-                onClick={() => setBillingPeriod('monthly')}
-                className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
-                  billingPeriod === 'monthly'
-                    ? 'text-white'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                }`}
-              >
-                Monthly
-              </button>
-              
-              {/* Yearly Button */}
-              <button
-                onClick={() => setBillingPeriod('yearly')}
-                className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
-                  billingPeriod === 'yearly'
-                    ? 'text-white'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                }`}
-              >
-                Yearly
-              </button>
-              
-              {/* Animated Background */}
-              <div
-                className={`absolute top-2 bottom-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full shadow-md transition-all duration-300 ease-in-out ${
-                  billingPeriod === 'monthly'
-                    ? 'left-2 w-[calc(50%-4px)]'
-                    : 'right-2 w-[calc(50%-4px)]'
-                }`}
-              />
-            </div>
-            
-            {/* Save Badge */}
-            <div className={`mt-3 transition-all duration-300 ${
-              billingPeriod === 'yearly' ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'
-            }`}>
-              <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
-                🎉 Save 17% with yearly billing
-              </div>
-            </div>
-          </div>
+          <p className="text-muted-foreground">Complete your subscription in just a few steps</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {plans.map((plan, index) => (
-            <Card 
-              key={plan.id} 
-              className={`relative hover:shadow-lg transition-all cursor-pointer ${
-                selectedPlanId === plan.id ? 'ring-2 ring-primary' : ''
-              } ${index === 1 ? 'border-primary shadow-lg' : ''}`}
-              onClick={() => handlePlanSelect(plan.id)}
+        {renderStepIndicator()}
+        
+        <div className="mb-8">
+          {renderCurrentStep()}
+        </div>
+
+        <div className="flex justify-center space-x-4">
+          {currentStep > 0 && (
+            <Button 
+              variant="outline" 
+              onClick={prevStep}
+              className="flex items-center space-x-2"
             >
-              {index === 1 && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-primary text-primary-foreground">Most Popular</Badge>
-                </div>
-              )}
-              
-              <CardContent className="p-8">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
-                  <div className="text-4xl font-bold text-foreground mb-1">
-                    ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
-                    <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
-                  </div>
-                  {billingPeriod === 'yearly' && (
-                    <div className="text-sm text-muted-foreground mb-2">
-                      Billed ${Math.floor(plan.yearlyPrice / 100)} yearly
-                    </div>
-                  )}
-                  <p className="text-muted-foreground">
-                    {plan.id === 'basic' && "Perfect for freelancers and small teams"}
-                    {plan.id === 'professional' && "Ideal for growing businesses"}
-                    {plan.id === 'business' && "For large teams and enterprises"}
-                  </p>
-                </div>
-                
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
-                      <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Button 
-                  className={`w-full ${
-                    index === 1 ? 'bg-gradient-to-r from-primary to-secondary' : ''
-                  }`}
-                  variant={index === 1 ? "default" : "outline"}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handlePlanSelect(plan.id);
-                  }}
-                  disabled={isProcessingSelection}
-                >
-                  {isProcessingSelection && selectedPlanId === plan.id
-                    ? "Processing..." 
-                    : `Choose ${plan.name}`
-                  }
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+              <ArrowLeft className="h-4 w-4" />
+              <span>Back</span>
+            </Button>
+          )}
+          
+          {currentStep < 3 && (
+            <Button 
+              onClick={nextStep}
+              disabled={!canProceedToNext()}
+              className="flex items-center space-x-2 bg-gradient-to-r from-primary to-secondary"
+            >
+              <span>Continue</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          )}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">Questions about our plans?</p>
-          <Button variant="link" className="text-primary hover:text-primary/80">
-            Contact our sales team for custom solutions →
-          </Button>
+        <div className="text-center mt-8">
+          <p className="text-sm text-muted-foreground">
+            Need help? <a href="#" className="text-primary hover:underline">Contact our support team</a>
+          </p>
         </div>
       </div>
     </div>
