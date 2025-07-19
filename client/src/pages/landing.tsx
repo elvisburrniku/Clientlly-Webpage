@@ -223,52 +223,110 @@ export default function Landing() {
               <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
             </div>
             
-            <div className="hidden md:flex items-center space-x-8 slide-in-right">
+            <div className="hidden lg:flex items-center space-x-6 slide-in-right">
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.features', 'Features')}</a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.pricing', 'Pricing')}</a>
               <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('calculator.title', 'Calculator')}</Link>
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.about', 'About')}</a>
               <LanguageSelector />
+            </div>
+
+            <div className="hidden lg:flex items-center space-x-3 slide-in-right">
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDemoModal(true)} 
-                className="text-primary hover:text-primary/80 glow-border transition-all duration-300"
+                className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
-                {t('landing.requestDemo', 'Request Demo')}
+                Contact Us
               </Button>
               <Button 
+                variant="ghost"
                 onClick={() => window.location.href = "/api/login"}
-                className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all duration-300"
+                className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
-                {t('landing.getStarted', 'Start Free Trial')}
+                Login
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+                className="border-green-600 bg-green-600 text-white hover:bg-green-700 transition-all duration-300"
+              >
+                Buy Now & Save
+              </Button>
+              <Button 
+                onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
+                className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+              >
+                Try It Free
               </Button>
             </div>
 
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden scale-in"
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-            >
-              {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            <div className="flex lg:hidden items-center space-x-2">
+              <LanguageSelector />
+              <Button 
+                variant="ghost" 
+                onClick={() => setShowDemoModal(true)}
+                size="sm"
+                className="text-xs"
+              >
+                Contact
+              </Button>
+              <Button 
+                onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
+                size="sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white text-xs"
+              >
+                Try Free
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="scale-in"
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+              >
+                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="md:hidden glass-effect border-b border-white/20 slide-in-bottom">
+          <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.features', 'Features')}</a>
               <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.pricing', 'Pricing')}</a>
               <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">{t('calculator.title', 'Calculator')}</Link>
               <a href="#about" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.about', 'About')}</a>
-              <Button variant="ghost" onClick={() => setShowDemoModal(true)} className="w-full justify-start text-secondary glow-border">
-                {t('landing.requestDemo', 'Request Demo')}
-              </Button>
-              <Button onClick={() => window.location.href = "/api/login"} className="w-full bg-gradient-to-r from-primary to-secondary">
-                {t('landing.getStarted', 'Start Free Trial')}
-              </Button>
+              <div className="pt-4 space-y-2">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    window.location.href = "/api/login";
+                    setShowMobileMenu(false);
+                  }} 
+                  className="w-full text-left justify-start text-muted-foreground hover:text-primary"
+                >
+                  Login
+                </Button>
+                <Button 
+                  onClick={() => {
+                    window.location.href = "/subscribe?plan=professional&billing=yearly";
+                    setShowMobileMenu(false);
+                  }}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
+                >
+                  Buy Now & Save
+                </Button>
+                <Button 
+                  onClick={() => {
+                    window.location.href = "/subscribe?plan=basic&billing=monthly";
+                    setShowMobileMenu(false);
+                  }}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  Try It Free
+                </Button>
+              </div>
             </div>
           </div>
         )}
