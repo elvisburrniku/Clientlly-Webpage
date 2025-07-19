@@ -50,38 +50,44 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
 }) => {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [clientSecret, setClientSecret] = useState('');
+
+  // No need to create payment intent here as we're using Stripe Checkout
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
 
     try {
-      console.log("Demo: Processing subscription for:", {
+      console.log("Processing subscription for:", {
         user: userData,
         plan: plan.name,
         billing: billingPeriod
       });
       
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      toast({
-        title: "Subscription Successful!",
-        description: `Welcome to BusinessFlow Pro! Your ${plan.name} plan is now active.`,
+      // Create account and redirect to Stripe checkout
+      const response = await apiRequest('POST', '/api/create-account-and-subscription', {
+        userData,
+        planId: plan.id,
+        billingPeriod
       });
 
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 1000);
+      if (response.checkoutUrl) {
+        // Redirect to Stripe checkout
+        window.location.href = response.checkoutUrl;
+      } else {
+        throw new Error('Failed to create checkout session');
+      }
 
     } catch (error) {
+      console.error('Payment error:', error);
       toast({
-        title: "Payment Failed",
-        description: "There was an error processing your payment. Please try again.",
+        title: "Payment Setup Failed",
+        description: "There was an error setting up your payment. Please try again.",
         variant: "destructive",
       });
+      setIsProcessing(false);
     }
-
-    setIsProcessing(false);
   };
 
   const price = billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
@@ -121,13 +127,13 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
       </div>
 
       <div className="space-y-4">
-        <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <div className="flex items-center space-x-2 text-blue-700">
+        <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+          <div className="flex items-center space-x-2 text-green-700">
             <Shield className="h-4 w-4" />
-            <span className="text-sm font-medium">Demo Mode - No Real Payment Required</span>
+            <span className="text-sm font-medium">Secure Payment with Stripe</span>
           </div>
-          <p className="text-sm text-blue-600 mt-1">
-            This is a demonstration. Click "Complete Subscription" to simulate the payment process.
+          <p className="text-sm text-green-600 mt-1">
+            You'll be redirected to Stripe's secure payment page to complete your subscription.
           </p>
         </div>
 
@@ -137,8 +143,15 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
           className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-lg"
           disabled={isProcessing}
         >
-          {isProcessing ? "Processing..." : "Complete Subscription"}
+          {isProcessing ? "Setting up payment..." : "Continue to Payment"}
         </Button>
+        
+        <div className="text-center">
+          <p className="text-xs text-muted-foreground">
+            Powered by <span className="font-medium">Stripe</span> • 
+            Your payment information is secure and encrypted
+          </p>
+        </div>
       </div>
     </form>
   );

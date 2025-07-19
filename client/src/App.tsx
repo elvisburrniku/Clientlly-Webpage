@@ -9,6 +9,7 @@ import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
 import Calculator from "@/pages/calculator";
+import Success from "@/pages/success";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
+          <Route path="/success" component={Success} />
         </>
       ) : (
         <>
@@ -35,6 +37,7 @@ function Router() {
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
+          <Route path="/success" component={Success} />
         </>
       )}
       <Route component={NotFound} />

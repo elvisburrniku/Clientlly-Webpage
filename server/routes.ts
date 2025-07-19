@@ -10,8 +10,8 @@ if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
 }
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2023-10-16",
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2024-06-20",
 });
 
 // Detailed subscription plan configurations with categorized features
@@ -304,6 +304,91 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Create account and subscription with Stripe checkout (Public endpoint for new users)
+  app.post("/api/create-account-and-subscription", async (req, res) => {
+    try {
+      const { userData, planId, billingPeriod } = req.body;
+      
+      // Validate required fields
+      if (!userData || !userData.email || !userData.firstName || !planId || !billingPeriod) {
+        return res.status(400).json({ message: "Missing required user data or plan information" });
+      }
+
+      // Get plan details
+      const plans = [
+        { id: 'basic', name: 'Basic', monthlyPrice: 2900, yearlyPrice: 29600 },
+        { id: 'professional', name: 'Professional', monthlyPrice: 7900, yearlyPrice: 80640 },
+        { id: 'business', name: 'Business Plus', monthlyPrice: 15900, yearlyPrice: 162240 }
+      ];
+      
+      const plan = plans.find(p => p.id === planId);
+      if (!plan) {
+        return res.status(400).json({ message: "Invalid plan selected" });
+      }
+
+      const price = billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
+      
+      // Create Stripe checkout session
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+          {
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: `BusinessFlow Pro ${plan.name} Plan`,
+                description: `${billingPeriod === 'yearly' ? 'Annual' : 'Monthly'} subscription to BusinessFlow Pro`,
+              },
+              unit_amount: price,
+              recurring: {
+                interval: billingPeriod === 'yearly' ? 'year' : 'month',
+              },
+            },
+            quantity: 1,
+          },
+        ],
+        mode: 'subscription',
+        success_url: `${req.protocol}://${req.get('host')}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${req.protocol}://${req.get('host')}/subscribe?plan=${planId}&billing=${billingPeriod}&cancelled=true`,
+        customer_email: userData.email,
+        metadata: {
+          planId,
+          billingPeriod,
+          email: userData.email,
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          companyName: userData.companyName,
+          companySize: userData.companySize,
+          industry: userData.industry,
+        },
+        subscription_data: {
+          metadata: {
+            planId,
+            billingPeriod,
+            email: userData.email,
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            companyName: userData.companyName,
+            companySize: userData.companySize,
+            industry: userData.industry,
+          },
+        },
+        allow_promotion_codes: true,
+        billing_address_collection: 'required',
+      });
+
+      console.log(`Created Stripe checkout session for ${userData.email}, plan: ${planId}, billing: ${billingPeriod}`);
+      
+      res.json({ 
+        checkoutUrl: session.url,
+        sessionId: session.id 
+      });
+    } catch (error: any) {
+      console.error('Error creating checkout session:', error);
+      res.status(500).json({ message: "Error creating checkout session: " + error.message });
+    }
+  });
+
   // Demo request endpoint
   app.post('/api/demo-request', async (req, res) => {
     try {
@@ -350,7 +435,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     let event: Stripe.Event;
 
     try {
-      event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
+      if (!process.env.STRIPE_WEBHOOK_SECRET) {
+        console.error('STRIPE_WEBHOOK_SECRET not configured');
+        return res.status(500).send('Webhook secret not configured');
+      }
+      event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
     } catch (err: any) {
       console.error('Webhook signature verification failed:', err.message);
       return res.status(400).send(`Webhook Error: ${err.message}`);
@@ -358,6 +447,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
     try {
       switch (event.type) {
+        case 'checkout.session.completed': {
+          const session = event.data.object as Stripe.Checkout.Session;
+          
+          if (session.mode === 'subscription' && session.subscription) {
+            const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
+            const metadata = session.metadata;
+            
+            if (metadata && metadata.email) {
+              console.log(`Checkout completed for ${metadata.email}, subscription: ${subscription.id}`);
+              
+              // Store subscription data for user account creation
+              // This could trigger account creation in external Laravel system
+              // For now, we'll log the successful subscription
+            }
+          }
+          break;
+        }
+
         case 'invoice.payment_succeeded': {
           const invoice = event.data.object as Stripe.Invoice;
           const subscriptionId = typeof invoice.subscription === 'string' ? invoice.subscription : invoice.subscription?.id;
