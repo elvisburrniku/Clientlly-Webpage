@@ -228,4 +228,63 @@
   .glow-border:hover::before {
     left: 100%;
   }
+
+  /* Payment Loading Animations */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(300%) skewX(-12deg);
+    }
+  }
+
+  @keyframes loading-dots {
+    0%, 20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    80%, 100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 1.5s infinite;
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.6s ease-out;
+  }
+
+  .loading-dots span:nth-child(1) {
+    animation: loading-dots 1.4s infinite;
+  }
+
+  .loading-dots span:nth-child(2) {
+    animation: loading-dots 1.4s infinite 0.2s;
+  }
+
+  .loading-dots span:nth-child(3) {
+    animation: loading-dots 1.4s infinite 0.4s;
+  }
 }

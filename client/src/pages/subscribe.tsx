@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2 } from "lucide-react";
 
 if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
   throw new Error('Missing required Stripe key: VITE_STRIPE_PUBLIC_KEY');
@@ -50,6 +50,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
 }) => {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [loadingStage, setLoadingStage] = useState('');
   const [clientSecret, setClientSecret] = useState('');
 
   // No need to create payment intent here as we're using Stripe Checkout
@@ -57,6 +58,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
+    setLoadingStage('Preparing your subscription...');
 
     try {
       console.log("Processing subscription for:", {
@@ -64,6 +66,8 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
         plan: plan.name,
         billing: billingPeriod
       });
+      
+      setLoadingStage('Creating secure checkout session...');
       
       // Create account and redirect to Stripe checkout
       const response = await fetch('/api/create-account-and-subscription', {
@@ -86,8 +90,12 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
       const data = await response.json();
 
       if (data.checkoutUrl) {
-        // Redirect to Stripe checkout
-        window.location.href = data.checkoutUrl;
+        setLoadingStage('Redirecting to secure payment...');
+        
+        // Add a brief delay to show the final stage
+        setTimeout(() => {
+          window.location.href = data.checkoutUrl;
+        }, 800);
       } else {
         throw new Error('Failed to create checkout session - no checkout URL received');
       }
@@ -103,6 +111,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
         variant: "destructive",
       });
       setIsProcessing(false);
+      setLoadingStage('');
     }
   };
 
@@ -161,11 +170,52 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
         <Button 
           type="submit" 
           size="lg" 
-          className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-lg"
+          className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-lg disabled:opacity-70 transition-all duration-300 relative overflow-hidden"
           disabled={isProcessing}
         >
-          {isProcessing ? "Setting up payment..." : "Continue to Payment"}
+          {isProcessing ? (
+            <div className="flex items-center space-x-2">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              <span className="animate-pulse">{loadingStage || 'Setting up payment...'}</span>
+            </div>
+          ) : (
+            <div className="flex items-center space-x-2">
+              <CreditCard className="h-4 w-4" />
+              <span>Continue to Payment</span>
+            </div>
+          )}
+          {isProcessing && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer" />
+          )}
         </Button>
+
+        {/* Loading Overlay */}
+        {isProcessing && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center animate-bounce-in">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-8 max-w-md mx-4 text-center shadow-2xl">
+              <div className="flex justify-center mb-4">
+                <div className="relative">
+                  <div className="w-16 h-16 border-4 border-primary/20 rounded-full"></div>
+                  <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin absolute top-0 left-0"></div>
+                  <CreditCard className="w-6 h-6 text-primary absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                </div>
+              </div>
+              
+              <h3 className="text-lg font-semibold mb-2">Processing Your Subscription</h3>
+              <p className="text-muted-foreground mb-4">{loadingStage}</p>
+              
+              <div className="flex justify-center space-x-1 loading-dots">
+                <span className="w-2 h-2 bg-primary rounded-full"></span>
+                <span className="w-2 h-2 bg-primary rounded-full"></span>
+                <span className="w-2 h-2 bg-primary rounded-full"></span>
+              </div>
+              
+              <p className="text-xs text-muted-foreground mt-4">
+                Please do not close this window
+              </p>
+            </div>
+          </div>
+        )}
         
         <div className="text-center">
           <p className="text-xs text-muted-foreground">
@@ -196,7 +246,7 @@ export default function Subscribe() {
     agreeToTerms: false
   });
 
-  const { data: plans } = useQuery<SubscriptionPlan[]>({
+  const { data: plans, isLoading: plansLoading } = useQuery<SubscriptionPlan[]>({
     queryKey: ['/api/subscription-plans'],
   });
 
@@ -310,7 +360,30 @@ export default function Subscribe() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {plans?.map((plan, index) => {
+          {plansLoading ? (
+            // Skeleton loading states
+            Array.from({ length: 3 }).map((_, index) => (
+              <Card key={index} className={`animate-pulse ${index === 1 ? 'border-primary/30' : ''}`}>
+                <CardContent className="p-6">
+                  {index === 1 && (
+                    <div className="h-6 bg-gradient-to-r from-primary/20 to-secondary/20 rounded mb-4 w-24"></div>
+                  )}
+                  <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
+                  <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-4 w-32"></div>
+                  <div className="space-y-2 mb-6">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                      <div key={i} className="flex items-center space-x-2">
+                        <div className="h-4 w-4 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded flex-1"></div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            plans?.map((plan, index) => {
             const price = billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
             const isSelected = selectedPlan === plan.id;
             
@@ -358,7 +431,8 @@ export default function Subscribe() {
                 </CardContent>
               </Card>
             );
-          })}
+          })
+          )}
         </div>
       </CardContent>
     </Card>

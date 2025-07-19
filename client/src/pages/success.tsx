@@ -29,10 +29,10 @@ export default function Success() {
           </div>
         </div>
 
-        <Card className="border-green-200 bg-green-50/50">
+        <Card className="border-green-200 bg-green-50/50 animate-bounce-in">
           <CardHeader className="text-center pb-4">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Check className="h-8 w-8 text-green-600" />
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
+              <Check className="h-8 w-8 text-green-600 animate-bounce-in" />
             </div>
             <CardTitle className="text-2xl text-green-800">
               Subscription Successful!
@@ -47,17 +47,22 @@ export default function Success() {
               <h3 className="font-semibold text-green-800 mb-4">What happens next?</h3>
               
               <div className="space-y-4">
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-3 slide-in-left stagger-1">
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-xs font-bold text-green-600">1</span>
                   </div>
                   <div>
                     <p className="font-medium text-green-800">Account Setup</p>
-                    <p className="text-sm text-green-600">Your BusinessFlow Pro account is being created automatically</p>
+                    <p className="text-sm text-green-600">
+                      Your BusinessFlow Pro account is being created automatically
+                      <span className="loading-dots ml-1">
+                        <span>.</span><span>.</span><span>.</span>
+                      </span>
+                    </p>
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-3 slide-in-left stagger-2">
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Mail className="h-3 w-3 text-green-600" />
                   </div>
@@ -67,7 +72,7 @@ export default function Success() {
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-3 slide-in-left stagger-3">
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CreditCard className="h-3 w-3 text-green-600" />
                   </div>
