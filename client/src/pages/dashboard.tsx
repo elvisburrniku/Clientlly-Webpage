@@ -88,19 +88,25 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/10 rounded-full blur-3xl floating-element"></div>
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl floating-delayed"></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="bg-white border-b border-border">
+      <nav className="glass-effect border-b border-white/20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+            <div className="flex items-center space-x-3 slide-in-left">
+              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
                 <ChartLine className="h-4 w-4 text-white" />
               </div>
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
+              <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 slide-in-right">
               <div className="flex items-center space-x-2">
                 {user.profileImageUrl ? (
                   <img 
@@ -134,22 +140,22 @@ export default function Dashboard() {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Welcome Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">
+        <div className="mb-8 slide-in-bottom">
+          <h1 className="text-4xl font-bold gradient-text mb-2 fade-in">
             Welcome back, {user.firstName || 'there'}!
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-xl text-muted-foreground fade-in stagger-1">
             Here's an overview of your business operations
           </p>
         </div>
 
         {/* Subscription Status */}
-        <Card className="mb-8">
+        <Card className="mb-8 glass-effect border-primary/20 hover-lift scale-in">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
-              <CreditCard className="h-5 w-5" />
+              <CreditCard className="h-5 w-5 text-primary" />
               <span>Subscription Status</span>
             </CardTitle>
           </CardHeader>
@@ -167,7 +173,7 @@ export default function Dashboard() {
                     </p>
                   )}
                 </div>
-                <Button variant="outline">Manage Subscription</Button>
+                <Button variant="outline" className="glow-border">Manage Subscription</Button>
               </div>
             ) : (
               <div className="flex items-center justify-between">
@@ -175,7 +181,10 @@ export default function Dashboard() {
                   <p className="font-medium text-foreground">No active subscription</p>
                   <p className="text-sm text-muted-foreground">Subscribe to unlock all features</p>
                 </div>
-                <Button onClick={() => window.location.href = "/subscribe"}>
+                <Button 
+                  onClick={() => window.location.href = "/subscribe"}
+                  className="bg-gradient-to-r from-primary to-secondary pulse-glow"
+                >
                   Subscribe Now
                 </Button>
               </div>
@@ -229,18 +238,21 @@ export default function Dashboard() {
               color: "from-indigo-500 to-indigo-600"
             }
           ].map((module, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
+            <Card 
+              key={index} 
+              className={`hover-lift glass-effect border-border/50 scale-in stagger-${index + 1} group cursor-pointer`}
+            >
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${module.color} rounded-lg flex items-center justify-center`}>
+                  <div className={`w-12 h-12 bg-gradient-to-r ${module.color} rounded-lg flex items-center justify-center pulse-glow group-hover:scale-110 transition-transform duration-300`}>
                     <module.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-foreground">{module.title}</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{module.title}</h3>
                     <p className="text-sm text-muted-foreground">{module.description}</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-foreground">{module.count}</div>
+                    <div className="text-2xl font-bold gradient-text">{module.count}</div>
                     <div className="text-xs text-muted-foreground">total</div>
                   </div>
                 </div>
@@ -251,28 +263,40 @@ export default function Dashboard() {
 
         {/* Quick Stats */}
         <div className="grid md:grid-cols-4 gap-6">
-          <Card>
+          <Card className="glass-effect border-green-200/20 hover-lift scale-in stagger-1 group">
             <CardContent className="p-6">
-              <div className="text-2xl font-bold text-foreground">$24,750</div>
+              <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">$24,750</div>
               <p className="text-sm text-muted-foreground">Monthly Revenue</p>
+              <div className="w-full bg-green-200 rounded-full h-2 mt-2">
+                <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full w-4/5"></div>
+              </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="glass-effect border-blue-200/20 hover-lift scale-in stagger-2 group">
             <CardContent className="p-6">
-              <div className="text-2xl font-bold text-foreground">1,234</div>
+              <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">1,234</div>
               <p className="text-sm text-muted-foreground">Total Invoices</p>
+              <div className="w-full bg-blue-200 rounded-full h-2 mt-2">
+                <div className="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full w-3/4"></div>
+              </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="glass-effect border-purple-200/20 hover-lift scale-in stagger-3 group">
             <CardContent className="p-6">
-              <div className="text-2xl font-bold text-foreground">98.5%</div>
+              <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">98.5%</div>
               <p className="text-sm text-muted-foreground">Collection Rate</p>
+              <div className="w-full bg-purple-200 rounded-full h-2 mt-2">
+                <div className="bg-gradient-to-r from-purple-400 to-purple-600 h-2 rounded-full w-full"></div>
+              </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="glass-effect border-orange-200/20 hover-lift scale-in stagger-4 group">
             <CardContent className="p-6">
-              <div className="text-2xl font-bold text-foreground">156</div>
+              <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">156</div>
               <p className="text-sm text-muted-foreground">Active Clients</p>
+              <div className="w-full bg-orange-200 rounded-full h-2 mt-2">
+                <div className="bg-gradient-to-r from-orange-400 to-orange-600 h-2 rounded-full w-3/5"></div>
+              </div>
             </CardContent>
           </Card>
         </div>

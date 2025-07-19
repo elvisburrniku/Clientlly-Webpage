@@ -152,26 +152,40 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl floating-element"></div>
+        <div className="absolute top-40 right-20 w-96 h-96 bg-orange-300/20 rounded-full blur-3xl floating-delayed"></div>
+        <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl floating-slow"></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+            <div className="flex items-center space-x-3 slide-in-left">
+              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
                 <ChartLine className="h-4 w-4 text-white" />
               </div>
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
+              <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
             </div>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">Features</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</a>
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
-              <Button variant="ghost" onClick={() => setShowDemoModal(true)} className="text-secondary hover:text-secondary/80">
+            <div className="hidden md:flex items-center space-x-8 slide-in-right">
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Features</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Pricing</a>
+              <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">About</a>
+              <Button 
+                variant="ghost" 
+                onClick={() => setShowDemoModal(true)} 
+                className="text-secondary hover:text-secondary/80 glow-border transition-all duration-300"
+              >
                 Request Demo
               </Button>
-              <Button onClick={() => window.location.href = "/api/login"}>
+              <Button 
+                onClick={() => window.location.href = "/api/login"}
+                className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all duration-300"
+              >
                 Start Free Trial
               </Button>
             </div>
@@ -179,7 +193,7 @@ export default function Landing() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden scale-in"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
               {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -189,15 +203,15 @@ export default function Landing() {
 
         {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="md:hidden bg-background border-b border-border">
+          <div className="md:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
               <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</a>
               <a href="#about" className="block text-muted-foreground hover:text-primary transition-colors">About</a>
-              <Button variant="ghost" onClick={() => setShowDemoModal(true)} className="w-full justify-start text-secondary">
+              <Button variant="ghost" onClick={() => setShowDemoModal(true)} className="w-full justify-start text-secondary glow-border">
                 Request Demo
               </Button>
-              <Button onClick={() => window.location.href = "/api/login"} className="w-full">
+              <Button onClick={() => window.location.href = "/api/login"} className="w-full bg-gradient-to-r from-primary to-secondary">
                 Start Free Trial
               </Button>
             </div>
@@ -206,26 +220,26 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4 overflow-hidden">
+      <section className="pt-32 pb-20 px-4 overflow-hidden relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div className="space-y-8 slide-in-left">
               <div className="space-y-6">
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                  <span className="text-foreground">Transform Your</span>
-                  <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent block">
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                  <span className="text-foreground fade-in stagger-1">Transform Your</span>
+                  <span className="gradient-text block fade-in stagger-2">
                     Business Operations
                   </span>
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed fade-in stagger-3">
                   The complete business management platform that streamlines invoicing, expenses, CRM, HR, and contracts in one powerful solution.
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-4">
                 <Button 
                   size="lg" 
-                  className="bg-primary hover:bg-primary/90 transform hover:scale-105 transition-all"
+                  className="bg-gradient-to-r from-primary to-secondary hover:shadow-2xl hover:scale-105 transition-all duration-300 pulse-glow"
                   onClick={() => window.location.href = "/api/login"}
                 >
                   Start Free Trial
@@ -233,14 +247,14 @@ export default function Landing() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-secondary text-secondary hover:bg-secondary hover:text-white"
+                  className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white glow-border transition-all duration-300"
                   onClick={() => setShowDemoModal(true)}
                 >
                   Request Demo
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-8 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-8 text-sm text-muted-foreground fade-in stagger-5">
                 <div className="flex items-center space-x-2">
                   <Check className="h-4 w-4 text-green-500" />
                   <span>No setup fees</span>
@@ -256,12 +270,12 @@ export default function Landing() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl transform rotate-6 opacity-20"></div>
-              <div className="relative bg-white rounded-2xl shadow-2xl p-8">
+            <div className="relative slide-in-right">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-3xl transform rotate-6 opacity-20 floating-element"></div>
+              <div className="relative glass-effect rounded-2xl shadow-2xl p-8 hover-lift">
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
                       <ChartLine className="h-5 w-5 text-white" />
                     </div>
                     <div>
@@ -270,11 +284,11 @@ export default function Landing() {
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-green-50 p-4 rounded-lg">
+                    <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg scale-in stagger-1">
                       <div className="text-2xl font-bold text-green-600">$247K</div>
                       <div className="text-sm text-green-600">Revenue</div>
                     </div>
-                    <div className="bg-blue-50 p-4 rounded-lg">
+                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg scale-in stagger-2">
                       <div className="text-2xl font-bold text-blue-600">1,234</div>
                       <div className="text-sm text-blue-600">Invoices</div>
                     </div>
@@ -303,27 +317,29 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-4">
+      <section id="features" className="py-20 px-4 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Everything you need to <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">run your business</span>
+            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
+              Everything you need to <span className="gradient-text">run your business</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1">
               Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
             </p>
           </div>
 
           {/* Feature Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {Object.entries(features).map(([key, feature]) => {
+            {Object.entries(features).map(([key, feature], index) => {
               const Icon = featureIcons[key as keyof typeof featureIcons];
               return (
                 <Button
                   key={key}
                   variant={activeTab === key ? "default" : "outline"}
                   onClick={() => setActiveTab(key)}
-                  className="flex items-center space-x-2"
+                  className={`flex items-center space-x-2 hover-lift transition-all duration-300 scale-in stagger-${index + 1} ${
+                    activeTab === key ? 'bg-gradient-to-r from-primary to-secondary pulse-glow' : 'glow-border'
+                  }`}
                 >
                   <Icon className="h-4 w-4" />
                   <span>{feature.title.split(' ')[0]}</span>
@@ -389,17 +405,22 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
-              <Card key={plan.id} className={`relative hover:shadow-lg transition-shadow ${index === 1 ? 'border-primary shadow-lg' : ''}`}>
+              <Card 
+                key={plan.id} 
+                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} ${
+                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
+                }`}
+              >
                 {index === 1 && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-primary text-primary-foreground">Most Popular</Badge>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 pulse-glow">
+                    <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-1">Most Popular</Badge>
                   </div>
                 )}
                 
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
-                    <div className="text-4xl font-bold text-foreground mb-1">
+                    <div className="text-4xl font-bold gradient-text mb-1">
                       ${Math.floor(plan.price / 100)}<span className="text-lg text-muted-foreground">/month</span>
                     </div>
                     <p className="text-muted-foreground">
@@ -411,7 +432,7 @@ export default function Landing() {
                   
                   <ul className="space-y-4 mb-8">
                     {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3">
+                      <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
                         <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
                         <span className="text-muted-foreground">{feature}</span>
                       </li>
@@ -419,7 +440,11 @@ export default function Landing() {
                   </ul>
                   
                   <Button 
-                    className={`w-full ${index === 1 ? 'bg-gradient-to-r from-primary to-secondary' : ''}`}
+                    className={`w-full transition-all duration-300 hover:scale-105 ${
+                      index === 1 
+                        ? 'bg-gradient-to-r from-primary to-secondary pulse-glow' 
+                        : 'glow-border'
+                    }`}
                     variant={index === 1 ? "default" : "outline"}
                     onClick={() => window.location.href = `/subscribe?plan=${plan.id}`}
                   >
@@ -469,7 +494,7 @@ export default function Landing() {
                 content: "Finally, a business management platform that actually works! The expense tracking and HR features have streamlined our entire workflow.",
               }
             ].map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className={`hover-lift glass-effect border-border/50 scale-in stagger-${index + 1}`}>
                 <CardContent className="p-8">
                   <div className="flex mb-4">
                     {[1,2,3,4,5].map((star) => (
@@ -478,7 +503,7 @@ export default function Landing() {
                   </div>
                   <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center pulse-glow">
                       <span className="text-white font-semibold">{testimonial.name[0]}</span>
                     </div>
                     <div>
@@ -593,50 +618,54 @@ export default function Landing() {
 
       {/* Demo Request Modal */}
       <Dialog open={showDemoModal} onOpenChange={setShowDemoModal}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>Request a Demo</DialogTitle>
+        <DialogContent className="max-w-md glass-effect border-primary/20 scale-in">
+          <DialogHeader className="text-center">
+            <DialogTitle className="text-2xl gradient-text">Request a Demo</DialogTitle>
+            <p className="text-muted-foreground">Get a personalized walkthrough of BusinessFlow Pro</p>
           </DialogHeader>
           
-          <form onSubmit={handleDemoSubmit} className="space-y-4">
-            <div>
-              <Label htmlFor="fullName">Full Name</Label>
+          <form onSubmit={handleDemoSubmit} className="space-y-6">
+            <div className="fade-in stagger-1">
+              <Label htmlFor="fullName" className="text-sm font-medium">Full Name</Label>
               <Input
                 id="fullName"
                 value={demoForm.fullName}
                 onChange={(e) => setDemoForm({...demoForm, fullName: e.target.value})}
                 placeholder="Enter your full name"
+                className="glow-border transition-all duration-300"
                 required
               />
             </div>
             
-            <div>
-              <Label htmlFor="email">Work Email</Label>
+            <div className="fade-in stagger-2">
+              <Label htmlFor="email" className="text-sm font-medium">Work Email</Label>
               <Input
                 id="email"
                 type="email"
                 value={demoForm.email}
                 onChange={(e) => setDemoForm({...demoForm, email: e.target.value})}
                 placeholder="Enter your work email"
+                className="glow-border transition-all duration-300"
                 required
               />
             </div>
             
-            <div>
-              <Label htmlFor="companyName">Company Name</Label>
+            <div className="fade-in stagger-3">
+              <Label htmlFor="companyName" className="text-sm font-medium">Company Name</Label>
               <Input
                 id="companyName"
                 value={demoForm.companyName}
                 onChange={(e) => setDemoForm({...demoForm, companyName: e.target.value})}
                 placeholder="Enter your company name"
+                className="glow-border transition-all duration-300"
                 required
               />
             </div>
             
-            <div>
-              <Label htmlFor="companySize">Company Size</Label>
+            <div className="fade-in stagger-4">
+              <Label htmlFor="companySize" className="text-sm font-medium">Company Size</Label>
               <Select value={demoForm.companySize} onValueChange={(value) => setDemoForm({...demoForm, companySize: value})}>
-                <SelectTrigger>
+                <SelectTrigger className="glow-border transition-all duration-300">
                   <SelectValue placeholder="Select company size" />
                 </SelectTrigger>
                 <SelectContent>
@@ -648,23 +677,31 @@ export default function Landing() {
               </Select>
             </div>
 
-            <div>
-              <Label htmlFor="message">Message (Optional)</Label>
+            <div className="fade-in stagger-5">
+              <Label htmlFor="message" className="text-sm font-medium">Message (Optional)</Label>
               <Textarea
                 id="message"
                 value={demoForm.message}
                 onChange={(e) => setDemoForm({...demoForm, message: e.target.value})}
-                placeholder="Tell us about your needs..."
+                placeholder="Tell us about your specific needs..."
+                className="glow-border transition-all duration-300"
                 rows={3}
               />
             </div>
             
             <Button 
               type="submit" 
-              className="w-full bg-gradient-to-r from-primary to-secondary"
+              className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-xl hover:scale-105 transition-all duration-300 pulse-glow fade-in stagger-6"
               disabled={demoRequestMutation.isPending}
             >
-              {demoRequestMutation.isPending ? "Submitting..." : "Schedule Demo"}
+              {demoRequestMutation.isPending ? (
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span>Submitting...</span>
+                </div>
+              ) : (
+                "Schedule Demo"
+              )}
             </Button>
           </form>
         </DialogContent>
