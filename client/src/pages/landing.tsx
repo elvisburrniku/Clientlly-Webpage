@@ -224,10 +224,10 @@ export default function Landing() {
             </div>
             
             <div className="hidden md:flex items-center space-x-8 slide-in-right">
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Features</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.pricing.title', 'Pricing')}</a>
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.features', 'Features')}</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.pricing', 'Pricing')}</a>
               <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('calculator.title', 'Calculator')}</Link>
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">About</a>
+              <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.about', 'About')}</a>
               <LanguageSelector />
               <Button 
                 variant="ghost" 
@@ -259,10 +259,10 @@ export default function Landing() {
         {showMobileMenu && (
           <div className="md:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
-              <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
-              <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</a>
-              <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">Calculator</Link>
-              <a href="#about" className="block text-muted-foreground hover:text-primary transition-colors">About</a>
+              <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.features', 'Features')}</a>
+              <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.pricing', 'Pricing')}</a>
+              <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">{t('calculator.title', 'Calculator')}</Link>
+              <a href="#about" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.about', 'About')}</a>
               <Button variant="ghost" onClick={() => setShowDemoModal(true)} className="w-full justify-start text-secondary glow-border">
                 {t('landing.requestDemo', 'Request Demo')}
               </Button>
@@ -281,13 +281,13 @@ export default function Landing() {
             <div className="space-y-8 slide-in-left">
               <div className="space-y-6">
                 <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                  <span className="text-foreground fade-in stagger-1">{t('landing.subtitle', 'Transform Your')}</span>
+                  <span className="text-foreground fade-in stagger-1">{t('landing.subtitle', 'Transform Your Business with')}</span>
                   <span className="gradient-text block fade-in stagger-2">
                     {t('landing.title', 'Smart Management')}
                   </span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed fade-in stagger-3">
-                  {t('landing.description', 'The complete business management platform that streamlines invoicing, expenses, CRM, HR, and contracts in one powerful solution.')}
+                  {t('landing.description', 'Streamline your business operations with our comprehensive platform for invoicing, CRM, HR, and contract management.')}
                 </p>
               </div>
 
@@ -312,15 +312,15 @@ export default function Landing() {
               <div className="flex items-center space-x-8 text-sm text-muted-foreground fade-in stagger-5">
                 <div className="flex items-center space-x-2">
                   <Check className="h-4 w-4 text-green-500" />
-                  <span>No setup fees</span>
+                  <span>{t('landing.benefits.noSetupFees', 'No setup fees')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="h-4 w-4 text-green-500" />
-                  <span>Cancel anytime</span>
+                  <span>{t('landing.benefits.cancelAnytime', 'Cancel anytime')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Check className="h-4 w-4 text-green-500" />
-                  <span>14-day free trial</span>
+                  <span>{t('landing.benefits.freeTrial', '14-day free trial')}</span>
                 </div>
               </div>
             </div>

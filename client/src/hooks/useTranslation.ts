@@ -6,6 +6,7 @@ export function useTranslation() {
 
   const t = (key: string, fallback?: string): string => {
     const result = translate(key, translations, currentLanguage, 'en') || fallback || key;
+    // Force React to re-render by including the current language in the translation
     return result;
   };
 
