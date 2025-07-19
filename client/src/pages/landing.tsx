@@ -359,7 +359,7 @@ export default function Landing() {
       <section className="py-12 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
-            <p className="text-muted-foreground">Trusted by over 10,000+ businesses worldwide</p>
+            <p className="text-muted-foreground">{t('landing.trust', 'Trusted by over 10,000+ businesses worldwide')}</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
             {[1,2,3,4,5,6].map((i) => (
@@ -556,7 +556,7 @@ export default function Landing() {
                     variant={index === 1 ? "default" : "outline"}
                     onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                   >
-                    Choose {plan.name}
+                    {t('landing.pricing.choose', 'Choose')} {plan.name}
                   </Button>
                 </CardContent>
               </Card>
@@ -566,14 +566,14 @@ export default function Landing() {
           <div className="text-center mt-12">
             <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 mb-8 border border-primary/20">
               <h3 className="text-2xl font-bold text-foreground mb-4">
-                Not sure which plan is right for you?
+                {t('landing.pricing.unsure', 'Not sure which plan is right for you?')}
               </h3>
               <p className="text-muted-foreground mb-6">
-                Use our interactive pricing calculator to get personalized recommendations based on your business needs.
+                {t('landing.pricing.calculator', 'Use our interactive pricing calculator to get personalized recommendations based on your business needs.')}
               </p>
               <Link href="/calculator">
                 <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all duration-300">
-                  Try Our Pricing Calculator
+                  {t('landing.pricing.tryCalculator', 'Try Our Pricing Calculator')}
                 </Button>
               </Link>
             </div>
@@ -583,14 +583,14 @@ export default function Landing() {
                 onClick={() => window.location.href = "/compare"}
                 className="text-primary border-primary hover:bg-primary hover:text-white"
               >
-                Compare All Features →
+                {t('landing.pricing.compare', 'Compare All Features')} →
               </Button>
               <Button variant="link" onClick={() => setShowDemoModal(true)} className="text-primary hover:text-primary/80">
-                Contact Sales Team
+                {t('landing.pricing.contactSales', 'Contact Sales Team')}
               </Button>
             </div>
             <p className="text-muted-foreground text-sm">
-              Need a custom solution? Our team is here to help.
+              {t('landing.pricing.custom', 'Need a custom solution? Our team is here to help.')}
             </p>
           </div>
         </div>
@@ -601,10 +601,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
-              Loved by businesses <span className="gradient-text">worldwide</span>
+              {t('landing.testimonials.title', 'Loved by businesses worldwide')}
             </h2>
             <p className="text-xl text-muted-foreground fade-in stagger-1">
-              See what our customers have to say about transforming their business operations.
+              {t('landing.testimonials.subtitle', 'See what our customers have to say about transforming their business operations.')}
             </p>
           </div>
 
@@ -613,17 +613,17 @@ export default function Landing() {
               {
                 name: "Sarah Johnson",
                 role: "CEO, TechStart Inc.",
-                content: "BusinessFlow Pro has completely transformed how we manage our operations. The invoicing system alone has saved us 10+ hours per week.",
+                content: t('landing.testimonials.review1', 'BusinessFlow Pro has completely transformed how we manage our operations. The invoicing system alone has saved us 10+ hours per week.'),
               },
               {
                 name: "Maria Rodriguez", 
                 role: "Sales Director, GrowthCorp",
-                content: "The CRM features are outstanding. We've improved our customer relationships and increased sales by 35% since implementing BusinessFlow Pro.",
+                content: t('landing.testimonials.review2', 'The CRM features are outstanding. We\'ve improved our customer relationships and increased sales by 35% since implementing BusinessFlow Pro.'),
               },
               {
                 name: "David Chen",
                 role: "Operations Manager, BuildCo", 
-                content: "Finally, a business management platform that actually works! The expense tracking and HR features have streamlined our entire workflow.",
+                content: t('landing.testimonials.review3', 'Finally, a business management platform that actually works! The expense tracking and HR features have streamlined our entire workflow.'),
               }
             ].map((testimonial, index) => (
               <Card key={index} className={`hover-lift glass-effect border-border/50 scale-in stagger-${index + 1}`}>
@@ -660,10 +660,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
-              Get in <span className="gradient-text">Touch</span>
+              {t('landing.contact.title', 'Get in Touch')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto fade-in stagger-1">
-              Have questions? Need a custom solution? Our team is here to help you transform your business operations.
+              {t('landing.contact.subtitle', 'Have questions? Need a custom solution? Our team is here to help you transform your business operations.')}
             </p>
           </div>
 
@@ -676,8 +676,8 @@ export default function Landing() {
                     <Mail className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Email Us</h3>
-                    <p className="text-muted-foreground">Get in touch via email for detailed inquiries</p>
+                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.email', 'Email Us')}</h3>
+                    <p className="text-muted-foreground">{t('landing.contact.emailDesc', 'Get in touch via email for detailed inquiries')}</p>
                     <a href="mailto:hello@businessflowpro.com" className="text-primary hover:text-primary/80 font-medium">
                       hello@businessflowpro.com
                     </a>
@@ -689,8 +689,8 @@ export default function Landing() {
                     <Phone className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Call Us</h3>
-                    <p className="text-muted-foreground">Speak directly with our team</p>
+                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.call', 'Call Us')}</h3>
+                    <p className="text-muted-foreground">{t('landing.contact.callDesc', 'Speak directly with our team')}</p>
                     <a href="tel:+1-555-123-4567" className="text-primary hover:text-primary/80 font-medium">
                       +1 (555) 123-4567
                     </a>
@@ -702,8 +702,8 @@ export default function Landing() {
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Visit Us</h3>
-                    <p className="text-muted-foreground">Our headquarters</p>
+                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.visit', 'Visit Us')}</h3>
+                    <p className="text-muted-foreground">{t('landing.contact.visitDesc', 'Our headquarters')}</p>
                     <p className="text-primary font-medium">
                       123 Business Ave<br />
                       San Francisco, CA 94105
@@ -716,10 +716,10 @@ export default function Landing() {
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Business Hours</h3>
+                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.hours', 'Business Hours')}</h3>
                     <p className="text-muted-foreground">
-                      Monday - Friday: 9:00 AM - 6:00 PM PST<br />
-                      Weekend: 10:00 AM - 4:00 PM PST
+                      {t('landing.contact.weekdays', 'Monday - Friday: 9:00 AM - 6:00 PM PST')}<br />
+                      {t('landing.contact.weekends', 'Weekend: 10:00 AM - 4:00 PM PST')}
                     </p>
                   </div>
                 </div>
@@ -732,7 +732,7 @@ export default function Landing() {
                 <form onSubmit={handleContactSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="fade-in stagger-1">
-                      <Label htmlFor="firstName" className="text-sm font-medium">First Name</Label>
+                      <Label htmlFor="firstName" className="text-sm font-medium">{t('landing.contact.form.firstName', 'First Name')}</Label>
                       <Input
                         id="firstName"
                         value={contactForm.firstName}
@@ -743,7 +743,7 @@ export default function Landing() {
                       />
                     </div>
                     <div className="fade-in stagger-2">
-                      <Label htmlFor="lastName" className="text-sm font-medium">Last Name</Label>
+                      <Label htmlFor="lastName" className="text-sm font-medium">{t('landing.contact.form.lastName', 'Last Name')}</Label>
                       <Input
                         id="lastName"
                         value={contactForm.lastName}
@@ -756,7 +756,7 @@ export default function Landing() {
                   </div>
 
                   <div className="fade-in stagger-3">
-                    <Label htmlFor="contactEmail" className="text-sm font-medium">Email Address</Label>
+                    <Label htmlFor="contactEmail" className="text-sm font-medium">{t('landing.contact.form.email', 'Email Address')}</Label>
                     <Input
                       id="contactEmail"
                       type="email"
@@ -769,7 +769,7 @@ export default function Landing() {
                   </div>
 
                   <div className="fade-in stagger-4">
-                    <Label htmlFor="contactCompany" className="text-sm font-medium">Company Name</Label>
+                    <Label htmlFor="contactCompany" className="text-sm font-medium">{t('landing.contact.form.company', 'Company Name')}</Label>
                     <Input
                       id="contactCompany"
                       value={contactForm.company}
@@ -781,31 +781,31 @@ export default function Landing() {
                   </div>
 
                   <div className="fade-in stagger-5">
-                    <Label htmlFor="contactSubject" className="text-sm font-medium">Subject</Label>
+                    <Label htmlFor="contactSubject" className="text-sm font-medium">{t('landing.contact.form.subject', 'Subject')}</Label>
                     <Select 
                       value={contactForm.subject} 
                       onValueChange={(value) => setContactForm({...contactForm, subject: value})}
                     >
                       <SelectTrigger className="glow-border transition-all duration-300">
-                        <SelectValue placeholder="Select a topic" />
+                        <SelectValue placeholder={t('landing.contact.form.selectTopic', 'Select a topic')} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="general">General Inquiry</SelectItem>
-                        <SelectItem value="sales">Sales Questions</SelectItem>
-                        <SelectItem value="support">Technical Support</SelectItem>
-                        <SelectItem value="partnership">Partnership</SelectItem>
-                        <SelectItem value="demo">Request Demo</SelectItem>
+                        <SelectItem value="general">{t('landing.contact.form.general', 'General Inquiry')}</SelectItem>
+                        <SelectItem value="sales">{t('landing.contact.form.sales', 'Sales Questions')}</SelectItem>
+                        <SelectItem value="support">{t('landing.contact.form.support', 'Technical Support')}</SelectItem>
+                        <SelectItem value="partnership">{t('landing.contact.form.partnership', 'Partnership')}</SelectItem>
+                        <SelectItem value="demo">{t('landing.contact.form.demo', 'Request Demo')}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="fade-in stagger-6">
-                    <Label htmlFor="contactMessage" className="text-sm font-medium">Message</Label>
+                    <Label htmlFor="contactMessage" className="text-sm font-medium">{t('landing.contact.form.message', 'Message')}</Label>
                     <Textarea
                       id="contactMessage"
                       value={contactForm.message}
                       onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                      placeholder="Tell us about your needs and how we can help..."
+                      placeholder={t('landing.contact.form.messagePlaceholder', 'Tell us about your needs and how we can help...')}
                       className="glow-border transition-all duration-300 min-h-[120px]"
                       required
                     />
@@ -819,15 +819,15 @@ export default function Landing() {
                     {contactMutation.isPending ? (
                       <div className="flex items-center space-x-2">
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        <span>Sending...</span>
+                        <span>{t('landing.contact.form.sending', 'Sending...')}</span>
                       </div>
                     ) : (
-                      "Send Message"
+                      t('landing.contact.form.send', 'Send Message')
                     )}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center fade-in stagger-8">
-                    We'll get back to you within 24 hours. For urgent matters, please call us directly.
+                    {t('landing.contact.form.response', 'We\'ll get back to you within 24 hours. For urgent matters, please call us directly.')}
                   </p>
                 </form>
               </CardContent>
@@ -840,10 +840,10 @@ export default function Landing() {
       <section className="py-20 px-4 bg-gradient-to-r from-primary via-accent to-secondary">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ready to transform your business?
+            {t('landing.footer.ready', 'Ready to transform your business?')}
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of businesses that have streamlined their operations with BusinessFlow Pro. Start your free trial today.
+            {t('landing.footer.join', 'Join thousands of businesses that have streamlined their operations with BusinessFlow Pro. Start your free trial today.')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -852,7 +852,7 @@ export default function Landing() {
               className="bg-white text-primary hover:bg-white/90 text-lg"
               onClick={() => window.location.href = "/api/login"}
             >
-              Start Free Trial
+              {t('landing.getStarted', 'Start Free Trial')}
             </Button>
             <Button 
               size="lg" 
@@ -860,22 +860,22 @@ export default function Landing() {
               className="border-white text-white hover:bg-white hover:text-primary text-lg"
               onClick={() => setShowDemoModal(true)}
             >
-              Request Demo
+              {t('landing.requestDemo', 'Request Demo')}
             </Button>
           </div>
 
           <div className="mt-8 flex justify-center space-x-8 text-white/80 text-sm">
             <div className="flex items-center space-x-2">
               <Shield className="h-4 w-4" />
-              <span>Bank-level security</span>
+              <span>{t('landing.footer.security', 'Bank-level security')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Globe className="h-4 w-4" />
-              <span>99.9% uptime</span>
+              <span>{t('landing.footer.uptime', '99.9% uptime')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Headphones className="h-4 w-4" />
-              <span>24/7 support</span>
+              <span>{t('landing.footer.support24', '24/7 support')}</span>
             </div>
           </div>
         </div>
@@ -893,42 +893,42 @@ export default function Landing() {
                 <span className="text-xl font-bold">BusinessFlow Pro</span>
               </div>
               <p className="text-gray-400">
-                The complete business management platform for modern companies.
+                {t('landing.footer.description', 'The complete business management platform for modern companies.')}
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
+              <h4 className="font-semibold mb-4">{t('landing.footer.product', 'Product')}</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrations</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">API</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">{t('landing.nav.features', 'Features')}</a></li>
+                <li><a href="#pricing" className="hover:text-white transition-colors">{t('landing.nav.pricing', 'Pricing')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.integrations', 'Integrations')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.api', 'API')}</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">{t('landing.footer.company', 'Company')}</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#about" className="hover:text-white transition-colors">{t('landing.footer.about', 'About')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.careers', 'Careers')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.contact', 'Contact')}</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
+              <h4 className="font-semibold mb-4">{t('landing.footer.support', 'Support')}</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.help', 'Help Center')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.docs', 'Documentation')}</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.community', 'Community')}</a></li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-700 pt-8 text-center">
             <p className="text-gray-400 text-sm">
-              © 2024 BusinessFlow Pro. All rights reserved.
+              {t('landing.footer.copyright', '© 2024 BusinessFlow Pro. All rights reserved.')}
             </p>
           </div>
         </div>
@@ -938,53 +938,53 @@ export default function Landing() {
       <Dialog open={showDemoModal} onOpenChange={setShowDemoModal}>
         <DialogContent className="max-w-md glass-effect border-primary/20 scale-in">
           <DialogHeader className="text-center">
-            <DialogTitle className="text-2xl gradient-text">Request a Demo</DialogTitle>
-            <p className="text-muted-foreground">Get a personalized walkthrough of BusinessFlow Pro</p>
+            <DialogTitle className="text-2xl gradient-text">{t('landing.demo.title', 'Request a Demo')}</DialogTitle>
+            <p className="text-muted-foreground">{t('landing.demo.subtitle', 'Get a personalized walkthrough of BusinessFlow Pro')}</p>
           </DialogHeader>
           
           <form onSubmit={handleDemoSubmit} className="space-y-6">
             <div className="fade-in stagger-1">
-              <Label htmlFor="fullName" className="text-sm font-medium">Full Name</Label>
+              <Label htmlFor="fullName" className="text-sm font-medium">{t('landing.demo.fullName', 'Full Name')}</Label>
               <Input
                 id="fullName"
                 value={demoForm.fullName}
                 onChange={(e) => setDemoForm({...demoForm, fullName: e.target.value})}
-                placeholder="Enter your full name"
+                placeholder={t('landing.demo.fullNamePlaceholder', 'Enter your full name')}
                 className="glow-border transition-all duration-300"
                 required
               />
             </div>
             
             <div className="fade-in stagger-2">
-              <Label htmlFor="email" className="text-sm font-medium">Work Email</Label>
+              <Label htmlFor="email" className="text-sm font-medium">{t('landing.demo.workEmail', 'Work Email')}</Label>
               <Input
                 id="email"
                 type="email"
                 value={demoForm.email}
                 onChange={(e) => setDemoForm({...demoForm, email: e.target.value})}
-                placeholder="Enter your work email"
+                placeholder={t('landing.demo.emailPlaceholder', 'Enter your work email')}
                 className="glow-border transition-all duration-300"
                 required
               />
             </div>
             
             <div className="fade-in stagger-3">
-              <Label htmlFor="companyName" className="text-sm font-medium">Company Name</Label>
+              <Label htmlFor="companyName" className="text-sm font-medium">{t('landing.demo.companyName', 'Company Name')}</Label>
               <Input
                 id="companyName"
                 value={demoForm.companyName}
                 onChange={(e) => setDemoForm({...demoForm, companyName: e.target.value})}
-                placeholder="Enter your company name"
+                placeholder={t('landing.demo.companyPlaceholder', 'Enter your company name')}
                 className="glow-border transition-all duration-300"
                 required
               />
             </div>
             
             <div className="fade-in stagger-4">
-              <Label htmlFor="companySize" className="text-sm font-medium">Company Size</Label>
+              <Label htmlFor="companySize" className="text-sm font-medium">{t('landing.demo.companySize', 'Company Size')}</Label>
               <Select value={demoForm.companySize} onValueChange={(value) => setDemoForm({...demoForm, companySize: value})}>
                 <SelectTrigger className="glow-border transition-all duration-300">
-                  <SelectValue placeholder="Select company size" />
+                  <SelectValue placeholder={t('landing.demo.selectSize', 'Select company size')} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="1-10">1-10 employees</SelectItem>
@@ -996,12 +996,12 @@ export default function Landing() {
             </div>
 
             <div className="fade-in stagger-5">
-              <Label htmlFor="message" className="text-sm font-medium">Message (Optional)</Label>
+              <Label htmlFor="message" className="text-sm font-medium">{t('landing.demo.message', 'Message (Optional)')}</Label>
               <Textarea
                 id="message"
                 value={demoForm.message}
                 onChange={(e) => setDemoForm({...demoForm, message: e.target.value})}
-                placeholder="Tell us about your specific needs..."
+                placeholder={t('landing.demo.messagePlaceholder', 'Tell us about your specific needs...')}
                 className="glow-border transition-all duration-300"
                 rows={3}
               />
@@ -1015,10 +1015,10 @@ export default function Landing() {
               {demoRequestMutation.isPending ? (
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>Submitting...</span>
+                  <span>{t('landing.demo.submitting', 'Submitting...')}</span>
                 </div>
               ) : (
-                "Schedule Demo"
+                t('landing.demo.schedule', 'Schedule Demo')
               )}
             </Button>
           </form>
