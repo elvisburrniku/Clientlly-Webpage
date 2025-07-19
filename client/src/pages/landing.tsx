@@ -451,49 +451,48 @@ export default function Landing() {
             </p>
             
             {/* Billing Period Toggle */}
-            <div className="flex items-center justify-center mb-8">
-              <div className="relative">
-                <div className="bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-700 p-1.5 rounded-2xl shadow-inner border border-border/50">
-                  <div className="flex items-center relative">
-                    <Button
-                      variant="ghost"
-                      onClick={() => setBillingPeriod('monthly')}
-                      className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 relative z-10 ${
-                        billingPeriod === 'monthly' 
-                          ? 'text-white shadow-lg' 
-                          : 'text-muted-foreground hover:text-foreground'
-                      }`}
-                    >
-                      Monthly
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      onClick={() => setBillingPeriod('yearly')}
-                      className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 relative z-10 ${
-                        billingPeriod === 'yearly' 
-                          ? 'text-white shadow-lg' 
-                          : 'text-muted-foreground hover:text-foreground'
-                      }`}
-                    >
-                      Yearly
-                    </Button>
-                    
-                    {/* Animated Background Slider */}
-                    <div 
-                      className={`absolute top-1.5 bottom-1.5 bg-gradient-to-r from-primary to-secondary rounded-xl shadow-lg transition-all duration-500 ease-out ${
-                        billingPeriod === 'monthly' ? 'left-1.5 right-[50%]' : 'left-[50%] right-1.5'
-                      }`}
-                    />
-                  </div>
-                </div>
+            <div className="flex flex-col items-center justify-center mb-8">
+              <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
+                {/* Monthly Button */}
+                <button
+                  onClick={() => setBillingPeriod('monthly')}
+                  className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
+                    billingPeriod === 'monthly'
+                      ? 'text-white'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                  }`}
+                >
+                  Monthly
+                </button>
                 
-                {/* Save Badge - positioned outside the toggle */}
-                <div className={`absolute -top-3 -right-4 transition-all duration-300 ${
-                  billingPeriod === 'yearly' ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-                }`}>
-                  <Badge className="bg-green-500 text-white text-xs px-3 py-1 rounded-full shadow-lg border-2 border-background animate-pulse">
-                    Save 17%
-                  </Badge>
+                {/* Yearly Button */}
+                <button
+                  onClick={() => setBillingPeriod('yearly')}
+                  className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
+                    billingPeriod === 'yearly'
+                      ? 'text-white'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                  }`}
+                >
+                  Yearly
+                </button>
+                
+                {/* Animated Background */}
+                <div
+                  className={`absolute top-2 bottom-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full shadow-md transition-all duration-300 ease-in-out ${
+                    billingPeriod === 'monthly'
+                      ? 'left-2 w-[calc(50%-4px)]'
+                      : 'right-2 w-[calc(50%-4px)]'
+                  }`}
+                />
+              </div>
+              
+              {/* Save Badge */}
+              <div className={`mt-3 transition-all duration-300 ${
+                billingPeriod === 'yearly' ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'
+              }`}>
+                <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
+                  🎉 Save 17% with yearly billing
                 </div>
               </div>
             </div>
