@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -222,6 +223,7 @@ export default function Landing() {
             <div className="hidden md:flex items-center space-x-8 slide-in-right">
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Features</a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Pricing</a>
+              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Calculator</Link>
               <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">About</a>
               <Button 
                 variant="ghost" 
@@ -255,6 +257,7 @@ export default function Landing() {
             <div className="px-4 py-4 space-y-4">
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
               <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</a>
+              <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">Calculator</Link>
               <a href="#about" className="block text-muted-foreground hover:text-primary transition-colors">About</a>
               <Button variant="ghost" onClick={() => setShowDemoModal(true)} className="w-full justify-start text-secondary glow-border">
                 Request Demo
@@ -557,6 +560,19 @@ export default function Landing() {
           </div>
 
           <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 mb-8 border border-primary/20">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Not sure which plan is right for you?
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Use our interactive pricing calculator to get personalized recommendations based on your business needs.
+              </p>
+              <Link href="/calculator">
+                <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all duration-300">
+                  Try Our Pricing Calculator
+                </Button>
+              </Link>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
               <Button 
                 variant="outline" 
