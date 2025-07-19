@@ -130,10 +130,15 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
         <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
           <div className="flex items-center space-x-2 text-green-700">
             <Shield className="h-4 w-4" />
-            <span className="text-sm font-medium">Secure Payment with Stripe</span>
+            <span className="text-sm font-medium">
+              {process.env.NODE_ENV === 'development' ? 'Demo Payment Mode' : 'Secure Payment with Stripe'}
+            </span>
           </div>
           <p className="text-sm text-green-600 mt-1">
-            You'll be redirected to Stripe's secure payment page to complete your subscription.
+            {process.env.NODE_ENV === 'development' 
+              ? "You'll be redirected to Stripe's test payment page. Use test card 4242 4242 4242 4242 for testing."
+              : "You'll be redirected to Stripe's secure payment page to complete your subscription."
+            }
           </p>
         </div>
 

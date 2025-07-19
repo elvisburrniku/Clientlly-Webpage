@@ -1,533 +1,368 @@
 # Laravel Integration Guide for BusinessFlow Pro
 
+This guide shows how to integrate your Laravel application with BusinessFlow Pro's subscription system to automatically create user accounts when subscriptions are completed.
+
 ## Overview
-This guide explains how to integrate the BusinessFlow Pro subscription frontend with a Laravel backend application for automated user account creation and management.
 
-## Architecture Overview
+BusinessFlow Pro sends webhook notifications to your Laravel application whenever:
+- A new subscription is created
+- A subscription is updated or cancelled
+- Payment events occur
 
-The BusinessFlow Pro frontend handles:
-- User authentication via Replit Auth
-- Subscription management through Stripe
-- Demo request collection
-- User interface for business management features
+## Laravel Setup
 
-Your Laravel application will receive:
-- Webhook notifications when subscriptions are activated
-- User data for account creation
-- Subscription plan information
-- Demo request leads
+### 1. Create Webhook Endpoint
 
-## 1. Prerequisites
-
-### Required Packages for Laravel
-```bash
-composer require stripe/stripe-php
-composer require guzzlehttp/guzzle
-composer require laravel/horizon  # For job queues
-```
-
-### Required Environment Variables
-Add these to your Laravel `.env` file:
-```env
-# Stripe Configuration
-STRIPE_KEY=pk_test_your_publishable_key
-STRIPE_SECRET=sk_test_your_secret_key
-STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
-
-# BusinessFlow Pro API Integration
-BUSINESSFLOW_API_URL=https://your-businessflow-domain.replit.app
-BUSINESSFLOW_API_SECRET=your_secure_api_secret
-
-# Queue Configuration for Background Jobs
-QUEUE_CONNECTION=redis
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-```
-
-## 2. Database Migration
-
-Create a migration for storing BusinessFlow Pro user data:
-
-```bash
-php artisan make:migration create_businessflow_users_table
-```
-
-Migration file content:
-```php
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
-{
-    public function up()
-    {
-        Schema::create('businessflow_users', function (Blueprint $table) {
-            $table->id();
-            $table->string('businessflow_user_id')->unique(); // From Replit Auth
-            $table->string('email')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->string('profile_image_url')->nullable();
-            $table->string('stripe_customer_id')->nullable();
-            $table->string('stripe_subscription_id')->nullable();
-            $table->string('subscription_status')->nullable(); // active, canceled, past_due
-            $table->string('subscription_plan')->nullable(); // basic, professional, business
-            $table->timestamp('subscription_created_at')->nullable();
-            $table->timestamps();
-        });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('businessflow_users');
-    }
-};
-```
-
-## 3. Models
-
-Create the BusinessFlow User model:
-
-```bash
-php artisan make:model BusinessFlowUser
-```
-
-```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class BusinessFlowUser extends Model
-{
-    use HasFactory;
-
-    protected $table = 'businessflow_users';
-
-    protected $fillable = [
-        'businessflow_user_id',
-        'email',
-        'first_name', 
-        'last_name',
-        'profile_image_url',
-        'stripe_customer_id',
-        'stripe_subscription_id',
-        'subscription_status',
-        'subscription_plan',
-        'subscription_created_at',
-    ];
-
-    protected $casts = [
-        'subscription_created_at' => 'datetime',
-    ];
-
-    public function getFullNameAttribute()
-    {
-        return trim("{$this->first_name} {$this->last_name}");
-    }
-
-    public function isActiveSubscriber()
-    {
-        return $this->subscription_status === 'active';
-    }
-
-    public function getSubscriptionPlanDisplayAttribute()
-    {
-        return match($this->subscription_plan) {
-            'basic' => 'Basic Plan ($29/month)',
-            'professional' => 'Professional Plan ($79/month)', 
-            'business' => 'Business Plus Plan ($159/month)',
-            default => 'No Plan'
-        };
-    }
-}
-```
-
-## 4. Jobs for Background Processing
-
-Create a job to handle account creation when subscriptions are activated:
-
-```bash
-php artisan make:job CreateBusinessFlowAccount
-```
-
-```php
-<?php
-
-namespace App\Jobs;
-
-use App\Models\BusinessFlowUser;
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
-
-class CreateBusinessFlowAccount implements ShouldQueue
-{
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    public function __construct(
-        public string $userId,
-        public string $planId,
-        public string $subscriptionId,
-        public array $userData = []
-    ) {}
-
-    public function handle()
-    {
-        try {
-            // Create or update the BusinessFlow user record
-            $user = BusinessFlowUser::updateOrCreate(
-                ['businessflow_user_id' => $this->userId],
-                [
-                    'email' => $this->userData['email'] ?? null,
-                    'first_name' => $this->userData['firstName'] ?? null,
-                    'last_name' => $this->userData['lastName'] ?? null,
-                    'profile_image_url' => $this->userData['profileImageUrl'] ?? null,
-                    'stripe_customer_id' => $this->userData['stripeCustomerId'] ?? null,
-                    'stripe_subscription_id' => $this->subscriptionId,
-                    'subscription_status' => 'active',
-                    'subscription_plan' => $this->planId,
-                    'subscription_created_at' => now(),
-                ]
-            );
-
-            Log::info("BusinessFlow account created/updated for user {$this->userId}", [
-                'plan' => $this->planId,
-                'subscription_id' => $this->subscriptionId
-            ]);
-
-            // Here you can add additional logic like:
-            // - Creating main application user account
-            // - Setting up initial business data
-            // - Sending welcome emails
-            // - Configuring user permissions based on plan
-
-            $this->createMainApplicationAccount($user);
-            $this->setupInitialBusinessData($user);
-            $this->sendWelcomeEmail($user);
-
-        } catch (\Exception $e) {
-            Log::error("Failed to create BusinessFlow account for user {$this->userId}: " . $e->getMessage());
-            throw $e; // Re-throw to trigger job retry
-        }
-    }
-
-    private function createMainApplicationAccount(BusinessFlowUser $user)
-    {
-        // Create your main application user account here
-        // This depends on your application's user model and requirements
-        
-        // Example:
-        // User::firstOrCreate([
-        //     'email' => $user->email
-        // ], [
-        //     'name' => $user->full_name,
-        //     'businessflow_user_id' => $user->businessflow_user_id,
-        //     'subscription_plan' => $user->subscription_plan,
-        //     'email_verified_at' => now(),
-        // ]);
-    }
-
-    private function setupInitialBusinessData(BusinessFlowUser $user)
-    {
-        // Set up initial business data based on subscription plan
-        switch ($user->subscription_plan) {
-            case 'basic':
-                // Basic plan setup
-                break;
-            case 'professional':
-                // Professional plan setup with more features
-                break;
-            case 'business':
-                // Business plan setup with all features
-                break;
-        }
-    }
-
-    private function sendWelcomeEmail(BusinessFlowUser $user)
-    {
-        // Send welcome email with account details
-        // You can use Laravel's Mail facade here
-    }
-}
-```
-
-## 5. Webhook Controller
-
-Create a controller to handle webhooks from BusinessFlow Pro:
-
-```bash
-php artisan make:controller BusinessFlowWebhookController
-```
+Create a new controller to handle BusinessFlow Pro webhooks:
 
 ```php
 <?php
 
 namespace App\Http\Controllers;
 
-use App\Jobs\CreateBusinessFlowAccount;
-use App\Models\BusinessFlowUser;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
+use App\Models\User;
+use App\Models\Subscription;
 
 class BusinessFlowWebhookController extends Controller
 {
-    public function handleSubscriptionActivated(Request $request)
+    public function handle(Request $request): JsonResponse
     {
-        // Verify the webhook signature
-        if (!$this->verifyWebhookSignature($request)) {
-            return response()->json(['error' => 'Invalid signature'], 401);
+        // Verify webhook authentication
+        $authHeader = $request->header('Authorization');
+        if (!$authHeader || !str_starts_with($authHeader, 'Bearer ')) {
+            Log::warning('BusinessFlow webhook: Missing or invalid authorization header');
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
-
-        $data = $request->all();
-
-        // Validate required fields
-        $this->validate($request, [
-            'userId' => 'required|string',
-            'planId' => 'required|string',
-            'subscriptionId' => 'required|string',
-            'userData' => 'required|array'
-        ]);
-
-        // Dispatch job to create/update account
-        CreateBusinessFlowAccount::dispatch(
-            $data['userId'],
-            $data['planId'], 
-            $data['subscriptionId'],
-            $data['userData']
-        );
-
-        Log::info('BusinessFlow subscription webhook processed', [
-            'user_id' => $data['userId'],
-            'plan' => $data['planId']
-        ]);
-
-        return response()->json(['success' => true]);
-    }
-
-    public function handleSubscriptionCanceled(Request $request)
-    {
-        if (!$this->verifyWebhookSignature($request)) {
-            return response()->json(['error' => 'Invalid signature'], 401);
-        }
-
-        $data = $request->all();
         
-        BusinessFlowUser::where('businessflow_user_id', $data['userId'])
-            ->update(['subscription_status' => 'canceled']);
-
-        // Additional cleanup logic here
-
-        return response()->json(['success' => true]);
-    }
-
-    public function handleDemoRequest(Request $request)
-    {
-        if (!$this->verifyWebhookSignature($request)) {
-            return response()->json(['error' => 'Invalid signature'], 401);
+        $token = substr($authHeader, 7);
+        if ($token !== config('services.businessflow.webhook_secret')) {
+            Log::warning('BusinessFlow webhook: Invalid token');
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        $data = $request->all();
+        // Parse webhook data
+        $subscriptionId = $request->input('subscription_id');
+        $planId = $request->input('plan_id');
+        $userData = $request->input('user_data');
+        $billingPeriod = $request->input('billing_period');
+        $subscriptionStatus = $request->input('subscription_status');
 
-        // Store demo request in your CRM or lead management system
-        // Send notification to sales team
-        // Create follow-up tasks
+        try {
+            // Create or update user
+            $user = User::updateOrCreate(
+                ['email' => $userData['email']],
+                [
+                    'name' => trim($userData['first_name'] . ' ' . $userData['last_name']),
+                    'first_name' => $userData['first_name'],
+                    'last_name' => $userData['last_name'],
+                    'company_name' => $userData['company_name'],
+                    'company_size' => $userData['company_size'],
+                    'industry' => $userData['industry'],
+                    'password' => bcrypt(str()->random(32)), // Random password, user will reset
+                    'email_verified_at' => now(),
+                ]
+            );
 
-        Log::info('New demo request received', $data);
+            // Create or update subscription record
+            Subscription::updateOrCreate(
+                ['stripe_subscription_id' => $subscriptionId],
+                [
+                    'user_id' => $user->id,
+                    'plan_id' => $planId,
+                    'billing_period' => $billingPeriod,
+                    'status' => $subscriptionStatus,
+                    'current_period_end' => $request->input('current_period_end') 
+                        ? date('Y-m-d H:i:s', $request->input('current_period_end'))
+                        : null,
+                ]
+            );
 
-        return response()->json(['success' => true]);
-    }
+            // Send welcome email
+            $user->sendWelcomeNotification($planId);
 
-    private function verifyWebhookSignature(Request $request): bool
-    {
-        $signature = $request->header('X-BusinessFlow-Signature');
-        $payload = $request->getContent();
-        $secret = config('services.businessflow.webhook_secret');
+            Log::info('BusinessFlow webhook processed successfully', [
+                'user_id' => $user->id,
+                'email' => $user->email,
+                'subscription_id' => $subscriptionId,
+                'plan_id' => $planId
+            ]);
 
-        $computedSignature = hash_hmac('sha256', $payload, $secret);
+            return response()->json(['success' => true]);
 
-        return hash_equals($signature, $computedSignature);
+        } catch (\Exception $e) {
+            Log::error('BusinessFlow webhook processing failed', [
+                'error' => $e->getMessage(),
+                'subscription_id' => $subscriptionId,
+                'user_data' => $userData
+            ]);
+
+            return response()->json(['error' => 'Processing failed'], 500);
+        }
     }
 }
 ```
 
-## 6. Routes
+### 2. Add Route
 
-Add webhook routes to `routes/web.php` or `routes/api.php`:
-
-```php
-// BusinessFlow Pro Webhooks
-Route::prefix('webhooks/businessflow')->group(function () {
-    Route::post('subscription-activated', [BusinessFlowWebhookController::class, 'handleSubscriptionActivated']);
-    Route::post('subscription-canceled', [BusinessFlowWebhookController::class, 'handleSubscriptionCanceled']);
-    Route::post('demo-request', [BusinessFlowWebhookController::class, 'handleDemoRequest']);
-});
-```
-
-## 7. Configuration
-
-Add BusinessFlow configuration to `config/services.php`:
+Add the webhook route to your `routes/api.php`:
 
 ```php
-'businessflow' => [
-    'api_url' => env('BUSINESSFLOW_API_URL'),
-    'api_secret' => env('BUSINESSFLOW_API_SECRET'),
-    'webhook_secret' => env('BUSINESSFLOW_WEBHOOK_SECRET'),
-],
+// BusinessFlow Pro webhook
+Route::post('/businessflow/webhook', [BusinessFlowWebhookController::class, 'handle'])
+    ->name('businessflow.webhook');
 ```
 
-## 8. Implementation Steps
+### 3. Environment Configuration
 
-### Step 1: Run Migrations
-```bash
-php artisan migrate
+Add these environment variables to your `.env` file:
+
+```env
+# BusinessFlow Pro Integration
+BUSINESSFLOW_WEBHOOK_SECRET=your_secure_webhook_secret_here
+BUSINESSFLOW_WEBHOOK_URL=https://your-laravel-app.com/api/businessflow/webhook
 ```
 
-### Step 2: Configure Queue Workers
-```bash
-# Start Redis (if not already running)
-redis-server
+### 4. Configure BusinessFlow Pro
 
-# Start queue workers
-php artisan queue:work
+In your BusinessFlow Pro environment, set these variables:
+
+```env
+# Production only - Laravel webhook integration
+LARAVEL_WEBHOOK_URL=https://your-laravel-app.com/api/businessflow/webhook
+LARAVEL_WEBHOOK_SECRET=your_secure_webhook_secret_here
 ```
 
-### Step 3: Set Up Webhooks
-In your BusinessFlow Pro application, configure webhook URLs to point to your Laravel endpoints:
+### 5. Database Migrations
 
-- Subscription Activated: `https://yourapp.com/webhooks/businessflow/subscription-activated`
-- Subscription Canceled: `https://yourapp.com/webhooks/businessflow/subscription-canceled`
-- Demo Request: `https://yourapp.com/webhooks/businessflow/demo-request`
-
-### Step 4: Update BusinessFlow Pro Server Code
-Modify the BusinessFlow Pro server to send webhooks when subscriptions are activated. In `server/routes.ts`, update the webhook handler:
-
-```javascript
-// In the invoice.payment_succeeded case
-if (userId) {
-  await storage.updateUserSubscription(userId, 'active', planId);
-  
-  // Send webhook to Laravel application
-  try {
-    const user = await storage.getUser(userId);
-    const webhookData = {
-      userId,
-      planId,
-      subscriptionId,
-      userData: {
-        email: user.email,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        profileImageUrl: user.profileImageUrl,
-        stripeCustomerId: user.stripeCustomerId
-      }
-    };
-
-    const signature = crypto
-      .createHmac('sha256', process.env.LARAVEL_WEBHOOK_SECRET)
-      .update(JSON.stringify(webhookData))
-      .digest('hex');
-
-    await fetch(`${process.env.LARAVEL_API_URL}/webhooks/businessflow/subscription-activated`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-BusinessFlow-Signature': signature,
-      },
-      body: JSON.stringify(webhookData)
-    });
-  } catch (error) {
-    console.error('Failed to send webhook to Laravel:', error);
-  }
-}
-```
-
-## 9. Testing
-
-### Test Webhook Endpoints
-```bash
-# Test with curl
-curl -X POST https://yourapp.com/webhooks/businessflow/subscription-activated \
-  -H "Content-Type: application/json" \
-  -H "X-BusinessFlow-Signature: your_test_signature" \
-  -d '{"userId":"test123","planId":"professional","subscriptionId":"sub_123","userData":{"email":"test@example.com"}}'
-```
-
-### Monitor Logs
-```bash
-# Watch Laravel logs
-tail -f storage/logs/laravel.log
-
-# Watch queue jobs
-php artisan queue:monitor
-```
-
-## 10. Additional Features
-
-### User Synchronization Service
-Create a service to sync user data between BusinessFlow Pro and your Laravel app:
-
-```bash
-php artisan make:command SyncBusinessFlowUsers
-```
-
-### Subscription Plan Management
-Create endpoints to manage subscription plans and features:
+Create migrations for user and subscription tracking:
 
 ```php
-Route::get('/admin/businessflow/users', [AdminController::class, 'businessflowUsers']);
-Route::get('/admin/businessflow/analytics', [AdminController::class, 'subscriptionAnalytics']);
-```
+<?php
+// Migration: create_users_table_updates.php
 
-### API Integration
-Create services to communicate with BusinessFlow Pro API for real-time data:
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-```php
-class BusinessFlowApiService
+class CreateUsersTableUpdates extends Migration
 {
-    public function getUserSubscription(string $userId)
+    public function up()
     {
-        return Http::withToken(config('services.businessflow.api_secret'))
-            ->get(config('services.businessflow.api_url') . "/api/users/{$userId}/subscription");
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('company_size')->nullable();
+            $table->string('industry')->nullable();
+        });
+    }
+
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn(['first_name', 'last_name', 'company_name', 'company_size', 'industry']);
+        });
     }
 }
 ```
 
-## 11. Security Considerations
-
-1. **Webhook Signature Verification**: Always verify webhook signatures
-2. **Rate Limiting**: Implement rate limiting on webhook endpoints
-3. **HTTPS Only**: Ensure all webhook URLs use HTTPS
-4. **Secret Management**: Use Laravel's config system for secrets
-5. **Database Security**: Encrypt sensitive data like customer IDs
-
-## 12. Monitoring and Maintenance
-
-### Health Checks
 ```php
-Route::get('/health/businessflow', function () {
-    $checks = [
-        'database' => BusinessFlowUser::count() > 0,
-        'queue' => Queue::size() < 100,
-        'api_connectivity' => // Test BusinessFlow API
-    ];
-    
-    return response()->json($checks);
-});
+<?php
+// Migration: create_subscriptions_table.php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateSubscriptionsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('subscriptions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('stripe_subscription_id')->unique();
+            $table->string('plan_id');
+            $table->string('billing_period'); // 'monthly' or 'yearly'
+            $table->string('status'); // 'active', 'cancelled', etc.
+            $table->timestamp('current_period_end')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('subscriptions');
+    }
+}
 ```
 
-### Analytics Dashboard
-Track subscription metrics, user engagement, and revenue data from BusinessFlow Pro integrations.
+### 6. Models
 
-This integration will automatically create user accounts in your Laravel application whenever someone subscribes to BusinessFlow Pro, ensuring seamless user experience and proper data synchronization between systems.
+Create or update your models:
+
+```php
+<?php
+// App/Models/User.php
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    protected $fillable = [
+        'name', 'email', 'password', 'first_name', 'last_name',
+        'company_name', 'company_size', 'industry', 'email_verified_at'
+    ];
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+    public function activeSubscription()
+    {
+        return $this->subscriptions()->where('status', 'active')->first();
+    }
+
+    public function sendWelcomeNotification($planId)
+    {
+        // Send welcome email with login instructions
+        // You can customize this based on your notification system
+    }
+}
+```
+
+```php
+<?php
+// App/Models/Subscription.php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Subscription extends Model
+{
+    protected $fillable = [
+        'user_id', 'stripe_subscription_id', 'plan_id', 
+        'billing_period', 'status', 'current_period_end'
+    ];
+
+    protected $casts = [
+        'current_period_end' => 'datetime',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
+```
+
+### 7. Configuration File
+
+Create a config file for BusinessFlow integration:
+
+```php
+<?php
+// config/services.php
+
+return [
+    // ... other services
+
+    'businessflow' => [
+        'webhook_secret' => env('BUSINESSFLOW_WEBHOOK_SECRET'),
+        'webhook_url' => env('BUSINESSFLOW_WEBHOOK_URL'),
+    ],
+];
+```
+
+## Testing
+
+### Development Mode
+
+BusinessFlow Pro automatically simulates webhook events in development mode. You'll see logs like:
+
+```
+[DEV] Would create Laravel account with data: {
+  email: "user@example.com",
+  firstName: "John",
+  lastName: "Doe",
+  companyName: "Acme Corp",
+  planId: "basic",
+  subscriptionId: "sub_mock_1234567890"
+}
+```
+
+### Production Testing
+
+1. Set up a test webhook endpoint (you can use tools like ngrok for local testing)
+2. Configure the `LARAVEL_WEBHOOK_URL` environment variable
+3. Complete a test subscription in BusinessFlow Pro
+4. Check your Laravel logs to verify webhook processing
+
+## Security Considerations
+
+1. **Always verify the webhook secret** - This prevents unauthorized requests
+2. **Use HTTPS** - Webhook URLs should always use HTTPS in production
+3. **Log webhook events** - Keep detailed logs for debugging and audit purposes
+4. **Handle failures gracefully** - Return appropriate HTTP status codes
+5. **Validate input data** - Always validate webhook payload data
+
+## Webhook Payload Example
+
+```json
+{
+  "subscription_id": "sub_1234567890",
+  "plan_id": "basic",
+  "user_data": {
+    "email": "user@example.com",
+    "first_name": "John",
+    "last_name": "Doe",
+    "company_name": "Acme Corp",
+    "company_size": "11-50",
+    "industry": "technology"
+  },
+  "billing_period": "monthly",
+  "subscription_status": "active",
+  "current_period_end": 1673539200
+}
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **401 Unauthorized**: Check that `LARAVEL_WEBHOOK_SECRET` matches between both applications
+2. **500 Server Error**: Check Laravel logs for specific error details
+3. **Webhook not received**: Verify the `LARAVEL_WEBHOOK_URL` is correct and accessible
+4. **User creation fails**: Check database permissions and table structure
+
+### Debugging
+
+Enable detailed logging in your Laravel application:
+
+```php
+// In your webhook controller, add debugging
+Log::debug('BusinessFlow webhook received', [
+    'headers' => $request->headers->all(),
+    'payload' => $request->all()
+]);
+```
+
+## Support
+
+For issues with the BusinessFlow Pro integration:
+1. Check the webhook logs in both applications
+2. Verify environment variables are correctly set
+3. Test the webhook endpoint manually with curl
+4. Contact BusinessFlow Pro support with specific error messages
+
+This integration ensures seamless user account creation in your Laravel application whenever someone subscribes to BusinessFlow Pro!

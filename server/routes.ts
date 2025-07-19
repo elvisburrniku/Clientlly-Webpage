@@ -379,6 +379,43 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       console.log(`Created Stripe checkout session for ${userData.email}, plan: ${planId}, billing: ${billingPeriod}`);
       
+      // In development mode, simulate webhook events since external webhooks can't reach local dev
+      if (process.env.NODE_ENV === 'development') {
+        // Simulate checkout completion webhook after a delay
+        setTimeout(async () => {
+          try {
+            console.log(`[DEV] Simulating checkout.session.completed webhook for session ${session.id}`);
+            
+            // Create a mock subscription object
+            const mockSubscription = {
+              id: `sub_mock_${Date.now()}`,
+              status: 'active',
+              metadata: session.metadata,
+              current_period_end: Math.floor(Date.now() / 1000) + (billingPeriod === 'yearly' ? 365 * 24 * 60 * 60 : 30 * 24 * 60 * 60)
+            };
+            
+            // Simulate the webhook processing
+            console.log(`[DEV] Mock subscription created: ${mockSubscription.id} for ${userData.email}`);
+            
+            // Trigger Laravel account creation (simulated in dev mode)
+            await processSubscriptionSuccess(mockSubscription, {
+              email: userData.email,
+              firstName: userData.firstName,
+              lastName: userData.lastName,
+              companyName: userData.companyName,
+              companySize: userData.companySize,
+              industry: userData.industry,
+              planId: planId,
+              billingPeriod: billingPeriod
+            });
+            console.log(`[DEV] Mock webhook processed successfully - subscription active for ${userData.email}`);
+            
+          } catch (error) {
+            console.error('[DEV] Error simulating webhook:', error);
+          }
+        }, 2000); // 2 second delay to simulate processing time
+      }
+      
       res.json({ 
         checkoutUrl: session.url,
         sessionId: session.id 
@@ -431,6 +468,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Stripe webhook endpoint
   app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+    // In development mode, skip webhook verification for testing
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[DEV] Webhook endpoint called in development mode - processing mock event');
+      res.json({ received: true, dev_mode: true });
+      return;
+    }
+
     const sig = req.headers['stripe-signature'] as string;
     let event: Stripe.Event;
 
@@ -559,6 +603,60 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to fetch subscription status" });
     }
   });
+
+  // Helper function to process successful subscriptions
+  async function processSubscriptionSuccess(subscription: any, userData: any) {
+    try {
+      console.log(`Processing subscription success for: ${userData.email}`);
+      
+      // In production, this would make an HTTP request to your Laravel application
+      if (process.env.NODE_ENV === 'production' && process.env.LARAVEL_WEBHOOK_URL) {
+        const laravelPayload = {
+          subscription_id: subscription.id,
+          plan_id: userData.planId || subscription.metadata?.planId,
+          user_data: {
+            email: userData.email || subscription.metadata?.email,
+            first_name: userData.firstName || subscription.metadata?.firstName,
+            last_name: userData.lastName || subscription.metadata?.lastName,
+            company_name: userData.companyName || subscription.metadata?.companyName,
+            company_size: userData.companySize || subscription.metadata?.companySize,
+            industry: userData.industry || subscription.metadata?.industry,
+          },
+          billing_period: userData.billingPeriod || subscription.metadata?.billingPeriod,
+          subscription_status: subscription.status,
+          current_period_end: subscription.current_period_end
+        };
+
+        // Make HTTP request to Laravel app
+        const response = await fetch(process.env.LARAVEL_WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.LARAVEL_WEBHOOK_SECRET || ''}`
+          },
+          body: JSON.stringify(laravelPayload)
+        });
+
+        if (response.ok) {
+          console.log(`✅ Laravel account created successfully for ${userData.email}`);
+        } else {
+          console.error(`❌ Failed to create Laravel account for ${userData.email}:`, response.statusText);
+        }
+      } else {
+        // Development mode - just log what would be sent to Laravel
+        console.log(`[DEV] Would create Laravel account with data:`, {
+          email: userData.email || subscription.metadata?.email,
+          firstName: userData.firstName || subscription.metadata?.firstName,
+          lastName: userData.lastName || subscription.metadata?.lastName,
+          companyName: userData.companyName || subscription.metadata?.companyName,
+          planId: userData.planId || subscription.metadata?.planId,
+          subscriptionId: subscription.id
+        });
+      }
+    } catch (error) {
+      console.error('Error processing subscription success:', error);
+    }
+  }
 
   const httpServer = createServer(app);
   return httpServer;
