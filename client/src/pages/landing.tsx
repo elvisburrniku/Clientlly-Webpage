@@ -224,7 +224,7 @@ export default function Landing() {
             </div>
             
             <div className="hidden md:flex items-center space-x-8 slide-in-right">
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.features', 'Features')}</a>
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">Features</a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.pricing.title', 'Pricing')}</a>
               <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('calculator.title', 'Calculator')}</Link>
               <a href="#about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">About</a>
@@ -281,13 +281,13 @@ export default function Landing() {
             <div className="space-y-8 slide-in-left">
               <div className="space-y-6">
                 <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                  <span className="text-foreground fade-in stagger-1">Transform Your</span>
+                  <span className="text-foreground fade-in stagger-1">{t('landing.subtitle', 'Transform Your')}</span>
                   <span className="gradient-text block fade-in stagger-2">
-                    Business Operations
+                    {t('landing.title', 'Business Operations')}
                   </span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed fade-in stagger-3">
-                  The complete business management platform that streamlines invoicing, expenses, CRM, HR, and contracts in one powerful solution.
+                  {t('landing.description', 'The complete business management platform that streamlines invoicing, expenses, CRM, HR, and contracts in one powerful solution.')}
                 </p>
               </div>
 
@@ -297,7 +297,7 @@ export default function Landing() {
                   className="bg-gradient-to-r from-primary to-secondary hover:shadow-2xl hover:scale-105 transition-all duration-300 pulse-glow"
                   onClick={() => window.location.href = "/api/login"}
                 >
-                  Start Free Trial
+                  {t('landing.getStarted', 'Start Free Trial')}
                 </Button>
                 <Button 
                   size="lg" 
@@ -305,7 +305,7 @@ export default function Landing() {
                   className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white glow-border transition-all duration-300"
                   onClick={() => setShowDemoModal(true)}
                 >
-                  Request Demo
+                  {t('landing.requestDemo', 'Request Demo')}
                 </Button>
               </div>
 

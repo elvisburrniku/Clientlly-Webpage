@@ -113,11 +113,32 @@ export async function detectUserLocation(): Promise<{
 export function useLanguage() {
   const [currentLanguage, setCurrentLanguage] = useState<string>('en');
   const [isLoading, setIsLoading] = useState(true);
+  const [locationInfo, setLocationInfo] = useState<{
+    country: string;
+    currency: string;
+    timezone: string;
+    currencySymbol: string;
+  } | null>(null);
 
   useEffect(() => {
-    const detected = detectUserLanguage();
-    setCurrentLanguage(detected);
-    setIsLoading(false);
+    const initializeLanguageAndLocation = async () => {
+      try {
+        // Detect language
+        const detected = detectUserLanguage();
+        setCurrentLanguage(detected);
+
+        // Detect location
+        const location = await detectUserLocation();
+        setLocationInfo(location);
+        
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error initializing language/location:', error);
+        setIsLoading(false);
+      }
+    };
+
+    initializeLanguageAndLocation();
   }, []);
 
   const changeLanguage = (langCode: string) => {
@@ -132,6 +153,7 @@ export function useLanguage() {
     changeLanguage,
     isLoading,
     supportedLanguages: SUPPORTED_LANGUAGES,
+    locationInfo,
   };
 }
 
