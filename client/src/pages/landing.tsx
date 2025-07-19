@@ -232,7 +232,7 @@ export default function Landing() {
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDemoModal(true)} 
-                className="text-secondary hover:text-secondary/80 glow-border transition-all duration-300"
+                className="text-primary hover:text-primary/80 glow-border transition-all duration-300"
               >
                 {t('landing.requestDemo', 'Request Demo')}
               </Button>
@@ -376,10 +376,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
-              {t('landing.features.title', 'Everything you need to run your business')}
+              Everything you need to <span className="gradient-text">run your business</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1">
-              {t('landing.features.subtitle', 'Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.')}
+              Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
             </p>
           </div>
 
@@ -451,10 +451,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
-              {t('landing.pricing.title', 'Choose the perfect plan for your business')}
+              Choose the perfect plan for <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">your business</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              {t('landing.pricing.subtitle', 'Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.')}
+              Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
             </p>
             
             {/* Billing Period Toggle */}
@@ -469,7 +469,7 @@ export default function Landing() {
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                   }`}
                 >
-                  {t('landing.pricing.monthly', 'Monthly')}
+                  Monthly
                 </button>
                 
                 {/* Yearly Button */}
@@ -481,7 +481,7 @@ export default function Landing() {
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                   }`}
                 >
-                  {t('landing.pricing.yearly', 'Yearly')}
+                  Yearly
                 </button>
                 
                 {/* Animated Background */}
@@ -499,7 +499,7 @@ export default function Landing() {
                 billingPeriod === 'yearly' ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'
               }`}>
                 <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
-                  🎉 {t('landing.pricing.save', 'Save 17% with yearly billing')}
+                  🎉 Save 17% with yearly billing
                 </div>
               </div>
             </div>
@@ -515,7 +515,7 @@ export default function Landing() {
               >
                 {index === 1 && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 pulse-glow">
-                    <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-1">{t('landing.pricing.mostPopular', 'Most Popular')}</Badge>
+                    <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-1">Most Popular</Badge>
                   </div>
                 )}
                 
