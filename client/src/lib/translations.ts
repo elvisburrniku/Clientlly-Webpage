@@ -22,8 +22,8 @@ export const translations: { [lang: string]: Translations } = {
       phone: 'Phone',
     },
     landing: {
-      title: 'BusinessFlow Pro',
-      subtitle: 'Complete Business Management Solution',
+      title: 'Smart Management',
+      subtitle: 'Transform Your Business with',
       description: 'Streamline your business operations with our comprehensive platform for invoicing, CRM, HR, and contract management.',
       getStarted: 'Get Started',
       requestDemo: 'Request Demo',
@@ -178,8 +178,8 @@ export const translations: { [lang: string]: Translations } = {
       phone: 'Teléfono',
     },
     landing: {
-      title: 'BusinessFlow Pro',
-      subtitle: 'Solución Completa de Gestión Empresarial',
+      title: 'Gestión Inteligente',
+      subtitle: 'Transforma Tu Negocio con',
       description: 'Optimiza las operaciones de tu negocio con nuestra plataforma integral para facturación, CRM, RRHH y gestión de contratos.',
       getStarted: 'Comenzar',
       requestDemo: 'Solicitar Demo',
@@ -334,8 +334,8 @@ export const translations: { [lang: string]: Translations } = {
       phone: 'Téléphone',
     },
     landing: {
-      title: 'BusinessFlow Pro',
-      subtitle: 'Solution Complète de Gestion d\'Entreprise',
+      title: 'Gestion Intelligente',
+      subtitle: 'Transformez Votre Entreprise avec',
       description: 'Rationalisez les opérations de votre entreprise avec notre plateforme complète pour la facturation, CRM, RH et gestion des contrats.',
       getStarted: 'Commencer',
       requestDemo: 'Demander une Démo',
@@ -490,8 +490,8 @@ export const translations: { [lang: string]: Translations } = {
       phone: 'Telefon',
     },
     landing: {
-      title: 'BusinessFlow Pro',
-      subtitle: 'Komplette Geschäftsverwaltungslösung',
+      title: 'Intelligente Verwaltung',
+      subtitle: 'Transformieren Sie Ihr Unternehmen mit',
       description: 'Optimieren Sie Ihre Geschäftsabläufe mit unserer umfassenden Plattform für Rechnungsstellung, CRM, HR und Vertragsmanagement.',
       getStarted: 'Jetzt starten',
       requestDemo: 'Demo anfordern',

@@ -264,10 +264,10 @@ export default function Landing() {
               <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">Calculator</Link>
               <a href="#about" className="block text-muted-foreground hover:text-primary transition-colors">About</a>
               <Button variant="ghost" onClick={() => setShowDemoModal(true)} className="w-full justify-start text-secondary glow-border">
-                Request Demo
+                {t('landing.requestDemo', 'Request Demo')}
               </Button>
               <Button onClick={() => window.location.href = "/api/login"} className="w-full bg-gradient-to-r from-primary to-secondary">
-                Start Free Trial
+                {t('landing.getStarted', 'Start Free Trial')}
               </Button>
             </div>
           </div>
@@ -283,7 +283,7 @@ export default function Landing() {
                 <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                   <span className="text-foreground fade-in stagger-1">{t('landing.subtitle', 'Transform Your')}</span>
                   <span className="gradient-text block fade-in stagger-2">
-                    {t('landing.title', 'Business Operations')}
+                    {t('landing.title', 'Smart Management')}
                   </span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed fade-in stagger-3">
