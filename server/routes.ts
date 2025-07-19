@@ -11,7 +11,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2020-08-27",
+  apiVersion: "2023-10-16",
 });
 
 // Subscription plan configurations
@@ -86,7 +86,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Create subscription endpoint
+  // Create subscription endpoint - Demo version
   app.post('/api/create-subscription', isAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
@@ -104,56 +104,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const plan = SUBSCRIPTION_PLANS[planId as keyof typeof SUBSCRIPTION_PLANS];
 
       // Check if user already has an active subscription
-      if (user.stripeSubscriptionId) {
-        const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
-        
-        if (subscription.status === 'active') {
-          return res.json({
-            subscriptionId: subscription.id,
-            clientSecret: (subscription.latest_invoice as any)?.payment_intent?.client_secret,
-            status: 'existing'
-          });
-        }
-      }
-
-      // Create or get Stripe customer
-      let customerId = user.stripeCustomerId;
-      if (!customerId) {
-        const customer = await stripe.customers.create({
-          email: user.email || '',
-          name: `${user.firstName || ''} ${user.lastName || ''}`.trim(),
-          metadata: {
-            userId: userId,
-          }
+      if (user.stripeSubscriptionId && user.subscriptionStatus === 'active') {
+        return res.json({
+          subscriptionId: user.stripeSubscriptionId,
+          clientSecret: 'demo_client_secret',
+          status: 'existing'
         });
-        customerId = customer.id;
-        await storage.updateUserStripeInfo(userId, customerId);
       }
 
-      // Create subscription
-      const subscription = await stripe.subscriptions.create({
-        customer: customerId,
-        items: [{
-          price: plan.stripePriceId,
-        }],
-        payment_behavior: 'default_incomplete',
-        payment_settings: {
-          save_default_payment_method: 'on_subscription',
-        },
-        expand: ['latest_invoice.payment_intent'],
-        metadata: {
-          userId: userId,
-          planId: planId,
-        }
-      });
+      // For demo purposes, simulate subscription creation
+      console.log(`Demo: Creating subscription for user ${userId} with plan ${planId}`);
+      
+      // Generate demo IDs
+      const demoCustomerId = `cus_demo_${userId}`;
+      const demoSubscriptionId = `sub_demo_${Date.now()}`;
+      const demoClientSecret = `pi_demo_${Date.now()}_secret_demo`;
 
-      // Update user with subscription info
-      await storage.updateUserStripeInfo(userId, customerId, subscription.id);
-      await storage.updateUserSubscription(userId, subscription.status, planId);
+      // Update user with demo subscription info
+      await storage.updateUserStripeInfo(userId, demoCustomerId, demoSubscriptionId);
+      await storage.updateUserSubscription(userId, 'incomplete', planId);
 
       res.json({
-        subscriptionId: subscription.id,
-        clientSecret: (subscription.latest_invoice as any)?.payment_intent?.client_secret,
+        subscriptionId: demoSubscriptionId,
+        clientSecret: demoClientSecret,
         status: 'created'
       });
 

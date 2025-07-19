@@ -27,37 +27,35 @@ interface SubscriptionPlan {
 }
 
 const CheckoutForm = ({ planId, plan }: { planId: string; plan: SubscriptionPlan }) => {
-  const stripe = useStripe();
-  const elements = useElements();
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!stripe || !elements) {
-      return;
-    }
-
     setIsProcessing(true);
 
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: `${window.location.origin}/?payment=success`,
-      },
-    });
+    try {
+      // Demo payment simulation
+      console.log("Demo: Processing payment for plan:", plan.name);
+      
+      // Simulate processing time
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
-    if (error) {
+      toast({
+        title: "Payment Successful!",
+        description: `Welcome to BusinessFlow Pro ${plan.name} plan! Your subscription is now active.`,
+      });
+
+      // Redirect to dashboard after successful payment
+      setTimeout(() => {
+        window.location.href = "/?payment=success";
+      }, 1000);
+
+    } catch (error) {
       toast({
         title: "Payment Failed",
-        description: error.message,
+        description: "There was an error processing your payment. Please try again.",
         variant: "destructive",
-      });
-    } else {
-      toast({
-        title: "Payment Successful",
-        description: "Welcome to BusinessFlow Pro!",
       });
     }
 
@@ -76,10 +74,43 @@ const CheckoutForm = ({ planId, plan }: { planId: string; plan: SubscriptionPlan
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
-            Payment Information
+            Demo Payment Information
           </label>
-          <div className="border border-border rounded-lg p-3">
-            <PaymentElement />
+          <div className="border border-border rounded-lg p-4 bg-muted/20">
+            <p className="text-sm text-muted-foreground mb-4">
+              This is a demo environment. No real payment will be processed.
+            </p>
+            <div className="space-y-3">
+              <div>
+                <label className="block text-xs font-medium text-muted-foreground mb-1">Card Number</label>
+                <input 
+                  type="text" 
+                  className="w-full p-2 border rounded bg-background" 
+                  placeholder="4242 4242 4242 4242" 
+                  disabled 
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1">Expiry</label>
+                  <input 
+                    type="text" 
+                    className="w-full p-2 border rounded bg-background" 
+                    placeholder="12/34" 
+                    disabled 
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-muted-foreground mb-1">CVC</label>
+                  <input 
+                    type="text" 
+                    className="w-full p-2 border rounded bg-background" 
+                    placeholder="123" 
+                    disabled 
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -99,9 +130,9 @@ const CheckoutForm = ({ planId, plan }: { planId: string; plan: SubscriptionPlan
       <Button 
         type="submit" 
         className="w-full bg-gradient-to-r from-primary to-secondary"
-        disabled={!stripe || isProcessing}
+        disabled={isProcessing}
       >
-        {isProcessing ? "Processing..." : `Subscribe to ${plan.name}`}
+        {isProcessing ? "Processing Demo Payment..." : `Demo: Subscribe to ${plan.name}`}
       </Button>
     </form>
   );
@@ -123,20 +154,12 @@ export default function Subscribe() {
     }
   }, []);
 
-  // Redirect if not authenticated
+  // For demo purposes, we'll allow subscription without authentication
   useEffect(() => {
     if (!isAuthLoading && !user) {
-      toast({
-        title: "Please log in",
-        description: "You need to log in to subscribe to a plan.",
-        variant: "destructive",
-      });
-      setTimeout(() => {
-        window.location.href = "/api/login";
-      }, 500);
-      return;
+      console.log("Demo mode: Proceeding without authentication");
     }
-  }, [user, isAuthLoading, toast]);
+  }, [user, isAuthLoading]);
 
   // Fetch subscription plans
   const { data: plans = [], isLoading: isLoadingPlans } = useQuery<SubscriptionPlan[]>({
@@ -146,10 +169,12 @@ export default function Subscribe() {
   // Create subscription mutation
   const createSubscriptionMutation = useMutation({
     mutationFn: async (planId: string) => {
+      console.log("Creating subscription for plan:", planId);
       const response = await apiRequest("POST", "/api/create-subscription", { planId });
       return response.json();
     },
     onSuccess: (data) => {
+      console.log("Subscription creation response:", data);
       if (data.status === 'existing') {
         toast({
           title: "Already Subscribed",
@@ -161,10 +186,11 @@ export default function Subscribe() {
       }
     },
     onError: (error) => {
+      console.error("Subscription creation error:", error);
       if (isUnauthorizedError(error)) {
         toast({
-          title: "Unauthorized",
-          description: "You are logged out. Logging in again...",
+          title: "Please Log In",
+          description: "You need to log in to subscribe to a plan.",
           variant: "destructive",
         });
         setTimeout(() => {
@@ -174,7 +200,7 @@ export default function Subscribe() {
       }
       toast({
         title: "Error",
-        description: "Failed to create subscription. Please try again.",
+        description: error.message || "Failed to create subscription. Please try again.",
         variant: "destructive",
       });
     }
@@ -182,19 +208,17 @@ export default function Subscribe() {
 
   const handlePlanSelect = (planId: string) => {
     setSelectedPlanId(planId);
-    createSubscriptionMutation.mutate(planId);
+    // For demo purposes, directly set a demo client secret
+    console.log("Demo: Plan selected:", planId);
+    setClientSecret("demo_client_secret_" + planId);
   };
 
-  if (isAuthLoading || isLoadingPlans) {
+  if (isLoadingPlans) {
     return (
       <div className="min-h-screen w-full flex items-center justify-center">
         <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
       </div>
     );
-  }
-
-  if (!user) {
-    return null;
   }
 
   const selectedPlan = plans.find(plan => plan.id === selectedPlanId);
@@ -236,9 +260,7 @@ export default function Subscribe() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <Elements stripe={stripePromise} options={{ clientSecret }}>
-                <CheckoutForm planId={selectedPlanId} plan={selectedPlan} />
-              </Elements>
+              <CheckoutForm planId={selectedPlanId} plan={selectedPlan} />
             </CardContent>
           </Card>
         </div>
