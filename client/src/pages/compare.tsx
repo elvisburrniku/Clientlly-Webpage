@@ -102,24 +102,49 @@ export default function Compare() {
           
           {/* Billing Period Toggle */}
           <div className="flex items-center justify-center mb-8">
-            <div className="bg-muted/50 p-1 rounded-xl">
-              <Button
-                variant={billingPeriod === 'monthly' ? 'default' : 'ghost'}
-                onClick={() => setBillingPeriod('monthly')}
-                className="px-6 py-2"
-              >
-                Monthly
-              </Button>
-              <Button
-                variant={billingPeriod === 'yearly' ? 'default' : 'ghost'}
-                onClick={() => setBillingPeriod('yearly')}
-                className="px-6 py-2 relative"
-              >
-                Yearly
-                <Badge className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1">
+            <div className="relative">
+              <div className="bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-700 p-1.5 rounded-2xl shadow-inner border border-border/50">
+                <div className="flex items-center relative">
+                  <Button
+                    variant="ghost"
+                    onClick={() => setBillingPeriod('monthly')}
+                    className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 relative z-10 ${
+                      billingPeriod === 'monthly' 
+                        ? 'text-white shadow-lg' 
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Monthly
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    onClick={() => setBillingPeriod('yearly')}
+                    className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 relative z-10 ${
+                      billingPeriod === 'yearly' 
+                        ? 'text-white shadow-lg' 
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Yearly
+                  </Button>
+                  
+                  {/* Animated Background Slider */}
+                  <div 
+                    className={`absolute top-1.5 bottom-1.5 bg-gradient-to-r from-primary to-secondary rounded-xl shadow-lg transition-all duration-500 ease-out ${
+                      billingPeriod === 'monthly' ? 'left-1.5 right-[50%]' : 'left-[50%] right-1.5'
+                    }`}
+                  />
+                </div>
+              </div>
+              
+              {/* Save Badge - positioned outside the toggle */}
+              <div className={`absolute -top-3 -right-4 transition-all duration-300 ${
+                billingPeriod === 'yearly' ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`}>
+                <Badge className="bg-green-500 text-white text-xs px-3 py-1 rounded-full shadow-lg border-2 border-background animate-pulse">
                   Save 17%
                 </Badge>
-              </Button>
+              </div>
             </div>
           </div>
         </div>
