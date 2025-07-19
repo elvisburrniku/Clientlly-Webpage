@@ -66,24 +66,40 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
       });
       
       // Create account and redirect to Stripe checkout
-      const response = await apiRequest('POST', '/api/create-account-and-subscription', {
-        userData,
-        planId: plan.id,
-        billingPeriod
+      const response = await fetch('/api/create-account-and-subscription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userData,
+          planId: plan.id,
+          billingPeriod
+        }),
       });
 
-      if (response.checkoutUrl) {
-        // Redirect to Stripe checkout
-        window.location.href = response.checkoutUrl;
-      } else {
-        throw new Error('Failed to create checkout session');
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
       }
 
-    } catch (error) {
+      const data = await response.json();
+
+      if (data.checkoutUrl) {
+        // Redirect to Stripe checkout
+        window.location.href = data.checkoutUrl;
+      } else {
+        throw new Error('Failed to create checkout session - no checkout URL received');
+      }
+
+    } catch (error: any) {
       console.error('Payment error:', error);
+      
+      const errorMessage = error.message || 'There was an error setting up your payment. Please try again.';
+      
       toast({
         title: "Payment Setup Failed",
-        description: "There was an error setting up your payment. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
       setIsProcessing(false);
