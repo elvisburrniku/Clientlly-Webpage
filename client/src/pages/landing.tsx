@@ -29,7 +29,16 @@ import {
   Mail,
   Phone,
   MapPin,
-  Clock
+  Clock,
+  Banknote,
+  Calculator,
+  Package,
+  Camera,
+  Smartphone,
+  BarChart3,
+  DollarSign,
+  RefreshCw,
+  ExternalLink
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -489,6 +498,168 @@ export default function Landing() {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1">
               Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
             </p>
+          </div>
+
+          {/* Comprehensive Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
+            {/* Invoicing */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <FileText className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Invoicing</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
+                <Button variant="ghost" className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Expenses */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-green-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Receipt className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Expenses</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Get set for tax time with all your expenses organised in one place.</p>
+                <Button variant="ghost" className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Bank Feeds */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Banknote className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Bank Feeds</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Save time and reduce errors when you connect your bank to get a full view of your finances.</p>
+                <Button variant="ghost" className="text-purple-600 hover:text-purple-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Tax */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-orange-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Calculator className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Tax</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Easily organise expenses into tax categories and track sales tax on income and expenses so you know where you stand and how much you owe.</p>
+                <Button variant="ghost" className="text-orange-600 hover:text-orange-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Inventory */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-red-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Package className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Inventory</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
+                <Button variant="ghost" className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Capture & organize receipts */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-indigo-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Camera className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Capture & organize receipts</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Use your phone to take photos of receipts. Match them to bills to stay organized and ready for tax season with everything in one place.</p>
+              </div>
+            </div>
+
+            {/* Mobile App */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-teal-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Smartphone className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Mobile App</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Save time by running your business on-the go with your mobile device*.</p>
+                <Button variant="ghost" className="text-teal-600 hover:text-teal-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Insights and reports */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <BarChart3 className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Insights and reports</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
+                <Button variant="ghost" className="text-cyan-600 hover:text-cyan-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Multi-currency support */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-emerald-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <DollarSign className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Multi-currency support</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
+              </div>
+            </div>
+
+            {/* Security */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-500/20 to-slate-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-slate-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-slate-500 to-slate-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Shield className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Security</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">See how we keep your information safe and compliant at all times.</p>
+                <Button variant="ghost" className="text-slate-600 hover:text-slate-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Switch to QuickBooks */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-pink-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <RefreshCw className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Switch to QuickBooks</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">Switch from Xero, Excel, Sage, Wave or Freshbooks to QuickBooks Online.</p>
+                <Button variant="ghost" className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Feature Tabs */}
