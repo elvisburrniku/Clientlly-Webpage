@@ -223,71 +223,53 @@ export default function Landing() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/50 shadow-sm">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+      <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex justify-between items-center h-16">
-            {/* Logo Section */}
-            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">B</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">BusinessFlow Pro</span>
+            <Link href="/" className="flex items-center space-x-3 slide-in-left hover:opacity-80 transition-opacity">
+              <img 
+                src="/attached_assets/3d_1753189580286.png" 
+                alt="BusinessFlow Pro" 
+                className="w-10 h-10 object-contain"
+              />
+              <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
             </Link>
             
-            {/* Main Navigation */}
-            <div className="hidden lg:flex items-center">
-              <div className="flex items-center space-x-8 mr-8">
-                <div className="relative group">
-                  <a href="#features" className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
-                    <span>Features</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </a>
-                </div>
-                <div className="relative group">
-                  <span className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer">
-                    <span>Small Businesses</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </span>
-                </div>
-                <div className="relative group">
-                  <span className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer">
-                    <span>Accountants</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </span>
-                </div>
-                <div className="relative group">
-                  <span className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer">
-                    <span>Resources</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </span>
-                </div>
-                <a href="#pricing" className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Pricing</a>
-                <button className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium" onClick={() => setShowDemoModal(true)}>Contact Us</button>
-              </div>
-              
-              {/* Action Buttons */}
-              <div className="flex items-center space-x-3">
-                <Button 
-                  variant="ghost"
-                  onClick={() => window.location.href = "/api/login"}
-                  className="text-gray-700 hover:text-blue-600 font-medium"
-                >
-                  Login
-                </Button>
-                <Button 
-                  onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
-                  className="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-md transition-colors duration-200"
-                >
-                  Buy Now & Save
-                </Button>
-                <Button 
-                  onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md transition-colors duration-200"
-                >
-                  Try It Free
-                </Button>
-                <LanguageSelector />
-              </div>
+            <div className="hidden lg:flex items-center space-x-8 slide-in-right">
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.features', 'Features')}</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.pricing', 'Pricing')}</a>
+              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('calculator.title', 'Calculator')}</Link>
+            </div>
+
+            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
+              <Button 
+                variant="ghost" 
+                onClick={() => setShowDemoModal(true)} 
+                className="text-muted-foreground hover:text-primary transition-all duration-300"
+              >
+                Contact Us
+              </Button>
+              <Button 
+                variant="ghost"
+                onClick={() => window.location.href = "/api/login"}
+                className="text-muted-foreground hover:text-primary transition-all duration-300"
+              >
+                Login
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+                className="border-green-600 bg-green-600 text-white hover:bg-green-700 transition-all duration-300"
+              >
+                Buy Now & Save
+              </Button>
+              <Button 
+                onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
+                className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+              >
+                Try It Free
+              </Button>
+              <LanguageSelector />
             </div>
 
             <div className="flex lg:hidden items-center space-x-2">

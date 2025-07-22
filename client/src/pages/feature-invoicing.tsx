@@ -32,9 +32,11 @@ export default function FeatureInvoicing() {
               <span>Back to Features</span>
             </Link>
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">B</span>
-              </div>
+              <img 
+                src="/attached_assets/3d_1753189580286.png" 
+                alt="BusinessFlow Pro" 
+                className="w-10 h-10 object-contain"
+              />
               <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
             </Link>
             <Button 
