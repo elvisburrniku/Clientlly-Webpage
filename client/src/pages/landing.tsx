@@ -183,15 +183,6 @@ export default function Landing() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              {(locationData || locationLoading) && (
-                <div className="text-sm text-muted-foreground px-3 py-1 bg-white/60 dark:bg-gray-900/60 rounded-full">
-                  {locationLoading ? (
-                    <span className="text-blue-600 dark:text-blue-400">Detecting location...</span>
-                  ) : (
-                    <span>{locationData?.country} • {selectedCurrency}</span>
-                  )}
-                </div>
-              )}
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDemoModal(true)} 
@@ -223,11 +214,6 @@ export default function Landing() {
             </div>
 
             <div className="flex lg:hidden items-center space-x-2">
-              {(locationData || locationLoading) && (
-                <div className="text-xs text-muted-foreground px-2 py-1 bg-white/60 dark:bg-gray-900/60 rounded-full">
-                  {locationLoading ? "..." : selectedCurrency}
-                </div>
-              )}
               <LanguageSelector />
               <Button 
                 variant="ghost" 

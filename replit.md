@@ -73,6 +73,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Added visual currency indicator in navigation showing detected country and currency (e.g., "US • USD", "EU • EUR")
 ✓ Enhanced location detection with loading states and better user feedback
 ✓ Streamlined navigation by removing manual currency selector while maintaining automatic conversion functionality
+✓ Removed all currency indicators from navigation for cleaner design while keeping automatic background currency detection
 
 ## System Architecture
 
