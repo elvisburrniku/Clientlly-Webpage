@@ -631,10 +631,13 @@ export default function Landing() {
       <section id="pricing" className="py-20 px-4 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Choose the perfect plan for <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">your business</span>
+            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
+              <span className="inline-block animate-slide-in-from-left">Choose the perfect plan for</span>{' '}
+              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-x inline-block animate-slide-in-from-right">
+                your business
+              </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 fade-in stagger-1 animate-type-in">
               Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
             </p>
             
@@ -1032,28 +1035,30 @@ export default function Landing() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-primary via-accent to-secondary">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            {t('landing.footer.ready', 'Ready to transform your business?')}
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 slide-in-bottom">
+            <span className="inline-block animate-bounce-in">
+              {t('landing.footer.ready', 'Ready to transform your business?')}
+            </span>
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto slide-in-bottom stagger-1 animate-fade-in-up">
             {t('landing.footer.join', 'Join thousands of businesses that have streamlined their operations with BusinessFlow Pro. Start your free trial today.')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center slide-in-bottom stagger-2">
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 text-lg"
+              className="bg-white text-primary hover:bg-white/90 text-lg transform hover:scale-105 transition-all duration-300 animate-pulse-glow"
               onClick={() => window.location.href = "/api/login"}
             >
-              {t('landing.getStarted', 'Start Free Trial')}
+              <span className="font-bold">{t('landing.getStarted', 'Start Free Trial')}</span>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg"
+              className="border-white text-white hover:bg-white hover:text-primary text-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
               onClick={() => setShowDemoModal(true)}
             >
-              Learn More
+              <span className="font-bold">Learn More</span>
             </Button>
           </div>
 
