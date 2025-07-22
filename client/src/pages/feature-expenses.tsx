@@ -31,13 +31,12 @@ export default function FeatureExpenses() {
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Features</span>
             </Link>
-            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
               <img 
-                src="/attached_assets/3d_1753189580286.png" 
+                src="/attached_assets/3d_1753189705091.png" 
                 alt="BusinessFlow Pro" 
-                className="w-10 h-10 object-contain"
+                className="w-16 h-12 object-contain"
               />
-              <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
             </Link>
             <Button 
               onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
