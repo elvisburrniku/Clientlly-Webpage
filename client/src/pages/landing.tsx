@@ -1125,7 +1125,6 @@ export default function Landing() {
       <Dialog open={showDemoModal} onOpenChange={setShowDemoModal}>
         <DialogContent className="max-w-md glass-effect border-primary/20 scale-in">
           <DialogHeader className="text-center">
-            <DialogTitle className="text-2xl gradient-text">{t('landing.demo.title', 'Request a Demo')}</DialogTitle>
             <p className="text-muted-foreground">{t('landing.demo.subtitle', 'Get a personalized walkthrough of BusinessFlow Pro')}</p>
           </DialogHeader>
           
