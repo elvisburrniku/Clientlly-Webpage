@@ -833,7 +833,7 @@ export default function Landing() {
                     variant={index === 1 ? "default" : "outline"}
                     onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                   >
-                    {t('landing.pricing.choose', 'Choose')} {plan.name}
+                    {plan.id === 'basic' ? 'Try Free' : 'Pay Now'}
                   </Button>
                 </CardContent>
               </Card>
