@@ -27,6 +27,7 @@ import {
   Globe
 } from 'lucide-react';
 import { CurrencySelector, formatCurrency, convertPrice } from "@/components/currency-selector";
+import { useLocationDetection } from "@/hooks/useLocationDetection";
 
 interface PlanFeatures {
   users: number;
@@ -100,6 +101,14 @@ export default function Calculator() {
   const [, navigate] = useLocation();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const { locationData, isLoading: locationLoading } = useLocationDetection();
+  
+  // Auto-set currency based on detected location
+  useEffect(() => {
+    if (locationData && !locationLoading) {
+      setSelectedCurrency(locationData.currency);
+    }
+  }, [locationData, locationLoading]);
   const [teamSize, setTeamSize] = useState([5]);
   const [invoicesPerMonth, setInvoicesPerMonth] = useState([100]);
   const [businessType, setBusinessType] = useState('startup');
@@ -296,7 +305,18 @@ export default function Calculator() {
               <CardContent className="space-y-6">
                 {/* Currency Selector */}
                 <div>
-                  <label className="text-sm font-medium mb-3 block">Currency</label>
+                  <label className="text-sm font-medium mb-3 block">
+                    Currency
+                    {locationLoading ? (
+                      <span className="text-xs text-blue-600 dark:text-blue-400 block">
+                        Detecting location...
+                      </span>
+                    ) : locationData ? (
+                      <span className="text-xs text-green-600 dark:text-green-400 block">
+                        Auto-detected: {locationData.country}
+                      </span>
+                    ) : null}
+                  </label>
                   <CurrencySelector 
                     selectedCurrency={selectedCurrency} 
                     onCurrencyChange={setSelectedCurrency}

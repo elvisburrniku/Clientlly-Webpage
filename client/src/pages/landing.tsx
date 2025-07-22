@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -44,6 +44,7 @@ import {
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { CurrencySelector, formatCurrency, convertPrice } from "@/components/currency-selector";
+import { useLocationDetection } from "@/hooks/useLocationDetection";
 
 interface SubscriptionPlan {
   id: string;
@@ -61,6 +62,14 @@ export default function Landing() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const { locationData, isLoading: locationLoading } = useLocationDetection();
+  
+  // Auto-set currency based on detected location
+  useEffect(() => {
+    if (locationData && !locationLoading) {
+      setSelectedCurrency(locationData.currency);
+    }
+  }, [locationData, locationLoading]);
   const [demoForm, setDemoForm] = useState({
     fullName: "",
     email: "",
@@ -751,7 +760,17 @@ export default function Landing() {
             <div className="flex flex-col items-center justify-center mb-8 space-y-4">
               {/* Currency Selector */}
               <div className="flex items-center space-x-4">
-                <span className="text-sm font-medium text-muted-foreground">Currency:</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Currency: {locationLoading ? (
+                    <span className="text-xs text-blue-600 dark:text-blue-400">
+                      (Detecting location...)
+                    </span>
+                  ) : locationData ? (
+                    <span className="text-xs text-green-600 dark:text-green-400">
+                      (Auto-detected: {locationData.country})
+                    </span>
+                  ) : null}
+                </span>
                 <CurrencySelector 
                   selectedCurrency={selectedCurrency} 
                   onCurrencyChange={setSelectedCurrency}
