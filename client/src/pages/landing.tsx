@@ -43,6 +43,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { CurrencySelector, formatCurrency, convertPrice } from "@/components/currency-selector";
 
 interface SubscriptionPlan {
   id: string;
@@ -59,6 +60,7 @@ export default function Landing() {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [demoForm, setDemoForm] = useState({
     fullName: "",
     email: "",
@@ -260,13 +262,13 @@ export default function Landing() {
                 onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
                 className="border-green-600 bg-green-600 text-white hover:bg-green-700 transition-all duration-300"
               >
-                Buy Now & Save
+                Get Started
               </Button>
               <Button 
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
                 className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
               >
-                Try It Free
+                Start Free
               </Button>
               <LanguageSelector />
             </div>
@@ -326,7 +328,7 @@ export default function Landing() {
                   }}
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
                 >
-                  Buy Now & Save
+                  Get Started
                 </Button>
                 <Button 
                   onClick={() => {
@@ -335,7 +337,7 @@ export default function Landing() {
                   }}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  Try It Free
+                  Start Free
                 </Button>
               </div>
             </div>
@@ -359,7 +361,7 @@ export default function Landing() {
             {/* Trust Badge */}
             <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-8 slide-in-up shadow-lg">
               <Star className="w-4 h-4 mr-2 fill-current text-yellow-500" />
-              {t('landing.trust', 'Trusted by over 10,000+ businesses worldwide')}
+              Used by thousands of businesses worldwide
             </div>
             
             {/* Main Heading */}
@@ -385,14 +387,14 @@ export default function Landing() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
               >
-                Try It Free
+                Start Free
               </Button>
               <Button 
                 size="lg" 
                 className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
               >
-                Buy Now & Save 17%
+                Get Started
               </Button>
               <Button 
                 size="lg" 
@@ -400,7 +402,7 @@ export default function Landing() {
                 className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-10 py-5 text-xl font-semibold rounded-2xl transition-all duration-300 min-w-[200px]"
                 onClick={() => setShowDemoModal(true)}
               >
-                Request Demo
+                Learn More
               </Button>
             </div>
 
@@ -651,7 +653,7 @@ export default function Landing() {
                 <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <RefreshCw className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Switch to QuickBooks</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Migration Available</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Switch from Xero, Excel, Sage, Wave or Freshbooks to QuickBooks Online.</p>
                 <Button variant="ghost" className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold">
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -741,12 +743,22 @@ export default function Landing() {
                 className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
               >
-                Try for Free - No Credit Card Required
+                Start Trial
               </Button>
             </div>
             
-            {/* Billing Period Toggle */}
-            <div className="flex flex-col items-center justify-center mb-8">
+            {/* Currency and Billing Period Controls */}
+            <div className="flex flex-col items-center justify-center mb-8 space-y-4">
+              {/* Currency Selector */}
+              <div className="flex items-center space-x-4">
+                <span className="text-sm font-medium text-muted-foreground">Currency:</span>
+                <CurrencySelector 
+                  selectedCurrency={selectedCurrency} 
+                  onCurrencyChange={setSelectedCurrency}
+                  className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700"
+                />
+              </div>
+              
               <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
                 {/* Monthly Button */}
                 <button
@@ -811,12 +823,22 @@ export default function Landing() {
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
                     <div className="text-4xl font-bold gradient-text mb-1">
-                      ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
+                      {formatCurrency(
+                        convertPrice(
+                          (billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100,
+                          'USD',
+                          selectedCurrency
+                        ),
+                        selectedCurrency
+                      )}
                       <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className="text-sm text-muted-foreground mb-2">
-                        Billed ${Math.floor(plan.yearlyPrice / 100)} yearly
+                        Billed {formatCurrency(
+                          convertPrice(plan.yearlyPrice / 100, 'USD', selectedCurrency),
+                          selectedCurrency
+                        )} yearly
                       </div>
                     )}
                     <p className="text-muted-foreground">
@@ -845,7 +867,7 @@ export default function Landing() {
                       variant={index === 1 ? "default" : "outline"}
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                     >
-                      {plan.id === 'basic' ? 'Try for Free' : 'Buy Now'}
+                      {plan.id === 'basic' ? 'Start Free' : 'Get Started'}
                     </Button>
                     {plan.id !== 'basic' && (
                       <Button 
@@ -1094,7 +1116,7 @@ export default function Landing() {
                         <SelectItem value="sales">{t('landing.contact.form.sales', 'Sales Questions')}</SelectItem>
                         <SelectItem value="support">{t('landing.contact.form.support', 'Technical Support')}</SelectItem>
                         <SelectItem value="partnership">{t('landing.contact.form.partnership', 'Partnership')}</SelectItem>
-                        <SelectItem value="demo">{t('landing.contact.form.demo', 'Request Demo')}</SelectItem>
+                        <SelectItem value="demo">Learn More</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -1160,7 +1182,7 @@ export default function Landing() {
               className="border-white text-white hover:bg-white hover:text-primary text-lg"
               onClick={() => setShowDemoModal(true)}
             >
-              {t('landing.requestDemo', 'Request Demo')}
+              Learn More
             </Button>
           </div>
 

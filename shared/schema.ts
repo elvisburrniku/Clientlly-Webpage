@@ -36,6 +36,7 @@ export const users = pgTable("users", {
   stripeSubscriptionId: varchar("stripe_subscription_id"),
   subscriptionStatus: varchar("subscription_status"), // active, canceled, past_due, etc.
   subscriptionPlan: varchar("subscription_plan"), // basic, professional, business
+  currency: varchar("currency").default("USD"),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });

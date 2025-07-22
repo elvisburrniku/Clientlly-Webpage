@@ -26,6 +26,7 @@ import {
   Shield,
   Globe
 } from 'lucide-react';
+import { CurrencySelector, formatCurrency, convertPrice } from "@/components/currency-selector";
 
 interface PlanFeatures {
   users: number;
@@ -98,6 +99,7 @@ const plans: Plan[] = [
 export default function Calculator() {
   const [, navigate] = useLocation();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const [teamSize, setTeamSize] = useState([5]);
   const [invoicesPerMonth, setInvoicesPerMonth] = useState([100]);
   const [businessType, setBusinessType] = useState('startup');
@@ -292,6 +294,16 @@ export default function Calculator() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
+                {/* Currency Selector */}
+                <div>
+                  <label className="text-sm font-medium mb-3 block">Currency</label>
+                  <CurrencySelector 
+                    selectedCurrency={selectedCurrency} 
+                    onCurrencyChange={setSelectedCurrency}
+                    className="w-full bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700"
+                  />
+                </div>
+
                 {/* Billing Period Toggle */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">Billing Period</label>
@@ -770,12 +782,26 @@ export default function Calculator() {
                     <CardHeader className="text-center pb-4">
                       <CardTitle className="text-xl">{plan.name}</CardTitle>
                       <div className="text-3xl font-bold text-primary">
-                        ${formatPrice(billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12)}
+                        {formatCurrency(
+                          convertPrice(
+                            formatPrice(billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12),
+                            'USD',
+                            selectedCurrency
+                          ),
+                          selectedCurrency
+                        )}
                         <span className="text-sm text-muted-foreground font-normal">/month</span>
                       </div>
                       {billingPeriod === 'yearly' && (
                         <div className="text-sm text-green-600 dark:text-green-400">
-                          Save ${formatPrice(getYearlySavings(plan))} annually
+                          Save {formatCurrency(
+                            convertPrice(
+                              formatPrice(getYearlySavings(plan)),
+                              'USD',
+                              selectedCurrency
+                            ),
+                            selectedCurrency
+                          )} annually
                         </div>
                       )}
                     </CardHeader>
@@ -806,7 +832,7 @@ export default function Calculator() {
                           variant={plan.id === recommendedPlan?.id ? "default" : "outline"}
                           onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                         >
-                          {plan.id === 'basic' ? 'Try for Free' : 'Buy Now'}
+                          {plan.id === 'basic' ? 'Start Free' : 'Get Started'}
                         </Button>
                         {plan.id !== 'basic' && (
                           <Button 
