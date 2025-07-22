@@ -169,7 +169,7 @@ export default function Landing() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center slide-in-left hover:opacity-80 transition-opacity">
               <img 
-                src="/attached_assets/3d_1753189705091.png" 
+                src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
                 className="w-16 h-12 object-contain"
               />
@@ -1076,9 +1076,11 @@ export default function Landing() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <ChartLine className="h-4 w-4 text-white" />
-                </div>
+                <img 
+                  src="/attached_assets/3d_1753195741585.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-8 h-6 object-contain"
+                />
                 <span className="text-xl font-bold">BusinessFlow Pro</span>
               </div>
               <p className="text-gray-400">

@@ -20,7 +20,7 @@ export default function FeatureMultiCurrency() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
               <img 
-                src="/attached_assets/3d_1753189705091.png" 
+                src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
                 className="h-10 w-auto"
               />

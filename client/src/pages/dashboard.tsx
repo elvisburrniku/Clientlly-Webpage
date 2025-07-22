@@ -100,9 +100,11 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3 slide-in-left">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
-                <ChartLine className="h-4 w-4 text-white" />
-              </div>
+              <img 
+                src="/attached_assets/3d_1753195741585.png" 
+                alt="BusinessFlow Pro" 
+                className="w-8 h-6 object-contain"
+              />
               <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
             </div>
             
