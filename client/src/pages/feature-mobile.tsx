@@ -18,12 +18,13 @@ export default function FeatureMobile() {
       <nav className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <img 
                 src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
                 className="h-10 w-auto"
               />
+              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             <Button variant="ghost" asChild>
               <Link href="/#features">

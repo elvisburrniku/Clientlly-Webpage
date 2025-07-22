@@ -167,12 +167,13 @@ export default function Landing() {
       <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center slide-in-left hover:opacity-80 transition-opacity">
+            <Link href="/" className="flex items-center space-x-3 slide-in-left hover:opacity-80 transition-opacity">
               <img 
                 src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
                 className="w-16 h-12 object-contain"
               />
+              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             
             <div className="hidden lg:flex items-center space-x-8 slide-in-right">

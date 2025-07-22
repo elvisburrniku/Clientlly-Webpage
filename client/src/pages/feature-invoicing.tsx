@@ -54,12 +54,13 @@ export default function FeatureInvoicing() {
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Features</span>
             </button>
-            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <img 
                 src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
                 className="w-16 h-12 object-contain"
               />
+              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             <Button 
               onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
