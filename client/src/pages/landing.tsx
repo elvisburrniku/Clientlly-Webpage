@@ -4,7 +4,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -913,7 +913,15 @@ export default function Landing() {
 
             {/* Contact Form */}
             <Card className="glass-effect border-primary/20 slide-in-right">
-              <CardContent className="p-8">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-center gradient-text">
+                  {t('landing.contact.form.title', 'Send us a Message')}
+                </CardTitle>
+                <p className="text-center text-muted-foreground">
+                  {t('landing.contact.form.subtitle', 'Fill out the form below and we\'ll get back to you within 24 hours')}
+                </p>
+              </CardHeader>
+              <CardContent className="p-8 pt-0">
                 <form onSubmit={handleContactSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="fade-in stagger-1">
