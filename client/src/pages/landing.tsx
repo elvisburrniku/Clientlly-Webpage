@@ -781,36 +781,7 @@ export default function Landing() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 mb-8 border border-primary/20">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                {t('landing.pricing.unsure', 'Not sure which plan is right for you?')}
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                {t('landing.pricing.calculator', 'Use our interactive pricing calculator to get personalized recommendations based on your business needs.')}
-              </p>
-              <Link href="/calculator">
-                <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:scale-105 transition-all duration-300">
-                  {t('landing.pricing.tryCalculator', 'Try Our Pricing Calculator')}
-                </Button>
-              </Link>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-              <Button 
-                variant="outline" 
-                onClick={() => window.location.href = "/compare"}
-                className="text-primary border-primary hover:bg-primary hover:text-white"
-              >
-                {t('landing.pricing.compare', 'Compare All Features')} →
-              </Button>
-              <Button variant="link" onClick={() => setShowDemoModal(true)} className="text-primary hover:text-primary/80">
-                {t('landing.pricing.contactSales', 'Contact Sales Team')}
-              </Button>
-            </div>
-            <p className="text-muted-foreground text-sm">
-              {t('landing.pricing.custom', 'Need a custom solution? Our team is here to help.')}
-            </p>
-          </div>
+
         </div>
       </section>
 

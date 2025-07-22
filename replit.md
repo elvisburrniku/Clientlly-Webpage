@@ -55,6 +55,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Added route handling for all new feature pages in authentication system
 ✓ Removed trust indicators section from main landing page for cleaner design
 ✓ Removed feature tabs section with detailed descriptions to streamline landing page focus
+✓ Removed pricing calculator section and additional sales contact options from main pricing section
 
 ## System Architecture
 
