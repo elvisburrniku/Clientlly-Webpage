@@ -654,7 +654,6 @@ export default function Subscribe() {
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             <div className="ml-8">
               <LanguageSelector />

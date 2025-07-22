@@ -266,7 +266,6 @@ export default function Calculator() {
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             <Button variant="ghost" onClick={() => navigate("/")}>
               <ArrowLeft className="h-4 w-4 mr-2" />

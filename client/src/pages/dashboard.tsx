@@ -152,7 +152,6 @@ export default function Dashboard() {
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             
             <div className="flex items-center space-x-4 slide-in-right">

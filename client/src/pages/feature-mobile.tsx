@@ -24,7 +24,6 @@ export default function FeatureMobile() {
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             <Button variant="ghost" asChild>
               <Link href="/#features">

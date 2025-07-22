@@ -173,7 +173,6 @@ export default function Landing() {
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             
             <div className="hidden lg:flex items-center space-x-8 slide-in-right">
