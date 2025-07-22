@@ -27,10 +27,13 @@ export default function FeatureExpenses() {
       <div className="sticky top-0 z-50 glass-effect border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/#features" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors">
+            <button 
+              onClick={() => window.location.href = "https://d4cb036e-bd85-4e8e-949b-e764eb6c2acb-00-1l2tkkrpkl7fy.worf.replit.dev/#features"}
+              className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+            >
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Features</span>
-            </Link>
+            </button>
             <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
               <img 
                 src="/attached_assets/3d_1753189705091.png" 
