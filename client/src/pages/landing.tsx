@@ -418,31 +418,31 @@ export default function Landing() {
 
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 relative">
+      <section id="features" className="py-12 px-4 relative -mt-12">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 fade-in">
               Everything you need to <span className="gradient-text">run your business</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1">
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1 leading-relaxed">
               Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
             </p>
           </div>
 
           {/* Comprehensive Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
             {/* Invoicing */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <FileText className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-1">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-blue-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <FileText className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Invoicing</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Invoicing</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold"
+                  className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/invoicing"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -451,17 +451,17 @@ export default function Landing() {
             </div>
 
             {/* Expenses */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-green-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Receipt className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-2">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-green-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Receipt className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Expenses</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Get set for tax time with all your expenses organised in one place.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Expenses</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Get set for tax time with all your expenses organised in one place.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold"
+                  className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/expenses"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -472,17 +472,17 @@ export default function Landing() {
 
 
             {/* Tax */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-orange-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Calculator className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-3">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-orange-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Calculator className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Tax</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Easily organise expenses into tax categories and track sales tax on income and expenses so you know where you stand and how much you owe.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Tax</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Easily organise expenses into tax categories and track sales tax on income and expenses so you know where you stand and how much you owe.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-orange-600 hover:text-orange-700 p-0 h-auto font-semibold"
+                  className="text-orange-600 hover:text-orange-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/tax"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -491,17 +491,17 @@ export default function Landing() {
             </div>
 
             {/* Inventory */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-red-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Package className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-4">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-red-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Package className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Inventory</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Inventory</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold"
+                  className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/inventory"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -512,17 +512,17 @@ export default function Landing() {
 
 
             {/* Mobile App */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-teal-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Smartphone className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-5">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-teal-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Smartphone className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Mobile App</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Save time by running your business on-the go with your mobile device*.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Mobile App</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Save time by running your business on-the go with your mobile device*.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-teal-600 hover:text-teal-700 p-0 h-auto font-semibold"
+                  className="text-teal-600 hover:text-teal-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/mobile"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -531,17 +531,17 @@ export default function Landing() {
             </div>
 
             {/* Insights and reports */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-cyan-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <BarChart3 className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-cyan-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <BarChart3 className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Insights and reports</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Insights and reports</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-cyan-600 hover:text-cyan-700 p-0 h-auto font-semibold"
+                  className="text-cyan-600 hover:text-cyan-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/reports"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -550,17 +550,17 @@ export default function Landing() {
             </div>
 
             {/* Multi-currency support */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-emerald-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <DollarSign className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-7">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-emerald-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <DollarSign className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Multi-currency support</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Multi-currency support</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold"
+                  className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/multicurrency"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -569,17 +569,17 @@ export default function Landing() {
             </div>
 
             {/* Security */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-500/20 to-slate-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-slate-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-slate-500 to-slate-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Shield className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-8">
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-500/20 to-slate-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-slate-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Shield className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Security</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">See how we keep your information safe and compliant at all times.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Security</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">See how we keep your information safe and compliant at all times.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-slate-600 hover:text-slate-700 p-0 h-auto font-semibold"
+                  className="text-slate-600 hover:text-slate-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/security"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -588,17 +588,17 @@ export default function Landing() {
             </div>
 
             {/* Switch to QuickBooks */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-pink-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-pink-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <RefreshCw className="h-8 w-8 text-white" />
+            <div className="group relative fade-in stagger-9">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-pink-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <RefreshCw className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Migration Available</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Switch from Xero, Excel, Sage, Wave or Freshbooks to QuickBooks Online.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Migration Available</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Switch from Xero, Excel, Sage, Wave or Freshbooks to QuickBooks Online.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold"
+                  className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/migration"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
