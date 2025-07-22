@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
@@ -18,7 +18,11 @@ import {
   LogOut,
   CreditCard,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Sparkles,
+  TrendingUp,
+  Calendar,
+  Clock
 } from "lucide-react";
 
 interface SubscriptionStatus {
@@ -36,6 +40,48 @@ interface SubscriptionStatus {
 export default function Dashboard() {
   const { toast } = useToast();
   const { user, isLoading } = useAuth();
+  const [showWelcomeAnimation, setShowWelcomeAnimation] = useState(true);
+  const [animationStep, setAnimationStep] = useState(0);
+
+  // Welcome animation sequence
+  useEffect(() => {
+    if (!user) return;
+    
+    const sequence = [
+      () => setAnimationStep(1), // Show welcome text
+      () => setAnimationStep(2), // Show personalized greeting
+      () => setAnimationStep(3), // Show stats animation
+      () => setAnimationStep(4), // Show full dashboard
+      () => setShowWelcomeAnimation(false) // Complete animation
+    ];
+    
+    let timeouts: NodeJS.Timeout[] = [];
+    
+    sequence.forEach((step, index) => {
+      timeouts.push(setTimeout(step, index * 800));
+    });
+    
+    return () => timeouts.forEach(clearTimeout);
+  }, [user]);
+
+  // Get time-based greeting
+  const getTimeBasedGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good morning";
+    if (hour < 17) return "Good afternoon";
+    return "Good evening";
+  };
+
+  // Get personalized welcome message
+  const getPersonalizedMessage = () => {
+    const messages = [
+      "Ready to grow your business today?",
+      "Let's make today productive!",
+      "Your business dashboard is ready.",
+      "Time to tackle your business goals!"
+    ];
+    return messages[Math.floor(Math.random() * messages.length)];
+  };
 
   // Fetch subscription status
   const { data: subscriptionStatus, isLoading: isLoadingSubscription } = useQuery<SubscriptionStatus>({
@@ -143,14 +189,88 @@ export default function Dashboard() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        {/* Welcome Animation Overlay */}
+        {showWelcomeAnimation && (
+          <div className="fixed inset-0 bg-gradient-to-br from-blue-50/95 via-purple-50/95 to-orange-50/95 dark:from-gray-900/95 dark:via-purple-900/95 dark:to-orange-900/95 z-50 flex items-center justify-center backdrop-blur-sm">
+            <div className="text-center space-y-8 max-w-2xl px-8">
+              {/* Step 1: Welcome Text */}
+              <div className={`transition-all duration-1000 ${animationStep >= 1 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
+                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30 mb-6">
+                  <Sparkles className="h-5 w-5 text-blue-600 mr-2 animate-pulse" />
+                  <span className="text-blue-700 dark:text-blue-300 font-medium">Welcome to BusinessFlow Pro</span>
+                </div>
+              </div>
+
+              {/* Step 2: Personalized Greeting */}
+              <div className={`transition-all duration-1000 delay-300 ${animationStep >= 2 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
+                <h1 className="text-5xl md:text-6xl font-bold mb-4">
+                  <span className="text-foreground block mb-2">{getTimeBasedGreeting()},</span>
+                  <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
+                    {user.firstName || 'there'}!
+                  </span>
+                </h1>
+                <p className="text-xl text-muted-foreground">
+                  {getPersonalizedMessage()}
+                </p>
+              </div>
+
+              {/* Step 3: Quick Stats Animation */}
+              <div className={`transition-all duration-1000 delay-600 ${animationStep >= 3 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
+                <div className="grid grid-cols-3 gap-6 max-w-md mx-auto">
+                  <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-white/20 hover:scale-105 transition-transform duration-300">
+                    <TrendingUp className="h-8 w-8 mx-auto mb-2 text-green-600 animate-bounce" />
+                    <div className="text-2xl font-bold text-foreground">247</div>
+                    <div className="text-sm text-muted-foreground">Invoices</div>
+                  </div>
+                  <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-white/20 hover:scale-105 transition-transform duration-300 delay-150">
+                    <Calendar className="h-8 w-8 mx-auto mb-2 text-blue-600 animate-bounce" />
+                    <div className="text-2xl font-bold text-foreground">34</div>
+                    <div className="text-sm text-muted-foreground">Tasks</div>
+                  </div>
+                  <div className="text-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-white/20 hover:scale-105 transition-transform duration-300 delay-300">
+                    <Clock className="h-8 w-8 mx-auto mb-2 text-purple-600 animate-bounce" />
+                    <div className="text-2xl font-bold text-foreground">12</div>
+                    <div className="text-sm text-muted-foreground">Today</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Step 4: Loading indicator */}
+              <div className={`transition-all duration-1000 delay-1000 ${animationStep >= 4 ? 'opacity-100' : 'opacity-0'}`}>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-purple-600 rounded-full animate-pulse delay-150"></div>
+                  <div className="w-2 h-2 bg-orange-600 rounded-full animate-pulse delay-300"></div>
+                </div>
+                <p className="text-sm text-muted-foreground mt-4">Preparing your dashboard...</p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Welcome Section */}
         <div className="mb-8 slide-in-bottom">
-          <h1 className="text-4xl font-bold gradient-text mb-2 fade-in">
-            Welcome back, {user.firstName || 'there'}!
-          </h1>
+          <div className="flex items-center space-x-3 mb-4">
+            <h1 className="text-4xl font-bold gradient-text fade-in">
+              {getTimeBasedGreeting()}, {user.firstName || 'there'}!
+            </h1>
+            <div className="animate-bounce">
+              <Sparkles className="h-8 w-8 text-yellow-500 animate-pulse" />
+            </div>
+          </div>
           <p className="text-xl text-muted-foreground fade-in stagger-1">
-            Here's an overview of your business operations
+            {getPersonalizedMessage()}
           </p>
+          <div className="mt-4 flex items-center space-x-6 text-sm text-muted-foreground fade-in stagger-2">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>All systems operational</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Clock className="h-4 w-4" />
+              <span>Last login: {new Date().toLocaleDateString()}</span>
+            </div>
+          </div>
         </div>
 
         {/* Subscription Status */}
@@ -202,61 +322,81 @@ export default function Dashboard() {
               title: "Invoices", 
               description: "Manage your invoicing workflow",
               count: "247",
-              color: "from-blue-500 to-blue-600"
+              color: "from-blue-500 to-blue-600",
+              delay: "delay-100"
             },
             { 
               icon: Receipt, 
               title: "Expenses", 
               description: "Track business expenses",
               count: "89",
-              color: "from-green-500 to-green-600"
+              color: "from-green-500 to-green-600",
+              delay: "delay-200"
             },
             { 
               icon: Users, 
               title: "Clients", 
               description: "Customer relationship management",
               count: "156",
-              color: "from-purple-500 to-purple-600"
+              color: "from-purple-500 to-purple-600",
+              delay: "delay-300"
             },
             { 
               icon: Bus, 
               title: "HR", 
               description: "Human resources management",
               count: "23",
-              color: "from-orange-500 to-orange-600"
+              color: "from-orange-500 to-orange-600",
+              delay: "delay-400"
             },
             { 
               icon: File, 
               title: "Contracts", 
               description: "Business contract management",
               count: "34",
-              color: "from-red-500 to-red-600"
+              color: "from-red-500 to-red-600",
+              delay: "delay-500"
             },
             { 
               icon: Handshake, 
               title: "Offers", 
               description: "Create and send proposals",
               count: "12",
-              color: "from-indigo-500 to-indigo-600"
+              color: "from-indigo-500 to-indigo-600",
+              delay: "delay-600"
             }
           ].map((module, index) => (
             <Card 
               key={index} 
-              className={`hover-lift glass-effect border-border/50 scale-in stagger-${index + 1} group cursor-pointer`}
+              className={`group glass-effect border-primary/20 hover-lift scale-in ${module.delay} cursor-pointer transition-all duration-500 hover:shadow-2xl hover:border-primary/40 hover:scale-[1.02] animate-fade-in-up overflow-hidden relative`}
             >
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-4">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${module.color} rounded-lg flex items-center justify-center pulse-glow group-hover:scale-110 transition-transform duration-300`}>
-                    <module.icon className="h-6 w-6 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <CardContent className="p-6 relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className={`w-12 h-12 bg-gradient-to-r ${module.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 pulse-glow relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                    <module.icon className="h-6 w-6 text-white relative z-10" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{module.title}</h3>
-                    <p className="text-sm text-muted-foreground">{module.description}</p>
+                  <Badge variant="secondary" className="font-bold text-lg px-3 py-1 bg-gradient-to-r from-muted/50 to-muted/30 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300 group-hover:scale-110">
+                    {module.count}
+                  </Badge>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  {module.title}
+                </h3>
+                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                  {module.description}
+                </p>
+                
+                {/* Animated progress indicator */}
+                <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-full bg-muted/30 rounded-full h-1">
+                    <div 
+                      className={`h-1 bg-gradient-to-r ${module.color} rounded-full transition-all duration-1000 group-hover:w-full`}
+                      style={{ width: '0%' }}
+                    ></div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold gradient-text">{module.count}</div>
-                    <div className="text-xs text-muted-foreground">total</div>
-                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">Click to explore</p>
                 </div>
               </CardContent>
             </Card>
