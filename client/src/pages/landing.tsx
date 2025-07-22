@@ -39,7 +39,9 @@ import {
   BarChart3,
   DollarSign,
   RefreshCw,
-  ExternalLink
+  ExternalLink,
+  Building2,
+  Calendar
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -616,6 +618,63 @@ export default function Landing() {
                   variant="ghost" 
                   className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold text-sm"
                   onClick={() => window.location.href = "/features/migration"}
+                >
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Clients Management */}
+            <div className="group relative fade-in stagger-10">
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-indigo-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Users className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-3">Client Management</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Manage all your clients in one place with detailed profiles, contact information, project history, and communication tracking for better relationships.</p>
+                <Button 
+                  variant="ghost" 
+                  className="text-indigo-600 hover:text-indigo-700 p-0 h-auto font-semibold text-sm"
+                  onClick={() => window.location.href = "/features/clients"}
+                >
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Vendors Management */}
+            <div className="group relative fade-in stagger-11">
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-amber-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-amber-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Building2 className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-3">Vendor Management</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Streamline your vendor relationships with comprehensive supplier profiles, purchase order tracking, payment management, and performance analytics.</p>
+                <Button 
+                  variant="ghost" 
+                  className="text-amber-600 hover:text-amber-700 p-0 h-auto font-semibold text-sm"
+                  onClick={() => window.location.href = "/features/vendors"}
+                >
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Calendar Management */}
+            <div className="group relative fade-in stagger-12">
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-violet-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-violet-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <Calendar className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-3">Smart Calendar</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Integrated calendar system for scheduling meetings, tracking deadlines, managing appointments, and coordinating team activities with smart notifications.</p>
+                <Button 
+                  variant="ghost" 
+                  className="text-violet-600 hover:text-violet-700 p-0 h-auto font-semibold text-sm"
+                  onClick={() => window.location.href = "/features/calendar"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
