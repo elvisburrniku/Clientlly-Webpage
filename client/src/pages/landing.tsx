@@ -835,17 +835,29 @@ export default function Landing() {
                     ))}
                   </ul>
                   
-                  <Button 
-                    className={`w-full transition-all duration-300 hover:scale-105 ${
-                      index === 1 
-                        ? 'bg-gradient-to-r from-primary to-secondary pulse-glow' 
-                        : 'glow-border'
-                    }`}
-                    variant={index === 1 ? "default" : "outline"}
-                    onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
-                  >
-                    {plan.id === 'basic' ? 'Try for Free' : 'Buy Now'}
-                  </Button>
+                  <div className="space-y-3">
+                    <Button 
+                      className={`w-full transition-all duration-300 hover:scale-105 ${
+                        index === 1 
+                          ? 'bg-gradient-to-r from-primary to-secondary pulse-glow' 
+                          : 'glow-border'
+                      }`}
+                      variant={index === 1 ? "default" : "outline"}
+                      onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
+                    >
+                      {plan.id === 'basic' ? 'Try for Free' : 'Buy Now'}
+                    </Button>
+                    {plan.id !== 'basic' && (
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        className="w-full text-primary hover:text-primary/80"
+                        onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
+                      >
+                        Try for Free First
+                      </Button>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
