@@ -510,13 +510,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
 
         case 'invoice.payment_succeeded': {
-          const invoice = event.data.object as Stripe.Invoice;
-          const subscriptionId = invoice.subscription as string;
+          const invoice = event.data.object as any; // Use any for webhook data
+          const subscriptionId = invoice.subscription;
           
           if (subscriptionId) {
             const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-            const userId = subscription.metadata.userId;
-            const planId = subscription.metadata.planId;
+            const userId = subscription.metadata?.userId;
+            const planId = subscription.metadata?.planId;
 
             if (userId) {
               await storage.updateUserSubscription(userId, 'active', planId);
@@ -532,12 +532,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
 
         case 'invoice.payment_failed': {
-          const invoice = event.data.object as Stripe.Invoice;
-          const subscriptionId = invoice.subscription as string;
+          const invoice = event.data.object as any; // Use any for webhook data
+          const subscriptionId = invoice.subscription;
           
           if (subscriptionId) {
             const subscription = await stripe.subscriptions.retrieve(subscriptionId);
-            const userId = subscription.metadata.userId;
+            const userId = subscription.metadata?.userId;
 
             if (userId) {
               await storage.updateUserSubscription(userId, 'past_due');
@@ -580,11 +580,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       let subscriptionDetails = null;
       if (user.stripeSubscriptionId) {
         try {
-          const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
+          const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId) as any;
           subscriptionDetails = {
             id: subscription.id,
             status: subscription.status,
-            currentPeriodEnd: subscription.current_period_end * 1000, // Convert to milliseconds
+            currentPeriodEnd: subscription.current_period_end ? subscription.current_period_end * 1000 : null, // Convert to milliseconds
             plan: user.subscriptionPlan,
           };
         } catch (error) {
