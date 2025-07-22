@@ -57,7 +57,7 @@ interface SubscriptionPlan {
 export default function Landing() {
   const { toast } = useToast();
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState("invoices");
+
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
@@ -152,77 +152,7 @@ export default function Landing() {
     contactMutation.mutate(contactForm);
   };
 
-  const features = {
-    invoices: {
-      title: "Professional Invoice Management",
-      description: "Create, send, and track professional invoices with automated reminders and payment tracking.",
-      benefits: [
-        "Automated email tracking and delivery confirmations",
-        "Electronic signatures on any device", 
-        "Company branding and custom templates",
-        "Multi-currency support and tax calculations"
-      ]
-    },
-    expenses: {
-      title: "Smart Expense Control",
-      description: "Track, categorize, and manage all business expenses with intelligent automation and reporting.",
-      benefits: [
-        "Receipt scanning and automatic categorization",
-        "Multi-location expense tracking",
-        "Real-time budget monitoring and alerts", 
-        "Tax-ready expense reports"
-      ]
-    },
-    crm: {
-      title: "Powerful Customer Relationships",
-      description: "Build stronger customer relationships with comprehensive contact management and interaction tracking.",
-      benefits: [
-        "360-degree customer profiles and history",
-        "Sales pipeline management and forecasting",
-        "Automated follow-up reminders",
-        "Integration with email and calendar"
-      ]
-    },
-    hr: {
-      title: "Complete HR Management",
-      description: "Streamline your human resources processes with employee management and leave tracking.",
-      benefits: [
-        "Employee profile management",
-        "Leave request and approval system",
-        "Performance tracking and reviews",
-        "Payroll integration support"
-      ]
-    },
-    contracts: {
-      title: "Contract Management",
-      description: "Create, manage, and track business contracts with automated reminders and e-signatures.",
-      benefits: [
-        "Contract template library",
-        "Automated renewal reminders",
-        "Electronic signature workflow",
-        "Document version control"
-      ]
-    },
-    offers: {
-      title: "Professional Proposals",
-      description: "Create compelling business proposals and track their progress through the sales cycle.",
-      benefits: [
-        "Professional proposal templates",
-        "Real-time proposal tracking",
-        "Integrated pricing calculators",
-        "Client feedback collection"
-      ]
-    }
-  };
 
-  const featureIcons = {
-    invoices: FileText,
-    expenses: Receipt,
-    crm: Users,
-    hr: Bus,
-    contracts: File,
-    offers: Handshake
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 relative overflow-hidden">
@@ -677,66 +607,7 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Feature Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {Object.entries(features).map(([key, feature], index) => {
-              const Icon = featureIcons[key as keyof typeof featureIcons];
-              return (
-                <Button
-                  key={key}
-                  variant={activeTab === key ? "default" : "outline"}
-                  onClick={() => setActiveTab(key)}
-                  className={`flex items-center space-x-2 hover-lift transition-all duration-300 scale-in stagger-${index + 1} ${
-                    activeTab === key ? 'bg-gradient-to-r from-primary to-secondary pulse-glow' : 'glow-border'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  <span>{feature.title.split(' ')[0]}</span>
-                </Button>
-              );
-            })}
-          </div>
 
-          {/* Active Feature Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-foreground">{features[activeTab as keyof typeof features].title}</h3>
-              <p className="text-lg text-muted-foreground">
-                {features[activeTab as keyof typeof features].description}
-              </p>
-              <ul className="space-y-4">
-                {features[activeTab as keyof typeof features].benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <Check className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                    <span className="text-muted-foreground">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative">
-              <Card className="p-8">
-                <CardContent className="space-y-6">
-                  <div className="flex items-center space-x-3">
-                    {(() => {
-                      const Icon = featureIcons[activeTab as keyof typeof featureIcons];
-                      return <Icon className="h-8 w-8 text-primary" />;
-                    })()}
-                    <h4 className="text-xl font-semibold">{features[activeTab as keyof typeof features].title}</h4>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-primary/10 p-4 rounded-lg">
-                      <div className="text-2xl font-bold text-primary">98%</div>
-                      <div className="text-sm text-muted-foreground">Efficiency Gain</div>
-                    </div>
-                    <div className="bg-secondary/10 p-4 rounded-lg">
-                      <div className="text-2xl font-bold text-secondary">24/7</div>
-                      <div className="text-sm text-muted-foreground">Support</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
         </div>
       </section>
 
