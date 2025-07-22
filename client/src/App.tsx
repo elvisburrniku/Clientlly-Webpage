@@ -14,6 +14,9 @@ import FeatureReports from "@/pages/feature-reports";
 import FeatureMultiCurrency from "@/pages/feature-multicurrency";
 import FeatureSecurity from "@/pages/feature-security";
 import FeatureMigration from "@/pages/feature-migration";
+import FeatureClients from "@/pages/feature-clients";
+import FeatureVendors from "@/pages/feature-vendors";
+import FeatureCalendar from "@/pages/feature-calendar";
 import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
@@ -44,6 +47,9 @@ function Router() {
           <Route path="/features/multicurrency" component={FeatureMultiCurrency} />
           <Route path="/features/security" component={FeatureSecurity} />
           <Route path="/features/migration" component={FeatureMigration} />
+          <Route path="/features/clients" component={FeatureClients} />
+          <Route path="/features/vendors" component={FeatureVendors} />
+          <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
@@ -61,6 +67,9 @@ function Router() {
           <Route path="/features/multicurrency" component={FeatureMultiCurrency} />
           <Route path="/features/security" component={FeatureSecurity} />
           <Route path="/features/migration" component={FeatureMigration} />
+          <Route path="/features/clients" component={FeatureClients} />
+          <Route path="/features/vendors" component={FeatureVendors} />
+          <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
