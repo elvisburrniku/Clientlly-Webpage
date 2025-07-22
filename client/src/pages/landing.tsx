@@ -485,21 +485,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Trust Indicators */}
-      <section className="py-12 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <p className="text-muted-foreground">{t('landing.trust', 'Trusted by over 10,000+ businesses worldwide')}</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
-            {[1,2,3,4,5,6].map((i) => (
-              <div key={i} className="text-center">
-                <div className="h-8 bg-muted rounded"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Features Section */}
       <section id="features" className="py-20 px-4 relative">
