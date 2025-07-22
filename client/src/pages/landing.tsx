@@ -1102,56 +1102,148 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-dark text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/attached_assets/3d_1753195741585.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain"
-                />
-                <span className="text-xl font-bold">BusinessFlow Pro</span>
-              </div>
-              <p className="text-gray-400">
-                {t('landing.footer.description', 'The complete business management platform for modern companies.')}
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">{t('landing.footer.product', 'Product')}</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#features" className="hover:text-white transition-colors">{t('landing.nav.features', 'Features')}</a></li>
-                <li><a href="#pricing" className="hover:text-white transition-colors">{t('landing.nav.pricing', 'Pricing')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.integrations', 'Integrations')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.api', 'API')}</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">{t('landing.footer.company', 'Company')}</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">{t('landing.footer.about', 'About')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.careers', 'Careers')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.contact', 'Contact')}</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">{t('landing.footer.support', 'Support')}</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.help', 'Help Center')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.docs', 'Documentation')}</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">{t('landing.footer.community', 'Community')}</a></li>
-              </ul>
-            </div>
+      <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full opacity-5">
+            <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
           </div>
+        </div>
+        
+        <div className="relative z-10 py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-16">
+              {/* Company Info */}
+              <div className="lg:col-span-2 space-y-6 fade-in">
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src="/attached_assets/3d_1753195741585.png" 
+                    alt="BusinessFlow Pro" 
+                    className="w-14 h-10 object-contain"
+                  />
+                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                    BusinessFlow Pro
+                  </span>
+                </div>
+                <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+                  {t('landing.footer.description', 'The complete business management platform for modern companies.')}
+                </p>
+                <div className="flex space-x-4">
+                  <Button 
+                    size="sm" 
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold"
+                    onClick={() => window.location.href = "/api/login"}
+                  >
+                    Get Started
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
+                    onClick={() => setShowDemoModal(true)}
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
 
-          <div className="border-t border-gray-700 pt-8 text-center">
-            <p className="text-gray-400 text-sm">
-              {t('landing.footer.copyright', '© 2024 BusinessFlow Pro. All rights reserved.')}
-            </p>
+              {/* Product Links */}
+              <div className="fade-in stagger-1">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  {t('landing.footer.product', 'Product')}
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#features" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.nav.features', 'Features')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#pricing" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.nav.pricing', 'Pricing')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.integrations', 'Integrations')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.api', 'API')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company Links */}
+              <div className="fade-in stagger-2">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                  {t('landing.footer.company', 'Company')}
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#about" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.about', 'About')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.careers', 'Careers')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contact" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.contact', 'Contact')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Support Links */}
+              <div className="fade-in stagger-3">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  {t('landing.footer.support', 'Support')}
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.help', 'Help Center')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.docs', 'Documentation')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.community', 'Community')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Copyright Section */}
+            <div className="border-t border-gray-700/50 pt-8 fade-in stagger-4">
+              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div className="flex items-center space-x-8">
+                  <p className="text-gray-400">
+                    {t('landing.footer.copyright', '© 2024 BusinessFlow Pro. All rights reserved.')}
+                  </p>
+                  <div className="flex space-x-6 text-sm">
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2 text-gray-400">
+                  <Shield className="h-4 w-4" />
+                  <span className="text-sm">SOC 2 Compliant</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
