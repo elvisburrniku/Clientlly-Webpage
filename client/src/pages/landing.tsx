@@ -171,7 +171,7 @@ export default function Landing() {
               <img 
                 src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
-                className="w-16 h-12 object-contain"
+                className="w-12 h-9 object-contain"
               />
               <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
@@ -1080,7 +1080,7 @@ export default function Landing() {
                 <img 
                   src="/attached_assets/3d_1753195741585.png" 
                   alt="BusinessFlow Pro" 
-                  className="w-8 h-6 object-contain"
+                  className="w-12 h-9 object-contain"
                 />
                 <span className="text-xl font-bold">BusinessFlow Pro</span>
               </div>

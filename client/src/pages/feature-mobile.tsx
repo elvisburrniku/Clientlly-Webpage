@@ -22,7 +22,7 @@ export default function FeatureMobile() {
               <img 
                 src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
-                className="h-10 w-auto"
+                className="w-12 h-9 object-contain"
               />
               <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>

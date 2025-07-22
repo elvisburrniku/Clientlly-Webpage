@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2 } from "lucide-react";
+import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
 
@@ -647,10 +648,14 @@ export default function Subscribe() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-              <Building className="h-4 w-4 text-white" />
-            </div>
-            <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
+            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+              <img 
+                src="/attached_assets/3d_1753195741585.png" 
+                alt="BusinessFlow Pro" 
+                className="w-12 h-9 object-contain"
+              />
+              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
+            </Link>
             <div className="ml-8">
               <LanguageSelector />
             </div>

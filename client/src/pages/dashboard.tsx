@@ -6,6 +6,7 @@ import { isUnauthorizedError } from "@/lib/authUtils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "wouter";
 import { 
   ChartLine, 
   FileText, 
@@ -145,32 +146,32 @@ export default function Dashboard() {
       <nav className="glass-effect border-b border-white/20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3 slide-in-left">
+            <Link href="/" className="flex items-center space-x-3 slide-in-left hover:opacity-80 transition-opacity">
               <img 
                 src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
-                className="w-8 h-6 object-contain"
+                className="w-12 h-9 object-contain"
               />
-              <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
-            </div>
+              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
+            </Link>
             
             <div className="flex items-center space-x-4 slide-in-right">
               <div className="flex items-center space-x-2">
-                {user.profileImageUrl ? (
+                {(user as any)?.profileImageUrl ? (
                   <img 
-                    src={user.profileImageUrl} 
+                    src={(user as any).profileImageUrl} 
                     alt="Profile" 
                     className="w-8 h-8 rounded-full object-cover"
                   />
                 ) : (
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-semibold">
-                      {user.firstName?.[0] || user.email?.[0] || 'U'}
+                      {(user as any)?.firstName?.[0] || (user as any)?.email?.[0] || 'U'}
                     </span>
                   </div>
                 )}
                 <span className="text-sm font-medium text-foreground">
-                  {user.firstName || user.email}
+                  {(user as any)?.firstName || (user as any)?.email || 'User'}
                 </span>
               </div>
               <Button variant="ghost" size="icon">
@@ -206,7 +207,7 @@ export default function Dashboard() {
                 <h1 className="text-5xl md:text-6xl font-bold mb-4">
                   <span className="text-foreground block mb-2">{getTimeBasedGreeting()},</span>
                   <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent">
-                    {user.firstName || 'there'}!
+                    {(user as any)?.firstName || 'there'}!
                   </span>
                 </h1>
                 <p className="text-xl text-muted-foreground">
@@ -252,7 +253,7 @@ export default function Dashboard() {
         <div className="mb-8 slide-in-bottom">
           <div className="flex items-center space-x-3 mb-4">
             <h1 className="text-4xl font-bold gradient-text fade-in">
-              {getTimeBasedGreeting()}, {user.firstName || 'there'}!
+              {getTimeBasedGreeting()}, {(user as any)?.firstName || 'there'}!
             </h1>
             <div className="animate-bounce">
               <Sparkles className="h-8 w-8 text-yellow-500 animate-pulse" />
