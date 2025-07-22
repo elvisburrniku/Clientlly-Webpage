@@ -183,6 +183,11 @@ export default function Landing() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
+              <CurrencySelector 
+                selectedCurrency={selectedCurrency} 
+                onCurrencyChange={setSelectedCurrency}
+                className="bg-white/80 dark:bg-gray-900/80 border-gray-200/50 dark:border-gray-700/50"
+              />
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDemoModal(true)} 
@@ -214,6 +219,11 @@ export default function Landing() {
             </div>
 
             <div className="flex lg:hidden items-center space-x-2">
+              <CurrencySelector 
+                selectedCurrency={selectedCurrency} 
+                onCurrencyChange={setSelectedCurrency}
+                className="bg-white/80 dark:bg-gray-900/80 border-gray-200/50 text-xs"
+              />
               <LanguageSelector />
               <Button 
                 variant="ghost" 
@@ -439,8 +449,8 @@ export default function Landing() {
                 <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <FileText className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Invoicing</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Professional Invoicing</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
                 <Button 
                   variant="ghost" 
                   className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold text-sm"
@@ -458,8 +468,8 @@ export default function Landing() {
                 <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Receipt className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Expenses</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Get set for tax time with all your expenses organised in one place.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Smart Expense Tracking</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Get set for tax time with all your expenses organised in one place.</p>
                 <Button 
                   variant="ghost" 
                   className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold text-sm"
@@ -479,8 +489,8 @@ export default function Landing() {
                 <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Calculator className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Tax</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Easily organise expenses into tax categories and track sales tax on income and expenses so you know where you stand and how much you owe.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Tax Management</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Easily organise expenses into tax categories and track sales tax on income and expenses so you know where you stand and how much you owe.</p>
                 <Button 
                   variant="ghost" 
                   className="text-orange-600 hover:text-orange-700 p-0 h-auto font-semibold text-sm"
@@ -498,8 +508,8 @@ export default function Landing() {
                 <div className="w-14 h-14 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Package className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Inventory</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Inventory Management</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
                 <Button 
                   variant="ghost" 
                   className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold text-sm"
@@ -520,7 +530,7 @@ export default function Landing() {
                   <Smartphone className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Mobile App</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Save time by running your business on-the go with your mobile device*.</p>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Save time by running your business on-the go with your mobile device*.</p>
                 <Button 
                   variant="ghost" 
                   className="text-teal-600 hover:text-teal-700 p-0 h-auto font-semibold text-sm"
@@ -538,8 +548,8 @@ export default function Landing() {
                 <div className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <BarChart3 className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Insights and reports</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Insights & Reports</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
                 <Button 
                   variant="ghost" 
                   className="text-cyan-600 hover:text-cyan-700 p-0 h-auto font-semibold text-sm"
@@ -557,8 +567,8 @@ export default function Landing() {
                 <div className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <DollarSign className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Multi-currency support</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Multi-Currency Support</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
                 <Button 
                   variant="ghost" 
                   className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold text-sm"
@@ -576,8 +586,8 @@ export default function Landing() {
                 <div className="w-14 h-14 bg-gradient-to-r from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
                   <Shield className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Security</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm">See how we keep your information safe and compliant at all times.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Enterprise Security</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how we keep your information safe and compliant at all times.</p>
                 <Button 
                   variant="ghost" 
                   className="text-slate-600 hover:text-slate-700 p-0 h-auto font-semibold text-sm"
@@ -636,26 +646,6 @@ export default function Landing() {
             
             {/* Currency and Billing Period Controls */}
             <div className="flex flex-col items-center justify-center mb-8 space-y-4">
-              {/* Currency Selector */}
-              <div className="flex items-center space-x-4">
-                <span className="text-sm font-medium text-muted-foreground">
-                  Currency: {locationLoading ? (
-                    <span className="text-xs text-blue-600 dark:text-blue-400">
-                      (Detecting location...)
-                    </span>
-                  ) : locationData ? (
-                    <span className="text-xs text-green-600 dark:text-green-400">
-                      (Auto-detected: {locationData.country})
-                    </span>
-                  ) : null}
-                </span>
-                <CurrencySelector 
-                  selectedCurrency={selectedCurrency} 
-                  onCurrencyChange={setSelectedCurrency}
-                  className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700"
-                />
-              </div>
-              
               <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
                 {/* Monthly Button */}
                 <button
