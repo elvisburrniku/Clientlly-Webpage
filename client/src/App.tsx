@@ -5,6 +5,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
 import Landing from "@/pages/landing";
+import FeatureInvoicing from "@/pages/feature-invoicing";
+import FeatureExpenses from "@/pages/feature-expenses";
+import FeatureTax from "@/pages/feature-tax";
+import FeatureInventory from "@/pages/feature-inventory";
 import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
@@ -26,6 +30,10 @@ function Router() {
       ) : !isAuthenticated ? (
         <>
           <Route path="/" component={Landing} />
+          <Route path="/features/invoicing" component={FeatureInvoicing} />
+          <Route path="/features/expenses" component={FeatureExpenses} />
+          <Route path="/features/tax" component={FeatureTax} />
+          <Route path="/features/inventory" component={FeatureInventory} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
@@ -34,6 +42,10 @@ function Router() {
       ) : (
         <>
           <Route path="/" component={Dashboard} />
+          <Route path="/features/invoicing" component={FeatureInvoicing} />
+          <Route path="/features/expenses" component={FeatureExpenses} />
+          <Route path="/features/tax" component={FeatureTax} />
+          <Route path="/features/inventory" component={FeatureInventory} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />

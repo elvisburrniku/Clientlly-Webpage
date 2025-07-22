@@ -511,7 +511,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Invoicing</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
-                <Button variant="ghost" className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/invoicing"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
@@ -526,7 +530,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Expenses</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Get set for tax time with all your expenses organised in one place.</p>
-                <Button variant="ghost" className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/expenses"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
@@ -543,7 +551,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Tax</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Easily organise expenses into tax categories and track sales tax on income and expenses so you know where you stand and how much you owe.</p>
-                <Button variant="ghost" className="text-orange-600 hover:text-orange-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-orange-600 hover:text-orange-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/tax"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
@@ -558,7 +570,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Inventory</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
-                <Button variant="ghost" className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/inventory"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
