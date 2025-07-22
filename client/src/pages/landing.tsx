@@ -223,23 +223,24 @@ export default function Landing() {
 
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3 slide-in-left">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
-                <ChartLine className="h-4 w-4 text-white" />
-              </div>
+            <Link href="/" className="flex items-center space-x-3 slide-in-left hover:opacity-80 transition-opacity">
+              <img 
+                src="/attached_assets/3d_1753189116510.png" 
+                alt="BusinessFlow Pro" 
+                className="w-8 h-8 object-contain"
+              />
               <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
-            </div>
+            </Link>
             
-            <div className="hidden lg:flex items-center space-x-6 slide-in-right">
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.features', 'Features')}</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('landing.nav.pricing', 'Pricing')}</a>
-              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">{t('calculator.title', 'Calculator')}</Link>
-              <LanguageSelector />
+            <div className="hidden lg:flex items-center space-x-8 slide-in-right">
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.features', 'Features')}</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.pricing', 'Pricing')}</a>
+              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('calculator.title', 'Calculator')}</Link>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-3 slide-in-right">
+            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDemoModal(true)} 
@@ -267,6 +268,7 @@ export default function Landing() {
               >
                 Try It Free
               </Button>
+              <LanguageSelector />
             </div>
 
             <div className="flex lg:hidden items-center space-x-2">

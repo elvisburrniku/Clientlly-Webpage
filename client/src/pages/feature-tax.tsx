@@ -27,16 +27,18 @@ export default function FeatureTax() {
       <div className="sticky top-0 z-50 glass-effect border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/#features" className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors">
               <ArrowLeft className="h-5 w-5" />
-              <span>Back to Home</span>
+              <span>Back to Features</span>
             </Link>
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-                <Calculator className="h-4 w-4 text-white" />
-              </div>
-              <span className="text-xl font-bold gradient-text">Smart Tax Management</span>
-            </div>
+            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+              <img 
+                src="/attached_assets/3d_1753189116510.png" 
+                alt="BusinessFlow Pro" 
+                className="w-8 h-8 object-contain"
+              />
+              <span className="text-xl font-bold gradient-text">BusinessFlow Pro</span>
+            </Link>
             <Button 
               onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
               className="bg-orange-600 hover:bg-orange-700 text-white"
