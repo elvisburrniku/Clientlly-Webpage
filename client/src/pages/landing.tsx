@@ -43,7 +43,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import { CurrencySelector, formatCurrency, convertPrice } from "@/components/currency-selector";
+import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
 
 interface SubscriptionPlan {
@@ -183,11 +183,15 @@ export default function Landing() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              <CurrencySelector 
-                selectedCurrency={selectedCurrency} 
-                onCurrencyChange={setSelectedCurrency}
-                className="bg-white/80 dark:bg-gray-900/80 border-gray-200/50 dark:border-gray-700/50"
-              />
+              {(locationData || locationLoading) && (
+                <div className="text-sm text-muted-foreground px-3 py-1 bg-white/60 dark:bg-gray-900/60 rounded-full">
+                  {locationLoading ? (
+                    <span className="text-blue-600 dark:text-blue-400">Detecting location...</span>
+                  ) : (
+                    <span>{locationData?.country} • {selectedCurrency}</span>
+                  )}
+                </div>
+              )}
               <Button 
                 variant="ghost" 
                 onClick={() => setShowDemoModal(true)} 
@@ -219,11 +223,11 @@ export default function Landing() {
             </div>
 
             <div className="flex lg:hidden items-center space-x-2">
-              <CurrencySelector 
-                selectedCurrency={selectedCurrency} 
-                onCurrencyChange={setSelectedCurrency}
-                className="bg-white/80 dark:bg-gray-900/80 border-gray-200/50 text-xs"
-              />
+              {(locationData || locationLoading) && (
+                <div className="text-xs text-muted-foreground px-2 py-1 bg-white/60 dark:bg-gray-900/60 rounded-full">
+                  {locationLoading ? "..." : selectedCurrency}
+                </div>
+              )}
               <LanguageSelector />
               <Button 
                 variant="ghost" 
