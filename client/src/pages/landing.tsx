@@ -734,6 +734,17 @@ export default function Landing() {
               Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
             </p>
             
+            {/* Try for Free Button */}
+            <div className="mb-8">
+              <Button 
+                size="lg"
+                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
+              >
+                Try for Free - No Credit Card Required
+              </Button>
+            </div>
+            
             {/* Billing Period Toggle */}
             <div className="flex flex-col items-center justify-center mb-8">
               <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
