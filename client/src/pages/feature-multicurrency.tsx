@@ -12,6 +12,15 @@ export default function FeatureMultiCurrency() {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      
+      {/* Subtle 3D Logo Background */}
+      <div className="absolute top-1/3 left-1/4 opacity-4 dark:opacity-6 floating-element">
+        <img 
+          src="/attached_assets/3d_1753197766773.png" 
+          alt="" 
+          className="w-56 h-56 object-contain rotate-30 transform"
+        />
+      </div>
       </div>
 
       {/* Navigation */}

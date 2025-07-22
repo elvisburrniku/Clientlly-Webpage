@@ -140,6 +140,15 @@ export default function Dashboard() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/10 rounded-full blur-3xl floating-element"></div>
         <div className="absolute bottom-40 right-20 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl floating-delayed"></div>
+        
+        {/* Subtle 3D Logo Background */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-3 dark:opacity-5 floating-slow">
+          <img 
+            src="/attached_assets/3d_1753197766773.png" 
+            alt="" 
+            className="w-96 h-96 object-contain rotate-6 transform"
+          />
+        </div>
       </div>
 
       {/* Navigation */}

@@ -644,7 +644,24 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/5 py-8 px-4 relative overflow-hidden">
+      {/* Subtle 3D Logo Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/6 opacity-3 dark:opacity-5 floating-slow">
+          <img 
+            src="/attached_assets/3d_1753197766773.png" 
+            alt="" 
+            className="w-64 h-64 object-contain rotate-45 transform"
+          />
+        </div>
+        <div className="absolute bottom-1/3 right-1/5 opacity-2 dark:opacity-4 floating-delayed">
+          <img 
+            src="/attached_assets/3d_1753197766773.png" 
+            alt="" 
+            className="w-48 h-48 object-contain -rotate-30 transform"
+          />
+        </div>
+      </div>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
