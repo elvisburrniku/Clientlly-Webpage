@@ -26,7 +26,7 @@ import {
   Shield,
   Globe
 } from 'lucide-react';
-import { CurrencySelector, formatCurrency, convertPrice } from "@/components/currency-selector";
+import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
 
 interface PlanFeatures {
@@ -264,7 +264,7 @@ export default function Calculator() {
               <img 
                 src="/attached_assets/3d_1753195741585.png" 
                 alt="BusinessFlow Pro" 
-                className="h-10 w-auto"
+                className="w-12 h-9 object-contain"
               />
               <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
@@ -305,25 +305,24 @@ export default function Calculator() {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Currency Selector */}
-                <div>
-                  <label className="text-sm font-medium mb-3 block">
-                    Currency
-                    {locationLoading ? (
-                      <span className="text-xs text-blue-600 dark:text-blue-400 block">
-                        Detecting location...
-                      </span>
-                    ) : locationData ? (
-                      <span className="text-xs text-green-600 dark:text-green-400 block">
-                        Auto-detected: {locationData.country}
-                      </span>
-                    ) : null}
-                  </label>
-                  <CurrencySelector 
-                    selectedCurrency={selectedCurrency} 
-                    onCurrencyChange={setSelectedCurrency}
-                    className="w-full bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700"
-                  />
-                </div>
+                {(locationData || locationLoading) && (
+                  <div>
+                    <label className="text-sm font-medium mb-3 block">
+                      Currency
+                    </label>
+                    <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border">
+                      {locationLoading ? (
+                        <span className="text-sm text-blue-600 dark:text-blue-400">
+                          Detecting location and currency...
+                        </span>
+                      ) : (
+                        <span className="text-sm text-foreground">
+                          Auto-detected: {locationData?.country} • {selectedCurrency}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
 
                 {/* Billing Period Toggle */}
                 <div>
