@@ -780,13 +780,25 @@ export default function Calculator() {
                         </div>
                       </div>
                       
-                      <Button 
-                        className="w-full mt-4" 
-                        variant={plan.id === recommendedPlan?.id ? "default" : "outline"}
-                        onClick={() => navigate("/subscribe")}
-                      >
-                        Choose {plan.name}
-                      </Button>
+                      <div className="mt-4 space-y-2">
+                        <Button 
+                          className="w-full" 
+                          variant={plan.id === recommendedPlan?.id ? "default" : "outline"}
+                          onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
+                        >
+                          {plan.id === 'basic' ? 'Try for Free' : 'Buy Now'}
+                        </Button>
+                        {plan.id !== 'basic' && (
+                          <Button 
+                            className="w-full" 
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => navigate('/subscribe?plan=basic&billing=monthly')}
+                          >
+                            Try for Free First
+                          </Button>
+                        )}
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
