@@ -839,150 +839,163 @@ export default function Landing() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-muted/30 via-primary/5 to-secondary/5 relative overflow-hidden">
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl floating-element"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl floating-delayed"></div>
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-2xl animate-pulse delay-500"></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
-              {t('landing.contact.title', 'Get in Touch')}
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 slide-in-bottom">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
+                {t('landing.contact.title', 'Get in Touch')}
+              </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto fade-in stagger-1">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto fade-in stagger-1 leading-relaxed">
               {t('landing.contact.subtitle', 'Have questions? Need a custom solution? Our team is here to help you transform your business operations.')}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Contact Info */}
             <div className="space-y-8 slide-in-left">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4 scale-in stagger-1">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
-                    <Mail className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.email', 'Email Us')}</h3>
-                    <p className="text-muted-foreground">{t('landing.contact.emailDesc', 'Get in touch via email for detailed inquiries')}</p>
-                    <a href="mailto:hello@businessflowpro.com" className="text-primary hover:text-primary/80 font-medium">
-                      hello@businessflowpro.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4 scale-in stagger-2">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.call', 'Call Us')}</h3>
-                    <p className="text-muted-foreground">{t('landing.contact.callDesc', 'Speak directly with our team')}</p>
-                    <a href="tel:+1-555-123-4567" className="text-primary hover:text-primary/80 font-medium">
-                      +1 (555) 123-4567
-                    </a>
+              <div className="space-y-8">
+                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-blue-200/50 dark:border-blue-700/50 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-1">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                      <Mail className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.email', 'Email Us')}</h3>
+                      <p className="text-muted-foreground mb-3">{t('landing.contact.emailDesc', 'Get in touch via email for detailed inquiries')}</p>
+                      <a href="mailto:hello@businessflowpro.com" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-semibold text-lg hover:underline transition-colors">
+                        hello@businessflowpro.com
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 scale-in stagger-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.visit', 'Visit Us')}</h3>
-                    <p className="text-muted-foreground">{t('landing.contact.visitDesc', 'Our headquarters')}</p>
-                    <p className="text-primary font-medium">
-                      123 Business Ave<br />
-                      San Francisco, CA 94105
-                    </p>
+                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-green-200/50 dark:border-green-700/50 hover:border-green-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-2">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                      <Phone className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.call', 'Call Us')}</h3>
+                      <p className="text-muted-foreground mb-3">{t('landing.contact.callDesc', 'Speak directly with our team')}</p>
+                      <a href="tel:+1-555-123-4567" className="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-semibold text-lg hover:underline transition-colors">
+                        +1 (555) 123-4567
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4 scale-in stagger-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center pulse-glow">
-                    <Clock className="h-6 w-6 text-white" />
+                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-purple-200/50 dark:border-purple-700/50 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-3">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                      <MapPin className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.visit', 'Visit Us')}</h3>
+                      <p className="text-muted-foreground mb-3">{t('landing.contact.visitDesc', 'Our headquarters')}</p>
+                      <p className="text-purple-600 dark:text-purple-400 font-semibold text-lg">
+                        123 Business Ave<br />
+                        San Francisco, CA 94105
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-2">{t('landing.contact.hours', 'Business Hours')}</h3>
-                    <p className="text-muted-foreground">
-                      {t('landing.contact.weekdays', 'Monday - Friday: 9:00 AM - 6:00 PM PST')}<br />
-                      {t('landing.contact.weekends', 'Weekend: 10:00 AM - 4:00 PM PST')}
-                    </p>
+                </div>
+
+                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-orange-200/50 dark:border-orange-700/50 hover:border-orange-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                      <Clock className="h-7 w-7 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.hours', 'Business Hours')}</h3>
+                      <p className="text-muted-foreground">
+                        <span className="block">{t('landing.contact.weekdays', 'Monday - Friday: 9:00 AM - 6:00 PM PST')}</span>
+                        <span className="block">{t('landing.contact.weekends', 'Weekend: 10:00 AM - 4:00 PM PST')}</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <Card className="glass-effect border-primary/20 slide-in-right">
-              <CardHeader>
-                <CardTitle className="text-2xl font-bold text-center gradient-text">
-                  {t('landing.contact.form.title', 'Send us a Message')}
+            <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 slide-in-right shadow-2xl hover:shadow-3xl transition-all duration-500">
+              <CardHeader className="text-center pb-6">
+                <CardTitle className="text-3xl font-bold mb-4">
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
+                    {t('landing.contact.form.title', 'Send us a Message')}
+                  </span>
                 </CardTitle>
-                <p className="text-center text-muted-foreground">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   {t('landing.contact.form.subtitle', 'Fill out the form below and we\'ll get back to you within 24 hours')}
                 </p>
               </CardHeader>
-              <CardContent className="p-8 pt-0">
+              <CardContent className="px-8 pb-8">
                 <form onSubmit={handleContactSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-6">
                     <div className="fade-in stagger-1">
-                      <Label htmlFor="firstName" className="text-sm font-medium">{t('landing.contact.form.firstName', 'First Name')}</Label>
+                      <Label htmlFor="firstName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.firstName', 'First Name')}</Label>
                       <Input
                         id="firstName"
                         value={contactForm.firstName}
                         onChange={(e) => setContactForm({...contactForm, firstName: e.target.value})}
                         placeholder="John"
-                        className="glow-border transition-all duration-300"
+                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
                         required
                       />
                     </div>
                     <div className="fade-in stagger-2">
-                      <Label htmlFor="lastName" className="text-sm font-medium">{t('landing.contact.form.lastName', 'Last Name')}</Label>
+                      <Label htmlFor="lastName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.lastName', 'Last Name')}</Label>
                       <Input
                         id="lastName"
                         value={contactForm.lastName}
                         onChange={(e) => setContactForm({...contactForm, lastName: e.target.value})}
                         placeholder="Doe"
-                        className="glow-border transition-all duration-300"
+                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
                         required
                       />
                     </div>
                   </div>
 
                   <div className="fade-in stagger-3">
-                    <Label htmlFor="contactEmail" className="text-sm font-medium">{t('landing.contact.form.email', 'Email Address')}</Label>
+                    <Label htmlFor="contactEmail" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.email', 'Email Address')}</Label>
                     <Input
                       id="contactEmail"
                       type="email"
                       value={contactForm.email}
                       onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
                       placeholder="john@company.com"
-                      className="glow-border transition-all duration-300"
+                      className="h-12 border-2 border-purple-200 dark:border-purple-700 focus:border-purple-500 dark:focus:border-purple-400 rounded-xl transition-all duration-300 hover:border-purple-300 dark:hover:border-purple-600"
                       required
                     />
                   </div>
 
                   <div className="fade-in stagger-4">
-                    <Label htmlFor="contactCompany" className="text-sm font-medium">{t('landing.contact.form.company', 'Company Name')}</Label>
+                    <Label htmlFor="contactCompany" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.company', 'Company Name')}</Label>
                     <Input
                       id="contactCompany"
                       value={contactForm.company}
                       onChange={(e) => setContactForm({...contactForm, company: e.target.value})}
                       placeholder="Your Company Inc."
-                      className="glow-border transition-all duration-300"
+                      className="h-12 border-2 border-green-200 dark:border-green-700 focus:border-green-500 dark:focus:border-green-400 rounded-xl transition-all duration-300 hover:border-green-300 dark:hover:border-green-600"
                       required
                     />
                   </div>
 
                   <div className="fade-in stagger-5">
-                    <Label htmlFor="contactSubject" className="text-sm font-medium">{t('landing.contact.form.subject', 'Subject')}</Label>
+                    <Label htmlFor="contactSubject" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.subject', 'Subject')}</Label>
                     <Select 
                       value={contactForm.subject} 
                       onValueChange={(value) => setContactForm({...contactForm, subject: value})}
                     >
-                      <SelectTrigger className="glow-border transition-all duration-300">
+                      <SelectTrigger className="h-12 border-2 border-orange-200 dark:border-orange-700 focus:border-orange-500 dark:focus:border-orange-400 rounded-xl transition-all duration-300 hover:border-orange-300 dark:hover:border-orange-600">
                         <SelectValue placeholder={t('landing.contact.form.selectTopic', 'Select a topic')} />
                       </SelectTrigger>
                       <SelectContent>
@@ -996,20 +1009,21 @@ export default function Landing() {
                   </div>
 
                   <div className="fade-in stagger-6">
-                    <Label htmlFor="contactMessage" className="text-sm font-medium">{t('landing.contact.form.message', 'Message')}</Label>
+                    <Label htmlFor="contactMessage" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.message', 'Message')}</Label>
                     <Textarea
                       id="contactMessage"
                       value={contactForm.message}
                       onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
                       placeholder={t('landing.contact.form.messagePlaceholder', 'Tell us about your needs and how we can help...')}
-                      className="glow-border transition-all duration-300 min-h-[120px]"
+                      className="min-h-[140px] border-2 border-pink-200 dark:border-pink-700 focus:border-pink-500 dark:focus:border-pink-400 rounded-xl transition-all duration-300 hover:border-pink-300 dark:hover:border-pink-600 resize-none"
                       required
                     />
                   </div>
 
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-xl hover:scale-105 transition-all duration-300 pulse-glow fade-in stagger-7"
+                    size="lg"
+                    className="w-full h-14 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 fade-in stagger-7"
                     disabled={contactMutation.isPending}
                   >
                     {contactMutation.isPending ? (
@@ -1022,8 +1036,10 @@ export default function Landing() {
                     )}
                   </Button>
 
-                  <p className="text-sm text-muted-foreground text-center fade-in stagger-8">
-                    {t('landing.contact.form.response', 'We\'ll get back to you within 24 hours. For urgent matters, please call us directly.')}
+                  <p className="text-center text-muted-foreground fade-in stagger-8 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-200 dark:border-blue-700">
+                    <span className="font-medium">
+                      {t('landing.contact.form.response', 'We\'ll get back to you within 24 hours. For urgent matters, please call us directly.')}
+                    </span>
                   </p>
                 </form>
               </CardContent>
