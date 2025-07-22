@@ -11,7 +11,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-06-20",
+  apiVersion: "2025-06-30.basil",
 });
 
 // Detailed subscription plan configurations with categorized features
@@ -511,7 +511,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
         case 'invoice.payment_succeeded': {
           const invoice = event.data.object as Stripe.Invoice;
-          const subscriptionId = typeof invoice.subscription === 'string' ? invoice.subscription : invoice.subscription?.id;
+          const subscriptionId = invoice.subscription as string;
           
           if (subscriptionId) {
             const subscription = await stripe.subscriptions.retrieve(subscriptionId);
@@ -533,7 +533,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
         case 'invoice.payment_failed': {
           const invoice = event.data.object as Stripe.Invoice;
-          const subscriptionId = typeof invoice.subscription === 'string' ? invoice.subscription : invoice.subscription?.id;
+          const subscriptionId = invoice.subscription as string;
           
           if (subscriptionId) {
             const subscription = await stripe.subscriptions.retrieve(subscriptionId);
@@ -584,7 +584,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           subscriptionDetails = {
             id: subscription.id,
             status: subscription.status,
-            currentPeriodEnd: subscription.current_period_end,
+            currentPeriodEnd: subscription.current_period_end * 1000, // Convert to milliseconds
             plan: user.subscriptionPlan,
           };
         } catch (error) {
