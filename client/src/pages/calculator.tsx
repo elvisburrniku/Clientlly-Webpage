@@ -832,7 +832,7 @@ export default function Calculator() {
                           variant={plan.id === recommendedPlan?.id ? "default" : "outline"}
                           onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                         >
-                          {plan.id === 'basic' ? 'Start Free' : 'Get Started'}
+                          {plan.id === 'basic' ? 'Try It Free' : 'Buy Now'}
                         </Button>
                         {plan.id !== 'basic' && (
                           <Button 

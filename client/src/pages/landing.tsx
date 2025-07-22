@@ -262,13 +262,13 @@ export default function Landing() {
                 onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
                 className="border-green-600 bg-green-600 text-white hover:bg-green-700 transition-all duration-300"
               >
-                Get Started
+                Buy Now
               </Button>
               <Button 
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
                 className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
               >
-                Start Free
+                Try It Free
               </Button>
               <LanguageSelector />
             </div>
@@ -288,7 +288,7 @@ export default function Landing() {
                 size="sm"
                 className="bg-blue-600 hover:bg-blue-700 text-white text-xs"
               >
-                Try Free
+                Try It Free
               </Button>
               <Button
                 variant="ghost"
@@ -328,7 +328,7 @@ export default function Landing() {
                   }}
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
                 >
-                  Get Started
+                  Buy Now
                 </Button>
                 <Button 
                   onClick={() => {
@@ -337,7 +337,7 @@ export default function Landing() {
                   }}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  Start Free
+                  Try It Free
                 </Button>
               </div>
             </div>
@@ -387,14 +387,14 @@ export default function Landing() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
               >
-                Start Free
+                Try It Free
               </Button>
               <Button 
                 size="lg" 
                 className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
               >
-                Get Started
+                Buy Now
               </Button>
               <Button 
                 size="lg" 
@@ -743,7 +743,7 @@ export default function Landing() {
                 className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
               >
-                Start Trial
+                Try It Free
               </Button>
             </div>
             
@@ -867,7 +867,7 @@ export default function Landing() {
                       variant={index === 1 ? "default" : "outline"}
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                     >
-                      {plan.id === 'basic' ? 'Start Free' : 'Get Started'}
+                      {plan.id === 'basic' ? 'Try It Free' : 'Buy Now'}
                     </Button>
                     {plan.id !== 'basic' && (
                       <Button 
