@@ -532,20 +532,7 @@ export default function Landing() {
               </div>
             </div>
 
-            {/* Bank Feeds */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Banknote className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Bank Feeds</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Save time and reduce errors when you connect your bank to get a full view of your finances.</p>
-                <Button variant="ghost" className="text-purple-600 hover:text-purple-700 p-0 h-auto font-semibold">
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
-              </div>
-            </div>
+
 
             {/* Tax */}
             <div className="group relative">
@@ -577,17 +564,7 @@ export default function Landing() {
               </div>
             </div>
 
-            {/* Capture & organize receipts */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-indigo-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Camera className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Capture & organize receipts</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">Use your phone to take photos of receipts. Match them to bills to stay organized and ready for tax season with everything in one place.</p>
-              </div>
-            </div>
+
 
             {/* Mobile App */}
             <div className="group relative">
@@ -628,6 +605,9 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Multi-currency support</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
+                <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
+                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                </Button>
               </div>
             </div>
 
