@@ -1033,32 +1033,38 @@ export default function Landing() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-primary via-accent to-secondary">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 slide-in-bottom">
-            <span className="inline-block animate-bounce-in">
+            <span className="inline-block animate-bounce-in bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
               {t('landing.footer.ready', 'Ready to transform your business?')}
             </span>
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto slide-in-bottom stagger-1 animate-fade-in-up">
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto slide-in-bottom stagger-1 animate-fade-in-up leading-relaxed">
             {t('landing.footer.join', 'Join thousands of businesses that have streamlined their operations with BusinessFlow Pro. Start your free trial today.')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center slide-in-bottom stagger-2">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center slide-in-bottom stagger-2">
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 text-lg transform hover:scale-105 transition-all duration-300 animate-pulse-glow"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-4 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
               onClick={() => window.location.href = "/api/login"}
             >
-              <span className="font-bold">{t('landing.getStarted', 'Start Free Trial')}</span>
+              {t('landing.getStarted', 'Start Free Trial')}
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary text-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
+              className="border-2 border-blue-400 text-blue-100 hover:bg-blue-400 hover:text-slate-900 text-lg px-8 py-4 font-bold backdrop-blur-sm bg-white/10 hover:bg-blue-400 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               onClick={() => setShowDemoModal(true)}
             >
-              <span className="font-bold">Learn More</span>
+              Learn More
             </Button>
           </div>
 
