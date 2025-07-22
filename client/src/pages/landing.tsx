@@ -604,7 +604,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Mobile App</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Save time by running your business on-the go with your mobile device*.</p>
-                <Button variant="ghost" className="text-teal-600 hover:text-teal-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-teal-600 hover:text-teal-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/mobile"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
@@ -619,7 +623,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Insights and reports</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
-                <Button variant="ghost" className="text-cyan-600 hover:text-cyan-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-cyan-600 hover:text-cyan-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/reports"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
@@ -634,7 +642,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Multi-currency support</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
-                <Button variant="ghost" className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/multicurrency"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
@@ -649,7 +661,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Security</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">See how we keep your information safe and compliant at all times.</p>
-                <Button variant="ghost" className="text-slate-600 hover:text-slate-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-slate-600 hover:text-slate-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/security"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>
@@ -664,7 +680,11 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Migration Available</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">Switch from Xero, Excel, Sage, Wave or Freshbooks to QuickBooks Online.</p>
-                <Button variant="ghost" className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold">
+                <Button 
+                  variant="ghost" 
+                  className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold"
+                  onClick={() => window.location.href = "/features/migration"}
+                >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>
               </div>

@@ -9,6 +9,11 @@ import FeatureInvoicing from "@/pages/feature-invoicing";
 import FeatureExpenses from "@/pages/feature-expenses";
 import FeatureTax from "@/pages/feature-tax";
 import FeatureInventory from "@/pages/feature-inventory";
+import FeatureMobile from "@/pages/feature-mobile";
+import FeatureReports from "@/pages/feature-reports";
+import FeatureMultiCurrency from "@/pages/feature-multicurrency";
+import FeatureSecurity from "@/pages/feature-security";
+import FeatureMigration from "@/pages/feature-migration";
 import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
@@ -34,6 +39,11 @@ function Router() {
           <Route path="/features/expenses" component={FeatureExpenses} />
           <Route path="/features/tax" component={FeatureTax} />
           <Route path="/features/inventory" component={FeatureInventory} />
+          <Route path="/features/mobile" component={FeatureMobile} />
+          <Route path="/features/reports" component={FeatureReports} />
+          <Route path="/features/multicurrency" component={FeatureMultiCurrency} />
+          <Route path="/features/security" component={FeatureSecurity} />
+          <Route path="/features/migration" component={FeatureMigration} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
@@ -46,6 +56,11 @@ function Router() {
           <Route path="/features/expenses" component={FeatureExpenses} />
           <Route path="/features/tax" component={FeatureTax} />
           <Route path="/features/inventory" component={FeatureInventory} />
+          <Route path="/features/mobile" component={FeatureMobile} />
+          <Route path="/features/reports" component={FeatureReports} />
+          <Route path="/features/multicurrency" component={FeatureMultiCurrency} />
+          <Route path="/features/security" component={FeatureSecurity} />
+          <Route path="/features/migration" component={FeatureMigration} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
