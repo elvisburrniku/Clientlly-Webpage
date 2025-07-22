@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Slider } from '@/components/ui/slider';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Progress } from '@/components/ui/progress';
 import { 
   Calculator as CalculatorIcon, 
   TrendingUp, 
@@ -15,7 +18,13 @@ import {
   DollarSign,
   Zap,
   Clock,
-  Target
+  Target,
+  BarChart3,
+  PieChart,
+  Calendar,
+  FileText,
+  Shield,
+  Globe
 } from 'lucide-react';
 
 interface PlanFeatures {
@@ -95,23 +104,53 @@ export default function Calculator() {
   const [currentPlan, setCurrentPlan] = useState('none');
   const [recommendedPlan, setRecommendedPlan] = useState<Plan | null>(null);
   const [savings, setSavings] = useState(0);
+  
+  // Enhanced calculator states
+  const [estimatedRevenue, setEstimatedRevenue] = useState([50000]);
+  const [growthRate, setGrowthRate] = useState([20]);
+  const [currentCosts, setCurrentCosts] = useState([500]);
+  const [industryType, setIndustryType] = useState('technology');
+  const [complianceNeeds, setComplianceNeeds] = useState('basic');
+  const [integrationNeeds, setIntegrationNeeds] = useState([5]);
+  const [projectionPeriod, setProjectionPeriod] = useState(12);
 
-  // Calculate recommended plan based on user inputs
+  // Enhanced calculation logic with real-time cost estimation
   useEffect(() => {
     const users = teamSize[0];
     const invoices = invoicesPerMonth[0];
+    const revenue = estimatedRevenue[0];
+    const growth = growthRate[0];
+    const integrations = integrationNeeds[0];
     
     let recommended = plans[0]; // Start with basic
+    let score = 0;
     
-    if (users > 10 || invoices > 500) {
+    // Advanced scoring algorithm
+    if (users > 25 || invoices > 1000 || revenue > 500000) {
+      score += 3;
+    } else if (users > 10 || invoices > 500 || revenue > 100000) {
+      score += 2;
+    } else if (users > 3 || invoices > 50 || revenue > 25000) {
+      score += 1;
+    }
+    
+    // Industry and compliance factors
+    if (industryType === 'healthcare' || industryType === 'finance') score += 1;
+    if (complianceNeeds === 'advanced') score += 1;
+    if (businessType === 'enterprise') score += 2;
+    if (growth > 30) score += 1;
+    if (integrations > 10) score += 1;
+    
+    // Select plan based on score
+    if (score >= 5) {
       recommended = plans[2]; // Business Plus
-    } else if (users > 3 || invoices > 50) {
+    } else if (score >= 2) {
       recommended = plans[1]; // Professional
     }
     
     setRecommendedPlan(recommended);
     
-    // Calculate potential savings
+    // Enhanced savings calculation
     if (currentPlan !== 'none') {
       const currentPlanData = plans.find(p => p.id === currentPlan);
       if (currentPlanData) {
@@ -124,7 +163,19 @@ export default function Calculator() {
         setSavings(Math.max(0, currentCost - recommendedCost));
       }
     }
-  }, [teamSize, invoicesPerMonth, billingPeriod, currentPlan]);
+    
+    // Calculate savings from current costs
+    if (currentCosts[0] > 0) {
+      const annualCurrentCosts = currentCosts[0] * 12;
+      const recommendedCost = billingPeriod === 'monthly'
+        ? recommended.monthlyPrice * 12
+        : recommended.yearlyPrice;
+      const costDifference = annualCurrentCosts - (recommendedCost / 100);
+      if (costDifference > 0) {
+        setSavings(costDifference);
+      }
+    }
+  }, [teamSize, invoicesPerMonth, billingPeriod, currentPlan, estimatedRevenue, growthRate, currentCosts, industryType, complianceNeeds, integrationNeeds, businessType]);
 
   const formatPrice = (price: number) => {
     return Math.floor(price / 100);
@@ -142,18 +193,49 @@ export default function Calculator() {
     return Math.round((savings / monthlyCost) * 100);
   };
 
+  // New helper functions for enhanced calculator
+  const calculateROI = (plan: Plan) => {
+    const annualCost = billingPeriod === 'monthly' ? plan.monthlyPrice * 12 : plan.yearlyPrice;
+    const timeSaved = teamSize[0] * 5; // 5 hours per user per month
+    const hourlyCost = 50; // Average hourly cost
+    const timeSavings = timeSaved * 12 * hourlyCost;
+    const efficiency = invoicesPerMonth[0] * 0.1; // 10 cents per invoice in efficiency
+    const efficiencySavings = efficiency * 12 * 100;
+    const totalSavings = timeSavings + efficiencySavings;
+    const roi = ((totalSavings - (annualCost / 100)) / (annualCost / 100)) * 100;
+    return Math.max(0, Math.round(roi));
+  };
+
+  const getProjectedGrowthCost = (plan: Plan, months: number) => {
+    const monthlyGrowth = growthRate[0] / 100 / 12;
+    const currentMonthlyUsers = teamSize[0];
+    const projectedUsers = currentMonthlyUsers * Math.pow(1 + monthlyGrowth, months);
+    const baseCost = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12;
+    return Math.round((baseCost / 100) * months + (projectedUsers - currentMonthlyUsers) * 10);
+  };
+
+  const getComplianceScore = () => {
+    let score = 0;
+    if (complianceNeeds === 'advanced') score += 30;
+    if (industryType === 'healthcare' || industryType === 'finance') score += 20;
+    if (recommendedPlan?.id === 'business') score += 25;
+    if (recommendedPlan?.id === 'professional') score += 15;
+    return Math.min(100, score + 25); // Base compliance score
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                <ChartLine className="h-4 w-4 text-white" />
-              </div>
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
-            </div>
+            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+              <img 
+                src="/attached_assets/3d_1753189705091.png" 
+                alt="BusinessFlow Pro" 
+                className="h-10 w-auto"
+              />
+            </Link>
             <Button variant="ghost" onClick={() => navigate("/")}>
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Home
@@ -287,6 +369,118 @@ export default function Calculator() {
                   </Select>
                 </div>
 
+                {/* Estimated Revenue */}
+                <div>
+                  <label className="text-sm font-medium mb-3 block">
+                    Annual Revenue: <span className="font-bold text-primary">${estimatedRevenue[0].toLocaleString()}</span>
+                  </label>
+                  <Slider
+                    value={estimatedRevenue}
+                    onValueChange={setEstimatedRevenue}
+                    max={2000000}
+                    min={10000}
+                    step={10000}
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>$10K</span>
+                    <span>$2M+</span>
+                  </div>
+                </div>
+
+                {/* Growth Rate */}
+                <div>
+                  <label className="text-sm font-medium mb-3 block">
+                    Expected Growth: <span className="font-bold text-primary">{growthRate[0]}% annually</span>
+                  </label>
+                  <Slider
+                    value={growthRate}
+                    onValueChange={setGrowthRate}
+                    max={100}
+                    min={0}
+                    step={5}
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>0%</span>
+                    <span>100%+</span>
+                  </div>
+                </div>
+
+                {/* Industry Type */}
+                <div>
+                  <label className="text-sm font-medium mb-3 block">Industry</label>
+                  <Select value={industryType} onValueChange={setIndustryType}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select your industry" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="technology">Technology</SelectItem>
+                      <SelectItem value="healthcare">Healthcare</SelectItem>
+                      <SelectItem value="finance">Finance</SelectItem>
+                      <SelectItem value="retail">Retail</SelectItem>
+                      <SelectItem value="manufacturing">Manufacturing</SelectItem>
+                      <SelectItem value="consulting">Consulting</SelectItem>
+                      <SelectItem value="education">Education</SelectItem>
+                      <SelectItem value="nonprofit">Non-profit</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Integration Needs */}
+                <div>
+                  <label className="text-sm font-medium mb-3 block">
+                    Required Integrations: <span className="font-bold text-primary">{integrationNeeds[0]}</span>
+                  </label>
+                  <Slider
+                    value={integrationNeeds}
+                    onValueChange={setIntegrationNeeds}
+                    max={25}
+                    min={0}
+                    step={1}
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>0</span>
+                    <span>25+</span>
+                  </div>
+                </div>
+
+                {/* Compliance Needs */}
+                <div>
+                  <label className="text-sm font-medium mb-3 block">Compliance Requirements</label>
+                  <Select value={complianceNeeds} onValueChange={setComplianceNeeds}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select compliance level" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="basic">Basic (GDPR)</SelectItem>
+                      <SelectItem value="standard">Standard (SOX, PCI)</SelectItem>
+                      <SelectItem value="advanced">Advanced (HIPAA, SOC2)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Current Costs */}
+                <div>
+                  <label className="text-sm font-medium mb-3 block">
+                    Current Monthly Costs: <span className="font-bold text-primary">${currentCosts[0]}</span>
+                  </label>
+                  <Slider
+                    value={currentCosts}
+                    onValueChange={setCurrentCosts}
+                    max={5000}
+                    min={0}
+                    step={50}
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>$0</span>
+                    <span>$5000+</span>
+                  </div>
+                </div>
+
                 {/* Current Plan */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">Current Solution</label>
@@ -310,75 +504,146 @@ export default function Calculator() {
 
           {/* Results Panel */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Recommendation Card */}
+            {/* Real-time Cost Analysis */}
             {recommendedPlan && (
-              <Card className="border-2 border-primary/20 shadow-xl bg-gradient-to-r from-primary/5 to-secondary/5">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="flex items-center text-2xl">
-                        <Target className="h-6 w-6 mr-2 text-primary" />
-                        Recommended for You
-                      </CardTitle>
-                      <CardDescription className="text-lg mt-2">
-                        Based on your team size of {teamSize[0]} users and {invoicesPerMonth[0]} monthly invoices
-                      </CardDescription>
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <Card className="border-2 border-primary/20 shadow-xl bg-gradient-to-r from-primary/5 to-secondary/5">
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <Target className="h-5 w-5 mr-2 text-primary" />
+                      Recommended Plan
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-center mb-4">
+                      <h3 className="text-2xl font-bold text-primary mb-2">{recommendedPlan.name}</h3>
+                      <div className="text-3xl font-bold mb-2">
+                        ${formatPrice(billingPeriod === 'monthly' ? recommendedPlan.monthlyPrice : recommendedPlan.yearlyPrice / 12)}
+                        <span className="text-sm text-muted-foreground">/month</span>
+                      </div>
                     </div>
-                    <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2">
-                      Best Match
-                    </Badge>
-                  </div>
+                    <Link href="/subscribe">
+                      <Button size="lg" className="w-full">
+                        Get Started
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-green-200 dark:border-green-800">
+                  <CardHeader>
+                    <CardTitle className="flex items-center text-green-700 dark:text-green-400">
+                      <BarChart3 className="h-5 w-5 mr-2" />
+                      ROI Analysis
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm">Expected ROI:</span>
+                        <span className="text-2xl font-bold text-green-600 dark:text-green-400">
+                          {calculateROI(recommendedPlan)}%
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm">Compliance Score:</span>
+                        <div className="flex items-center space-x-2">
+                          <Progress value={getComplianceScore()} className="w-20" />
+                          <span className="text-sm font-semibold">{getComplianceScore()}%</span>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm">12-month cost:</span>
+                        <span className="font-semibold">${getProjectedGrowthCost(recommendedPlan, 12)}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            )}
+
+            {/* Feature Analysis */}
+            {recommendedPlan && (
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <PieChart className="h-5 w-5 mr-2 text-primary" />
+                    Feature Suitability Analysis
+                  </CardTitle>
+                  <CardDescription>
+                    Based on your requirements: {teamSize[0]} users, {invoicesPerMonth[0]} invoices/month, {industryType} industry
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h3 className="text-3xl font-bold text-primary mb-2">{recommendedPlan.name}</h3>
-                      <div className="flex items-baseline mb-4">
-                        <span className="text-4xl font-bold">
-                          ${formatPrice(billingPeriod === 'monthly' ? recommendedPlan.monthlyPrice : recommendedPlan.yearlyPrice / 12)}
-                        </span>
-                        <span className="text-muted-foreground ml-2">/month</span>
-                      </div>
-                      {billingPeriod === 'yearly' && (
-                        <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg mb-4">
-                          <div className="flex items-center text-green-700 dark:text-green-400">
-                            <TrendingUp className="h-4 w-4 mr-2" />
-                            <span className="font-semibold">
-                              Save ${formatPrice(getYearlySavings(recommendedPlan))} annually ({getSavingsPercentage(recommendedPlan)}% off)
-                            </span>
-                          </div>
-                        </div>
-                      )}
-                      <Link href="/subscribe" className="w-full">
-                        <Button size="lg" className="w-full">
-                          Get Started with {recommendedPlan.name}
-                        </Button>
-                      </Link>
-                    </div>
-                    
                     <div className="space-y-4">
-                      <h4 className="font-semibold text-lg">What's Included:</h4>
-                      <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <Users className="h-4 w-4 mr-2 text-primary" />
-                          {recommendedPlan.features.users} Users
+                          <span className="text-sm">User Capacity</span>
                         </div>
-                        <div className="flex items-center">
-                          <DollarSign className="h-4 w-4 mr-2 text-primary" />
-                          {recommendedPlan.features.invoicesPerMonth} Invoices/mo
-                        </div>
-                        <div className="flex items-center">
-                          <Building className="h-4 w-4 mr-2 text-primary" />
-                          {recommendedPlan.features.storageGB}GB Storage
-                        </div>
-                        <div className="flex items-center">
-                          <Zap className="h-4 w-4 mr-2 text-primary" />
-                          {recommendedPlan.features.integrations} Integrations
+                        <div className="flex items-center space-x-2">
+                          <Progress 
+                            value={(teamSize[0] / recommendedPlan.features.users) * 100} 
+                            className="w-24" 
+                          />
+                          <span className="text-xs">{teamSize[0]}/{recommendedPlan.features.users}</span>
                         </div>
                       </div>
-                      <div className="pt-2">
-                        <span className="text-sm font-medium">Support: </span>
-                        <span className="text-sm text-muted-foreground">{recommendedPlan.features.support}</span>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <FileText className="h-4 w-4 mr-2 text-primary" />
+                          <span className="text-sm">Invoice Volume</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Progress 
+                            value={(invoicesPerMonth[0] / recommendedPlan.features.invoicesPerMonth) * 100} 
+                            className="w-24" 
+                          />
+                          <span className="text-xs">{invoicesPerMonth[0]}/{recommendedPlan.features.invoicesPerMonth}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <Globe className="h-4 w-4 mr-2 text-primary" />
+                          <span className="text-sm">Integration Needs</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Progress 
+                            value={(integrationNeeds[0] / recommendedPlan.features.integrations) * 100} 
+                            className="w-24" 
+                          />
+                          <span className="text-xs">{integrationNeeds[0]}/{recommendedPlan.features.integrations}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <Shield className="h-4 w-4 mr-2 text-primary" />
+                          <span className="text-sm">Security & Compliance</span>
+                        </div>
+                        <Badge variant={getComplianceScore() > 70 ? "default" : "secondary"}>
+                          {getComplianceScore() > 70 ? "Excellent" : "Good"}
+                        </Badge>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <TrendingUp className="h-4 w-4 mr-2 text-primary" />
+                          <span className="text-sm">Growth Scalability</span>
+                        </div>
+                        <Badge variant={growthRate[0] > 30 ? "default" : "secondary"}>
+                          {growthRate[0] > 30 ? "High Growth" : "Stable"}
+                        </Badge>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <Building className="h-4 w-4 mr-2 text-primary" />
+                          <span className="text-sm">Enterprise Ready</span>
+                        </div>
+                        <Badge variant={recommendedPlan.id === 'business' ? "default" : "secondary"}>
+                          {recommendedPlan.id === 'business' ? "Yes" : "Partial"}
+                        </Badge>
                       </div>
                     </div>
                   </div>
@@ -386,23 +651,69 @@ export default function Calculator() {
               </Card>
             )}
 
+            {/* Cost Projection Timeline */}
+            {recommendedPlan && (
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Calendar className="h-5 w-5 mr-2 text-primary" />
+                    Cost Projection Timeline
+                  </CardTitle>
+                  <CardDescription>
+                    Your estimated costs over the next 24 months with {growthRate[0]}% annual growth
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {[6, 12, 18, 24].map(months => (
+                      <div key={months} className="text-center p-4 bg-muted/50 rounded-lg">
+                        <div className="text-sm text-muted-foreground mb-1">{months} months</div>
+                        <div className="text-xl font-bold text-primary">
+                          ${getProjectedGrowthCost(recommendedPlan, months)}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          ~{Math.round(teamSize[0] * Math.pow(1 + (growthRate[0]/100/12), months))} users
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             {/* Savings Projection */}
             {savings > 0 && (
-              <Card className="border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/10">
+              <Card className="border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/10 mb-8">
                 <CardHeader>
                   <CardTitle className="flex items-center text-green-700 dark:text-green-400">
                     <TrendingUp className="h-5 w-5 mr-2" />
-                    Potential Savings
+                    Potential Annual Savings
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
-                      ${formatPrice(savings)}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
+                        ${Math.round(savings)}
+                      </div>
+                      <p className="text-green-700 dark:text-green-300">
+                        Annual cost savings
+                      </p>
                     </div>
-                    <p className="text-green-700 dark:text-green-300">
-                      You could save this much annually by switching to our recommended plan
-                    </p>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span>Time savings (hours):</span>
+                        <span className="font-semibold">{teamSize[0] * 5 * 12}h/year</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span>Process efficiency:</span>
+                        <span className="font-semibold">${Math.round(invoicesPerMonth[0] * 0.1 * 12 * 100)}/year</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span>Reduced errors:</span>
+                        <span className="font-semibold">${Math.round(estimatedRevenue[0] * 0.002)}/year</span>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
