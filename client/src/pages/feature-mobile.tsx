@@ -39,11 +39,20 @@ export default function FeatureMobile() {
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-emerald-500/0 group-hover:from-green-500/20 group-hover:to-emerald-500/20 transition-all duration-500 rounded-lg"></div>
               </div>
             </Link>
-            <Button variant="ghost" asChild>
-              <Link href="/#features">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Features
-              </Link>
+            <Button 
+              variant="ghost" 
+              onClick={() => {
+                window.location.href = "/";
+                setTimeout(() => {
+                  const featuresSection = document.getElementById('features');
+                  if (featuresSection) {
+                    featuresSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Features
             </Button>
           </div>
         </div>

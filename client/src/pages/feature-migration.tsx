@@ -31,11 +31,20 @@ export default function FeatureMigration() {
               </div>
               <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
-            <Button variant="ghost" asChild>
-              <Link href="/#features">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Features
-              </Link>
+            <Button 
+              variant="ghost" 
+              onClick={() => {
+                window.location.href = "/";
+                setTimeout(() => {
+                  const featuresSection = document.getElementById('features');
+                  if (featuresSection) {
+                    featuresSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Features
             </Button>
           </div>
         </div>

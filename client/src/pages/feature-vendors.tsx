@@ -14,7 +14,15 @@ export default function FeatureVendors() {
               <Button 
                 variant="ghost" 
                 size="sm"
-                onClick={() => window.location.href = "/#features"}
+                onClick={() => {
+                  window.location.href = "/";
+                  setTimeout(() => {
+                    const featuresSection = document.getElementById('features');
+                    if (featuresSection) {
+                      featuresSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
                 className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />

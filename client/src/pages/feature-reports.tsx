@@ -39,11 +39,20 @@ export default function FeatureReports() {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/15 group-hover:to-purple-500/15 transition-all duration-500 rounded-lg"></div>
               </div>
             </Link>
-            <Button variant="ghost" asChild>
-              <Link href="/#features">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Features
-              </Link>
+            <Button 
+              variant="ghost" 
+              onClick={() => {
+                window.location.href = "/";
+                setTimeout(() => {
+                  const featuresSection = document.getElementById('features');
+                  if (featuresSection) {
+                    featuresSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Features
             </Button>
           </div>
         </div>
