@@ -21,7 +21,7 @@ export default function FeatureSecurity() {
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <img 
-                  src="/logo-transparent.svg" 
+                  src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
                   className="h-10 w-auto transition-all duration-500 ease-out group-hover:scale-110 group-hover:-rotate-3 group-hover:brightness-110"
                 />

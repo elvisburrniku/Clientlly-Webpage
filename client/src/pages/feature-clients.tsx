@@ -23,7 +23,7 @@ export default function FeatureClients() {
             <div className="flex items-center space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <img 
-                  src="/logo-transparent.svg" 
+                  src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
                   className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
                 />
