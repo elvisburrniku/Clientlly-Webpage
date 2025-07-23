@@ -506,4 +506,37 @@
   .animate-auto-scroll:hover {
     animation-play-state: paused;
   }
+
+  /* FAQ Cycle Animations */
+  @keyframes fade-in-out {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes fade-in-out-delayed {
+    0%, 45% { opacity: 0; }
+    50%, 95% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .animate-fade-in-out {
+    animation: fade-in-out 6s ease-in-out infinite;
+  }
+
+  .animate-fade-in-out-delayed {
+    animation: fade-in-out-delayed 6s ease-in-out infinite;
+  }
+
+  .animate-faq-cycle-1 .animate-fade-in-out-delayed {
+    animation-delay: 0s;
+  }
+
+  .animate-faq-cycle-2 .animate-fade-in-out-delayed {
+    animation-delay: 1.5s;
+  }
+
+  .animate-faq-cycle-3 .animate-fade-in-out-delayed {
+    animation-delay: 3s;
+  }
 }
