@@ -57,10 +57,10 @@ export default function FeatureExpenses() {
                   }
                 }, 100);
               }}
-              className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+              className="flex items-center space-x-1 sm:space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
-              <ArrowLeft className="h-5 w-5" />
-              <span>Back to Features</span>
+              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="text-sm sm:text-base">Back</span>
             </button>
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">

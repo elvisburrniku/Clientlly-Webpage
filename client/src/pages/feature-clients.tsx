@@ -10,7 +10,7 @@ export default function FeatureClients() {
       <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <Button 
                 variant="ghost" 
                 size="sm"
@@ -23,19 +23,19 @@ export default function FeatureClients() {
                     }
                   }, 100);
                 }}
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-2 sm:px-3"
               >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Features
+                <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
+                <span className="text-sm sm:text-base">Back</span>
               </Button>
             </div>
-            <div className="flex items-center space-x-3 group transition-all duration-300">
+            <div className="flex items-center space-x-2 sm:space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-glow cursor-pointer"
+                    className="w-10 h-8 sm:w-12 sm:h-9 object-contain logo-glow cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 to-purple-500/0 group-hover:from-indigo-500/15 group-hover:to-purple-500/15 transition-all duration-500 rounded-lg"></div>
@@ -46,49 +46,49 @@ export default function FeatureClients() {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 relative overflow-hidden">
+      <section className="py-10 sm:py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-10 left-10 sm:top-20 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl mb-8 shadow-xl">
-              <Users className="h-10 w-10 text-white" />
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-3xl mb-6 sm:mb-8 shadow-xl">
+              <Users className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Client Management
               </span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
               Build stronger relationships and grow your business with comprehensive client management tools designed for modern businesses.
             </p>
           </div>
 
           {/* Professional Business Photo */}
-          <div className="mb-20">
+          <div className="mb-12 sm:mb-20">
             <Card className="overflow-hidden shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
               <CardContent className="p-0 relative">
                 <img 
                   src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                   alt="Professional team collaboration and client relationship management"
-                  className="w-full h-96 object-cover"
+                  className="w-full h-48 sm:h-64 lg:h-96 object-cover"
                 />
-                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-sm">
-                  <h4 className="font-bold text-gray-800 mb-2">Client Success Rate</h4>
-                  <div className="flex items-center space-x-4">
+                <div className="absolute bottom-3 left-3 sm:bottom-6 sm:left-6 bg-white/90 backdrop-blur-sm p-3 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg max-w-xs sm:max-w-sm">
+                  <h4 className="font-bold text-gray-800 mb-2 text-sm sm:text-base">Client Success Rate</h4>
+                  <div className="flex items-center space-x-2 sm:space-x-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-indigo-600">94%</div>
+                      <div className="text-lg sm:text-2xl font-bold text-indigo-600">94%</div>
                       <div className="text-xs text-gray-600">Retention</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">847</div>
+                      <div className="text-lg sm:text-2xl font-bold text-green-600">847</div>
                       <div className="text-xs text-gray-600">Active Clients</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-600">4.9</div>
+                      <div className="text-lg sm:text-2xl font-bold text-purple-600">4.9</div>
                       <div className="text-xs text-gray-600">Avg Rating</div>
                     </div>
                   </div>
@@ -98,7 +98,7 @@ export default function FeatureClients() {
           </div>
 
           {/* Sample Client Report */}
-          <div className="mb-20 grid md:grid-cols-2 gap-8">
+          <div className="mb-12 sm:mb-20 grid md:grid-cols-2 gap-4 sm:gap-8">
             <Card className="p-6 hover:shadow-xl transition-all duration-300">
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold mb-2">Top Clients Report</h3>

@@ -57,47 +57,49 @@ export default function FeatureInvoicing() {
                   }
                 }, 100);
               }}
-              className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
+              className="flex items-center space-x-1 sm:space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
-              <ArrowLeft className="h-5 w-5" />
-              <span>Back to Features</span>
+              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="text-sm sm:text-base">Back</span>
             </button>
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
+            <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-16 h-12 object-contain logo-rainbow cursor-pointer"
+                    className="w-10 h-8 sm:w-16 sm:h-12 object-contain logo-rainbow cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 to-cyan-500/0 group-hover:from-indigo-500/15 group-hover:to-cyan-500/15 transition-all duration-500 rounded-lg"></div>
               </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
+              <span className="hidden sm:block text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
             <Button 
               onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base px-3 sm:px-4"
+              size="sm"
             >
-              Get Started
+              <span className="hidden sm:inline">Get Started</span>
+              <span className="sm:hidden">Start</span>
             </Button>
           </div>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-10 sm:py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-12 items-center">
+            <div className="space-y-6 sm:space-y-8">
               <div className="space-y-4 fade-in">
                 <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200">
                   Professional Invoicing Suite
                 </Badge>
-                <h1 className="text-5xl font-bold text-foreground">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
                   Create stunning invoices that <span className="gradient-text">get paid faster</span>
                 </h1>
-                <p className="text-xl text-muted-foreground">
+                <p className="text-lg sm:text-xl text-muted-foreground">
                   Professional invoice creation, automated payment reminders, and seamless payment tracking. 
                   Get paid 40% faster with our intelligent invoicing system.
                 </p>
@@ -121,7 +123,7 @@ export default function FeatureInvoicing() {
               <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-2">
                 <Button 
                   size="lg" 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
                   onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
                 >
                   Start Free Trial

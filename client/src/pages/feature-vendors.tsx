@@ -23,19 +23,19 @@ export default function FeatureVendors() {
                     }
                   }, 100);
                 }}
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-2 sm:px-3"
               >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Features
+                <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
+                <span className="text-sm sm:text-base">Back</span>
               </Button>
             </div>
-            <div className="flex items-center space-x-3 group transition-all duration-300">
+            <div className="flex items-center space-x-2 sm:space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-pulse cursor-pointer"
+                    className="w-10 h-8 sm:w-12 sm:h-9 object-contain logo-pulse cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 to-orange-500/0 group-hover:from-amber-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>
@@ -46,16 +46,16 @@ export default function FeatureVendors() {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 relative overflow-hidden">
+      <section className="py-10 sm:py-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-10 left-10 sm:top-20 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl mb-8 shadow-xl">
-              <Building2 className="h-10 w-10 text-white" />
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl mb-6 sm:mb-8 shadow-xl">
+              <Building2 className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">

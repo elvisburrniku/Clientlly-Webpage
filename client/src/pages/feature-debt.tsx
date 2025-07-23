@@ -39,6 +39,7 @@ export default function FeatureDebt() {
             </Link>
             <Button 
               variant="ghost" 
+              size="sm"
               onClick={() => {
                 window.location.href = "/";
                 setTimeout(() => {
@@ -48,9 +49,10 @@ export default function FeatureDebt() {
                   }
                 }, 100);
               }}
+              className="px-2 sm:px-3"
             >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Features
+              <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
+              <span className="text-sm sm:text-base">Back</span>
             </Button>
           </div>
         </div>

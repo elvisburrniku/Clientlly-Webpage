@@ -62,22 +62,24 @@ export default function FeatureTax() {
               <ArrowLeft className="h-5 w-5" />
               <span>Back to Features</span>
             </button>
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
+            <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <img 
                   src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
-                  className="w-16 h-12 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
+                  className="w-10 h-8 sm:w-16 sm:h-12 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 to-teal-500/0 group-hover:from-emerald-500/15 group-hover:to-teal-500/15 transition-all duration-500 rounded-lg"></div>
               </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
+              <span className="hidden sm:block text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
             <Button 
               onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
-              className="bg-orange-600 hover:bg-orange-700 text-white"
+              className="bg-orange-600 hover:bg-orange-700 text-white text-sm sm:text-base px-3 sm:px-4"
+              size="sm"
             >
-              Get Started
+              <span className="hidden sm:inline">Get Started</span>
+              <span className="sm:hidden">Start</span>
             </Button>
           </div>
         </div>
