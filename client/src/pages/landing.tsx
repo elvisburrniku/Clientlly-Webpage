@@ -333,11 +333,11 @@ export default function Landing() {
             
             {/* Main Heading */}
             <div className="space-y-10">
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight">
-                <span className="text-foreground block fade-in stagger-1 mb-4">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
+                <span className="text-foreground block mb-2 leading-relaxed">
                   Everything you need to
                 </span>
-                <span className="gradient-text block fade-in stagger-2 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
+                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-relaxed">
                   run your business
                 </span>
               </h1>
@@ -697,11 +697,8 @@ export default function Landing() {
       <section id="pricing" className="py-20 px-4 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
-              <span className="inline-block animate-slide-in-from-left">Choose the perfect plan for</span>{' '}
-              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient-x inline-block animate-slide-in-from-right">
-                your business
-              </span>
+            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in leading-tight">
+              Choose the perfect plan for your business
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 fade-in stagger-1 animate-type-in">
               Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
