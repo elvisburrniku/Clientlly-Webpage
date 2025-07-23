@@ -1428,12 +1428,12 @@ export default function Landing() {
                 <ul className="space-y-4">
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.help', 'Help Center')}
+                      landing.footer.help
                     </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.tutorials', 'Tutorials')}
+                      landing.footer.tutorials
                     </a>
                   </li>
                   <li>
@@ -1452,17 +1452,17 @@ export default function Landing() {
                 <ul className="space-y-4">
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.blog', 'Blog')}
+                      landing.footer.blog
                     </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.webinars', 'Webinars')}
+                      landing.footer.webinars
                     </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.case_studies', 'Case Studies')}
+                      landing.footer.case_studies
                     </a>
                   </li>
                 </ul>
@@ -1471,17 +1471,17 @@ export default function Landing() {
 
             <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-sm">
-                © 2025 BusinessFlow Pro. {t('landing.footer.rights', 'All rights reserved.')}
+                © 2025 BusinessFlow Pro. landing.footer.rights
               </div>
               <div className="flex space-x-6 text-sm">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  {t('landing.footer.privacy', 'Privacy Policy')}
+                  landing.footer.privacy
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  {t('landing.footer.terms', 'Terms of Service')}
+                  landing.footer.terms
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  {t('landing.footer.cookies', 'Cookie Policy')}
+                  landing.footer.cookies
                 </a>
               </div>
             </div>
