@@ -784,6 +784,16 @@ export default function Landing() {
                     >
                       {plan.id === 'basic' ? 'Try Free First' : 'Buy Now'}
                     </Button>
+                    {plan.id === 'basic' && (
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        className="w-full text-primary hover:text-primary/80"
+                        onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
+                      >
+                        Buy Now
+                      </Button>
+                    )}
                     {plan.id !== 'basic' && (
                       <Button 
                         variant="ghost" 

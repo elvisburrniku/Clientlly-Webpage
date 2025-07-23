@@ -865,6 +865,16 @@ export default function Calculator() {
                         >
                           {plan.id === 'basic' ? 'Try Free First' : 'Buy Now'}
                         </Button>
+                        {plan.id === 'basic' && (
+                          <Button 
+                            className="w-full" 
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
+                          >
+                            Buy Now
+                          </Button>
+                        )}
                         {plan.id !== 'basic' && (
                           <Button 
                             className="w-full" 

@@ -130,6 +130,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Removed 4 feature preview cards: Professional Invoicing, Smart Expense Tracking, Powerful CRM, and Contract Management
 ✓ Streamlined hero section for cleaner focus on main features grid below
 ✓ Changed all "Try It Free" buttons to "Try Free First" across all pages (landing, calculator, feature pages)
+✓ Added "Buy Now" button to Basic plan in pricing sections (landing page and calculator)
 
 ## System Architecture
 
