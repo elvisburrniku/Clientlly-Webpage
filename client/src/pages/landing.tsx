@@ -367,17 +367,17 @@ export default function Landing() {
             </div>
             
             {/* Main Heading */}
-            <div className="space-y-10">
+            <div className="space-y-8">
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
-                <span className="text-foreground block mb-2 leading-relaxed">
+                <span className="text-foreground block mb-1 leading-tight">
                   Everything you need to
                 </span>
-                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-relaxed">
+                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
                   run your business
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-3">
+              <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-3 mt-6">
                 Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
               </p>
             </div>
