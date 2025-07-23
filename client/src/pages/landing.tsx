@@ -337,10 +337,10 @@ export default function Landing() {
             <div className="space-y-10">
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
                 <span className="text-foreground block mb-2 leading-relaxed">
-                  The features you need.
+                  Everything you need to
                 </span>
                 <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-relaxed">
-                  All in one place
+                  run your business
                 </span>
               </h1>
               
@@ -407,7 +407,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 fade-in">
-              Everything you need to <span className="gradient-text">run your business</span>
+              The features you need. <span className="gradient-text">All in one place</span>
             </h2>
             <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1 leading-relaxed">
               Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
