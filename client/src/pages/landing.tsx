@@ -217,7 +217,7 @@ export default function Landing() {
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.features', 'Features')}</a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.pricing', 'Pricing')}</a>
               <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('calculator.title', 'Calculator')}</Link>
-
+              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
@@ -287,7 +287,7 @@ export default function Landing() {
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.features', 'Features')}</a>
               <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.pricing', 'Pricing')}</a>
               <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">{t('calculator.title', 'Calculator')}</Link>
-              <a href="#about" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.about', 'About')}</a>
+              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About</Link>
               <div className="pt-4 space-y-2">
                 <Button 
                   variant="ghost" 
