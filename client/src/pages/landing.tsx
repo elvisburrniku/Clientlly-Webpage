@@ -614,41 +614,36 @@ export default function Landing() {
             </h2>
             
             <div className="max-w-4xl mx-auto mb-16">
-              {/* Main Message Container */}
-              <div className="relative backdrop-blur-sm bg-gradient-to-br from-white/80 to-blue-50/50 dark:from-gray-900/80 dark:to-blue-950/50 rounded-3xl p-8 lg:p-12 shadow-xl border border-white/20 dark:border-gray-700/30 animate-fade-in-up">
+              {/* Professional Collaboration Section */}
+              <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
                 
-                {/* Floating Elements */}
-                <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
-                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
-                
-                <div className="text-center space-y-8">
+                <div className="text-center space-y-6">
                   
-
+                  {/* Section Header */}
+                  <div className="space-y-3">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
+                      Growing Together
+                    </h3>
+                    <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                  </div>
                   
-
-                  
-                  {/* Collaboration Promise */}
-                  <div className="relative animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-                    <div className="bg-gradient-to-r from-orange-50 to-purple-50 dark:from-orange-950/30 dark:to-purple-950/30 rounded-2xl p-6 border-2 border-gradient-to-r from-orange-200/50 to-purple-200/50 dark:from-orange-700/50 dark:to-purple-700/50">
-                      <div className="flex items-center justify-center space-x-2 mb-4">
-                        <Heart className="w-5 h-5 text-red-500 animate-pulse" />
-                        <span className="text-lg font-semibold text-foreground">Growing Together</span>
-                        <Heart className="w-5 h-5 text-red-500 animate-pulse" />
-                      </div>
-                      
-                      <p className="text-base text-foreground leading-relaxed mb-4">
-                        With your ideas and feedback, we continuously improve our platform{' '}
-                        <span className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold rounded-full shadow-md animate-bounce" style={{animationDelay: '2s'}}>
-                          <Gift className="w-3 h-3 mr-1" />
-                          free of charge
-                        </span>
-                        {' '}– because we believe the best growth happens when we grow together.
-                      </p>
-                      
+                  {/* Main Content */}
+                  <div className="max-w-3xl mx-auto space-y-6">
+                    <p className="text-lg text-foreground leading-relaxed">
+                      With your ideas and feedback, we continuously improve our platform{' '}
+                      <span className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-sm font-semibold rounded-full shadow-sm">
+                        <Gift className="w-3 h-3 mr-1" />
+                        free of charge
+                      </span>
+                      {' '}– because we believe the best growth happens when we grow together.
+                    </p>
+                    
+                    {/* Call to Action */}
+                    <div className="pt-4">
                       <Button 
                         variant="outline"
                         onClick={() => window.location.href = '/collaboration'}
-                        className="group border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg font-medium"
+                        className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-base font-semibold shadow-sm hover:shadow-md"
                       >
                         <span className="flex items-center">
                           Learn how we collaborate
