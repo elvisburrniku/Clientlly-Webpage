@@ -46,12 +46,15 @@ import {
   CheckCircle,
   Database,
   Lock,
-  HeadphonesIcon
+  HeadphonesIcon,
+  Play
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
+import TutorialWalkthrough from "@/components/TutorialWalkthrough";
+import { useTutorial } from "@/hooks/useTutorial";
 
 
 interface SubscriptionPlan {
@@ -65,6 +68,7 @@ interface SubscriptionPlan {
 export default function Landing() {
   const { toast } = useToast();
   const { t } = useTranslation();
+  const tutorial = useTutorial();
 
 
   const [showDemoModal, setShowDemoModal] = useState(false);
@@ -180,7 +184,7 @@ export default function Landing() {
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-16">
           <div className="flex items-center justify-between h-16">
             {/* Left Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
+            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
               <div className="relative">
                 <img 
                   src="/attached_assets/3d_1753268267691.png" 
@@ -233,10 +237,21 @@ export default function Landing() {
               </Button>
               <Button 
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
-                className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+                className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 cta-button"
               >
                 Start Your Trial
               </Button>
+              {tutorial.isFirstVisit && (
+                <Button 
+                  variant="outline"
+                  size="sm"
+                  onClick={tutorial.startTutorial}
+                  className="border-blue-500 text-blue-600 hover:bg-blue-50 flex items-center space-x-1"
+                >
+                  <Play className="h-4 w-4" />
+                  <span>Take Tour</span>
+                </Button>
+              )}
               <LanguageSelector />
             </div>
 
@@ -402,7 +417,7 @@ export default function Landing() {
 
 
       {/* Features Section */}
-      <section id="features" className="py-12 px-4 relative -mt-12">
+      <section id="features" className="py-12 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 fade-in">
@@ -414,7 +429,7 @@ export default function Landing() {
           </div>
 
           {/* Reorganized Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 features-grid">
             
             {/* 1. Professional Invoicing */}
             <div className="group relative fade-in stagger-1">
@@ -650,7 +665,7 @@ export default function Landing() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 bg-muted/30">
+      <section id="pricing" className="py-20 px-4 bg-muted/30 pricing-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4 fade-in leading-tight">
@@ -719,7 +734,7 @@ export default function Landing() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pricing-grid">
             {plans.map((plan, index) => (
               <Card 
                 key={plan.id} 
@@ -1500,6 +1515,14 @@ export default function Landing() {
           </div>
         </DialogContent>
       </Dialog>
+      
+      {/* Tutorial Walkthrough */}
+      {tutorial.showTutorial && (
+        <TutorialWalkthrough
+          onComplete={tutorial.completeTutorial}
+          onSkip={tutorial.skipTutorial}
+        />
+      )}
     </div>
   );
 }
