@@ -521,6 +521,14 @@
     animation: fade-in-up 0.8s ease-out;
   }
 
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+
   .animate-contact-float {
     animation: contact-float 3s ease-in-out infinite;
   }

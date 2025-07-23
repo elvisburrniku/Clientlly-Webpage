@@ -671,13 +671,28 @@ export default function Landing() {
 
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">perfect plan</span> for your business
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-gradient-x">grow together</span>
             </h2>
             
-            <div className="space-y-4 mb-8">
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1 leading-relaxed">
-                Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
-              </p>
+            <div className="space-y-6 mb-8">
+              <div className="max-w-4xl mx-auto space-y-4 fade-in stagger-2">
+                <p className="text-xl text-muted-foreground leading-relaxed animate-fade-in-up">
+                  Choose the plan that fits your business and grow at your own pace.
+                </p>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up delay-200">
+                  Our platform covers everything you need – from client relationship management and project tracking to finances and real-time reporting.
+                </p>
+                
+                <div className="space-y-2 animate-fade-in-up delay-400">
+                  <p className="text-lg font-medium text-foreground">
+                    Start for free and scale as your needs evolve.
+                  </p>
+                  <p className="text-base text-muted-foreground italic">
+                    With your ideas and feedback, we continuously improve our platform – because we believe the best growth happens when we grow together.
+                  </p>
+                </div>
+              </div>
               
               <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground fade-in stagger-2">
                 <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-3">
