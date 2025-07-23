@@ -38,7 +38,7 @@ export default function Success() {
               Subscription Successful!
             </CardTitle>
             <p className="text-green-700">
-              Welcome to BusinessFlow Pro! Your subscription is now active.
+              Your subscription is now active and ready to use!
             </p>
           </CardHeader>
           

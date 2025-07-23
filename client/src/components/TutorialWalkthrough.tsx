@@ -31,7 +31,7 @@ interface TutorialStep {
 const tutorialSteps: TutorialStep[] = [
   {
     id: 'welcome',
-    title: 'Welcome to BusinessFlow Pro!',
+    title: 'Welcome to your business dashboard!',
     description: 'Let\'s take a quick tour of your powerful business management platform. This walkthrough will show you the key features to get you started.',
     targetSelector: '.logo-container',
     icon: <Play className="h-5 w-5" />,
