@@ -817,6 +817,14 @@ export default function Landing() {
               Your business needs drive our development. When you subscribe, you become part of our innovation process – 
               helping shape features that benefit the entire community while solving your unique challenges.
             </p>
+            <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/50 dark:to-green-950/50 rounded-xl border-2 border-blue-200 dark:border-blue-700 max-w-5xl mx-auto">
+              <p className="text-lg font-semibold text-foreground mb-3">
+                🚀 Our Dedicated Team Provides Complete Support - Absolutely Free
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Once you're a subscriber, our experienced development team becomes your extended tech department. We don't just build what you request - we collaborate with you to understand your workflow, analyze your business processes, and design solutions that streamline your operations. From initial consultation to final implementation, every hour of development work is included in your subscription at no extra cost. Your success directly contributes to making our platform better for everyone.
+              </p>
+            </div>
           </div>
 
           {/* Collaboration Process Cards */}
@@ -831,7 +839,7 @@ export default function Landing() {
               </h3>
               
               <p className="text-muted-foreground leading-relaxed mb-6">
-                As a subscriber, you have direct access to submit feature requests, workflow improvements, and business automation ideas through your dashboard. Your real-world challenges become our development priorities.
+                As a subscriber, you have direct access to submit feature requests, workflow improvements, and business automation ideas through your dashboard. Your real-world challenges become our development priorities. Our team doesn't just take requests - we actively research your industry, understand your pain points, and propose innovative solutions you might not have considered.
               </p>
               
               <div className="space-y-3">
@@ -860,7 +868,7 @@ export default function Landing() {
               </h3>
               
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Work closely with our development team to design custom features that match your exact business needs. Your input shapes the final product to ensure it solves real problems effectively.
+                Work closely with our development team to design custom features that match your exact business needs. Your input shapes the final product to ensure it solves real problems effectively. We assign dedicated developers to your project who learn your business inside and out, providing ongoing consultation and refinement until the solution perfectly fits your workflow.
               </p>
               
               <div className="space-y-3">
@@ -889,7 +897,7 @@ export default function Landing() {
               </h3>
               
               <p className="text-muted-foreground leading-relaxed mb-6">
-                All approved customer suggestions are developed and deployed at no additional cost. Your ideas become features that enhance everyone's experience, creating a win-win ecosystem for all users.
+                All approved customer suggestions are developed and deployed at no additional cost. Your ideas become features that enhance everyone's experience, creating a win-win ecosystem for all users. We cover everything: coding, testing, deployment, documentation, and ongoing maintenance - all included in your subscription with no hidden fees or development charges.
               </p>
               
               <div className="space-y-3">
@@ -951,7 +959,8 @@ export default function Landing() {
               </h4>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
-                When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth. 
+                Our team's commitment goes beyond software development - we become your technology partners, invested in your long-term success and growth.
               </p>
               <Button 
                 onClick={() => {
