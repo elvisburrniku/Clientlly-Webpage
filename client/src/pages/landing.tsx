@@ -694,37 +694,6 @@ export default function Landing() {
                 </div>
               </div>
               
-              <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground fade-in stagger-2">
-                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-3">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="font-medium">14-day free trial</span>
-                </div>
-                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-4">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-150"></div>
-                  <span className="font-medium">No credit card required</span>
-                </div>
-                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-5">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-300"></div>
-                  <span className="font-medium">Cancel anytime</span>
-                </div>
-                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-6">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse delay-500"></div>
-                  <span className="font-medium">Money-back guarantee</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Main CTA */}
-            <div className="mb-12 fade-in stagger-7">
-              <Button 
-                size="lg"
-                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-12 py-4 text-xl font-bold shadow-2xl hover:shadow-green-500/25 hover:scale-110 transition-all duration-500 rounded-2xl animate-glow group"
-                onClick={() => window.location.href = '/trial'}
-              >
-                <span className="text-2xl mr-3 group-hover:animate-bounce">🚀</span>
-                Start Your Free Trial Now
-              </Button>
-
             </div>
             
 
