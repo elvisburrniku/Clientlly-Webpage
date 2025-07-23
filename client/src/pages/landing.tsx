@@ -1365,40 +1365,7 @@ export default function Landing() {
         
         <div className="relative z-10 py-20 px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-16">
-              {/* Company Info */}
-              <div className="lg:col-span-2 space-y-6 fade-in">
-                <div className="flex items-center space-x-4">
-                  <img 
-                    src="/attached_assets/3d_1753268267691.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain bg-white/10 dark:bg-transparent rounded-lg p-1"
-                  />
-                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                    BusinessFlow Pro
-                  </span>
-                </div>
-                <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                  {t('landing.footer.description', 'The complete business management platform for modern companies.')}
-                </p>
-                <div className="flex space-x-4">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold"
-                    onClick={() => window.location.href = "/api/login"}
-                  >
-                    Start Your Trial
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
-                    onClick={() => setShowDemoModal(true)}
-                  >
-                    Learn More
-                  </Button>
-                </div>
-              </div>
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-16">
 
               {/* Product Links */}
               <div className="fade-in stagger-1">
