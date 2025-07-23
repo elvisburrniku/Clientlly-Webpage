@@ -52,7 +52,8 @@ import {
   Zap,
   TrendingUp,
   Heart,
-  ArrowRight
+  ArrowRight,
+  Gift
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -612,35 +613,84 @@ export default function Landing() {
               Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-gradient-x">grow together</span>
             </h2>
             
-            <div className="space-y-6 mb-8">
-              <div className="max-w-4xl mx-auto space-y-4 fade-in stagger-2">
-                <p className="text-xl text-muted-foreground leading-relaxed animate-fade-in-up">
-                  Choose the plan that fits your business and grow at your own pace.
-                </p>
+            <div className="space-y-8 mb-12">
+              <div className="max-w-5xl mx-auto space-y-8 fade-in stagger-2">
                 
-                <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in-up delay-200">
-                  Our platform covers everything you need – from client relationship management and project tracking to finances and real-time reporting.
-                </p>
+                {/* Main Headline */}
+                <div className="text-center space-y-4 animate-fade-in-up">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+                    Choose the plan that fits your business and 
+                    <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
+                      grow at your own pace
+                    </span>
+                  </h3>
+                </div>
                 
-                <div className="space-y-2 animate-fade-in-up delay-400">
-                  <p className="text-lg font-medium text-foreground">
-                    Start for free and scale as your needs evolve.
-                  </p>
-                  <div className="space-y-4 animate-fade-in-up delay-500">
-                    <p className="text-base text-muted-foreground italic">
-                      With your ideas and feedback, we continuously improve our platform <span className="font-semibold text-green-600">free of charge</span> – because we believe the best growth happens when we grow together.
-                    </p>
-                    <Button 
-                      variant="outline"
-                      onClick={() => window.location.href = '/collaboration'}
-                      className="border-blue-500 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
-                    >
-                      Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                    </Button>
+                {/* Feature Overview Card */}
+                <div className="relative max-w-4xl mx-auto animate-fade-in-up delay-200">
+                  <div className="glass-effect rounded-2xl p-8 border border-white/20 shadow-2xl backdrop-blur-sm bg-gradient-to-br from-white/10 to-purple-50/20 dark:from-gray-800/30 dark:to-purple-900/20">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                          <Star className="w-6 h-6 text-white" />
+                        </div>
+                      </div>
+                      <div className="flex-1 space-y-3">
+                        <p className="text-xl text-foreground font-medium leading-relaxed">
+                          Our platform covers everything you need – from client relationship management and project tracking to finances and real-time reporting.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+                
+                {/* Growth Promise Section */}
+                <div className="relative max-w-4xl mx-auto animate-fade-in-up delay-400">
+                  <div className="text-center space-y-6">
+                    <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 px-6 py-3 rounded-full border border-green-200/50 dark:border-green-700/50">
+                      <TrendingUp className="w-5 h-5 text-green-600" />
+                      <span className="text-lg font-semibold text-green-700 dark:text-green-300">
+                        Start for free and scale as your needs evolve
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Collaboration Promise Card */}
+                <div className="relative max-w-4xl mx-auto animate-fade-in-up delay-600">
+                  <div className="glass-effect rounded-2xl p-8 border-2 border-gradient-to-r from-orange-200 to-purple-200 dark:from-orange-800/50 dark:to-purple-800/50 shadow-2xl backdrop-blur-sm bg-gradient-to-br from-orange-50/30 to-purple-50/30 dark:from-orange-900/20 dark:to-purple-900/20">
+                    <div className="text-center space-y-4">
+                      <div className="flex justify-center space-x-2 mb-4">
+                        <Heart className="w-6 h-6 text-red-500 animate-pulse" />
+                        <Users className="w-6 h-6 text-blue-500" />
+                        <Zap className="w-6 h-6 text-yellow-500" />
+                      </div>
+                      <p className="text-lg text-foreground leading-relaxed">
+                        With your ideas and feedback, we continuously improve our platform 
+                        <span className="inline-flex items-center mx-2 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold rounded-full shadow-lg">
+                          <Gift className="w-4 h-4 mr-1" />
+                          free of charge
+                        </span>
+                        – because we believe the best growth happens when we grow together.
+                      </p>
+                      
+                      <div className="pt-4">
+                        <Button 
+                          variant="outline"
+                          onClick={() => window.location.href = '/collaboration'}
+                          className="group border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl px-6 py-3 font-semibold"
+                        >
+                          <span className="flex items-center">
+                            Learn how we collaborate 
+                            <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                          </span>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
               </div>
-              
             </div>
             
 
