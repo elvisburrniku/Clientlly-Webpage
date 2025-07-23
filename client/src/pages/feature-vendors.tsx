@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Building2, FileText, DollarSign, BarChart3, Truck, Shield, Clock, CheckCircle, TrendingUp, Package, Calculator } from "lucide-react";
 
 export default function FeatureVendors() {
@@ -58,16 +59,124 @@ export default function FeatureVendors() {
             </p>
           </div>
 
-          {/* Feature Image */}
+          {/* Professional Vendor Management Photo */}
           <div className="mb-20">
             <Card className="overflow-hidden shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-              <CardContent className="p-0">
+              <CardContent className="p-0 relative">
                 <img 
-                  src="/attached_assets/2_1753194993460.jpg" 
-                  alt="Vendor Management Dashboard" 
+                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80"
+                  alt="Professional vendor management and supply chain coordination meeting"
                   className="w-full h-96 object-cover"
                 />
+                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-sm">
+                  <h4 className="font-bold text-gray-800 mb-2">Vendor Performance</h4>
+                  <div className="flex items-center space-x-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-amber-600">127</div>
+                      <div className="text-xs text-gray-600">Active Vendors</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">96.2%</div>
+                      <div className="text-xs text-gray-600">On-time Rate</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-orange-600">$2.4M</div>
+                      <div className="text-xs text-gray-600">Annual Spend</div>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
+            </Card>
+          </div>
+
+          {/* Sample Vendor Reports */}
+          <div className="mb-20 grid md:grid-cols-2 gap-8">
+            <Card className="p-6 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold mb-2">Top Vendors by Spend</h3>
+                <Badge className="bg-amber-100 text-amber-700">Q1 2024</Badge>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-amber-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-amber-600 rounded-full flex items-center justify-center text-white text-xs font-bold">TS</div>
+                    <div>
+                      <div className="font-medium text-sm">TechSource Solutions</div>
+                      <div className="text-xs text-muted-foreground">IT Equipment</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-amber-600">$287,500</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold">OS</div>
+                    <div>
+                      <div className="font-medium text-sm">Office Solutions Inc</div>
+                      <div className="text-xs text-muted-foreground">Office Supplies</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-green-600">$156,200</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">MS</div>
+                    <div>
+                      <div className="font-medium text-sm">Marketing Services Co</div>
+                      <div className="text-xs text-muted-foreground">Professional Services</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-blue-600">$134,800</span>
+                </div>
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Cost Savings vs Budget</span>
+                    <span className="text-sm font-bold text-green-600">-8.7%</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold mb-2">Purchase Order Status</h3>
+                <Badge className="bg-blue-100 text-blue-700">This Month</Badge>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    <span className="font-medium">Delivered</span>
+                  </div>
+                  <span className="font-bold text-green-600">89</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Truck className="h-4 w-4 text-blue-600" />
+                    <span className="font-medium">In Transit</span>
+                  </div>
+                  <span className="font-bold text-blue-600">23</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Clock className="h-4 w-4 text-yellow-600" />
+                    <span className="font-medium">Pending</span>
+                  </div>
+                  <span className="font-bold text-yellow-600">12</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Package className="h-4 w-4 text-orange-600" />
+                    <span className="font-medium">Processing</span>
+                  </div>
+                  <span className="font-bold text-orange-600">7</span>
+                </div>
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Average Lead Time</span>
+                    <span className="text-sm font-bold text-green-600">7.2 days</span>
+                  </div>
+                </div>
+              </div>
             </Card>
           </div>
 

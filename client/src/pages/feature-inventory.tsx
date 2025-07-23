@@ -131,38 +131,57 @@ export default function FeatureInventory() {
 
             <div className="relative fade-in stagger-3">
               <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
+              
+              {/* Professional Warehouse/Inventory Photo */}
+              <div className="relative mb-8">
+                <img 
+                  src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Modern warehouse inventory management with digital tracking systems"
+                  className="w-full h-48 object-cover rounded-2xl shadow-2xl"
+                />
+                <div className="absolute -bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-gray-700">Real-time inventory sync</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="relative space-y-6">
                 <Card className="glass-effect border-white/20 p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold">Inventory Overview</h3>
+                    <h3 className="text-lg font-semibold">Inventory Dashboard</h3>
                     <RefreshCw className="h-4 w-4 text-muted-foreground animate-spin" />
                   </div>
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">247</div>
-                      <div className="text-xs text-muted-foreground">Total Items</div>
+                      <div className="text-2xl font-bold text-blue-600">1,247</div>
+                      <div className="text-xs text-muted-foreground">Total SKUs</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">89%</div>
+                      <div className="text-2xl font-bold text-green-600">91%</div>
                       <div className="text-xs text-muted-foreground">In Stock</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-red-600">12</div>
-                      <div className="text-xs text-muted-foreground">Low Stock</div>
+                      <div className="text-2xl font-bold text-red-600">23</div>
+                      <div className="text-xs text-muted-foreground">Reorder Alert</div>
                     </div>
                   </div>
                   <div className="space-y-3">
                     {[
-                      { name: "iPhone Cases", stock: 45, status: "normal", trend: "up" },
-                      { name: "Wireless Chargers", stock: 8, status: "low", trend: "down" },
-                      { name: "Screen Protectors", stock: 156, status: "normal", trend: "up" }
+                      { name: "Wireless Bluetooth Headphones", sku: "WBH-001", stock: 145, status: "normal", trend: "up", location: "Warehouse A" },
+                      { name: "USB-C Charging Cables", sku: "UCC-205", stock: 12, status: "low", trend: "down", location: "Warehouse B" },
+                      { name: "Smartphone Screen Protectors", sku: "SSP-102", stock: 289, status: "normal", trend: "up", location: "Warehouse A" }
                     ].map((item, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
+                      <div key={index} className="flex items-center justify-between p-3 bg-white/50 rounded-lg hover:bg-white/70 transition-colors">
                         <div className="flex items-center space-x-3">
                           <div className={`w-3 h-3 rounded-full ${
                             item.status === 'low' ? 'bg-red-500' : 'bg-green-500'
                           }`}></div>
-                          <span className="font-medium text-sm">{item.name}</span>
+                          <div>
+                            <div className="font-medium text-sm">{item.name}</div>
+                            <div className="text-xs text-muted-foreground">SKU: {item.sku} • {item.location}</div>
+                          </div>
                         </div>
                         <div className="flex items-center space-x-2">
                           <span className="text-sm font-bold">{item.stock}</span>
@@ -178,15 +197,60 @@ export default function FeatureInventory() {
                 </Card>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <Card className="p-4 text-center">
-                    <div className="text-xl font-bold text-red-600">$47,299</div>
-                    <div className="text-sm text-muted-foreground">Stock Value</div>
+                  <Card className="p-4 text-center hover:shadow-lg transition-shadow">
+                    <div className="text-2xl font-bold text-red-600">$247,899</div>
+                    <div className="text-sm text-muted-foreground">Total Stock Value</div>
+                    <div className="text-xs text-green-500 mt-1">+12.4% vs last month</div>
                   </Card>
-                  <Card className="p-4 text-center">
-                    <div className="text-xl font-bold text-green-600">98.5%</div>
+                  <Card className="p-4 text-center hover:shadow-lg transition-shadow">
+                    <div className="text-2xl font-bold text-green-600">99.2%</div>
                     <div className="text-sm text-muted-foreground">Accuracy Rate</div>
+                    <div className="text-xs text-blue-500 mt-1">Last audit: 3 days ago</div>
                   </Card>
                 </div>
+
+                {/* Sample Inventory Report */}
+                <Card className="p-6">
+                  <h4 className="font-bold mb-4">Recent Stock Movements</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                          <Plus className="h-4 w-4 text-green-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">Wireless Earbuds - Stock In</div>
+                          <div className="text-xs text-muted-foreground">Purchase Order #PO-2024-078 • 2 hours ago</div>
+                        </div>
+                      </div>
+                      <span className="font-bold text-sm text-green-600">+150</span>
+                    </div>
+                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                          <Truck className="h-4 w-4 text-blue-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">Phone Cases - Shipped Out</div>
+                          <div className="text-xs text-muted-foreground">Order #SO-2024-512 • 4 hours ago</div>
+                        </div>
+                      </div>
+                      <span className="font-bold text-sm text-blue-600">-45</span>
+                    </div>
+                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                          <Minus className="h-4 w-4 text-red-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">USB Cables - Stock Adjustment</div>
+                          <div className="text-xs text-muted-foreground">Inventory Count #IC-2024-089 • 6 hours ago</div>
+                        </div>
+                      </div>
+                      <span className="font-bold text-sm text-red-600">-8</span>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </div>

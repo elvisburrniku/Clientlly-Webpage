@@ -130,6 +130,22 @@ export default function FeatureExpenses() {
 
             <div className="relative fade-in stagger-3">
               <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
+              
+              {/* Professional Receipt Scanning Photo */}
+              <div className="relative mb-8">
+                <img 
+                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                  alt="Mobile receipt scanning in professional office environment"
+                  className="w-full h-48 object-cover rounded-2xl shadow-2xl"
+                />
+                <div className="absolute -bottom-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <Camera className="h-4 w-4 text-green-500" />
+                    <span className="text-sm font-medium text-gray-700">AI-powered scanning</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="relative space-y-6">
                 <Card className="glass-effect border-white/20 p-6">
                   <div className="flex items-center space-x-4 mb-4">
@@ -137,26 +153,82 @@ export default function FeatureExpenses() {
                       <Camera className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Receipt Captured</h3>
-                      <p className="text-sm text-muted-foreground">Office supplies - $47.99</p>
+                      <h3 className="font-semibold">Receipt Processed</h3>
+                      <p className="text-sm text-muted-foreground">Software Subscription - $89.99</p>
                     </div>
+                    <Badge className="bg-green-100 text-green-700 ml-auto">Tax Deductible</Badge>
                   </div>
-                  <div className="bg-white/50 p-4 rounded-lg">
-                    <div className="h-3 bg-green-600 rounded w-3/4 mb-2"></div>
-                    <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+                  <div className="bg-white/50 p-4 rounded-lg space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span>Category</span>
+                      <span className="font-medium">Business Software</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Date</span>
+                      <span>March 15, 2024</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Confidence</span>
+                      <span className="text-green-600 font-medium">99.2%</span>
+                    </div>
                   </div>
                 </Card>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <Card className="p-4 text-center">
-                    <div className="text-2xl font-bold text-green-600">156</div>
-                    <div className="text-sm text-muted-foreground">Receipts this month</div>
+                  <Card className="p-4 text-center hover:shadow-lg transition-shadow">
+                    <div className="text-2xl font-bold text-green-600">247</div>
+                    <div className="text-sm text-muted-foreground">Receipts scanned</div>
+                    <div className="text-xs text-green-500 mt-1">+23 this week</div>
                   </Card>
-                  <Card className="p-4 text-center">
-                    <div className="text-2xl font-bold text-blue-600">$4,299</div>
-                    <div className="text-sm text-muted-foreground">Total expenses</div>
+                  <Card className="p-4 text-center hover:shadow-lg transition-shadow">
+                    <div className="text-2xl font-bold text-blue-600">$18,432</div>
+                    <div className="text-sm text-muted-foreground">Tax deductions</div>
+                    <div className="text-xs text-blue-500 mt-1">Estimated savings: $4,608</div>
                   </Card>
                 </div>
+
+                {/* Sample Expense Report */}
+                <Card className="p-6">
+                  <h4 className="font-bold mb-4">Recent Expenses</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                          <FileText className="h-4 w-4 text-blue-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">Adobe Creative Cloud</div>
+                          <div className="text-xs text-muted-foreground">Software • Mar 15</div>
+                        </div>
+                      </div>
+                      <span className="font-bold text-sm">$52.99</span>
+                    </div>
+                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                          <Receipt className="h-4 w-4 text-green-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">Office Depot</div>
+                          <div className="text-xs text-muted-foreground">Supplies • Mar 14</div>
+                        </div>
+                      </div>
+                      <span className="font-bold text-sm">$127.45</span>
+                    </div>
+                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                          <Smartphone className="h-4 w-4 text-purple-600" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm">Business Phone Plan</div>
+                          <div className="text-xs text-muted-foreground">Communications • Mar 13</div>
+                        </div>
+                      </div>
+                      <span className="font-bold text-sm">$89.00</span>
+                    </div>
+                  </div>
+                </Card>
               </div>
             </div>
           </div>

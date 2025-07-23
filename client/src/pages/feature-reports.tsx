@@ -65,19 +65,86 @@ export default function FeatureReports() {
           </p>
         </div>
 
-        {/* Feature Image */}
+        {/* Professional Business Analytics Photo */}
         <div className="mb-16 flex justify-center">
           <div className="relative">
             <img 
-              src="/attached_assets/image_1752932269458.png" 
-              alt="Analytics Dashboard" 
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Business analytics dashboard on modern monitors"
               className="rounded-3xl shadow-2xl max-w-4xl w-full hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute top-4 right-4 w-4 h-4 bg-green-500 rounded-full animate-ping"></div>
             <Badge className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-blue-500 text-white">
-              Real-time Data
+              Live Dashboard
             </Badge>
           </div>
+        </div>
+
+        {/* Sample Financial Reports */}
+        <div className="mb-16 grid md:grid-cols-2 gap-8">
+          <Card className="p-6 hover:shadow-xl transition-all duration-300">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold mb-2">Monthly Revenue Report</h3>
+              <Badge className="bg-green-100 text-green-700">March 2024</Badge>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                <span className="font-medium">Total Revenue</span>
+                <span className="font-bold text-green-600">$47,325.00</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                <span>Recurring Revenue</span>
+                <span className="font-semibold">$35,280.00</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
+                <span>One-time Sales</span>
+                <span className="font-semibold">$12,045.00</span>
+              </div>
+              <div className="border-t pt-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Growth vs Last Month</span>
+                  <span className="text-sm font-bold text-green-600">+12.4%</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 hover:shadow-xl transition-all duration-300">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold mb-2">Expense Breakdown</h3>
+              <Badge className="bg-purple-100 text-purple-700">Q1 2024</Badge>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
+                <span className="font-medium">Total Expenses</span>
+                <span className="font-bold text-red-600">$23,190.00</span>
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span>Software & Tools</span>
+                  <span>35% ($8,116)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span>Marketing</span>
+                  <span>28% ($6,493)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span>Office & Operations</span>
+                  <span>22% ($5,102)</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span>Professional Services</span>
+                  <span>15% ($3,479)</span>
+                </div>
+              </div>
+              <div className="border-t pt-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Budget Efficiency</span>
+                  <span className="text-sm font-bold text-green-600">92.3%</span>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
 
         {/* Report Types Grid */}

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Users, FileText, MessageSquare, Calendar, Phone, Mail, MapPin, Building, Star, TrendingUp, Clock, CheckCircle } from "lucide-react";
 
 export default function FeatureClients() {
@@ -58,16 +59,117 @@ export default function FeatureClients() {
             </p>
           </div>
 
-          {/* Feature Image */}
+          {/* Professional Business Photo */}
           <div className="mb-20">
             <Card className="overflow-hidden shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-              <CardContent className="p-0">
+              <CardContent className="p-0 relative">
                 <img 
-                  src="/attached_assets/1_1753194993473.jpg" 
-                  alt="Client Management Dashboard" 
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Professional team collaboration and client relationship management"
                   className="w-full h-96 object-cover"
                 />
+                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-sm">
+                  <h4 className="font-bold text-gray-800 mb-2">Client Success Rate</h4>
+                  <div className="flex items-center space-x-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-indigo-600">94%</div>
+                      <div className="text-xs text-gray-600">Retention</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">847</div>
+                      <div className="text-xs text-gray-600">Active Clients</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-purple-600">4.9</div>
+                      <div className="text-xs text-gray-600">Avg Rating</div>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
+            </Card>
+          </div>
+
+          {/* Sample Client Report */}
+          <div className="mb-20 grid md:grid-cols-2 gap-8">
+            <Card className="p-6 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold mb-2">Top Clients Report</h3>
+                <Badge className="bg-indigo-100 text-indigo-700">March 2024</Badge>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-bold">TC</div>
+                    <div>
+                      <div className="font-medium text-sm">TechCorp Solutions</div>
+                      <div className="text-xs text-muted-foreground">Enterprise Client</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-indigo-600">$48,500</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold">DS</div>
+                    <div>
+                      <div className="font-medium text-sm">Digital Startup Inc</div>
+                      <div className="text-xs text-muted-foreground">Growth Client</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-green-600">$32,100</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">MI</div>
+                    <div>
+                      <div className="font-medium text-sm">Marketing Innovations</div>
+                      <div className="text-xs text-muted-foreground">Premium Client</div>
+                    </div>
+                  </div>
+                  <span className="font-bold text-purple-600">$27,800</span>
+                </div>
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Client Growth</span>
+                    <span className="text-sm font-bold text-green-600">+18.3%</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold mb-2">Communication Activity</h3>
+                <Badge className="bg-blue-100 text-blue-700">This Week</Badge>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Mail className="h-4 w-4 text-blue-600" />
+                    <span className="font-medium">Emails Sent</span>
+                  </div>
+                  <span className="font-bold text-blue-600">127</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Phone className="h-4 w-4 text-green-600" />
+                    <span className="font-medium">Calls Made</span>
+                  </div>
+                  <span className="font-bold text-green-600">43</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Calendar className="h-4 w-4 text-purple-600" />
+                    <span className="font-medium">Meetings Scheduled</span>
+                  </div>
+                  <span className="font-bold text-purple-600">18</span>
+                </div>
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Response Rate</span>
+                    <span className="text-sm font-bold text-green-600">89.2%</span>
+                  </div>
+                </div>
+              </div>
             </Card>
           </div>
 

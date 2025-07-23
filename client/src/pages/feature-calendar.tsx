@@ -58,16 +58,130 @@ export default function FeatureCalendar() {
             </p>
           </div>
 
-          {/* Feature Image */}
+          {/* Professional Calendar Photo */}
           <div className="mb-20">
             <Card className="overflow-hidden shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-              <CardContent className="p-0">
+              <CardContent className="p-0 relative">
                 <img 
-                  src="/attached_assets/3d_1753197766773.png" 
-                  alt="Smart Calendar Interface" 
+                  src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2339&q=80"
+                  alt="Professional calendar and scheduling interface on desktop and mobile devices"
                   className="w-full h-96 object-cover"
                 />
+                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-sm">
+                  <h4 className="font-bold text-gray-800 mb-2">Smart Scheduling Stats</h4>
+                  <div className="flex items-center space-x-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-violet-600">2,847</div>
+                      <div className="text-xs text-gray-600">Events</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-green-600">94%</div>
+                      <div className="text-xs text-gray-600">On-time Rate</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-purple-600">127</div>
+                      <div className="text-xs text-gray-600">Team Members</div>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
+            </Card>
+          </div>
+
+          {/* Sample Calendar Reports */}
+          <div className="mb-20 grid md:grid-cols-2 gap-8">
+            <Card className="p-6 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold mb-2">Weekly Schedule Overview</h3>
+                <Badge className="bg-violet-100 text-violet-700">March 18-24, 2024</Badge>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-violet-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Calendar className="h-4 w-4 text-violet-600" />
+                    <span className="font-medium">Total Meetings</span>
+                  </div>
+                  <span className="font-bold text-violet-600">47</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Video className="h-4 w-4 text-blue-600" />
+                    <span className="font-medium">Video Calls</span>
+                  </div>
+                  <span className="font-bold text-blue-600">23</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Users className="h-4 w-4 text-green-600" />
+                    <span className="font-medium">Team Meetings</span>
+                  </div>
+                  <span className="font-bold text-green-600">12</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
+                  <div className="flex items-center space-x-2">
+                    <Target className="h-4 w-4 text-orange-600" />
+                    <span className="font-medium">Deadlines</span>
+                  </div>
+                  <span className="font-bold text-orange-600">8</span>
+                </div>
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Meeting Efficiency</span>
+                    <span className="text-sm font-bold text-green-600">87.3%</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-xl transition-all duration-300">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold mb-2">Time Distribution</h3>
+                <Badge className="bg-blue-100 text-blue-700">Weekly Average</Badge>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg">
+                  <span className="font-medium text-sm">Client Meetings</span>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-16 h-2 bg-indigo-200 rounded-full">
+                      <div className="w-3/4 h-2 bg-indigo-600 rounded-full"></div>
+                    </div>
+                    <span className="font-bold text-indigo-600 text-sm">18h</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <span className="font-medium text-sm">Project Work</span>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-16 h-2 bg-green-200 rounded-full">
+                      <div className="w-4/5 h-2 bg-green-600 rounded-full"></div>
+                    </div>
+                    <span className="font-bold text-green-600 text-sm">22h</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                  <span className="font-medium text-sm">Admin Tasks</span>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-16 h-2 bg-purple-200 rounded-full">
+                      <div className="w-1/3 h-2 bg-purple-600 rounded-full"></div>
+                    </div>
+                    <span className="font-bold text-purple-600 text-sm">8h</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
+                  <span className="font-medium text-sm">Planning</span>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-16 h-2 bg-orange-200 rounded-full">
+                      <div className="w-1/4 h-2 bg-orange-600 rounded-full"></div>
+                    </div>
+                    <span className="font-bold text-orange-600 text-sm">6h</span>
+                  </div>
+                </div>
+                <div className="border-t pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Productivity Score</span>
+                    <span className="text-sm font-bold text-green-600">92.1%</span>
+                  </div>
+                </div>
+              </div>
             </Card>
           </div>
 

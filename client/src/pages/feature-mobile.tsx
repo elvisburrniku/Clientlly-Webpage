@@ -65,19 +65,113 @@ export default function FeatureMobile() {
           </p>
         </div>
 
-        {/* Feature Image */}
+        {/* Professional Mobile App Photo */}
         <div className="mb-16 flex justify-center">
           <div className="relative">
             <img 
-              src="/attached_assets/Screenshot 2025-07-22 144850_1753189340305.jpg" 
-              alt="Mobile App Interface" 
-              className="rounded-3xl shadow-2xl max-w-md w-full hover:scale-105 transition-transform duration-500"
+              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              alt="Professional using business mobile app on smartphone and tablet" 
+              className="rounded-3xl shadow-2xl max-w-2xl w-full hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full animate-ping"></div>
             <Badge className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-              Available Now
+              iOS & Android
             </Badge>
+            <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg">
+              <div className="flex items-center space-x-4">
+                <div className="text-center">
+                  <div className="text-lg font-bold text-blue-600">4.8★</div>
+                  <div className="text-xs text-gray-600">App Store</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-bold text-green-600">500K+</div>
+                  <div className="text-xs text-gray-600">Downloads</div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* Sample Mobile Reports */}
+        <div className="mb-16 grid md:grid-cols-2 gap-8">
+          <Card className="p-6 hover:shadow-xl transition-all duration-300">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold mb-2">Mobile Usage Analytics</h3>
+              <Badge className="bg-blue-100 text-blue-700">This Month</Badge>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <Smartphone className="h-4 w-4 text-blue-600" />
+                  <span className="font-medium">Daily Active Users</span>
+                </div>
+                <span className="font-bold text-blue-600">12,847</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <Download className="h-4 w-4 text-green-600" />
+                  <span className="font-medium">App Sessions</span>
+                </div>
+                <span className="font-bold text-green-600">89,234</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <Camera className="h-4 w-4 text-purple-600" />
+                  <span className="font-medium">Receipts Scanned</span>
+                </div>
+                <span className="font-bold text-purple-600">4,567</span>
+              </div>
+              <div className="border-t pt-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">User Satisfaction</span>
+                  <span className="text-sm font-bold text-green-600">96.8%</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-6 hover:shadow-xl transition-all duration-300">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold mb-2">Feature Usage</h3>
+              <Badge className="bg-green-100 text-green-700">Most Popular</Badge>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <FileText className="h-4 w-4 text-indigo-600" />
+                  <span className="font-medium text-sm">Invoice Creation</span>
+                </div>
+                <span className="font-bold text-indigo-600">89%</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <Camera className="h-4 w-4 text-green-600" />
+                  <span className="font-medium text-sm">Receipt Scanner</span>
+                </div>
+                <span className="font-bold text-green-600">76%</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <Users className="h-4 w-4 text-blue-600" />
+                  <span className="font-medium text-sm">Team Chat</span>
+                </div>
+                <span className="font-bold text-blue-600">68%</span>
+              </div>
+              <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
+                <div className="flex items-center space-x-2">
+                  <Bell className="h-4 w-4 text-orange-600" />
+                  <span className="font-medium text-sm">Push Notifications</span>
+                </div>
+                <span className="font-bold text-orange-600">92%</span>
+              </div>
+              <div className="border-t pt-3">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Average Session</span>
+                  <span className="text-sm font-bold text-green-600">8.4 min</span>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
 
         {/* Key Features Grid */}
