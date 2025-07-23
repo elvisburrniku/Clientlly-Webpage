@@ -896,10 +896,10 @@ export default function Landing() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
             {/* FAQ Section */}
-            <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-green-200 to-blue-200 dark:from-green-700 dark:to-blue-700 slide-in-left shadow-2xl hover:shadow-3xl transition-all duration-500">
-              <CardHeader className="text-center pb-6">
+            <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-green-200 to-blue-200 dark:from-green-700 dark:to-blue-700 slide-in-left shadow-2xl hover:shadow-3xl transition-all duration-500 h-full flex flex-col">
+              <CardHeader className="text-center pb-6 flex-shrink-0">
                 <CardTitle className="text-3xl font-bold mb-4">
                   <span className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
                     Frequently Asked Questions
@@ -909,116 +909,116 @@ export default function Landing() {
                   Find quick answers to common questions about BusinessFlow Pro
                 </p>
               </CardHeader>
-              <CardContent className="px-8 pb-8">
-                <div className="space-y-6">
-                  <div className="group p-6 bg-gradient-to-br from-blue-50 via-cyan-50 to-green-50 dark:from-blue-950/40 dark:via-cyan-950/40 dark:to-green-950/40 rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-[1.03] fade-in stagger-1 border border-blue-200/30 dark:border-blue-700/30 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
-                    <div className="flex items-start space-x-4 relative z-10">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500 flex-shrink-0">
-                        <Clock className="h-6 w-6 text-white animate-pulse" />
+              <CardContent className="px-8 pb-8 flex-1 overflow-hidden">
+                <div className="h-full overflow-y-auto pr-2 space-y-4 scrollbar-thin scrollbar-thumb-blue-300 dark:scrollbar-thumb-blue-600 scrollbar-track-transparent hover:scrollbar-thumb-blue-400 dark:hover:scrollbar-thumb-blue-500">
+                  <div className="group p-5 bg-gradient-to-br from-blue-50 via-cyan-50 to-green-50 dark:from-blue-950/40 dark:via-cyan-950/40 dark:to-green-950/40 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-1 border border-blue-200/30 dark:border-blue-700/30 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-lg animate-pulse"></div>
+                    <div className="flex items-start space-x-3 relative z-10">
+                      <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300 flex-shrink-0">
+                        <Clock className="h-5 w-5 text-white animate-pulse" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-lg text-foreground mb-3 group-hover:text-blue-600 transition-colors duration-300">How long is the free trial?</h4>
-                        <p className="text-muted-foreground leading-relaxed mb-3">
+                        <h4 className="font-bold text-base text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">How long is the free trial?</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
                           Experience the full power of BusinessFlow Pro with our generous <span className="font-semibold text-blue-600 dark:text-blue-400">14-day free trial</span>. Access every feature, manage unlimited transactions, and explore all business tools without any restrictions.
                         </p>
-                        <div className="flex items-center space-x-2 text-sm text-green-600 dark:text-green-400">
-                          <CheckCircle className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs text-green-600 dark:text-green-400">
+                          <CheckCircle className="h-3 w-3" />
                           <span>No credit card required • Full feature access</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="group p-6 bg-gradient-to-br from-green-50 via-emerald-50 to-purple-50 dark:from-green-950/40 dark:via-emerald-950/40 dark:to-purple-950/40 rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-[1.03] fade-in stagger-2 border border-green-200/30 dark:border-green-700/30 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-xl animate-pulse delay-300"></div>
-                    <div className="flex items-start space-x-4 relative z-10">
-                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500 flex-shrink-0">
-                        <Shield className="h-6 w-6 text-white animate-bounce" />
+                  <div className="group p-5 bg-gradient-to-br from-green-50 via-emerald-50 to-purple-50 dark:from-green-950/40 dark:via-emerald-950/40 dark:to-purple-950/40 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-2 border border-green-200/30 dark:border-green-700/30 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-green-400/20 to-emerald-400/20 rounded-full blur-lg animate-pulse delay-300"></div>
+                    <div className="flex items-start space-x-3 relative z-10">
+                      <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300 flex-shrink-0">
+                        <Shield className="h-5 w-5 text-white animate-bounce" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-lg text-foreground mb-3 group-hover:text-green-600 transition-colors duration-300">Can I cancel anytime?</h4>
-                        <p className="text-muted-foreground leading-relaxed mb-3">
+                        <h4 className="font-bold text-base text-foreground mb-2 group-hover:text-green-600 transition-colors duration-300">Can I cancel anytime?</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
                           Absolutely! We believe in earning your business every month. Cancel your subscription instantly with <span className="font-semibold text-green-600 dark:text-green-400">one click</span> from your dashboard. No lengthy processes, hidden fees, or retention tactics.
                         </p>
-                        <div className="flex items-center space-x-2 text-sm text-green-600 dark:text-green-400">
-                          <CheckCircle className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs text-green-600 dark:text-green-400">
+                          <CheckCircle className="h-3 w-3" />
                           <span>Instant cancellation • No contracts • No penalties</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="group p-6 bg-gradient-to-br from-purple-50 via-violet-50 to-pink-50 dark:from-purple-950/40 dark:via-violet-950/40 dark:to-pink-950/40 rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-[1.03] fade-in stagger-3 border border-purple-200/30 dark:border-purple-700/30 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse delay-500"></div>
-                    <div className="flex items-start space-x-4 relative z-10">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500 flex-shrink-0">
-                        <Database className="h-6 w-6 text-white animate-spin" style={{"animationDuration": "3s"}} />
+                  <div className="group p-5 bg-gradient-to-br from-purple-50 via-violet-50 to-pink-50 dark:from-purple-950/40 dark:via-violet-950/40 dark:to-pink-950/40 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-3 border border-purple-200/30 dark:border-purple-700/30 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-lg animate-pulse delay-500"></div>
+                    <div className="flex items-start space-x-3 relative z-10">
+                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300 flex-shrink-0">
+                        <Database className="h-5 w-5 text-white animate-spin" style={{"animationDuration": "3s"}} />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-lg text-foreground mb-3 group-hover:text-purple-600 transition-colors duration-300">Do you offer data migration?</h4>
-                        <p className="text-muted-foreground leading-relaxed mb-3">
+                        <h4 className="font-bold text-base text-foreground mb-2 group-hover:text-purple-600 transition-colors duration-300">Do you offer data migration?</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
                           Our expert migration team handles the complete transfer of your business data from platforms like <span className="font-semibold text-purple-600 dark:text-purple-400">QuickBooks, FreshBooks, Xero, Sage</span>, and 50+ other systems. We ensure zero data loss and minimal downtime.
                         </p>
-                        <div className="flex items-center space-x-2 text-sm text-purple-600 dark:text-purple-400">
-                          <CheckCircle className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs text-purple-600 dark:text-purple-400">
+                          <CheckCircle className="h-3 w-3" />
                           <span>Free migration • 50+ platforms • Expert support</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="group p-6 bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 dark:from-pink-950/40 dark:via-rose-950/40 dark:to-orange-950/40 rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-[1.03] fade-in stagger-4 border border-pink-200/30 dark:border-pink-700/30 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse delay-700"></div>
-                    <div className="flex items-start space-x-4 relative z-10">
-                      <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500 flex-shrink-0">
-                        <Lock className="h-6 w-6 text-white animate-pulse" />
+                  <div className="group p-5 bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 dark:from-pink-950/40 dark:via-rose-950/40 dark:to-orange-950/40 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-4 border border-pink-200/30 dark:border-pink-700/30 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-pink-400/20 to-orange-400/20 rounded-full blur-lg animate-pulse delay-700"></div>
+                    <div className="flex items-start space-x-3 relative z-10">
+                      <div className="w-10 h-10 bg-gradient-to-r from-pink-500 to-orange-500 rounded-lg flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300 flex-shrink-0">
+                        <Lock className="h-5 w-5 text-white animate-pulse" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-lg text-foreground mb-3 group-hover:text-pink-600 transition-colors duration-300">Is my data secure?</h4>
-                        <p className="text-muted-foreground leading-relaxed mb-3">
+                        <h4 className="font-bold text-base text-foreground mb-2 group-hover:text-pink-600 transition-colors duration-300">Is my data secure?</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
                           Your business data is protected with <span className="font-semibold text-pink-600 dark:text-pink-400">military-grade AES-256 encryption</span>, SOC 2 Type II compliance, and GDPR adherence. We maintain the same security standards as major banks and financial institutions.
                         </p>
-                        <div className="flex items-center space-x-2 text-sm text-pink-600 dark:text-pink-400">
-                          <CheckCircle className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs text-pink-600 dark:text-pink-400">
+                          <CheckCircle className="h-3 w-3" />
                           <span>Bank-level security • SOC 2 compliant • GDPR ready</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="group p-6 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950/40 dark:via-amber-950/40 dark:to-yellow-950/40 rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-[1.03] fade-in stagger-5 border border-orange-200/30 dark:border-orange-700/30 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-400/20 to-yellow-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-                    <div className="flex items-start space-x-4 relative z-10">
-                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500 flex-shrink-0">
-                        <CreditCard className="h-6 w-6 text-white animate-bounce" />
+                  <div className="group p-5 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-orange-950/40 dark:via-amber-950/40 dark:to-yellow-950/40 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-5 border border-orange-200/30 dark:border-orange-700/30 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-orange-400/20 to-yellow-400/20 rounded-full blur-lg animate-pulse delay-1000"></div>
+                    <div className="flex items-start space-x-3 relative z-10">
+                      <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300 flex-shrink-0">
+                        <CreditCard className="h-5 w-5 text-white animate-bounce" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-lg text-foreground mb-3 group-hover:text-orange-600 transition-colors duration-300">What payment methods do you accept?</h4>
-                        <p className="text-muted-foreground leading-relaxed mb-3">
+                        <h4 className="font-bold text-base text-foreground mb-2 group-hover:text-orange-600 transition-colors duration-300">What payment methods do you accept?</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
                           Pay securely with any major credit card (<span className="font-semibold text-orange-600 dark:text-orange-400">Visa, MasterCard, American Express, Discover</span>), PayPal, or bank transfer. All transactions are processed through Stripe's secure infrastructure with instant confirmations.
                         </p>
-                        <div className="flex items-center space-x-2 text-sm text-orange-600 dark:text-orange-400">
-                          <CheckCircle className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs text-orange-600 dark:text-orange-400">
+                          <CheckCircle className="h-3 w-3" />
                           <span>All major cards • PayPal • Bank transfer</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="group p-6 bg-gradient-to-br from-yellow-50 via-lime-50 to-blue-50 dark:from-yellow-950/40 dark:via-lime-950/40 dark:to-blue-950/40 rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-[1.03] fade-in stagger-6 border border-yellow-200/30 dark:border-yellow-700/30 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse delay-1200"></div>
-                    <div className="flex items-start space-x-4 relative z-10">
-                      <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-500 flex-shrink-0">
-                        <HeadphonesIcon className="h-6 w-6 text-white animate-pulse" />
+                  <div className="group p-5 bg-gradient-to-br from-yellow-50 via-lime-50 to-blue-50 dark:from-yellow-950/40 dark:via-lime-950/40 dark:to-blue-950/40 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-6 border border-yellow-200/30 dark:border-yellow-700/30 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-yellow-400/20 to-blue-400/20 rounded-full blur-lg animate-pulse delay-1200"></div>
+                    <div className="flex items-start space-x-3 relative z-10">
+                      <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-lg flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300 flex-shrink-0">
+                        <HeadphonesIcon className="h-5 w-5 text-white animate-pulse" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-lg text-foreground mb-3 group-hover:text-yellow-600 transition-colors duration-300">Do you provide customer support?</h4>
-                        <p className="text-muted-foreground leading-relaxed mb-3">
+                        <h4 className="font-bold text-base text-foreground mb-2 group-hover:text-yellow-600 transition-colors duration-300">Do you provide customer support?</h4>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-2">
                           Our dedicated support team is available <span className="font-semibold text-yellow-600 dark:text-yellow-400">24/7/365</span> via live chat, email, and phone. Get expert help from real humans who understand your business needs, with average response times under 5 minutes.
                         </p>
-                        <div className="flex items-center space-x-2 text-sm text-yellow-600 dark:text-yellow-400">
-                          <CheckCircle className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs text-yellow-600 dark:text-yellow-400">
+                          <CheckCircle className="h-3 w-3" />
                           <span>24/7 support • Expert team • &lt;5min response</span>
                         </div>
                       </div>
