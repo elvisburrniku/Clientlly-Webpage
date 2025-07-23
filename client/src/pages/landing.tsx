@@ -610,7 +610,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-gradient-x">grow together</span>
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse hover:scale-105 transition-all duration-500 inline-block">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-bounce hover:scale-110 transition-all duration-500 inline-block">grow together</span>
             </h2>
             
             <div className="max-w-4xl mx-auto mb-16">
@@ -631,9 +631,10 @@ export default function Landing() {
                   <div className="max-w-3xl mx-auto space-y-6">
                     <p className="text-lg text-foreground leading-relaxed">
                       With your ideas and feedback, we continuously improve our platform{' '}
-                      <span className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-sm font-semibold rounded-full shadow-sm">
-                        <Gift className="w-3 h-3 mr-1" />
-                        free of charge
+                      <span className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-600 via-emerald-600 to-green-500 text-white text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-green-400/30 backdrop-blur-sm relative overflow-hidden">
+                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-pulse"></span>
+                        <Gift className="w-4 h-4 mr-2 relative z-10" />
+                        <span className="relative z-10">free of charge</span>
                       </span>
                       {' '}– because we believe the best growth happens when we grow together.
                     </p>
