@@ -237,7 +237,7 @@ export default function Landing() {
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
                 className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
               >
-                Try It Free
+                Try Free First
               </Button>
               <LanguageSelector />
             </div>
@@ -257,7 +257,7 @@ export default function Landing() {
                 size="sm"
                 className="bg-blue-600 hover:bg-blue-700 text-white text-xs"
               >
-                Try It Free
+                Try Free First
               </Button>
               <Button
                 variant="ghost"
@@ -306,7 +306,7 @@ export default function Landing() {
                   }}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  Try It Free
+                  Try Free First
                 </Button>
               </div>
             </div>
@@ -356,7 +356,7 @@ export default function Landing() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
               >
-                Try It Free
+                Try Free First
               </Button>
               <Button 
                 size="lg" 
@@ -668,7 +668,7 @@ export default function Landing() {
                 className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
               >
-                Try It Free
+                Try Free First
               </Button>
             </div>
             
@@ -782,7 +782,7 @@ export default function Landing() {
                       variant={index === 1 ? "default" : "outline"}
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                     >
-                      {plan.id === 'basic' ? 'Try It Free' : 'Buy Now'}
+                      {plan.id === 'basic' ? 'Try Free First' : 'Buy Now'}
                     </Button>
                     {plan.id !== 'basic' && (
                       <Button 

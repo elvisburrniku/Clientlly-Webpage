@@ -226,7 +226,7 @@ export default function FeatureDebt() {
               className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-3 text-lg font-semibold"
               onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
             >
-              Try It Free
+              Try Free First
             </Button>
           </div>
         </div>
