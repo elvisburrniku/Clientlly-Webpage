@@ -168,14 +168,14 @@ export default function Landing() {
         {/* Subtle 3D Logo Background Elements */}
         <div className="absolute top-1/3 right-1/3 opacity-5 dark:opacity-10 floating-slow">
           <img 
-            src="/attached_assets/3d_1753197766773.png" 
+            src="/attached_assets/3d_1753268267691.png" 
             alt="" 
             className="w-96 h-96 object-contain rotate-12 transform"
           />
         </div>
         <div className="absolute bottom-1/4 left-1/5 opacity-3 dark:opacity-5 floating-delayed">
           <img 
-            src="/attached_assets/3d_1753197766773.png" 
+            src="/attached_assets/3d_1753268267691.png" 
             alt="" 
             className="w-80 h-80 object-contain -rotate-6 transform scale-75"
           />
@@ -188,7 +188,7 @@ export default function Landing() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 slide-in-left hover:opacity-80 transition-opacity">
               <img 
-                src="/attached_assets/3d_1753195741585.png" 
+                src="/attached_assets/3d_1753268267691.png" 
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />

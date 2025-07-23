@@ -57,7 +57,7 @@ export default function FeatureInventory() {
             </button>
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <img 
-                src="/attached_assets/3d_1753195741585.png" 
+                src="/attached_assets/3d_1753268267691.png" 
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />

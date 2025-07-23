@@ -667,7 +667,7 @@ export default function Subscribe() {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <img 
-                src="/attached_assets/3d_1753195741585.png" 
+                src="/attached_assets/3d_1753268267691.png" 
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />

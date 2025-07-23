@@ -231,7 +231,7 @@ export default function Dashboard() {
         {/* Subtle 3D Logo Background */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-3 dark:opacity-5 floating-slow">
           <img 
-            src="/attached_assets/3d_1753197766773.png" 
+            src="/attached_assets/3d_1753268267691.png" 
             alt="" 
             className="w-96 h-96 object-contain rotate-6 transform"
           />
@@ -244,7 +244,7 @@ export default function Dashboard() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 slide-in-left hover:opacity-80 transition-opacity">
               <img 
-                src="/attached_assets/3d_1753195741585.png" 
+                src="/attached_assets/3d_1753268267691.png" 
                 alt="BusinessFlow Pro" 
                 className="w-12 h-9 object-contain"
               />
