@@ -453,13 +453,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Professional Invoicing</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-blue-600 hover:text-blue-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/invoicing"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -472,13 +466,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Smart Expense Tracking</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Get set for tax time with all your expenses organised in one place.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/expenses"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -491,13 +479,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Debt Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Track business debts, schedule payments, and optimize debt reduction strategies with smart analytics and payment planning tools.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/debt"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -510,13 +492,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Insights & Reports</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-cyan-600 hover:text-cyan-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/reports"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -529,13 +505,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Client Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Manage all your clients in one place with detailed profiles, contact information, project history, and communication tracking for better relationships.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-indigo-600 hover:text-indigo-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/clients"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -548,13 +518,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Vendor Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Streamline your vendor relationships with comprehensive supplier profiles, purchase order tracking, payment management, and performance analytics.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-amber-600 hover:text-amber-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/vendors"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -567,13 +531,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Inventory Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/inventory"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -586,13 +544,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Smart Attendance</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">GPS-based time tracking with offline support, team management, and comprehensive attendance analytics for modern workforces.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-green-600 hover:text-green-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/attendance"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -605,13 +557,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Smart Calendar</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Integrated calendar system for scheduling meetings, tracking deadlines, managing appointments, and coordinating team activities with smart notifications.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-violet-600 hover:text-violet-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/calendar"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -625,13 +571,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Mobile App</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Save time by running your business on-the go with your mobile device*.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-teal-600 hover:text-teal-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/mobile"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -644,13 +584,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Enterprise Security</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how we keep your information safe and compliant at all times.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-slate-600 hover:text-slate-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/security"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
 
@@ -663,13 +597,7 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Easy Migration</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Switch from other platforms with automated data transfer and expert support.</p>
-                <Button 
-                  variant="ghost" 
-                  className="text-pink-600 hover:text-pink-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/migration"}
-                >
-                  Learn more <ExternalLink className="h-3 w-3 ml-1" />
-                </Button>
+
               </div>
             </div>
           </div>
