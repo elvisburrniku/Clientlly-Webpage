@@ -397,14 +397,6 @@ export default function Landing() {
               >
                 Buy Now
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-10 py-5 text-xl font-semibold rounded-2xl transition-all duration-300 min-w-[200px]"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Learn More
-              </Button>
             </div>
 
             {/* Trust Indicators */}
