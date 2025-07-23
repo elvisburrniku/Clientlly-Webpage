@@ -629,9 +629,18 @@ export default function Landing() {
                   <p className="text-lg font-medium text-foreground">
                     Start for free and scale as your needs evolve.
                   </p>
-                  <p className="text-base text-muted-foreground italic">
-                    With your ideas and feedback, we continuously improve our platform – because we believe the best growth happens when we grow together.
-                  </p>
+                  <div className="space-y-4 animate-fade-in-up delay-500">
+                    <p className="text-base text-muted-foreground italic">
+                      With your ideas and feedback, we continuously improve our platform <span className="font-semibold text-green-600">free of charge</span> – because we believe the best growth happens when we grow together.
+                    </p>
+                    <Button 
+                      variant="outline"
+                      onClick={() => window.location.href = '/about'}
+                      className="border-blue-500 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+                    >
+                      Learn more <ExternalLink className="h-3 w-3 ml-1" />
+                    </Button>
+                  </div>
                 </div>
               </div>
               

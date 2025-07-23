@@ -529,6 +529,10 @@
     animation-delay: 0.4s;
   }
 
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+
   .animate-contact-float {
     animation: contact-float 3s ease-in-out infinite;
   }
