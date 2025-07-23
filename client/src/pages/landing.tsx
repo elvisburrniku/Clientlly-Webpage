@@ -190,8 +190,14 @@ export default function Landing() {
               <img 
                 src="/attached_assets/3d_1753268267691.png" 
                 alt="BusinessFlow Pro" 
-                className="w-12 h-9 object-contain"
+                className="w-16 h-12 object-contain"
+                onError={(e) => {
+                  console.error('Logo failed to load:', e);
+                  e.currentTarget.style.border = '2px solid red';
+                }}
+                onLoad={() => console.log('Logo loaded successfully')}
               />
+              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </Link>
             
             <div className="hidden lg:flex items-center space-x-8 slide-in-right">
