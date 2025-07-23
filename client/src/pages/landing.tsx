@@ -69,6 +69,7 @@ export default function Landing() {
 
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [selectedFAQ, setSelectedFAQ] = useState<string | null>(null);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const { locationData, isLoading: locationLoading } = useLocationDetection();
@@ -917,65 +918,147 @@ export default function Landing() {
                     Common questions about BusinessFlow Pro
                   </p>
                 </CardHeader>
-                <CardContent className="px-6 pb-6 space-y-4">
-                  {/* FAQ Items with animations */}
-                  <div className="group p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-1">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                        <Clock className="h-4 w-4 text-white" />
+                <CardContent className="px-6 pb-6 space-y-3 flex flex-col justify-between h-full">
+                  <div className="space-y-3 flex-1">
+                    {/* FAQ Items with click functionality */}
+                    <div 
+                      onClick={() => setSelectedFAQ('trial')}
+                      className="group p-3 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-1 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <Clock className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">Free Trial Period</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            <span className="font-medium text-blue-600 dark:text-blue-400">14 days free</span> with full access
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-sm text-foreground mb-1">Free Trial Period</h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          <span className="font-medium text-blue-600 dark:text-blue-400">14 days free</span> with full access to all features
-                        </p>
+                    </div>
+
+                    <div 
+                      onClick={() => setSelectedFAQ('cancel')}
+                      className="group p-3 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border border-green-200/50 dark:border-green-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-2 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <Shield className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">Easy Cancellation</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            Cancel <span className="font-medium text-green-600 dark:text-green-400">anytime</span> with one click
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div 
+                      onClick={() => setSelectedFAQ('migration')}
+                      className="group p-3 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 rounded-xl border border-purple-200/50 dark:border-purple-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-3 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <Database className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">Data Migration</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            <span className="font-medium text-purple-600 dark:text-purple-400">Free migration</span> from 50+ platforms
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div 
+                      onClick={() => setSelectedFAQ('support')}
+                      className="group p-3 bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-950/50 dark:to-yellow-950/50 rounded-xl border border-orange-200/50 dark:border-orange-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-4 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <HeadphonesIcon className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">24/7 Support</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            Expert help with <span className="font-medium text-orange-600 dark:text-orange-400">&lt;5min response</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div 
+                      onClick={() => setSelectedFAQ('security')}
+                      className="group p-3 bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-950/50 dark:to-pink-950/50 rounded-xl border border-red-200/50 dark:border-red-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-5 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <Lock className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">Bank-Level Security</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            <span className="font-medium text-red-600 dark:text-red-400">SOC 2 compliant</span> with encryption
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div 
+                      onClick={() => setSelectedFAQ('pricing')}
+                      className="group p-3 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/50 dark:to-blue-950/50 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-6 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <CreditCard className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">Flexible Pricing</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            Plans from <span className="font-medium text-indigo-600 dark:text-indigo-400">$29/month</span> with discounts
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div 
+                      onClick={() => setSelectedFAQ('integration')}
+                      className="group p-3 bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/50 dark:to-cyan-950/50 rounded-xl border border-teal-200/50 dark:border-teal-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-7 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <RefreshCw className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">Easy Integration</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            <span className="font-medium text-teal-600 dark:text-teal-400">5-minute setup</span> with existing tools
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div 
+                      onClick={() => setSelectedFAQ('training')}
+                      className="group p-3 bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/50 dark:to-purple-950/50 rounded-xl border border-violet-200/50 dark:border-violet-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-8 cursor-pointer hover:scale-105"
+                    >
+                      <div className="flex items-start space-x-3">
+                        <div className="w-7 h-7 bg-gradient-to-r from-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                          <Users className="h-3 w-3 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xs text-foreground mb-1">Free Training</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            <span className="font-medium text-violet-600 dark:text-violet-400">Live onboarding</span> & tutorials
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="group p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border border-green-200/50 dark:border-green-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-2">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                        <Shield className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-sm text-foreground mb-1">Easy Cancellation</h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          Cancel <span className="font-medium text-green-600 dark:text-green-400">anytime</span> with one click
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="group p-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 rounded-xl border border-purple-200/50 dark:border-purple-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-3">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                        <Database className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-sm text-foreground mb-1">Data Migration</h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          <span className="font-medium text-purple-600 dark:text-purple-400">Free migration</span> from 50+ platforms
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="group p-4 bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-950/50 dark:to-yellow-950/50 rounded-xl border border-orange-200/50 dark:border-orange-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-4">
-                    <div className="flex items-start space-x-3">
-                      <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                        <HeadphonesIcon className="h-4 w-4 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-sm text-foreground mb-1">24/7 Support</h4>
-                        <p className="text-xs text-muted-foreground leading-relaxed">
-                          Expert help with <span className="font-medium text-orange-600 dark:text-orange-400">&lt;5min response</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="text-center pt-4">
+                  <div className="text-center pt-4 mt-auto">
                     <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                       Start Your Trial
                     </Button>
@@ -1084,6 +1167,130 @@ export default function Landing() {
               </Card>
             </div>
           </div>
+
+          {/* FAQ Popup Modal */}
+          {selectedFAQ && (
+            <div 
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedFAQ(null)}
+            >
+              <div 
+                className="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md w-full shadow-2xl animate-in fade-in zoom-in-95 duration-300"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {selectedFAQ === 'trial' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <Clock className="w-6 h-6 text-blue-500 mr-3" />
+                      Free Trial Period
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Get full access to BusinessFlow Pro for 14 days absolutely free. No credit card required to start. 
+                      Experience all premium features including unlimited invoices, expense tracking, client management, 
+                      and advanced reporting. Cancel anytime during the trial with no charges.
+                    </p>
+                  </>
+                )}
+                {selectedFAQ === 'cancel' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <Shield className="w-6 h-6 text-green-500 mr-3" />
+                      Easy Cancellation
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Cancel your subscription with just one click from your account dashboard. No phone calls, 
+                      no hassle, no questions asked. Your cancellation takes effect immediately, and you'll 
+                      retain access until your current billing period ends.
+                    </p>
+                  </>
+                )}
+                {selectedFAQ === 'migration' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <Database className="w-6 h-6 text-purple-500 mr-3" />
+                      Data Migration
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      We offer free data migration from over 50 popular business platforms including QuickBooks, 
+                      Xero, FreshBooks, and more. Our expert team handles the entire process, ensuring your 
+                      invoices, clients, expenses, and reports transfer seamlessly without any data loss.
+                    </p>
+                  </>
+                )}
+                {selectedFAQ === 'support' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <HeadphonesIcon className="w-6 h-6 text-orange-500 mr-3" />
+                      24/7 Support
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Get expert help whenever you need it with our 24/7 customer support. Live chat, email, 
+                      and phone support available with average response times under 5 minutes. Our dedicated 
+                      team is trained to help with setup, troubleshooting, and business optimization tips.
+                    </p>
+                  </>
+                )}
+                {selectedFAQ === 'security' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <Lock className="w-6 h-6 text-red-500 mr-3" />
+                      Bank-Level Security
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Your data is protected with enterprise-grade security including 256-bit SSL encryption, 
+                      SOC 2 Type II compliance, and regular security audits. We use the same security standards 
+                      as major banks to ensure your business information remains completely secure.
+                    </p>
+                  </>
+                )}
+                {selectedFAQ === 'pricing' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <CreditCard className="w-6 h-6 text-indigo-500 mr-3" />
+                      Flexible Pricing
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Choose from three flexible plans starting at just $29/month. Save 20% with annual billing. 
+                      All plans include core features with higher tiers offering advanced reporting, unlimited users, 
+                      and priority support. Upgrade or downgrade anytime to match your business needs.
+                    </p>
+                  </>
+                )}
+                {selectedFAQ === 'integration' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <RefreshCw className="w-6 h-6 text-teal-500 mr-3" />
+                      Easy Integration
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Connect BusinessFlow Pro with your existing tools in minutes. We integrate with popular 
+                      payment processors, banks, CRM systems, and productivity apps. Our step-by-step setup 
+                      wizard makes integration simple, even for non-technical users.
+                    </p>
+                  </>
+                )}
+                {selectedFAQ === 'training' && (
+                  <>
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
+                      <Users className="w-6 h-6 text-violet-500 mr-3" />
+                      Free Training
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Get up to speed quickly with our comprehensive training program. Includes live onboarding 
+                      sessions, video tutorials, step-by-step guides, and best practices webinars. Our training 
+                      ensures your team maximizes BusinessFlow Pro's potential from day one.
+                    </p>
+                  </>
+                )}
+                <Button 
+                  onClick={() => setSelectedFAQ(null)}
+                  className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl"
+                >
+                  Got it, thanks!
+                </Button>
+              </div>
+            </div>
+          )}
 
           {/* Bottom CTA Section */}
           <div className="text-center">
