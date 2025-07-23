@@ -19,14 +19,6 @@ export function LanguageSelector() {
 
   return (
     <div className="flex items-center space-x-2">
-      {/* Location indicator */}
-      {locationInfo && (
-        <div className="hidden lg:flex items-center space-x-1 text-xs text-white/80 bg-white/10 px-2 py-1 rounded-full">
-          <Globe className="h-3 w-3" />
-          <span>{locationInfo.country} • {locationInfo.currencySymbol}</span>
-        </div>
-      )}
-      
       <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
         <DropdownMenuTrigger asChild>
           <Button 
