@@ -789,12 +789,9 @@ export default function Landing() {
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 slide-in-bottom">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
-                {t('landing.contact.title', 'Get in Touch')}
+                Frequently Asked Questions
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1 leading-relaxed">
-              {t('landing.contact.subtitle', 'Have questions? Need a custom solution? Our team is here to help you transform your business operations.')}
-            </p>
           </div>
 
           {/* Centered FAQ Section */}
@@ -802,17 +799,6 @@ export default function Landing() {
             <div className="w-full max-w-4xl">
               <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-left">
                 <CardHeader className="text-center pb-6">
-                  <CardTitle className="text-2xl font-bold mb-3">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                      Quick Answers
-                    </span>
-                  </CardTitle>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Common questions about BusinessFlow Pro
-                  </p>
-                  <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400 font-medium">
-                    Click any question for detailed answers
-                  </div>
                 </CardHeader>
                 <CardContent className="px-8 pb-8">
                   <div className="grid md:grid-cols-2 gap-4">
