@@ -799,7 +799,7 @@ export default function Landing() {
 
           {/* Centered FAQ Section */}
           <div className="flex justify-center mb-16">
-            <div className="w-full max-w-2xl">
+            <div className="w-full max-w-4xl">
               <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-left">
                 <CardHeader className="text-center pb-6">
                   <CardTitle className="text-2xl font-bold mb-3">
@@ -814,8 +814,8 @@ export default function Landing() {
                     Click any question for detailed answers
                   </div>
                 </CardHeader>
-                <CardContent className="px-6 pb-6 space-y-3 flex flex-col justify-between h-full">
-                  <div className="space-y-3 flex-1">
+                <CardContent className="px-8 pb-8">
+                  <div className="grid md:grid-cols-2 gap-4">
                     {/* FAQ Items with click functionality */}
                     <div 
                       onClick={() => setSelectedFAQ('trial')}
