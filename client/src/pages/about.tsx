@@ -27,6 +27,28 @@ export default function About() {
 
   useEffect(() => {
     setIsVisible(true);
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all scroll-animate elements
+    const animateElements = document.querySelectorAll('.scroll-animate, .scroll-animate-letters');
+    animateElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      animateElements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   const stats = [
@@ -192,24 +214,24 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-8">
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-8 scroll-animate-letters">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Our Story
                 </span>
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p>
+                <p className="scroll-animate">
                   BusinessFlow Pro was born from a simple observation: small and medium businesses 
                   were drowning in manual processes, disconnected tools, and endless paperwork. 
                   Our founders, having experienced these challenges firsthand, knew there had to be a better way.
                 </p>
-                <p>
+                <p className="scroll-animate" style={{animationDelay: '200ms'}}>
                   Starting in 2019 with a small team of passionate entrepreneurs and engineers, 
                   we set out to build the business management platform we wished existed. Today, 
                   we're proud to serve over 50,000 businesses across 150+ countries, helping them 
                   automate workflows, gain insights, and focus on what matters most - growing their business.
                 </p>
-                <p>
+                <p className="scroll-animate" style={{animationDelay: '400ms'}}>
                   Every feature we build, every decision we make, is guided by one principle: 
                   making business operations so simple and powerful that success becomes inevitable.
                 </p>
@@ -228,12 +250,17 @@ export default function About() {
             </div>
             
             <div className="order-1 lg:order-2">
-              <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/50 dark:to-purple-950/50 border-2 border-blue-200 dark:border-blue-700 hover:shadow-2xl transition-all duration-500">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-6xl font-bold shadow-inner">
-                  📈
+              <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/50 dark:to-purple-950/50 border-2 border-blue-200 dark:border-blue-700 hover:shadow-2xl transition-all duration-500 group">
+                <div className="aspect-video rounded-xl overflow-hidden shadow-inner relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                    alt="Modern office workspace"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
                 </div>
                 <div className="mt-6 text-center">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">Growing Every Day</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">Growing Every Day</h3>
                   <p className="text-muted-foreground">
                     From a startup dream to a global platform trusted by thousands
                   </p>
@@ -248,19 +275,19 @@ export default function About() {
       <section className="py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 scroll-animate-letters">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Our Values
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
               The principles that guide everything we do and every decision we make
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-2xl transition-all duration-500 group hover:scale-105">
+              <Card key={index} className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-2xl transition-all duration-500 group hover:scale-105 scroll-animate" style={{animationDelay: `${index * 200}ms`}}>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
                     <value.icon className="w-8 h-8 text-white" />
@@ -282,12 +309,12 @@ export default function About() {
       <section className="py-32 bg-white/50 dark:bg-gray-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 scroll-animate-letters">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Our Journey
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
               Key milestones that shaped BusinessFlow Pro into what it is today
             </p>
           </div>
@@ -305,7 +332,7 @@ export default function About() {
                   </div>
                   
                   {/* Content */}
-                  <Card className="flex-1 p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-xl transition-all duration-500 group">
+                  <Card className="flex-1 p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
                     <div className="flex items-center space-x-4 mb-3">
                       <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-bold">
                         {item.year}
@@ -329,22 +356,26 @@ export default function About() {
       <section className="py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-text-reveal">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Meet Our Team
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-delayed">
               The passionate innovators behind BusinessFlow Pro's success
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {team.map((member, index) => (
               <Card key={index} className="p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-2xl transition-all duration-500 group hover:scale-105">
                 <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold group-hover:rotate-12 transition-transform duration-300">
-                    {member.name.split(' ').map(n => n[0]).join('')}
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold group-hover:rotate-12 transition-transform duration-300 overflow-hidden">
+                    <img 
+                      src={`https://images.unsplash.com/photo-${index === 0 ? '1494790108755-2616814b3388' : index === 1 ? '1507003211169-0a1dd7228f2d' : index === 2 ? '1573496359142-b8c6c46a7ef4' : '1472099645785-5658abf4ff4e'}?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80`}
+                      alt={member.name}
+                      className="w-full h-full object-cover rounded-full"
+                    />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {member.name}
@@ -358,6 +389,118 @@ export default function About() {
                 </div>
               </Card>
             ))}
+          </div>
+
+          {/* Office Photos Grid */}
+          <div className="grid md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-20">
+            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-blue-200 dark:border-blue-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Team collaboration in modern office"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-lg font-bold text-foreground group-hover:text-blue-600 transition-colors duration-300">
+                  Collaborative Innovation
+                </h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Our team works together to build the future of business management
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-purple-200 dark:border-purple-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Focused development work"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-lg font-bold text-foreground group-hover:text-purple-600 transition-colors duration-300">
+                  Focused Development
+                </h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Every line of code is crafted with precision and attention to detail
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-green-200 dark:border-green-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Creative brainstorming session"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-lg font-bold text-foreground group-hover:text-green-600 transition-colors duration-300">
+                  Creative Solutions
+                </h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Brainstorming sessions that lead to breakthrough business features
+                </p>
+              </div>
+            </Card>
+
+            {/* Additional Office Photos */}
+            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-orange-200 dark:border-orange-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Remote work with laptops"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-lg font-bold text-foreground group-hover:text-orange-600 transition-colors duration-300">
+                  Remote Excellence
+                </h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Flexible work environments that deliver exceptional results
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-indigo-200 dark:border-indigo-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Modern workspace setup"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-lg font-bold text-foreground group-hover:text-indigo-600 transition-colors duration-300">
+                  Modern Tools
+                </h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  State-of-the-art technology powering breakthrough solutions
+                </p>
+              </div>
+            </Card>
+
+            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-teal-200 dark:border-teal-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
+              <div className="aspect-square rounded-xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Team meeting and planning"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h4 className="text-lg font-bold text-foreground group-hover:text-teal-600 transition-colors duration-300">
+                  Strategic Planning
+                </h4>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Every feature is thoughtfully planned for maximum business impact
+                </p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
