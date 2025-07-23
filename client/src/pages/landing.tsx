@@ -783,11 +783,6 @@ export default function Landing() {
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-spin-slow"></div>
-          
-          {/* Floating particles */}
-          <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-blue-500/30 rounded-full animate-bounce delay-300"></div>
-          <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-purple-500/30 rounded-full animate-bounce delay-700"></div>
-          <div className="absolute bottom-1/4 left-3/4 w-2 h-2 bg-pink-500/30 rounded-full animate-bounce delay-1100"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -802,10 +797,9 @@ export default function Landing() {
             </p>
           </div>
 
-          {/* Beautiful 2-Column Layout */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
-            {/* FAQ Column */}
-            <div className="lg:col-span-1">
+          {/* Centered FAQ Section */}
+          <div className="flex justify-center mb-16">
+            <div className="w-full max-w-2xl">
               <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-left">
                 <CardHeader className="text-center pb-6">
                   <CardTitle className="text-2xl font-bold mb-3">
@@ -817,7 +811,6 @@ export default function Landing() {
                     Common questions about BusinessFlow Pro
                   </p>
                   <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400 font-medium">
-                    <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
                     Click any question for detailed answers
                   </div>
                 </CardHeader>
@@ -974,99 +967,6 @@ export default function Landing() {
                   </div>
 
 
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Contact Form Column */}
-            <div className="lg:col-span-1">
-              <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-right">
-                <CardHeader className="text-center pb-6">
-                  <CardTitle className="text-3xl font-bold mb-4">
-                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
-                      Send us a Message
-                    </span>
-                  </CardTitle>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Fill out the form below and we'll get back to you within 24 hours
-                  </p>
-                </CardHeader>
-                <CardContent className="px-8 pb-8">
-                  <form onSubmit={handleContactSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="fade-in stagger-1">
-                        <Label htmlFor="firstName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.firstName', 'First Name')}</Label>
-                        <Input
-                          id="firstName"
-                          value={contactForm.firstName}
-                          onChange={(e) => setContactForm({...contactForm, firstName: e.target.value})}
-                          placeholder="John"
-                          className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
-                          required
-                        />
-                      </div>
-                      <div className="fade-in stagger-2">
-                        <Label htmlFor="lastName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.lastName', 'Last Name')}</Label>
-                        <Input
-                          id="lastName"
-                          value={contactForm.lastName}
-                          onChange={(e) => setContactForm({...contactForm, lastName: e.target.value})}
-                          placeholder="Doe"
-                          className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
-                          required
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="fade-in stagger-3">
-                      <Label htmlFor="email" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.email', 'Email')}</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={contactForm.email}
-                        onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                        placeholder="john@example.com"
-                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
-                        required
-                      />
-                    </div>
-                    
-                    <div className="fade-in stagger-4">
-                      <Label htmlFor="company" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.company', 'Company')}</Label>
-                      <Input
-                        id="company"
-                        value={contactForm.company}
-                        onChange={(e) => setContactForm({...contactForm, company: e.target.value})}
-                        placeholder="Acme Inc."
-                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
-                      />
-                    </div>
-                    
-                    <div className="fade-in stagger-5">
-                      <Label htmlFor="message" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.message', 'Message')}</Label>
-                      <Textarea
-                        id="message"
-                        value={contactForm.message}
-                        onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                        placeholder="Tell us about your business needs..."
-                        className="min-h-32 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600 resize-none"
-                        required
-                      />
-                    </div>
-                    
-
-                    
-                    <div className="pt-4">
-                      <Button 
-                        type="submit" 
-                        disabled={contactMutation.isPending}
-                        title="Contact our team - We'll get back to you quickly"
-                        className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-7"
-                      >
-                        {contactMutation.isPending ? 'Sending...' : 'Contact Our Team'}
-                      </Button>
-                    </div>
-                  </form>
                 </CardContent>
               </Card>
             </div>
