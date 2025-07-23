@@ -914,60 +914,76 @@ export default function Landing() {
                       Quick Answers
                     </span>
                   </CardTitle>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mb-2">
                     Common questions about BusinessFlow Pro
                   </p>
+                  <div className="flex items-center justify-center text-xs text-blue-600 dark:text-blue-400 font-medium">
+                    <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+                    Click any question for detailed answers
+                  </div>
                 </CardHeader>
                 <CardContent className="px-6 pb-6 space-y-3 flex flex-col justify-between h-full">
                   <div className="space-y-3 flex-1">
                     {/* FAQ Items with click functionality */}
                     <div 
                       onClick={() => setSelectedFAQ('trial')}
-                      className="group p-3 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-1 cursor-pointer hover:scale-105"
+                      className="group p-3 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:shadow-lg hover:shadow-blue-200/50 dark:hover:shadow-blue-800/50 transition-all duration-300 fade-in stagger-1 cursor-pointer hover:scale-105 hover:border-blue-400/70 dark:hover:border-blue-500/70 relative overflow-hidden"
                     >
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="flex items-start space-x-3">
                         <div className="w-7 h-7 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
                           <Clock className="h-3 w-3 text-white" />
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">Free Trial Period</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
+                        <div className="flex-1 relative z-10">
+                          <h4 className="font-semibold text-xs text-foreground mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">Free Trial Period</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed group-hover:text-blue-600/80 dark:group-hover:text-blue-400/80 transition-colors duration-300">
                             <span className="font-medium text-blue-600 dark:text-blue-400">14 days free</span> with full access
                           </p>
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-blue-500 dark:text-blue-400 mt-1 font-medium">
+                            → Click for details
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     <div 
                       onClick={() => setSelectedFAQ('cancel')}
-                      className="group p-3 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border border-green-200/50 dark:border-green-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-2 cursor-pointer hover:scale-105"
+                      className="group p-3 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border border-green-200/50 dark:border-green-700/50 hover:shadow-lg hover:shadow-green-200/50 dark:hover:shadow-green-800/50 transition-all duration-300 fade-in stagger-2 cursor-pointer hover:scale-105 hover:border-green-400/70 dark:hover:border-green-500/70 relative overflow-hidden"
                     >
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="flex items-start space-x-3">
                         <div className="w-7 h-7 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
                           <Shield className="h-3 w-3 text-white" />
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">Easy Cancellation</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
+                        <div className="flex-1 relative z-10">
+                          <h4 className="font-semibold text-xs text-foreground mb-1 group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors duration-300">Easy Cancellation</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed group-hover:text-green-600/80 dark:group-hover:text-green-400/80 transition-colors duration-300">
                             Cancel <span className="font-medium text-green-600 dark:text-green-400">anytime</span> with one click
                           </p>
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-green-500 dark:text-green-400 mt-1 font-medium">
+                            → Click for details
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     <div 
                       onClick={() => setSelectedFAQ('migration')}
-                      className="group p-3 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 rounded-xl border border-purple-200/50 dark:border-purple-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-3 cursor-pointer hover:scale-105"
+                      className="group p-3 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 rounded-xl border border-purple-200/50 dark:border-purple-700/50 hover:shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-800/50 transition-all duration-300 fade-in stagger-3 cursor-pointer hover:scale-105 hover:border-purple-400/70 dark:hover:border-purple-500/70 relative overflow-hidden"
                     >
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="flex items-start space-x-3">
                         <div className="w-7 h-7 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
                           <Database className="h-3 w-3 text-white" />
                         </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">Data Migration</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
+                        <div className="flex-1 relative z-10">
+                          <h4 className="font-semibold text-xs text-foreground mb-1 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors duration-300">Data Migration</h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed group-hover:text-purple-600/80 dark:group-hover:text-purple-400/80 transition-colors duration-300">
                             <span className="font-medium text-purple-600 dark:text-purple-400">Free migration</span> from 50+ platforms
                           </p>
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-purple-500 dark:text-purple-400 mt-1 font-medium">
+                            → Click for details
+                          </div>
                         </div>
                       </div>
                     </div>
