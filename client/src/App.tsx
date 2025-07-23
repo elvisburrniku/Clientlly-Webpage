@@ -19,10 +19,12 @@ import FeatureVendors from "@/pages/feature-vendors";
 import FeatureCalendar from "@/pages/feature-calendar";
 import FeatureAttendance from "@/pages/feature-attendance";
 import About from "@/pages/about";
+import Contact from "@/pages/contact";
+import Login from "@/pages/login";
+import Trial from "@/pages/trial";
 import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
-import Calculator from "@/pages/calculator";
 import Success from "@/pages/success";
 import NotFound from "@/pages/not-found";
 
@@ -54,9 +56,11 @@ function Router() {
           <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/features/attendance" component={FeatureAttendance} />
           <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login} />
+          <Route path="/trial" component={Trial} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
-          <Route path="/calculator" component={Calculator} />
           <Route path="/success" component={Success} />
         </>
       ) : (
@@ -76,9 +80,11 @@ function Router() {
           <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/features/attendance" component={FeatureAttendance} />
           <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login} />
+          <Route path="/trial" component={Trial} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
-          <Route path="/calculator" component={Calculator} />
           <Route path="/success" component={Success} />
         </>
       )}

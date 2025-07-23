@@ -209,10 +209,10 @@ export default function Landing() {
               <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Pricing</a>
-              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Plan Calculator</Link>
+
               <Button 
                 variant="ghost" 
-                onClick={() => setShowDemoModal(true)} 
+                onClick={() => window.location.href = '/contact'} 
                 className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
               >
                 Contact Us
@@ -236,7 +236,7 @@ export default function Landing() {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
+                onClick={() => window.location.href = "/trial"}
                 className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 cta-button"
               >
                 Start Your Trial
@@ -277,7 +277,7 @@ export default function Landing() {
               <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About Us</Link>
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
               <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</a>
-              <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">Plan Calculator</Link>
+
               <Button 
                 variant="ghost" 
                 onClick={() => {
@@ -312,7 +312,7 @@ export default function Landing() {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.location.href = "/subscribe?plan=basic&billing=monthly";
+                    window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
@@ -368,7 +368,7 @@ export default function Landing() {
               <Button 
                 size="lg" 
                 className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
-                onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
+                onClick={() => window.location.href = "/trial"}
               >
                 Start Your Trial
               </Button>
@@ -383,7 +383,7 @@ export default function Landing() {
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-10 py-5 text-xl font-semibold rounded-2xl transition-all duration-300 min-w-[200px]"
-                onClick={() => setShowDemoModal(true)}
+                onClick={() => window.location.href = '/contact'}
               >
                 Learn More
               </Button>
@@ -680,7 +680,7 @@ export default function Landing() {
               <Button 
                 size="lg"
                 className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-                onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
+                onClick={() => window.location.href = '/trial'}
               >
                 Start Your Trial
               </Button>
@@ -803,7 +803,7 @@ export default function Landing() {
                         variant="ghost" 
                         size="sm"
                         className="w-full text-primary hover:text-primary/80"
-                        onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
+                        onClick={() => window.location.href = `/trial?plan=${plan.id}&billing=${billingPeriod}`}
                       >
                         Start Your Trial
                       </Button>
@@ -813,7 +813,7 @@ export default function Landing() {
                         variant="ghost" 
                         size="sm"
                         className="w-full text-primary hover:text-primary/80"
-                        onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
+                        onClick={() => window.location.href = '/trial'}
                       >
                         Start Your Trial
                       </Button>
@@ -1519,6 +1519,7 @@ export default function Landing() {
       {/* Tutorial Walkthrough */}
       {tutorial.showTutorial && (
         <TutorialWalkthrough
+          isVisible={tutorial.showTutorial}
           onComplete={tutorial.completeTutorial}
           onSkip={tutorial.skipTutorial}
         />
