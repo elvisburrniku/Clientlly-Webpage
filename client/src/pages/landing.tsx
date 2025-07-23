@@ -964,11 +964,11 @@ export default function Landing() {
               <CardHeader className="text-center pb-6">
                 <CardTitle className="text-3xl font-bold mb-4">
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
-                    {t('landing.contact.form.title', 'Send us a Message')}
+                    Send us a Message
                   </span>
                 </CardTitle>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  {t('landing.contact.form.subtitle', 'Fill out the form below and we\'ll get back to you within 24 hours')}
+                  Fill out the form below and we'll get back to you within 24 hours
                 </p>
               </CardHeader>
               <CardContent className="px-8 pb-8">
