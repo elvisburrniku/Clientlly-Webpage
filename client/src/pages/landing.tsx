@@ -661,7 +661,7 @@ export default function Landing() {
             <h2 className="text-4xl font-bold text-foreground mb-4 fade-in leading-tight">
               Choose the perfect plan for your business
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8 fade-in stagger-1 animate-type-in">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 fade-in stagger-1 leading-relaxed">
               Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
             </p>
             
