@@ -17,6 +17,7 @@ import FeatureMigration from "@/pages/feature-migration";
 import FeatureClients from "@/pages/feature-clients";
 import FeatureVendors from "@/pages/feature-vendors";
 import FeatureCalendar from "@/pages/feature-calendar";
+import FeatureAttendance from "@/pages/feature-attendance";
 import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
@@ -50,6 +51,7 @@ function Router() {
           <Route path="/features/clients" component={FeatureClients} />
           <Route path="/features/vendors" component={FeatureVendors} />
           <Route path="/features/calendar" component={FeatureCalendar} />
+          <Route path="/features/attendance" component={FeatureAttendance} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
@@ -71,6 +73,7 @@ function Router() {
           <Route path="/features/vendors" component={FeatureVendors} />
           <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/subscribe" component={Subscribe} />
+          <Route path="/features/attendance" component={FeatureAttendance} />
           <Route path="/compare" component={Compare} />
           <Route path="/calculator" component={Calculator} />
           <Route path="/success" component={Success} />
