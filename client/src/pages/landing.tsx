@@ -623,15 +623,7 @@ export default function Landing() {
                 
                 <div className="text-center space-y-8">
                   
-                  {/* Hero Message */}
-                  <div className="space-y-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground leading-tight">
-                      Choose the plan that fits your business and 
-                      <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse">
-                        {' '}grow at your own pace
-                      </span>
-                    </h3>
-                  </div>
+
                   
                   {/* Features Grid */}
                   <div className="grid md:grid-cols-2 gap-6 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
