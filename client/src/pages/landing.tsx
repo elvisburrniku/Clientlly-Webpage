@@ -1060,10 +1060,21 @@ export default function Landing() {
                       />
                     </div>
                     
+                    <div className="text-center pt-2 pb-4 fade-in stagger-6">
+                      <h4 className="text-lg font-bold text-foreground mb-2">
+                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                          Send us a Message
+                        </span>
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        We'll respond within 24 hours
+                      </p>
+                    </div>
+                    
                     <Button 
                       type="submit" 
                       disabled={contactMutation.isPending}
-                      className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-6"
+                      className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-7"
                     >
                       {contactMutation.isPending ? 'Sending...' : t('landing.contact.form.submit', 'Send Message')}
                     </Button>
