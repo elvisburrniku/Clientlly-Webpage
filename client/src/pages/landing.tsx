@@ -877,133 +877,106 @@ export default function Landing() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-2xl animate-pulse delay-500"></div>
+      <section className="py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950 relative overflow-hidden">
+        {/* Enhanced Animated Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-spin-slow"></div>
+          
+          {/* Floating particles */}
+          <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-blue-500/30 rounded-full animate-bounce delay-300"></div>
+          <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-purple-500/30 rounded-full animate-bounce delay-700"></div>
+          <div className="absolute bottom-1/4 left-3/4 w-2 h-2 bg-pink-500/30 rounded-full animate-bounce delay-1100"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 slide-in-bottom">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 slide-in-bottom">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
                 {t('landing.contact.title', 'Get in Touch')}
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto fade-in stagger-1 leading-relaxed">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1 leading-relaxed">
               {t('landing.contact.subtitle', 'Have questions? Need a custom solution? Our team is here to help you transform your business operations.')}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-            {/* FAQ Section - 4 Small Squares */}
-            <div className="grid grid-cols-2 gap-4 h-full">
-              {/* FAQ Square 1 */}
-              <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-blue-200 to-cyan-200 dark:from-blue-700 dark:to-cyan-700 slide-in-left shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
-                <CardContent className="p-4 h-full flex flex-col justify-center relative">
-                  <div className="animate-faq-cycle-1">
-                    <div className="absolute inset-0 p-4 flex flex-col justify-center opacity-100 animate-fade-in-out">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
-                          <Clock className="h-4 w-4 text-white" />
-                        </div>
-                        <h4 className="font-bold text-sm text-foreground">Free Trial</h4>
+          {/* Beautiful 3-Column Layout */}
+          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            {/* FAQ Column */}
+            <div className="lg:col-span-1">
+              <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-left">
+                <CardHeader className="text-center pb-6">
+                  <CardTitle className="text-2xl font-bold mb-3">
+                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      Quick Answers
+                    </span>
+                  </CardTitle>
+                  <p className="text-sm text-muted-foreground">
+                    Common questions about BusinessFlow Pro
+                  </p>
+                </CardHeader>
+                <CardContent className="px-6 pb-6 space-y-4">
+                  {/* FAQ Items with animations */}
+                  <div className="group p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 rounded-xl border border-blue-200/50 dark:border-blue-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-1">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                        <Clock className="h-4 w-4 text-white" />
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Get <span className="font-semibold text-blue-600 dark:text-blue-400">14 days free</span> with full access to all features. No credit card required.
-                      </p>
-                    </div>
-                    <div className="absolute inset-0 p-4 flex flex-col justify-center opacity-0 animate-fade-in-out-delayed">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
-                          <Shield className="h-4 w-4 text-white" />
-                        </div>
-                        <h4 className="font-bold text-sm text-foreground">Cancellation</h4>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-sm text-foreground mb-1">Free Trial Period</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          <span className="font-medium text-blue-600 dark:text-blue-400">14 days free</span> with full access to all features
+                        </p>
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        Cancel <span className="font-semibold text-green-600 dark:text-green-400">anytime</span> with one click. No contracts or hidden fees.
-                      </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* FAQ Square 2 */}
-              <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-purple-200 to-pink-200 dark:from-purple-700 dark:to-pink-700 slide-in-left shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
-                <CardContent className="p-4 h-full flex flex-col justify-center relative">
-                  <div className="animate-faq-cycle-2">
-                    <div className="absolute inset-0 p-4 flex flex-col justify-center opacity-100 animate-fade-in-out">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
-                          <Database className="h-4 w-4 text-white" />
-                        </div>
-                        <h4 className="font-bold text-sm text-foreground">Data Migration</h4>
+                  <div className="group p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border border-green-200/50 dark:border-green-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-2">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                        <Shield className="h-4 w-4 text-white" />
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        <span className="font-semibold text-purple-600 dark:text-purple-400">Free migration</span> from QuickBooks, FreshBooks, and 50+ platforms.
-                      </p>
-                    </div>
-                    <div className="absolute inset-0 p-4 flex flex-col justify-center opacity-0 animate-fade-in-out-delayed">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-orange-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
-                          <Lock className="h-4 w-4 text-white" />
-                        </div>
-                        <h4 className="font-bold text-sm text-foreground">Security</h4>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-sm text-foreground mb-1">Easy Cancellation</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          Cancel <span className="font-medium text-green-600 dark:text-green-400">anytime</span> with one click
+                        </p>
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        <span className="font-semibold text-pink-600 dark:text-pink-400">Bank-level encryption</span> with SOC 2 compliance and GDPR adherence.
-                      </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* FAQ Square 3 */}
-              <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-orange-200 to-yellow-200 dark:from-orange-700 dark:to-yellow-700 slide-in-left shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
-                <CardContent className="p-4 h-full flex flex-col justify-center relative">
-                  <div className="animate-faq-cycle-3">
-                    <div className="absolute inset-0 p-4 flex flex-col justify-center opacity-100 animate-fade-in-out">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
-                          <CreditCard className="h-4 w-4 text-white" />
-                        </div>
-                        <h4 className="font-bold text-sm text-foreground">Payments</h4>
+                  <div className="group p-4 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 rounded-xl border border-purple-200/50 dark:border-purple-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                        <Database className="h-4 w-4 text-white" />
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        All major <span className="font-semibold text-orange-600 dark:text-orange-400">credit cards</span>, PayPal, and bank transfers accepted.
-                      </p>
-                    </div>
-                    <div className="absolute inset-0 p-4 flex flex-col justify-center opacity-0 animate-fade-in-out-delayed">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-yellow-500 to-blue-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0">
-                          <HeadphonesIcon className="h-4 w-4 text-white" />
-                        </div>
-                        <h4 className="font-bold text-sm text-foreground">Support</h4>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-sm text-foreground mb-1">Data Migration</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          <span className="font-medium text-purple-600 dark:text-purple-400">Free migration</span> from 50+ platforms
+                        </p>
                       </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        <span className="font-semibold text-yellow-600 dark:text-yellow-400">24/7 expert support</span> via chat, email, and phone with &lt;5min response.
-                      </p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
 
-              {/* FAQ Square 4 */}
-              <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-green-200 to-blue-200 dark:from-green-700 dark:to-blue-700 slide-in-left shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
-                <CardContent className="p-4 h-full flex flex-col justify-center relative">
-                  <div className="text-center">
-                    <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                      <CheckCircle className="h-5 w-5 text-white" />
+                  <div className="group p-4 bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-950/50 dark:to-yellow-950/50 rounded-xl border border-orange-200/50 dark:border-orange-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
+                        <HeadphonesIcon className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-sm text-foreground mb-1">24/7 Support</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          Expert help with <span className="font-medium text-orange-600 dark:text-orange-400">&lt;5min response</span>
+                        </p>
+                      </div>
                     </div>
-                    <h4 className="font-bold text-sm text-foreground mb-2">Ready to Start?</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-                      Join thousands of businesses using BusinessFlow Pro
-                    </p>
-                    <Button 
-                      size="sm" 
-                      className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white text-xs font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
-                    >
+                  </div>
+
+                  <div className="text-center pt-4">
+                    <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
                       Start Your Trial
                     </Button>
                   </div>
@@ -1011,420 +984,139 @@ export default function Landing() {
               </Card>
             </div>
 
-            {/* Contact Form */}
-            <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 slide-in-right shadow-2xl hover:shadow-3xl transition-all duration-500">
-              <CardHeader className="text-center pb-6">
-                <CardTitle className="text-3xl font-bold mb-4">
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
-                    Send us a Message
-                  </span>
-                </CardTitle>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Fill out the form below and we'll get back to you within 24 hours
-                </p>
-              </CardHeader>
-              <CardContent className="px-8 pb-8">
-                <form onSubmit={handleContactSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="fade-in stagger-1">
-                      <Label htmlFor="firstName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.firstName', 'First Name')}</Label>
-                      <Input
-                        id="firstName"
-                        value={contactForm.firstName}
-                        onChange={(e) => setContactForm({...contactForm, firstName: e.target.value})}
-                        placeholder="John"
-                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
-                        required
-                      />
-                    </div>
-                    <div className="fade-in stagger-2">
-                      <Label htmlFor="lastName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.lastName', 'Last Name')}</Label>
-                      <Input
-                        id="lastName"
-                        value={contactForm.lastName}
-                        onChange={(e) => setContactForm({...contactForm, lastName: e.target.value})}
-                        placeholder="Doe"
-                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="fade-in stagger-3">
-                    <Label htmlFor="contactEmail" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.email', 'Email Address')}</Label>
-                    <Input
-                      id="contactEmail"
-                      type="email"
-                      value={contactForm.email}
-                      onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                      placeholder="john@company.com"
-                      className="h-12 border-2 border-purple-200 dark:border-purple-700 focus:border-purple-500 dark:focus:border-purple-400 rounded-xl transition-all duration-300 hover:border-purple-300 dark:hover:border-purple-600"
-                      required
-                    />
-                  </div>
-
-                  <div className="fade-in stagger-4">
-                    <Label htmlFor="contactCompany" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.company', 'Company Name')}</Label>
-                    <Input
-                      id="contactCompany"
-                      value={contactForm.company}
-                      onChange={(e) => setContactForm({...contactForm, company: e.target.value})}
-                      placeholder="Your Company Inc."
-                      className="h-12 border-2 border-green-200 dark:border-green-700 focus:border-green-500 dark:focus:border-green-400 rounded-xl transition-all duration-300 hover:border-green-300 dark:hover:border-green-600"
-                      required
-                    />
-                  </div>
-
-                  <div className="fade-in stagger-5">
-                    <Label htmlFor="contactSubject" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.subject', 'Subject')}</Label>
-                    <Select 
-                      value={contactForm.subject} 
-                      onValueChange={(value) => setContactForm({...contactForm, subject: value})}
-                    >
-                      <SelectTrigger className="h-12 border-2 border-orange-200 dark:border-orange-700 focus:border-orange-500 dark:focus:border-orange-400 rounded-xl transition-all duration-300 hover:border-orange-300 dark:hover:border-orange-600">
-                        <SelectValue placeholder={t('landing.contact.form.selectTopic', 'Select a topic')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="general">{t('landing.contact.form.general', 'General Inquiry')}</SelectItem>
-                        <SelectItem value="sales">{t('landing.contact.form.sales', 'Sales Questions')}</SelectItem>
-                        <SelectItem value="support">{t('landing.contact.form.support', 'Technical Support')}</SelectItem>
-                        <SelectItem value="partnership">{t('landing.contact.form.partnership', 'Partnership')}</SelectItem>
-                        <SelectItem value="demo">Learn More</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="fade-in stagger-6">
-                    <Label htmlFor="contactMessage" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.message', 'Message')}</Label>
-                    <Textarea
-                      id="contactMessage"
-                      value={contactForm.message}
-                      onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                      placeholder={t('landing.contact.form.messagePlaceholder', 'Tell us about your needs and how we can help...')}
-                      className="min-h-[140px] border-2 border-pink-200 dark:border-pink-700 focus:border-pink-500 dark:focus:border-pink-400 rounded-xl transition-all duration-300 hover:border-pink-300 dark:hover:border-pink-600 resize-none"
-                      required
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    size="lg"
-                    className="w-full h-14 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white font-bold text-lg rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 fade-in stagger-7"
-                    disabled={contactMutation.isPending}
-                  >
-                    {contactMutation.isPending ? (
-                      <div className="flex items-center space-x-2">
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        <span>{t('landing.contact.form.sending', 'Sending...')}</span>
-                      </div>
-                    ) : (
-                      t('landing.contact.form.send', 'Send Message')
-                    )}
-                  </Button>
-
-                  <p className="text-center text-muted-foreground fade-in stagger-8 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-200 dark:border-blue-700">
-                    <span className="font-medium">
-                      {t('landing.contact.form.response', 'We\'ll get back to you within 24 hours. For urgent matters, please call us directly.')}
+            {/* Contact Form Column */}
+            <div className="lg:col-span-2">
+              <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-right">
+                <CardHeader className="text-center pb-6">
+                  <CardTitle className="text-3xl font-bold mb-4">
+                    <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
+                      Send us a Message
                     </span>
+                  </CardTitle>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Fill out the form below and we'll get back to you within 24 hours
                   </p>
-                </form>
-              </CardContent>
+                </CardHeader>
+                <CardContent className="px-8 pb-8">
+                  <form onSubmit={handleContactSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="fade-in stagger-1">
+                        <Label htmlFor="firstName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.firstName', 'First Name')}</Label>
+                        <Input
+                          id="firstName"
+                          value={contactForm.firstName}
+                          onChange={(e) => setContactForm({...contactForm, firstName: e.target.value})}
+                          placeholder="John"
+                          className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
+                          required
+                        />
+                      </div>
+                      <div className="fade-in stagger-2">
+                        <Label htmlFor="lastName" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.lastName', 'Last Name')}</Label>
+                        <Input
+                          id="lastName"
+                          value={contactForm.lastName}
+                          onChange={(e) => setContactForm({...contactForm, lastName: e.target.value})}
+                          placeholder="Doe"
+                          className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="fade-in stagger-3">
+                      <Label htmlFor="email" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.email', 'Email')}</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={contactForm.email}
+                        onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                        placeholder="john@example.com"
+                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
+                        required
+                      />
+                    </div>
+                    
+                    <div className="fade-in stagger-4">
+                      <Label htmlFor="company" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.company', 'Company')}</Label>
+                      <Input
+                        id="company"
+                        value={contactForm.company}
+                        onChange={(e) => setContactForm({...contactForm, company: e.target.value})}
+                        placeholder="Acme Inc."
+                        className="h-12 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600"
+                      />
+                    </div>
+                    
+                    <div className="fade-in stagger-5">
+                      <Label htmlFor="message" className="text-sm font-semibold text-foreground mb-2 block">{t('landing.contact.form.message', 'Message')}</Label>
+                      <Textarea
+                        id="message"
+                        value={contactForm.message}
+                        onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+                        placeholder="Tell us about your business needs..."
+                        className="min-h-32 border-2 border-blue-200 dark:border-blue-700 focus:border-blue-500 dark:focus:border-blue-400 rounded-xl transition-all duration-300 hover:border-blue-300 dark:hover:border-blue-600 resize-none"
+                        required
+                      />
+                    </div>
+                    
+                    <Button 
+                      type="submit" 
+                      disabled={contactMutation.isPending}
+                      className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-6"
+                    >
+                      {contactMutation.isPending ? 'Sending...' : t('landing.contact.form.submit', 'Send Message')}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Bottom CTA Section */}
+          <div className="text-center">
+            <Card className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 pulse-glow">
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                  <CheckCircle className="h-6 w-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <h3 className="text-xl font-bold">Ready to Transform Your Business?</h3>
+                  <p className="text-blue-100">Join thousands of satisfied customers worldwide</p>
+                </div>
+              </div>
+              <Button 
+                size="lg" 
+                className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Start Your Free Trial Today
+              </Button>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 slide-in-bottom">
-            <span className="inline-block animate-bounce-in bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-              {t('landing.footer.ready', 'Ready to transform your business?')}
-            </span>
-          </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto slide-in-bottom stagger-1 animate-fade-in-up leading-relaxed">
-            {t('landing.footer.join', 'Join thousands of businesses that have streamlined their operations with BusinessFlow Pro. Start your free trial today.')}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center slide-in-bottom stagger-2">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-4 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
-              onClick={() => window.location.href = "/api/login"}
-            >
-              {t('landing.getStarted', 'Start Free Trial')}
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-blue-400 text-blue-100 hover:bg-blue-400 hover:text-slate-900 text-lg px-8 py-4 font-bold backdrop-blur-sm bg-white/10 hover:bg-blue-400 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-              onClick={() => setShowDemoModal(true)}
-            >
-              Learn More
-            </Button>
-          </div>
-
-          <div className="mt-8 flex justify-center space-x-8 text-white/80 text-sm">
-            <div className="flex items-center space-x-2">
-              <Shield className="h-4 w-4" />
-              <span>{t('landing.footer.security', 'Bank-level security')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Globe className="h-4 w-4" />
-              <span>{t('landing.footer.uptime', '99.9% uptime')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Headphones className="h-4 w-4" />
-              <span>{t('landing.footer.support24', '24/7 support')}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-0 w-full h-full opacity-5">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          </div>
-        </div>
-        
-        <div className="relative z-10 py-20 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-16">
-              {/* Company Info */}
-              <div className="lg:col-span-2 space-y-6 fade-in">
-                <div className="flex items-center space-x-4">
-                  <img 
-                    src="/attached_assets/3d_1753195741585.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-14 h-10 object-contain"
-                  />
-                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                    BusinessFlow Pro
-                  </span>
-                </div>
-                <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                  {t('landing.footer.description', 'The complete business management platform for modern companies.')}
-                </p>
-                <div className="flex space-x-4">
-                  <Button 
-                    size="sm" 
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold"
-                    onClick={() => window.location.href = "/api/login"}
-                  >
-                    Get Started
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
-                    onClick={() => setShowDemoModal(true)}
-                  >
-                    Learn More
-                  </Button>
-                </div>
-              </div>
-
-              {/* Product Links */}
-              <div className="fade-in stagger-1">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {t('landing.footer.product', 'Product')}
-                </h4>
-                <ul className="space-y-4">
-                  <li>
-                    <a href="#features" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.nav.features', 'Features')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#pricing" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.nav.pricing', 'Pricing')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.integrations', 'Integrations')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.api', 'API')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Company Links */}
-              <div className="fade-in stagger-2">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-                  {t('landing.footer.company', 'Company')}
-                </h4>
-                <ul className="space-y-4">
-                  <li>
-                    <a href="#about" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.about', 'About')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.careers', 'Careers')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#contact" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.contact', 'Contact')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Support Links */}
-              <div className="fade-in stagger-3">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  {t('landing.footer.support', 'Support')}
-                </h4>
-                <ul className="space-y-4">
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.help', 'Help Center')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.docs', 'Documentation')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.community', 'Community')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Copyright Section */}
-            <div className="border-t border-gray-700/50 pt-8 fade-in stagger-4">
-              <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <div className="flex items-center space-x-8">
-                  <p className="text-gray-400">
-                    {t('landing.footer.copyright', '© 2024 BusinessFlow Pro. All rights reserved.')}
-                  </p>
-                  <div className="flex space-x-6 text-sm">
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2 text-gray-400">
-                  <Shield className="h-4 w-4" />
-                  <span className="text-sm">SOC 2 Compliant</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      {/* Demo Request Modal */}
-      <Dialog open={showDemoModal} onOpenChange={setShowDemoModal}>
-        <DialogContent className="max-w-md glass-effect border-primary/20 scale-in">
-          <DialogHeader className="text-center">
-            <p className="text-muted-foreground">{t('landing.demo.subtitle', 'Get a personalized walkthrough of BusinessFlow Pro')}</p>
+      {/* Demo Modal */}
+      <Dialog open={showDemoModal} onOpenChange={() => setShowDemoModal(false)}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Request a Demo
+            </DialogTitle>
           </DialogHeader>
-          
-          <form onSubmit={handleDemoSubmit} className="space-y-6">
-            <div className="fade-in stagger-1">
-              <Label htmlFor="fullName" className="text-sm font-medium">{t('landing.demo.fullName', 'Full Name')}</Label>
-              <Input
-                id="fullName"
-                value={demoForm.fullName}
-                onChange={(e) => setDemoForm({...demoForm, fullName: e.target.value})}
-                placeholder={t('landing.demo.fullNamePlaceholder', 'Enter your full name')}
-                className="glow-border transition-all duration-300"
-                required
-              />
-            </div>
-            
-            <div className="fade-in stagger-2">
-              <Label htmlFor="email" className="text-sm font-medium">{t('landing.demo.workEmail', 'Work Email')}</Label>
-              <Input
-                id="email"
-                type="email"
-                value={demoForm.email}
-                onChange={(e) => setDemoForm({...demoForm, email: e.target.value})}
-                placeholder={t('landing.demo.emailPlaceholder', 'Enter your work email')}
-                className="glow-border transition-all duration-300"
-                required
-              />
-            </div>
-            
-            <div className="fade-in stagger-3">
-              <Label htmlFor="companyName" className="text-sm font-medium">{t('landing.demo.companyName', 'Company Name')}</Label>
-              <Input
-                id="companyName"
-                value={demoForm.companyName}
-                onChange={(e) => setDemoForm({...demoForm, companyName: e.target.value})}
-                placeholder={t('landing.demo.companyPlaceholder', 'Enter your company name')}
-                className="glow-border transition-all duration-300"
-                required
-              />
-            </div>
-            
-            <div className="fade-in stagger-4">
-              <Label htmlFor="companySize" className="text-sm font-medium">{t('landing.demo.companySize', 'Company Size')}</Label>
-              <Select value={demoForm.companySize} onValueChange={(value) => setDemoForm({...demoForm, companySize: value})}>
-                <SelectTrigger className="glow-border transition-all duration-300">
-                  <SelectValue placeholder={t('landing.demo.selectSize', 'Select company size')} />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1-10">1-10 employees</SelectItem>
-                  <SelectItem value="11-50">11-50 employees</SelectItem>
-                  <SelectItem value="51-200">51-200 employees</SelectItem>
-                  <SelectItem value="201+">201+ employees</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="fade-in stagger-5">
-              <Label htmlFor="message" className="text-sm font-medium">{t('landing.demo.message', 'Message (Optional)')}</Label>
-              <Textarea
-                id="message"
-                value={demoForm.message}
-                onChange={(e) => setDemoForm({...demoForm, message: e.target.value})}
-                placeholder={t('landing.demo.messagePlaceholder', 'Tell us about your specific needs...')}
-                className="glow-border transition-all duration-300"
-                rows={3}
-              />
-            </div>
-            
+          <div className="p-6">
+            <p className="text-muted-foreground mb-6">
+              See BusinessFlow Pro in action. Schedule a personalized demo with our team.
+            </p>
             <Button 
-              type="submit" 
-              className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-xl hover:scale-105 transition-all duration-300 pulse-glow fade-in stagger-6"
-              disabled={demoRequestMutation.isPending}
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl"
+              onClick={() => setShowDemoModal(false)}
             >
-              {demoRequestMutation.isPending ? (
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>{t('landing.demo.submitting', 'Submitting...')}</span>
-                </div>
-              ) : (
-                t('landing.demo.schedule', 'Schedule Demo')
-              )}
+              Contact Sales Team
             </Button>
-          </form>
+          </div>
         </DialogContent>
       </Dialog>
-
-
     </div>
   );
 }

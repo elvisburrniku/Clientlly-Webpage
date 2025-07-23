@@ -358,6 +358,54 @@
     animation: loading-dots 1.4s infinite 0.4s;
   }
 
+  /* Enhanced Contact Section Animations */
+  @keyframes spin-slow {
+    0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+  }
+
+  @keyframes fade-in-up {
+    0% { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes contact-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes contact-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.5); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  .animate-contact-float {
+    animation: contact-float 3s ease-in-out infinite;
+  }
+
+  .animate-contact-glow {
+    animation: contact-glow 2s ease-in-out infinite;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
   /* Title Animation Effects */
   @keyframes slide-in-from-left {
     0% {
