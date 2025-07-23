@@ -668,11 +668,7 @@ export default function Landing() {
       <section id="pricing" className="py-20 px-4 bg-muted/30 pricing-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            {/* Main Title */}
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-6 fade-in animate-bounce-slow hover:scale-105 transition-all duration-300">
-              <span className="text-2xl mr-2 animate-pulse">💎</span>
-              Flexible Pricing Plans
-            </div>
+
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
               Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">perfect plan</span> for your business
