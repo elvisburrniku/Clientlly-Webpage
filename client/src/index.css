@@ -484,4 +484,26 @@
   .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     background: rgba(37, 99, 235, 0.8);
   }
+
+  /* Auto-scroll animation for FAQ */
+  @keyframes auto-scroll {
+    0% { transform: translateY(0); }
+    15% { transform: translateY(0); }
+    25% { transform: translateY(-20%); }
+    40% { transform: translateY(-20%); }
+    50% { transform: translateY(-40%); }
+    65% { transform: translateY(-40%); }
+    75% { transform: translateY(-60%); }
+    90% { transform: translateY(-60%); }
+    100% { transform: translateY(0); }
+  }
+
+  .animate-auto-scroll {
+    animation: auto-scroll 15s ease-in-out infinite;
+    animation-play-state: running;
+  }
+
+  .animate-auto-scroll:hover {
+    animation-play-state: paused;
+  }
 }
