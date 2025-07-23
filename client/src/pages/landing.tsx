@@ -191,43 +191,10 @@ export default function Landing() {
 
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
-              <div className="relative">
-                <img 
-                  src="/attached_assets/3d_1753268267691.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-playful cursor-pointer"
-                  style={{ 
-                    filter: 'drop-shadow(0 0 0 transparent)',
-                    background: 'transparent'
-                  }}
-                  onError={(e) => {
-                    console.error('Logo failed to load:', e);
-                    e.currentTarget.style.border = '2px solid red';
-                  }}
-                  onLoad={() => console.log('Logo loaded successfully')}
-                />
-              </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-105 transform">BusinessFlow Pro</span>
-            </Link>
-            
-            <div className="hidden lg:flex items-center space-x-8 slide-in-right">
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.features', 'Features')}</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.pricing', 'Pricing')}</a>
-              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('calculator.title', 'Calculator')}</Link>
-              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About</Link>
-            </div>
-
-            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              <Button 
-                variant="ghost" 
-                onClick={() => setShowDemoModal(true)} 
-                className="text-muted-foreground hover:text-primary transition-all duration-300"
-              >
-                Contact Us
-              </Button>
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-16">
+          <div className="flex items-center justify-between h-16">
+            {/* Left Section - Login, Buy Now, Start Your Trial, Language */}
+            <div className="hidden lg:flex items-center space-x-4 slide-in-left">
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = "/api/login"}
@@ -251,23 +218,44 @@ export default function Landing() {
               <LanguageSelector />
             </div>
 
-            <div className="flex lg:hidden items-center space-x-2">
-              <LanguageSelector />
+            {/* Center Section - Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Pricing</a>
+              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Plan Calculator</Link>
               <Button 
                 variant="ghost" 
-                onClick={() => setShowDemoModal(true)}
-                size="sm"
-                className="text-xs"
+                onClick={() => setShowDemoModal(true)} 
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
               >
-                Contact
+                Contact Us
               </Button>
-              <Button 
-                onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
-                size="sm"
-                className="bg-blue-600 hover:bg-blue-700 text-white text-xs"
-              >
-                Start Your Trial
-              </Button>
+            </div>
+
+            {/* Right Section - Logo and Company Name */}
+            <Link href="/" className="flex items-center space-x-3 slide-in-right group transition-all duration-300">
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-105 transform">BusinessFlow Pro</span>
+              <div className="relative">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-14 h-10 object-contain logo-playful cursor-pointer"
+                  style={{ 
+                    filter: 'drop-shadow(0 0 0 transparent)',
+                    background: 'transparent'
+                  }}
+                  onError={(e) => {
+                    console.error('Logo failed to load:', e);
+                    e.currentTarget.style.border = '2px solid red';
+                  }}
+                  onLoad={() => console.log('Logo loaded successfully')}
+                />
+              </div>
+            </Link>
+
+            {/* Mobile Menu Toggle */}
+            <div className="flex lg:hidden items-center space-x-2">
               <Button
                 variant="ghost"
                 size="icon"
@@ -284,10 +272,23 @@ export default function Landing() {
         {showMobileMenu && (
           <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
-              <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.features', 'Features')}</a>
-              <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">{t('landing.nav.pricing', 'Pricing')}</a>
-              <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">{t('calculator.title', 'Calculator')}</Link>
-              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About</Link>
+              {/* Navigation Links */}
+              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About Us</Link>
+              <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
+              <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</a>
+              <Link href="/calculator" className="block text-muted-foreground hover:text-primary transition-colors">Plan Calculator</Link>
+              <Button 
+                variant="ghost" 
+                onClick={() => {
+                  setShowDemoModal(true);
+                  setShowMobileMenu(false);
+                }} 
+                className="w-full text-left justify-start text-muted-foreground hover:text-primary"
+              >
+                Contact Us
+              </Button>
+              
+              {/* Action Buttons */}
               <div className="pt-4 space-y-2">
                 <Button 
                   variant="ghost" 
@@ -317,6 +318,9 @@ export default function Landing() {
                 >
                   Start Your Trial
                 </Button>
+                <div className="pt-2">
+                  <LanguageSelector />
+                </div>
               </div>
             </div>
           </div>
