@@ -782,7 +782,7 @@ export default function Landing() {
                       variant={index === 1 ? "default" : "outline"}
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                     >
-                      {plan.id === 'basic' ? 'Try Free First' : 'Buy Now'}
+                      {plan.id === 'basic' ? 'Buy Now' : 'Buy Now'}
                     </Button>
                     {plan.id === 'basic' && (
                       <Button 
@@ -791,7 +791,7 @@ export default function Landing() {
                         className="w-full text-primary hover:text-primary/80"
                         onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                       >
-                        Buy Now
+                        Try Free First
                       </Button>
                     )}
                     {plan.id !== 'basic' && (

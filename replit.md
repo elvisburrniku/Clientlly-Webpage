@@ -131,6 +131,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Streamlined hero section for cleaner focus on main features grid below
 ✓ Changed all "Try It Free" buttons to "Try Free First" across all pages (landing, calculator, feature pages)
 ✓ Added "Buy Now" button to Basic plan in pricing sections (landing page and calculator)
+✓ Swapped button order in Basic plan: "Buy Now" is now primary button, "Try Free First" is secondary
 
 ## System Architecture
 
