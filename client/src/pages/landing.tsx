@@ -1058,11 +1058,7 @@ export default function Landing() {
                     </div>
                   </div>
 
-                  <div className="text-center pt-4 mt-auto">
-                    <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                      Start Your Trial
-                    </Button>
-                  </div>
+
                 </CardContent>
               </Card>
             </div>
@@ -1143,16 +1139,7 @@ export default function Landing() {
                       />
                     </div>
                     
-                    <div className="text-center pt-2 pb-4 fade-in stagger-6">
-                      <h4 className="text-lg font-bold text-foreground mb-2">
-                        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                          Send us a Message
-                        </span>
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        We'll respond within 24 hours
-                      </p>
-                    </div>
+
                     
                     <Button 
                       type="submit" 
@@ -1292,26 +1279,7 @@ export default function Landing() {
             </div>
           )}
 
-          {/* Bottom CTA Section */}
-          <div className="text-center">
-            <Card className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 pulse-glow">
-              <div className="flex items-center justify-center space-x-4 mb-4">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <h3 className="text-xl font-bold">Ready to Transform Your Business?</h3>
-                  <p className="text-blue-100">Join thousands of satisfied customers worldwide</p>
-                </div>
-              </div>
-              <Button 
-                size="lg" 
-                className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Start Your Free Trial Today
-              </Button>
-            </Card>
-          </div>
+
         </div>
       </section>
 
