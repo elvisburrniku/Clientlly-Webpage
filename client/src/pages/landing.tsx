@@ -668,22 +668,75 @@ export default function Landing() {
       <section id="pricing" className="py-20 px-4 bg-muted/30 pricing-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in leading-tight">
-              Choose the perfect plan for your business
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 fade-in stagger-1 leading-relaxed">
-              Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
-            </p>
+            {/* Main Title */}
+            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-6 fade-in animate-bounce-slow hover:scale-105 transition-all duration-300">
+              <span className="text-2xl mr-2 animate-pulse">💎</span>
+              Flexible Pricing Plans
+            </div>
             
-            {/* Try for Free Button */}
-            <div className="mb-8">
+            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">perfect plan</span> for your business
+            </h2>
+            
+            <div className="space-y-4 mb-8">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1 leading-relaxed">
+                Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.
+              </p>
+              
+              <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground fade-in stagger-2">
+                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="font-medium">14-day free trial</span>
+                </div>
+                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-4">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-150"></div>
+                  <span className="font-medium">No credit card required</span>
+                </div>
+                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-5">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse delay-300"></div>
+                  <span className="font-medium">Cancel anytime</span>
+                </div>
+                <div className="flex items-center space-x-2 hover:scale-110 transition-transform duration-300 fade-in stagger-6">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse delay-500"></div>
+                  <span className="font-medium">Money-back guarantee</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Main CTA */}
+            <div className="mb-12 fade-in stagger-7">
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-12 py-4 text-xl font-bold shadow-2xl hover:shadow-green-500/25 hover:scale-110 transition-all duration-500 rounded-2xl animate-glow group"
                 onClick={() => window.location.href = '/trial'}
               >
-                Start Your Trial
+                <span className="text-2xl mr-3 group-hover:animate-bounce">🚀</span>
+                Start Your Free Trial Now
               </Button>
+              <p className="text-sm text-muted-foreground mt-3 max-w-md mx-auto fade-in stagger-8 animate-fade-in-up">
+                Join thousands of businesses already using BusinessFlow Pro to streamline their operations
+              </p>
+            </div>
+            
+            {/* Additional Titles */}
+            <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto fade-in stagger-9">
+              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl border border-blue-200/50 hover:shadow-xl hover:scale-105 transition-all duration-500 animate-float group">
+                <div className="text-3xl mb-2 group-hover:animate-bounce group-hover:scale-125 transition-transform duration-300">💰</div>
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">Transparent Pricing</h3>
+                <p className="text-sm text-muted-foreground">No hidden fees or surprise charges. What you see is what you pay.</p>
+              </div>
+              
+              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-purple-200/50 hover:shadow-xl hover:scale-105 transition-all duration-500 animate-float delay-150 group">
+                <div className="text-3xl mb-2 group-hover:animate-bounce group-hover:scale-125 transition-transform duration-300">📈</div>
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-purple-600 transition-colors duration-300">Scale with Confidence</h3>
+                <p className="text-sm text-muted-foreground">Upgrade or downgrade anytime as your business needs evolve.</p>
+              </div>
+              
+              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-green-200/50 hover:shadow-xl hover:scale-105 transition-all duration-500 animate-float delay-300 group">
+                <div className="text-3xl mb-2 group-hover:animate-bounce group-hover:scale-125 transition-transform duration-300">🎯</div>
+                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-600 transition-colors duration-300">Perfect Fit Guaranteed</h3>
+                <p className="text-sm text-muted-foreground">Find the right plan for your business size and requirements.</p>
+              </div>
             </div>
             
             {/* Currency and Billing Period Controls */}
