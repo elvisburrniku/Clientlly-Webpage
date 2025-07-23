@@ -625,32 +625,7 @@ export default function Landing() {
                   
 
                   
-                  {/* Features Grid */}
-                  <div className="grid md:grid-cols-2 gap-6 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
-                    <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-blue-200/50 dark:border-blue-700/50 hover:scale-105 transition-all duration-300 hover:shadow-lg group">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                          <Users className="w-4 h-4 text-white" />
-                        </div>
-                        <h4 className="font-semibold text-foreground">Complete Platform</h4>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Client management, project tracking, finances, and real-time reporting all in one place.
-                      </p>
-                    </div>
-                    
-                    <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-green-200/50 dark:border-green-700/50 hover:scale-105 transition-all duration-300 hover:shadow-lg group">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                          <TrendingUp className="w-4 h-4 text-white" />
-                        </div>
-                        <h4 className="font-semibold text-foreground">Flexible Growth</h4>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Start for free and scale as your needs evolve with our flexible pricing tiers.
-                      </p>
-                    </div>
-                  </div>
+
                   
                   {/* Collaboration Promise */}
                   <div className="relative animate-fade-in-up" style={{animationDelay: '0.6s'}}>
