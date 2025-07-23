@@ -82,29 +82,7 @@ export default function Collaboration() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950">
-      {/* 3D Logo Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-3">
-        <img 
-          src={logoPath} 
-          alt="" 
-          className="absolute top-20 left-10 w-32 h-24 opacity-4 animate-float transform rotate-12" 
-        />
-        <img 
-          src={logoPath} 
-          alt="" 
-          className="absolute top-40 right-20 w-24 h-18 opacity-3 animate-float-delayed transform -rotate-6" 
-        />
-        <img 
-          src={logoPath} 
-          alt="" 
-          className="absolute bottom-32 left-1/4 w-28 h-21 opacity-2 animate-float transform rotate-45" 
-        />
-        <img 
-          src={logoPath} 
-          alt="" 
-          className="absolute bottom-20 right-1/3 w-20 h-15 opacity-5 animate-float-delayed transform -rotate-12" 
-        />
-      </div>
+
 
       {/* Navigation */}
       <nav className="relative z-50 py-6 px-4 sm:px-6 lg:px-8">
