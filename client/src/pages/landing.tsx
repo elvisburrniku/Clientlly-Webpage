@@ -1157,14 +1157,16 @@ export default function Landing() {
                     
 
                     
-                    <Button 
-                      type="submit" 
-                      disabled={contactMutation.isPending}
-                      title="Send us a message and we'll respond within 24 hours"
-                      className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-7"
-                    >
-                      {contactMutation.isPending ? 'Sending...' : t('landing.contact.form.submit', 'Send Message')}
-                    </Button>
+                    <div className="pt-4">
+                      <Button 
+                        type="submit" 
+                        disabled={contactMutation.isPending}
+                        title="Contact our team - We'll get back to you quickly"
+                        className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-7"
+                      >
+                        {contactMutation.isPending ? 'Sending...' : t('landing.contact.form.submit', 'Send Message')}
+                      </Button>
+                    </div>
                   </form>
                 </CardContent>
               </Card>
