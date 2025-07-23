@@ -656,49 +656,50 @@ export default function Landing() {
             
 
             
-            {/* Currency and Billing Period Controls */}
-            <div className="flex flex-col items-center justify-center mb-8 space-y-4">
-              <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
+            {/* Billing Period Toggle - Integrated with Plans */}
+            <div className="flex flex-col items-center justify-center mb-12 space-y-6">
+              <div className="relative flex items-center bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-1 shadow-lg border border-blue-100 dark:border-gray-600">
                 {/* Monthly Button */}
                 <button
                   onClick={() => setBillingPeriod('monthly')}
-                  className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
+                  className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-all duration-300 ${
                     billingPeriod === 'monthly'
-                      ? 'text-white'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                      ? 'text-white shadow-lg'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
                   }`}
                 >
-                  Monthly
+                  Monthly Billing
                 </button>
                 
                 {/* Yearly Button */}
                 <button
                   onClick={() => setBillingPeriod('yearly')}
-                  className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
+                  className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-all duration-300 ${
                     billingPeriod === 'yearly'
-                      ? 'text-white'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                      ? 'text-white shadow-lg'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
                   }`}
                 >
-                  Yearly
+                  Yearly Billing
                 </button>
                 
                 {/* Animated Background */}
                 <div
-                  className={`absolute top-2 bottom-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full shadow-md transition-all duration-300 ease-in-out ${
+                  className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-lg shadow-lg transition-all duration-500 ease-out ${
                     billingPeriod === 'monthly'
-                      ? 'left-2 w-[calc(50%-4px)]'
-                      : 'right-2 w-[calc(50%-4px)]'
+                      ? 'left-1 w-[calc(50%-4px)]'
+                      : 'right-1 w-[calc(50%-4px)]'
                   }`}
                 />
               </div>
               
               {/* Save Badge */}
-              <div className={`mt-3 transition-all duration-300 ${
-                billingPeriod === 'yearly' ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'
+              <div className={`transition-all duration-500 ${
+                billingPeriod === 'yearly' ? 'opacity-100 transform scale-100 translate-y-0' : 'opacity-0 transform scale-75 translate-y-2'
               }`}>
-                <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
-                  🎉 Save 17% with yearly billing
+                <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-semibold px-6 py-2 rounded-full shadow-xl flex items-center space-x-2">
+                  <span>🎉</span>
+                  <span>Save 17% with yearly billing</span>
                 </div>
               </div>
             </div>
