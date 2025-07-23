@@ -48,9 +48,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
-import TutorialWalkthrough from '@/components/TutorialWalkthrough';
-import { useTutorial } from '@/hooks/useTutorial';
-import { landingPageTutorialSteps } from '@/data/tutorialSteps';
+
 
 interface SubscriptionPlan {
   id: string;
@@ -63,7 +61,7 @@ interface SubscriptionPlan {
 export default function Landing() {
   const { toast } = useToast();
   const { t } = useTranslation();
-  const { showTutorial, isFirstVisit, startTutorial, completeTutorial, closeTutorial } = useTutorial();
+
 
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -190,7 +188,7 @@ export default function Landing() {
       <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
+            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
               <div className="relative overflow-hidden rounded-xl">
                 <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                   <img 
@@ -213,14 +211,7 @@ export default function Landing() {
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.features', 'Features')}</a>
               <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('landing.nav.pricing', 'Pricing')}</a>
               <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">{t('calculator.title', 'Calculator')}</Link>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={startTutorial}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium"
-              >
-                Tutorial
-              </Button>
+
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
@@ -1380,13 +1371,7 @@ export default function Landing() {
         </DialogContent>
       </Dialog>
 
-      {/* Tutorial Walkthrough */}
-      <TutorialWalkthrough
-        isOpen={showTutorial}
-        onClose={closeTutorial}
-        onComplete={completeTutorial}
-        steps={landingPageTutorialSteps}
-      />
+
     </div>
   );
 }
