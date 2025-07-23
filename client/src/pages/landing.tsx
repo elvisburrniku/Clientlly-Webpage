@@ -893,71 +893,52 @@ export default function Landing() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Contact Info */}
-            <div className="space-y-8 slide-in-left">
-              <div className="space-y-8">
-                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-blue-200/50 dark:border-blue-700/50 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-1">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                      <Mail className="h-7 w-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.email', 'Email Us')}</h3>
-                      <p className="text-muted-foreground mb-3">{t('landing.contact.emailDesc', 'Get in touch via email for detailed inquiries')}</p>
-                      <a href="mailto:hello@businessflowpro.com" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-semibold text-lg hover:underline transition-colors">
-                        hello@businessflowpro.com
-                      </a>
-                    </div>
+            {/* FAQ Section */}
+            <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-green-200 to-blue-200 dark:from-green-700 dark:to-blue-700 slide-in-left shadow-2xl hover:shadow-3xl transition-all duration-500">
+              <CardHeader className="text-center pb-6">
+                <CardTitle className="text-3xl font-bold mb-4">
+                  <span className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+                    Frequently Asked Questions
+                  </span>
+                </CardTitle>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Find quick answers to common questions about BusinessFlow Pro
+                </p>
+              </CardHeader>
+              <CardContent className="px-8 pb-8">
+                <div className="space-y-6">
+                  <div className="group p-4 bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-950/30 dark:to-green-950/30 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-1">
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-blue-600 transition-colors">How long is the free trial?</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">You get a full 14-day free trial with access to all features. No credit card required to start.</p>
+                  </div>
+                  
+                  <div className="group p-4 bg-gradient-to-r from-green-50 to-purple-50 dark:from-green-950/30 dark:to-purple-950/30 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-2">
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-green-600 transition-colors">Can I cancel anytime?</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">Yes, you can cancel your subscription at any time. There are no long-term contracts or cancellation fees.</p>
+                  </div>
+                  
+                  <div className="group p-4 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-950/30 dark:to-pink-950/30 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-3">
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-purple-600 transition-colors">Do you offer data migration?</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">Yes, we provide free data migration from most popular business platforms including QuickBooks, FreshBooks, and more.</p>
+                  </div>
+                  
+                  <div className="group p-4 bg-gradient-to-r from-pink-50 to-orange-50 dark:from-pink-950/30 dark:to-orange-950/30 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-4">
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-pink-600 transition-colors">Is my data secure?</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">Absolutely. We use bank-level encryption and are SOC 2 compliant. Your data is encrypted both in transit and at rest.</p>
+                  </div>
+                  
+                  <div className="group p-4 bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-950/30 dark:to-yellow-950/30 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-5">
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-orange-600 transition-colors">What payment methods do you accept?</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">We accept all major credit cards (Visa, MasterCard, American Express) and PayPal for your convenience.</p>
+                  </div>
+                  
+                  <div className="group p-4 bg-gradient-to-r from-yellow-50 to-blue-50 dark:from-yellow-950/30 dark:to-blue-950/30 rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-[1.02] fade-in stagger-6">
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-yellow-600 transition-colors">Do you provide customer support?</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">Yes, we offer 24/7 customer support via chat, email, and phone. Our expert team is always ready to help.</p>
                   </div>
                 </div>
-
-                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-green-200/50 dark:border-green-700/50 hover:border-green-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-2">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                      <Phone className="h-7 w-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.call', 'Call Us')}</h3>
-                      <p className="text-muted-foreground mb-3">{t('landing.contact.callDesc', 'Speak directly with our team')}</p>
-                      <a href="tel:+1-555-123-4567" className="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-semibold text-lg hover:underline transition-colors">
-                        +1 (555) 123-4567
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-purple-200/50 dark:border-purple-700/50 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-3">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                      <MapPin className="h-7 w-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.visit', 'Visit Us')}</h3>
-                      <p className="text-muted-foreground mb-3">{t('landing.contact.visitDesc', 'Our headquarters')}</p>
-                      <p className="text-purple-600 dark:text-purple-400 font-semibold text-lg">
-                        123 Business Ave<br />
-                        San Francisco, CA 94105
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="group p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-orange-200/50 dark:border-orange-700/50 hover:border-orange-400/50 transition-all duration-300 hover:scale-105 hover:shadow-xl scale-in stagger-4">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                      <Clock className="h-7 w-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{t('landing.contact.hours', 'Business Hours')}</h3>
-                      <p className="text-muted-foreground">
-                        <span className="block">{t('landing.contact.weekdays', 'Monday - Friday: 9:00 AM - 6:00 PM PST')}</span>
-                        <span className="block">{t('landing.contact.weekends', 'Weekend: 10:00 AM - 4:00 PM PST')}</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
 
             {/* Contact Form */}
             <Card className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 slide-in-right shadow-2xl hover:shadow-3xl transition-all duration-500">
