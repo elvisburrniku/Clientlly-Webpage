@@ -47,7 +47,12 @@ import {
   Database,
   Lock,
   HeadphonesIcon,
-  Play
+  Play,
+  Lightbulb,
+  Zap,
+  TrendingUp,
+  Heart,
+  ArrowRight
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -606,7 +611,7 @@ export default function Landing() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 bg-muted/30 pricing-section">
+      <section id="pricing-section" className="py-20 px-4 bg-muted/30 pricing-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
 
@@ -635,7 +640,12 @@ export default function Landing() {
                     </p>
                     <Button 
                       variant="outline"
-                      onClick={() => window.location.href = '/about'}
+                      onClick={() => {
+                        const collaborationSection = document.getElementById('collaboration-details');
+                        if (collaborationSection) {
+                          collaborationSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
                       className="border-blue-500 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
                     >
                       Learn more <ExternalLink className="h-3 w-3 ml-1" />
@@ -785,12 +795,180 @@ export default function Landing() {
               </Card>
             ))}
           </div>
-
-
         </div>
       </section>
 
+      {/* Customer Collaboration Details Section */}
+      <section id="collaboration-details" className="py-32 bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-900 dark:to-green-950 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-green-300/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-40 right-20 w-80 h-80 bg-blue-300/15 rounded-full blur-3xl animate-float-delayed"></div>
+        </div>
 
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-text-reveal">
+              <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                Growing Together Through Collaboration
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in-delayed">
+              Your business needs drive our development. When you subscribe, you become part of our innovation process – 
+              helping shape features that benefit the entire community while solving your unique challenges.
+            </p>
+          </div>
+
+          {/* Collaboration Process Cards */}
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            <Card className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-green-200 dark:border-green-700 hover:border-green-400 hover:shadow-2xl transition-all duration-500 group hover:scale-[1.02] scroll-animate">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                <Lightbulb className="h-8 w-8 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-green-600 transition-colors duration-300">
+                Share Your Ideas
+              </h3>
+              
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                As a subscriber, you have direct access to submit feature requests, workflow improvements, and business automation ideas through your dashboard. Your real-world challenges become our development priorities.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span className="text-sm font-medium text-foreground">Priority review process</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span className="text-sm font-medium text-foreground">Direct developer feedback</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-green-500" />
+                  <span className="text-sm font-medium text-foreground">Implementation timeline updates</span>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-blue-200 dark:border-blue-700 hover:border-blue-400 hover:shadow-2xl transition-all duration-500 group hover:scale-[1.02] scroll-animate">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-blue-600 transition-colors duration-300">
+                Collaborative Development
+              </h3>
+              
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Work closely with our development team to design custom features that match your exact business needs. Your input shapes the final product to ensure it solves real problems effectively.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-blue-500" />
+                  <span className="text-sm font-medium text-foreground">One-on-one consultations</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-blue-500" />
+                  <span className="text-sm font-medium text-foreground">Custom prototyping</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-blue-500" />
+                  <span className="text-sm font-medium text-foreground">Real-time progress tracking</span>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-purple-200 dark:border-purple-700 hover:border-purple-400 hover:shadow-2xl transition-all duration-500 group hover:scale-[1.02] scroll-animate">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                <Zap className="h-8 w-8 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-purple-600 transition-colors duration-300">
+                Free Implementation
+              </h3>
+              
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                All approved customer suggestions are developed and deployed at no additional cost. Your ideas become features that enhance everyone's experience, creating a win-win ecosystem for all users.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-purple-500" />
+                  <span className="text-sm font-medium text-foreground">Zero development fees</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-purple-500" />
+                  <span className="text-sm font-medium text-foreground">Automatic updates</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-purple-500" />
+                  <span className="text-sm font-medium text-foreground">Lifetime feature access</span>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-orange-200 dark:border-orange-700 hover:border-orange-400 hover:shadow-2xl transition-all duration-500 group hover:scale-[1.02] scroll-animate">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                <TrendingUp className="h-8 w-8 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-orange-600 transition-colors duration-300">
+                Mutual Growth
+              </h3>
+              
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                As your business grows and evolves, so does our platform. This collaborative approach creates scalable solutions that adapt to industry changes and emerging business needs over time.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-orange-500" />
+                  <span className="text-sm font-medium text-foreground">Scalable solutions</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-orange-500" />
+                  <span className="text-sm font-medium text-foreground">Industry-specific tools</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-orange-500" />
+                  <span className="text-sm font-medium text-foreground">Community-driven features</span>
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          {/* Call-to-Action */}
+          <div className="text-center">
+            <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 border-2 border-green-200 dark:border-green-700 max-w-3xl mx-auto">
+              <div className="flex items-center justify-center space-x-4 mb-6">
+                <Heart className="h-8 w-8 text-red-500" />
+                <Star className="h-8 w-8 text-yellow-500" />
+                <TrendingUp className="h-8 w-8 text-green-500" />
+              </div>
+              <h4 className="text-2xl font-bold text-foreground mb-4">
+                Your Success Drives Our Innovation
+              </h4>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
+                When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+              </p>
+              <Button 
+                onClick={() => {
+                  const pricingSection = document.getElementById('pricing-section');
+                  if (pricingSection) {
+                    pricingSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Start Collaborating Today
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Section */}
       <section className="py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950 relative overflow-hidden">
