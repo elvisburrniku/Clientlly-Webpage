@@ -189,20 +189,21 @@ export default function Landing() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
-              <div className="relative overflow-hidden rounded-xl">
-                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
-                  <img 
-                    src="/attached_assets/3d_1753268267691.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-14 h-10 object-contain logo-playful cursor-pointer"
-                    onError={(e) => {
-                      console.error('Logo failed to load:', e);
-                      e.currentTarget.style.border = '2px solid red';
-                    }}
-                    onLoad={() => console.log('Logo loaded successfully')}
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-orange-500/0 to-purple-500/0 group-hover:from-purple-500/20 group-hover:via-orange-500/20 group-hover:to-purple-500/20 transition-all duration-500 rounded-xl"></div>
+              <div className="relative">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-14 h-10 object-contain logo-playful cursor-pointer"
+                  style={{ 
+                    filter: 'drop-shadow(0 0 0 transparent)',
+                    background: 'transparent'
+                  }}
+                  onError={(e) => {
+                    console.error('Logo failed to load:', e);
+                    e.currentTarget.style.border = '2px solid red';
+                  }}
+                  onLoad={() => console.log('Logo loaded successfully')}
+                />
               </div>
               <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-105 transform">BusinessFlow Pro</span>
             </Link>
