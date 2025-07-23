@@ -51,12 +51,24 @@ export function useLocationDetection() {
         // Try to get location from multiple free APIs
         let data = null;
         
-        // Method 1: Try ipapi.co (free tier)
+        // Method 1: Try ipapi.co (free tier) with timeout and better error handling
         try {
-          const response = await fetch('https://ipapi.co/json/');
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
+          
+          const response = await fetch('https://ipapi.co/json/', {
+            signal: controller.signal,
+            headers: {
+              'Accept': 'application/json',
+              'User-Agent': 'BusinessFlow Pro'
+            }
+          });
+          
+          clearTimeout(timeoutId);
+          
           if (response.ok) {
             const result = await response.json();
-            if (result.country_code) {
+            if (result.country_code && result.country_code !== 'undefined') {
               data = {
                 country: result.country_code,
                 currency: countryToCurrency[result.country_code] || 'USD',
@@ -69,70 +81,38 @@ export function useLocationDetection() {
           console.log('ipapi.co failed, trying next method');
         }
 
-        // Method 2: Try ipgeolocation.io (backup)
+        // Method 2: Try a more reliable fallback using browser APIs
         if (!data) {
           try {
-            const response = await fetch('https://api.ipgeolocation.io/ipgeo?apiKey=free');
-            if (response.ok) {
-              const result = await response.json();
-              if (result.country_code2) {
-                data = {
-                  country: result.country_code2,
-                  currency: countryToCurrency[result.country_code2] || 'USD',
-                  timezone: result.time_zone?.name || 'UTC',
-                  city: result.city
-                };
-              }
-            }
+            // Use browser timezone and locale information as a more reliable fallback
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const locale = navigator.language || 'en-US';
+            
+            // Extract country from locale (e.g., 'en-US' -> 'US')
+            const countryFromLocale = locale.split('-')[1] || 'US';
+            
+            data = {
+              country: countryFromLocale,
+              currency: countryToCurrency[countryFromLocale] || 'USD',
+              timezone: timezone,
+              city: 'Unknown'
+            };
           } catch (e) {
-            console.log('ipgeolocation.io failed, trying next method');
+            console.log('Browser API fallback failed, using defaults');
           }
         }
 
-        // Method 3: Use browser timezone as fallback
+        // Final fallback: Use default US location
         if (!data) {
-          const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-          const locale = navigator.language;
-          
-          // Basic mapping from timezone/locale to currency
-          let currency = 'USD';
-          if (timezone.includes('Europe')) {
-            currency = 'EUR';
-          } else if (timezone.includes('London')) {
-            currency = 'GBP';
-          } else if (timezone.includes('Tokyo')) {
-            currency = 'JPY';
-          } else if (timezone.includes('Toronto') || timezone.includes('Vancouver')) {
-            currency = 'CAD';
-          } else if (timezone.includes('Sydney') || timezone.includes('Melbourne')) {
-            currency = 'AUD';
-          } else if (timezone.includes('Zurich')) {
-            currency = 'CHF';
-          } else if (timezone.includes('Stockholm')) {
-            currency = 'SEK';
-          } else if (timezone.includes('Oslo')) {
-            currency = 'NOK';
-          } else if (timezone.includes('Copenhagen')) {
-            currency = 'DKK';
-          }
-
           data = {
-            country: locale.split('-')[1] || 'US',
-            currency,
-            timezone,
+            country: 'US',
+            currency: 'USD',
+            timezone: 'America/New_York',
+            city: 'Unknown'
           };
         }
 
-        if (data) {
-          setLocationData(data);
-        } else {
-          // Ultimate fallback
-          setLocationData({
-            country: 'US',
-            currency: 'USD',
-            timezone: 'UTC'
-          });
-        }
+        setLocationData(data);
         
       } catch (err) {
         console.error('Location detection failed:', err);
