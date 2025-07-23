@@ -1370,27 +1370,27 @@ export default function Landing() {
               {/* Product Links */}
               <div className="fade-in stagger-1">
                 <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  {t('landing.footer.product', 'Product')}
+                  Product
                 </h4>
                 <ul className="space-y-4">
                   <li>
                     <a href="#features" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.nav.features', 'Features')}
+                      Features
                     </a>
                   </li>
                   <li>
                     <a href="#pricing" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.nav.pricing', 'Pricing')}
+                      Pricing
                     </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.integrations', 'Integrations')}
+                      Integrations
                     </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.api', 'API')}
+                      API
                     </a>
                   </li>
                 </ul>
@@ -1399,22 +1399,22 @@ export default function Landing() {
               {/* Company Links */}
               <div className="fade-in stagger-2">
                 <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-                  {t('landing.footer.company', 'Company')}
+                  Company
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#about" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.about', 'About')}
+                    <a href="/about" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      About
                     </a>
                   </li>
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.careers', 'Careers')}
+                      Careers
                     </a>
                   </li>
                   <li>
                     <a href="#contact" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.contact', 'Contact')}
+                      Contact
                     </a>
                   </li>
                 </ul>
@@ -1423,7 +1423,7 @@ export default function Landing() {
               {/* Support Links */}
               <div className="fade-in stagger-3">
                 <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  {t('landing.footer.support', 'Support')}
+                  Support
                 </h4>
                 <ul className="space-y-4">
                   <li>
@@ -1438,7 +1438,7 @@ export default function Landing() {
                   </li>
                   <li>
                     <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      {t('landing.footer.community', 'Community')}
+                      Community
                     </a>
                   </li>
                 </ul>
@@ -1447,7 +1447,7 @@ export default function Landing() {
               {/* Resources Links */}
               <div className="fade-in stagger-4">
                 <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                  {t('landing.footer.resources', 'Resources')}
+                  Resources
                 </h4>
                 <ul className="space-y-4">
                   <li>
