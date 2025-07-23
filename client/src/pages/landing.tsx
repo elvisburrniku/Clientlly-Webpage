@@ -337,15 +337,15 @@ export default function Landing() {
             <div className="space-y-10">
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
                 <span className="text-foreground block mb-2 leading-relaxed">
-                  Everything you need to
+                  The features you need.
                 </span>
                 <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-relaxed">
-                  run your business
+                  All in one place
                 </span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-3">
-                Our comprehensive platform combines invoicing, expense tracking, CRM, HR management, and contract tools in one powerful solution.
+                Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
               </p>
             </div>
 
@@ -396,52 +396,7 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Feature Preview Cards */}
-          <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in stagger-6">
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
-                  <FileText className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Professional Invoicing</h3>
-                <p className="text-muted-foreground leading-relaxed">Create beautiful invoices, track payments, and get paid faster with automated reminders.</p>
-              </div>
-            </div>
 
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-green-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
-                  <Receipt className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Smart Expense Tracking</h3>
-                <p className="text-muted-foreground leading-relaxed">Capture receipts, categorize expenses automatically, and generate tax-ready reports.</p>
-              </div>
-            </div>
-
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-purple-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
-                  <Users className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Powerful CRM</h3>
-                <p className="text-muted-foreground leading-relaxed">Manage customer relationships, track deals, and grow your business with data-driven insights.</p>
-              </div>
-            </div>
-
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 hover:border-orange-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg">
-                  <Handshake className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Contract Management</h3>
-                <p className="text-muted-foreground leading-relaxed">Create, send, and sign contracts digitally with built-in e-signature capabilities.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
