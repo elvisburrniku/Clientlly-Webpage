@@ -610,7 +610,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="relative inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-shift">perfect plan</span> for your business and let's <span className="relative inline-block bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-gradient-shift" style={{animationDelay: '2s'}}>grow together</span>
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">grow together</span>
             </h2>
             
             <div className="max-w-4xl mx-auto mb-16">
@@ -636,7 +636,7 @@ export default function Landing() {
                         <Gift className="w-4 h-4 mr-2 relative z-10" />
                         <span className="relative z-10">free of charge</span>
                       </span>
-                      {' '}– because we believe the best growth happens when we grow together.
+                      {' '}because we believe the best growth happens when we grow together.
                     </p>
                     
                     {/* Call to Action */}
@@ -647,7 +647,7 @@ export default function Landing() {
                         className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-base font-semibold shadow-sm hover:shadow-md"
                       >
                         <span className="flex items-center">
-                          Learn how we collaborate
+                          <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:text-white">Learn more</span>
                           <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                         </span>
                       </Button>
