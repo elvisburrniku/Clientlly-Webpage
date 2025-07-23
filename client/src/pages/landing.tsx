@@ -38,6 +38,7 @@ import {
   Smartphone,
   BarChart3,
   DollarSign,
+  CreditCard,
   RefreshCw,
   ExternalLink,
   Building2,
@@ -567,19 +568,19 @@ export default function Landing() {
               </div>
             </div>
 
-            {/* Multi-currency support */}
+            {/* Debt Management */}
             <div className="group relative fade-in stagger-7">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-emerald-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <DollarSign className="h-7 w-7 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-red-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
+                <div className="w-14 h-14 bg-gradient-to-r from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
+                  <CreditCard className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Multi-Currency Support</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Send invoices, record transactions and adjust reports in different currencies and assign currencies to different customers.</p>
+                <h3 className="text-lg font-bold text-foreground mb-3">Debt Management</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Track business debts, schedule payments, and optimize debt reduction strategies with smart analytics and payment planning tools.</p>
                 <Button 
                   variant="ghost" 
-                  className="text-emerald-600 hover:text-emerald-700 p-0 h-auto font-semibold text-sm"
-                  onClick={() => window.location.href = "/features/multicurrency"}
+                  className="text-red-600 hover:text-red-700 p-0 h-auto font-semibold text-sm"
+                  onClick={() => window.location.href = "/features/debt"}
                 >
                   Learn more <ExternalLink className="h-3 w-3 ml-1" />
                 </Button>

@@ -11,7 +11,7 @@ import FeatureTax from "@/pages/feature-tax";
 import FeatureInventory from "@/pages/feature-inventory";
 import FeatureMobile from "@/pages/feature-mobile";
 import FeatureReports from "@/pages/feature-reports";
-import FeatureMultiCurrency from "@/pages/feature-multicurrency";
+import FeatureDebt from "@/pages/feature-debt";
 import FeatureSecurity from "@/pages/feature-security";
 import FeatureMigration from "@/pages/feature-migration";
 import FeatureClients from "@/pages/feature-clients";
@@ -44,7 +44,7 @@ function Router() {
           <Route path="/features/inventory" component={FeatureInventory} />
           <Route path="/features/mobile" component={FeatureMobile} />
           <Route path="/features/reports" component={FeatureReports} />
-          <Route path="/features/multicurrency" component={FeatureMultiCurrency} />
+          <Route path="/features/debt" component={FeatureDebt} />
           <Route path="/features/security" component={FeatureSecurity} />
           <Route path="/features/migration" component={FeatureMigration} />
           <Route path="/features/clients" component={FeatureClients} />
@@ -64,7 +64,7 @@ function Router() {
           <Route path="/features/inventory" component={FeatureInventory} />
           <Route path="/features/mobile" component={FeatureMobile} />
           <Route path="/features/reports" component={FeatureReports} />
-          <Route path="/features/multicurrency" component={FeatureMultiCurrency} />
+          <Route path="/features/debt" component={FeatureDebt} />
           <Route path="/features/security" component={FeatureSecurity} />
           <Route path="/features/migration" component={FeatureMigration} />
           <Route path="/features/clients" component={FeatureClients} />
