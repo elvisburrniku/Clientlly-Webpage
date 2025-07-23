@@ -872,7 +872,7 @@ export default function Calculator() {
                             size="sm"
                             onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                           >
-                            Try Free First
+                            Start Your Trial
                           </Button>
                         )}
                         {plan.id !== 'basic' && (
@@ -882,7 +882,7 @@ export default function Calculator() {
                             size="sm"
                             onClick={() => navigate('/subscribe?plan=basic&billing=monthly')}
                           >
-                            Try Free First
+                            Start Your Trial
                           </Button>
                         )}
                       </div>

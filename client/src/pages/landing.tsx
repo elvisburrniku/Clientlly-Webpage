@@ -241,7 +241,7 @@ export default function Landing() {
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
                 className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
               >
-                Try Free First
+                Start Your Trial
               </Button>
               <LanguageSelector />
             </div>
@@ -261,7 +261,7 @@ export default function Landing() {
                 size="sm"
                 className="bg-blue-600 hover:bg-blue-700 text-white text-xs"
               >
-                Try Free First
+                Start Your Trial
               </Button>
               <Button
                 variant="ghost"
@@ -310,7 +310,7 @@ export default function Landing() {
                   }}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  Try Free First
+                  Start Your Trial
                 </Button>
               </div>
             </div>
@@ -360,7 +360,7 @@ export default function Landing() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
                 onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
               >
-                Try Free First
+                Start Your Trial
               </Button>
               <Button 
                 size="lg" 
@@ -672,7 +672,7 @@ export default function Landing() {
                 className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 text-lg font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
               >
-                Try Free First
+                Start Your Trial
               </Button>
             </div>
             
@@ -795,7 +795,7 @@ export default function Landing() {
                         className="w-full text-primary hover:text-primary/80"
                         onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                       >
-                        Try Free First
+                        Start Your Trial
                       </Button>
                     )}
                     {plan.id !== 'basic' && (
@@ -805,7 +805,7 @@ export default function Landing() {
                         className="w-full text-primary hover:text-primary/80"
                         onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
                       >
-                        Try Free First
+                        Start Your Trial
                       </Button>
                     )}
                   </div>
