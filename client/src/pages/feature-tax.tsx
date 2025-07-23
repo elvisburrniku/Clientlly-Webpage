@@ -48,7 +48,15 @@ export default function FeatureTax() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <button 
-              onClick={() => window.location.href = "https://d4cb036e-bd85-4e8e-949b-e764eb6c2acb-00-1l2tkkrpkl7fy.worf.replit.dev/#features"}
+              onClick={() => {
+                window.location.href = "/";
+                setTimeout(() => {
+                  const featuresSection = document.getElementById('features');
+                  if (featuresSection) {
+                    featuresSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }}
               className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-5 w-5" />
