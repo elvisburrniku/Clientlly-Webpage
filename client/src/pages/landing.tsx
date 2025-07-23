@@ -613,30 +613,86 @@ export default function Landing() {
               Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-gradient-x">grow together</span>
             </h2>
             
-            <div className="max-w-3xl mx-auto text-center space-y-6 mb-12">
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Choose the plan that fits your business and grow at your own pace.
-              </p>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Our platform covers everything you need – from client relationship management and project tracking to finances and real-time reporting.
-              </p>
-              
-              <p className="text-lg font-medium text-foreground">
-                Start for free and scale as your needs evolve.
-              </p>
-              
-              <p className="text-base text-muted-foreground leading-relaxed">
-                With your ideas and feedback, we continuously improve our platform <span className="font-semibold text-green-600">free of charge</span> – because we believe the best growth happens when we grow together.
-              </p>
-              
-              <Button 
-                variant="outline"
-                onClick={() => window.location.href = '/collaboration'}
-                className="border-blue-500 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-300"
-              >
-                Learn more <ExternalLink className="h-4 w-4 ml-1" />
-              </Button>
+            <div className="max-w-4xl mx-auto mb-16">
+              {/* Main Message Container */}
+              <div className="relative backdrop-blur-sm bg-gradient-to-br from-white/80 to-blue-50/50 dark:from-gray-900/80 dark:to-blue-950/50 rounded-3xl p-8 lg:p-12 shadow-xl border border-white/20 dark:border-gray-700/30 animate-fade-in-up">
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+                <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+                
+                <div className="text-center space-y-8">
+                  
+                  {/* Hero Message */}
+                  <div className="space-y-4 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground leading-tight">
+                      Choose the plan that fits your business and 
+                      <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-pulse">
+                        {' '}grow at your own pace
+                      </span>
+                    </h3>
+                  </div>
+                  
+                  {/* Features Grid */}
+                  <div className="grid md:grid-cols-2 gap-6 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                    <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-blue-200/50 dark:border-blue-700/50 hover:scale-105 transition-all duration-300 hover:shadow-lg group">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                          <Users className="w-4 h-4 text-white" />
+                        </div>
+                        <h4 className="font-semibold text-foreground">Complete Platform</h4>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Client management, project tracking, finances, and real-time reporting all in one place.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-green-200/50 dark:border-green-700/50 hover:scale-105 transition-all duration-300 hover:shadow-lg group">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                          <TrendingUp className="w-4 h-4 text-white" />
+                        </div>
+                        <h4 className="font-semibold text-foreground">Flexible Growth</h4>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Start for free and scale as your needs evolve with our flexible pricing tiers.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Collaboration Promise */}
+                  <div className="relative animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+                    <div className="bg-gradient-to-r from-orange-50 to-purple-50 dark:from-orange-950/30 dark:to-purple-950/30 rounded-2xl p-6 border-2 border-gradient-to-r from-orange-200/50 to-purple-200/50 dark:from-orange-700/50 dark:to-purple-700/50">
+                      <div className="flex items-center justify-center space-x-2 mb-4">
+                        <Heart className="w-5 h-5 text-red-500 animate-pulse" />
+                        <span className="text-lg font-semibold text-foreground">Growing Together</span>
+                        <Heart className="w-5 h-5 text-red-500 animate-pulse" />
+                      </div>
+                      
+                      <p className="text-base text-foreground leading-relaxed mb-4">
+                        With your ideas and feedback, we continuously improve our platform{' '}
+                        <span className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold rounded-full shadow-md animate-bounce" style={{animationDelay: '2s'}}>
+                          <Gift className="w-3 h-3 mr-1" />
+                          free of charge
+                        </span>
+                        {' '}– because we believe the best growth happens when we grow together.
+                      </p>
+                      
+                      <Button 
+                        variant="outline"
+                        onClick={() => window.location.href = '/collaboration'}
+                        className="group border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg font-medium"
+                      >
+                        <span className="flex items-center">
+                          Learn how we collaborate
+                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                        </span>
+                      </Button>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
             </div>
             
 
