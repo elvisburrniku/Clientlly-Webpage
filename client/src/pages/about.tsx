@@ -253,8 +253,8 @@ export default function About() {
               <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/50 dark:to-purple-950/50 border-2 border-blue-200 dark:border-blue-700 hover:shadow-2xl transition-all duration-500 group">
                 <div className="aspect-video rounded-xl overflow-hidden shadow-inner relative">
                   <img 
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                    alt="Modern office workspace"
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+                    alt="Software development team in modern office"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
@@ -396,17 +396,17 @@ export default function About() {
             <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-blue-200 dark:border-blue-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Team collaboration in modern office"
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Software development team working together"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
               <div className="mt-4 text-center">
                 <h4 className="text-lg font-bold text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                  Collaborative Innovation
+                  Collaborative Development
                 </h4>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Our team works together to build the future of business management
+                  Software engineers collaborating on cutting-edge business solutions
                 </p>
               </div>
             </Card>
@@ -414,17 +414,17 @@ export default function About() {
             <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-purple-200 dark:border-purple-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Focused development work"
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Developer coding on multiple monitors"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
               <div className="mt-4 text-center">
                 <h4 className="text-lg font-bold text-foreground group-hover:text-purple-600 transition-colors duration-300">
-                  Focused Development
+                  Code Excellence
                 </h4>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Every line of code is crafted with precision and attention to detail
+                  Advanced development workflows with modern tools and frameworks
                 </p>
               </div>
             </Card>
@@ -432,17 +432,17 @@ export default function About() {
             <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-green-200 dark:border-green-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Creative brainstorming session"
+                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Professional software design meeting"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
               <div className="mt-4 text-center">
                 <h4 className="text-lg font-bold text-foreground group-hover:text-green-600 transition-colors duration-300">
-                  Creative Solutions
+                  Strategic Design
                 </h4>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Brainstorming sessions that lead to breakthrough business features
+                  Product strategy sessions focused on user experience and innovation
                 </p>
               </div>
             </Card>
@@ -451,17 +451,17 @@ export default function About() {
             <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-orange-200 dark:border-orange-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Remote work with laptops"
+                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Software engineer working on laptop"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
               <div className="mt-4 text-center">
                 <h4 className="text-lg font-bold text-foreground group-hover:text-orange-600 transition-colors duration-300">
-                  Remote Excellence
+                  Remote Development
                 </h4>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Flexible work environments that deliver exceptional results
+                  Distributed teams building world-class software solutions
                 </p>
               </div>
             </Card>
@@ -469,17 +469,17 @@ export default function About() {
             <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-indigo-200 dark:border-indigo-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Modern workspace setup"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Clean coding workspace with laptop"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
               <div className="mt-4 text-center">
                 <h4 className="text-lg font-bold text-foreground group-hover:text-indigo-600 transition-colors duration-300">
-                  Modern Tools
+                  Clean Code Environment
                 </h4>
                 <p className="text-sm text-muted-foreground mt-2">
-                  State-of-the-art technology powering breakthrough solutions
+                  Minimalist workspaces optimized for focused development
                 </p>
               </div>
             </Card>
@@ -487,17 +487,17 @@ export default function About() {
             <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-teal-200 dark:border-teal-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
               <div className="aspect-square rounded-xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Team meeting and planning"
+                  src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
+                  alt="Data analysis and business intelligence"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
               </div>
               <div className="mt-4 text-center">
                 <h4 className="text-lg font-bold text-foreground group-hover:text-teal-600 transition-colors duration-300">
-                  Strategic Planning
+                  Data-Driven Insights
                 </h4>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Every feature is thoughtfully planned for maximum business impact
+                  Analytics and business intelligence powering smart decisions
                 </p>
               </div>
             </Card>
