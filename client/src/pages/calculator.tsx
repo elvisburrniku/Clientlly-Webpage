@@ -882,7 +882,7 @@ export default function Calculator() {
                             size="sm"
                             onClick={() => navigate('/subscribe?plan=basic&billing=monthly')}
                           >
-                            Try for Free First
+                            Try Free First
                           </Button>
                         )}
                       </div>

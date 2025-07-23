@@ -801,7 +801,7 @@ export default function Landing() {
                         className="w-full text-primary hover:text-primary/80"
                         onClick={() => window.location.href = '/subscribe?plan=basic&billing=monthly'}
                       >
-                        Try for Free First
+                        Try Free First
                       </Button>
                     )}
                   </div>
