@@ -1096,6 +1096,227 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 slide-in-bottom">
+            <span className="inline-block animate-bounce-in bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+              {t('landing.footer.ready', 'Ready to transform your business?')}
+            </span>
+          </h2>
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto slide-in-bottom stagger-1 animate-fade-in-up leading-relaxed">
+            {t('landing.footer.join', 'Join thousands of businesses that have streamlined their operations with BusinessFlow Pro. Start your free trial today.')}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center slide-in-bottom stagger-2">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-4 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
+              onClick={() => window.location.href = "/api/login"}
+            >
+              {t('landing.getStarted', 'Start Your Trial')}
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-blue-400 text-blue-100 hover:bg-blue-400 hover:text-slate-900 text-lg px-8 py-4 font-bold backdrop-blur-sm bg-white/10 hover:bg-blue-400 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              onClick={() => setShowDemoModal(true)}
+            >
+              Learn More
+            </Button>
+          </div>
+
+          <div className="mt-8 flex justify-center space-x-8 text-white/80 text-sm">
+            <div className="flex items-center space-x-2">
+              <Shield className="h-4 w-4" />
+              <span>{t('landing.footer.security', 'Bank-level security')}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Globe className="h-4 w-4" />
+              <span>{t('landing.footer.uptime', '99.9% uptime')}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Headphones className="h-4 w-4" />
+              <span>{t('landing.footer.support24', '24/7 support')}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full opacity-5">
+            <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-16">
+              {/* Company Info */}
+              <div className="lg:col-span-2 space-y-6 fade-in">
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src="/attached_assets/3d_1753268267691.png" 
+                    alt="BusinessFlow Pro" 
+                    className="w-12 h-9 object-contain bg-white/10 dark:bg-transparent rounded-lg p-1"
+                  />
+                  <span className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                    BusinessFlow Pro
+                  </span>
+                </div>
+                <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+                  {t('landing.footer.description', 'The complete business management platform for modern companies.')}
+                </p>
+                <div className="flex space-x-4">
+                  <Button 
+                    size="sm" 
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold"
+                    onClick={() => window.location.href = "/api/login"}
+                  >
+                    Start Your Trial
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
+                    onClick={() => setShowDemoModal(true)}
+                  >
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+
+              {/* Product Links */}
+              <div className="fade-in stagger-1">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  {t('landing.footer.product', 'Product')}
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#features" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.nav.features', 'Features')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#pricing" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.nav.pricing', 'Pricing')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.integrations', 'Integrations')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.api', 'API')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company Links */}
+              <div className="fade-in stagger-2">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                  {t('landing.footer.company', 'Company')}
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#about" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.about', 'About')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.careers', 'Careers')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contact" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.contact', 'Contact')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Support Links */}
+              <div className="fade-in stagger-3">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  {t('landing.footer.support', 'Support')}
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.help', 'Help Center')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.tutorials', 'Tutorials')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.community', 'Community')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Resources Links */}
+              <div className="fade-in stagger-4">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  {t('landing.footer.resources', 'Resources')}
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.blog', 'Blog')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.webinars', 'Webinars')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                      {t('landing.footer.case_studies', 'Case Studies')}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-gray-400 text-sm">
+                © 2025 BusinessFlow Pro. {t('landing.footer.rights', 'All rights reserved.')}
+              </div>
+              <div className="flex space-x-6 text-sm">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  {t('landing.footer.privacy', 'Privacy Policy')}
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  {t('landing.footer.terms', 'Terms of Service')}
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  {t('landing.footer.cookies', 'Cookie Policy')}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
       {/* Demo Modal */}
       <Dialog open={showDemoModal} onOpenChange={() => setShowDemoModal(false)}>
         <DialogContent className="max-w-2xl">
