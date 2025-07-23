@@ -20,12 +20,15 @@ export default function FeatureClients() {
                 Back to Features
               </Button>
             </div>
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/attached_assets/3d_1753268267691.png" 
-                alt="BusinessFlow Pro" 
-                className="w-12 h-9 object-contain"
-              />
+            <div className="flex items-center space-x-3 group transition-all duration-300">
+              <div className="relative overflow-hidden rounded-lg">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 to-purple-500/0 group-hover:from-indigo-500/15 group-hover:to-purple-500/15 transition-all duration-500 rounded-lg"></div>
+              </div>
             </div>
           </div>
         </div>

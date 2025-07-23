@@ -242,12 +242,15 @@ export default function Dashboard() {
       <nav className="glass-effect border-b border-white/20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3 slide-in-left hover:opacity-80 transition-opacity">
-              <img 
-                src="/attached_assets/3d_1753268267691.png" 
-                alt="BusinessFlow Pro" 
-                className="w-12 h-9 object-contain"
-              />
+            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
+              <div className="relative overflow-hidden rounded-lg">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-orange-500/0 group-hover:from-purple-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>
+              </div>
             </Link>
             
             <div className="flex items-center space-x-4 slide-in-right">

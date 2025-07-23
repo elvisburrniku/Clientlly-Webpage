@@ -665,12 +665,15 @@ export default function Subscribe() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <img 
-                src="/attached_assets/3d_1753268267691.png" 
-                alt="BusinessFlow Pro" 
-                className="w-12 h-9 object-contain"
-              />
+            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
+              <div className="relative overflow-hidden rounded-lg">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-3 group-hover:brightness-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-blue-500/0 group-hover:from-green-500/15 group-hover:to-blue-500/15 transition-all duration-500 rounded-lg"></div>
+              </div>
             </Link>
             <div className="ml-8">
               <LanguageSelector />
