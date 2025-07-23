@@ -193,8 +193,44 @@ export default function Landing() {
       <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-16">
           <div className="flex items-center justify-between h-16">
-            {/* Left Section - Login, Buy Now, Start Your Trial, Language */}
-            <div className="hidden lg:flex items-center space-x-4 slide-in-left">
+            {/* Left Section - Logo and Company Name */}
+            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
+              <div className="relative">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-14 h-10 object-contain logo-playful cursor-pointer"
+                  style={{ 
+                    filter: 'drop-shadow(0 0 0 transparent)',
+                    background: 'transparent'
+                  }}
+                  onError={(e) => {
+                    console.error('Logo failed to load:', e);
+                    e.currentTarget.style.border = '2px solid red';
+                  }}
+                  onLoad={() => console.log('Logo loaded successfully')}
+                />
+              </div>
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-105 transform">BusinessFlow Pro</span>
+            </Link>
+
+            {/* Center Section - Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
+              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
+              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Pricing</a>
+              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Plan Calculator</Link>
+              <Button 
+                variant="ghost" 
+                onClick={() => setShowDemoModal(true)} 
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
+              >
+                Contact Us
+              </Button>
+            </div>
+
+            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
+            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = "/api/login"}
@@ -217,42 +253,6 @@ export default function Landing() {
               </Button>
               <LanguageSelector />
             </div>
-
-            {/* Center Section - Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Pricing</a>
-              <Link href="/calculator" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Plan Calculator</Link>
-              <Button 
-                variant="ghost" 
-                onClick={() => setShowDemoModal(true)} 
-                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
-              >
-                Contact Us
-              </Button>
-            </div>
-
-            {/* Right Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 slide-in-right group transition-all duration-300">
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-105 transform">BusinessFlow Pro</span>
-              <div className="relative">
-                <img 
-                  src="/attached_assets/3d_1753268267691.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-playful cursor-pointer"
-                  style={{ 
-                    filter: 'drop-shadow(0 0 0 transparent)',
-                    background: 'transparent'
-                  }}
-                  onError={(e) => {
-                    console.error('Logo failed to load:', e);
-                    e.currentTarget.style.border = '2px solid red';
-                  }}
-                  onLoad={() => console.log('Logo loaded successfully')}
-                />
-              </div>
-            </Link>
 
             {/* Mobile Menu Toggle */}
             <div className="flex lg:hidden items-center space-x-2">
