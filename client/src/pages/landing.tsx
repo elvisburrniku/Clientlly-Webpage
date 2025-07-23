@@ -656,53 +656,7 @@ export default function Landing() {
             
 
             
-            {/* Billing Period Toggle - Integrated with Plans */}
-            <div className="flex flex-col items-center justify-center mb-12 space-y-6">
-              <div className="relative flex items-center bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-1 shadow-lg border border-blue-100 dark:border-gray-600">
-                {/* Monthly Button */}
-                <button
-                  onClick={() => setBillingPeriod('monthly')}
-                  className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-all duration-300 ${
-                    billingPeriod === 'monthly'
-                      ? 'text-white shadow-lg'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
-                  }`}
-                >
-                  Monthly Billing
-                </button>
-                
-                {/* Yearly Button */}
-                <button
-                  onClick={() => setBillingPeriod('yearly')}
-                  className={`relative z-10 px-8 py-3 text-sm font-bold rounded-lg transition-all duration-300 ${
-                    billingPeriod === 'yearly'
-                      ? 'text-white shadow-lg'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
-                  }`}
-                >
-                  Yearly Billing
-                </button>
-                
-                {/* Animated Background */}
-                <div
-                  className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-lg shadow-lg transition-all duration-500 ease-out ${
-                    billingPeriod === 'monthly'
-                      ? 'left-1 w-[calc(50%-4px)]'
-                      : 'right-1 w-[calc(50%-4px)]'
-                  }`}
-                />
-              </div>
-              
-              {/* Save Badge */}
-              <div className={`transition-all duration-500 ${
-                billingPeriod === 'yearly' ? 'opacity-100 transform scale-100 translate-y-0' : 'opacity-0 transform scale-75 translate-y-2'
-              }`}>
-                <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-semibold px-6 py-2 rounded-full shadow-xl flex items-center space-x-2">
-                  <span>🎉</span>
-                  <span>Save 17% with yearly billing</span>
-                </div>
-              </div>
-            </div>
+
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pricing-grid">
@@ -721,7 +675,46 @@ export default function Landing() {
                 
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
+                    
+                    {/* Individual Plan Billing Toggle */}
+                    <div className="mb-6">
+                      <div className="relative flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-full max-w-xs mx-auto">
+                        <button
+                          onClick={() => setBillingPeriod('monthly')}
+                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
+                            billingPeriod === 'monthly'
+                              ? 'text-white'
+                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                          }`}
+                        >
+                          Monthly
+                        </button>
+                        <button
+                          onClick={() => setBillingPeriod('yearly')}
+                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
+                            billingPeriod === 'yearly'
+                              ? 'text-white'
+                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                          }`}
+                        >
+                          Yearly
+                        </button>
+                        <div
+                          className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
+                            billingPeriod === 'monthly'
+                              ? 'left-1 w-[calc(50%-4px)]'
+                              : 'right-1 w-[calc(50%-4px)]'
+                          }`}
+                        />
+                      </div>
+                      {billingPeriod === 'yearly' && (
+                        <div className="mt-2">
+                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
+                        </div>
+                      )}
+                    </div>
+                    
                     <div className="text-4xl font-bold gradient-text mb-1">
                       {formatCurrency(
                         convertPrice(
