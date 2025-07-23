@@ -245,7 +245,7 @@ export default function Calculator() {
         {/* Subtle 3D Logo Background */}
         <div className="absolute bottom-1/3 right-1/4 opacity-4 dark:opacity-6 floating-element">
           <img 
-            src="/attached_assets/3d_1753268267691.png" 
+            src="/logo-transparent.svg" 
             alt="" 
             className="w-72 h-72 object-contain -rotate-12 transform"
           />
@@ -272,7 +272,7 @@ export default function Calculator() {
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <img 
-                  src="/attached_assets/3d_1753268267691.png" 
+                  src="/logo-transparent.svg" 
                   alt="BusinessFlow Pro" 
                   className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-125 group-hover:-rotate-12 group-hover:brightness-125"
                 />

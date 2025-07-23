@@ -231,7 +231,7 @@ export default function Dashboard() {
         {/* Subtle 3D Logo Background */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-3 dark:opacity-5 floating-slow">
           <img 
-            src="/attached_assets/3d_1753268267691.png" 
+            src="/logo-transparent.svg" 
             alt="" 
             className="w-96 h-96 object-contain rotate-6 transform"
           />
@@ -245,7 +245,7 @@ export default function Dashboard() {
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <img 
-                  src="/attached_assets/3d_1753268267691.png" 
+                  src="/logo-transparent.svg" 
                   alt="BusinessFlow Pro" 
                   className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
                 />

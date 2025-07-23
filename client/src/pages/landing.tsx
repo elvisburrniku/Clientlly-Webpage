@@ -168,14 +168,14 @@ export default function Landing() {
         {/* Subtle 3D Logo Background Elements */}
         <div className="absolute top-1/3 right-1/3 opacity-5 dark:opacity-10 floating-slow">
           <img 
-            src="/attached_assets/3d_1753268267691.png" 
+            src="/logo-transparent.svg" 
             alt="" 
             className="w-96 h-96 object-contain rotate-12 transform"
           />
         </div>
         <div className="absolute bottom-1/4 left-1/5 opacity-3 dark:opacity-5 floating-delayed">
           <img 
-            src="/attached_assets/3d_1753268267691.png" 
+            src="/logo-transparent.svg" 
             alt="" 
             className="w-80 h-80 object-contain -rotate-6 transform scale-75"
           />
@@ -189,7 +189,7 @@ export default function Landing() {
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
               <div className="relative overflow-hidden rounded-xl">
                 <img 
-                  src="/attached_assets/3d_1753268267691.png" 
+                  src="/logo-transparent.svg" 
                   alt="BusinessFlow Pro" 
                   className="w-16 h-12 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-3 group-hover:brightness-110 group-hover:saturate-125"
                   onError={(e) => {
