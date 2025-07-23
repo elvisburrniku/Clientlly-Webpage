@@ -853,59 +853,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4 fade-in">
-              {t('landing.testimonials.title', 'Loved by businesses worldwide')}
-            </h2>
-            <p className="text-xl text-muted-foreground fade-in stagger-1">
-              {t('landing.testimonials.subtitle', 'See what our customers have to say about transforming their business operations.')}
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Sarah Johnson",
-                role: "CEO, TechStart Inc.",
-                content: t('landing.testimonials.review1', 'BusinessFlow Pro has completely transformed how we manage our operations. The invoicing system alone has saved us 10+ hours per week.'),
-              },
-              {
-                name: "Maria Rodriguez", 
-                role: "Sales Director, GrowthCorp",
-                content: t('landing.testimonials.review2', 'The CRM features are outstanding. We\'ve improved our customer relationships and increased sales by 35% since implementing BusinessFlow Pro.'),
-              },
-              {
-                name: "David Chen",
-                role: "Operations Manager, BuildCo", 
-                content: t('landing.testimonials.review3', 'Finally, a business management platform that actually works! The expense tracking and HR features have streamlined our entire workflow.'),
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className={`hover-lift glass-effect border-border/50 scale-in stagger-${index + 1}`}>
-                <CardContent className="p-8">
-                  <div className="flex mb-4">
-                    {[1,2,3,4,5].map((star) => (
-                      <Star key={star} className="h-4 w-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center pulse-glow">
-                      <span className="text-white font-semibold">{testimonial.name[0]}</span>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section className="py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950 relative overflow-hidden">
