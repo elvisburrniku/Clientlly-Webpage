@@ -713,31 +713,10 @@ export default function Landing() {
                 <span className="text-2xl mr-3 group-hover:animate-bounce">🚀</span>
                 Start Your Free Trial Now
               </Button>
-              <p className="text-sm text-muted-foreground mt-3 max-w-md mx-auto fade-in stagger-8 animate-fade-in-up">
-                Join thousands of businesses already using BusinessFlow Pro to streamline their operations
-              </p>
+
             </div>
             
-            {/* Additional Titles */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto fade-in stagger-9">
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl border border-blue-200/50 hover:shadow-xl hover:scale-105 transition-all duration-500 animate-float group">
-                <div className="text-3xl mb-2 group-hover:animate-bounce group-hover:scale-125 transition-transform duration-300">💰</div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">Transparent Pricing</h3>
-                <p className="text-sm text-muted-foreground">No hidden fees or surprise charges. What you see is what you pay.</p>
-              </div>
-              
-              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl border border-purple-200/50 hover:shadow-xl hover:scale-105 transition-all duration-500 animate-float delay-150 group">
-                <div className="text-3xl mb-2 group-hover:animate-bounce group-hover:scale-125 transition-transform duration-300">📈</div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-purple-600 transition-colors duration-300">Scale with Confidence</h3>
-                <p className="text-sm text-muted-foreground">Upgrade or downgrade anytime as your business needs evolve.</p>
-              </div>
-              
-              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl border border-green-200/50 hover:shadow-xl hover:scale-105 transition-all duration-500 animate-float delay-300 group">
-                <div className="text-3xl mb-2 group-hover:animate-bounce group-hover:scale-125 transition-transform duration-300">🎯</div>
-                <h3 className="font-bold text-foreground mb-2 group-hover:text-green-600 transition-colors duration-300">Perfect Fit Guaranteed</h3>
-                <p className="text-sm text-muted-foreground">Find the right plan for your business size and requirements.</p>
-              </div>
-            </div>
+
             
             {/* Currency and Billing Period Controls */}
             <div className="flex flex-col items-center justify-center mb-8 space-y-4">
