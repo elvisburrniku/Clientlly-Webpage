@@ -418,9 +418,6 @@ export default function Landing() {
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 fade-in">
               The features you need. <span className="gradient-text">All in one place</span>
             </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto fade-in stagger-1 leading-relaxed">
-              Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
-            </p>
           </div>
 
           {/* Reorganized Features Grid */}
