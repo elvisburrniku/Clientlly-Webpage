@@ -22,11 +22,13 @@ export default function FeatureVendors() {
             </div>
             <div className="flex items-center space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
-                <img 
-                  src="/attached_assets/3d_1753268267691.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6 group-hover:brightness-110"
-                />
+                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
+                  <img 
+                    src="/attached_assets/3d_1753268267691.png" 
+                    alt="BusinessFlow Pro" 
+                    className="w-12 h-9 object-contain logo-pulse cursor-pointer"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 to-orange-500/0 group-hover:from-amber-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>
               </div>
             </div>

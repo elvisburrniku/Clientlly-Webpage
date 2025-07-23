@@ -192,7 +192,7 @@ export default function Landing() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-14 h-10 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-3 group-hover:brightness-110 group-hover:saturate-125"
+                    className="w-14 h-10 object-contain logo-playful cursor-pointer"
                     onError={(e) => {
                       console.error('Logo failed to load:', e);
                       e.currentTarget.style.border = '2px solid red';

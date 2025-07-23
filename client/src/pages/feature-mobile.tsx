@@ -29,11 +29,13 @@ export default function FeatureMobile() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
-                <img 
-                  src="/attached_assets/3d_1753268267691.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-125 group-hover:rotate-12 group-hover:brightness-110"
-                />
+                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
+                  <img 
+                    src="/attached_assets/3d_1753268267691.png" 
+                    alt="BusinessFlow Pro" 
+                    className="w-12 h-9 object-contain logo-playful cursor-pointer"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-emerald-500/0 group-hover:from-green-500/20 group-hover:to-emerald-500/20 transition-all duration-500 rounded-lg"></div>
               </div>
             </Link>

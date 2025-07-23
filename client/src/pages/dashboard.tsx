@@ -248,7 +248,7 @@ export default function Dashboard() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-10 h-8 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
+                    className="w-10 h-8 object-contain logo-bounce cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-orange-500/0 group-hover:from-purple-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>
