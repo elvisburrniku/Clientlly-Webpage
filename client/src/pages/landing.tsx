@@ -610,7 +610,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-fade-in-out">perfect plan</span> for your business and let's <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-fade-in-out" style={{animationDelay: '1s'}}>grow together</span>
+              Choose the <span className="relative inline-block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-shift">perfect plan</span> for your business and let's <span className="relative inline-block bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-gradient-shift" style={{animationDelay: '2s'}}>grow together</span>
             </h2>
             
             <div className="max-w-4xl mx-auto mb-16">
@@ -631,9 +631,10 @@ export default function Landing() {
                   <div className="max-w-3xl mx-auto space-y-6">
                     <p className="text-lg text-foreground leading-relaxed">
                       With your ideas and feedback, we continuously improve our platform{' '}
-                      <span className="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border-2 border-green-500 text-green-700 dark:text-green-400 text-sm font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-green-50 dark:hover:bg-green-950">
-                        <Gift className="w-4 h-4 mr-2" />
-                        free of charge
+                      <span className="relative inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 border border-green-400/50">
+                        <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300"></span>
+                        <Gift className="w-4 h-4 mr-2 relative z-10" />
+                        <span className="relative z-10">free of charge</span>
                       </span>
                       {' '}– because we believe the best growth happens when we grow together.
                     </p>

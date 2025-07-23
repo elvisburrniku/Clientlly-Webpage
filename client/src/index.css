@@ -103,6 +103,11 @@
     animation: fade-in-out 3s ease-in-out infinite;
   }
 
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+  }
+
   .hover-lift {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
