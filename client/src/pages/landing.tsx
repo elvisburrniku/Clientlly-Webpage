@@ -903,8 +903,8 @@ export default function Landing() {
             </p>
           </div>
 
-          {/* Beautiful 3-Column Layout */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {/* Beautiful 2-Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {/* FAQ Column */}
             <div className="lg:col-span-1">
               <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-left">
@@ -1064,7 +1064,7 @@ export default function Landing() {
             </div>
 
             {/* Contact Form Column */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-1">
               <Card className="h-full bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-500 slide-in-right">
                 <CardHeader className="text-center pb-6">
                   <CardTitle className="text-3xl font-bold mb-4">
