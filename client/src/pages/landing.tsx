@@ -610,7 +610,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">grow together</span>
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">grow together</span>
             </h2>
             
             <div className="max-w-4xl mx-auto mb-16">
