@@ -208,7 +208,12 @@ export default function Landing() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
-              <a href="#pricing" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Pricing</a>
+              <button 
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium bg-transparent border-none cursor-pointer"
+              >
+                Pricing
+              </button>
 
               <Button 
                 variant="ghost" 
@@ -230,7 +235,7 @@ export default function Landing() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                 className="border-green-600 bg-green-600 text-white hover:bg-green-700 transition-all duration-300"
               >
                 Buy Now
@@ -276,7 +281,15 @@ export default function Landing() {
               {/* Navigation Links */}
               <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About Us</Link>
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
-              <a href="#pricing" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</a>
+              <button 
+                onClick={() => {
+                  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                  setShowMobileMenu(false);
+                }}
+                className="block text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Pricing
+              </button>
 
               <Button 
                 variant="ghost" 
@@ -303,7 +316,7 @@ export default function Landing() {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.location.href = "/subscribe?plan=professional&billing=yearly";
+                    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
@@ -375,7 +388,7 @@ export default function Landing() {
               <Button 
                 size="lg" 
                 className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300 min-w-[200px]"
-                onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Buy Now
               </Button>
