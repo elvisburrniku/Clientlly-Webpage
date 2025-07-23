@@ -432,7 +432,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Professional Invoicing</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
-
+                <a 
+                  href="/features/invoicing"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -445,7 +451,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Smart Expense Tracking</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Get set for tax time with all your expenses organised in one place.</p>
-
+                <a 
+                  href="/features/expenses"
+                  className="inline-flex items-center text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -458,7 +470,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Debt Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Track business debts, schedule payments, and optimize debt reduction strategies with smart analytics and payment planning tools.</p>
-
+                <a 
+                  href="/features/debt"
+                  className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -471,7 +489,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Insights & Reports</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
-
+                <a 
+                  href="/features/reports"
+                  className="inline-flex items-center text-cyan-600 hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -484,7 +508,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Client Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Manage all your clients in one place with detailed profiles, contact information, project history, and communication tracking for better relationships.</p>
-
+                <a 
+                  href="/features/clients"
+                  className="inline-flex items-center text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -497,7 +527,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Vendor Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Streamline your vendor relationships with comprehensive supplier profiles, purchase order tracking, payment management, and performance analytics.</p>
-
+                <a 
+                  href="/features/vendors"
+                  className="inline-flex items-center text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -510,7 +546,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Inventory Management</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
-
+                <a 
+                  href="/features/inventory"
+                  className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -523,7 +565,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Smart Attendance</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">GPS-based time tracking with offline support, team management, and comprehensive attendance analytics for modern workforces.</p>
-
+                <a 
+                  href="/features/attendance"
+                  className="inline-flex items-center text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -536,7 +584,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Smart Calendar</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Integrated calendar system for scheduling meetings, tracking deadlines, managing appointments, and coordinating team activities with smart notifications.</p>
-
+                <a 
+                  href="/features/calendar"
+                  className="inline-flex items-center text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -550,7 +604,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Mobile App</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Save time by running your business on-the go with your mobile device*.</p>
-
+                <a 
+                  href="/features/mobile"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -563,7 +623,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Enterprise Security</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how we keep your information safe and compliant at all times.</p>
-
+                <a 
+                  href="/features/security"
+                  className="inline-flex items-center text-slate-600 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
@@ -576,7 +642,13 @@ export default function Landing() {
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">Easy Migration</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Switch from other platforms with automated data transfer and expert support.</p>
-
+                <a 
+                  href="/features/migration"
+                  className="inline-flex items-center text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
