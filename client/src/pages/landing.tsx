@@ -948,55 +948,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 slide-in-bottom">
-            <span className="inline-block animate-bounce-in bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-              {t('landing.footer.ready', 'Ready to transform your business?')}
-            </span>
-          </h2>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center slide-in-bottom stagger-2">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-4 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
-              onClick={() => window.location.href = "/api/login"}
-            >
-              {t('landing.getStarted', 'Start Your Trial')}
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-blue-400 text-blue-100 hover:bg-blue-400 hover:text-slate-900 text-lg px-8 py-4 font-bold backdrop-blur-sm bg-white/10 hover:bg-blue-400 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-              onClick={() => setShowDemoModal(true)}
-            >
-              Learn More
-            </Button>
-          </div>
 
-          <div className="mt-8 flex justify-center space-x-8 text-white/80 text-sm">
-            <div className="flex items-center space-x-2">
-              <Shield className="h-4 w-4" />
-              <span>{t('landing.footer.security', 'Bank-level security')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Globe className="h-4 w-4" />
-              <span>{t('landing.footer.uptime', '99.9% uptime')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Headphones className="h-4 w-4" />
-              <span>{t('landing.footer.support24', '24/7 support')}</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
