@@ -901,6 +901,217 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Dashboard Preview Section */}
+      <section className="py-20 px-4 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
+              See <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">BusinessFlow Pro</span> in action
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
+              Get a glimpse of our intuitive dashboard that puts all your business tools in one place.
+            </p>
+          </div>
+
+          {/* Dashboard Screenshot Mockup */}
+          <div className="relative max-w-6xl mx-auto fade-in stagger-2">
+            <div className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-200 dark:border-gray-700">
+              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+                {/* Browser Bar */}
+                <div className="bg-gray-50 dark:bg-gray-800 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <div className="ml-4 text-sm text-gray-500 dark:text-gray-400">BusinessFlow Pro Dashboard</div>
+                  </div>
+                </div>
+                
+                {/* Dashboard Content */}
+                <div className="p-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    {/* Revenue Card */}
+                    <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white">
+                      <h3 className="text-sm font-medium opacity-90">Monthly Revenue</h3>
+                      <p className="text-3xl font-bold mt-2">$24,850</p>
+                      <p className="text-sm opacity-75 mt-1">↗ +12.5% from last month</p>
+                    </div>
+                    
+                    {/* Invoices Card */}
+                    <div className="bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl p-6 text-white">
+                      <h3 className="text-sm font-medium opacity-90">Pending Invoices</h3>
+                      <p className="text-3xl font-bold mt-2">8</p>
+                      <p className="text-sm opacity-75 mt-1">Total: $12,450</p>
+                    </div>
+                    
+                    {/* Clients Card */}
+                    <div className="bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl p-6 text-white">
+                      <h3 className="text-sm font-medium opacity-90">Active Clients</h3>
+                      <p className="text-3xl font-bold mt-2">42</p>
+                      <p className="text-sm opacity-75 mt-1">↗ +3 new this month</p>
+                    </div>
+                  </div>
+                  
+                  {/* Chart Area */}
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
+                    <h3 className="text-lg font-semibold text-foreground mb-4">Revenue Trends</h3>
+                    <div className="h-32 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-lg flex items-end justify-between p-4">
+                      <div className="w-8 bg-blue-500 rounded-t" style={{height: '60%'}}></div>
+                      <div className="w-8 bg-blue-500 rounded-t" style={{height: '80%'}}></div>
+                      <div className="w-8 bg-blue-500 rounded-t" style={{height: '45%'}}></div>
+                      <div className="w-8 bg-blue-500 rounded-t" style={{height: '90%'}}></div>
+                      <div className="w-8 bg-blue-500 rounded-t" style={{height: '75%'}}></div>
+                      <div className="w-8 bg-blue-500 rounded-t" style={{height: '100%'}}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
+              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">business owners</span> like you
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
+              See how BusinessFlow Pro has transformed businesses across different industries.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-1">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-6 italic">
+                "BusinessFlow Pro cut our invoicing time in half and improved our cash flow by 40%. The automation features are a game-changer for our design agency."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                  SM
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Sarah Martinez</p>
+                  <p className="text-sm text-muted-foreground">Creative Director, DesignCo</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-2">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-6 italic">
+                "The client management features help us stay organized with 50+ active projects. Our team productivity increased by 25% since switching to BusinessFlow Pro."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                  MJ
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Michael Johnson</p>
+                  <p className="text-sm text-muted-foreground">Founder, TechConsult Pro</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-3">
+              <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-6 italic">
+                "Finally, accounting software that doesn't require a degree to use! The expense tracking and reporting features keep our restaurant's finances crystal clear."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                  EC
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">Emily Chen</p>
+                  <p className="text-sm text-muted-foreground">Owner, Bella Vista Restaurant</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Integration Showcase Section */}
+      <section className="py-20 px-4 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
+              Connects with <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">your favorite tools</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
+              Seamlessly integrate with 50+ popular business applications to create your perfect workflow.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+            {/* Integration Icons */}
+            <div className="flex justify-center fade-in stagger-1">
+              <div className="w-20 h-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform duration-300">
+                <div className="text-2xl font-bold text-blue-600">Stripe</div>
+              </div>
+            </div>
+            
+            <div className="flex justify-center fade-in stagger-2">
+              <div className="w-20 h-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform duration-300">
+                <div className="text-2xl font-bold text-green-600">QB</div>
+              </div>
+            </div>
+            
+            <div className="flex justify-center fade-in stagger-3">
+              <div className="w-20 h-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform duration-300">
+                <div className="text-2xl font-bold text-purple-600">Slack</div>
+              </div>
+            </div>
+            
+            <div className="flex justify-center fade-in stagger-4">
+              <div className="w-20 h-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform duration-300">
+                <div className="text-2xl font-bold text-orange-600">Zapier</div>
+              </div>
+            </div>
+            
+            <div className="flex justify-center fade-in stagger-5">
+              <div className="w-20 h-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform duration-300">
+                <div className="text-2xl font-bold text-red-600">Gmail</div>
+              </div>
+            </div>
+            
+            <div className="flex justify-center fade-in stagger-6">
+              <div className="w-20 h-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform duration-300">
+                <div className="text-2xl font-bold text-blue-500">Trello</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-6">
+              Plus integrations with Google Workspace, Microsoft 365, PayPal, Shopify, and many more.
+            </p>
+            <Button variant="outline" className="px-6 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium">
+              View All Integrations
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section id="pricing-section" className="py-20 px-4 bg-muted/30 pricing-section">
         <div className="max-w-7xl mx-auto">
