@@ -884,70 +884,117 @@ export default function Landing() {
       </section>
 
       {/* Growing Together Section */}
-      <section className="py-20 px-4 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-indigo-500 rounded-full blur-3xl animate-pulse delay-500"></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            {/* Main Title */}
+            <div className="space-y-4 mb-8">
+              <h2 className="text-5xl lg:text-7xl font-black text-foreground leading-tight">
+                <span className="inline-block animate-bounce">Let's</span>{' '}
+                <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent animate-pulse">grow</span>{' '}
+                <span className="inline-block animate-bounce delay-300">together</span>
+              </h2>
+              <div className="flex justify-center items-center space-x-4 mt-6">
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse"></div>
+                <div className="w-4 h-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full animate-spin"></div>
+                <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full animate-pulse delay-300"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced Content Card */}
           <div className="max-w-4xl mx-auto">
-            {/* Professional Collaboration Section */}
-            <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
+            <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 lg:p-16 shadow-2xl border border-white/20 dark:border-gray-700/30 relative overflow-hidden group hover:shadow-3xl transition-all duration-500">
               
-              <div className="text-center space-y-6">
-                
-                {/* Section Header */}
-                <div className="space-y-3">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
-                    Growing Together
-                  </h3>
-                  <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+              {/* Animated border gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 opacity-20 animate-pulse rounded-3xl"></div>
+              <div className="absolute inset-[1px] bg-white/90 dark:bg-gray-900/90 rounded-3xl"></div>
+              
+              <div className="relative z-10 text-center space-y-8">
+                {/* Enhanced Typography */}
+                <div className="max-w-3xl mx-auto space-y-6">
+                  <p className="text-xl lg:text-2xl text-foreground leading-relaxed font-medium">
+                    <span className="animate-fade-in-up">With your ideas and feedback, we continuously improve our platform</span>{' '}
+                    <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-bold text-2xl lg:text-3xl animate-pulse">free of charge</span>
+                    {' '}<span className="animate-fade-in-up delay-300">because we believe the best growth happens when we grow together.</span>
+                  </p>
                 </div>
                 
-                {/* Main Content */}
-                <div className="max-w-3xl mx-auto space-y-6">
-                  <p className="text-lg text-foreground leading-relaxed">
-                    With your ideas and feedback, we continuously improve our platform{' '}
-                    <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-semibold">free of charge</span>
-                    {' '}because we believe the best growth happens when we grow together.
-                  </p>
+                {/* Feature Highlights */}
+                <div className="grid md:grid-cols-3 gap-6 mt-12">
+                  <div className="group/item bg-blue-50/50 dark:bg-blue-900/20 rounded-2xl p-6 hover:bg-blue-100/80 dark:hover:bg-blue-900/40 transition-all duration-300 hover:scale-105">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300">
+                      <Lightbulb className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">Your Ideas</h4>
+                    <p className="text-sm text-muted-foreground">Share your vision and we'll make it reality</p>
+                  </div>
                   
-                  {/* Call to Action */}
-                  <div className="pt-4">
-                    <Button 
-                      variant="outline"
-                      onClick={() => window.location.href = '/collaboration'}
-                      className="group relative overflow-hidden px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95"
-                      onMouseDown={(e) => {
-                        const button = e.currentTarget;
-                        const rect = button.getBoundingClientRect();
-                        const circle = document.createElement('div');
-                        const size = Math.max(rect.width, rect.height) * 2;
-                        const x = e.clientX - rect.left - size / 2;
-                        const y = e.clientY - rect.top - size / 2;
-                        
-                        circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
-                        circle.style.cssText = `
-                          width: ${size}px;
-                          height: ${size}px;
-                          left: ${x}px;
-                          top: ${y}px;
-                          transform: scale(0);
-                          transition: transform 0.5s ease-out;
-                        `;
-                        
-                        button.appendChild(circle);
-                        requestAnimationFrame(() => {
-                          circle.style.transform = 'scale(1)';
-                          circle.style.opacity = '0';
-                        });
-                        setTimeout(() => circle.remove(), 500);
-                      }}
-                    >
-                      <span className="flex items-center text-white">
-                        <span className="text-white">Learn more</span>
-                        <ArrowRight className="h-4 w-4 ml-2 text-white group-hover:translate-x-1 transition-transform duration-300" />
-                      </span>
-                    </Button>
+                  <div className="group/item bg-purple-50/50 dark:bg-purple-900/20 rounded-2xl p-6 hover:bg-purple-100/80 dark:hover:bg-purple-900/40 transition-all duration-300 hover:scale-105 delay-100">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300">
+                      <Zap className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">Fast Development</h4>
+                    <p className="text-sm text-muted-foreground">Ideas become features in record time</p>
+                  </div>
+                  
+                  <div className="group/item bg-indigo-50/50 dark:bg-indigo-900/20 rounded-2xl p-6 hover:bg-indigo-100/80 dark:hover:bg-indigo-900/40 transition-all duration-300 hover:scale-105 delay-200">
+                    <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300">
+                      <TrendingUp className="h-6 w-6 text-white" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">Mutual Growth</h4>
+                    <p className="text-sm text-muted-foreground">We succeed when you succeed</p>
                   </div>
                 </div>
                 
+                {/* Enhanced Call to Action */}
+                <div className="pt-8">
+                  <Button 
+                    variant="outline"
+                    onClick={() => window.location.href = '/collaboration'}
+                    className="group relative overflow-hidden px-12 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white border-0 rounded-2xl font-bold text-lg transform transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl hover:shadow-3xl"
+                    onMouseDown={(e) => {
+                      const button = e.currentTarget;
+                      const rect = button.getBoundingClientRect();
+                      const circle = document.createElement('div');
+                      const size = Math.max(rect.width, rect.height) * 2;
+                      const x = e.clientX - rect.left - size / 2;
+                      const y = e.clientY - rect.top - size / 2;
+                      
+                      circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                      circle.style.cssText = `
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        transform: scale(0);
+                        transition: transform 0.5s ease-out;
+                      `;
+                      
+                      button.appendChild(circle);
+                      requestAnimationFrame(() => {
+                        circle.style.transform = 'scale(1)';
+                        circle.style.opacity = '0';
+                      });
+                      setTimeout(() => circle.remove(), 500);
+                    }}
+                  >
+                    {/* Animated background gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                    
+                    <span className="relative flex items-center text-white">
+                      <span className="text-white mr-3">Learn more</span>
+                      <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
