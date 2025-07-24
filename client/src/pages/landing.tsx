@@ -244,15 +244,65 @@ export default function Landing() {
               <Button 
                 variant="outline"
                 onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-green-600 bg-green-600 text-white hover:bg-green-700 transition-all duration-300"
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
+                onMouseDown={(e) => {
+                  const button = e.currentTarget;
+                  const rect = button.getBoundingClientRect();
+                  const circle = document.createElement('div');
+                  const size = Math.max(rect.width, rect.height) * 2;
+                  const x = e.clientX - rect.left - size / 2;
+                  const y = e.clientY - rect.top - size / 2;
+                  
+                  circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                  circle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    transition: transform 0.5s ease-out;
+                  `;
+                  
+                  button.appendChild(circle);
+                  requestAnimationFrame(() => {
+                    circle.style.transform = 'scale(1)';
+                    circle.style.opacity = '0';
+                  });
+                  setTimeout(() => circle.remove(), 500);
+                }}
               >
-                Buy Now
+                <span className="text-white">Buy Now</span>
               </Button>
               <Button 
                 onClick={() => window.location.href = "/trial"}
-                className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 cta-button"
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden cta-button"
+                onMouseDown={(e) => {
+                  const button = e.currentTarget;
+                  const rect = button.getBoundingClientRect();
+                  const circle = document.createElement('div');
+                  const size = Math.max(rect.width, rect.height) * 2;
+                  const x = e.clientX - rect.left - size / 2;
+                  const y = e.clientY - rect.top - size / 2;
+                  
+                  circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                  circle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    transition: transform 0.5s ease-out;
+                  `;
+                  
+                  button.appendChild(circle);
+                  requestAnimationFrame(() => {
+                    circle.style.transform = 'scale(1)';
+                    circle.style.opacity = '0';
+                  });
+                  setTimeout(() => circle.remove(), 500);
+                }}
               >
-                Start Your Trial
+                <span className="text-white">Start Your Trial</span>
               </Button>
               {tutorial.isFirstVisit && (
                 <Button 
@@ -327,18 +377,68 @@ export default function Landing() {
                     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
                     setShowMobileMenu(false);
                   }}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
+                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const button = e.currentTarget;
+                    const rect = button.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    button.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Buy Now
+                  <span className="text-white">Buy Now</span>
                 </Button>
                 <Button 
                   onClick={() => {
                     window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const button = e.currentTarget;
+                    const rect = button.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    button.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Start Your Trial
+                  <span className="text-white">Start Your Trial</span>
                 </Button>
                 <div className="pt-2">
                   <LanguageSelector />
@@ -1157,34 +1257,104 @@ export default function Landing() {
                   
                   <div className="space-y-3">
                     <Button 
-                      className={`w-full transition-all duration-300 hover:scale-105 ${
-                        index === 1 
-                          ? 'bg-gradient-to-r from-primary to-secondary pulse-glow' 
-                          : 'glow-border'
-                      }`}
-                      variant={index === 1 ? "default" : "outline"}
+                      className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
+                      onMouseDown={(e) => {
+                        const button = e.currentTarget;
+                        const rect = button.getBoundingClientRect();
+                        const circle = document.createElement('div');
+                        const size = Math.max(rect.width, rect.height) * 2;
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                        circle.style.cssText = `
+                          width: ${size}px;
+                          height: ${size}px;
+                          left: ${x}px;
+                          top: ${y}px;
+                          transform: scale(0);
+                          transition: transform 0.5s ease-out;
+                        `;
+                        
+                        button.appendChild(circle);
+                        requestAnimationFrame(() => {
+                          circle.style.transform = 'scale(1)';
+                          circle.style.opacity = '0';
+                        });
+                        setTimeout(() => circle.remove(), 500);
+                      }}
                     >
-                      {plan.id === 'basic' ? 'Buy Now' : 'Buy Now'}
+                      <span className="text-white">Buy Now</span>
                     </Button>
                     {plan.id === 'basic' && (
                       <Button 
                         variant="ghost" 
                         size="sm"
-                        className="w-full text-primary hover:text-primary/80"
+                        className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
                         onClick={() => window.location.href = `/trial?plan=${plan.id}&billing=${billingPeriod}`}
+                        onMouseDown={(e) => {
+                          const button = e.currentTarget;
+                          const rect = button.getBoundingClientRect();
+                          const circle = document.createElement('div');
+                          const size = Math.max(rect.width, rect.height) * 2;
+                          const x = e.clientX - rect.left - size / 2;
+                          const y = e.clientY - rect.top - size / 2;
+                          
+                          circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                          circle.style.cssText = `
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${x}px;
+                            top: ${y}px;
+                            transform: scale(0);
+                            transition: transform 0.5s ease-out;
+                          `;
+                          
+                          button.appendChild(circle);
+                          requestAnimationFrame(() => {
+                            circle.style.transform = 'scale(1)';
+                            circle.style.opacity = '0';
+                          });
+                          setTimeout(() => circle.remove(), 500);
+                        }}
                       >
-                        Start Your Trial
+                        <span className="text-white">Start Your Trial</span>
                       </Button>
                     )}
                     {plan.id !== 'basic' && (
                       <Button 
                         variant="ghost" 
                         size="sm"
-                        className="w-full text-primary hover:text-primary/80"
+                        className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
                         onClick={() => window.location.href = '/trial'}
+                        onMouseDown={(e) => {
+                          const button = e.currentTarget;
+                          const rect = button.getBoundingClientRect();
+                          const circle = document.createElement('div');
+                          const size = Math.max(rect.width, rect.height) * 2;
+                          const x = e.clientX - rect.left - size / 2;
+                          const y = e.clientY - rect.top - size / 2;
+                          
+                          circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                          circle.style.cssText = `
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${x}px;
+                            top: ${y}px;
+                            transform: scale(0);
+                            transition: transform 0.5s ease-out;
+                          `;
+                          
+                          button.appendChild(circle);
+                          requestAnimationFrame(() => {
+                            circle.style.transform = 'scale(1)';
+                            circle.style.opacity = '0';
+                          });
+                          setTimeout(() => circle.remove(), 500);
+                        }}
                       >
-                        Start Your Trial
+                        <span className="text-white">Start Your Trial</span>
                       </Button>
                     )}
                   </div>

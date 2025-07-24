@@ -75,9 +75,37 @@ export default function CompareFeatures() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/">
-              <Button variant="ghost" className="flex items-center space-x-2">
-                <ArrowLeft className="h-4 w-4" />
-                <span>Back to Home</span>
+              <Button 
+                variant="ghost" 
+                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
+                onMouseDown={(e) => {
+                  const button = e.currentTarget;
+                  const rect = button.getBoundingClientRect();
+                  const circle = document.createElement('div');
+                  const size = Math.max(rect.width, rect.height) * 2;
+                  const x = e.clientX - rect.left - size / 2;
+                  const y = e.clientY - rect.top - size / 2;
+                  
+                  circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                  circle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    transition: transform 0.5s ease-out;
+                  `;
+                  
+                  button.appendChild(circle);
+                  requestAnimationFrame(() => {
+                    circle.style.transform = 'scale(1)';
+                    circle.style.opacity = '0';
+                  });
+                  setTimeout(() => circle.remove(), 500);
+                }}
+              >
+                <ArrowLeft className="h-4 w-4 text-white" />
+                <span className="text-white">Back to Home</span>
               </Button>
             </Link>
             <h1 className="text-xl font-bold text-foreground">Compare Plan Features</h1>
@@ -115,11 +143,35 @@ export default function CompareFeatures() {
               </CardHeader>
               <CardContent>
                 <Button 
-                  className="w-full"
-                  variant={plan.popular ? "default" : "outline"}
+                  className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
                   onClick={() => window.location.href = '/subscribe'}
+                  onMouseDown={(e) => {
+                    const button = e.currentTarget;
+                    const rect = button.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    button.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Get Started
+                  <span className="text-white">Get Started</span>
                 </Button>
               </CardContent>
             </Card>
@@ -181,18 +233,67 @@ export default function CompareFeatures() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-white text-blue-600 hover:bg-gray-100"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
                 onClick={() => window.location.href = '/trial'}
+                onMouseDown={(e) => {
+                  const button = e.currentTarget;
+                  const rect = button.getBoundingClientRect();
+                  const circle = document.createElement('div');
+                  const size = Math.max(rect.width, rect.height) * 2;
+                  const x = e.clientX - rect.left - size / 2;
+                  const y = e.clientY - rect.top - size / 2;
+                  
+                  circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                  circle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    transition: transform 0.5s ease-out;
+                  `;
+                  
+                  button.appendChild(circle);
+                  requestAnimationFrame(() => {
+                    circle.style.transform = 'scale(1)';
+                    circle.style.opacity = '0';
+                  });
+                  setTimeout(() => circle.remove(), 500);
+                }}
               >
-                Start Free Trial
+                <span className="text-white">Start Free Trial</span>
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white/10"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95 relative overflow-hidden"
                 onClick={() => window.location.href = '/contact'}
+                onMouseDown={(e) => {
+                  const button = e.currentTarget;
+                  const rect = button.getBoundingClientRect();
+                  const circle = document.createElement('div');
+                  const size = Math.max(rect.width, rect.height) * 2;
+                  const x = e.clientX - rect.left - size / 2;
+                  const y = e.clientY - rect.top - size / 2;
+                  
+                  circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                  circle.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    transition: transform 0.5s ease-out;
+                  `;
+                  
+                  button.appendChild(circle);
+                  requestAnimationFrame(() => {
+                    circle.style.transform = 'scale(1)';
+                    circle.style.opacity = '0';
+                  });
+                  setTimeout(() => circle.remove(), 500);
+                }}
               >
-                Contact Sales
+                <span className="text-white">Contact Sales</span>
               </Button>
             </div>
           </div>
