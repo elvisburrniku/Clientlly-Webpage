@@ -340,28 +340,28 @@ export default function Subscribe() {
     <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
       <div className="text-center mb-12">
         <div className="flex justify-center mb-8">
-          <div className="glass-effect border border-white/30 rounded-2xl p-2 backdrop-blur-sm">
+          <div className="bg-gray-200 rounded-lg p-1">
             <div className="flex items-center space-x-1">
               <button
                 onClick={() => setBillingPeriod('monthly')}
-                className={`px-8 py-3 rounded-xl text-base font-semibold transition-all duration-500 hover:scale-105 ${
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                   billingPeriod === 'monthly' 
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
-                    : 'text-foreground/70 hover:text-foreground hover:bg-white/20'
+                    ? 'bg-white text-black shadow-sm' 
+                    : 'text-black hover:text-black hover:bg-white/50'
                 }`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setBillingPeriod('yearly')}
-                className={`px-8 py-3 rounded-xl text-base font-semibold transition-all duration-500 hover:scale-105 relative ${
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative ${
                   billingPeriod === 'yearly' 
-                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
-                    : 'text-foreground/70 hover:text-foreground hover:bg-white/20'
+                    ? 'bg-white text-black shadow-sm' 
+                    : 'text-black hover:text-black hover:bg-white/50'
                 }`}
               >
                 Yearly
-                <Badge className="ml-2 bg-green-500 text-white text-xs animate-pulse">Save 17%</Badge>
+                <Badge className="ml-2 bg-green-500 text-white text-xs">Save 17%</Badge>
               </button>
             </div>
           </div>
@@ -401,44 +401,48 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`cursor-pointer transition-all duration-500 hover:scale-105 transform-gpu fade-in-up relative overflow-hidden ${
-                  isSelected ? 'ring-2 ring-primary shadow-2xl shadow-primary/25 scale-105' : 'hover:shadow-xl glass-effect'
-                } ${index === 1 ? 'border-primary/50 shadow-lg scale-105' : 'border-white/20'}`}
+                className={`cursor-pointer transition-all duration-300 hover:shadow-lg fade-in-up relative ${
+                  isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-xl' : 'bg-white hover:bg-gray-50 border-gray-200'
+                } ${index === 1 ? 'border-2 border-blue-500' : ''}`}
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 onClick={() => setSelectedPlan(plan.id)}
               >
-                {isSelected && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 animate-pulse" />
-                )}
-                
-                <CardContent className="p-8 relative z-10">
+                <CardContent className="p-6 relative">
                   {index === 1 && (
-                    <Badge className="mb-4 bg-gradient-to-r from-primary to-secondary text-white shadow-lg animate-bounce-gentle">
+                    <Badge className="mb-4 bg-blue-600 text-white">
                       Most Popular
                     </Badge>
                   )}
                   
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  <div className="mb-4">
+                    <h3 className={`text-xl font-bold mb-2 ${
+                      isSelected ? 'text-white' : 'text-black'
+                    }`}>
                       {plan.name}
                     </h3>
-                    <div className="mt-3">
-                      <span className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    <div className="mt-2">
+                      <span className={`text-3xl font-bold ${
+                        isSelected ? 'text-white' : 'text-black'
+                      }`}>
                         ${Math.floor(price / 100)}
                       </span>
-                      <span className="text-muted-foreground text-lg ml-1">
+                      <span className={`text-lg ml-1 ${
+                        isSelected ? 'text-white/80' : 'text-gray-600'
+                      }`}>
                         /{billingPeriod === 'yearly' ? 'year' : 'month'}
                       </span>
                     </div>
                   </div>
                   
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2 mb-6">
                     {plan.features.slice(0, 4).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3 group">
-                        <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <Check className="h-3 w-3 text-white" />
-                        </div>
-                        <span className="text-sm text-foreground/90 group-hover:text-foreground transition-colors duration-300">
+                      <li key={featureIndex} className="flex items-center space-x-2">
+                        <Check className={`h-4 w-4 ${
+                          isSelected ? 'text-white' : 'text-green-500'
+                        }`} />
+                        <span className={`text-sm ${
+                          isSelected ? 'text-white' : 'text-black'
+                        }`}>
                           {feature}
                         </span>
                       </li>
@@ -446,22 +450,15 @@ export default function Subscribe() {
                   </ul>
                   
                   <Button 
-                    variant={isSelected ? "default" : "outline"}
-                    className={`w-full py-3 text-base font-semibold transition-all duration-300 ${
+                    variant={isSelected ? "secondary" : "default"}
+                    className={`w-full ${
                       isSelected 
-                        ? 'bg-gradient-to-r from-primary to-secondary hover:shadow-lg animate-pulse' 
-                        : 'hover:scale-105 hover:shadow-md glass-effect border-white/30'
+                        ? 'bg-white text-blue-600 hover:bg-gray-100' 
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
                     }`}
                     onClick={() => setSelectedPlan(plan.id)}
                   >
-                    {isSelected ? (
-                      <div className="flex items-center space-x-2">
-                        <Check className="h-4 w-4" />
-                        <span>Selected</span>
-                      </div>
-                    ) : (
-                      'Select Plan'
-                    )}
+                    {isSelected ? 'Selected' : 'Select Plan'}
                   </Button>
                 </CardContent>
               </Card>
@@ -675,87 +672,70 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/20 to-orange-50/20 dark:from-gray-900 dark:via-purple-900/10 dark:to-orange-900/10 py-8 px-4 relative overflow-hidden">
-      {/* Background Grid and Elements - Matching Landing Page */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:20px_20px] opacity-40"></div>
-        
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white/80 dark:via-gray-900/60 dark:to-gray-900/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-purple-50/30 dark:to-purple-900/20"></div>
-        
-        {/* Floating Elements */}
-        <div className="absolute top-32 left-16 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-transparent rounded-full blur-3xl floating-element opacity-60"></div>
-        <div className="absolute bottom-32 right-20 w-80 h-80 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-3xl floating-slow opacity-50"></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl floating-element opacity-40"></div>
-      </div>
+    <div className="min-h-screen bg-white py-8 px-4 relative overflow-hidden">
+      {/* Background Grid Pattern - Matching Landing Page */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 fade-in">
           <div className="flex items-center justify-between mb-12">
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-500 hover:scale-105">
-              <div className="relative overflow-hidden rounded-2xl p-2 glass-effect border border-white/30">
-                <div className="bg-white dark:bg-transparent p-1 rounded-xl">
-                  <img 
-                    src="/attached_assets/3d_1753268267691.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-10 h-8 object-contain"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-secondary/0 group-hover:from-primary/10 group-hover:to-secondary/10 transition-all duration-500 rounded-2xl"></div>
+            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
+              <div className="bg-white dark:bg-transparent p-1 rounded-lg">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-12 h-9 object-contain"
+                />
               </div>
-              <span className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent group-hover:from-primary group-hover:to-secondary transition-all duration-500">
+              <span className="text-lg font-bold text-black">
                 BusinessFlow Pro
               </span>
             </Link>
-            <div className="glass-effect border border-white/30 rounded-2xl p-1">
-              <LanguageSelector />
-            </div>
+            <LanguageSelector />
           </div>
           
           <div className="mb-12 fade-in-up space-y-6" style={{ animationDelay: '0.1s' }}>
             <div className="inline-block">
-              <Badge className="bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium">
+              <Badge className="bg-blue-50 text-blue-600 border-blue-200 px-4 py-2 text-sm font-medium">
                 🚀 Start Your Business Transformation
               </Badge>
             </div>
-            <h1 className="text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-6 animate-gradient-text leading-tight">
+            <h1 className="text-5xl font-bold text-black mb-6 leading-tight">
               Choose Your Plan
             </h1>
-            <p className="text-foreground/70 text-xl max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-black/70 text-xl max-w-3xl mx-auto leading-relaxed font-medium">
               {t('subscribe.title', 'Join thousands of businesses already transforming their operations with our comprehensive platform')}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8 fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="glass-effect border border-white/30 rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
               <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
                   <Shield className="h-5 w-5 text-white" />
                 </div>
-                <span className="font-semibold text-foreground">Bank-Level Security</span>
+                <span className="font-semibold text-black">Bank-Level Security</span>
               </div>
-              <p className="text-sm text-foreground/60">256-bit SSL encryption protects all your data</p>
+              <p className="text-sm text-black/60">256-bit SSL encryption protects all your data</p>
             </div>
             
-            <div className="glass-effect border border-white/30 rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
               <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
                   <Check className="h-5 w-5 text-white" />
                 </div>
-                <span className="font-semibold text-foreground">14-Day Free Trial</span>
+                <span className="font-semibold text-black">14-Day Free Trial</span>
               </div>
-              <p className="text-sm text-foreground/60">Full access to all features, no commitments</p>
+              <p className="text-sm text-black/60">Full access to all features, no commitments</p>
             </div>
             
-            <div className="glass-effect border border-white/30 rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
               <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
                   <Headphones className="h-5 w-5 text-white" />
                 </div>
-                <span className="font-semibold text-foreground">24/7 Support</span>
+                <span className="font-semibold text-black">24/7 Support</span>
               </div>
-              <p className="text-sm text-foreground/60">Expert help whenever you need it</p>
+              <p className="text-sm text-black/60">Expert help whenever you need it</p>
             </div>
           </div>
         </div>
@@ -766,14 +746,14 @@ export default function Subscribe() {
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-6 fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex justify-center space-x-4 fade-in-up" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
               onClick={prevStep}
-              className="flex items-center space-x-2 px-8 py-3 text-base font-semibold transition-all duration-300 hover:scale-105 glass-effect border-white/30"
+              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
             >
-              <ArrowLeft className="h-5 w-5" />
+              <ArrowLeft className="h-4 w-4" />
               <span>Back</span>
             </Button>
           )}
@@ -782,10 +762,10 @@ export default function Subscribe() {
             <Button 
               onClick={nextStep}
               disabled={!canProceedToNext()}
-              className="flex items-center space-x-2 px-8 py-3 text-base font-semibold bg-gradient-to-r from-primary to-secondary hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span>Continue</span>
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-4 w-4" />
             </Button>
           )}
         </div>
