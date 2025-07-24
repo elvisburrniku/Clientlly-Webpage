@@ -43,6 +43,7 @@ interface HelpTopic {
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [currentView, setCurrentView] = useState<'menu' | 'chat' | 'search'>('menu');
   const [messages, setMessages] = useState<Message[]>([]);
@@ -243,8 +244,11 @@ export default function ChatBot() {
       <div className="fixed bottom-6 right-6 z-50 group">
         {/* Chat Widget Button */}
         <button
-          onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
+          onClick={() => {
+            setIsOpen(true);
+            setIsClosing(false);
+          }}
+          className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden hover:scale-110"
         >
           {/* Logo/Brand Icon */}
           <div className="flex items-center justify-center">
@@ -274,8 +278,16 @@ export default function ChatBot() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 animate-in slide-in-from-bottom-4 duration-300">
-      <Card className={`w-80 sm:w-96 transition-all duration-300 shadow-2xl border-0 overflow-hidden ${isMinimized ? 'h-16' : 'h-[500px] sm:h-[544px]'}`}>
+    <div className="fixed bottom-4 right-4 z-50">
+      <Card className={`w-80 sm:w-96 transition-all duration-300 ease-in-out shadow-2xl border-0 overflow-hidden transform ${
+        isMinimized ? 'h-16 scale-95' : 'h-[500px] sm:h-[544px] scale-100'
+      } ${
+        isClosing 
+          ? 'animate-out slide-out-to-bottom-4 fade-out duration-200' 
+          : isOpen 
+            ? 'animate-in slide-in-from-bottom-4 fade-in duration-300' 
+            : ''
+      }`}>
         <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
@@ -301,9 +313,13 @@ export default function ChatBot() {
                 variant="ghost"
                 size="sm"
                 onClick={() => {
-                  setIsOpen(false);
-                  setCurrentView('menu');
-                  setMessages([]);
+                  setIsClosing(true);
+                  setTimeout(() => {
+                    setIsOpen(false);
+                    setIsClosing(false);
+                    setCurrentView('menu');
+                    setMessages([]);
+                  }, 200);
                 }}
                 className="text-white hover:bg-white/20 h-7 w-7 sm:h-8 sm:w-8 p-0 transition-colors"
               >
@@ -314,7 +330,7 @@ export default function ChatBot() {
         </CardHeader>
 
         {!isMinimized && (
-          <CardContent className="p-0 flex flex-col h-[500px]">
+          <CardContent className="p-0 flex flex-col h-[456px] sm:h-[500px]">
             {/* Menu View */}
             {currentView === 'menu' && (
               <div className="flex flex-col h-full">
