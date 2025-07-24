@@ -736,10 +736,30 @@ export default function Landing() {
           <div className="text-center mt-16 fade-in stagger-11">
             <button 
               onClick={() => window.location.href = '/compare-features'}
-              className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-300 font-semibold hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="relative inline-flex items-center px-10 py-5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-2 border-transparent rounded-2xl text-gray-800 dark:text-gray-200 font-bold text-lg hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-800/30 dark:hover:to-purple-800/30 transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 group overflow-hidden backdrop-blur-sm"
             >
-              Compare plan features
-              <ChevronDown className="ml-2 h-5 w-5 group-hover:transform group-hover:rotate-180 transition-transform duration-300" />
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-2xl"></div>
+              
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 flex items-center">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:to-purple-700 transition-all duration-300">
+                  Compare plan features
+                </span>
+                <div className="ml-3 relative">
+                  <ChevronDown className="h-6 w-6 text-blue-600 group-hover:text-purple-600 group-hover:rotate-180 transition-all duration-500 ease-out" />
+                  {/* Pulsing ring around icon */}
+                  <div className="absolute inset-0 rounded-full border-2 border-blue-400 opacity-0 group-hover:opacity-100 animate-ping"></div>
+                </div>
+              </div>
+              
+              {/* Floating particles effect */}
+              <div className="absolute top-2 left-4 w-1 h-1 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300 delay-100"></div>
+              <div className="absolute bottom-3 right-6 w-1 h-1 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300 delay-200"></div>
+              <div className="absolute top-4 right-4 w-1 h-1 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-bounce transition-all duration-300 delay-75"></div>
             </button>
           </div>
         </div>
