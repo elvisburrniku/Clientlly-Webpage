@@ -808,36 +808,9 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             {/* Main Title */}
-            <div className="relative inline-block mb-8">
-              <h2 className="text-6xl lg:text-8xl font-black leading-tight relative z-10">
-                <span className="inline-block text-foreground hover:scale-105 transition-transform duration-300 cursor-default">Let's</span>
-                <br className="block lg:hidden" />
-                <span className="lg:ml-4"></span>
-                <span className="relative inline-block group">
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent font-black animate-gradient-x bg-[length:200%_200%]">grow</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-indigo-600/20 blur-2xl animate-pulse group-hover:blur-3xl transition-all duration-500"></div>
-                </span>
-                <br className="block lg:hidden" />
-                <span className="lg:ml-4"></span>
-                <span className="inline-block text-foreground hover:scale-105 transition-transform duration-300 cursor-default">together</span>
-              </h2>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -left-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-30 animate-bounce"></div>
-              <div className="absolute -bottom-6 -right-6 w-8 h-8 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full blur-lg opacity-40 animate-bounce delay-300"></div>
-            </div>
-            
-            {/* Elegant underline */}
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-blue-500 rounded-full"></div>
-              <div className="w-3 h-3 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-full animate-pulse"></div>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-indigo-500 to-transparent rounded-full"></div>
-            </div>
-            
-            {/* Subtitle */}
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Building the future of business management, one feature at a time
-            </p>
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
+              Let's <span className="text-blue-600">grow</span> together
+            </h2>
           </div>
 
           {/* Content Card */}
