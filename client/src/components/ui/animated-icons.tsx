@@ -3,7 +3,7 @@ import React from 'react';
 // Simple App Store Button
 export const AppStoreIcon = ({ className = "" }: { className?: string }) => (
   <div className={`${className} inline-block cursor-pointer`}>
-    <div className="bg-white text-black border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition-colors min-w-[140px]">
+    <div className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-700 transition-colors min-w-[140px]">
       <div className="text-sm font-medium text-center">Download on the App Store</div>
     </div>
   </div>
@@ -12,7 +12,7 @@ export const AppStoreIcon = ({ className = "" }: { className?: string }) => (
 // Simple Google Play Button  
 export const GooglePlayIcon = ({ className = "" }: { className?: string }) => (
   <div className={`${className} inline-block cursor-pointer`}>
-    <div className="bg-white text-black border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition-colors min-w-[140px]">
+    <div className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-700 transition-colors min-w-[140px]">
       <div className="text-sm font-medium text-center">Get it on Google Play</div>
     </div>
   </div>
@@ -21,7 +21,7 @@ export const GooglePlayIcon = ({ className = "" }: { className?: string }) => (
 // Simple Facebook Button
 export const FacebookIcon = ({ className = "" }: { className?: string }) => (
   <div className={`${className} inline-block cursor-pointer`}>
-    <div className="bg-white text-black border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition-colors min-w-[140px]">
+    <div className="bg-blue-600 text-white border border-blue-500 rounded-lg px-4 py-2 hover:bg-blue-700 transition-colors min-w-[140px]">
       <div className="text-sm font-medium text-center">Facebook</div>
     </div>
   </div>
@@ -30,7 +30,7 @@ export const FacebookIcon = ({ className = "" }: { className?: string }) => (
 // Simple YouTube Button
 export const YouTubeIcon = ({ className = "" }: { className?: string }) => (
   <div className={`${className} inline-block cursor-pointer`}>
-    <div className="bg-white text-black border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition-colors min-w-[140px]">
+    <div className="bg-red-600 text-white border border-red-500 rounded-lg px-4 py-2 hover:bg-red-700 transition-colors min-w-[140px]">
       <div className="text-sm font-medium text-center">YouTube</div>
     </div>
   </div>
