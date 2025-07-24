@@ -699,10 +699,10 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="h-screen bg-white py-2 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-white py-2 px-4 relative">
       {/* Background Grid Pattern - Matching Landing Page */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-      <div className="max-w-6xl mx-auto relative z-10 h-full flex flex-col">
+      <div className="max-w-6xl mx-auto relative z-10 flex flex-col">
         <div className="text-center mb-4 fade-in">
           <div className="flex items-center justify-between mb-3">
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
@@ -729,7 +729,7 @@ export default function Subscribe() {
 
         {renderStepIndicator()}
         
-        <div className="mb-4 flex-1">
+        <div className="mb-4">
           {renderCurrentStep()}
         </div>
 
