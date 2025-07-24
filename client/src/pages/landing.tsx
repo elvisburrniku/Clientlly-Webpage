@@ -1012,7 +1012,7 @@ export default function Landing() {
             {/* Social Media Icons Section */}
             <div className="border-t border-gray-800 pt-8 mb-8">
               <div className="text-center">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Get Our App & Follow Us
                 </h4>
                 <div className="flex justify-center">
@@ -1022,18 +1022,18 @@ export default function Landing() {
             </div>
 
             <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-sm">
-                © 2025 BusinessFlow Pro. landing.footer.rights
+              <div className="text-white text-sm">
+                © 2025 BusinessFlow Pro. All rights reserved.
               </div>
               <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  landing.footer.privacy
+                <a href="#" className="text-white hover:text-blue-300 transition-colors">
+                  Privacy Policy
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  landing.footer.terms
+                <a href="#" className="text-white hover:text-blue-300 transition-colors">
+                  Terms of Service
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  landing.footer.cookies
+                <a href="#" className="text-white hover:text-blue-300 transition-colors">
+                  Cookie Policy
                 </a>
               </div>
             </div>
