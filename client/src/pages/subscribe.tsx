@@ -417,14 +417,14 @@ export default function Subscribe() {
                 onClick={() => setSelectedPlan(plan.id)}
               >
                 {index === 1 && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
-                    <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
+                    <Badge className="bg-blue-600 text-white px-4 py-1 text-sm font-semibold shadow-lg">
                       Most Popular
                     </Badge>
                   </div>
                 )}
                 
-                <CardContent className="p-8">
+                <CardContent className="p-8 pt-10">
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
                     <div className="mt-2 relative">
