@@ -830,11 +830,40 @@ export default function Landing() {
           <div className="text-center mb-16">
 
             <div className="text-center mb-16">
-              <h2 className="text-6xl lg:text-8xl font-black text-foreground leading-tight mb-16">
+              <h2 className="text-6xl lg:text-8xl font-black text-foreground leading-tight mb-12">
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-triple-bounce font-extrabold">
                   Let's go grow together
                 </span>
               </h2>
+              
+              <div className="max-w-4xl mx-auto mb-12">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8 fade-in stagger-2">
+                  Our platform scales with your business. We offer transparent pricing with no hidden fees, 
+                  helping you choose the right plan that grows with your needs. When you subscribe, you become part of our collaborative development process.
+                </p>
+                
+                <p className="text-base text-muted-foreground leading-relaxed mb-8 fade-in stagger-3">
+                  Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
+                  When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                </p>
+                
+                <p className="text-base text-muted-foreground leading-relaxed mb-8 fade-in stagger-4">
+                  <em>With your ideas and feedback, we continuously improve our platform <strong className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">free of charge</strong> because we believe the best growth happens when we grow together.</em>
+                </p>
+                
+                <div className="pt-4 fade-in stagger-5">
+                  <Button 
+                    variant="outline"
+                    onClick={() => window.location.href = '/collaboration'}
+                    className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-base font-semibold shadow-sm hover:shadow-md"
+                  >
+                    <span className="flex items-center">
+                      <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:text-white">Learn more</span>
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </div>
+              </div>
             </div>
             
             <div className="text-center mb-12">
@@ -842,33 +871,7 @@ export default function Landing() {
                 Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
               </h3>
             </div>
-            
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8 fade-in stagger-2">
-              Our platform scales with your business. We offer transparent pricing with no hidden fees, 
-              helping you choose the right plan that grows with your needs. When you subscribe, you become part of our collaborative development process.
-            </p>
-            
-            <p className="text-base text-muted-foreground leading-relaxed mb-8 fade-in stagger-3">
-              Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
-              When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
-            </p>
-            
-            <p className="text-base text-muted-foreground leading-relaxed mb-8 fade-in stagger-4">
-              <em>With your ideas and feedback, we continuously improve our platform <strong className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">free of charge</strong> because we believe the best growth happens when we grow together.</em>
-            </p>
-            
-            <div className="pt-4 fade-in stagger-5">
-              <Button 
-                variant="outline"
-                onClick={() => window.location.href = '/collaboration'}
-                className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-base font-semibold shadow-sm hover:shadow-md"
-              >
-                <span className="flex items-center">
-                  <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:text-white">Learn more</span>
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Button>
-            </div>
+
             
 
           </div>
