@@ -798,153 +798,80 @@ export default function Landing() {
       </section>
 
       {/* Growing Together Section */}
-      <section className="py-32 px-4 relative overflow-hidden">
-        {/* Dynamic Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/50 to-purple-50/50 dark:from-gray-950 dark:via-blue-950/30 dark:to-purple-950/30"></div>
-        
-        {/* Animated Mesh Background */}
-        <div className="absolute inset-0 opacity-20 dark:opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(30deg,transparent_12%,rgba(59,130,246,0.15)_12.5%,rgba(59,130,246,0.15)_87%,transparent_87.5%),linear-gradient(150deg,transparent_12%,rgba(147,51,234,0.15)_12.5%,rgba(147,51,234,0.15)_87%,transparent_87.5%),linear-gradient(30deg,transparent_37%,rgba(99,102,241,0.15)_37.5%,rgba(99,102,241,0.15)_62%,transparent_62.5%)] bg-[length:80px_140px]"></div>
-        </div>
-
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-56 h-56 bg-gradient-to-r from-purple-400/20 to-indigo-400/20 rounded-full blur-3xl animate-float-delayed"></div>
-          <div className="absolute top-1/3 right-10 w-32 h-32 bg-gradient-to-r from-indigo-400/25 to-blue-400/25 rounded-full blur-3xl animate-float-slow"></div>
+      <section className="py-24 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
+        {/* Simple background elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Header Section */}
-          <div className="text-center mb-20">
-            {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/50 dark:to-purple-900/50 rounded-full text-sm font-semibold text-blue-700 dark:text-blue-300 mb-8 border border-blue-200/50 dark:border-blue-700/50">
-              <Heart className="w-4 h-4 mr-2 text-red-500 animate-pulse" />
-              Community-Driven Innovation
-              <Sparkles className="w-4 h-4 ml-2 text-yellow-500 animate-pulse" />
-            </div>
-
-            {/* Main Title with Enhanced Animation */}
-            <h2 className="text-6xl lg:text-8xl font-black text-foreground leading-tight mb-8">
-              <span className="inline-block hover:scale-110 transition-transform duration-300 cursor-default">Let's</span>{' '}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">grow</span>
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-indigo-600/20 blur-lg animate-pulse"></div>
-              </span>{' '}
-              <span className="inline-block hover:scale-110 transition-transform duration-300 cursor-default">together</span>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            {/* Main Title */}
+            <h2 className="text-5xl lg:text-7xl font-black text-foreground leading-tight mb-8">
+              <span className="inline-block">Let's</span>{' '}
+              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">grow</span>{' '}
+              <span className="inline-block">together</span>
             </h2>
-
-            {/* Animated Underline */}
-            <div className="flex justify-center items-center space-x-3 mb-12">
-              <div className="w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-purple-500 rounded-full animate-pulse"></div>
-              <div className="w-2 h-2 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full animate-bounce"></div>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-transparent rounded-full animate-pulse delay-300"></div>
-            </div>
           </div>
 
-          {/* Main Content Container */}
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
-            
-            {/* Left Content - 3 columns */}
-            <div className="lg:col-span-3 space-y-8">
+          {/* Content Card */}
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-3xl p-12 lg:p-16 shadow-2xl border border-white/20 dark:border-gray-700/30 relative overflow-hidden">
               
-              {/* Quote Section */}
-              <div className="relative p-8 lg:p-12 bg-white/90 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/50 dark:border-gray-700/50 group hover:shadow-3xl transition-all duration-700">
-                
-                {/* Quote Mark */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl transform rotate-12 group-hover:rotate-6 transition-transform duration-500">
-                  <span className="text-white text-2xl font-bold">"</span>
+              <div className="text-center space-y-12">
+                {/* Main Quote */}
+                <div className="max-w-4xl mx-auto">
+                  <p className="text-2xl lg:text-3xl text-foreground leading-relaxed font-semibold mb-6">
+                    Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
+                  </p>
+                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                    When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                  </p>
                 </div>
                 
-                <blockquote className="text-xl lg:text-2xl font-semibold text-foreground leading-relaxed italic mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
-                </blockquote>
-                
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="flex -space-x-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 border-2 border-white dark:border-gray-900"></div>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 border-2 border-white dark:border-gray-900"></div>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 border-2 border-white dark:border-gray-900"></div>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-green-600 border-2 border-white dark:border-gray-900 flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">+</span>
-                      </div>
-                    </div>
-                    <span className="text-sm font-medium text-muted-foreground">50,000+ Community Members</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <div className="text-center lg:text-left">
-                <Button 
-                  onClick={() => window.location.href = '/collaboration'}
-                  className="group relative overflow-hidden px-10 py-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white border-0 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105"
-                >
-                  <span className="relative flex items-center">
-                    <Sparkles className="w-5 h-5 mr-3 animate-spin" />
-                    Learn More About Our Community
-                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </span>
-                  
-                  {/* Ripple Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
-                </Button>
-              </div>
-            </div>
-
-            {/* Right Content - 2 columns */}
-            <div className="lg:col-span-2">
-              <div className="space-y-6">
-                
-                {/* Your Ideas */}
-                <div className="group bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/50 dark:to-blue-900/30 rounded-3xl p-8 hover:shadow-xl transition-all duration-500 hover:scale-[1.02] border border-blue-200/50 dark:border-blue-700/30">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                {/* Feature Highlights */}
+                <div className="grid md:grid-cols-3 gap-8 mt-16">
+                  {/* Your Ideas */}
+                  <div className="group text-center p-8 bg-blue-50/50 dark:bg-blue-900/20 rounded-2xl hover:bg-blue-100/80 dark:hover:bg-blue-900/40 transition-all duration-300 hover:scale-105">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Lightbulb className="h-8 w-8 text-white" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-2xl font-bold text-foreground mb-3 group-hover:text-blue-600 transition-colors duration-300">Your Ideas</h4>
-                      <p className="text-muted-foreground leading-relaxed mb-4">Share your vision and we'll make it reality</p>
-                      <div className="w-full bg-blue-200/50 dark:bg-blue-800/30 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full w-4/5 group-hover:w-full transition-all duration-700"></div>
-                      </div>
-                    </div>
+                    <h4 className="text-xl font-bold text-foreground mb-3">Your Ideas</h4>
+                    <p className="text-muted-foreground">Share your vision and we'll make it reality</p>
                   </div>
-                </div>
-
-                {/* Fast Development */}
-                <div className="group bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-950/50 dark:to-purple-900/30 rounded-3xl p-8 hover:shadow-xl transition-all duration-500 hover:scale-[1.02] border border-purple-200/50 dark:border-purple-700/30">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  
+                  {/* Fast Development */}
+                  <div className="group text-center p-8 bg-purple-50/50 dark:bg-purple-900/20 rounded-2xl hover:bg-purple-100/80 dark:hover:bg-purple-900/40 transition-all duration-300 hover:scale-105 delay-100">
+                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                       <Zap className="h-8 w-8 text-white" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-2xl font-bold text-foreground mb-3 group-hover:text-purple-600 transition-colors duration-300">Fast Development</h4>
-                      <p className="text-muted-foreground leading-relaxed mb-4">Ideas become features in record time</p>
-                      <div className="w-full bg-purple-200/50 dark:bg-purple-800/30 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full w-5/6 group-hover:w-full transition-all duration-700"></div>
-                      </div>
-                    </div>
+                    <h4 className="text-xl font-bold text-foreground mb-3">Fast Development</h4>
+                    <p className="text-muted-foreground">Ideas become features in record time</p>
                   </div>
-                </div>
-
-                {/* Mutual Growth */}
-                <div className="group bg-gradient-to-br from-indigo-50 to-indigo-100/50 dark:from-indigo-950/50 dark:to-indigo-900/30 rounded-3xl p-8 hover:shadow-xl transition-all duration-500 hover:scale-[1.02] border border-indigo-200/50 dark:border-indigo-700/30">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  
+                  {/* Mutual Growth */}
+                  <div className="group text-center p-8 bg-indigo-50/50 dark:bg-indigo-900/20 rounded-2xl hover:bg-indigo-100/80 dark:hover:bg-indigo-900/40 transition-all duration-300 hover:scale-105 delay-200">
+                    <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                       <TrendingUp className="h-8 w-8 text-white" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-2xl font-bold text-foreground mb-3 group-hover:text-indigo-600 transition-colors duration-300">Mutual Growth</h4>
-                      <p className="text-muted-foreground leading-relaxed mb-4">We succeed when you succeed</p>
-                      <div className="w-full bg-indigo-200/50 dark:bg-indigo-800/30 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 h-2 rounded-full w-full transition-all duration-700"></div>
-                      </div>
-                    </div>
+                    <h4 className="text-xl font-bold text-foreground mb-3">Mutual Growth</h4>
+                    <p className="text-muted-foreground">We succeed when you succeed</p>
                   </div>
                 </div>
-
+                
+                {/* Call to Action */}
+                <div className="pt-8">
+                  <Button 
+                    onClick={() => window.location.href = '/collaboration'}
+                    className="group px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  >
+                    <span className="flex items-center">
+                      Learn More About Our Community
+                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
