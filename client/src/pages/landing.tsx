@@ -389,14 +389,14 @@ export default function Landing() {
                   </button>
                 </div>
                 
-                <div className="flex flex-wrap justify-center items-center gap-6 mt-6 fade-in stagger-3">
-                  <div className="flex items-center space-x-2 px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-200/50 dark:border-gray-600/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
+                  <div className="flex items-center space-x-2 px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-200/50 dark:border-gray-600/50 shadow-sm">
                     <Check className="h-4 w-4 text-green-500" />
                     <span className="text-sm font-medium text-foreground">No credit card required</span>
                   </div>
-                  <div className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-pulse">
-                    <Clock className="h-5 w-5 text-white animate-spin" />
-                    <span className="text-base font-bold text-white">14-day free trial</span>
+                  <div className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-md">
+                    <Clock className="h-4 w-4 text-white" />
+                    <span className="text-sm font-semibold text-white">14-day free trial</span>
                   </div>
                 </div>
               </div>

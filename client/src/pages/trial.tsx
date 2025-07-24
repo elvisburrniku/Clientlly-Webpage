@@ -119,23 +119,22 @@ export default function Trial() {
             </p>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-6 fade-in stagger-2">
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-600/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <CheckCircle className="h-6 w-6 text-green-500 animate-bounce" />
-                <span className="text-lg font-semibold text-foreground">No credit card required</span>
+            <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-2">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+                <span className="font-medium">No credit card required</span>
               </div>
-              <div className="flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 animate-pulse">
-                <Clock className="h-7 w-7 text-white animate-spin" />
-                <span className="text-xl font-bold text-white tracking-wide">14-day free trial</span>
-                <Sparkles className="h-6 w-6 text-yellow-200 animate-ping" />
+              <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-md">
+                <Clock className="h-5 w-5 text-white" />
+                <span className="font-semibold text-white">14-day free trial</span>
               </div>
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-600/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <CheckCircle className="h-6 w-6 text-green-500 animate-bounce" style={{animationDelay: '0.2s'}} />
-                <span className="text-lg font-semibold text-foreground">Full feature access</span>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+                <span className="font-medium">Full feature access</span>
               </div>
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-600/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <Shield className="h-6 w-6 text-green-500 animate-bounce" style={{animationDelay: '0.4s'}} />
-                <span className="text-lg font-semibold text-foreground">100% secure</span>
+              <div className="flex items-center space-x-2">
+                <Shield className="h-5 w-5 text-green-500" />
+                <span className="font-medium">100% secure</span>
               </div>
             </div>
           </div>
