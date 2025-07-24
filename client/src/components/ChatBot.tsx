@@ -249,7 +249,7 @@ export default function ChatBot() {
           {/* Logo/Brand Icon */}
           <div className="flex items-center justify-center">
             <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BF</span>
+              <MessageCircle className="h-5 w-5 text-white" />
             </div>
           </div>
           
@@ -281,7 +281,7 @@ export default function ChatBot() {
             <div className="flex items-center space-x-3">
               {/* Logo matching the button */}
               <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">BF</span>
+                <MessageCircle className="h-5 w-5 text-white" />
               </div>
               <div>
                 <CardTitle className="text-sm font-semibold">BusinessFlow Pro</CardTitle>
@@ -329,7 +329,7 @@ export default function ChatBot() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
                       <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                        <span className="text-xs text-white font-medium">BP</span>
+                        <MessageCircle className="h-3 w-3 text-white" />
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Recent message</p>
