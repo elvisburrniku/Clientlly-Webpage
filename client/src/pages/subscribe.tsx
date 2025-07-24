@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2 } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2, Headphones } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -337,41 +337,38 @@ export default function Subscribe() {
   );
 
   const renderPlanSelection = () => (
-    <Card className="max-w-6xl mx-auto glass-effect border-white/20 shadow-2xl fade-in-up" style={{ animationDelay: '0.3s' }}>
-      <CardHeader className="text-center pb-8">
-        <CardTitle className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-gradient-text">
-          Choose Your Plan
-        </CardTitle>
-        <p className="text-muted-foreground mt-2 text-lg fade-in-up" style={{ animationDelay: '0.4s' }}>
-          Select the perfect plan for your business needs
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-8">
-        <div className="flex justify-center fade-in-up" style={{ animationDelay: '0.5s' }}>
-          <div className="flex items-center space-x-2 p-1 bg-gradient-to-r from-muted/50 to-muted/30 rounded-xl backdrop-blur-sm border border-white/20">
-            <button
-              onClick={() => setBillingPeriod('monthly')}
-              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 ${
-                billingPeriod === 'monthly' 
-                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
-                  : 'text-muted-foreground hover:text-foreground hover:bg-white/10'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingPeriod('yearly')}
-              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 relative ${
-                billingPeriod === 'yearly' 
-                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
-                  : 'text-muted-foreground hover:text-foreground hover:bg-white/10'
-              }`}
-            >
-              Yearly
-              <Badge className="ml-2 bg-green-500 animate-pulse">Save 17%</Badge>
-            </button>
+    <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
+      <div className="text-center mb-12">
+        <div className="flex justify-center mb-8">
+          <div className="glass-effect border border-white/30 rounded-2xl p-2 backdrop-blur-sm">
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={() => setBillingPeriod('monthly')}
+                className={`px-8 py-3 rounded-xl text-base font-semibold transition-all duration-500 hover:scale-105 ${
+                  billingPeriod === 'monthly' 
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
+                    : 'text-foreground/70 hover:text-foreground hover:bg-white/20'
+                }`}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingPeriod('yearly')}
+                className={`px-8 py-3 rounded-xl text-base font-semibold transition-all duration-500 hover:scale-105 relative ${
+                  billingPeriod === 'yearly' 
+                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
+                    : 'text-foreground/70 hover:text-foreground hover:bg-white/20'
+                }`}
+              >
+                Yearly
+                <Badge className="ml-2 bg-green-500 text-white text-xs animate-pulse">Save 17%</Badge>
+              </button>
+            </div>
           </div>
         </div>
+      </div>
+      
+      <CardContent className="space-y-8 p-0">
 
         <div className="grid md:grid-cols-3 gap-6">
           {plansLoading ? (
@@ -473,7 +470,7 @@ export default function Subscribe() {
           )}
         </div>
       </CardContent>
-    </Card>
+    </div>
   );
 
   const renderAccountCreation = () => (
@@ -678,57 +675,87 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 py-8 px-4 relative overflow-hidden">
-      {/* Animated Background Elements */}
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/20 to-orange-50/20 dark:from-gray-900 dark:via-purple-900/10 dark:to-orange-900/10 py-8 px-4 relative overflow-hidden">
+      {/* Background Grid and Elements - Matching Landing Page */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl floating-element"></div>
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl floating-slow"></div>
-        <div className="absolute top-1/2 right-10 w-64 h-64 bg-green-300/15 rounded-full blur-3xl floating-element"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        {/* Subtle Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:20px_20px] opacity-40"></div>
+        
+        {/* Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white/80 dark:via-gray-900/60 dark:to-gray-900/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-purple-50/30 dark:to-purple-900/20"></div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-32 left-16 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-transparent rounded-full blur-3xl floating-element opacity-60"></div>
+        <div className="absolute bottom-32 right-20 w-80 h-80 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-3xl floating-slow opacity-50"></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-transparent rounded-full blur-3xl floating-element opacity-40"></div>
       </div>
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12 fade-in">
-          <div className="flex items-center justify-between mb-8">
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300 glass-effect px-4 py-2 rounded-xl border border-white/20 hover:scale-105">
-              <div className="relative overflow-hidden rounded-lg">
-                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
+        <div className="text-center mb-16 fade-in">
+          <div className="flex items-center justify-between mb-12">
+            <Link href="/" className="flex items-center space-x-3 group transition-all duration-500 hover:scale-105">
+              <div className="relative overflow-hidden rounded-2xl p-2 glass-effect border border-white/30">
+                <div className="bg-white dark:bg-transparent p-1 rounded-xl">
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-simple cursor-pointer"
+                    className="w-10 h-8 object-contain"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-secondary/0 group-hover:from-primary/15 group-hover:to-secondary/15 transition-all duration-500 rounded-lg"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-secondary/0 group-hover:from-primary/10 group-hover:to-secondary/10 transition-all duration-500 rounded-2xl"></div>
               </div>
-              <span className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300">
+              <span className="text-lg font-bold bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent group-hover:from-primary group-hover:to-secondary transition-all duration-500">
                 BusinessFlow Pro
               </span>
             </Link>
-            <LanguageSelector />
+            <div className="glass-effect border border-white/30 rounded-2xl p-1">
+              <LanguageSelector />
+            </div>
           </div>
           
-          <div className="mb-8 fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-4 animate-gradient-text">
-              Start Your Journey
+          <div className="mb-12 fade-in-up space-y-6" style={{ animationDelay: '0.1s' }}>
+            <div className="inline-block">
+              <Badge className="bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border-primary/20 px-4 py-2 text-sm font-medium">
+                🚀 Start Your Business Transformation
+              </Badge>
+            </div>
+            <h1 className="text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-6 animate-gradient-text leading-tight">
+              Choose Your Plan
             </h1>
-            <p className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed">
-              {t('subscribe.title', 'Complete your subscription in just a few steps and transform your business operations')}
+            <p className="text-foreground/70 text-xl max-w-3xl mx-auto leading-relaxed font-medium">
+              {t('subscribe.title', 'Join thousands of businesses already transforming their operations with our comprehensive platform')}
             </p>
           </div>
           
-          <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="flex items-center space-x-2">
-              <Shield className="h-5 w-5 text-green-500" />
-              <span>Secure Payment</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8 fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="glass-effect border border-white/30 rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Shield className="h-5 w-5 text-white" />
+                </div>
+                <span className="font-semibold text-foreground">Bank-Level Security</span>
+              </div>
+              <p className="text-sm text-foreground/60">256-bit SSL encryption protects all your data</p>
             </div>
-            <div className="flex items-center space-x-2">
-              <Check className="h-5 w-5 text-green-500" />
-              <span>14-Day Free Trial</span>
+            
+            <div className="glass-effect border border-white/30 rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Check className="h-5 w-5 text-white" />
+                </div>
+                <span className="font-semibold text-foreground">14-Day Free Trial</span>
+              </div>
+              <p className="text-sm text-foreground/60">Full access to all features, no commitments</p>
             </div>
-            <div className="flex items-center space-x-2">
-              <CreditCard className="h-5 w-5 text-green-500" />
-              <span>No Setup Fees</span>
+            
+            <div className="glass-effect border border-white/30 rounded-2xl p-6 hover:scale-105 transition-all duration-300 group">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Headphones className="h-5 w-5 text-white" />
+                </div>
+                <span className="font-semibold text-foreground">24/7 Support</span>
+              </div>
+              <p className="text-sm text-foreground/60">Expert help whenever you need it</p>
             </div>
           </div>
         </div>
