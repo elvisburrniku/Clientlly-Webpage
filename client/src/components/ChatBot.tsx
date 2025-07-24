@@ -284,7 +284,7 @@ export default function ChatBot() {
                 <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
               <div className="flex-1 min-w-0">
-                <CardTitle className="text-sm font-semibold truncate">BusinessFlow Pro</CardTitle>
+                <CardTitle className="text-sm font-semibold text-white truncate">BusinessFlow Pro</CardTitle>
                 <p className="text-xs text-blue-100 truncate">Support Team • Online now</p>
               </div>
             </div>
