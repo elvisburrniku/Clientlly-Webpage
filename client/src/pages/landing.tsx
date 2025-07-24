@@ -842,6 +842,15 @@ export default function Landing() {
         </div>
         
         <div className="max-w-4xl mx-auto relative z-10">
+          {/* Animated Title */}
+          <div className="text-center mb-12">
+            <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <span className="gradient-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
+                Let's go grow together
+              </span>
+            </h2>
+          </div>
+          
           {/* Original Content Card with Revolutionary Background */}
           <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
             
