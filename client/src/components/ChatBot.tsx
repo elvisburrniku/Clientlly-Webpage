@@ -143,8 +143,8 @@ export default function ChatBot() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <Card className={`w-80 sm:w-96 transition-all duration-300 ease-in-out shadow-2xl border-0 overflow-hidden transform ${
-        isMinimized ? 'h-16 scale-95' : 'h-[520px] sm:h-[560px] scale-100'
+      <Card className={`w-84 sm:w-[420px] transition-all duration-300 ease-in-out shadow-2xl border-0 overflow-hidden transform ${
+        isMinimized ? 'h-16 scale-95' : 'h-[560px] sm:h-[600px] scale-100'
       } ${
         isClosing 
           ? 'animate-out slide-out-to-bottom-4 fade-out duration-200' 
@@ -193,7 +193,7 @@ export default function ChatBot() {
         </CardHeader>
 
         {!isMinimized && (
-          <CardContent className="p-0 flex flex-col h-[476px] sm:h-[516px]">
+          <CardContent className="p-0 flex flex-col h-[516px] sm:h-[556px]">
             {/* Menu View */}
             {currentView === 'menu' && (
               <div className="flex flex-col h-full min-h-0">
