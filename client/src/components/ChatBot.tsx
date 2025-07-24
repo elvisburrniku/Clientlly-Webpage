@@ -28,6 +28,11 @@ export default function ChatBot() {
   const [isTyping, setIsTyping] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // Onboarding tour state
+  const [showTour, setShowTour] = useState(false);
+  const [tourStep, setTourStep] = useState(0);
+  const [hasSeenTour, setHasSeenTour] = useState(false);
 
   const helpTopics: HelpTopic[] = [
     { id: '1', title: 'Pricing & Plans', description: 'Learn about our subscription options', icon: DollarSign },
@@ -45,6 +50,80 @@ export default function ChatBot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Start tour when chat opens for first time
+  useEffect(() => {
+    if (isOpen && !hasSeenTour && !isMinimized) {
+      const timer = setTimeout(() => {
+        setShowTour(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, hasSeenTour, isMinimized]);
+
+  const tourSteps = [
+    {
+      target: 'chat-header',
+      title: 'Welcome to BusinessFlow Pro Support',
+      description: 'This is your AI-powered support assistant. Get instant help with any questions about our platform.',
+      position: 'bottom'
+    },
+    {
+      target: 'help-topics',
+      title: 'Quick Help Topics',
+      description: 'Click on any topic to get instant answers about pricing, features, demos, and more.',
+      position: 'top'
+    },
+    {
+      target: 'send-message',
+      title: 'Start a Conversation',
+      description: 'Click here to start chatting directly with our AI support bot for personalized assistance.',
+      position: 'top'
+    },
+    {
+      target: 'bottom-nav',
+      title: 'Easy Navigation',
+      description: 'Use these buttons to switch between Home, Messages, and Help sections quickly.',
+      position: 'top'
+    },
+    {
+      target: 'minimize-close',
+      title: 'Chat Controls',
+      description: 'Minimize the chat or close it when you\'re done. We\'re always here when you need us!',
+      position: 'bottom'
+    }
+  ];
+
+  const nextTourStep = () => {
+    if (tourStep < tourSteps.length - 1) {
+      setTourStep(tourStep + 1);
+    } else {
+      setShowTour(false);
+      setHasSeenTour(true);
+      localStorage.setItem('chat-tour-seen', 'true');
+    }
+  };
+
+  const skipTour = () => {
+    setShowTour(false);
+    setHasSeenTour(true);
+    localStorage.setItem('chat-tour-seen', 'true');
+  };
+
+  const restartTour = () => {
+    setTourStep(0);
+    setShowTour(true);
+    setHasSeenTour(false);
+    setCurrentView('menu');
+  };
+
+  // Check if user has seen tour before
+  useEffect(() => {
+    const tourSeen = localStorage.getItem('chat-tour-seen');
+    if (tourSeen) {
+      setHasSeenTour(true);
+    }
+  }, []);
 
   const startChat = (initialMessage?: string) => {
     setCurrentView('chat');
@@ -102,7 +181,7 @@ export default function ChatBot() {
     }, 1000 + Math.random() * 1000);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
@@ -152,7 +231,14 @@ export default function ChatBot() {
             ? 'animate-in slide-in-from-bottom-4 fade-in duration-300' 
             : ''
       }`}>
-        <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4 flex-shrink-0">
+        <CardHeader 
+          id="chat-header"
+          className={`bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4 flex-shrink-0 relative transition-all duration-300 ${
+            showTour && tourSteps[tourStep]?.target === 'chat-header' 
+              ? 'ring-4 ring-yellow-400 ring-opacity-80 shadow-2xl z-[55]' 
+              : ''
+          }`}
+        >
           <div className="flex items-center justify-between min-h-[44px]">
             <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
               <div className="w-8 h-8 sm:w-9 sm:h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
@@ -163,7 +249,14 @@ export default function ChatBot() {
                 <p className="text-xs sm:text-sm text-blue-100 truncate leading-tight">Support bot • AI Agent</p>
               </div>
             </div>
-            <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
+            <div 
+              id="minimize-close" 
+              className={`flex items-center space-x-1 sm:space-x-2 flex-shrink-0 transition-all duration-300 ${
+                showTour && tourSteps[tourStep]?.target === 'minimize-close' 
+                  ? 'ring-4 ring-yellow-400 ring-opacity-80 shadow-lg z-[55] relative rounded-lg' 
+                  : ''
+              }`}
+            >
               <Button
                 variant="ghost"
                 size="sm"
@@ -198,7 +291,15 @@ export default function ChatBot() {
             {currentView === 'menu' && (
               <div className="flex flex-col h-full min-h-0">
                 <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-b border-blue-200">
-                  <h3 className="text-lg font-semibold text-blue-900 mb-2">Hello there.</h3>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-lg font-semibold text-blue-900">Hello there.</h3>
+                    <button
+                      onClick={restartTour}
+                      className="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors"
+                    >
+                      Tour
+                    </button>
+                  </div>
                   <p className="text-blue-700">How can we help?</p>
                 </div>
 
@@ -223,8 +324,13 @@ export default function ChatBot() {
                 </div>
 
                 <button 
+                  id="send-message"
                   onClick={() => startChat()}
-                  className="px-3 sm:px-4 py-4 border-b border-blue-200 bg-white hover:bg-blue-50 transition-colors text-left flex items-center justify-between"
+                  className={`px-3 sm:px-4 py-4 border-b border-blue-200 bg-white hover:bg-blue-50 transition-all duration-300 text-left flex items-center justify-between ${
+                    showTour && tourSteps[tourStep]?.target === 'send-message' 
+                      ? 'ring-4 ring-yellow-400 ring-opacity-80 shadow-lg z-[55] relative' 
+                      : ''
+                  }`}
                 >
                   <div className="flex items-center space-x-3">
                     <MessageSquare className="h-5 w-5 text-blue-600" />
@@ -244,7 +350,14 @@ export default function ChatBot() {
                   <Search className="h-4 w-4 text-gray-400" />
                 </button>
 
-                <div className="flex-1 overflow-y-auto bg-white min-h-0">
+                <div 
+                  id="help-topics" 
+                  className={`flex-1 overflow-y-auto bg-white min-h-0 transition-all duration-300 ${
+                    showTour && tourSteps[tourStep]?.target === 'help-topics' 
+                      ? 'ring-4 ring-yellow-400 ring-opacity-80 shadow-lg z-[55] relative' 
+                      : ''
+                  }`}
+                >
                   {helpTopics.map((topic) => {
                     const IconComponent = topic.icon;
                     return (
@@ -266,7 +379,14 @@ export default function ChatBot() {
                   })}
                 </div>
 
-                <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
+                <div 
+                  id="bottom-nav" 
+                  className={`flex border-t border-blue-200 bg-blue-50 mt-auto transition-all duration-300 ${
+                    showTour && tourSteps[tourStep]?.target === 'bottom-nav' 
+                      ? 'ring-4 ring-yellow-400 ring-opacity-80 shadow-lg z-[55] relative' 
+                      : ''
+                  }`}
+                >
                   <button 
                     onClick={() => setCurrentView('menu')}
                     className="flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors bg-blue-100"
@@ -296,11 +416,19 @@ export default function ChatBot() {
             {currentView === 'search' && (
               <div className="flex flex-col h-full bg-white">
                 <div className="p-3 sm:p-4 border-b border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100">
-                  <div className="flex items-center space-x-2 mb-3">
-                    <button onClick={() => setCurrentView('menu')}>
-                      <ArrowLeft className="h-5 w-5 text-blue-700" />
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center space-x-2">
+                      <button onClick={() => setCurrentView('menu')}>
+                        <ArrowLeft className="h-5 w-5 text-blue-700" />
+                      </button>
+                      <h3 className="text-lg font-semibold text-blue-900">Search for help</h3>
+                    </div>
+                    <button
+                      onClick={restartTour}
+                      className="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors"
+                    >
+                      Tour
                     </button>
-                    <h3 className="text-lg font-semibold text-blue-900">Search for help</h3>
                   </div>
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
@@ -445,6 +573,64 @@ export default function ChatBot() {
               </div>
             )}
           </CardContent>
+        )}
+
+        {/* Tour Overlay */}
+        {showTour && (
+          <div className="fixed inset-0 z-[60] bg-black/50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-lg shadow-2xl max-w-md w-full mx-4 animate-in fade-in duration-300">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                      <span className="text-white text-sm font-medium">{tourStep + 1}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {tourSteps[tourStep]?.title}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={skipTour}
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+                
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {tourSteps[tourStep]?.description}
+                </p>
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex space-x-1">
+                    {tourSteps.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-2 h-2 rounded-full transition-colors ${
+                          index === tourStep ? 'bg-blue-600' : 'bg-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center space-x-3">
+                    <button
+                      onClick={skipTour}
+                      className="text-gray-500 hover:text-gray-700 transition-colors text-sm font-medium"
+                    >
+                      Skip tour
+                    </button>
+                    <button
+                      onClick={nextTourStep}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                    >
+                      {tourStep < tourSteps.length - 1 ? 'Next' : 'Get Started'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </Card>
     </div>
