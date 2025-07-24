@@ -914,23 +914,27 @@ export default function Landing() {
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#features" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Features
+                    <a href="#features" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Features</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#pricing" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Pricing
+                    <a href="#pricing" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Pricing</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Integrations
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Integrations</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      API
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">API</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
@@ -943,18 +947,21 @@ export default function Landing() {
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="/about" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      About
+                    <a href="/about" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">About</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Careers
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Careers</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Contact
+                    <a href="#contact" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Contact</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
@@ -967,18 +974,21 @@ export default function Landing() {
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Help Center
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Help Center</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Tutorials
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Tutorials</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Community
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Community</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
@@ -991,18 +1001,21 @@ export default function Landing() {
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Blog
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Blog</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Webinars
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Webinars</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
-                      Case Studies
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Case Studies</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
@@ -1026,14 +1039,17 @@ export default function Landing() {
                       © 2025 BusinessFlow Pro. All rights reserved.
                     </div>
                     <div className="flex space-x-6 text-sm">
-                      <a href="#" className="text-white/80 hover:text-white transition-colors">
-                        Privacy Policy
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Privacy Policy</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
                       </a>
-                      <a href="#" className="text-white/80 hover:text-white transition-colors">
-                        Terms of Service
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Terms of Service</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
                       </a>
-                      <a href="#" className="text-white/80 hover:text-white transition-colors">
-                        Cookie Policy
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Cookie Policy</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
                       </a>
                     </div>
                   </div>
