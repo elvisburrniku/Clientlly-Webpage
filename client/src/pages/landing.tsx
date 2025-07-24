@@ -736,7 +736,7 @@ export default function Landing() {
           <div className="text-center mt-16 fade-in stagger-11">
             <button 
               onClick={() => window.location.href = '/compare-features'}
-              className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-xl font-bold text-lg shadow-xl transform transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-95 active:shadow-lg group overflow-hidden"
+              className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-xl font-bold text-lg transform transition-all duration-300 hover:scale-105 active:scale-95 group overflow-hidden"
               onMouseDown={(e) => {
                 // Create expanding circle effect on click
                 const button = e.currentTarget;
