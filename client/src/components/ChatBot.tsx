@@ -154,16 +154,16 @@ export default function ChatBot() {
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           onClick={() => setIsOpen(true)}
-          className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-300 group border-4 border-white/20 hover:border-white/40"
+          className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-300 group border-4 border-white/30 hover:border-white/50"
           size="lg"
         >
-          <MessageCircle className="h-8 w-8 text-white group-hover:scale-110 transition-transform drop-shadow-lg" />
+          <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+            <MessageCircle className="h-6 w-6 text-white font-bold stroke-2" />
+          </div>
         </Button>
         <div className="absolute -top-14 right-0 bg-black text-white text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
           Chat with AI Assistant
         </div>
-        {/* Pulsing ring animation */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-ping opacity-20"></div>
       </div>
     );
   }
