@@ -98,7 +98,7 @@ export default function Collaboration() {
               <img 
                 src={logoPath} 
                 alt="BusinessFlow Pro" 
-                className="w-12 h-9 relative z-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110 filter drop-shadow-lg"
+                className="w-12 h-9 relative z-10 logo-simple filter drop-shadow-lg"
               />
             </div>
           </Link>

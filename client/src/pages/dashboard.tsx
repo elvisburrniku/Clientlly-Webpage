@@ -228,14 +228,7 @@ export default function Dashboard() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         
-        {/* Subtle 3D Logo Background */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-3 dark:opacity-5 floating-slow">
-          <img 
-            src="/attached_assets/3d_1753268267691.png" 
-            alt="" 
-            className="w-96 h-96 object-contain rotate-6 transform"
-          />
-        </div>
+
       </div>
 
       {/* Navigation */}
@@ -248,7 +241,7 @@ export default function Dashboard() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-10 h-8 object-contain logo-bounce cursor-pointer"
+                    className="w-10 h-8 object-contain logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-orange-500/0 group-hover:from-purple-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>

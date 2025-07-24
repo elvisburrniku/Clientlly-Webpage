@@ -46,7 +46,7 @@ export default function Login() {
               <img 
                 src="/attached_assets/3d_1753268267691.png" 
                 alt="BusinessFlow Pro" 
-                className="w-12 h-9 object-contain logo-playful"
+                className="w-12 h-9 object-contain logo-simple"
                 style={{ filter: 'drop-shadow(0 0 0 transparent)', background: 'transparent' }}
               />
               <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>

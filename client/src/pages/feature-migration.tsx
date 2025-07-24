@@ -23,7 +23,7 @@ export default function FeatureMigration() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="h-10 w-auto logo-glow cursor-pointer"
+                    className="h-10 w-auto logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-500/0 to-green-500/0 group-hover:from-teal-500/15 group-hover:to-green-500/15 transition-all duration-500 rounded-lg"></div>

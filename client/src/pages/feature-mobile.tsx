@@ -32,7 +32,7 @@ export default function FeatureMobile() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-playful cursor-pointer"
+                    className="w-12 h-9 object-contain logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-emerald-500/0 group-hover:from-green-500/20 group-hover:to-emerald-500/20 transition-all duration-500 rounded-lg"></div>

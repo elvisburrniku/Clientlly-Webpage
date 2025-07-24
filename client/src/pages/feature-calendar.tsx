@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Calendar, Clock, Bell, Users, Video, CheckCircle, TrendingUp, Zap, Target, Globe, Smartphone } from "lucide-react";
 
@@ -34,7 +35,7 @@ export default function FeatureCalendar() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-10 h-8 sm:w-12 sm:h-9 object-contain logo-bounce cursor-pointer"
+                    className="w-10 h-8 sm:w-12 sm:h-9 object-contain logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-500/0 to-purple-500/0 group-hover:from-violet-500/15 group-hover:to-purple-500/15 transition-all duration-500 rounded-lg"></div>

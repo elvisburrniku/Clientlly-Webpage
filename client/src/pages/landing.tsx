@@ -196,7 +196,7 @@ export default function Landing() {
                 <img 
                   src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-playful cursor-pointer"
+                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
                   style={{ 
                     filter: 'drop-shadow(0 0 0 transparent)',
                     background: 'transparent'

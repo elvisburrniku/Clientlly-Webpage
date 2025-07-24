@@ -32,7 +32,7 @@ export default function FeatureReports() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-rainbow cursor-pointer"
+                    className="w-12 h-9 object-contain logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/15 group-hover:to-purple-500/15 transition-all duration-500 rounded-lg"></div>

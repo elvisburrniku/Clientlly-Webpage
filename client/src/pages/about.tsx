@@ -186,7 +186,7 @@ export default function About() {
                 <img 
                   src={logoPath} 
                   alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:brightness-110"
+                  className="w-12 h-9 object-contain logo-simple"
                 />
               </div>
             </Link>

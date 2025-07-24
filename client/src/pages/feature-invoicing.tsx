@@ -71,7 +71,7 @@ export default function FeatureInvoicing() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-10 h-8 sm:w-16 sm:h-12 object-contain logo-rainbow cursor-pointer"
+                    className="w-10 h-8 sm:w-16 sm:h-12 object-contain logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 to-cyan-500/0 group-hover:from-indigo-500/15 group-hover:to-cyan-500/15 transition-all duration-500 rounded-lg"></div>

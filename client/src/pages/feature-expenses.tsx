@@ -71,7 +71,7 @@ export default function FeatureExpenses() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-glow cursor-pointer"
+                    className="w-12 h-9 object-contain logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-500/0 to-pink-500/0 group-hover:from-rose-500/15 group-hover:to-pink-500/15 transition-all duration-500 rounded-lg"></div>

@@ -35,7 +35,7 @@ export default function FeatureVendors() {
                   <img 
                     src="/attached_assets/3d_1753268267691.png" 
                     alt="BusinessFlow Pro" 
-                    className="w-10 h-8 sm:w-12 sm:h-9 object-contain logo-pulse cursor-pointer"
+                    className="w-10 h-8 sm:w-12 sm:h-9 object-contain logo-simple cursor-pointer"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 to-orange-500/0 group-hover:from-amber-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>
