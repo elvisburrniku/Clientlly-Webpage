@@ -374,7 +374,7 @@ export default function Landing() {
               
               <div className="max-w-5xl mx-auto space-y-8">
                 <p className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1">
-                  Streamline operations, boost productivity, and accelerate growth with our all-in-one business solution.
+                  Empower your small business to compete with enterprise-level efficiency. Streamline operations, boost productivity, and accelerate growth with our comprehensive solution.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in stagger-2">
