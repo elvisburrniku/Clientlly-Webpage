@@ -337,16 +337,16 @@ export default function Subscribe() {
   );
 
   const renderPlanSelection = () => (
-    <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
-      <div className="text-center mb-12">
-        <div className="flex justify-center mb-8">
-          <div className="bg-gray-200 rounded-lg p-1">
+    <div className="max-w-6xl mx-auto fade-in-up flex-1 flex flex-col justify-center" style={{ animationDelay: '0.3s' }}>
+      <div className="text-center mb-8">
+        <div className="flex justify-center mb-6">
+          <div className="bg-gray-200 rounded-lg p-1 transition-all duration-300 hover:shadow-md">
             <div className="flex items-center space-x-1">
               <button
                 onClick={() => setBillingPeriod('monthly')}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
                   billingPeriod === 'monthly' 
-                    ? 'bg-white text-black shadow-sm' 
+                    ? 'bg-white text-black shadow-sm scale-105' 
                     : 'text-black hover:text-black hover:bg-white/50'
                 }`}
               >
@@ -354,23 +354,23 @@ export default function Subscribe() {
               </button>
               <button
                 onClick={() => setBillingPeriod('yearly')}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative ${
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative transform hover:scale-105 ${
                   billingPeriod === 'yearly' 
-                    ? 'bg-white text-black shadow-sm' 
+                    ? 'bg-white text-black shadow-sm scale-105' 
                     : 'text-black hover:text-black hover:bg-white/50'
                 }`}
               >
                 Yearly
-                <Badge className="ml-2 bg-green-500 text-white text-xs">Save 17%</Badge>
+                <Badge className="ml-2 bg-green-500 text-white text-xs animate-pulse">Save 17%</Badge>
               </button>
             </div>
           </div>
         </div>
       </div>
       
-      <CardContent className="space-y-8 p-0">
+      <CardContent className="space-y-6 p-0">
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4">
           {plansLoading ? (
             // Skeleton loading states
             Array.from({ length: 3 }).map((_, index) => (
@@ -401,9 +401,9 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`cursor-pointer transition-all duration-300 hover:shadow-lg fade-in-up relative ${
-                  isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-xl' : 'bg-white hover:bg-gray-50 border-gray-200'
-                } ${index === 1 ? 'border-2 border-blue-500' : ''}`}
+                className={`cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 fade-in-up relative transform ${
+                  isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-xl scale-105' : 'bg-white hover:bg-gray-50 border-gray-200'
+                } ${index === 1 ? 'border-2 border-blue-500 animate-float' : ''}`}
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 onClick={() => setSelectedPlan(plan.id)}
               >
@@ -420,9 +420,9 @@ export default function Subscribe() {
                     }`}>
                       {plan.name}
                     </h3>
-                    <div className="mt-2">
-                      <span className={`text-3xl font-bold ${
-                        isSelected ? 'text-white' : 'text-black'
+                    <div className="mt-2 relative">
+                      <span className={`text-3xl font-bold transition-all duration-500 transform hover:scale-110 ${
+                        isSelected ? 'text-white' : 'text-black animate-bounce-gentle'
                       }`}>
                         ${Math.floor(price / 100)}
                       </span>
@@ -431,6 +431,13 @@ export default function Subscribe() {
                       }`}>
                         /{billingPeriod === 'yearly' ? 'year' : 'month'}
                       </span>
+                      {billingPeriod === 'yearly' && index === 1 && (
+                        <div className="absolute -top-2 -right-2">
+                          <Badge className="bg-green-500 text-white text-xs animate-pulse">
+                            Save $240
+                          </Badge>
+                        </div>
+                      )}
                     </div>
                   </div>
                   
@@ -451,14 +458,21 @@ export default function Subscribe() {
                   
                   <Button 
                     variant={isSelected ? "secondary" : "default"}
-                    className={`w-full ${
+                    className={`w-full transition-all duration-300 transform hover:scale-105 ${
                       isSelected 
-                        ? 'bg-white text-blue-600 hover:bg-gray-100' 
+                        ? 'bg-white text-blue-600 hover:bg-gray-100 animate-pulse' 
                         : 'bg-blue-600 text-white hover:bg-blue-700'
                     }`}
                     onClick={() => setSelectedPlan(plan.id)}
                   >
-                    {isSelected ? 'Selected' : 'Select Plan'}
+                    {isSelected ? (
+                      <div className="flex items-center space-x-2">
+                        <Check className="h-4 w-4" />
+                        <span>Selected</span>
+                      </div>
+                    ) : (
+                      'Select Plan'
+                    )}
                   </Button>
                 </CardContent>
               </Card>
@@ -672,12 +686,12 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-8 px-4 relative overflow-hidden">
+    <div className="h-screen bg-white py-4 px-4 relative overflow-hidden">
       {/* Background Grid Pattern - Matching Landing Page */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16 fade-in">
-          <div className="flex items-center justify-between mb-12">
+      <div className="max-w-7xl mx-auto relative z-10 h-full flex flex-col">
+        <div className="text-center mb-8 fade-in">
+          <div className="flex items-center justify-between mb-6">
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
               <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                 <img 
@@ -693,50 +707,10 @@ export default function Subscribe() {
             <LanguageSelector />
           </div>
           
-          <div className="mb-12 fade-in-up space-y-6" style={{ animationDelay: '0.1s' }}>
-            <div className="inline-block">
-              <Badge className="bg-blue-50 text-blue-600 border-blue-200 px-4 py-2 text-sm font-medium">
-                🚀 Start Your Business Transformation
-              </Badge>
-            </div>
-            <h1 className="text-5xl font-bold text-black mb-6 leading-tight">
+          <div className="mb-6 fade-in-up space-y-3" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-4xl font-bold text-black mb-4 leading-tight">
               Choose Your Plan
             </h1>
-            <p className="text-black/70 text-xl max-w-3xl mx-auto leading-relaxed font-medium">
-              {t('subscribe.title', 'Join thousands of businesses already transforming their operations with our comprehensive platform')}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8 fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                  <Shield className="h-5 w-5 text-white" />
-                </div>
-                <span className="font-semibold text-black">Bank-Level Security</span>
-              </div>
-              <p className="text-sm text-black/60">256-bit SSL encryption protects all your data</p>
-            </div>
-            
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                  <Check className="h-5 w-5 text-white" />
-                </div>
-                <span className="font-semibold text-black">14-Day Free Trial</span>
-              </div>
-              <p className="text-sm text-black/60">Full access to all features, no commitments</p>
-            </div>
-            
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
-                  <Headphones className="h-5 w-5 text-white" />
-                </div>
-                <span className="font-semibold text-black">24/7 Support</span>
-              </div>
-              <p className="text-sm text-black/60">Expert help whenever you need it</p>
-            </div>
           </div>
         </div>
 
@@ -746,12 +720,12 @@ export default function Subscribe() {
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-4 fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex justify-center space-x-4 mt-6 fade-in-up" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
               onClick={prevStep}
-              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium transform hover:scale-105 transition-all duration-300"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back</span>
@@ -762,7 +736,7 @@ export default function Subscribe() {
             <Button 
               onClick={nextStep}
               disabled={!canProceedToNext()}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-300"
             >
               <span>Continue</span>
               <ArrowRight className="h-4 w-4" />
