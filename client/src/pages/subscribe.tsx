@@ -338,7 +338,7 @@ export default function Subscribe() {
 
   const renderPlanSelection = () => (
     <div className="max-w-6xl mx-auto fade-in-up flex-1 flex flex-col justify-center" style={{ animationDelay: '0.3s' }}>
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <div className="flex justify-center mb-6">
           <div className="relative flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-full max-w-xs mx-auto">
             <button
@@ -371,7 +371,7 @@ export default function Subscribe() {
           </div>
           {billingPeriod === 'yearly' && (
             <div className="mt-2 text-center">
-              <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
+              <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 20%</span>
             </div>
           )}
         </div>
@@ -424,8 +424,8 @@ export default function Subscribe() {
                   </div>
                 )}
                 
-                <CardContent className="p-8 pt-10">
-                  <div className="text-center mb-8">
+                <CardContent className="p-6 pt-8">
+                  <div className="text-center mb-6">
                     <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
                     <div className="text-4xl font-bold gradient-text mb-1">
                       ${Math.floor(price / 100)}
@@ -699,12 +699,12 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="h-screen bg-white py-4 px-4 relative overflow-hidden">
+    <div className="h-screen bg-white py-2 px-4 relative overflow-hidden">
       {/* Background Grid Pattern - Matching Landing Page */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-      <div className="max-w-7xl mx-auto relative z-10 h-full flex flex-col">
-        <div className="text-center mb-8 fade-in">
-          <div className="flex items-center justify-between mb-6">
+      <div className="max-w-6xl mx-auto relative z-10 h-full flex flex-col">
+        <div className="text-center mb-4 fade-in">
+          <div className="flex items-center justify-between mb-3">
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
               <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                 <img 
@@ -720,8 +720,8 @@ export default function Subscribe() {
             <LanguageSelector />
           </div>
           
-          <div className="mb-6 fade-in-up space-y-3" style={{ animationDelay: '0.1s' }}>
-            <h1 className="text-4xl font-bold text-black mb-4 leading-tight">
+          <div className="mb-3 fade-in-up space-y-2" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-3xl font-bold text-black mb-2 leading-tight">
               Choose Your Plan
             </h1>
           </div>
@@ -729,11 +729,11 @@ export default function Subscribe() {
 
         {renderStepIndicator()}
         
-        <div className="mb-8">
+        <div className="mb-4 flex-1">
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-4 mt-6 fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex justify-center space-x-4 mt-2 fade-in-up" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
@@ -755,27 +755,6 @@ export default function Subscribe() {
               <ArrowRight className="h-4 w-4" />
             </Button>
           )}
-        </div>
-
-        <div className="text-center mt-12 fade-in-up" style={{ animationDelay: '0.9s' }}>
-          <div className="glass-effect border border-white/20 rounded-2xl p-6 max-w-md mx-auto">
-            <div className="flex items-center justify-center space-x-2 mb-3">
-              <Shield className="h-5 w-5 text-primary" />
-              <span className="text-foreground font-semibold">Need Help?</span>
-            </div>
-            <p className="text-sm text-muted-foreground mb-4">
-              Our support team is available 24/7 to assist you
-            </p>
-            <div className="flex justify-center space-x-4">
-              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
-                Chat Support
-              </a>
-              <span className="text-muted-foreground">•</span>
-              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
-                Email Us
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

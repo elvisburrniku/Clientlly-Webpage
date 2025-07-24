@@ -20,7 +20,7 @@ const SUBSCRIPTION_PLANS = {
     id: "basic",
     name: "Basic",
     monthlyPrice: 2900, // $29.00 in cents
-    yearlyPrice: 29000, // $290.00 in cents (2 months free)
+    yearlyPrice: 27840, // $278.40 in cents (20% discount)
     stripePriceId: {
       monthly: process.env.STRIPE_BASIC_MONTHLY_PRICE_ID || "price_basic_monthly",
       yearly: process.env.STRIPE_BASIC_YEARLY_PRICE_ID || "price_basic_yearly"
@@ -89,7 +89,7 @@ const SUBSCRIPTION_PLANS = {
     id: "professional",
     name: "Professional",
     monthlyPrice: 7900, // $79.00 in cents
-    yearlyPrice: 79000, // $790.00 in cents (2 months free)
+    yearlyPrice: 75840, // $758.40 in cents (20% discount)
     stripePriceId: {
       monthly: process.env.STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID || "price_professional_monthly",
       yearly: process.env.STRIPE_PROFESSIONAL_YEARLY_PRICE_ID || "price_professional_yearly"
@@ -160,7 +160,7 @@ const SUBSCRIPTION_PLANS = {
     id: "business",
     name: "Business Plus",
     monthlyPrice: 15900, // $159.00 in cents
-    yearlyPrice: 159000, // $1590.00 in cents (2 months free)
+    yearlyPrice: 152640, // $1526.40 in cents (20% discount)
     stripePriceId: {
       monthly: process.env.STRIPE_BUSINESS_MONTHLY_PRICE_ID || "price_business_monthly",
       yearly: process.env.STRIPE_BUSINESS_YEARLY_PRICE_ID || "price_business_yearly"
@@ -316,9 +316,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Get plan details
       const plans = [
-        { id: 'basic', name: 'Basic', monthlyPrice: 2900, yearlyPrice: 29600 },
-        { id: 'professional', name: 'Professional', monthlyPrice: 7900, yearlyPrice: 80640 },
-        { id: 'business', name: 'Business Plus', monthlyPrice: 15900, yearlyPrice: 162240 }
+        { id: 'basic', name: 'Basic', monthlyPrice: 2900, yearlyPrice: 27840 },
+        { id: 'professional', name: 'Professional', monthlyPrice: 7900, yearlyPrice: 75840 },
+        { id: 'business', name: 'Business Plus', monthlyPrice: 15900, yearlyPrice: 152640 }
       ];
       
       const plan = plans.find(p => p.id === planId);
