@@ -822,9 +822,8 @@ export default function Landing() {
                 {/* Enhanced Typography */}
                 <div className="max-w-3xl mx-auto space-y-6">
                   <p className="text-xl lg:text-2xl text-foreground leading-relaxed font-medium">
-                    <span className="animate-fade-in-up">With your ideas and feedback, we continuously improve our platform</span>{' '}
-                    <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-bold text-2xl lg:text-3xl animate-pulse">free of charge</span>
-                    {' '}<span className="animate-fade-in-up delay-300">because we believe the best growth happens when we grow together.</span>
+                    <span className="animate-fade-in-up">Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.</span>{' '}
+                    <span className="animate-fade-in-up delay-300">When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.</span>
                   </p>
                 </div>
                 
