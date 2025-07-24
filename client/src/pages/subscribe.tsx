@@ -427,41 +427,27 @@ export default function Subscribe() {
                 <CardContent className="p-8 pt-10">
                   <div className="text-center mb-8">
                     <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
-                    <div className="mt-2 relative">
-                      <span className={`text-4xl font-bold gradient-text mb-1 transition-all duration-500 transform hover:scale-110 ${
-                        isSelected ? 'text-white' : ''
-                      }`}>
-                        ${Math.floor(price / 100)}
-                      </span>
-                      <span className={`text-lg ml-1 ${
-                        isSelected ? 'text-white/80' : 'text-muted-foreground'
-                      }`}>
-                        /{billingPeriod === 'yearly' ? 'month' : 'month'}
-                      </span>
-                      {billingPeriod === 'yearly' && (
-                        <div className="text-sm text-muted-foreground mt-1">
-                          Billed ${Math.floor((price * 12) / 100)} yearly
-                        </div>
-                      )}
-                      {billingPeriod === 'yearly' && (
-                        <div className="mt-2">
-                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
-                        </div>
-                      )}
+                    <div className="text-4xl font-bold gradient-text mb-1">
+                      ${Math.floor(price / 100)}
+                      <span className="text-lg text-muted-foreground">/{billingPeriod === 'yearly' ? 'month' : 'month'}</span>
                     </div>
+                    {billingPeriod === 'yearly' && (
+                      <div className="text-sm text-muted-foreground mb-2">
+                        Billed ${Math.floor((price * 12) / 100)} yearly
+                      </div>
+                    )}
+                    <p className="text-muted-foreground">
+                      {plan.id === 'basic' && "Perfect for freelancers and small teams"}
+                      {plan.id === 'professional' && "Ideal for growing businesses"}
+                      {plan.id === 'business' && "For large teams and enterprises"}
+                    </p>
                   </div>
                   
-                  <ul className="space-y-2 mb-6">
-                    {plan.features.slice(0, 4).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2">
-                        <Check className={`h-4 w-4 ${
-                          isSelected ? 'text-white' : 'text-green-500'
-                        }`} />
-                        <span className={`text-sm ${
-                          isSelected ? 'text-white' : 'text-black'
-                        }`}>
-                          {feature}
-                        </span>
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
+                        <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
