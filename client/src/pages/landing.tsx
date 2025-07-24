@@ -736,58 +736,48 @@ export default function Landing() {
           <div className="text-center mt-16 fade-in stagger-11">
             <button 
               onClick={() => window.location.href = '/compare-features'}
-              className="relative inline-flex items-center px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-300 font-semibold hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 shadow-lg hover:shadow-xl group active:scale-95 active:shadow-inner overflow-hidden"
+              className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-xl font-bold text-lg shadow-xl transform transition-all duration-300 hover:shadow-2xl hover:scale-105 active:scale-95 active:shadow-lg group overflow-hidden"
               onMouseDown={(e) => {
-                // Create ripple effect on click
+                // Create expanding circle effect on click
                 const button = e.currentTarget;
                 const rect = button.getBoundingClientRect();
-                const ripple = document.createElement('div');
-                const size = Math.max(rect.width, rect.height);
+                const circle = document.createElement('div');
+                const size = Math.max(rect.width, rect.height) * 2;
                 const x = e.clientX - rect.left - size / 2;
                 const y = e.clientY - rect.top - size / 2;
                 
-                ripple.style.cssText = `
-                  position: absolute;
+                circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                circle.style.cssText = `
                   width: ${size}px;
                   height: ${size}px;
                   left: ${x}px;
                   top: ${y}px;
-                  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
-                  border-radius: 50%;
                   transform: scale(0);
-                  animation: ripple 0.6s ease-out;
-                  pointer-events: none;
-                  z-index: 10;
+                  transition: transform 0.5s ease-out;
                 `;
                 
-                button.appendChild(ripple);
+                button.appendChild(circle);
                 
-                // Remove ripple after animation
+                // Trigger animation
+                requestAnimationFrame(() => {
+                  circle.style.transform = 'scale(1)';
+                  circle.style.opacity = '0';
+                });
+                
+                // Remove circle after animation
                 setTimeout(() => {
-                  ripple.remove();
-                }, 600);
+                  circle.remove();
+                }, 500);
               }}
             >
-              {/* Ripple animation styles */}
-              <style jsx>{`
-                @keyframes ripple {
-                  to {
-                    transform: scale(2);
-                    opacity: 0;
-                  }
-                }
-              `}</style>
-              
               {/* Content */}
-              <div className="relative z-20 flex items-center">
-                <span className="transition-all duration-200">
-                  Compare plan features
-                </span>
-                <ChevronDown className="ml-2 h-5 w-5 group-active:rotate-180 transition-transform duration-200 ease-out" />
+              <div className="relative z-10 flex items-center">
+                <span className="mr-2">Compare plan features</span>
+                <ChevronDown className="h-5 w-5 group-active:rotate-180 transition-transform duration-300 ease-out" />
               </div>
               
-              {/* Click burst effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-active:opacity-100 transition-opacity duration-150 rounded-xl"></div>
+              {/* Animated background on click */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-active:opacity-100 transition-opacity duration-200 rounded-xl"></div>
             </button>
           </div>
         </div>
