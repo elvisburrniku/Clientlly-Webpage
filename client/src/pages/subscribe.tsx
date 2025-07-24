@@ -756,6 +756,76 @@ export default function Subscribe() {
             </Button>
           )}
         </div>
+
+        {/* Testimonials Section */}
+        <div className="mt-16 mb-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Don't take our word for it,{' '}
+              <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                take theirs
+              </span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+              <div className="flex items-center mb-3">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.5 Outstanding</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                "BusinessFlow offers a well-rounded, intuitive, and attractive double-entry accounting system. It anticipates the needs of freelancers and small businesses well—better than competitors in this class."
+              </p>
+              <div className="text-lg font-bold text-gray-800 dark:text-white">PCMAG.COM</div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+              <div className="flex items-center mb-3">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.5 Excellent</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                "BusinessFlow automates daily accounting activities namely invoice creation, payment acceptance, expenses tracking, billable time tracking, and financial reporting."
+              </p>
+              <div className="text-lg font-bold text-gray-800 dark:text-white">✓ Capterra</div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+              <div className="flex items-center mb-3">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.5 Excellent</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                "BusinessFlow is an online accounting and invoicing service that's simple to set up. And all makes you look professional. Features 500 professionals."
+              </p>
+              <div className="text-lg font-bold text-gray-800 dark:text-white">G</div>
+            </div>
+
+            {/* Testimonial 4 */}
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+              <div className="flex items-center mb-3">
+                <div className="flex text-yellow-400">
+                  {'★'.repeat(5)}
+                </div>
+                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.7 Excellent</span>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                "BusinessFlow makes it easy to stay organized, keep track of payments owed on a freelance basis, send invoices and accept payments."
+              </p>
+              <div className="text-lg font-bold text-gray-800 dark:text-white">Forbes</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
