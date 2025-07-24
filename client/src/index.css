@@ -1023,22 +1023,34 @@
     animation-delay: 3s;
   }
 
-/* Triple bounce animation for "Let's go grow together" */
-@keyframes tripleBounce {
-  0%, 20%, 53%, 80%, 100% {
+/* Enhanced bounce animation for "Let's go grow together" */
+@keyframes bounce-triple-infinite {
+  0% {
     transform: translateY(0px);
   }
-  10% {
-    transform: translateY(-10px);  
+  15% {
+    transform: translateY(-20px);
   }
-  30% {
+  25% {
+    transform: translateY(5px);
+  }
+  35% {
     transform: translateY(-15px);
   }
-  40% {
-    transform: translateY(-20px);
+  45% {
+    transform: translateY(3px);
+  }
+  55% {
+    transform: translateY(-8px);
+  }
+  65% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
-.animate-triple-bounce {
-  animation: tripleBounce 2s ease-in-out infinite;
+.animate-bounce-infinite {
+  animation: bounce-triple-infinite 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
