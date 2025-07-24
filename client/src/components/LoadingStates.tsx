@@ -27,13 +27,13 @@ export function BrandLoader({ size = "md", message = "Loading..." }: { size?: "s
 
   return (
     <div className="flex flex-col items-center justify-center space-y-6 p-8">
-      {/* Main spinning logo with floating elements */}
+      {/* Main brand spinner with floating elements */}
       <div className="relative">
-        {/* Central logo spinner */}
+        {/* Central brand spinner */}
         <div className={`${sizeClasses[size]} relative`}>
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 rounded-2xl animate-spin opacity-80"></div>
-          <div className="absolute inset-1 bg-white dark:bg-gray-900 rounded-xl flex items-center justify-center">
-            <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 rounded-full animate-spin opacity-80"></div>
+          <div className="absolute inset-1 bg-white dark:bg-gray-900 rounded-full flex items-center justify-center">
+            <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse"></div>
           </div>
         </div>
 
