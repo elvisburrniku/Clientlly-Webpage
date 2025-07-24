@@ -488,7 +488,7 @@ export default function About() {
                 <h4 className="text-3xl font-black text-foreground mb-6 tracking-tight leading-tight">
                   Mutual Growth
                 </h4>
-                <p className="text-xl font-semibold text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+                <p className="text-2xl font-bold text-foreground max-w-4xl mx-auto leading-snug mb-8 italic" style={{ fontFamily: 'Playfair Display, serif' }}>
                   With your ideas and feedback, we continuously improve our platform free of charge because we believe the best growth happens when we grow together.
                 </p>
                 <p className="text-lg font-medium text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
