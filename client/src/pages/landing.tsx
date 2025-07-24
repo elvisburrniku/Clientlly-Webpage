@@ -831,7 +831,7 @@ export default function Landing() {
 
             <div className="text-center mb-16">
               <h2 className="text-6xl lg:text-8xl font-black text-foreground leading-tight mb-12">
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-bounce-once font-extrabold">
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-bounce-infinite font-extrabold">
                   Let's go grow together
                 </span>
               </h2>
