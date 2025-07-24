@@ -545,10 +545,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/invoicing"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -567,10 +592,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/expenses"
-                  className="inline-flex items-center text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -589,10 +639,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/debt"
-                  className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -611,10 +686,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/reports"
-                  className="inline-flex items-center text-cyan-600 hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -633,10 +733,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/clients"
-                  className="inline-flex items-center text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -655,10 +780,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/vendors"
-                  className="inline-flex items-center text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -677,10 +827,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/inventory"
-                  className="inline-flex items-center text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -699,10 +874,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/attendance"
-                  className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>
@@ -723,10 +923,35 @@ export default function Landing() {
                 </div>
                 <a 
                   href="/features/migration"
-                  className="inline-flex items-center text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold text-sm transform transition-all duration-300 hover:scale-105 active:scale-95 group-hover:translate-x-1 relative overflow-hidden"
+                  onMouseDown={(e) => {
+                    const link = e.currentTarget;
+                    const rect = link.getBoundingClientRect();
+                    const circle = document.createElement('div');
+                    const size = Math.max(rect.width, rect.height) * 2;
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                    circle.style.cssText = `
+                      width: ${size}px;
+                      height: ${size}px;
+                      left: ${x}px;
+                      top: ${y}px;
+                      transform: scale(0);
+                      transition: transform 0.5s ease-out;
+                    `;
+                    
+                    link.appendChild(circle);
+                    requestAnimationFrame(() => {
+                      circle.style.transform = 'scale(1)';
+                      circle.style.opacity = '0';
+                    });
+                    setTimeout(() => circle.remove(), 500);
+                  }}
                 >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
+                  <span className="text-white">Learn more</span>
+                  <ArrowRight className="ml-1 h-4 w-4 text-white" />
                 </a>
               </div>
             </div>

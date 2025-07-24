@@ -121,7 +121,32 @@ export default function ChatBot() {
             setIsOpen(true);
             setIsClosing(false);
           }}
-          className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden hover:scale-110"
+          className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center group relative overflow-hidden hover:scale-105 active:scale-95"
+          onMouseDown={(e) => {
+            const button = e.currentTarget;
+            const rect = button.getBoundingClientRect();
+            const circle = document.createElement('div');
+            const size = Math.max(rect.width, rect.height) * 2;
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+            circle.style.cssText = `
+              width: ${size}px;
+              height: ${size}px;
+              left: ${x}px;
+              top: ${y}px;
+              transform: scale(0);
+              transition: transform 0.5s ease-out;
+            `;
+            
+            button.appendChild(circle);
+            requestAnimationFrame(() => {
+              circle.style.transform = 'scale(1)';
+              circle.style.opacity = '0';
+            });
+            setTimeout(() => circle.remove(), 500);
+          }}
         >
           <div className="flex items-center justify-center">
             <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
