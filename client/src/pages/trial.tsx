@@ -126,11 +126,11 @@ export default function Trial() {
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="font-medium">Full feature access</span>
+                <span className="font-medium">14-day free trial</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="font-medium">Cancel anytime</span>
+                <span className="font-medium">Full feature access</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Shield className="h-5 w-5 text-green-500" />

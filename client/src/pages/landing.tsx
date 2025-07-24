@@ -390,7 +390,7 @@ export default function Landing() {
                 </div>
                 
                 <div className="text-sm text-muted-foreground fade-in stagger-3">
-                  No credit card required • 14-day free trial • Cancel anytime
+                  No credit card required • 14-day free trial
                 </div>
               </div>
             </div>
