@@ -478,28 +478,93 @@ export default function About() {
               ))}
             </div>
 
-            <div className="mt-12 text-center">
-              <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 border-2 border-green-200 dark:border-green-700">
-                <div className="flex items-center justify-center space-x-4 mb-6">
-                  <Heart className="h-8 w-8 text-red-500" />
-                  <Star className="h-8 w-8 text-yellow-500" />
-                  <TrendingUp className="h-8 w-8 text-green-500" />
+            <div className="mt-12">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/95 via-green-50/80 to-blue-50/95 dark:from-gray-900/95 dark:via-green-950/80 dark:to-blue-950/95 backdrop-blur-xl border border-gradient-to-r from-green-200/50 to-blue-200/50 dark:from-green-700/50 dark:to-blue-700/50 shadow-2xl">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-30">
+                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.1)_25%,rgba(59,130,246,0.1)_50%,transparent_50%,transparent_75%,rgba(34,197,94,0.1)_75%)] bg-[length:32px_32px]"></div>
                 </div>
-                <h4 className="text-3xl font-black text-foreground mb-6 tracking-tight leading-tight">
-                  Mutual Growth
-                </h4>
-                <p className="text-2xl font-bold text-foreground max-w-4xl mx-auto leading-snug mb-8 italic" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
-                </p>
+                
+                <div className="relative z-10 p-12 text-center">
+                  {/* Icon Section */}
+                  <div className="flex items-center justify-center mb-8">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-full blur-xl opacity-30 animate-pulse"></div>
+                      <div className="relative w-20 h-20 bg-gradient-to-br from-green-500 via-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-6 hover:rotate-12 transition-transform duration-500">
+                        <div className="flex items-center space-x-1">
+                          <Heart className="h-6 w-6 text-white animate-bounce" style={{animationDelay: '0ms'}} />
+                          <Star className="h-7 w-7 text-white animate-bounce" style={{animationDelay: '150ms'}} />
+                          <TrendingUp className="h-6 w-6 text-white animate-bounce" style={{animationDelay: '300ms'}} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                <Button 
-                  onClick={() => window.location.href = '/subscribe'}
-                  className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                >
-                  Start Collaborating Today
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Card>
+                  {/* Title */}
+                  <div className="mb-8">
+                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 rounded-full text-sm font-semibold text-green-700 dark:text-green-300 mb-4">
+                      Community Impact
+                    </div>
+                    <h4 className="text-4xl lg:text-5xl font-black bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-2 tracking-tight leading-tight">
+                      Mutual Growth
+                    </h4>
+                  </div>
+
+                  {/* Content Grid */}
+                  <div className="grid lg:grid-cols-3 gap-8 mb-10">
+                    {/* Your Ideas */}
+                    <div className="text-center group">
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Lightbulb className="h-8 w-8 text-white" />
+                      </div>
+                      <h5 className="text-xl font-bold text-foreground mb-3">Your Ideas</h5>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        Share your vision and we'll make it reality
+                      </p>
+                    </div>
+
+                    {/* Fast Development */}
+                    <div className="text-center group">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Zap className="h-8 w-8 text-white" />
+                      </div>
+                      <h5 className="text-xl font-bold text-foreground mb-3">Fast Development</h5>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        Ideas become features in record time
+                      </p>
+                    </div>
+
+                    {/* Mutual Growth */}
+                    <div className="text-center group">
+                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <TrendingUp className="h-8 w-8 text-white" />
+                      </div>
+                      <h5 className="text-xl font-bold text-foreground mb-3">Mutual Growth</h5>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        We succeed when you succeed
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Main Quote */}
+                  <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-green-200/50 dark:border-green-700/50">
+                    <p className="text-xl lg:text-2xl font-semibold text-foreground max-w-4xl mx-auto leading-relaxed italic" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      "Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth."
+                    </p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <Button 
+                    onClick={() => window.location.href = '/subscribe'}
+                    className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 hover:from-green-600 hover:via-blue-600 hover:to-purple-600 text-white px-10 py-4 text-lg font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:rotate-1 group"
+                  >
+                    <span className="flex items-center">
+                      Start Collaborating Today
+                      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
