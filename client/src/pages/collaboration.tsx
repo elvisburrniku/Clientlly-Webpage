@@ -81,32 +81,66 @@ export default function Collaboration() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        {/* Animated background shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 bg-cyan-400/10 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-purple-400/10 rounded-full blur-xl animate-bounce-gentle"></div>
+        <div className="absolute bottom-40 right-1/3 w-36 h-36 bg-blue-300/10 rounded-full blur-2xl floating-slow"></div>
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        
+        {/* Software interface mockup in background */}
+        <div className="absolute bottom-0 right-0 w-96 h-64 opacity-15">
+          <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-t-xl p-4 h-full backdrop-blur-sm">
+            <div className="bg-blue-500/60 h-6 rounded mb-3 animate-pulse"></div>
+            <div className="grid grid-cols-3 gap-2 h-full">
+              <div className="bg-white/15 rounded animate-fade-in-out"></div>
+              <div className="bg-white/10 rounded" style={{ animationDelay: '1s' }}></div>
+              <div className="bg-white/20 rounded" style={{ animationDelay: '2s' }}></div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Additional laptop mockup */}
+        <div className="absolute top-1/4 left-0 w-72 h-48 opacity-10 transform -rotate-12">
+          <div className="bg-gradient-to-br from-gray-700/60 to-gray-800/60 rounded-lg p-3 h-full">
+            <div className="bg-indigo-500/40 h-4 rounded mb-2"></div>
+            <div className="space-y-1">
+              <div className="bg-white/10 h-2 rounded w-3/4"></div>
+              <div className="bg-white/15 h-2 rounded w-1/2"></div>
+              <div className="bg-white/10 h-2 rounded w-2/3"></div>
+            </div>
+          </div>
+        </div>
       </div>
 
 
       {/* Navigation */}
-      <nav className="relative z-50 py-6 px-4 sm:px-6 lg:px-8">
+      <nav className="relative z-50 py-6 px-4 sm:px-6 lg:px-8 bg-white/10 backdrop-blur-md border-b border-white/20">
         <div className="max-w-[1800px] mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="absolute inset-0 bg-white rounded-lg opacity-0 dark:opacity-100 transition-opacity duration-300"></div>
-              <img 
-                src={logoPath} 
-                alt="BusinessFlow Pro" 
-                className="w-12 h-9 relative z-10 logo-simple filter drop-shadow-lg"
-              />
+              <div className="bg-white/20 p-1 rounded-lg backdrop-blur-sm">
+                <img 
+                  src={logoPath} 
+                  alt="BusinessFlow Pro" 
+                  className="w-12 h-9 relative z-10 logo-simple filter drop-shadow-lg"
+                />
+              </div>
+              <span className="text-lg font-bold text-white ml-3">
+                BusinessFlow Pro
+              </span>
             </div>
           </Link>
           
           <Button 
             variant="outline"
             onClick={() => window.location.href = '/'}
-            className="flex items-center space-x-2 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-300"
+            className="flex items-center space-x-2 bg-white/10 border-white/30 text-white hover:bg-white/20 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Back to Home</span>
@@ -117,13 +151,13 @@ export default function Collaboration() {
       {/* Hero Section */}
       <section className="py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-8 animate-text-reveal">
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-8 animate-text-reveal">
+            <span className="bg-gradient-to-r from-cyan-300 to-white bg-clip-text text-transparent animate-gradient bg-300%">
               Growing Together Through Collaboration
             </span>
           </h1>
           
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in-delayed">
+          <p className="text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in-delayed">
             Your business needs drive our development. When you subscribe, you become part of our innovation process – 
             helping shape features that benefit the entire community while solving your unique challenges.
           </p>
