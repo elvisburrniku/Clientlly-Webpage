@@ -411,7 +411,114 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Trust & Success Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
+              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
+              Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
+            </p>
+          </div>
 
+          {/* Trust Indicators Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            
+            {/* Active Users */}
+            <div className="text-center group fade-in stagger-1">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
+              <p className="text-muted-foreground">Active Users</p>
+            </div>
+
+            {/* Invoices Processed */}
+            <div className="text-center group fade-in stagger-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
+              <p className="text-muted-foreground">Invoices Processed</p>
+            </div>
+
+            {/* Customer Satisfaction */}
+            <div className="text-center group fade-in stagger-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Star className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">98%</div>
+              <p className="text-muted-foreground">Satisfaction Rate</p>
+            </div>
+
+            {/* Countries */}
+            <div className="text-center group fade-in stagger-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Globe className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">120+</div>
+              <p className="text-muted-foreground">Countries</p>
+            </div>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Save Time */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-1">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Clock className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Save 15+ Hours Weekly</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
+              </p>
+            </div>
+
+            {/* Increase Revenue */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <TrendingUp className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Boost Revenue by 30%</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
+              </p>
+            </div>
+
+            {/* Reduce Errors */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Eliminate 95% of Errors</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
+              </p>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-16 fade-in stagger-4">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 shadow-2xl">
+              <h3 className="text-2xl font-bold text-white mb-4">Ready to transform your business?</h3>
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                Join successful businesses that have already made the switch. Start your free trial today and see the difference.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3">
+                  Start Your Trial
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-8 py-3">
+                  Schedule Demo
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section id="features" className="py-12 px-4 relative -mt-12 features-section">
@@ -655,115 +762,6 @@ export default function Landing() {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* Trust & Success Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
-              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
-              Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
-            </p>
-          </div>
-
-          {/* Trust Indicators Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            
-            {/* Active Users */}
-            <div className="text-center group fade-in stagger-1">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Users className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
-              <p className="text-muted-foreground">Active Users</p>
-            </div>
-
-            {/* Invoices Processed */}
-            <div className="text-center group fade-in stagger-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <FileText className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
-              <p className="text-muted-foreground">Invoices Processed</p>
-            </div>
-
-            {/* Customer Satisfaction */}
-            <div className="text-center group fade-in stagger-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Star className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">98%</div>
-              <p className="text-muted-foreground">Satisfaction Rate</p>
-            </div>
-
-            {/* Countries */}
-            <div className="text-center group fade-in stagger-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Globe className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">120+</div>
-              <p className="text-muted-foreground">Countries</p>
-            </div>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Save Time */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-1">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Clock className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Save 15+ Hours Weekly</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
-              </p>
-            </div>
-
-            {/* Increase Revenue */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <TrendingUp className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Boost Revenue by 30%</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
-              </p>
-            </div>
-
-            {/* Reduce Errors */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Eliminate 95% of Errors</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
-              </p>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-16 fade-in stagger-4">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 shadow-2xl">
-              <h3 className="text-2xl font-bold text-white mb-4">Ready to transform your business?</h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join successful businesses that have already made the switch. Start your free trial today and see the difference.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3">
-                  Start Your Trial
-                </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-8 py-3">
-                  Schedule Demo
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
