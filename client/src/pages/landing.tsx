@@ -366,7 +366,7 @@ export default function Landing() {
             
             {/* Main Heading */}
             <div className="space-y-12">
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight fade-in">
                 <span className="text-foreground block mb-2 leading-tight">
                   Everything you need to
                 </span>
