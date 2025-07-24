@@ -276,26 +276,26 @@ export default function ChatBot() {
   return (
     <div className="fixed bottom-4 right-4 z-50 animate-in slide-in-from-bottom-4 duration-300">
       <Card className={`w-80 sm:w-96 transition-all duration-300 shadow-2xl border-0 overflow-hidden ${isMinimized ? 'h-16' : 'h-[500px] sm:h-[544px]'}`}>
-        <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4">
+        <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
               {/* Logo matching the button */}
-              <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                <MessageCircle className="h-5 w-5 text-white" />
+              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
               </div>
-              <div>
-                <CardTitle className="text-sm font-semibold">BusinessFlow Pro</CardTitle>
-                <p className="text-xs text-blue-100">Support Team • Online now</p>
+              <div className="flex-1 min-w-0">
+                <CardTitle className="text-sm font-semibold truncate">BusinessFlow Pro</CardTitle>
+                <p className="text-xs text-blue-100 truncate">Support Team • Online now</p>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0 transition-colors"
+                className="text-white hover:bg-white/20 h-7 w-7 sm:h-8 sm:w-8 p-0 transition-colors"
               >
-                {isMinimized ? <Maximize2 className="h-4 w-4" /> : <Minimize2 className="h-4 w-4" />}
+                {isMinimized ? <Maximize2 className="h-3 w-3 sm:h-4 sm:w-4" /> : <Minimize2 className="h-3 w-3 sm:h-4 sm:w-4" />}
               </Button>
               <Button
                 variant="ghost"
@@ -305,9 +305,9 @@ export default function ChatBot() {
                   setCurrentView('menu');
                   setMessages([]);
                 }}
-                className="text-white hover:bg-white/20 h-8 w-8 p-0 transition-colors"
+                className="text-white hover:bg-white/20 h-7 w-7 sm:h-8 sm:w-8 p-0 transition-colors"
               >
-                <X className="h-4 w-4" />
+                <X className="h-3 w-3 sm:h-4 sm:w-4" />
               </Button>
             </div>
           </div>
