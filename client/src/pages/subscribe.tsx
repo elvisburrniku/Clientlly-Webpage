@@ -340,31 +340,40 @@ export default function Subscribe() {
     <div className="max-w-6xl mx-auto fade-in-up flex-1 flex flex-col justify-center" style={{ animationDelay: '0.3s' }}>
       <div className="text-center mb-8">
         <div className="flex justify-center mb-6">
-          <div className="bg-gray-200 rounded-lg p-1 transition-all duration-300 hover:shadow-md">
-            <div className="flex items-center space-x-1">
-              <button
-                onClick={() => setBillingPeriod('monthly')}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
-                  billingPeriod === 'monthly' 
-                    ? 'bg-white text-black shadow-sm scale-105' 
-                    : 'text-black hover:text-black hover:bg-white/50'
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingPeriod('yearly')}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative transform hover:scale-105 ${
-                  billingPeriod === 'yearly' 
-                    ? 'bg-white text-black shadow-sm scale-105' 
-                    : 'text-black hover:text-black hover:bg-white/50'
-                }`}
-              >
-                Yearly
-                <Badge className="ml-2 bg-green-500 text-white text-xs animate-pulse">Save 17%</Badge>
-              </button>
-            </div>
+          <div className="relative flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-full max-w-xs mx-auto">
+            <button
+              onClick={() => setBillingPeriod('monthly')}
+              className={`relative z-10 flex-1 py-2 text-sm font-semibold rounded-md transition-all duration-300 ${
+                billingPeriod === 'monthly'
+                  ? 'text-white'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+              }`}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingPeriod('yearly')}
+              className={`relative z-10 flex-1 py-2 text-sm font-semibold rounded-md transition-all duration-300 ${
+                billingPeriod === 'yearly'
+                  ? 'text-white'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+              }`}
+            >
+              Yearly
+            </button>
+            <div
+              className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
+                billingPeriod === 'monthly'
+                  ? 'left-1 w-[calc(50%-4px)]'
+                  : 'right-1 w-[calc(50%-4px)]'
+              }`}
+            />
           </div>
+          {billingPeriod === 'yearly' && (
+            <div className="mt-2 text-center">
+              <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
+            </div>
+          )}
         </div>
       </div>
       
@@ -401,41 +410,42 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 fade-in-up relative transform ${
-                  isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-xl scale-105' : 'bg-white hover:bg-gray-50 border-gray-200'
-                } ${index === 1 ? 'border-2 border-blue-500 animate-float' : ''}`}
+                className={`relative hover-lift transition-all duration-500 scale-in fade-in-up ${
+                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect animate-float' : 'border border-border/50'
+                } ${isSelected ? 'ring-2 ring-primary shadow-xl' : ''}`}
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 onClick={() => setSelectedPlan(plan.id)}
               >
-                <CardContent className="p-6 relative">
-                  {index === 1 && (
-                    <Badge className="mb-4 bg-blue-600 text-white">
+                {index === 1 && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                    <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
                       Most Popular
                     </Badge>
-                  )}
-                  
-                  <div className="mb-4">
-                    <h3 className={`text-xl font-bold mb-2 ${
-                      isSelected ? 'text-white' : 'text-black'
-                    }`}>
-                      {plan.name}
-                    </h3>
+                  </div>
+                )}
+                
+                <CardContent className="p-8">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
                     <div className="mt-2 relative">
-                      <span className={`text-3xl font-bold transition-all duration-500 transform hover:scale-110 ${
-                        isSelected ? 'text-white' : 'text-black animate-bounce-gentle'
+                      <span className={`text-4xl font-bold gradient-text mb-1 transition-all duration-500 transform hover:scale-110 ${
+                        isSelected ? 'text-white' : ''
                       }`}>
                         ${Math.floor(price / 100)}
                       </span>
                       <span className={`text-lg ml-1 ${
-                        isSelected ? 'text-white/80' : 'text-gray-600'
+                        isSelected ? 'text-white/80' : 'text-muted-foreground'
                       }`}>
-                        /{billingPeriod === 'yearly' ? 'year' : 'month'}
+                        /{billingPeriod === 'yearly' ? 'month' : 'month'}
                       </span>
-                      {billingPeriod === 'yearly' && index === 1 && (
-                        <div className="absolute -top-2 -right-2">
-                          <Badge className="bg-green-500 text-white text-xs animate-pulse">
-                            Save $240
-                          </Badge>
+                      {billingPeriod === 'yearly' && (
+                        <div className="text-sm text-muted-foreground mt-1">
+                          Billed ${Math.floor((price * 12) / 100)} yearly
+                        </div>
+                      )}
+                      {billingPeriod === 'yearly' && (
+                        <div className="mt-2">
+                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
                         </div>
                       )}
                     </div>
@@ -456,24 +466,41 @@ export default function Subscribe() {
                     ))}
                   </ul>
                   
-                  <Button 
-                    variant={isSelected ? "secondary" : "default"}
-                    className={`w-full transition-all duration-300 transform hover:scale-105 ${
-                      isSelected 
-                        ? 'bg-white text-blue-600 hover:bg-gray-100 animate-pulse' 
-                        : 'bg-blue-600 text-white hover:bg-blue-700'
-                    }`}
-                    onClick={() => setSelectedPlan(plan.id)}
-                  >
-                    {isSelected ? (
-                      <div className="flex items-center space-x-2">
-                        <Check className="h-4 w-4" />
-                        <span>Selected</span>
-                      </div>
-                    ) : (
-                      'Select Plan'
+                  <div className="space-y-3">
+                    <Button 
+                      className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium py-2 transition-all duration-300 transform hover:scale-105"
+                      onClick={() => setSelectedPlan(plan.id)}
+                    >
+                      {isSelected ? (
+                        <div className="flex items-center space-x-2">
+                          <Check className="h-4 w-4" />
+                          <span>Selected</span>
+                        </div>
+                      ) : (
+                        'Buy Now'
+                      )}
+                    </Button>
+                    {plan.id === 'basic' && (
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+                        onClick={() => setSelectedPlan(plan.id)}
+                      >
+                        Start Your Trial
+                      </Button>
                     )}
-                  </Button>
+                    {plan.id !== 'basic' && (
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+                        onClick={() => setSelectedPlan(plan.id)}
+                      >
+                        Start Your Trial
+                      </Button>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             );
