@@ -217,7 +217,14 @@ export default function Landing() {
               <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
               <button 
-                onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'instant' })}
+                onClick={() => {
+                  console.log('Pricing button clicked');
+                  const element = document.getElementById('pricing-section');
+                  console.log('Pricing section element:', element);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
+                  }
+                }}
                 className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium bg-transparent border-none cursor-pointer"
               >
                 Pricing
@@ -291,7 +298,12 @@ export default function Landing() {
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
               <button 
                 onClick={() => {
-                  document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'instant' });
+                  console.log('Mobile pricing button clicked');
+                  const element = document.getElementById('pricing-section');
+                  console.log('Mobile pricing section element:', element);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
+                  }
                   setShowMobileMenu(false);
                 }}
                 className="block text-muted-foreground hover:text-primary transition-colors text-left"
@@ -325,7 +337,12 @@ export default function Landing() {
                 <Button 
                   variant="outline"
                   onClick={() => {
-                    document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'instant' });
+                    console.log('Mobile buy now button clicked');
+                    const element = document.getElementById('pricing-section');
+                    console.log('Mobile buy now pricing section element:', element);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'instant', block: 'start' });
+                    }
                     setShowMobileMenu(false);
                   }}
                   className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
