@@ -26,6 +26,7 @@ import Trial from "@/pages/trial";
 import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
+import CompareFeatures from "@/pages/compare-features";
 import Success from "@/pages/success";
 import NotFound from "@/pages/not-found";
 
@@ -63,6 +64,7 @@ function Router() {
           <Route path="/trial" component={Trial} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
+          <Route path="/compare-features" component={CompareFeatures} />
           <Route path="/success" component={Success} />
         </>
       ) : (
@@ -88,6 +90,7 @@ function Router() {
           <Route path="/trial" component={Trial} />
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
+          <Route path="/compare-features" component={CompareFeatures} />
           <Route path="/success" component={Success} />
         </>
       )}

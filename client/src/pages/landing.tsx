@@ -536,7 +536,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 fade-in">
-              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Complete Business Suite</span>
+              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">The features you need. All in one place</span>
             </h2>
             <p className="text-xl font-semibold text-muted-foreground mb-6 fade-in stagger-1">
               No more juggling multiple tools.
@@ -750,6 +750,16 @@ export default function Landing() {
             </div>
           </div>
 
+          {/* Compare Features Section */}
+          <div className="text-center mt-16 fade-in stagger-11">
+            <button 
+              onClick={() => window.location.href = '/compare-features'}
+              className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-900 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-300 font-semibold hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 shadow-lg hover:shadow-xl group"
+            >
+              Compare plan features
+              <ChevronDown className="ml-2 h-5 w-5 group-hover:transform group-hover:rotate-180 transition-transform duration-300" />
+            </button>
+          </div>
         </div>
       </section>
 
