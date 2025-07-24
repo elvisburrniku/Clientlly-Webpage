@@ -1145,11 +1145,36 @@ export default function Landing() {
                       <Button 
                         variant="outline"
                         onClick={() => window.location.href = '/collaboration'}
-                        className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-base font-semibold shadow-sm hover:shadow-md"
+                        className="group relative overflow-hidden px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95"
+                        onMouseDown={(e) => {
+                          const button = e.currentTarget;
+                          const rect = button.getBoundingClientRect();
+                          const circle = document.createElement('div');
+                          const size = Math.max(rect.width, rect.height) * 2;
+                          const x = e.clientX - rect.left - size / 2;
+                          const y = e.clientY - rect.top - size / 2;
+                          
+                          circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                          circle.style.cssText = `
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${x}px;
+                            top: ${y}px;
+                            transform: scale(0);
+                            transition: transform 0.5s ease-out;
+                          `;
+                          
+                          button.appendChild(circle);
+                          requestAnimationFrame(() => {
+                            circle.style.transform = 'scale(1)';
+                            circle.style.opacity = '0';
+                          });
+                          setTimeout(() => circle.remove(), 500);
+                        }}
                       >
-                        <span className="flex items-center">
-                          <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:text-white">Learn more</span>
-                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                        <span className="flex items-center text-white">
+                          <span className="text-white">Learn more</span>
+                          <ArrowRight className="h-4 w-4 ml-2 text-white group-hover:translate-x-1 transition-transform duration-300" />
                         </span>
                       </Button>
                     </div>
