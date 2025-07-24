@@ -250,7 +250,14 @@ export default function Landing() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  console.log('Desktop buy now button clicked');
+                  const element = document.getElementById('pricing-section');
+                  console.log('Desktop buy now pricing section element:', element);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
+                  }
+                }}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
               >
                 Buy Now
