@@ -61,6 +61,7 @@ import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
 import TutorialWalkthrough from "@/components/TutorialWalkthrough";
 import { useTutorial } from "@/hooks/useTutorial";
+import { SocialLinks } from "@/components/ui/animated-icons";
 
 
 interface SubscriptionPlan {
@@ -1005,6 +1006,18 @@ export default function Landing() {
                     </a>
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            {/* Social Media Icons Section */}
+            <div className="border-t border-gray-800 pt-8 mb-8">
+              <div className="text-center">
+                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                  Get Our App & Follow Us
+                </h4>
+                <div className="flex justify-center">
+                  <SocialLinks className="animate-fade-in-up stagger-1" />
+                </div>
               </div>
             </div>
 
