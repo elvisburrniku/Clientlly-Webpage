@@ -3,7 +3,7 @@ import React from 'react';
 // Simple App Store Button
 export const AppStoreIcon = ({ className = "" }: { className?: string }) => (
   <div className={`${className} inline-block cursor-pointer`}>
-    <div className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-700 transition-colors min-w-[140px]">
+    <div className="bg-black text-white border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-800 transition-colors min-w-[140px]">
       <div className="text-sm font-medium text-center">Download on the App Store</div>
     </div>
   </div>
@@ -12,7 +12,7 @@ export const AppStoreIcon = ({ className = "" }: { className?: string }) => (
 // Simple Google Play Button  
 export const GooglePlayIcon = ({ className = "" }: { className?: string }) => (
   <div className={`${className} inline-block cursor-pointer`}>
-    <div className="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-700 transition-colors min-w-[140px]">
+    <div className="bg-green-600 text-white border border-green-500 rounded-lg px-4 py-2 hover:bg-green-700 transition-colors min-w-[140px]">
       <div className="text-sm font-medium text-center">Get it on Google Play</div>
     </div>
   </div>
@@ -27,11 +27,11 @@ export const FacebookIcon = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
-// Simple YouTube Button
-export const YouTubeIcon = ({ className = "" }: { className?: string }) => (
+// Simple Instagram Button
+export const InstagramIcon = ({ className = "" }: { className?: string }) => (
   <div className={`${className} inline-block cursor-pointer`}>
-    <div className="bg-red-600 text-white border border-red-500 rounded-lg px-4 py-2 hover:bg-red-700 transition-colors min-w-[140px]">
-      <div className="text-sm font-medium text-center">YouTube</div>
+    <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white border border-pink-400 rounded-lg px-4 py-2 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 transition-all duration-300 min-w-[140px]">
+      <div className="text-sm font-medium text-center">Instagram</div>
     </div>
   </div>
 );
@@ -67,12 +67,12 @@ export const SocialLinks = ({ className = "" }: { className?: string }) => (
     </a>
     
     <a
-      href="https://youtube.com"
+      href="https://instagram.com"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Subscribe to our YouTube channel"
+      aria-label="Follow us on Instagram"
     >
-      <YouTubeIcon />
+      <InstagramIcon />
     </a>
   </div>
 );
