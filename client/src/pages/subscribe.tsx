@@ -756,9 +756,11 @@ export default function Subscribe() {
             </Button>
           )}
         </div>
+      </div>
 
-        {/* Testimonials Section */}
-        <div className="mt-16 mb-8">
+      {/* Testimonials Section - Outside main container */}
+      <div className="w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Don't take our word for it,{' '}
@@ -768,9 +770,9 @@ export default function Subscribe() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Testimonial 1 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
               <div className="flex items-center mb-3">
                 <div className="flex text-yellow-400">
                   {'★'.repeat(5)}
@@ -784,7 +786,7 @@ export default function Subscribe() {
             </div>
 
             {/* Testimonial 2 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
               <div className="flex items-center mb-3">
                 <div className="flex text-yellow-400">
                   {'★'.repeat(5)}
@@ -798,7 +800,7 @@ export default function Subscribe() {
             </div>
 
             {/* Testimonial 3 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
               <div className="flex items-center mb-3">
                 <div className="flex text-yellow-400">
                   {'★'.repeat(5)}
@@ -812,7 +814,7 @@ export default function Subscribe() {
             </div>
 
             {/* Testimonial 4 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50">
+            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
               <div className="flex items-center mb-3">
                 <div className="flex text-yellow-400">
                   {'★'.repeat(5)}
