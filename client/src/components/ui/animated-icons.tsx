@@ -1,247 +1,116 @@
 import React from 'react';
 
-// App Store Icon with animated gradient and scaling
+// App Store Icon - Clean and simple
 export const AppStoreIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
-  <div className={`${className} group cursor-pointer relative`}>
-    <div className="flex flex-col items-center space-y-2">
+  <div className={`${className} cursor-pointer`}>
+    <div className="flex items-center space-x-3 bg-black rounded-lg px-4 py-2 hover:bg-gray-800 transition-colors">
       <svg
-        viewBox="0 0 120 120"
-        className="w-12 h-12 transition-all duration-300 group-hover:scale-110"
-        style={{ filter: 'drop-shadow(0 6px 16px rgba(0,122,255,0.3))' }}
+        viewBox="0 0 24 24"
+        className="w-8 h-8"
+        fill="white"
       >
-        <defs>
-          <linearGradient id="appStoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#007AFF" />
-            <stop offset="50%" stopColor="#0051D5" />
-            <stop offset="100%" stopColor="#003DA5" />
-          </linearGradient>
-          <filter id="appGlow">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <rect 
-          width="100" 
-          height="100" 
-          x="10" 
-          y="10" 
-          rx="22" 
-          fill="url(#appStoreGrad)" 
-          filter="url(#appGlow)"
-          className="transition-all duration-300 group-hover:animate-pulse"
-        />
-        <g transform="translate(60, 60)">
-          <path 
-            d="M-15 10 L-8 -5 L-1 10 M-20 15 L4 15 M4 -15 L11 -2 L35 -35 M11 -2 L18 -15"
-            stroke="white" 
-            strokeWidth="3.5" 
-            fill="none" 
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-all duration-300 group-hover:stroke-yellow-200"
-          />
-          <circle cx="0" cy="0" r="2" fill="white" className="animate-pulse" />
-        </g>
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
       </svg>
-      <span className="text-white text-xs font-medium group-hover:text-blue-300 transition-colors">
-        Download on the<br/>App Store
-      </span>
+      <div className="text-white">
+        <div className="text-xs">Download on the</div>
+        <div className="text-sm font-semibold">App Store</div>
+      </div>
     </div>
   </div>
 );
 
-// Google Play Icon with rotating elements
+// Google Play Icon - Clean and simple
 export const GooglePlayIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
-  <div className={`${className} group cursor-pointer relative`}>
-    <div className="flex flex-col items-center space-y-2">
+  <div className={`${className} cursor-pointer`}>
+    <div className="flex items-center space-x-3 bg-black rounded-lg px-4 py-2 hover:bg-gray-800 transition-colors">
       <svg
-        viewBox="0 0 120 120"
-        className="w-12 h-12 transition-all duration-300 group-hover:scale-110"
-        style={{ filter: 'drop-shadow(0 6px 16px rgba(76,175,80,0.3))' }}
+        viewBox="0 0 24 24"
+        className="w-8 h-8"
+        fill="white"
       >
-        <defs>
-          <linearGradient id="playBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#4CAF50" />
-            <stop offset="100%" stopColor="#2E7D32" />
-          </linearGradient>
-        </defs>
-        <rect 
-          width="100" 
-          height="100" 
-          x="10" 
-          y="10" 
-          rx="22" 
-          fill="white" 
-          stroke="url(#playBorder)" 
-          strokeWidth="3"
-          className="transition-all duration-300 group-hover:shadow-lg"
-        />
-        <g transform="translate(60, 60)">
-          <path 
-            d="M-25 -30 L-25 30 L0 0 Z" 
-            fill="#4CAF50" 
-            className="transition-all duration-500 group-hover:animate-pulse origin-center"
-          />
-          <path 
-            d="M-25 -30 L0 0 L25 -25 Z" 
-            fill="#FF9800" 
-            className="transition-all duration-500 group-hover:animate-bounce origin-center"
-          />
-          <path 
-            d="M0 0 L25 -25 L25 25 Z" 
-            fill="#F44336" 
-            className="transition-all duration-500 group-hover:animate-pulse origin-center"
-          />
-          <path 
-            d="M-25 30 L0 0 L25 25 Z" 
-            fill="#2196F3" 
-            className="transition-all duration-500 group-hover:animate-bounce origin-center"
-          />
-        </g>
+        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
       </svg>
-      <span className="text-white text-xs font-medium group-hover:text-green-300 transition-colors">
-        Get it on<br/>Google Play
-      </span>
+      <div className="text-white">
+        <div className="text-xs">Get it on</div>
+        <div className="text-sm font-semibold">Google Play</div>
+      </div>
     </div>
   </div>
 );
 
-// Facebook Icon with pulsing effect
+// Facebook Icon - Clean and simple
 export const FacebookIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
-  <div className={`${className} group cursor-pointer relative`}>
-    <div className="flex flex-col items-center space-y-2">
+  <div className={`${className} cursor-pointer`}>
+    <div className="flex items-center space-x-3 bg-blue-600 rounded-lg px-4 py-2 hover:bg-blue-700 transition-colors">
       <svg
-        viewBox="0 0 120 120"
-        className="w-12 h-12 transition-all duration-300 group-hover:scale-110"
-        style={{ filter: 'drop-shadow(0 6px 16px rgba(24,119,242,0.3))' }}
+        viewBox="0 0 24 24"
+        className="w-8 h-8"
+        fill="white"
       >
-        <defs>
-          <linearGradient id="fbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1877F2" />
-            <stop offset="50%" stopColor="#166FE5" />
-            <stop offset="100%" stopColor="#0E5FD8" />
-          </linearGradient>
-          <filter id="fbGlow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <rect 
-          width="100" 
-          height="100" 
-          x="10" 
-          y="10" 
-          rx="22" 
-          fill="url(#fbGrad)" 
-          filter="url(#fbGlow)"
-          className="transition-all duration-300 group-hover:animate-pulse"
-        />
-        <path 
-          d="M75 35 L75 50 L82 50 L82 65 L75 65 L75 95 L60 95 L60 65 L50 65 L50 50 L60 50 L60 42 C60 37 63 35 68 35 L75 35 Z" 
-          fill="white"
-          className="transition-all duration-300 group-hover:fill-blue-100"
-        />
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
       </svg>
-      <span className="text-white text-xs font-medium group-hover:text-blue-300 transition-colors text-center">
-        Facebook
-      </span>
+      <div className="text-white">
+        <div className="text-sm font-semibold">Facebook</div>
+      </div>
     </div>
   </div>
 );
 
-// YouTube Icon with play button animation
+// YouTube Icon - Clean and simple
 export const YouTubeIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
-  <div className={`${className} group cursor-pointer relative`}>
-    <div className="flex flex-col items-center space-y-2">
+  <div className={`${className} cursor-pointer`}>
+    <div className="flex items-center space-x-3 bg-red-600 rounded-lg px-4 py-2 hover:bg-red-700 transition-colors">
       <svg
-        viewBox="0 0 120 120"
-        className="w-12 h-12 transition-all duration-300 group-hover:scale-110"
-        style={{ filter: 'drop-shadow(0 6px 16px rgba(255,0,0,0.3))' }}
+        viewBox="0 0 24 24"
+        className="w-8 h-8"
+        fill="white"
       >
-        <defs>
-          <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FF0000" />
-            <stop offset="50%" stopColor="#E60000" />
-            <stop offset="100%" stopColor="#CC0000" />
-          </linearGradient>
-          <filter id="ytGlow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <rect 
-          width="100" 
-          height="70" 
-          x="10" 
-          y="25" 
-          rx="16" 
-          fill="url(#ytGrad)" 
-          filter="url(#ytGlow)"
-          className="transition-all duration-300 group-hover:animate-pulse"
-        />
-        <path 
-          d="M45 45 L45 75 L75 60 Z" 
-          fill="white"
-          className="transition-all duration-300 group-hover:animate-bounce group-hover:fill-red-100"
-        />
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
       </svg>
-      <span className="text-white text-xs font-medium group-hover:text-red-300 transition-colors text-center">
-        YouTube
-      </span>
+      <div className="text-white">
+        <div className="text-sm font-semibold">YouTube</div>
+      </div>
     </div>
   </div>
 );
 
-// Social Links Component with all animated icons
+// Social Links Component with clean, horizontal layout
 export const SocialLinks = ({ className = "" }: { className?: string }) => (
-  <div className={`flex items-center justify-center space-x-8 ${className}`}>
+  <div className={`flex flex-wrap items-center justify-center gap-4 ${className}`}>
     <a
       href="https://apps.apple.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="transition-transform duration-300 hover:scale-105 hover:rotate-1"
       aria-label="Download on the App Store"
     >
-      <AppStoreIcon className="w-16 h-16" />
+      <AppStoreIcon />
     </a>
     
     <a
       href="https://play.google.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="transition-transform duration-300 hover:scale-105 hover:-rotate-1"
       aria-label="Get it on Google Play"
     >
-      <GooglePlayIcon className="w-16 h-16" />
+      <GooglePlayIcon />
     </a>
     
     <a
       href="https://facebook.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="transition-transform duration-300 hover:scale-105 hover:rotate-1"
       aria-label="Follow us on Facebook"
     >
-      <FacebookIcon className="w-16 h-16" />
+      <FacebookIcon />
     </a>
     
     <a
       href="https://youtube.com"
       target="_blank"
       rel="noopener noreferrer"
-      className="transition-transform duration-300 hover:scale-105 hover:-rotate-1"
       aria-label="Subscribe to our YouTube channel"
     >
-      <YouTubeIcon className="w-16 h-16" />
+      <YouTubeIcon />
     </a>
   </div>
 );
