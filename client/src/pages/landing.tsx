@@ -509,23 +509,7 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-16 fade-in stagger-4">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 shadow-2xl">
-              <h3 className="text-2xl font-bold text-white mb-4">Ready to transform your business?</h3>
-              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Join successful businesses that have already made the switch. Start your free trial today and see the difference.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-3">
-                  Start Your Trial
-                </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-8 py-3">
-                  Schedule Demo
-                </Button>
-              </div>
-            </div>
-          </div>
+
         </div>
       </section>
 
