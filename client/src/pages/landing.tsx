@@ -879,7 +879,7 @@ export default function Landing() {
               <div className="relative z-10 p-12 lg:p-20">
                 {/* Your Original Message with Revolutionary Styling */}
                 <div className="text-center mb-16">
-                  <div className="max-w-4xl mx-auto">
+                  <div className="max-w-4xl mx-auto space-y-8">
                     <p className="text-2xl lg:text-3xl text-white leading-relaxed font-light mb-8">
                       <span className="bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent font-bold">
                         Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
@@ -889,6 +889,18 @@ export default function Landing() {
                       When you succeed, we all succeed – creating a{' '}
                       <span className="text-pink-300 font-semibold">powerful ecosystem</span> of continuous improvement and shared growth.
                     </p>
+                    
+                    {/* Additional Previous Text */}
+                    <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl p-8 border border-cyan-400/20 backdrop-blur-sm">
+                      <p className="text-lg lg:text-xl text-gray-200 leading-relaxed">
+                        With your ideas and feedback, we continuously improve our platform{' '}
+                        <span className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent font-bold text-xl">
+                          free of charge
+                        </span>
+                        {' '}because we believe the best growth happens when we{' '}
+                        <span className="text-cyan-300 font-semibold">grow together</span>.
+                      </p>
+                    </div>
                   </div>
                   
                   {/* Innovation metrics */}
