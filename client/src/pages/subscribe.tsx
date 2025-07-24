@@ -729,11 +729,11 @@ export default function Subscribe() {
 
         {renderStepIndicator()}
         
-        <div className="mb-4">
+        <div className="mb-6">
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-4 mt-2 fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex justify-center space-x-4 mb-8 fade-in-up" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
@@ -764,7 +764,7 @@ export default function Subscribe() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Don't take our word for it,{' '}
-              <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-gradient bg-300% font-extrabold">
                 take theirs
               </span>
             </h2>
