@@ -824,192 +824,98 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Revolutionary Community-Driven Innovation Section */}
-      <section className="py-32 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-        {/* Futuristic animated background */}
-        <div className="absolute inset-0">
-          {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(139,69,193,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(139,69,193,0.05)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
-          
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-20 w-24 h-24 border border-cyan-400/20 rotate-45 animate-spin-slow"></div>
-          <div className="absolute bottom-32 right-32 w-32 h-32 border-2 border-purple-400/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rotate-12 animate-float"></div>
-          
-          {/* Animated light beams */}
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent animate-pulse"></div>
-          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-purple-400/20 to-transparent animate-pulse delay-1000"></div>
+      {/* Growing Together Through Collaboration Section */}
+      <section className="py-24 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
+        {/* Subtle background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Revolutionary header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full border border-cyan-400/20 backdrop-blur-sm mb-8">
-              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse mr-3"></div>
-              <span className="text-cyan-300 font-semibold text-sm tracking-wide uppercase">World's First Community-Driven Business Platform</span>
-              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse ml-3"></div>
-            </div>
-            
-            <h2 className="text-6xl lg:text-8xl font-black text-white leading-tight mb-8">
-              <span className="inline-block bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
-                Revolutionary
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8">
+              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                Growing Together Through Collaboration
               </span>
-              <br />
-              <span className="text-white">Collaboration</span>
             </h2>
-            
-            <div className="flex justify-center items-center space-x-6 mb-12">
-              <div className="w-32 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
-                <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-100"></div>
-                <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce delay-200"></div>
-              </div>
-              <div className="w-32 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
+            <div className="flex justify-center items-center space-x-4 mt-6">
+              <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+              <Heart className="w-6 h-6 text-purple-600" />
+              <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full"></div>
             </div>
           </div>
 
-          {/* Main content area with holographic effect */}
-          <div className="max-w-6xl mx-auto">
-            <div className="relative">
-              {/* Holographic border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl blur-sm opacity-50 animate-pulse"></div>
-              <div className="absolute inset-[2px] bg-gradient-to-br from-slate-900/95 to-purple-900/95 rounded-3xl backdrop-blur-xl"></div>
+          {/* Main Content Card */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 lg:p-16 shadow-2xl border border-white/20 dark:border-gray-700/30 relative overflow-hidden group hover:shadow-3xl transition-all duration-500">
               
-              <div className="relative z-10 p-12 lg:p-20">
-                {/* Your Original Message with Revolutionary Styling */}
-                <div className="text-center mb-16">
-                  <div className="max-w-4xl mx-auto space-y-8">
-                    <p className="text-2xl lg:text-3xl text-white leading-relaxed font-light mb-8">
-                      <span className="bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent font-bold">
-                        Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
-                      </span>
-                    </p>
-                    <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed">
-                      When you succeed, we all succeed – creating a{' '}
-                      <span className="text-pink-300 font-semibold">powerful ecosystem</span> of continuous improvement and shared growth.
-                    </p>
-                    
-                    {/* Additional Previous Text */}
-                    <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-2xl p-8 border border-cyan-400/20 backdrop-blur-sm">
-                      <p className="text-lg lg:text-xl text-gray-200 leading-relaxed">
-                        With your ideas and feedback, we continuously improve our platform{' '}
-                        <span className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent font-bold text-xl">
-                          free of charge
-                        </span>
-                        {' '}because we believe the best growth happens when we{' '}
-                        <span className="text-cyan-300 font-semibold">grow together</span>.
-                      </p>
-                    </div>
-                  </div>
+              <div className="relative z-10 text-center space-y-8">
+                {/* Your Original Messages */}
+                <div className="max-w-3xl mx-auto space-y-6">
+                  <p className="text-xl lg:text-2xl text-foreground leading-relaxed font-medium">
+                    Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                  </p>
                   
-                  {/* Innovation metrics */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 mb-16">
-                    <div className="text-center group">
-                      <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <Users className="h-8 w-8 text-white" />
-                      </div>
-                      <div className="text-3xl font-bold text-cyan-300 mb-2">50,000+</div>
-                      <p className="text-gray-400 text-sm">Active Contributors</p>
-                    </div>
-                    
-                    <div className="text-center group">
-                      <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <Zap className="h-8 w-8 text-white" />
-                      </div>
-                      <div className="text-3xl font-bold text-purple-300 mb-2">1,200+</div>
-                      <p className="text-gray-400 text-sm">Features Created</p>
-                    </div>
-                    
-                    <div className="text-center group">
-                      <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <TrendingUp className="h-8 w-8 text-white" />
-                      </div>
-                      <div className="text-3xl font-bold text-pink-300 mb-2">400%</div>
-                      <p className="text-gray-400 text-sm">Faster Innovation</p>
-                    </div>
-                    
-                    <div className="text-center group">
-                      <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                        <Globe className="h-8 w-8 text-white" />
-                      </div>
-                      <div className="text-3xl font-bold text-green-300 mb-2">150+</div>
-                      <p className="text-gray-400 text-sm">Countries Involved</p>
-                    </div>
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-2xl p-6 border border-blue-200/30 dark:border-blue-700/30">
+                    <p className="text-lg text-foreground leading-relaxed">
+                      With your ideas and feedback, we continuously improve our platform{' '}
+                      <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-bold text-xl">
+                        free of charge
+                      </span>
+                      {' '}because we believe the best growth happens when we{' '}
+                      <span className="text-purple-600 dark:text-purple-400 font-semibold">grow together</span>.
+                    </p>
                   </div>
                 </div>
                 
-                {/* Revolutionary process visualization */}
-                <div className="grid md:grid-cols-4 gap-8 mb-16">
-                  <div className="text-center group">
-                    <div className="relative mb-6">
-                      <div className="w-20 h-20 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mx-auto shadow-2xl group-hover:scale-110 transition-all duration-300">
-                        <Lightbulb className="h-10 w-10 text-white" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-ping"></div>
+                {/* Enhanced Feature Highlights */}
+                <div className="grid md:grid-cols-4 gap-6 mt-12">
+                  <div className="group/item bg-blue-50/80 dark:bg-blue-900/30 rounded-2xl p-6 hover:bg-blue-100/90 dark:hover:bg-blue-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <Lightbulb className="h-7 w-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-3">Your Vision</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">Share your breakthrough ideas with our global community</p>
+                    <h4 className="font-bold text-foreground mb-2">Share Ideas</h4>
+                    <p className="text-sm text-muted-foreground">Your vision drives our development</p>
                   </div>
                   
-                  <div className="text-center group">
-                    <div className="relative mb-6">
-                      <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto shadow-2xl group-hover:scale-110 transition-all duration-300">
-                        <Brain className="h-10 w-10 text-white" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-400 rounded-full animate-pulse"></div>
+                  <div className="group/item bg-purple-50/80 dark:bg-purple-900/30 rounded-2xl p-6 hover:bg-purple-100/90 dark:hover:bg-purple-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg delay-100">
+                    <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <Zap className="h-7 w-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-3">AI Analysis</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">Advanced AI evaluates feasibility and community impact</p>
+                    <h4 className="font-bold text-foreground mb-2">Collaborative Development</h4>
+                    <p className="text-sm text-muted-foreground">We build together with expert guidance</p>
                   </div>
                   
-                  <div className="text-center group">
-                    <div className="relative mb-6">
-                      <div className="w-20 h-20 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto shadow-2xl group-hover:scale-110 transition-all duration-300">
-                        <Rocket className="h-10 w-10 text-white" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-400 rounded-full animate-bounce"></div>
+                  <div className="group/item bg-green-50/80 dark:bg-green-900/30 rounded-2xl p-6 hover:bg-green-100/90 dark:hover:bg-green-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg delay-200">
+                    <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <Gift className="h-7 w-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-3">Rapid Build</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">Lightning-fast development with zero cost to you</p>
+                    <h4 className="font-bold text-foreground mb-2">Free Implementation</h4>
+                    <p className="text-sm text-muted-foreground">Zero cost development for subscribers</p>
                   </div>
                   
-                  <div className="text-center group">
-                    <div className="relative mb-6">
-                      <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto shadow-2xl group-hover:scale-110 transition-all duration-300">
-                        <Sparkles className="h-10 w-10 text-white" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full animate-spin"></div>
+                  <div className="group/item bg-indigo-50/80 dark:bg-indigo-900/30 rounded-2xl p-6 hover:bg-indigo-100/90 dark:hover:bg-indigo-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg delay-300">
+                    <div className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <TrendingUp className="h-7 w-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-3">Global Impact</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">Your innovation benefits millions worldwide</p>
+                    <h4 className="font-bold text-foreground mb-2">Mutual Growth</h4>
+                    <p className="text-sm text-muted-foreground">Success shared across our community</p>
                   </div>
                 </div>
                 
-                {/* Revolutionary Call to Action */}
-                <div className="text-center">
-                  <div className="relative inline-block">
-                    {/* Holographic button background */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl blur-lg opacity-60 animate-pulse"></div>
-                    
-                    <Button 
-                      variant="outline"
-                      onClick={() => window.location.href = '/collaboration'}
-                      className="relative px-16 py-6 bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 text-white border-0 rounded-2xl font-bold text-xl transform transition-all duration-300 hover:scale-110 active:scale-95 shadow-2xl hover:shadow-cyan-500/25 backdrop-blur-sm"
-                    >
-                      {/* Button content */}
-                      <span className="relative z-10 flex items-center">
-                        <Rocket className="h-6 w-6 mr-3 animate-bounce" />
-                        <span className="bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent font-black">
-                          Join the Revolution
-                        </span>
-                        <Sparkles className="h-6 w-6 ml-3 animate-pulse" />
-                      </span>
-                      
-                      {/* Animated background gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-                    </Button>
-                  </div>
+                {/* Call to Action */}
+                <div className="pt-8">
+                  <Button 
+                    variant="outline"
+                    onClick={() => window.location.href = '/collaboration'}
+                    className="group relative overflow-hidden px-12 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white border-0 rounded-2xl font-bold text-lg transform transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl hover:shadow-3xl"
+                  >
+                    <span className="relative flex items-center text-white">
+                      <span className="text-white mr-3">Learn more</span>
+                      <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-2 transition-transform duration-300" />
+                    </span>
+                  </Button>
                 </div>
               </div>
             </div>
