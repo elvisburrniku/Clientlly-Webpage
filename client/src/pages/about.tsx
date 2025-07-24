@@ -421,7 +421,7 @@ export default function About() {
               {[
                 {
                   step: "01",
-                  title: "Submit Your Ideas",
+                  title: "Your Ideas",
                   description: "Share your business needs, workflow challenges, or feature requests through your subscriber dashboard.",
                   icon: Lightbulb,
                   color: "green"
@@ -442,8 +442,8 @@ export default function About() {
                 },
                 {
                   step: "04",
-                  title: "Free Development",
-                  description: "Approved features are developed and deployed to all users at no additional cost, enhancing everyone's experience.",
+                  title: "Fast Development",
+                  description: "Ideas become features in record time with our agile development process and dedicated team support.",
                   icon: Zap,
                   color: "orange"
                 }
@@ -467,11 +467,11 @@ export default function About() {
                     STEP {process.step}
                   </div>
                   
-                  <h4 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h4 className="text-xl font-black text-foreground mb-3 group-hover:text-primary transition-colors duration-300 tracking-tight leading-tight">
                     {process.title}
                   </h4>
                   
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-base font-medium text-muted-foreground leading-relaxed">
                     {process.description}
                   </p>
                 </div>
@@ -485,11 +485,14 @@ export default function About() {
                   <Star className="h-8 w-8 text-yellow-500" />
                   <TrendingUp className="h-8 w-8 text-green-500" />
                 </div>
-                <h4 className="text-2xl font-bold text-foreground mb-4">
-                  Your Success Drives Our Innovation
+                <h4 className="text-3xl font-black text-foreground mb-6 tracking-tight leading-tight">
+                  Mutual Growth
                 </h4>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
-                  Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                <p className="text-xl font-semibold text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-8">
+                  With your ideas and feedback, we continuously improve our platform free of charge because we believe the best growth happens when we grow together.
+                </p>
+                <p className="text-lg font-medium text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
+                  We succeed when you succeed – creating a powerful ecosystem of continuous improvement and shared growth.
                 </p>
                 <Button 
                   onClick={() => window.location.href = '/subscribe'}
