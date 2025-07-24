@@ -72,33 +72,6 @@ export const insertUserSchema = createInsertSchema(users).pick({
   lastName: true,
 });
 
-// Workflow recommendations table
-export const workflowRecommendations = pgTable("workflow_recommendations", {
-  id: serial("id").primaryKey(),
-  userId: varchar("user_id").notNull(),
-  title: varchar("title").notNull(),
-  description: text("description").notNull(),
-  category: varchar("category").notNull(), // automation, optimization, integration, etc.
-  priority: varchar("priority").default("medium"), // low, medium, high, critical
-  estimatedTimeSaving: integer("estimated_time_saving"), // minutes per week
-  difficulty: varchar("difficulty").default("easy"), // easy, medium, hard
-  status: varchar("status").default("pending"), // pending, viewed, implemented, dismissed
-  metadata: jsonb("metadata"), // additional data like affected workflows, requirements
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
-});
-
-// User workflow analytics table
-export const workflowAnalytics = pgTable("workflow_analytics", {
-  id: serial("id").primaryKey(),
-  userId: varchar("user_id").notNull(),
-  action: varchar("action").notNull(), // invoice_created, expense_added, report_generated, etc.
-  category: varchar("category").notNull(), // invoicing, expenses, reports, crm, etc.
-  duration: integer("duration"), // time spent in milliseconds
-  metadata: jsonb("metadata"), // context data like invoice amount, client info, etc.
-  timestamp: timestamp("timestamp").defaultNow(),
-});
-
 export const insertDemoRequestSchema = createInsertSchema(demoRequests).pick({
   fullName: true,
   email: true,
@@ -107,23 +80,8 @@ export const insertDemoRequestSchema = createInsertSchema(demoRequests).pick({
   message: true,
 });
 
-export const insertWorkflowRecommendationSchema = createInsertSchema(workflowRecommendations).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
-});
-
-export const insertWorkflowAnalyticsSchema = createInsertSchema(workflowAnalytics).omit({
-  id: true,
-  timestamp: true,
-});
-
 export type InsertDemoRequest = z.infer<typeof insertDemoRequestSchema>;
 export type DemoRequest = typeof demoRequests.$inferSelect;
-export type WorkflowRecommendation = typeof workflowRecommendations.$inferSelect;
-export type InsertWorkflowRecommendation = z.infer<typeof insertWorkflowRecommendationSchema>;
-export type WorkflowAnalytics = typeof workflowAnalytics.$inferSelect;
-export type InsertWorkflowAnalytics = z.infer<typeof insertWorkflowAnalyticsSchema>;
 
 export type SubscriptionPlan = typeof subscriptionPlans.$inferSelect;
 export type InsertSubscriptionPlan = typeof subscriptionPlans.$inferInsert;

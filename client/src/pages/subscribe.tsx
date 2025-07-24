@@ -337,49 +337,40 @@ export default function Subscribe() {
   );
 
   const renderPlanSelection = () => (
-    <div className="max-w-6xl mx-auto fade-in-up flex-1 flex flex-col justify-center" style={{ animationDelay: '0.3s' }}>
-      <div className="text-center mb-4">
-        <div className="flex justify-center mb-6">
-          <div className="relative flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-full max-w-xs mx-auto">
-            <button
-              onClick={() => setBillingPeriod('monthly')}
-              className={`relative z-10 flex-1 py-2 text-sm font-semibold rounded-md transition-all duration-300 ${
-                billingPeriod === 'monthly'
-                  ? 'text-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingPeriod('yearly')}
-              className={`relative z-10 flex-1 py-2 text-sm font-semibold rounded-md transition-all duration-300 ${
-                billingPeriod === 'yearly'
-                  ? 'text-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-              }`}
-            >
-              Yearly
-            </button>
-            <div
-              className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
-                billingPeriod === 'monthly'
-                  ? 'left-1 w-[calc(50%-4px)]'
-                  : 'right-1 w-[calc(50%-4px)]'
-              }`}
-            />
-          </div>
-          {billingPeriod === 'yearly' && (
-            <div className="mt-2 text-center">
-              <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 20%</span>
+    <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
+      <div className="text-center mb-12">
+        <div className="flex justify-center mb-8">
+          <div className="bg-gray-200 rounded-lg p-1">
+            <div className="flex items-center space-x-1">
+              <button
+                onClick={() => setBillingPeriod('monthly')}
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  billingPeriod === 'monthly' 
+                    ? 'bg-white text-black shadow-sm' 
+                    : 'text-black hover:text-black hover:bg-white/50'
+                }`}
+              >
+                Monthly
+              </button>
+              <button
+                onClick={() => setBillingPeriod('yearly')}
+                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative ${
+                  billingPeriod === 'yearly' 
+                    ? 'bg-white text-black shadow-sm' 
+                    : 'text-black hover:text-black hover:bg-white/50'
+                }`}
+              >
+                Yearly
+                <Badge className="ml-2 bg-green-500 text-white text-xs">Save 17%</Badge>
+              </button>
             </div>
-          )}
+          </div>
         </div>
       </div>
       
-      <CardContent className="space-y-6 p-0">
+      <CardContent className="space-y-8 p-0">
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-3 gap-6">
           {plansLoading ? (
             // Skeleton loading states
             Array.from({ length: 3 }).map((_, index) => (
@@ -410,83 +401,65 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in fade-in-up ${
-                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
-                } ${isSelected ? 'ring-2 ring-primary shadow-xl' : ''}`}
+                className={`cursor-pointer transition-all duration-300 hover:shadow-lg fade-in-up relative ${
+                  isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-xl' : 'bg-white hover:bg-gray-50 border-gray-200'
+                } ${index === 1 ? 'border-2 border-blue-500' : ''}`}
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 onClick={() => setSelectedPlan(plan.id)}
               >
-                {index === 1 && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
-                    <Badge className="bg-blue-600 text-white px-4 py-1 text-sm font-semibold shadow-lg">
+                <CardContent className="p-6 relative">
+                  {index === 1 && (
+                    <Badge className="mb-4 bg-blue-600 text-white">
                       Most Popular
                     </Badge>
-                  </div>
-                )}
-                
-                <CardContent className="p-6 pt-8">
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
-                    <div className="text-4xl font-bold gradient-text mb-1">
-                      ${Math.floor(price / 100)}
-                      <span className="text-lg text-muted-foreground">/{billingPeriod === 'yearly' ? 'month' : 'month'}</span>
+                  )}
+                  
+                  <div className="mb-4">
+                    <h3 className={`text-xl font-bold mb-2 ${
+                      isSelected ? 'text-white' : 'text-black'
+                    }`}>
+                      {plan.name}
+                    </h3>
+                    <div className="mt-2">
+                      <span className={`text-3xl font-bold ${
+                        isSelected ? 'text-white' : 'text-black'
+                      }`}>
+                        ${Math.floor(price / 100)}
+                      </span>
+                      <span className={`text-lg ml-1 ${
+                        isSelected ? 'text-white/80' : 'text-gray-600'
+                      }`}>
+                        /{billingPeriod === 'yearly' ? 'year' : 'month'}
+                      </span>
                     </div>
-                    {billingPeriod === 'yearly' && (
-                      <div className="text-sm text-muted-foreground mb-2">
-                        Billed ${Math.floor((price * 12) / 100)} yearly
-                      </div>
-                    )}
-                    <p className="text-muted-foreground">
-                      {plan.id === 'basic' && "Perfect for freelancers and small teams"}
-                      {plan.id === 'professional' && "Ideal for growing businesses"}
-                      {plan.id === 'business' && "For large teams and enterprises"}
-                    </p>
                   </div>
                   
-                  <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
-                        <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
+                  <ul className="space-y-2 mb-6">
+                    {plan.features.slice(0, 4).map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-2">
+                        <Check className={`h-4 w-4 ${
+                          isSelected ? 'text-white' : 'text-green-500'
+                        }`} />
+                        <span className={`text-sm ${
+                          isSelected ? 'text-white' : 'text-black'
+                        }`}>
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
                   
-                  <div className="space-y-3">
-                    <Button 
-                      className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium py-2 transition-all duration-300 transform hover:scale-105"
-                      onClick={() => setSelectedPlan(plan.id)}
-                    >
-                      {isSelected ? (
-                        <div className="flex items-center space-x-2">
-                          <Check className="h-4 w-4" />
-                          <span>Selected</span>
-                        </div>
-                      ) : (
-                        'Buy Now'
-                      )}
-                    </Button>
-                    {plan.id === 'basic' && (
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
-                        onClick={() => setSelectedPlan(plan.id)}
-                      >
-                        Start Your Trial
-                      </Button>
-                    )}
-                    {plan.id !== 'basic' && (
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
-                        onClick={() => setSelectedPlan(plan.id)}
-                      >
-                        Start Your Trial
-                      </Button>
-                    )}
-                  </div>
+                  <Button 
+                    variant={isSelected ? "secondary" : "default"}
+                    className={`w-full ${
+                      isSelected 
+                        ? 'bg-white text-blue-600 hover:bg-gray-100' 
+                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                    }`}
+                    onClick={() => setSelectedPlan(plan.id)}
+                  >
+                    {isSelected ? 'Selected' : 'Select Plan'}
+                  </Button>
                 </CardContent>
               </Card>
             );
@@ -699,12 +672,12 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-2 px-4 relative">
+    <div className="min-h-screen bg-white py-8 px-4 relative overflow-hidden">
       {/* Background Grid Pattern - Matching Landing Page */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-      <div className="max-w-6xl mx-auto relative z-10 flex flex-col">
-        <div className="text-center mb-4 fade-in">
-          <div className="flex items-center justify-between mb-3">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16 fade-in">
+          <div className="flex items-center justify-between mb-12">
             <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
               <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                 <img 
@@ -720,25 +693,65 @@ export default function Subscribe() {
             <LanguageSelector />
           </div>
           
-          <div className="mb-3 fade-in-up space-y-2" style={{ animationDelay: '0.1s' }}>
-            <h1 className="text-3xl font-bold text-black mb-2 leading-tight">
+          <div className="mb-12 fade-in-up space-y-6" style={{ animationDelay: '0.1s' }}>
+            <div className="inline-block">
+              <Badge className="bg-blue-50 text-blue-600 border-blue-200 px-4 py-2 text-sm font-medium">
+                🚀 Start Your Business Transformation
+              </Badge>
+            </div>
+            <h1 className="text-5xl font-bold text-black mb-6 leading-tight">
               Choose Your Plan
             </h1>
+            <p className="text-black/70 text-xl max-w-3xl mx-auto leading-relaxed font-medium">
+              {t('subscribe.title', 'Join thousands of businesses already transforming their operations with our comprehensive platform')}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8 fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                  <Shield className="h-5 w-5 text-white" />
+                </div>
+                <span className="font-semibold text-black">Bank-Level Security</span>
+              </div>
+              <p className="text-sm text-black/60">256-bit SSL encryption protects all your data</p>
+            </div>
+            
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                  <Check className="h-5 w-5 text-white" />
+                </div>
+                <span className="font-semibold text-black">14-Day Free Trial</span>
+              </div>
+              <p className="text-sm text-black/60">Full access to all features, no commitments</p>
+            </div>
+            
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
+              <div className="flex items-center space-x-3 mb-2">
+                <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                  <Headphones className="h-5 w-5 text-white" />
+                </div>
+                <span className="font-semibold text-black">24/7 Support</span>
+              </div>
+              <p className="text-sm text-black/60">Expert help whenever you need it</p>
+            </div>
           </div>
         </div>
 
         {renderStepIndicator()}
         
-        <div className="mb-6">
+        <div className="mb-8">
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-4 mb-8 fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex justify-center space-x-4 fade-in-up" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
               onClick={prevStep}
-              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium transform hover:scale-105 transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Back</span>
@@ -749,82 +762,31 @@ export default function Subscribe() {
             <Button 
               onClick={nextStep}
               disabled={!canProceedToNext()}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-300"
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span>Continue</span>
               <ArrowRight className="h-4 w-4" />
             </Button>
           )}
         </div>
-      </div>
 
-      {/* Testimonials Section - Outside main container */}
-      <div className="w-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Don't take our word for it,{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-gradient bg-300% font-extrabold">
-                take theirs
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Testimonial 1 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
-              <div className="flex items-center mb-3">
-                <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
-                </div>
-                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.5 Outstanding</span>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                "BusinessFlow offers a well-rounded, intuitive, and attractive double-entry accounting system. It anticipates the needs of freelancers and small businesses well—better than competitors in this class."
-              </p>
-              <div className="text-lg font-bold text-gray-800 dark:text-white">PCMAG.COM</div>
+        <div className="text-center mt-12 fade-in-up" style={{ animationDelay: '0.9s' }}>
+          <div className="glass-effect border border-white/20 rounded-2xl p-6 max-w-md mx-auto">
+            <div className="flex items-center justify-center space-x-2 mb-3">
+              <Shield className="h-5 w-5 text-primary" />
+              <span className="text-foreground font-semibold">Need Help?</span>
             </div>
-
-            {/* Testimonial 2 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
-              <div className="flex items-center mb-3">
-                <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
-                </div>
-                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.5 Excellent</span>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                "BusinessFlow automates daily accounting activities namely invoice creation, payment acceptance, expenses tracking, billable time tracking, and financial reporting."
-              </p>
-              <div className="text-lg font-bold text-gray-800 dark:text-white">✓ Capterra</div>
-            </div>
-
-            {/* Testimonial 3 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
-              <div className="flex items-center mb-3">
-                <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
-                </div>
-                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.5 Excellent</span>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                "BusinessFlow is an online accounting and invoicing service that's simple to set up. And all makes you look professional. Features 500 professionals."
-              </p>
-              <div className="text-lg font-bold text-gray-800 dark:text-white">G</div>
-            </div>
-
-            {/* Testimonial 4 */}
-            <div className="bg-white/10 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-white/20 dark:border-gray-700/50 hover:scale-105 transition-all duration-300">
-              <div className="flex items-center mb-3">
-                <div className="flex text-yellow-400">
-                  {'★'.repeat(5)}
-                </div>
-                <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.7 Excellent</span>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                "BusinessFlow makes it easy to stay organized, keep track of payments owed on a freelance basis, send invoices and accept payments."
-              </p>
-              <div className="text-lg font-bold text-gray-800 dark:text-white">Forbes</div>
+            <p className="text-sm text-muted-foreground mb-4">
+              Our support team is available 24/7 to assist you
+            </p>
+            <div className="flex justify-center space-x-4">
+              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
+                Chat Support
+              </a>
+              <span className="text-muted-foreground">•</span>
+              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
+                Email Us
+              </a>
             </div>
           </div>
         </div>

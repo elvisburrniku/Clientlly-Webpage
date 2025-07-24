@@ -142,7 +142,7 @@ export default function Compare() {
               billingPeriod === 'yearly' ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'
             }`}>
               <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
-                🎉 Save 20% with yearly billing
+                🎉 Save 17% with yearly billing
               </div>
             </div>
           </div>

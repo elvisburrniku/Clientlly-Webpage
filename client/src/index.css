@@ -73,46 +73,6 @@
   .text-muted-foreground {
     color: black !important;
   }
-  
-  /* Mobile optimizations for features section */
-  @media (max-width: 640px) {
-    .features-grid {
-      gap: 1rem;
-    }
-    
-    .features-grid > div {
-      min-height: 160px;
-    }
-  }
-  
-  /* Revolutionary section animations */
-  @keyframes gradient-x {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-  }
-  
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  .animate-gradient-x {
-    background-size: 200% 200%;
-    animation: gradient-x 4s ease infinite;
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-spin-slow {
-    animation: spin-slow 8s linear infinite;
-  }
 
   /* Preserve white text in footer for contrast against dark background */
   footer .text-white,
@@ -192,15 +152,6 @@
     animation: gradientShift 4s ease-in-out infinite;
   }
 
-  .animate-gradient {
-    background-size: 300% 300%;
-    animation: gradientShift 4s ease-in-out infinite;
-  }
-
-  .bg-300\% {
-    background-size: 300% 300%;
-  }
-
   @keyframes fade-in-up {
     0% {
       opacity: 0;
@@ -259,19 +210,6 @@
     animation: bounce-triple 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
     animation-delay: 0.4s;
     opacity: 0;
-  }
-
-  @keyframes bounce-gentle {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-  }
-
-  .animate-bounce-gentle {
-    animation: bounce-gentle 2s ease-in-out infinite;
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
   }
 
   .hover-lift {
@@ -1022,35 +960,3 @@
   .animate-faq-cycle-3 .animate-fade-in-out-delayed {
     animation-delay: 3s;
   }
-
-/* Enhanced bounce animation for "Let's go grow together" */
-@keyframes bounce-triple-infinite {
-  0% {
-    transform: translateY(0px);
-  }
-  15% {
-    transform: translateY(-20px);
-  }
-  25% {
-    transform: translateY(5px);
-  }
-  35% {
-    transform: translateY(-15px);
-  }
-  45% {
-    transform: translateY(3px);
-  }
-  55% {
-    transform: translateY(-8px);
-  }
-  65% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-bounce-infinite {
-  animation: bounce-triple-infinite 3s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-}

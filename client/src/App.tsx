@@ -29,7 +29,6 @@ import Compare from "@/pages/compare";
 import CompareFeatures from "@/pages/compare-features";
 import LoadingDemo from "@/pages/loading-demo";
 import Success from "@/pages/success";
-import WorkflowMagic from "@/pages/workflow-magic";
 import NotFound from "@/pages/not-found";
 import { BrandLoader } from "@/components/LoadingStates";
 
@@ -74,8 +73,6 @@ function Router() {
       ) : (
         <>
           <Route path="/" component={Dashboard} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/workflow-magic" component={WorkflowMagic} />
           <Route path="/features/invoicing" component={FeatureInvoicing} />
           <Route path="/features/expenses" component={FeatureExpenses} />
           <Route path="/features/tax" component={FeatureTax} />

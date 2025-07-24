@@ -53,7 +53,7 @@ export const translations: { [lang: string]: Translations } = {
         subtitle: 'Start free and scale as you grow. All plans include our core features with increasing limits and capabilities.',
         monthly: 'Monthly',
         yearly: 'Yearly',
-        save: 'Save 20% with yearly billing',
+        save: 'Save 17% with yearly billing',
         basic: 'Basic',
         professional: 'Professional',
         business: 'Business Plus',
