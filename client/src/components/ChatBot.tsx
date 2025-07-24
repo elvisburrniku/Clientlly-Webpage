@@ -12,7 +12,18 @@ import {
   Minimize2,
   Maximize2,
   HelpCircle,
-  Zap
+  Zap,
+  Search,
+  MessageSquare,
+  FileText,
+  CreditCard,
+  Settings,
+  Phone,
+  Mail,
+  ChevronRight,
+  Clock,
+  Home,
+  ArrowLeft
 } from 'lucide-react';
 
 interface Message {
@@ -23,19 +34,21 @@ interface Message {
   typing?: boolean;
 }
 
+interface HelpTopic {
+  id: string;
+  title: string;
+  description: string;
+  icon: any;
+}
+
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      id: '1',
-      text: "Hi! I'm the BusinessFlow Pro AI Assistant. I'm here to help you with questions about our features, pricing, and getting started. How can I help you today?",
-      sender: 'bot',
-      timestamp: new Date()
-    }
-  ]);
+  const [currentView, setCurrentView] = useState<'menu' | 'chat' | 'search'>('menu');
+  const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -142,12 +155,88 @@ export default function ChatBot() {
     }
   };
 
-  const quickActions = [
-    { text: "View pricing plans", action: () => setInputValue("What are your pricing plans?") },
-    { text: "Start free trial", action: () => setInputValue("How do I start a free trial?") },
-    { text: "Schedule demo", action: () => setInputValue("I'd like to schedule a demo") },
-    { text: "See all features", action: () => setInputValue("What features do you offer?") }
+  const helpTopics: HelpTopic[] = [
+    {
+      id: 'pricing',
+      title: 'Pricing and billing',
+      description: 'Plans, payments, and subscription management',
+      icon: CreditCard
+    },
+    {
+      id: 'features',
+      title: 'Features and capabilities',
+      description: 'Learn about invoicing, expenses, CRM, and more',
+      icon: Zap
+    },
+    {
+      id: 'getting-started',
+      title: 'Getting started',
+      description: 'Setup, onboarding, and first steps',
+      icon: FileText
+    },
+    {
+      id: 'account',
+      title: 'Account management',
+      description: 'Profile, settings, and team management',
+      icon: Settings
+    },
+    {
+      id: 'mobile',
+      title: 'Mobile apps',
+      description: 'iOS and Android app support',
+      icon: Phone
+    },
+    {
+      id: 'contact',
+      title: 'Contact support',
+      description: 'Speak with our support team',
+      icon: Mail
+    }
   ];
+
+  const recentMessages = [
+    {
+      id: '1',
+      title: 'Hello!',
+      sender: 'BusinessFlow Pro',
+      time: '17m ago'
+    }
+  ];
+
+  const startChat = (topic?: string) => {
+    setCurrentView('chat');
+    if (topic) {
+      const topicMessage: Message = {
+        id: Date.now().toString(),
+        text: `I'd like to know more about ${topic}`,
+        sender: 'user',
+        timestamp: new Date()
+      };
+      
+      setMessages([topicMessage]);
+      setIsTyping(true);
+      
+      setTimeout(() => {
+        const botResponse: Message = {
+          id: (Date.now() + 1).toString(),
+          text: generateResponse(`I'd like to know more about ${topic}`),
+          sender: 'bot',
+          timestamp: new Date()
+        };
+        
+        setMessages(prev => [...prev, botResponse]);
+        setIsTyping(false);
+      }, 1000);
+    } else {
+      const welcomeMessage: Message = {
+        id: '1',
+        text: "Hi! I'm the BusinessFlow Pro AI Assistant. I'm here to help you with questions about our features, pricing, and getting started. How can I help you today?",
+        sender: 'bot',
+        timestamp: new Date()
+      };
+      setMessages([welcomeMessage]);
+    }
+  };
 
   if (!isOpen) {
     return (
@@ -205,90 +294,208 @@ export default function ChatBot() {
         </CardHeader>
 
         {!isMinimized && (
-          <CardContent className="p-0 flex flex-col h-[436px]">
-            {/* Quick Actions */}
-            <div className="p-4 border-b bg-gray-50">
-              <p className="text-sm text-gray-600 mb-2">Quick actions:</p>
-              <div className="flex flex-wrap gap-2">
-                {quickActions.map((action, index) => (
-                  <Badge 
-                    key={index}
-                    variant="secondary" 
-                    className="cursor-pointer hover:bg-blue-100 text-xs"
-                    onClick={action.action}
-                  >
-                    {action.text}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
-              {messages.map((message) => (
-                <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`flex items-start space-x-2 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                      message.sender === 'user' ? 'bg-blue-600' : 'bg-gray-200'
-                    }`}>
-                      {message.sender === 'user' ? 
-                        <User className="h-4 w-4 text-white" /> : 
-                        <Bot className="h-4 w-4 text-gray-600" />
-                      }
-                    </div>
-                    <div className={`rounded-lg p-3 ${
-                      message.sender === 'user' 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-gray-100 text-gray-800'
-                    }`}>
-                      <p className="text-sm whitespace-pre-wrap">{message.text}</p>
-                      <span className="text-xs opacity-70 mt-1 block">
-                        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                      </span>
-                    </div>
-                  </div>
+          <CardContent className="p-0 flex flex-col h-[500px]">
+            {/* Menu View */}
+            {currentView === 'menu' && (
+              <div className="flex flex-col h-full">
+                {/* Welcome Message */}
+                <div className="p-6 bg-gray-50 border-b">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Hello there.</h3>
+                  <p className="text-gray-600">How can we help?</p>
                 </div>
-              ))}
-              
-              {isTyping && (
-                <div className="flex justify-start">
-                  <div className="flex items-start space-x-2 max-w-[80%]">
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200">
-                      <Bot className="h-4 w-4 text-gray-600" />
-                    </div>
-                    <div className="rounded-lg p-3 bg-gray-100">
-                      <div className="flex space-x-1">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+
+                {/* Recent Messages */}
+                <div className="px-4 py-3 border-b bg-white">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
+                        <span className="text-xs text-white font-medium">BP</span>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Recent message</p>
+                        <div className="flex items-center space-x-1">
+                          <div className="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span className="text-xs text-white">B</span>
+                          </div>
+                          <span className="text-xs text-gray-500">BusinessFlow Pro • 17m ago</span>
+                        </div>
                       </div>
                     </div>
+                    <ChevronRight className="h-4 w-4 text-gray-400" />
                   </div>
                 </div>
-              )}
-              <div ref={messagesEndRef} />
-            </div>
 
-            {/* Input */}
-            <div className="p-4 border-t bg-white">
-              <div className="flex space-x-2">
-                <Input
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Type your message..."
-                  className="flex-1"
-                  disabled={isTyping}
-                />
-                <Button 
-                  onClick={handleSendMessage}
-                  disabled={!inputValue.trim() || isTyping}
-                  className="bg-blue-600 hover:bg-blue-700"
+                {/* Send Message */}
+                <button 
+                  onClick={() => startChat()}
+                  className="px-4 py-4 border-b bg-white hover:bg-gray-50 transition-colors text-left flex items-center justify-between"
                 >
-                  <Send className="h-4 w-4" />
-                </Button>
+                  <div className="flex items-center space-x-3">
+                    <MessageSquare className="h-5 w-5 text-gray-500" />
+                    <span className="text-sm font-medium text-gray-900">Send us a message</span>
+                  </div>
+                  <ChevronRight className="h-4 w-4 text-gray-400" />
+                </button>
+
+                {/* Search for Help */}
+                <button 
+                  onClick={() => setCurrentView('search')}
+                  className="px-4 py-4 border-b bg-white hover:bg-gray-50 transition-colors text-left flex items-center justify-between"
+                >
+                  <div className="flex items-center space-x-3">
+                    <Search className="h-5 w-5 text-gray-500" />
+                    <span className="text-sm font-medium text-gray-900">Search for help</span>
+                  </div>
+                  <Search className="h-4 w-4 text-gray-400" />
+                </button>
+
+                {/* Help Topics */}
+                <div className="flex-1 overflow-y-auto">
+                  {helpTopics.map((topic) => {
+                    const IconComponent = topic.icon;
+                    return (
+                      <button
+                        key={topic.id}
+                        onClick={() => startChat(topic.title)}
+                        className="w-full px-4 py-4 border-b bg-white hover:bg-gray-50 transition-colors text-left flex items-center justify-between"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <IconComponent className="h-5 w-5 text-gray-500" />
+                          <div>
+                            <p className="text-sm font-medium text-gray-900">{topic.title}</p>
+                            <p className="text-xs text-gray-500">{topic.description}</p>
+                          </div>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-gray-400" />
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Bottom Navigation */}
+                <div className="flex border-t bg-white">
+                  <div className="flex-1 text-center py-3 border-r">
+                    <Home className="h-5 w-5 mx-auto text-blue-600 mb-1" />
+                    <span className="text-xs text-blue-600 font-medium">Home</span>
+                  </div>
+                  <div className="flex-1 text-center py-3 border-r">
+                    <MessageCircle className="h-5 w-5 mx-auto text-gray-400 mb-1" />
+                    <span className="text-xs text-gray-400">Messages</span>
+                  </div>
+                  <div className="flex-1 text-center py-3">
+                    <HelpCircle className="h-5 w-5 mx-auto text-gray-400 mb-1" />
+                    <span className="text-xs text-gray-400">Help</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
+
+            {/* Search View */}
+            {currentView === 'search' && (
+              <div className="flex flex-col h-full">
+                <div className="p-4 border-b bg-white">
+                  <div className="flex items-center space-x-2 mb-3">
+                    <button onClick={() => setCurrentView('menu')}>
+                      <ArrowLeft className="h-5 w-5 text-gray-500" />
+                    </button>
+                    <h3 className="text-lg font-semibold text-gray-900">Search for help</h3>
+                  </div>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search help topics..."
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1 p-4">
+                  <p className="text-sm text-gray-500">Type your question or search for help topics.</p>
+                </div>
+              </div>
+            )}
+
+            {/* Chat View */}
+            {currentView === 'chat' && (
+              <>
+                <div className="p-4 border-b bg-white">
+                  <div className="flex items-center space-x-2">
+                    <button onClick={() => setCurrentView('menu')}>
+                      <ArrowLeft className="h-5 w-5 text-gray-500" />
+                    </button>
+                    <h3 className="text-lg font-semibold text-gray-900">Chat Support</h3>
+                  </div>
+                </div>
+
+                {/* Messages */}
+                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                  {messages.map((message) => (
+                    <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`flex items-start space-x-2 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                          message.sender === 'user' ? 'bg-blue-600' : 'bg-gray-200'
+                        }`}>
+                          {message.sender === 'user' ? 
+                            <User className="h-4 w-4 text-white" /> : 
+                            <Bot className="h-4 w-4 text-gray-600" />
+                          }
+                        </div>
+                        <div className={`rounded-lg p-3 ${
+                          message.sender === 'user' 
+                            ? 'bg-blue-600 text-white' 
+                            : 'bg-gray-100 text-gray-800'
+                        }`}>
+                          <p className="text-sm whitespace-pre-wrap">{message.text}</p>
+                          <span className="text-xs opacity-70 mt-1 block">
+                            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {isTyping && (
+                    <div className="flex justify-start">
+                      <div className="flex items-start space-x-2 max-w-[80%]">
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200">
+                          <Bot className="h-4 w-4 text-gray-600" />
+                        </div>
+                        <div className="rounded-lg p-3 bg-gray-100">
+                          <div className="flex space-x-1">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input */}
+                <div className="p-4 border-t bg-white">
+                  <div className="flex space-x-2">
+                    <Input
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      placeholder="Type your message..."
+                      className="flex-1"
+                      disabled={isTyping}
+                    />
+                    <Button 
+                      onClick={handleSendMessage}
+                      disabled={!inputValue.trim() || isTyping}
+                      className="bg-blue-600 hover:bg-blue-700"
+                    >
+                      <Send className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </>
+            )}
           </CardContent>
         )}
       </Card>
