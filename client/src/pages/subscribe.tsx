@@ -411,7 +411,7 @@ export default function Subscribe() {
               <Card 
                 key={plan.id} 
                 className={`relative hover-lift transition-all duration-500 scale-in fade-in-up ${
-                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect animate-float' : 'border border-border/50'
+                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
                 } ${isSelected ? 'ring-2 ring-primary shadow-xl' : ''}`}
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 onClick={() => setSelectedPlan(plan.id)}
