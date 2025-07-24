@@ -897,9 +897,9 @@ export default function Landing() {
             {/* Main Title */}
             <div className="space-y-4 mb-8">
               <h2 className="text-5xl lg:text-7xl font-black text-foreground leading-tight">
-                <span className="inline-block animate-bounce">Let's</span>{' '}
+                <span className="inline-block animate-bounce-once">Let's</span>{' '}
                 <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent animate-pulse">grow</span>{' '}
-                <span className="inline-block animate-bounce delay-300">together</span>
+                <span className="inline-block animate-bounce-once-delayed">together</span>
               </h2>
               <div className="flex justify-center items-center space-x-4 mt-6">
                 <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-pulse"></div>

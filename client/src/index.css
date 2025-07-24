@@ -164,6 +164,39 @@
     animation-delay: 0.3s;
   }
 
+  @keyframes bounce-once {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    25% {
+      opacity: 0.5;
+      transform: translateY(-10px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(5px);
+    }
+    75% {
+      opacity: 0.9;
+      transform: translateY(-3px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-bounce-once {
+    animation: bounce-once 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .animate-bounce-once-delayed {
+    animation: bounce-once 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+  }
+
   .hover-lift {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
