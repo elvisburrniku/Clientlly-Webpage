@@ -824,69 +824,100 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Growing Together Section with Revolutionary Background */}
-      <section className="py-32 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-        {/* Revolutionary animated background */}
-        <div className="absolute inset-0">
-          {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(139,69,193,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(139,69,193,0.05)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
-          
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-20 w-24 h-24 border border-cyan-400/20 rotate-45 animate-spin-slow"></div>
-          <div className="absolute bottom-32 right-32 w-32 h-32 border-2 border-purple-400/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rotate-12 animate-float"></div>
-          
-          {/* Animated light beams */}
-          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan-400/20 to-transparent animate-pulse"></div>
-          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-purple-400/20 to-transparent animate-pulse delay-1000"></div>
+      {/* Growing Together Through Collaboration Section */}
+      <section className="py-24 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
+        {/* Subtle background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
-        <div className="max-w-4xl mx-auto relative z-10">
-          {/* Animated Title */}
-          <div className="text-center mb-12">
-            <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
-              <span className="gradient-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8">
+              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                 Let's go grow together
               </span>
             </h2>
+            <div className="flex justify-center items-center space-x-4 mt-6">
+              <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+              <Heart className="w-6 h-6 text-purple-600" />
+              <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full"></div>
+            </div>
           </div>
-          
-          {/* Original Content Card with Revolutionary Background */}
-          <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
-            
-            <div className="text-center space-y-6">
+
+          {/* Main Content Card */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-3xl p-8 lg:p-16 shadow-2xl border border-white/20 dark:border-gray-700/30 relative overflow-hidden group hover:shadow-3xl transition-all duration-500">
               
-              {/* Section Header */}
-              <div className="space-y-3">
-                <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
-                  Growing Together
-                </h3>
-                <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-              </div>
-              
-              {/* Main Content */}
-              <div className="max-w-3xl mx-auto space-y-6">
-                <p className="text-lg text-foreground leading-relaxed">
-                  With your ideas and feedback, we continuously improve our platform{' '}
-                  <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-semibold">free of charge</span>
-                  {' '}because we believe the best growth happens when we grow together.
-                </p>
+              <div className="relative z-10 text-center space-y-8">
+                {/* Your Original Messages */}
+                <div className="max-w-3xl mx-auto space-y-6">
+                  <p className="text-xl lg:text-2xl text-foreground leading-relaxed font-medium">
+                    Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                  </p>
+                  
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-2xl p-6 border border-blue-200/30 dark:border-blue-700/30">
+                    <p className="text-lg text-foreground leading-relaxed">
+                      With your ideas and feedback, we continuously improve our platform{' '}
+                      <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-bold text-xl">
+                        free of charge
+                      </span>
+                      {' '}because we believe the best growth happens when we{' '}
+                      <span className="text-purple-600 dark:text-purple-400 font-semibold">grow together</span>.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Enhanced Feature Highlights */}
+                <div className="grid md:grid-cols-4 gap-6 mt-12">
+                  <div className="group/item bg-blue-50/80 dark:bg-blue-900/30 rounded-2xl p-6 hover:bg-blue-100/90 dark:hover:bg-blue-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                    <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <Lightbulb className="h-7 w-7 text-white" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">Share Ideas</h4>
+                    <p className="text-sm text-muted-foreground">Your vision drives our development</p>
+                  </div>
+                  
+                  <div className="group/item bg-purple-50/80 dark:bg-purple-900/30 rounded-2xl p-6 hover:bg-purple-100/90 dark:hover:bg-purple-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg delay-100">
+                    <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <Zap className="h-7 w-7 text-white" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">Collaborative Development</h4>
+                    <p className="text-sm text-muted-foreground">We build together with expert guidance</p>
+                  </div>
+                  
+                  <div className="group/item bg-green-50/80 dark:bg-green-900/30 rounded-2xl p-6 hover:bg-green-100/90 dark:hover:bg-green-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg delay-200">
+                    <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <Gift className="h-7 w-7 text-white" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">Free Implementation</h4>
+                    <p className="text-sm text-muted-foreground">Zero cost development for subscribers</p>
+                  </div>
+                  
+                  <div className="group/item bg-indigo-50/80 dark:bg-indigo-900/30 rounded-2xl p-6 hover:bg-indigo-100/90 dark:hover:bg-indigo-900/50 transition-all duration-300 hover:scale-105 hover:shadow-lg delay-300">
+                    <div className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover/item:scale-110 transition-transform duration-300 shadow-lg">
+                      <TrendingUp className="h-7 w-7 text-white" />
+                    </div>
+                    <h4 className="font-bold text-foreground mb-2">Mutual Growth</h4>
+                    <p className="text-sm text-muted-foreground">Success shared across our community</p>
+                  </div>
+                </div>
                 
                 {/* Call to Action */}
-                <div className="pt-4">
+                <div className="pt-8">
                   <Button 
                     variant="outline"
                     onClick={() => window.location.href = '/collaboration'}
-                    className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-base font-semibold shadow-sm hover:shadow-md"
+                    className="group relative overflow-hidden px-12 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white border-0 rounded-2xl font-bold text-lg transform transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl hover:shadow-3xl"
                   >
-                    <span className="flex items-center">
-                      <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:text-white">Learn more</span>
-                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    <span className="relative flex items-center text-white">
+                      <span className="text-white mr-3">Learn more</span>
+                      <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-2 transition-transform duration-300" />
                     </span>
                   </Button>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
