@@ -198,7 +198,7 @@ export default function Landing() {
                   alt="BusinessFlow Pro" 
                   className="w-14 h-10 object-contain logo-simple cursor-pointer"
                   style={{ 
-                    filter: 'drop-shadow(0 0 0 transparent)',
+                    filter: 'none',
                     background: 'transparent'
                   }}
                   onError={(e) => {
@@ -208,7 +208,7 @@ export default function Landing() {
                   onLoad={() => console.log('Logo loaded successfully')}
                 />
               </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-105 transform">BusinessFlow Pro</span>
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
 
             {/* Center Section - Navigation Links */}

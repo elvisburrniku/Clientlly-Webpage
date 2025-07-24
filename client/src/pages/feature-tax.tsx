@@ -25,14 +25,7 @@ export default function FeatureTax() {
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle 3D Logo Background */}
-        <div className="absolute top-1/3 right-1/6 opacity-3 dark:opacity-5 floating-element">
-          <img 
-            src="/attached_assets/3d_1753197766773.png" 
-            alt="" 
-            className="w-64 h-64 object-contain rotate-12 transform"
-          />
-        </div>
+
       </div>
 
       {/* Background Elements - Main Pattern */}
@@ -70,7 +63,7 @@ export default function FeatureTax() {
                 <img 
                   src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
-                  className="w-10 h-8 sm:w-16 sm:h-12 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
+                  className="w-10 h-8 sm:w-16 sm:h-12 object-contain logo-simple"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 to-teal-500/0 group-hover:from-emerald-500/15 group-hover:to-teal-500/15 transition-all duration-500 rounded-lg"></div>
               </div>

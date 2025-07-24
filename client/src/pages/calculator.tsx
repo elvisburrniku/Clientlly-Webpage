@@ -241,14 +241,7 @@ export default function Calculator() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         
-        {/* Subtle 3D Logo Background */}
-        <div className="absolute bottom-1/3 right-1/4 opacity-4 dark:opacity-6 floating-element">
-          <img 
-            src="/attached_assets/3d_1753268267691.png" 
-            alt="" 
-            className="w-72 h-72 object-contain -rotate-12 transform"
-          />
-        </div>
+
       </div>
 
       {/* Background Elements - Main Pattern */}

@@ -12,14 +12,7 @@ export default function FeatureDebt() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       
-      {/* Subtle 3D Logo Background */}
-      <div className="absolute top-1/3 left-1/4 opacity-4 dark:opacity-6 floating-element">
-        <img 
-          src="/attached_assets/3d_1753197766773.png" 
-          alt="" 
-          className="w-56 h-56 object-contain rotate-30 transform"
-        />
-      </div>
+
       </div>
 
       {/* Navigation */}
@@ -31,7 +24,7 @@ export default function FeatureDebt() {
                 <img 
                   src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6 group-hover:brightness-110"
+                  className="w-12 h-9 object-contain logo-simple"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 to-orange-500/0 group-hover:from-red-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>
               </div>

@@ -650,21 +650,7 @@ export default function Subscribe() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         
-        {/* Subtle 3D Logo Background */}
-        <div className="absolute top-1/4 left-1/6 opacity-3 dark:opacity-5 floating-slow">
-          <img 
-            src="/attached_assets/3d_1753197766773.png" 
-            alt="" 
-            className="w-64 h-64 object-contain rotate-45 transform"
-          />
-        </div>
-        <div className="absolute bottom-1/3 right-1/5 opacity-2 dark:opacity-4 floating-delayed">
-          <img 
-            src="/attached_assets/3d_1753197766773.png" 
-            alt="" 
-            className="w-48 h-48 object-contain -rotate-30 transform"
-          />
-        </div>
+
       </div>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">

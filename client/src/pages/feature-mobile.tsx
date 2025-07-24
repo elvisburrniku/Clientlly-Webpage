@@ -12,14 +12,7 @@ export default function FeatureMobile() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       
-      {/* Subtle 3D Logo Background */}
-      <div className="absolute top-1/4 right-1/6 opacity-3 dark:opacity-5 floating-slow">
-        <img 
-          src="/attached_assets/3d_1753197766773.png" 
-          alt="" 
-          className="w-64 h-64 object-contain rotate-20 transform"
-        />
-      </div>
+
       </div>
 
       {/* Navigation */}

@@ -26,14 +26,7 @@ export default function FeatureInventory() {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle 3D Logo Background */}
-        <div className="absolute top-1/3 right-1/6 opacity-3 dark:opacity-5 floating-element">
-          <img 
-            src="/attached_assets/3d_1753197766773.png" 
-            alt="" 
-            className="w-64 h-64 object-contain rotate-12 transform"
-          />
-        </div>
+
       </div>
 
       {/* Background Elements - Main Pattern */}
