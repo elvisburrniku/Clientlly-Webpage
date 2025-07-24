@@ -27,8 +27,10 @@ import Dashboard from "@/pages/dashboard";
 import Subscribe from "@/pages/subscribe";
 import Compare from "@/pages/compare";
 import CompareFeatures from "@/pages/compare-features";
+import LoadingDemo from "@/pages/loading-demo";
 import Success from "@/pages/success";
 import NotFound from "@/pages/not-found";
+import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -37,8 +39,8 @@ function Router() {
     <Switch>
       {isLoading ? (
         <Route>
-          <div className="min-h-screen w-full flex items-center justify-center">
-            <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
+          <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900/50">
+            <BrandLoader size="lg" message="Welcome to BusinessFlow Pro" />
           </div>
         </Route>
       ) : !isAuthenticated ? (
@@ -65,6 +67,7 @@ function Router() {
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/compare-features" component={CompareFeatures} />
+          <Route path="/loading-demo" component={LoadingDemo} />
           <Route path="/success" component={Success} />
         </>
       ) : (
@@ -91,6 +94,7 @@ function Router() {
           <Route path="/subscribe" component={Subscribe} />
           <Route path="/compare" component={Compare} />
           <Route path="/compare-features" component={CompareFeatures} />
+          <Route path="/loading-demo" component={LoadingDemo} />
           <Route path="/success" component={Success} />
         </>
       )}

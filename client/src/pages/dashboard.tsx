@@ -6,6 +6,7 @@ import { isUnauthorizedError } from "@/lib/authUtils";
 import ChatBot from "@/components/ChatBot";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardLoader, FeatureLoader } from "@/components/LoadingStates";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { 
@@ -57,7 +58,7 @@ export default function Dashboard() {
     
     // Simulate personalized stats based on user data
     const userId = (user as any)?.id || 'default';
-    const userSeed = userId.toString().split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+    const userSeed = userId.toString().split('').reduce((a: number, b: string) => a + b.charCodeAt(0), 0);
     
     setPersonalizedStats({
       invoices: 180 + (userSeed % 150), // 180-330 range
@@ -195,8 +196,11 @@ export default function Dashboard() {
 
   if (isLoading || isLoadingSubscription) {
     return (
-      <div className="min-h-screen w-full flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900/50 flex items-center justify-center">
+        <FeatureLoader 
+          feature="Dashboard" 
+          steps={["Loading user data", "Setting up workspace", "Preparing widgets", "Ready to go!"]}
+        />
       </div>
     );
   }

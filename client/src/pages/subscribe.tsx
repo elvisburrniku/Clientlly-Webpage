@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2 } from "lucide-react";
+import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -178,7 +179,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
         >
           {isProcessing ? (
             <div className="flex items-center space-x-2">
-              <Loader2 className="h-4 w-4 animate-spin" />
+              <InlineSpinner size="sm" />
               <span className="animate-pulse">{loadingStage || 'Setting up payment...'}</span>
             </div>
           ) : (
