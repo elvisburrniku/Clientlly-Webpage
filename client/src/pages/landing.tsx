@@ -909,27 +909,27 @@ export default function Landing() {
 
               {/* Product Links */}
               <div className="fade-in stagger-1">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Product
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#features" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="#features" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       Features
                     </a>
                   </li>
                   <li>
-                    <a href="#pricing" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="#pricing" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       Pricing
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       Integrations
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       API
                     </a>
                   </li>
@@ -938,22 +938,22 @@ export default function Landing() {
 
               {/* Company Links */}
               <div className="fade-in stagger-2">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Company
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="/about" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="/about" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       Careers
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="#contact" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       Contact
                     </a>
                   </li>
@@ -962,22 +962,22 @@ export default function Landing() {
 
               {/* Support Links */}
               <div className="fade-in stagger-3">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Support
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.help
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
+                      Help Center
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.tutorials
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
+                      Tutorials
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
                       Community
                     </a>
                   </li>
@@ -986,23 +986,23 @@ export default function Landing() {
 
               {/* Resources Links */}
               <div className="fade-in stagger-4">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Resources
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.blog
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
+                      Blog
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.webinars
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
+                      Webinars
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.case_studies
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-1 inline-block">
+                      Case Studies
                     </a>
                   </li>
                 </ul>
