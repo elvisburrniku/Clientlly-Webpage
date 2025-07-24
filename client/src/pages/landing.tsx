@@ -829,9 +829,17 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
 
-            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">grow together</span>
-            </h2>
+            <div className="text-center mb-12">
+              <h2 className="text-6xl lg:text-8xl font-black text-foreground leading-tight mb-8">
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent animate-triple-bounce font-extrabold">
+                  Let's go grow together
+                </span>
+              </h2>
+            </div>
+            
+            <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight">
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
+            </h3>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 fade-in stagger-2">
               Our platform scales with your business. We offer transparent pricing with no hidden fees, 

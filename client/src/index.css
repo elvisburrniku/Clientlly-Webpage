@@ -1022,3 +1022,23 @@
   .animate-faq-cycle-3 .animate-fade-in-out-delayed {
     animation-delay: 3s;
   }
+
+/* Triple bounce animation for "Let's go grow together" */
+@keyframes tripleBounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translateY(0px);
+  }
+  10% {
+    transform: translateY(-10px);  
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-triple-bounce {
+  animation: tripleBounce 2s ease-in-out infinite;
+}
