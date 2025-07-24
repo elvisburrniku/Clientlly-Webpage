@@ -724,54 +724,18 @@ export default function Landing() {
 
 
 
-            {/* Keep remaining features for completeness */}
-            {/* Mobile App */}
+            {/* 10. Easy Migration */}
             <div className="group relative fade-in stagger-10">
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-teal-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Smartphone className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-pink-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <RefreshCw className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Easy Migration</h3>
+                    <p className="text-sm text-muted-foreground">Automated data transfer & expert support</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Mobile App</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Save time by running your business on-the go with your mobile device*.</p>
-                <a 
-                  href="/features/mobile"
-                  className="inline-flex items-center text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Enterprise Security */}
-            <div className="group relative fade-in stagger-11">
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-500/20 to-slate-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-slate-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Shield className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Enterprise Security</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how we keep your information safe and compliant at all times.</p>
-                <a 
-                  href="/features/security"
-                  className="inline-flex items-center text-slate-600 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Easy Migration */}
-            <div className="group relative fade-in stagger-12">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-pink-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <RefreshCw className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Easy Migration</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Switch from other platforms with automated data transfer and expert support.</p>
                 <a 
                   href="/features/migration"
                   className="inline-flex items-center text-pink-600 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
