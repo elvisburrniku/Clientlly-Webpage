@@ -410,17 +410,32 @@ export default function ChatBot() {
 
                 {/* Bottom Navigation */}
                 <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
-                  <button className="flex-1 flex flex-col items-center justify-center py-3 border-r border-blue-200 hover:bg-blue-100 transition-colors">
-                    <Home className="h-5 w-5 text-blue-600 mb-1" />
-                    <span className="text-xs text-blue-600 font-medium">Home</span>
+                  <button 
+                    onClick={() => setCurrentView('menu')}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors ${
+                      currentView === 'menu' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <Home className={`h-6 w-6 mb-1 ${currentView === 'menu' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'menu' ? 'text-blue-600' : 'text-gray-500'}`}>Home</span>
                   </button>
-                  <button className="flex-1 flex flex-col items-center justify-center py-3 border-r border-blue-200 hover:bg-blue-100 transition-colors">
-                    <MessageCircle className="h-5 w-5 text-gray-500 mb-1" />
-                    <span className="text-xs text-gray-500">Messages</span>
+                  <button 
+                    onClick={() => startChat()}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors ${
+                      currentView === 'chat' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <MessageCircle className={`h-6 w-6 mb-1 ${currentView === 'chat' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'chat' ? 'text-blue-600' : 'text-gray-500'}`}>Messages</span>
                   </button>
-                  <button className="flex-1 flex flex-col items-center justify-center py-3 hover:bg-blue-100 transition-colors">
-                    <HelpCircle className="h-5 w-5 text-gray-500 mb-1" />
-                    <span className="text-xs text-gray-500">Help</span>
+                  <button 
+                    onClick={() => setCurrentView('search')}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 hover:bg-blue-100 transition-colors ${
+                      currentView === 'search' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <HelpCircle className={`h-6 w-6 mb-1 ${currentView === 'search' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'search' ? 'text-blue-600' : 'text-gray-500'}`}>Help</span>
                   </button>
                 </div>
               </div>
@@ -449,12 +464,43 @@ export default function ChatBot() {
                 <div className="flex-1 p-3 sm:p-4 bg-white">
                   <p className="text-sm text-gray-600">Type your question or search for help topics.</p>
                 </div>
+                
+                {/* Bottom Navigation */}
+                <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
+                  <button 
+                    onClick={() => setCurrentView('menu')}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors ${
+                      currentView === 'menu' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <Home className={`h-6 w-6 mb-1 ${currentView === 'menu' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'menu' ? 'text-blue-600' : 'text-gray-500'}`}>Home</span>
+                  </button>
+                  <button 
+                    onClick={() => startChat()}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors ${
+                      currentView === 'chat' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <MessageCircle className={`h-6 w-6 mb-1 ${currentView === 'chat' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'chat' ? 'text-blue-600' : 'text-gray-500'}`}>Messages</span>
+                  </button>
+                  <button 
+                    onClick={() => setCurrentView('search')}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 hover:bg-blue-100 transition-colors ${
+                      currentView === 'search' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <HelpCircle className={`h-6 w-6 mb-1 ${currentView === 'search' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'search' ? 'text-blue-600' : 'text-gray-500'}`}>Help</span>
+                  </button>
+                </div>
               </div>
             )}
 
             {/* Chat View */}
             {currentView === 'chat' && (
-              <>
+              <div className="flex flex-col h-full">
                 <div className="p-3 sm:p-4 border-b border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100">
                   <div className="flex items-center space-x-2">
                     <button onClick={() => setCurrentView('menu')}>
@@ -465,7 +511,7 @@ export default function ChatBot() {
                 </div>
 
                 {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 bg-gray-50">
+                <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 bg-gray-50 min-h-0">
                   {messages.map((message) => (
                     <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`flex items-start space-x-2 max-w-[85%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
@@ -530,7 +576,38 @@ export default function ChatBot() {
                     </Button>
                   </div>
                 </div>
-              </>
+
+                {/* Bottom Navigation */}
+                <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
+                  <button 
+                    onClick={() => setCurrentView('menu')}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors ${
+                      currentView === 'menu' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <Home className={`h-6 w-6 mb-1 ${currentView === 'menu' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'menu' ? 'text-blue-600' : 'text-gray-500'}`}>Home</span>
+                  </button>
+                  <button 
+                    onClick={() => startChat()}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors ${
+                      currentView === 'chat' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <MessageCircle className={`h-6 w-6 mb-1 ${currentView === 'chat' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'chat' ? 'text-blue-600' : 'text-gray-500'}`}>Messages</span>
+                  </button>
+                  <button 
+                    onClick={() => setCurrentView('search')}
+                    className={`flex-1 flex flex-col items-center justify-center py-4 hover:bg-blue-100 transition-colors ${
+                      currentView === 'search' ? 'bg-blue-100' : ''
+                    }`}
+                  >
+                    <HelpCircle className={`h-6 w-6 mb-1 ${currentView === 'search' ? 'text-blue-600' : 'text-gray-500'}`} />
+                    <span className={`text-xs font-medium ${currentView === 'search' ? 'text-blue-600' : 'text-gray-500'}`}>Help</span>
+                  </button>
+                </div>
+              </div>
             )}
           </CardContent>
         )}
