@@ -154,14 +154,16 @@ export default function ChatBot() {
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           onClick={() => setIsOpen(true)}
-          className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300 group"
+          className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-2xl hover:shadow-3xl transition-all duration-300 group border-4 border-white/20 hover:border-white/40"
           size="lg"
         >
-          <MessageCircle className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
+          <MessageCircle className="h-8 w-8 text-white group-hover:scale-110 transition-transform drop-shadow-lg" />
         </Button>
-        <div className="absolute -top-12 right-0 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        <div className="absolute -top-14 right-0 bg-black text-white text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
           Chat with AI Assistant
         </div>
+        {/* Pulsing ring animation */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 animate-ping opacity-20"></div>
       </div>
     );
   }
@@ -173,13 +175,13 @@ export default function ChatBot() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                <Bot className="h-5 w-5" />
+                <Bot className="h-5 w-5 text-white" />
               </div>
               <div>
-                <CardTitle className="text-sm font-semibold">BusinessFlow Pro Support</CardTitle>
-                <div className="flex items-center space-x-1 text-xs opacity-90">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                  <span>AI Agent • Online</span>
+                <CardTitle className="text-sm font-semibold text-white">BusinessFlow Pro Support</CardTitle>
+                <div className="flex items-center space-x-1 text-xs text-white/90">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <span className="text-white">AI Agent • Online</span>
                 </div>
               </div>
             </div>
