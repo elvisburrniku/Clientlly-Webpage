@@ -176,7 +176,7 @@ export default function Landing() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl floating-element"></div>
@@ -187,7 +187,7 @@ export default function Landing() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-white/20">
+      <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-16">
           <div className="flex items-center justify-between h-16">
             {/* Left Section - Logo and Company Name */}
@@ -283,7 +283,7 @@ export default function Landing() {
 
         {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="lg:hidden bg-gray-900/95 backdrop-blur-sm border-b border-white/20 slide-in-bottom">
+          <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
               {/* Navigation Links */}
               <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About Us</Link>
