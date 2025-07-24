@@ -491,8 +491,8 @@ export default function About() {
                 <p className="text-2xl font-bold text-foreground max-w-4xl mx-auto leading-snug mb-8 italic" style={{ fontFamily: 'Playfair Display, serif' }}>
                   With your ideas and feedback, we continuously improve our platform free of charge because we believe the best growth happens when we grow together.
                 </p>
-                <p className="text-lg font-medium text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
-                  We succeed when you succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                <p className="text-lg font-medium text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6">
+                  Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
                 </p>
                 <Button 
                   onClick={() => window.location.href = '/subscribe'}
