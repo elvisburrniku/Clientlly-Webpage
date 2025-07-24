@@ -489,11 +489,9 @@ export default function About() {
                   Mutual Growth
                 </h4>
                 <p className="text-2xl font-bold text-foreground max-w-4xl mx-auto leading-snug mb-8 italic" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  With your ideas and feedback, we continuously improve our platform free of charge because we believe the best growth happens when we grow together.
-                </p>
-                <p className="text-lg font-medium text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6">
                   Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
                 </p>
+
                 <Button 
                   onClick={() => window.location.href = '/subscribe'}
                   className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
