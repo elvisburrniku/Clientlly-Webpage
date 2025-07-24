@@ -333,7 +333,7 @@ export default function ChatBot() {
           <CardContent className="p-0 flex flex-col h-[456px] sm:h-[500px]">
             {/* Menu View */}
             {currentView === 'menu' && (
-              <div className="flex flex-col h-full">
+              <div className="flex flex-col h-full min-h-0">
                 {/* Welcome Message */}
                 <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-b border-blue-200">
                   <h3 className="text-lg font-semibold text-blue-900 mb-2">Hello there.</h3>
@@ -386,17 +386,17 @@ export default function ChatBot() {
                 </button>
 
                 {/* Help Topics */}
-                <div className="flex-1 overflow-y-auto bg-white">
+                <div className="flex-1 overflow-y-auto bg-white min-h-0">
                   {helpTopics.map((topic) => {
                     const IconComponent = topic.icon;
                     return (
                       <button
                         key={topic.id}
                         onClick={() => startChat(topic.title)}
-                        className="w-full px-3 sm:px-4 py-4 border-b border-blue-200 bg-white hover:bg-blue-50 transition-colors text-left flex items-center justify-between"
+                        className="w-full px-3 sm:px-4 py-3 border-b border-blue-200 bg-white hover:bg-blue-50 transition-colors text-left flex items-center justify-between"
                       >
                         <div className="flex items-center space-x-3 flex-1 min-w-0">
-                          <IconComponent className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                          <IconComponent className="h-4 w-4 text-blue-600 flex-shrink-0" />
                           <div className="flex-1 min-w-0">
                             <p className="text-sm font-medium text-gray-900 truncate">{topic.title}</p>
                             <p className="text-xs text-gray-600 truncate">{topic.description}</p>
@@ -409,19 +409,19 @@ export default function ChatBot() {
                 </div>
 
                 {/* Bottom Navigation */}
-                <div className="flex border-t border-blue-200 bg-blue-50">
-                  <div className="flex-1 text-center py-3 border-r border-blue-200">
-                    <Home className="h-4 w-4 mx-auto text-blue-600 mb-1" />
+                <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
+                  <button className="flex-1 flex flex-col items-center justify-center py-3 border-r border-blue-200 hover:bg-blue-100 transition-colors">
+                    <Home className="h-5 w-5 text-blue-600 mb-1" />
                     <span className="text-xs text-blue-600 font-medium">Home</span>
-                  </div>
-                  <div className="flex-1 text-center py-3 border-r border-blue-200">
-                    <MessageCircle className="h-4 w-4 mx-auto text-gray-500 mb-1" />
+                  </button>
+                  <button className="flex-1 flex flex-col items-center justify-center py-3 border-r border-blue-200 hover:bg-blue-100 transition-colors">
+                    <MessageCircle className="h-5 w-5 text-gray-500 mb-1" />
                     <span className="text-xs text-gray-500">Messages</span>
-                  </div>
-                  <div className="flex-1 text-center py-3">
-                    <HelpCircle className="h-4 w-4 mx-auto text-gray-500 mb-1" />
+                  </button>
+                  <button className="flex-1 flex flex-col items-center justify-center py-3 hover:bg-blue-100 transition-colors">
+                    <HelpCircle className="h-5 w-5 text-gray-500 mb-1" />
                     <span className="text-xs text-gray-500">Help</span>
-                  </div>
+                  </button>
                 </div>
               </div>
             )}
