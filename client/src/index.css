@@ -73,6 +73,17 @@
   .text-muted-foreground {
     color: black !important;
   }
+  
+  /* Mobile optimizations for features section */
+  @media (max-width: 640px) {
+    .features-grid {
+      gap: 1rem;
+    }
+    
+    .features-grid > div {
+      min-height: 160px;
+    }
+  }
 
   /* Preserve white text in footer for contrast against dark background */
   footer .text-white,
