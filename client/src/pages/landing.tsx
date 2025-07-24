@@ -535,11 +535,14 @@ export default function Landing() {
       <section id="features" className="py-16 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 fade-in">
               <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Complete Business Suite</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
-              Everything your business needs in one powerful platform. No more juggling multiple tools.
+            <p className="text-xl font-semibold text-muted-foreground mb-6 fade-in stagger-1">
+              No more juggling multiple tools.
+            </p>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-2">
+              Everything your business needs in one powerful platform.
             </p>
           </div>
 
