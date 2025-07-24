@@ -250,14 +250,7 @@ export default function Landing() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => {
-                  console.log('Desktop buy now button clicked');
-                  const element = document.getElementById('pricing-section');
-                  console.log('Desktop buy now pricing section element:', element);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
-                  }
-                }}
+                onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
               >
                 Buy Now
@@ -344,12 +337,7 @@ export default function Landing() {
                 <Button 
                   variant="outline"
                   onClick={() => {
-                    console.log('Mobile buy now button clicked');
-                    const element = document.getElementById('pricing-section');
-                    console.log('Mobile buy now pricing section element:', element);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'instant', block: 'start' });
-                    }
+                    window.location.href = '/subscribe?plan=business&billing=monthly';
                     setShowMobileMenu(false);
                   }}
                   className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
