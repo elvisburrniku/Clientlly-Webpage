@@ -244,15 +244,18 @@ export default function Landing() {
               <Button 
                 variant="outline"
                 onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-                className="text-primary hover:text-primary-foreground hover:bg-primary"
+                className="relative group px-6 py-2.5 border-2 border-primary/20 hover:border-primary/40 text-primary hover:text-white bg-gradient-to-r from-transparent to-transparent hover:from-primary hover:to-primary/90 transition-all duration-300 transform hover:scale-105 hover:shadow-lg overflow-hidden"
               >
-                Buy Now
+                <span className="relative z-10 font-semibold">Buy Now</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </Button>
               <Button 
                 onClick={() => window.location.href = "/trial"}
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                className="relative group px-6 py-2.5 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg overflow-hidden"
               >
-                Start Your Trial
+                <span className="relative z-10">Start Your Trial</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition-opacity duration-300 -z-10"></div>
               </Button>
               {tutorial.isFirstVisit && (
                 <Button 
@@ -328,18 +331,20 @@ export default function Landing() {
                     document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
                     setShowMobileMenu(false);
                   }}
-                  className="w-full text-primary hover:text-primary-foreground hover:bg-primary"
+                  className="w-full relative group border-2 border-primary/20 hover:border-primary/40 text-primary hover:text-white bg-gradient-to-r from-transparent to-transparent hover:from-primary hover:to-primary/90 transition-all duration-300 font-semibold overflow-hidden"
                 >
-                  Buy Now
+                  <span className="relative z-10">Buy Now</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </Button>
                 <Button 
                   onClick={() => {
                     window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full relative group bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white font-semibold transition-all duration-300 shadow-lg overflow-hidden"
                 >
-                  Start Your Trial
+                  <span className="relative z-10">Start Your Trial</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Button>
                 <div className="pt-2">
                   <LanguageSelector />
@@ -924,8 +929,15 @@ export default function Landing() {
                 }`}
               >
                 {index === 1 && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 pulse-glow">
-                    <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-1">Most Popular</Badge>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="relative group">
+                      <Badge className="relative bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 text-white px-6 py-2 font-bold text-sm rounded-full shadow-xl border-2 border-white/20 animate-pulse hover:animate-none transition-all duration-300 hover:scale-110 overflow-hidden">
+                        <span className="relative z-10">🔥 MOST POPULAR</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full blur opacity-60 -z-10"></div>
+                      </Badge>
+                      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 via-red-500/30 to-pink-500/30 rounded-full blur-xl animate-pulse opacity-40"></div>
+                    </div>
                   </div>
                 )}
                 
@@ -1008,29 +1020,41 @@ export default function Landing() {
                   
                   <div className="space-y-3">
                     <Button 
-                      className="w-full"
+                      className={`w-full relative group py-3 font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl overflow-hidden ${
+                        index === 1 
+                          ? 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white' 
+                          : 'bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white'
+                      }`}
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                     >
-                      Buy Now
+                      <span className="relative z-10">Buy Now</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className={`absolute -inset-1 rounded-lg blur opacity-25 group-hover:opacity-75 transition-opacity duration-300 -z-10 ${
+                        index === 1 
+                          ? 'bg-gradient-to-r from-orange-500 via-red-500 to-pink-500' 
+                          : 'bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600'
+                      }`}></div>
                     </Button>
                     {plan.id === 'basic' && (
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="w-full"
+                        className="w-full relative group border-2 border-gray-300 hover:border-primary/60 text-muted-foreground hover:text-white bg-transparent hover:bg-gradient-to-r hover:from-gray-600 hover:to-gray-700 transition-all duration-300 font-semibold overflow-hidden"
                         onClick={() => window.location.href = `/trial?plan=${plan.id}&billing=${billingPeriod}`}
                       >
-                        Start Your Trial
+                        <span className="relative z-10">Start Your Trial</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-gray-500/10 to-gray-600/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                       </Button>
                     )}
                     {plan.id !== 'basic' && (
                       <Button 
                         variant="outline" 
                         size="sm"
-                        className="w-full"
+                        className="w-full relative group border-2 border-gray-300 hover:border-primary/60 text-muted-foreground hover:text-white bg-transparent hover:bg-gradient-to-r hover:from-gray-600 hover:to-gray-700 transition-all duration-300 font-semibold overflow-hidden"
                         onClick={() => window.location.href = '/trial'}
                       >
-                        Start Your Trial
+                        <span className="relative z-10">Start Your Trial</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-gray-500/10 to-gray-600/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                       </Button>
                     )}
                   </div>

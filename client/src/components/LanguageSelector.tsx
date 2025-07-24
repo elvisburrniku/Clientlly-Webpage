@@ -24,7 +24,7 @@ export function LanguageSelector() {
           <Button 
             variant="outline" 
             size="sm" 
-            className="flex items-center space-x-2 bg-white/80 hover:bg-white border-white/20"
+            className="relative group flex items-center space-x-2 bg-white/90 hover:bg-white border-2 border-gray-200/60 hover:border-primary/40 transition-all duration-300 hover:shadow-lg transform hover:scale-105 overflow-hidden"
           >
             <Globe className="h-4 w-4" />
             <span className="hidden sm:inline">{currentLang?.flag}</span>
