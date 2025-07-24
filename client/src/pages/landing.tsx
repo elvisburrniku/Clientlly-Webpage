@@ -377,15 +377,6 @@ export default function Landing() {
                   Empower your small business to compete with enterprise-level efficiency. Streamline operations, boost productivity, and accelerate growth with our comprehensive solution.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in stagger-2">
-                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    Start Free Trial
-                  </button>
-                  <button className="bg-white text-gray-800 border-2 border-gray-300 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-50 hover:border-gray-400 transition-all duration-300">
-                    Watch Demo
-                  </button>
-                </div>
-                
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
                   <div className="flex items-center space-x-2 px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-200/50 dark:border-gray-600/50 shadow-sm">
                     <Check className="h-4 w-4 text-green-500" />
