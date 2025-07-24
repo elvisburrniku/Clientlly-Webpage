@@ -771,9 +771,9 @@ export default function Landing() {
               }}
             >
               {/* Content */}
-              <div className="relative z-10 flex items-center">
-                <span className="mr-2">Compare plan features</span>
-                <ChevronDown className="h-5 w-5 group-active:rotate-180 transition-transform duration-300 ease-out" />
+              <div className="relative z-10 flex items-center text-white">
+                <span className="mr-2 text-white">Compare plan features</span>
+                <ChevronDown className="h-5 w-5 text-white group-active:rotate-180 transition-transform duration-300 ease-out" />
               </div>
               
               {/* Animated background on click */}
