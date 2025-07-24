@@ -299,7 +299,7 @@ export default function Subscribe() {
   };
 
   const renderStepIndicator = () => (
-    <div className="flex items-center justify-center space-x-4 mb-8">
+    <div className="flex items-center justify-center space-x-4 mb-12 fade-in-up" style={{ animationDelay: '0.2s' }}>
       {stepTitles.map((title, index) => {
         const Icon = stepIcons[index];
         const isActive = index === currentStep;
@@ -307,20 +307,27 @@ export default function Subscribe() {
         
         return (
           <div key={index} className="flex items-center">
-            <div className={`flex items-center space-x-2 ${
-              isActive ? 'text-primary' : isCompleted ? 'text-green-600' : 'text-muted-foreground'
+            <div className={`flex items-center space-x-3 transition-all duration-500 ${
+              isActive ? 'text-primary scale-110' : isCompleted ? 'text-green-600' : 'text-muted-foreground'
             }`}>
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${
-                isActive ? 'border-primary bg-primary/10' : 
-                isCompleted ? 'border-green-600 bg-green-50' : 'border-muted'
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-500 relative overflow-hidden ${
+                isActive ? 'border-primary bg-gradient-to-br from-primary/20 to-secondary/20 shadow-lg shadow-primary/25 animate-pulse' : 
+                isCompleted ? 'border-green-600 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30' : 'border-muted glass-effect'
               }`}>
-                {isCompleted ? <Check className="h-5 w-5" /> : <Icon className="h-5 w-5" />}
+                {isCompleted ? (
+                  <Check className="h-6 w-6 animate-scale-in" />
+                ) : (
+                  <Icon className={`h-6 w-6 ${isActive ? 'animate-bounce-gentle' : ''}`} />
+                )}
+                {isActive && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 animate-shimmer" />
+                )}
               </div>
-              <span className="hidden sm:block font-medium text-sm">{title}</span>
+              <span className="hidden sm:block font-semibold text-sm transition-all duration-300 hover:scale-105">{title}</span>
             </div>
             {index < stepTitles.length - 1 && (
-              <div className={`w-8 h-0.5 mx-4 ${
-                isCompleted ? 'bg-green-600' : 'bg-muted'
+              <div className={`w-12 h-1 mx-4 rounded-full transition-all duration-700 ${
+                isCompleted ? 'bg-gradient-to-r from-green-600 to-green-500 animate-expand-width' : 'bg-muted/50'
               }`} />
             )}
           </div>
@@ -330,36 +337,38 @@ export default function Subscribe() {
   );
 
   const renderPlanSelection = () => (
-    <Card className="max-w-4xl mx-auto">
-      <CardHeader className="text-center">
-        <CardTitle className="text-2xl">Choose Your Plan</CardTitle>
-        <p className="text-muted-foreground">
-          Select the plan that best fits your business needs
+    <Card className="max-w-6xl mx-auto glass-effect border-white/20 shadow-2xl fade-in-up" style={{ animationDelay: '0.3s' }}>
+      <CardHeader className="text-center pb-8">
+        <CardTitle className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent animate-gradient-text">
+          Choose Your Plan
+        </CardTitle>
+        <p className="text-muted-foreground mt-2 text-lg fade-in-up" style={{ animationDelay: '0.4s' }}>
+          Select the perfect plan for your business needs
         </p>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="flex justify-center">
-          <div className="flex items-center space-x-4 p-1 bg-muted rounded-lg">
+      <CardContent className="space-y-8">
+        <div className="flex justify-center fade-in-up" style={{ animationDelay: '0.5s' }}>
+          <div className="flex items-center space-x-2 p-1 bg-gradient-to-r from-muted/50 to-muted/30 rounded-xl backdrop-blur-sm border border-white/20">
             <button
               onClick={() => setBillingPeriod('monthly')}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 ${
                 billingPeriod === 'monthly' 
-                  ? 'bg-white shadow-sm text-foreground' 
-                  : 'text-muted-foreground hover:text-foreground'
+                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
+                  : 'text-muted-foreground hover:text-foreground hover:bg-white/10'
               }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingPeriod('yearly')}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+              className={`px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-300 hover:scale-105 relative ${
                 billingPeriod === 'yearly' 
-                  ? 'bg-white shadow-sm text-foreground' 
-                  : 'text-muted-foreground hover:text-foreground'
+                  ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg' 
+                  : 'text-muted-foreground hover:text-foreground hover:bg-white/10'
               }`}
             >
               Yearly
-              <Badge variant="secondary" className="ml-2">Save 17%</Badge>
+              <Badge className="ml-2 bg-green-500 animate-pulse">Save 17%</Badge>
             </button>
           </div>
         </div>
@@ -395,43 +404,67 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`cursor-pointer transition-all duration-300 ${
-                  isSelected ? 'ring-2 ring-primary shadow-lg' : 'hover:shadow-md'
-                } ${index === 1 ? 'border-primary/50' : ''}`}
+                className={`cursor-pointer transition-all duration-500 hover:scale-105 transform-gpu fade-in-up relative overflow-hidden ${
+                  isSelected ? 'ring-2 ring-primary shadow-2xl shadow-primary/25 scale-105' : 'hover:shadow-xl glass-effect'
+                } ${index === 1 ? 'border-primary/50 shadow-lg scale-105' : 'border-white/20'}`}
+                style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 onClick={() => setSelectedPlan(plan.id)}
               >
-                <CardContent className="p-6">
+                {isSelected && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 animate-pulse" />
+                )}
+                
+                <CardContent className="p-8 relative z-10">
                   {index === 1 && (
-                    <Badge className="mb-4 bg-gradient-to-r from-primary to-secondary">
+                    <Badge className="mb-4 bg-gradient-to-r from-primary to-secondary text-white shadow-lg animate-bounce-gentle">
                       Most Popular
                     </Badge>
                   )}
                   
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold">{plan.name}</h3>
-                    <div className="mt-2">
-                      <span className="text-3xl font-bold">${Math.floor(price / 100)}</span>
-                      <span className="text-muted-foreground">
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                      {plan.name}
+                    </h3>
+                    <div className="mt-3">
+                      <span className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                        ${Math.floor(price / 100)}
+                      </span>
+                      <span className="text-muted-foreground text-lg ml-1">
                         /{billingPeriod === 'yearly' ? 'year' : 'month'}
                       </span>
                     </div>
                   </div>
                   
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-3 mb-8">
                     {plan.features.slice(0, 4).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2">
-                        <Check className="h-4 w-4 text-green-500" />
-                        <span className="text-sm">{feature}</span>
+                      <li key={featureIndex} className="flex items-center space-x-3 group">
+                        <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Check className="h-3 w-3 text-white" />
+                        </div>
+                        <span className="text-sm text-foreground/90 group-hover:text-foreground transition-colors duration-300">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
                   
                   <Button 
                     variant={isSelected ? "default" : "outline"}
-                    className="w-full"
+                    className={`w-full py-3 text-base font-semibold transition-all duration-300 ${
+                      isSelected 
+                        ? 'bg-gradient-to-r from-primary to-secondary hover:shadow-lg animate-pulse' 
+                        : 'hover:scale-105 hover:shadow-md glass-effect border-white/30'
+                    }`}
                     onClick={() => setSelectedPlan(plan.id)}
                   >
-                    {isSelected ? 'Selected' : 'Select Plan'}
+                    {isSelected ? (
+                      <div className="flex items-center space-x-2">
+                        <Check className="h-4 w-4" />
+                        <span>Selected</span>
+                      </div>
+                    ) : (
+                      'Select Plan'
+                    )}
                   </Button>
                 </CardContent>
               </Card>
@@ -645,18 +678,19 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 py-8 px-4 relative overflow-hidden">
-      {/* Background Elements */}
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 py-8 px-4 relative overflow-hidden">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-300/20 rounded-full blur-3xl floating-element"></div>
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl floating-slow"></div>
+        <div className="absolute top-1/2 right-10 w-64 h-64 bg-green-300/15 rounded-full blur-3xl floating-element"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
-
       </div>
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-12 fade-in">
+          <div className="flex items-center justify-between mb-8">
+            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300 glass-effect px-4 py-2 rounded-xl border border-white/20 hover:scale-105">
               <div className="relative overflow-hidden rounded-lg">
                 <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                   <img 
@@ -665,14 +699,38 @@ export default function Subscribe() {
                     className="w-12 h-9 object-contain logo-simple cursor-pointer"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-blue-500/0 group-hover:from-green-500/15 group-hover:to-blue-500/15 transition-all duration-500 rounded-lg"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/0 to-secondary/0 group-hover:from-primary/15 group-hover:to-secondary/15 transition-all duration-500 rounded-lg"></div>
               </div>
+              <span className="text-foreground font-semibold group-hover:text-primary transition-colors duration-300">
+                BusinessFlow Pro
+              </span>
             </Link>
-            <div className="ml-8">
-              <LanguageSelector />
+            <LanguageSelector />
+          </div>
+          
+          <div className="mb-8 fade-in-up" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-4 animate-gradient-text">
+              Start Your Journey
+            </h1>
+            <p className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed">
+              {t('subscribe.title', 'Complete your subscription in just a few steps and transform your business operations')}
+            </p>
+          </div>
+          
+          <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="flex items-center space-x-2">
+              <Shield className="h-5 w-5 text-green-500" />
+              <span>Secure Payment</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Check className="h-5 w-5 text-green-500" />
+              <span>14-Day Free Trial</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CreditCard className="h-5 w-5 text-green-500" />
+              <span>No Setup Fees</span>
             </div>
           </div>
-          <p className="text-muted-foreground">{t('subscribe.title', 'Complete your subscription in just a few steps')}</p>
         </div>
 
         {renderStepIndicator()}
@@ -681,14 +739,14 @@ export default function Subscribe() {
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-6 fade-in-up" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
               onClick={prevStep}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 px-8 py-3 text-base font-semibold transition-all duration-300 hover:scale-105 glass-effect border-white/30"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-5 w-5" />
               <span>Back</span>
             </Button>
           )}
@@ -697,18 +755,33 @@ export default function Subscribe() {
             <Button 
               onClick={nextStep}
               disabled={!canProceedToNext()}
-              className="flex items-center space-x-2 bg-gradient-to-r from-primary to-secondary"
+              className="flex items-center space-x-2 px-8 py-3 text-base font-semibold bg-gradient-to-r from-primary to-secondary hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
             >
               <span>Continue</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-5 w-5" />
             </Button>
           )}
         </div>
 
-        <div className="text-center mt-8">
-          <p className="text-sm text-muted-foreground">
-            Need help? <a href="#" className="text-primary hover:underline">Contact our support team</a>
-          </p>
+        <div className="text-center mt-12 fade-in-up" style={{ animationDelay: '0.9s' }}>
+          <div className="glass-effect border border-white/20 rounded-2xl p-6 max-w-md mx-auto">
+            <div className="flex items-center justify-center space-x-2 mb-3">
+              <Shield className="h-5 w-5 text-primary" />
+              <span className="text-foreground font-semibold">Need Help?</span>
+            </div>
+            <p className="text-sm text-muted-foreground mb-4">
+              Our support team is available 24/7 to assist you
+            </p>
+            <div className="flex justify-center space-x-4">
+              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
+                Chat Support
+              </a>
+              <span className="text-muted-foreground">•</span>
+              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
+                Email Us
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
