@@ -241,51 +241,71 @@ export default function ChatBot() {
   if (!isOpen) {
     return (
       <div className="fixed bottom-6 right-6 z-50 group">
-        <Button
+        {/* Chat Widget Button */}
+        <button
           onClick={() => setIsOpen(true)}
-          className="w-16 h-16 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 border-0"
-          size="lg"
+          className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden"
         >
-          <MessageCircle className="h-7 w-7 text-white" />
-        </Button>
-        <div className="absolute -top-12 -left-8 bg-gray-900 text-white text-xs px-3 py-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          Need help? Chat with us
+          {/* Logo/Brand Icon */}
+          <div className="flex items-center justify-center">
+            <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">BF</span>
+            </div>
+          </div>
+          
+          {/* Notification Badge */}
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+            <span className="text-white text-xs font-medium">1</span>
+          </div>
+          
+          {/* Ripple Effect */}
+          <div className="absolute inset-0 rounded-full bg-blue-400 opacity-0 group-hover:opacity-20 group-hover:scale-110 transition-all duration-300"></div>
+        </button>
+
+        {/* Tooltip */}
+        <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 transform group-hover:translate-y-0 translate-y-1 shadow-lg whitespace-nowrap">
+          <div className="text-xs font-medium">Need help?</div>
+          <div className="text-xs text-gray-300">Chat with BusinessFlow Pro</div>
+          {/* Tooltip Arrow */}
+          <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <Card className={`w-96 transition-all duration-300 shadow-2xl border-0 ${isMinimized ? 'h-16' : 'h-[500px]'}`}>
-        <CardHeader className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-lg">
+    <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-300">
+      <Card className={`w-96 transition-all duration-300 shadow-2xl border-0 overflow-hidden ${isMinimized ? 'h-16' : 'h-[544px]'}`}>
+        <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                <Bot className="h-5 w-5 text-white" />
+              {/* Logo matching the button */}
+              <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">BF</span>
               </div>
               <div>
-                <CardTitle className="text-sm font-semibold text-white">BusinessFlow Pro Support</CardTitle>
-                <div className="flex items-center space-x-1 text-xs text-white/90">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-white">AI Agent • Online</span>
-                </div>
+                <CardTitle className="text-sm font-semibold">BusinessFlow Pro</CardTitle>
+                <p className="text-xs text-blue-100">Support Team • Online now</p>
               </div>
             </div>
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-2">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 p-1 h-8 w-8"
+                className="text-white hover:bg-white/20 h-8 w-8 p-0 transition-colors"
               >
                 {isMinimized ? <Maximize2 className="h-4 w-4" /> : <Minimize2 className="h-4 w-4" />}
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:bg-white/20 p-1 h-8 w-8"
+                onClick={() => {
+                  setIsOpen(false);
+                  setCurrentView('menu');
+                  setMessages([]);
+                }}
+                className="text-white hover:bg-white/20 h-8 w-8 p-0 transition-colors"
               >
                 <X className="h-4 w-4" />
               </Button>
