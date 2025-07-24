@@ -378,7 +378,7 @@ export default function Landing() {
               
               <div className="max-w-5xl mx-auto space-y-8">
                 <p className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1">
-                  Empower your small business to compete with enterprise-level efficiency. Our comprehensive accounting software streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
+                  Empower your small business to compete with enterprise-level efficiency. Our comprehensive <span className="font-bold text-foreground">accounting software</span> streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
                 </p>
                 
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
