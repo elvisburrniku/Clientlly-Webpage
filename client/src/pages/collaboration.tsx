@@ -91,7 +91,7 @@ export default function Collaboration() {
 
       {/* Navigation */}
       <nav className="relative z-50 py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-[1800px] mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-white rounded-lg opacity-0 dark:opacity-100 transition-opacity duration-300"></div>

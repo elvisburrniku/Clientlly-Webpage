@@ -240,7 +240,7 @@ export default function Dashboard() {
 
       {/* Navigation */}
       <nav className="glass-effect border-b border-white/20 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">

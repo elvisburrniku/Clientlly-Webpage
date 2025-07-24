@@ -74,7 +74,7 @@ export default function Compare() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="bg-white border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
