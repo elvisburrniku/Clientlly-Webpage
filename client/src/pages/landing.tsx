@@ -366,12 +366,12 @@ export default function Landing() {
             
             {/* Main Heading */}
             <div className="space-y-12">
-              <h1 className="text-6xl md:text-7xl lg:text-9xl font-bold leading-tight tracking-tight fade-in">
-                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight mb-4">
-                  BusinessFlow Pro
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
+                <span className="text-foreground block mb-2 leading-tight">
+                  Everything you need to
                 </span>
-                <span className="text-foreground block text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
-                  Complete Business Management Platform
+                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
+                  run your business
                 </span>
               </h1>
               
