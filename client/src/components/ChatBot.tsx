@@ -276,7 +276,7 @@ export default function ChatBot() {
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-4 duration-300">
       <Card className={`w-96 transition-all duration-300 shadow-2xl border-0 overflow-hidden ${isMinimized ? 'h-16' : 'h-[544px]'}`}>
-        <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4">
+        <CardHeader className="bg-gray-900 text-white p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               {/* Logo matching the button */}
@@ -285,7 +285,7 @@ export default function ChatBot() {
               </div>
               <div>
                 <CardTitle className="text-sm font-semibold">BusinessFlow Pro</CardTitle>
-                <p className="text-xs text-blue-100">Support Team • Online now</p>
+                <p className="text-xs text-gray-300">Support Team • Online now</p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
@@ -319,92 +319,92 @@ export default function ChatBot() {
             {currentView === 'menu' && (
               <div className="flex flex-col h-full">
                 {/* Welcome Message */}
-                <div className="p-6 bg-gray-50 border-b">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Hello there.</h3>
-                  <p className="text-gray-600">How can we help?</p>
+                <div className="p-6 bg-gray-900 border-b border-gray-700">
+                  <h3 className="text-lg font-semibold text-white mb-2">Hello there.</h3>
+                  <p className="text-gray-300">How can we help?</p>
                 </div>
 
                 {/* Recent Messages */}
-                <div className="px-4 py-3 border-b bg-white">
+                <div className="px-4 py-3 border-b border-gray-700 bg-gray-800">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
                       <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
                         <MessageCircle className="h-3 w-3 text-white" />
                       </div>
                       <div>
-                        <p className="text-sm text-gray-600">Recent message</p>
+                        <p className="text-sm text-gray-300">Recent message</p>
                         <div className="flex items-center space-x-1">
                           <div className="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center">
                             <span className="text-xs text-white">B</span>
                           </div>
-                          <span className="text-xs text-gray-500">BusinessFlow Pro • 17m ago</span>
+                          <span className="text-xs text-gray-400">BusinessFlow Pro • 17m ago</span>
                         </div>
                       </div>
                     </div>
-                    <ChevronRight className="h-4 w-4 text-gray-400" />
+                    <ChevronRight className="h-4 w-4 text-gray-500" />
                   </div>
                 </div>
 
                 {/* Send Message */}
                 <button 
                   onClick={() => startChat()}
-                  className="px-4 py-4 border-b bg-white hover:bg-gray-50 transition-colors text-left flex items-center justify-between"
+                  className="px-4 py-4 border-b border-gray-700 bg-gray-800 hover:bg-gray-700 transition-colors text-left flex items-center justify-between"
                 >
                   <div className="flex items-center space-x-3">
-                    <MessageSquare className="h-5 w-5 text-gray-500" />
-                    <span className="text-sm font-medium text-gray-900">Send us a message</span>
+                    <MessageSquare className="h-5 w-5 text-gray-400" />
+                    <span className="text-sm font-medium text-white">Send us a message</span>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-gray-400" />
+                  <ChevronRight className="h-4 w-4 text-gray-500" />
                 </button>
 
                 {/* Search for Help */}
                 <button 
                   onClick={() => setCurrentView('search')}
-                  className="px-4 py-4 border-b bg-white hover:bg-gray-50 transition-colors text-left flex items-center justify-between"
+                  className="px-4 py-4 border-b border-gray-700 bg-gray-800 hover:bg-gray-700 transition-colors text-left flex items-center justify-between"
                 >
                   <div className="flex items-center space-x-3">
-                    <Search className="h-5 w-5 text-gray-500" />
-                    <span className="text-sm font-medium text-gray-900">Search for help</span>
+                    <Search className="h-5 w-5 text-gray-400" />
+                    <span className="text-sm font-medium text-white">Search for help</span>
                   </div>
-                  <Search className="h-4 w-4 text-gray-400" />
+                  <Search className="h-4 w-4 text-gray-500" />
                 </button>
 
                 {/* Help Topics */}
-                <div className="flex-1 overflow-y-auto">
+                <div className="flex-1 overflow-y-auto bg-gray-800">
                   {helpTopics.map((topic) => {
                     const IconComponent = topic.icon;
                     return (
                       <button
                         key={topic.id}
                         onClick={() => startChat(topic.title)}
-                        className="w-full px-4 py-4 border-b bg-white hover:bg-gray-50 transition-colors text-left flex items-center justify-between"
+                        className="w-full px-4 py-4 border-b border-gray-700 bg-gray-800 hover:bg-gray-700 transition-colors text-left flex items-center justify-between"
                       >
                         <div className="flex items-center space-x-3">
-                          <IconComponent className="h-5 w-5 text-gray-500" />
+                          <IconComponent className="h-5 w-5 text-gray-400" />
                           <div>
-                            <p className="text-sm font-medium text-gray-900">{topic.title}</p>
-                            <p className="text-xs text-gray-500">{topic.description}</p>
+                            <p className="text-sm font-medium text-white">{topic.title}</p>
+                            <p className="text-xs text-gray-400">{topic.description}</p>
                           </div>
                         </div>
-                        <ChevronRight className="h-4 w-4 text-gray-400" />
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
                       </button>
                     );
                   })}
                 </div>
 
                 {/* Bottom Navigation */}
-                <div className="flex border-t bg-white">
-                  <div className="flex-1 text-center py-3 border-r">
-                    <Home className="h-5 w-5 mx-auto text-blue-600 mb-1" />
-                    <span className="text-xs text-blue-600 font-medium">Home</span>
+                <div className="flex border-t border-gray-700 bg-gray-900">
+                  <div className="flex-1 text-center py-4 border-r border-gray-700">
+                    <Home className="h-4 w-4 mx-auto text-blue-500 mb-1" />
+                    <span className="text-xs text-blue-400 font-medium">Home</span>
                   </div>
-                  <div className="flex-1 text-center py-3 border-r">
-                    <MessageCircle className="h-5 w-5 mx-auto text-gray-400 mb-1" />
-                    <span className="text-xs text-gray-400">Messages</span>
+                  <div className="flex-1 text-center py-4 border-r border-gray-700">
+                    <MessageCircle className="h-4 w-4 mx-auto text-gray-500 mb-1" />
+                    <span className="text-xs text-gray-500">Messages</span>
                   </div>
-                  <div className="flex-1 text-center py-3">
-                    <HelpCircle className="h-5 w-5 mx-auto text-gray-400 mb-1" />
-                    <span className="text-xs text-gray-400">Help</span>
+                  <div className="flex-1 text-center py-4">
+                    <HelpCircle className="h-4 w-4 mx-auto text-gray-500 mb-1" />
+                    <span className="text-xs text-gray-500">Help</span>
                   </div>
                 </div>
               </div>
@@ -412,13 +412,13 @@ export default function ChatBot() {
 
             {/* Search View */}
             {currentView === 'search' && (
-              <div className="flex flex-col h-full">
-                <div className="p-4 border-b bg-white">
+              <div className="flex flex-col h-full bg-gray-800">
+                <div className="p-4 border-b border-gray-700 bg-gray-900">
                   <div className="flex items-center space-x-2 mb-3">
                     <button onClick={() => setCurrentView('menu')}>
-                      <ArrowLeft className="h-5 w-5 text-gray-500" />
+                      <ArrowLeft className="h-5 w-5 text-gray-400" />
                     </button>
-                    <h3 className="text-lg font-semibold text-gray-900">Search for help</h3>
+                    <h3 className="text-lg font-semibold text-white">Search for help</h3>
                   </div>
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -426,12 +426,12 @@ export default function ChatBot() {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search help topics..."
-                      className="pl-10"
+                      className="pl-10 bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                     />
                   </div>
                 </div>
-                <div className="flex-1 p-4">
-                  <p className="text-sm text-gray-500">Type your question or search for help topics.</p>
+                <div className="flex-1 p-4 bg-gray-800">
+                  <p className="text-sm text-gray-400">Type your question or search for help topics.</p>
                 </div>
               </div>
             )}
@@ -439,32 +439,32 @@ export default function ChatBot() {
             {/* Chat View */}
             {currentView === 'chat' && (
               <>
-                <div className="p-4 border-b bg-white">
+                <div className="p-4 border-b border-gray-700 bg-gray-900">
                   <div className="flex items-center space-x-2">
                     <button onClick={() => setCurrentView('menu')}>
-                      <ArrowLeft className="h-5 w-5 text-gray-500" />
+                      <ArrowLeft className="h-5 w-5 text-gray-400" />
                     </button>
-                    <h3 className="text-lg font-semibold text-gray-900">Chat Support</h3>
+                    <h3 className="text-lg font-semibold text-white">Chat Support</h3>
                   </div>
                 </div>
 
                 {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-800">
                   {messages.map((message) => (
                     <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`flex items-start space-x-2 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                          message.sender === 'user' ? 'bg-blue-600' : 'bg-gray-200'
+                          message.sender === 'user' ? 'bg-blue-600' : 'bg-gray-600'
                         }`}>
                           {message.sender === 'user' ? 
                             <User className="h-4 w-4 text-white" /> : 
-                            <Bot className="h-4 w-4 text-gray-600" />
+                            <Bot className="h-4 w-4 text-white" />
                           }
                         </div>
                         <div className={`rounded-lg p-3 ${
                           message.sender === 'user' 
                             ? 'bg-blue-600 text-white' 
-                            : 'bg-gray-100 text-gray-800'
+                            : 'bg-gray-700 text-gray-100'
                         }`}>
                           <p className="text-sm whitespace-pre-wrap">{message.text}</p>
                           <span className="text-xs opacity-70 mt-1 block">
@@ -478,10 +478,10 @@ export default function ChatBot() {
                   {isTyping && (
                     <div className="flex justify-start">
                       <div className="flex items-start space-x-2 max-w-[80%]">
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-200">
-                          <Bot className="h-4 w-4 text-gray-600" />
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-600">
+                          <Bot className="h-4 w-4 text-white" />
                         </div>
-                        <div className="rounded-lg p-3 bg-gray-100">
+                        <div className="rounded-lg p-3 bg-gray-700">
                           <div className="flex space-x-1">
                             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -495,14 +495,14 @@ export default function ChatBot() {
                 </div>
 
                 {/* Input */}
-                <div className="p-4 border-t bg-white">
+                <div className="p-4 border-t border-gray-700 bg-gray-900">
                   <div className="flex space-x-2">
                     <Input
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleKeyPress}
                       placeholder="Type your message..."
-                      className="flex-1"
+                      className="flex-1 bg-gray-700 border-gray-600 text-white placeholder-gray-400"
                       disabled={isTyping}
                     />
                     <Button 
