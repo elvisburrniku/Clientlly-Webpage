@@ -355,7 +355,7 @@ export default function About() {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in-delayed">
-              Your business needs drive our development. With your ideas and feedback, we continuously improve our platform <span className="font-semibold text-green-600">free of charge</span> – because we believe the best growth happens when we grow together.
+              Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
             </p>
           </div>
 
