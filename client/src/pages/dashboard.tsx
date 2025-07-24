@@ -25,7 +25,8 @@ import {
   Sparkles,
   TrendingUp,
   Calendar,
-  Clock
+  Clock,
+  Brain
 } from "lucide-react";
 
 interface SubscriptionStatus {
@@ -501,6 +502,35 @@ export default function Dashboard() {
 
         {/* Business Modules */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {/* Workflow Magic - Featured Module */}
+          <Card className="md:col-span-2 lg:col-span-1 glass-effect border-primary/30 hover-lift scale-in delay-50 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-3">
+                  <div className="p-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg shadow-lg">
+                    <Sparkles className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">Workflow Magic</h3>
+                    <p className="text-sm text-muted-foreground">AI-powered recommendations</p>
+                  </div>
+                </div>
+                <Badge className="bg-gradient-to-r from-purple-500 to-blue-500 text-white animate-pulse">
+                  NEW
+                </Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                Get personalized workflow optimizations and automation suggestions based on your business patterns.
+              </p>
+              <Link href="/workflow-magic">
+                <Button className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white">
+                  <Brain className="mr-2 h-4 w-4" />
+                  Explore Workflow Magic
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
           {[
             { 
               icon: FileText, 

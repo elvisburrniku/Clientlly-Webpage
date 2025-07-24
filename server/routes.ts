@@ -4,7 +4,11 @@ import { createServer, type Server } from "http";
 import Stripe from "stripe";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
-import { insertDemoRequestSchema } from "@shared/schema";
+import { 
+  insertDemoRequestSchema,
+  insertWorkflowRecommendationSchema,
+  insertWorkflowAnalyticsSchema
+} from "@shared/schema";
 
 if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
@@ -659,5 +663,233 @@ export async function registerRoutes(app: Express): Promise<Server> {
   }
 
   const httpServer = createServer(app);
+  // Workflow Magic API Routes
+  
+  // Get user's workflow recommendations
+  app.get("/api/workflow-recommendations", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const recommendations = await storage.getUserWorkflowRecommendations(userId);
+      res.json(recommendations);
+    } catch (error) {
+      console.error("Error fetching workflow recommendations:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  // Create a new workflow recommendation
+  app.post("/api/workflow-recommendations", isAuthenticated, express.json(), async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const recommendationData = insertWorkflowRecommendationSchema.parse({
+        ...req.body,
+        userId
+      });
+      const recommendation = await storage.createWorkflowRecommendation(recommendationData);
+      res.json(recommendation);
+    } catch (error) {
+      console.error("Error creating workflow recommendation:", error);
+      res.status(400).json({ message: "Invalid recommendation data" });
+    }
+  });
+
+  // Update recommendation status (viewed, implemented, dismissed)
+  app.patch("/api/workflow-recommendations/:id", isAuthenticated, express.json(), async (req: any, res) => {
+    try {
+      const recommendationId = parseInt(req.params.id);
+      const { status } = req.body;
+      
+      if (!status || !['pending', 'viewed', 'implemented', 'dismissed'].includes(status)) {
+        return res.status(400).json({ message: "Invalid status" });
+      }
+
+      const updated = await storage.updateRecommendationStatus(recommendationId, status);
+      res.json(updated);
+    } catch (error) {
+      console.error("Error updating recommendation status:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  // Delete a workflow recommendation
+  app.delete("/api/workflow-recommendations/:id", isAuthenticated, async (req: any, res) => {
+    try {
+      const recommendationId = parseInt(req.params.id);
+      await storage.deleteWorkflowRecommendation(recommendationId);
+      res.json({ message: "Recommendation deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting workflow recommendation:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  // Track workflow action (analytics)
+  app.post("/api/workflow-analytics", isAuthenticated, express.json(), async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const analyticsData = insertWorkflowAnalyticsSchema.parse({
+        ...req.body,
+        userId
+      });
+      const analytics = await storage.trackWorkflowAction(analyticsData);
+      res.json(analytics);
+    } catch (error) {
+      console.error("Error tracking workflow action:", error);
+      res.status(400).json({ message: "Invalid analytics data" });
+    }
+  });
+
+  // Get user's workflow analytics
+  app.get("/api/workflow-analytics", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const limit = req.query.limit ? parseInt(req.query.limit as string) : 100;
+      const analytics = await storage.getUserWorkflowAnalytics(userId, limit);
+      res.json(analytics);
+    } catch (error) {
+      console.error("Error fetching workflow analytics:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  // Get workflow analytics by category
+  app.get("/api/workflow-analytics/category/:category", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const category = req.params.category;
+      const analytics = await storage.getWorkflowAnalyticsByCategory(userId, category);
+      res.json(analytics);
+    } catch (error) {
+      console.error("Error fetching workflow analytics by category:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  // Generate personalized recommendations based on user analytics
+  app.post("/api/workflow-recommendations/generate", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      
+      // Get user's recent analytics to analyze patterns
+      const analytics = await storage.getUserWorkflowAnalytics(userId, 50);
+      
+      // AI-powered recommendation generation logic
+      const recommendations = await generatePersonalizedRecommendations(userId, analytics);
+      
+      // Save generated recommendations to database
+      const savedRecommendations = [];
+      for (const rec of recommendations) {
+        const saved = await storage.createWorkflowRecommendation({
+          userId,
+          title: rec.title,
+          description: rec.description,
+          category: rec.category,
+          priority: rec.priority,
+          estimatedTimeSaving: rec.estimatedTimeSaving,
+          difficulty: rec.difficulty,
+          metadata: rec.metadata
+        });
+        savedRecommendations.push(saved);
+      }
+      
+      res.json(savedRecommendations);
+    } catch (error) {
+      console.error("Error generating workflow recommendations:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
   return httpServer;
+}
+
+// AI-powered recommendation generation function
+async function generatePersonalizedRecommendations(userId: string, analytics: any[]) {
+  // Sample intelligent recommendations based on user behavior patterns
+  const recommendations = [];
+  
+  // Analyze user patterns
+  const categoryUsage = analytics.reduce((acc, item) => {
+    acc[item.category] = (acc[item.category] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  const totalActions = analytics.length;
+  const avgDuration = analytics.reduce((sum, item) => sum + (item.duration || 0), 0) / totalActions;
+  
+  // Generate recommendations based on usage patterns
+  if (categoryUsage.invoicing > totalActions * 0.4) {
+    recommendations.push({
+      title: "Automate Invoice Follow-ups",
+      description: "Set up automated email reminders for overdue invoices. This can reduce payment collection time by 30% and save you 2-3 hours weekly.",
+      category: "automation",
+      priority: "high",
+      estimatedTimeSaving: 180, // 3 hours in minutes
+      difficulty: "easy",
+      metadata: {
+        affectedWorkflows: ["invoicing", "payments"],
+        implementationSteps: ["Configure email templates", "Set reminder schedules", "Enable automatic sending"]
+      }
+    });
+  }
+  
+  if (categoryUsage.expenses > totalActions * 0.3) {
+    recommendations.push({
+      title: "Enable Receipt Auto-Categorization",
+      description: "Use AI-powered receipt scanning to automatically categorize expenses. This eliminates manual data entry and ensures consistent categorization.",
+      category: "optimization",
+      priority: "medium",
+      estimatedTimeSaving: 120, // 2 hours in minutes
+      difficulty: "easy",
+      metadata: {
+        affectedWorkflows: ["expenses", "reports"],
+        benefits: ["Reduced manual entry", "Improved accuracy", "Faster expense reporting"]
+      }
+    });
+  }
+  
+  if (avgDuration > 300000) { // 5 minutes average
+    recommendations.push({
+      title: "Streamline Dashboard Navigation",
+      description: "Create custom dashboard shortcuts for your most-used features. Based on your usage patterns, this could save 40% of your navigation time.",
+      category: "optimization",
+      priority: "medium",
+      estimatedTimeSaving: 60,
+      difficulty: "easy",
+      metadata: {
+        affectedWorkflows: ["navigation", "productivity"],
+        customizations: ["Quick action buttons", "Favorite feature shortcuts", "Personalized dashboard layout"]
+      }
+    });
+  }
+  
+  if (categoryUsage.reports && categoryUsage.reports > 5) {
+    recommendations.push({
+      title: "Schedule Automated Reports",
+      description: "Set up weekly and monthly reports to be automatically generated and emailed. Never miss important business insights again.",
+      category: "automation",
+      priority: "high",
+      estimatedTimeSaving: 90,
+      difficulty: "medium",
+      metadata: {
+        affectedWorkflows: ["reports", "analytics"],
+        reportTypes: ["Financial summary", "Expense breakdown", "Revenue trends"]
+      }
+    });
+  }
+  
+  // Add integration recommendations
+  recommendations.push({
+    title: "Connect Your Bank Account",
+    description: "Automatically sync transactions and reconcile accounts. This eliminates manual data entry and ensures real-time financial tracking.",
+    category: "integration",
+    priority: "high",
+    estimatedTimeSaving: 240, // 4 hours weekly
+    difficulty: "medium",
+    metadata: {
+      affectedWorkflows: ["banking", "reconciliation", "expenses"],
+      benefits: ["Real-time sync", "Automated reconciliation", "Reduced errors"]
+    }
+  });
+  
+  return recommendations;
 }
