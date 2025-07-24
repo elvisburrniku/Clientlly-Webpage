@@ -362,26 +362,37 @@ export default function Landing() {
 
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center space-y-16">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-8 slide-in-up shadow-lg">
-              <Star className="w-4 h-4 mr-2 fill-current text-yellow-500" />
-              Used by thousands of businesses worldwide
-            </div>
+
             
             {/* Main Heading */}
-            <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
-                <span className="text-foreground block mb-1 leading-tight">
-                  Everything you need to
+            <div className="space-y-12">
+              <h1 className="text-6xl md:text-7xl lg:text-9xl font-bold leading-tight tracking-tight fade-in">
+                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight mb-4">
+                  BusinessFlow Pro
                 </span>
-                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
-                  run your business
+                <span className="text-foreground block text-4xl md:text-5xl lg:text-6xl font-medium leading-tight">
+                  Complete Business Management Platform
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-3 mt-6">
-                Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
-              </p>
+              <div className="max-w-5xl mx-auto space-y-8">
+                <p className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1">
+                  Streamline operations, boost productivity, and accelerate growth with our all-in-one business solution.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center fade-in stagger-2">
+                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    Start Free Trial
+                  </button>
+                  <button className="bg-white text-gray-800 border-2 border-gray-300 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-gray-50 hover:border-gray-400 transition-all duration-300">
+                    Watch Demo
+                  </button>
+                </div>
+                
+                <div className="text-sm text-muted-foreground fade-in stagger-3">
+                  No credit card required • 14-day free trial • Cancel anytime
+                </div>
+              </div>
             </div>
 
 
