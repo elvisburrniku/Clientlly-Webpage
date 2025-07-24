@@ -7,6 +7,7 @@ BusinessFlow Pro is a comprehensive business management SaaS application built w
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Design approach: Always preserve original content and messaging when improving designs - ask before changing any text or core messaging.
 
 ## Recent Changes (July 24, 2025)
 
