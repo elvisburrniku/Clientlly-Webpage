@@ -167,25 +167,25 @@
   @keyframes bounce-triple {
     0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
-    10% {
+    15% {
       opacity: 1;
+      transform: translateY(-20px);
+    }
+    25% {
+      transform: translateY(5px);
+    }
+    35% {
       transform: translateY(-15px);
     }
-    20% {
-      transform: translateY(0px);
+    45% {
+      transform: translateY(3px);
     }
-    30% {
-      transform: translateY(-10px);
+    55% {
+      transform: translateY(-8px);
     }
-    40% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-    60% {
+    65% {
       transform: translateY(0px);
     }
     100% {
@@ -195,12 +195,13 @@
   }
 
   .animate-bounce-once {
-    animation: bounce-triple 1.8s ease-out forwards;
+    animation: bounce-triple 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    opacity: 0;
   }
 
   .animate-bounce-once-delayed {
-    animation: bounce-triple 1.8s ease-out forwards;
-    animation-delay: 0.3s;
+    animation: bounce-triple 2.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation-delay: 0.4s;
     opacity: 0;
   }
 
