@@ -217,7 +217,7 @@ export default function Landing() {
               <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
               <button 
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' })}
                 className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium bg-transparent border-none cursor-pointer"
               >
                 Pricing
@@ -291,7 +291,7 @@ export default function Landing() {
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
               <button 
                 onClick={() => {
-                  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
                   setShowMobileMenu(false);
                 }}
                 className="block text-muted-foreground hover:text-primary transition-colors text-left"
@@ -325,7 +325,7 @@ export default function Landing() {
                 <Button 
                   variant="outline"
                   onClick={() => {
-                    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('pricing-section')?.scrollIntoView({ behavior: 'smooth' });
                     setShowMobileMenu(false);
                   }}
                   className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
