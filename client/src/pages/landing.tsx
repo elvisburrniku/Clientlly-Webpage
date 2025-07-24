@@ -520,99 +520,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Trust & Success Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
-              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
-              Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
-            </p>
-          </div>
-
-          {/* Trust Indicators Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            
-            {/* Active Users */}
-            <div className="text-center group fade-in stagger-1">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Users className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
-              <p className="text-muted-foreground">Active Users</p>
-            </div>
-
-            {/* Invoices Processed */}
-            <div className="text-center group fade-in stagger-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <FileText className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
-              <p className="text-muted-foreground">Invoices Processed</p>
-            </div>
-
-            {/* Customer Satisfaction */}
-            <div className="text-center group fade-in stagger-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Star className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">98%</div>
-              <p className="text-muted-foreground">Satisfaction Rate</p>
-            </div>
-
-            {/* Countries */}
-            <div className="text-center group fade-in stagger-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Globe className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">120+</div>
-              <p className="text-muted-foreground">Countries</p>
-            </div>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Save Time */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-1">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Clock className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Save 15+ Hours Weekly</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
-              </p>
-            </div>
-
-            {/* Increase Revenue */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <TrendingUp className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Boost Revenue by 30%</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
-              </p>
-            </div>
-
-            {/* Reduce Errors */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Eliminate 95% of Errors</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
-              </p>
-            </div>
-          </div>
-
-
-        </div>
-      </section>
-
       {/* Features Section */}
       <section id="features" className="py-16 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
@@ -1108,6 +1015,170 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Trust & Success Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
+              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
+              Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
+            </p>
+          </div>
+
+          {/* Trust Indicators Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            
+            {/* Active Users */}
+            <div className="text-center group fade-in stagger-1">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
+              <p className="text-muted-foreground">Active Users</p>
+            </div>
+
+            {/* Invoices Processed */}
+            <div className="text-center group fade-in stagger-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
+              <p className="text-muted-foreground">Invoices Processed</p>
+            </div>
+
+            {/* Customer Satisfaction */}
+            <div className="text-center group fade-in stagger-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Star className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">98%</div>
+              <p className="text-muted-foreground">Satisfaction Rate</p>
+            </div>
+
+            {/* Countries */}
+            <div className="text-center group fade-in stagger-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Globe className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">120+</div>
+              <p className="text-muted-foreground">Countries</p>
+            </div>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Save Time */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-1">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Clock className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Save 15+ Hours Weekly</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
+              </p>
+            </div>
+
+            {/* Increase Revenue */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <TrendingUp className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Boost Revenue by 30%</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
+              </p>
+            </div>
+
+            {/* Reduce Errors */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Eliminate 95% of Errors</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+      {/* Growing Together Section */}
+      <section className="py-20 px-4 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-4xl mx-auto">
+            {/* Professional Collaboration Section */}
+            <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
+              
+              <div className="text-center space-y-6">
+                
+                {/* Section Header */}
+                <div className="space-y-3">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
+                    Growing Together
+                  </h3>
+                  <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+                
+                {/* Main Content */}
+                <div className="max-w-3xl mx-auto space-y-6">
+                  <p className="text-lg text-foreground leading-relaxed">
+                    With your ideas and feedback, we continuously improve our platform{' '}
+                    <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-semibold">free of charge</span>
+                    {' '}because we believe the best growth happens when we grow together.
+                  </p>
+                  
+                  {/* Call to Action */}
+                  <div className="pt-4">
+                    <Button 
+                      variant="outline"
+                      onClick={() => window.location.href = '/collaboration'}
+                      className="group relative overflow-hidden px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95"
+                      onMouseDown={(e) => {
+                        const button = e.currentTarget;
+                        const rect = button.getBoundingClientRect();
+                        const circle = document.createElement('div');
+                        const size = Math.max(rect.width, rect.height) * 2;
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                        circle.style.cssText = `
+                          width: ${size}px;
+                          height: ${size}px;
+                          left: ${x}px;
+                          top: ${y}px;
+                          transform: scale(0);
+                          transition: transform 0.5s ease-out;
+                        `;
+                        
+                        button.appendChild(circle);
+                        requestAnimationFrame(() => {
+                          circle.style.transform = 'scale(1)';
+                          circle.style.opacity = '0';
+                        });
+                        setTimeout(() => circle.remove(), 500);
+                      }}
+                    >
+                      <span className="flex items-center text-white">
+                        <span className="text-white">Learn more</span>
+                        <ArrowRight className="h-4 w-4 ml-2 text-white group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
+                    </Button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section id="pricing-section" className="py-20 px-4 bg-muted/30 pricing-section">
         <div className="max-w-7xl mx-auto">
@@ -1115,76 +1186,8 @@ export default function Landing() {
 
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">grow together</span>
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
             </h2>
-            
-            <div className="max-w-4xl mx-auto mb-16">
-              {/* Professional Collaboration Section */}
-              <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
-                
-                <div className="text-center space-y-6">
-                  
-                  {/* Section Header */}
-                  <div className="space-y-3">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
-                      Growing Together
-                    </h3>
-                    <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-                  </div>
-                  
-                  {/* Main Content */}
-                  <div className="max-w-3xl mx-auto space-y-6">
-                    <p className="text-lg text-foreground leading-relaxed">
-                      With your ideas and feedback, we continuously improve our platform{' '}
-                      <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-semibold">free of charge</span>
-                      {' '}because we believe the best growth happens when we grow together.
-                    </p>
-                    
-                    {/* Call to Action */}
-                    <div className="pt-4">
-                      <Button 
-                        variant="outline"
-                        onClick={() => window.location.href = '/collaboration'}
-                        className="group relative overflow-hidden px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95"
-                        onMouseDown={(e) => {
-                          const button = e.currentTarget;
-                          const rect = button.getBoundingClientRect();
-                          const circle = document.createElement('div');
-                          const size = Math.max(rect.width, rect.height) * 2;
-                          const x = e.clientX - rect.left - size / 2;
-                          const y = e.clientY - rect.top - size / 2;
-                          
-                          circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
-                          circle.style.cssText = `
-                            width: ${size}px;
-                            height: ${size}px;
-                            left: ${x}px;
-                            top: ${y}px;
-                            transform: scale(0);
-                            transition: transform 0.5s ease-out;
-                          `;
-                          
-                          button.appendChild(circle);
-                          requestAnimationFrame(() => {
-                            circle.style.transform = 'scale(1)';
-                            circle.style.opacity = '0';
-                          });
-                          setTimeout(() => circle.remove(), 500);
-                        }}
-                      >
-                        <span className="flex items-center text-white">
-                          <span className="text-white">Learn more</span>
-                          <ArrowRight className="h-4 w-4 ml-2 text-white group-hover:translate-x-1 transition-transform duration-300" />
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            
-
             
 
           </div>
