@@ -57,15 +57,23 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 
-  /* Make all text black by default, except for specific animated classes */
-  body *, 
-  p, h1, h2, h3, h4, h5, h6, 
-  span, div, a, button, 
+  /* Make most text black by default, except footer and animated text */
   .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900,
   .text-slate-600, .text-slate-700, .text-slate-800, .text-slate-900,
   .text-zinc-600, .text-zinc-700, .text-zinc-800, .text-zinc-900,
   .text-muted-foreground {
     color: black !important;
+  }
+
+  /* Preserve white text in footer and other specific colors */
+  footer .text-white,
+  footer .text-gray-400,
+  footer h4,
+  footer a,
+  footer span,
+  footer div,
+  .text-white {
+    color: white !important;
   }
 
   /* Preserve gradient and animated text colors */
