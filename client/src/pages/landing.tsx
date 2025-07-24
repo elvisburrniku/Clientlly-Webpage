@@ -1010,13 +1010,33 @@ export default function Landing() {
             </div>
 
             {/* Social Media Icons Section */}
-            <div className="border-t border-gray-800 pt-8 mb-8">
+            <div className="border-t border-gray-800 pt-12 pb-8">
               <div className="text-center">
-                <h4 className="text-lg font-bold text-white mb-6">
+                <h4 className="text-xl font-bold text-white mb-8">
                   Get Our App & Follow Us
                 </h4>
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-12">
                   <SocialLinks className="animate-fade-in-up stagger-1" />
+                </div>
+                
+                {/* Copyright Section integrated into footer */}
+                <div className="border-t border-gray-700 pt-8">
+                  <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div className="text-white/80 text-sm">
+                      © 2025 BusinessFlow Pro. All rights reserved.
+                    </div>
+                    <div className="flex space-x-6 text-sm">
+                      <a href="#" className="text-white/80 hover:text-white transition-colors">
+                        Privacy Policy
+                      </a>
+                      <a href="#" className="text-white/80 hover:text-white transition-colors">
+                        Terms of Service
+                      </a>
+                      <a href="#" className="text-white/80 hover:text-white transition-colors">
+                        Cookie Policy
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1024,28 +1044,6 @@ export default function Landing() {
           </div>
         </div>
       </footer>
-
-      {/* Bottom Copyright Section - White Background */}
-      <div className="bg-white border-t border-gray-200 py-4">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <div className="text-black text-sm">
-              © 2025 BusinessFlow Pro. All rights reserved.
-            </div>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-black hover:text-blue-600 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-black hover:text-blue-600 transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-black hover:text-blue-600 transition-colors">
-                Cookie Policy
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Demo Modal */}
       <Dialog open={showDemoModal} onOpenChange={() => setShowDemoModal(false)}>
