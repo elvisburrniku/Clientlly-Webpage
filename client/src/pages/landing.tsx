@@ -834,15 +834,32 @@ export default function Landing() {
         
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8">
-              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                Let's go grow together
-              </span>
-            </h2>
-            <div className="flex justify-center items-center space-x-4 mt-6">
-              <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
-              <Heart className="w-6 h-6 text-purple-600" />
-              <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full"></div>
+            <div className="relative inline-block mb-8">
+              {/* Glowing background effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl blur-2xl opacity-20 animate-pulse"></div>
+              
+              <h2 className="relative text-5xl lg:text-7xl font-black text-white leading-tight px-8 py-4">
+                <span className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent animate-gradient-x font-extrabold">
+                  Let's go grow together
+                </span>
+              </h2>
+            </div>
+            
+            {/* Animated decorative elements */}
+            <div className="flex justify-center items-center space-x-6">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
+                <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-100"></div>
+                <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce delay-200"></div>
+              </div>
+              <div className="w-32 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
+              <Sparkles className="w-8 h-8 text-purple-400 animate-pulse" />
+              <div className="w-32 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 bg-pink-400 rounded-full animate-bounce delay-300"></div>
+                <div className="w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-400"></div>
+                <div className="w-3 h-3 bg-cyan-400 rounded-full animate-bounce delay-500"></div>
+              </div>
             </div>
           </div>
 
