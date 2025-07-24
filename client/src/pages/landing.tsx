@@ -549,218 +549,180 @@ export default function Landing() {
             {/* 1. Professional Invoicing */}
             <div className="group relative fade-in stagger-1">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <FileText className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Professional Invoicing</h3>
-                      <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <FileText className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/invoicing"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Professional Invoicing</h3>
+                    <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/invoicing"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 2. Smart Expense Tracking */}
             <div className="group relative fade-in stagger-2">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-green-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Receipt className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Smart Expense Tracking</h3>
-                      <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Receipt className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/expenses"
-                    className="inline-flex items-center text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Smart Expense Tracking</h3>
+                    <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/expenses"
+                  className="inline-flex items-center text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 3. Debt Management */}
             <div className="group relative fade-in stagger-3">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-red-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <CreditCard className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Debt Management</h3>
-                      <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <CreditCard className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/debt"
-                    className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Debt Management</h3>
+                    <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/debt"
+                  className="inline-flex items-center text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 4. Insights & Reports */}
             <div className="group relative fade-in stagger-4">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <BarChart3 className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Insights & Reports</h3>
-                      <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <BarChart3 className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/reports"
-                    className="inline-flex items-center text-cyan-600 hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Insights & Reports</h3>
+                    <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/reports"
+                  className="inline-flex items-center text-cyan-600 hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 5. Client Management */}
             <div className="group relative fade-in stagger-5">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Users className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Client Management</h3>
-                      <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Users className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/clients"
-                    className="inline-flex items-center text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Client Management</h3>
+                    <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/clients"
+                  className="inline-flex items-center text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 6. Vendor Management */}
             <div className="group relative fade-in stagger-6">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-amber-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Building2 className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Vendor Management</h3>
-                      <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Building2 className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/vendors"
-                    className="inline-flex items-center text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Vendor Management</h3>
+                    <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/vendors"
+                  className="inline-flex items-center text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 7. Inventory Management */}
             <div className="group relative fade-in stagger-7">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-violet-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Package className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Inventory Management</h3>
-                      <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Package className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/inventory"
-                    className="inline-flex items-center text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Inventory Management</h3>
+                    <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/inventory"
+                  className="inline-flex items-center text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 8. Attendance */}
             <div className="group relative fade-in stagger-8">
               <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Clock className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Smart Attendance</h3>
-                      <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
-                    </div>
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Clock className="h-6 w-6 text-white" />
                   </div>
-                  <a 
-                    href="/features/attendance"
-                    className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">Smart Attendance</h3>
+                    <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
+                  </div>
                 </div>
+                <a 
+                  href="/features/attendance"
+                  className="inline-flex items-center text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
-            {/* 9. Smart Calendar */}
-            <div className="group relative fade-in stagger-9">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Calendar className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">Smart Calendar</h3>
-                      <p className="text-sm text-muted-foreground">Scheduling & team coordination</p>
-                    </div>
-                  </div>
-                  <a 
-                    href="/features/calendar"
-                    className="inline-flex items-center text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 font-medium text-sm group-hover:translate-x-1 transition-all duration-300"
-                  >
-                    Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
+
 
             {/* Keep remaining features for completeness */}
             {/* Mobile App */}
