@@ -397,10 +397,7 @@ export default function Landing() {
                 </p>
                 
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
-                  <div className="flex items-center space-x-2 px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-200/50 dark:border-gray-600/50 shadow-sm">
-                    <Check className="h-4 w-4 text-green-500" />
-                    <span className="text-sm font-medium text-foreground">No credit card required</span>
-                  </div>
+
                   <div className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-md">
                     <Clock className="h-4 w-4 text-white" />
                     <span className="text-sm font-semibold text-white">14-day free trial</span>
@@ -870,9 +867,7 @@ export default function Landing() {
                       <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
                     </span>
                   </Button>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-3">
-                    No credit card required
-                  </p>
+
                 </div>
               </div>
               
@@ -965,7 +960,7 @@ export default function Landing() {
                   </div>
                   <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl backdrop-blur-sm floating-delayed shadow-lg opacity-80">
                     <div className="w-full h-full flex items-center justify-center">
-                      <Heart className="w-6 h-6 text-white animate-pulse" />
+                      <Zap className="w-6 h-6 text-white animate-pulse" />
                     </div>
                   </div>
                   <div className="absolute top-1/3 -left-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full backdrop-blur-sm floating-slow shadow-lg opacity-70"></div>
