@@ -56,7 +56,8 @@ import {
   Heart,
   Sparkles,
   ArrowRight,
-  Gift
+  Gift,
+  Code
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -875,56 +876,100 @@ export default function Landing() {
                 </div>
               </div>
               
-              {/* Right Side - Interactive Card */}
+              {/* Right Side - Premium Community Card */}
               <div className="flex justify-center lg:justify-end">
-                <div className="relative group">
-                  <div className="bg-white/95 dark:bg-gray-100/95 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl border border-white/30 max-w-md hover:scale-105 transition-all duration-500">
-                    <div className="space-y-6">
-                      {/* Header */}
+                <div className="relative group perspective-1000">
+                  {/* Main Card */}
+                  <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform hover:scale-105 hover:rotate-1 transition-all duration-700 hover:shadow-3xl group-hover:shadow-amber-500/20">
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative space-y-8">
+                      {/* Header with Animated Icon */}
                       <div className="text-center">
-                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <Heart className="w-8 h-8 text-white" />
+                        <div className="relative mb-6">
+                          <div className="w-20 h-20 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+                            <Users className="w-10 h-10 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                          {/* Floating particles around icon */}
+                          <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-400/60 rounded-full animate-bounce"></div>
+                          <div className="absolute -bottom-1 -left-3 w-3 h-3 bg-purple-400/60 rounded-full animate-bounce delay-300"></div>
                         </div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-800 mb-2">
+                        
+                        <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-600 group-hover:bg-clip-text transition-all duration-500">
                           Community First
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-700 leading-relaxed">
+                        <p className="text-lg text-gray-700 dark:text-gray-800 leading-relaxed font-medium">
                           Your success drives our development. Every feature we build strengthens our entire community.
                         </p>
                       </div>
                       
-                      {/* Benefits */}
-                      <div className="space-y-4">
-                        <div className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-gray-700 dark:text-gray-800">Free custom development for all subscribers</p>
+                      {/* Enhanced Benefits Grid */}
+                      <div className="space-y-5">
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <Code className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Free Custom Development</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Dedicated team builds your ideas at no extra cost</p>
+                          </div>
                         </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-gray-700 dark:text-gray-800">Dedicated development team support</p>
+                        
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <Headphones className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Expert Team Support</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Direct access to our development experts</p>
+                          </div>
                         </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-gray-700 dark:text-gray-800">Community-driven feature roadmap</p>
+                        
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <TrendingUp className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Shared Growth</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Community-driven feature roadmap</p>
+                          </div>
                         </div>
                       </div>
                       
-                      {/* CTA */}
-                      <div className="text-center pt-4">
+                      {/* Enhanced CTA */}
+                      <div className="pt-2">
                         <Button 
                           onClick={() => window.location.href = '/collaboration'}
-                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 rounded-xl py-3 font-semibold transition-all duration-300 hover:shadow-lg"
+                          className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 rounded-2xl py-4 font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group-hover:animate-pulse"
                         >
-                          Learn About Our Community
+                          <span className="flex items-center justify-center">
+                            Discover Our Community
+                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                          </span>
                         </Button>
+                        <p className="text-sm text-gray-500 dark:text-gray-600 text-center mt-3 font-medium">
+                          Join 50,000+ growing businesses
+                        </p>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Floating Elements */}
-                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-white/20 rounded-full backdrop-blur-sm floating-element"></div>
-                  <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-white/15 rounded-full backdrop-blur-sm floating-delayed"></div>
-                  <div className="absolute top-1/2 -left-6 w-6 h-6 bg-white/10 rounded-full backdrop-blur-sm floating-slow"></div>
+                  {/* Enhanced Floating Elements */}
+                  <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl backdrop-blur-sm floating-element shadow-xl opacity-80">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Sparkles className="w-8 h-8 text-white animate-spin-slow" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl backdrop-blur-sm floating-delayed shadow-lg opacity-80">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Heart className="w-6 h-6 text-white animate-pulse" />
+                    </div>
+                  </div>
+                  <div className="absolute top-1/3 -left-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full backdrop-blur-sm floating-slow shadow-lg opacity-70"></div>
+                  <div className="absolute top-1/4 -right-10 w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full backdrop-blur-sm floating-element shadow-lg opacity-70"></div>
                 </div>
               </div>
             </div>
