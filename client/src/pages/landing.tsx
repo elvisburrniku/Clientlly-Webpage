@@ -820,10 +820,8 @@ export default function Landing() {
               <div className="space-y-8 lg:space-y-12">
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
-                    Let's work
-                    <br />
-                    <span className="text-gray-800 dark:text-gray-100">wonders</span>
+                  <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+                    Let's <span className="text-gray-800 dark:text-gray-100">grow</span> together
                   </h2>
                   
                   <div className="space-y-4">
@@ -874,44 +872,33 @@ export default function Landing() {
                 </div>
               </div>
               
-              {/* Right Side - Interactive Element */}
+              {/* Right Side - Video Element */}
               <div className="relative">
-                {/* Main interactive card */}
+                {/* Video container */}
                 <div className="relative max-w-md mx-auto lg:max-w-lg">
-                  <div className="bg-white/95 dark:bg-gray-100/95 backdrop-blur-xl rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/30 relative overflow-hidden transform hover:scale-105 transition-all duration-500">
+                  <div className="bg-white/95 dark:bg-gray-100/95 backdrop-blur-xl rounded-3xl p-4 lg:p-6 shadow-2xl border border-white/30 relative overflow-hidden transform hover:scale-105 transition-all duration-500">
                     
-                    {/* Mock search interface */}
-                    <div className="space-y-6">
-                      <div className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-200 rounded-xl border-2 border-gray-200 dark:border-gray-300">
-                        <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                          <Heart className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-gray-800 dark:text-gray-900 font-medium text-lg flex-1">
-                          grow my business?
-                        </span>
-                        <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center cursor-pointer hover:bg-blue-600 transition-colors">
-                          <ArrowRight className="w-5 h-5 text-white" />
+                    {/* Video element */}
+                    <video 
+                      className="w-full h-auto rounded-2xl"
+                      muted 
+                      loop 
+                      playsInline 
+                      preload="auto"
+                      autoPlay
+                    >
+                      {/* Add your video source here */}
+                      <source src="/path-to-your-video.mp4" type="video/mp4" />
+                      <div className="w-full h-48 bg-gray-200 dark:bg-gray-300 rounded-2xl flex items-center justify-center">
+                        <div className="text-center space-y-3">
+                          <Play className="w-12 h-12 text-gray-500 mx-auto" />
+                          <p className="text-gray-600 dark:text-gray-700 text-sm">Video placeholder</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-600">Add your video source</p>
                         </div>
                       </div>
-                      
-                      {/* Suggestions */}
-                      <div className="space-y-3">
-                        <div className="flex items-center space-x-3 p-3 bg-gray-100/80 dark:bg-gray-200/80 rounded-lg">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="text-gray-700 dark:text-gray-800 text-sm">Streamline operations</span>
-                        </div>
-                        <div className="flex items-center space-x-3 p-3 bg-gray-100/80 dark:bg-gray-200/80 rounded-lg">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <span className="text-gray-700 dark:text-gray-800 text-sm">Automate workflows</span>
-                        </div>
-                        <div className="flex items-center space-x-3 p-3 bg-gray-100/80 dark:bg-gray-200/80 rounded-lg">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <span className="text-gray-700 dark:text-gray-800 text-sm">Improve efficiency</span>
-                        </div>
-                      </div>
-                    </div>
+                    </video>
                     
-                    {/* Floating elements around the card */}
+                    {/* Floating elements around the video */}
                     <div className="absolute -top-6 -right-6 w-12 h-12 bg-blue-500 rounded-full shadow-lg animate-bounce">
                       <div className="w-full h-full flex items-center justify-center">
                         <Lightbulb className="w-6 h-6 text-white" />
