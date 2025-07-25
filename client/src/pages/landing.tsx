@@ -822,7 +822,9 @@ export default function Landing() {
                 {/* Main Heading */}
                 <div className="space-y-6">
                   <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight">
-                    Let's <span className="bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-gray-100 dark:via-white dark:to-gray-200 bg-clip-text text-transparent font-extrabold">grow</span> together
+                    <span className="inline-block animate-fade-in-up animation-delay-0">Let's</span>{' '}
+                    <span className="inline-block bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-gray-100 dark:via-white dark:to-gray-200 bg-clip-text text-transparent font-extrabold animate-pulse-glow animation-delay-300 hover:scale-110 transition-transform duration-500">grow</span>{' '}
+                    <span className="inline-block animate-fade-in-up animation-delay-600">together</span>
                   </h2>
                   
                   <div className="space-y-4">
