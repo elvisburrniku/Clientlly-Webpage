@@ -878,24 +878,39 @@ export default function Landing() {
                 <div className="relative max-w-md mx-auto lg:max-w-lg">
                   <div className="bg-white/95 dark:bg-gray-100/95 backdrop-blur-xl rounded-3xl p-4 lg:p-6 shadow-2xl border border-white/30 relative overflow-hidden transform hover:scale-105 transition-all duration-500">
                     
-                    {/* Video element */}
+                    {/* Video placeholder until actual video is added */}
+                    <div className="w-full h-64 lg:h-80 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-2xl flex items-center justify-center relative overflow-hidden">
+                      {/* Animated background elements */}
+                      <div className="absolute inset-0">
+                        <div className="absolute top-4 left-4 w-8 h-8 bg-blue-500/20 rounded-full animate-ping"></div>
+                        <div className="absolute bottom-6 right-6 w-6 h-6 bg-purple-500/20 rounded-full animate-ping delay-1000"></div>
+                        <div className="absolute top-1/2 left-1/3 w-4 h-4 bg-green-500/20 rounded-full animate-ping delay-2000"></div>
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="text-center space-y-4 z-10">
+                        <div className="w-16 h-16 bg-white/90 dark:bg-gray-900/90 rounded-full flex items-center justify-center mx-auto shadow-lg">
+                          <Play className="w-8 h-8 text-gray-600 dark:text-gray-400 ml-1" />
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">Demo Video</p>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">Coming Soon</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Hidden video element ready for when source is added */}
                     <video 
-                      className="w-full h-auto rounded-2xl"
+                      className="w-full h-auto rounded-2xl hidden"
                       muted 
                       loop 
                       playsInline 
                       preload="auto"
                       autoPlay
+                      id="community-video"
                     >
-                      {/* Add your video source here */}
-                      <source src="/path-to-your-video.mp4" type="video/mp4" />
-                      <div className="w-full h-48 bg-gray-200 dark:bg-gray-300 rounded-2xl flex items-center justify-center">
-                        <div className="text-center space-y-3">
-                          <Play className="w-12 h-12 text-gray-500 mx-auto" />
-                          <p className="text-gray-600 dark:text-gray-700 text-sm">Video placeholder</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-600">Add your video source</p>
-                        </div>
-                      </div>
+                      <source src="/videos/community-demo.mp4" type="video/mp4" />
+                      <source src="/videos/community-demo.webm" type="video/webm" />
                     </video>
                     
                     {/* Floating elements around the video */}
