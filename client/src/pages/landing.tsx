@@ -373,7 +373,7 @@ export default function Landing() {
             <div className="space-y-12">
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight fade-in">
                 <span className="text-foreground leading-tight">
-                  Everything you need to
+                  Let's grow together - Everything you need to
                 </span>
                 <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
                   {" "}run your business
@@ -427,7 +427,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 fade-in">
-              <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
+              <span className="text-foreground">Let's grow together - The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
             </h2>
             <p className="text-xl font-semibold text-muted-foreground mb-6 fade-in stagger-1">
               No more juggling multiple tools.
@@ -697,7 +697,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
-              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
+              Let's grow together - Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
               Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
@@ -970,7 +970,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
+              Let's grow together - Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
             </h2>
             
 
@@ -1237,7 +1237,7 @@ export default function Landing() {
             <div className="border-t border-gray-800 pt-12 pb-8">
               <div className="text-center">
                 <h4 className="text-xl font-bold text-white mb-8">
-                  Get Our App & Follow Us
+                  Let's grow together - Get Our App & Follow Us
                 </h4>
                 <div className="flex justify-center mb-12">
                   <SocialLinks className="animate-fade-in-up stagger-1" />
