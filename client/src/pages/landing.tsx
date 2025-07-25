@@ -875,62 +875,56 @@ export default function Landing() {
                 </div>
               </div>
               
-              {/* Right Side - Video Element */}
-              <div className="relative">
-                {/* Video container */}
-                <div className="relative max-w-md mx-auto lg:max-w-lg">
-                  <div className="bg-white/95 dark:bg-gray-100/95 backdrop-blur-xl rounded-3xl p-4 lg:p-6 shadow-2xl border border-white/30 relative overflow-hidden transform hover:scale-105 transition-all duration-500 animate-video-float">
-                    
-                    {/* Video placeholder until actual video is added */}
-                    <div className="w-full h-64 lg:h-80 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-2xl flex items-center justify-center relative overflow-hidden animate-gradient-shift">
-                      {/* Animated background elements */}
-                      <div className="absolute inset-0">
-                        <div className="absolute top-4 left-4 w-8 h-8 bg-blue-500/20 rounded-full animate-orbit-1"></div>
-                        <div className="absolute bottom-6 right-6 w-6 h-6 bg-purple-500/20 rounded-full animate-orbit-2"></div>
-                        <div className="absolute top-1/2 left-1/3 w-4 h-4 bg-green-500/20 rounded-full animate-float-vertical"></div>
-                        <div className="absolute top-8 right-8 w-5 h-5 bg-orange-500/20 rounded-full animate-pulse-slow"></div>
-                        <div className="absolute bottom-12 left-8 w-3 h-3 bg-red-500/20 rounded-full animate-bounce-gentle"></div>
+              {/* Right Side - Interactive Card */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative group">
+                  <div className="bg-white/95 dark:bg-gray-100/95 backdrop-blur-xl rounded-3xl p-6 lg:p-8 shadow-2xl border border-white/30 max-w-md hover:scale-105 transition-all duration-500">
+                    <div className="space-y-6">
+                      {/* Header */}
+                      <div className="text-center">
+                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                          <Heart className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-800 mb-2">
+                          Community First
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-700 leading-relaxed">
+                          Your success drives our development. Every feature we build strengthens our entire community.
+                        </p>
                       </div>
                       
-                      {/* Content */}
-                      <div className="text-center space-y-4 z-10">
-                        <div className="w-16 h-16 bg-white/90 dark:bg-gray-900/90 rounded-full flex items-center justify-center mx-auto shadow-lg animate-gentle-bounce hover:animate-spin-slow transition-all duration-300">
-                          <Play className="w-8 h-8 text-gray-600 dark:text-gray-400 ml-1 animate-pulse" />
+                      {/* Benefits */}
+                      <div className="space-y-4">
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-gray-700 dark:text-gray-800">Free custom development for all subscribers</p>
                         </div>
-                        <div className="space-y-2">
-                          <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 animate-fade-in-out">Demo Video</p>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">Coming Soon</p>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-gray-700 dark:text-gray-800">Dedicated development team support</p>
+                        </div>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-gray-700 dark:text-gray-800">Community-driven feature roadmap</p>
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Hidden video element ready for when source is added */}
-                    <video 
-                      className="w-full h-auto rounded-2xl hidden"
-                      muted 
-                      loop 
-                      playsInline 
-                      preload="auto"
-                      autoPlay
-                      id="community-video"
-                    >
-                      <source src="/videos/community-demo.mp4" type="video/mp4" />
-                      <source src="/videos/community-demo.webm" type="video/webm" />
-                    </video>
-                    
-                    {/* Floating elements around the video */}
-                    <div className="absolute -top-6 -right-6 w-12 h-12 bg-blue-500 rounded-full shadow-lg animate-bounce">
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Lightbulb className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                    
-                    <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-purple-500 rounded-full shadow-lg animate-pulse">
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Zap className="w-4 h-4 text-white" />
+                      
+                      {/* CTA */}
+                      <div className="text-center pt-4">
+                        <Button 
+                          onClick={() => window.location.href = '/collaboration'}
+                          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 rounded-xl py-3 font-semibold transition-all duration-300 hover:shadow-lg"
+                        >
+                          Learn About Our Community
+                        </Button>
                       </div>
                     </div>
                   </div>
+                  
+                  {/* Floating Elements */}
+                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-white/20 rounded-full backdrop-blur-sm floating-element"></div>
+                  <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-white/15 rounded-full backdrop-blur-sm floating-delayed"></div>
+                  <div className="absolute top-1/2 -left-6 w-6 h-6 bg-white/10 rounded-full backdrop-blur-sm floating-slow"></div>
                 </div>
               </div>
             </div>
