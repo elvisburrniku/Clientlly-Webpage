@@ -821,8 +821,8 @@ export default function Landing() {
               <div className="space-y-8 lg:space-y-12">
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
-                    Let's <span className="text-gray-800 dark:text-gray-100">grow</span> together
+                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight">
+                    Let's <span className="bg-gradient-to-r from-gray-800 via-gray-900 to-black dark:from-gray-100 dark:via-white dark:to-gray-200 bg-clip-text text-transparent font-extrabold">grow</span> together
                   </h2>
                   
                   <div className="space-y-4">
