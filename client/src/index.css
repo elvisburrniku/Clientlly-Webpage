@@ -73,6 +73,205 @@
   .text-muted-foreground {
     color: black !important;
   }
+}
+
+/* ========================================
+   ACCESSIBILITY HIGH-CONTRAST THEMES
+   ======================================== */
+
+/* High Contrast Light Theme */
+.accessibility-high-contrast-light {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 95%);
+  --muted-foreground: hsl(0, 0%, 0%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 0%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --border: hsl(0, 0%, 0%);
+  --input: hsl(0, 0%, 95%);
+  --primary: hsl(0, 0%, 0%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 20%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(0, 0%, 10%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 0%, 0%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(0, 0%, 0%);
+}
+
+.accessibility-high-contrast-light * {
+  border-color: black !important;
+}
+
+.accessibility-high-contrast-light body {
+  background: white !important;
+  color: black !important;
+}
+
+/* High Contrast Dark Theme */
+.accessibility-high-contrast-dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 0%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 10%);
+  --primary: hsl(0, 0%, 100%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 80%);
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --accent: hsl(0, 0%, 90%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 0%, 100%);
+  --destructive-foreground: hsl(0, 0%, 0%);
+  --ring: hsl(0, 0%, 100%);
+}
+
+.accessibility-high-contrast-dark * {
+  border-color: white !important;
+}
+
+.accessibility-high-contrast-dark body {
+  background: black !important;
+  color: white !important;
+}
+
+/* High Contrast Blue Theme */
+.accessibility-high-contrast-blue {
+  --background: hsl(240, 100%, 15%);
+  --foreground: hsl(60, 100%, 90%);
+  --muted: hsl(240, 100%, 20%);
+  --muted-foreground: hsl(60, 100%, 90%);
+  --popover: hsl(240, 100%, 15%);
+  --popover-foreground: hsl(60, 100%, 90%);
+  --card: hsl(240, 100%, 15%);
+  --card-foreground: hsl(60, 100%, 90%);
+  --border: hsl(60, 100%, 90%);
+  --input: hsl(240, 100%, 20%);
+  --primary: hsl(60, 100%, 90%);
+  --primary-foreground: hsl(240, 100%, 15%);
+  --secondary: hsl(60, 100%, 70%);
+  --secondary-foreground: hsl(240, 100%, 15%);
+  --accent: hsl(60, 100%, 80%);
+  --accent-foreground: hsl(240, 100%, 15%);
+  --destructive: hsl(60, 100%, 90%);
+  --destructive-foreground: hsl(240, 100%, 15%);
+  --ring: hsl(60, 100%, 90%);
+}
+
+.accessibility-high-contrast-blue * {
+  border-color: hsl(60, 100%, 90%) !important;
+}
+
+.accessibility-high-contrast-blue body {
+  background: hsl(240, 100%, 15%) !important;
+  color: hsl(60, 100%, 90%) !important;
+}
+
+/* ========================================
+   ACCESSIBILITY FONT SIZES
+   ======================================== */
+
+.accessibility-font-large {
+  font-size: 125% !important;
+}
+
+.accessibility-font-large * {
+  font-size: inherit !important;
+}
+
+.accessibility-font-extra-large {
+  font-size: 150% !important;
+}
+
+.accessibility-font-extra-large * {
+  font-size: inherit !important;
+}
+
+/* ========================================
+   ACCESSIBILITY MOTION PREFERENCES
+   ======================================== */
+
+.accessibility-reduced-motion *,
+.accessibility-reduced-motion *::before,
+.accessibility-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ========================================
+   ACCESSIBILITY FOCUS INDICATORS
+   ======================================== */
+
+.accessibility-enhanced-focus *:focus {
+  outline: 3px solid hsl(60, 100%, 50%) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 5px hsla(60, 100%, 50%, 0.3) !important;
+}
+
+.accessibility-enhanced-focus button:focus,
+.accessibility-enhanced-focus a:focus,
+.accessibility-enhanced-focus input:focus,
+.accessibility-enhanced-focus select:focus,
+.accessibility-enhanced-focus textarea:focus {
+  outline: 4px solid hsl(60, 100%, 50%) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 7px hsla(60, 100%, 50%, 0.4) !important;
+}
+
+/* Override gradient texts in high contrast modes */
+.accessibility-high-contrast-light .gradient-text,
+.accessibility-high-contrast-dark .gradient-text,
+.accessibility-high-contrast-blue .gradient-text {
+  background: none !important;
+  color: var(--foreground) !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+}
+
+/* Ensure all interactive elements have proper contrast */
+.accessibility-high-contrast-light button,
+.accessibility-high-contrast-dark button,
+.accessibility-high-contrast-blue button {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: 2px solid var(--border) !important;
+}
+
+.accessibility-high-contrast-light a,
+.accessibility-high-contrast-dark a,
+.accessibility-high-contrast-blue a {
+  color: var(--foreground) !important;
+  text-decoration: underline !important;
+}
+
+/* Remove background images and patterns in high contrast modes */
+.accessibility-high-contrast-light *,
+.accessibility-high-contrast-dark *,
+.accessibility-high-contrast-blue * {
+  background-image: none !important;
+  background-pattern: none !important;
+}
+
+/* Ensure cards and sections have proper borders */
+.accessibility-high-contrast-light .card,
+.accessibility-high-contrast-dark .card,
+.accessibility-high-contrast-blue .card,
+.accessibility-high-contrast-light section,
+.accessibility-high-contrast-dark section,
+.accessibility-high-contrast-blue section {
+  border: 2px solid var(--border) !important;
+}
 
   /* Preserve white text in footer for contrast against dark background */
   footer .text-white,
@@ -463,8 +662,6 @@
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
-      opacity: 1;
-    }
   }
 
   .pulse-glow {

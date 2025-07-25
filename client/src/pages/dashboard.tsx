@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { isUnauthorizedError } from "@/lib/authUtils";
 import ChatBot from "@/components/ChatBot";
+import { AccessibilityControls } from "@/components/AccessibilityControls";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CardLoader, FeatureLoader } from "@/components/LoadingStates";
@@ -631,6 +632,9 @@ export default function Dashboard() {
       
       {/* Chat Bot */}
       <ChatBot />
+      
+      {/* Accessibility Controls */}
+      <AccessibilityControls />
     </div>
   );
 }

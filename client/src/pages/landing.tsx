@@ -4,6 +4,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import ChatBot from "@/components/ChatBot";
+import { AccessibilityControls } from "@/components/AccessibilityControls";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -1277,6 +1278,9 @@ export default function Landing() {
       
       {/* Chat Bot */}
       <ChatBot />
+      
+      {/* Accessibility Controls */}
+      <AccessibilityControls />
     </div>
   );
 }
