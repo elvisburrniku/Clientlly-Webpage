@@ -864,7 +864,7 @@ export default function Landing() {
               <div className="flex justify-center lg:justify-end">
                 <div className="relative group perspective-1000">
                   {/* Main Card */}
-                  <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform hover:scale-105 hover:rotate-1 transition-all duration-700 hover:shadow-3xl group-hover:shadow-amber-500/20">
+                  <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl hover:shadow-amber-500/20">
                     
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -882,7 +882,7 @@ export default function Landing() {
                           <div className="absolute -bottom-1 -left-3 w-3 h-3 bg-purple-400/60 rounded-full animate-bounce delay-300"></div>
                         </div>
                         
-                        <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-600 group-hover:bg-clip-text transition-all duration-500">
+                        <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 transform transition-all duration-500 hover:scale-105 hover:text-orange-600">
                           Community First
                         </h3>
                         <p className="text-lg text-gray-700 dark:text-gray-800 leading-relaxed font-medium">
@@ -925,15 +925,15 @@ export default function Landing() {
                       
                       {/* Enhanced CTA */}
                       <div className="pt-2">
-                        <Button 
+                        <button 
                           onClick={() => window.location.href = '/collaboration'}
-                          className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 rounded-2xl py-4 font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group-hover:animate-pulse"
+                          className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 rounded-2xl py-4 font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-orange-500/50 cursor-pointer"
                         >
                           <span className="flex items-center justify-center">
-                            Discover Our Community
-                            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                            Join Our Community
+                            <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 hover:translate-x-1" />
                           </span>
-                        </Button>
+                        </button>
                         <p className="text-sm text-gray-500 dark:text-gray-600 text-center mt-3 font-medium">
                           Join 50,000+ growing businesses
                         </p>
