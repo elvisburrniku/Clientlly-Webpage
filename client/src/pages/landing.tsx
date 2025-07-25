@@ -63,8 +63,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
-import TutorialWalkthrough from "@/components/TutorialWalkthrough";
-import { useTutorial } from "@/hooks/useTutorial";
+
 import { SocialLinks } from "@/components/ui/animated-icons";
 
 
@@ -79,7 +78,7 @@ interface SubscriptionPlan {
 export default function Landing() {
   const { toast } = useToast();
   const { t } = useTranslation();
-  const tutorial = useTutorial();
+
 
 
   const [showDemoModal, setShowDemoModal] = useState(false);
@@ -264,17 +263,7 @@ export default function Landing() {
               >
                 Start Your Trial
               </Button>
-              {tutorial.isFirstVisit && (
-                <Button 
-                  variant="outline"
-                  size="sm"
-                  onClick={tutorial.startTutorial}
-                  className="border-blue-500 text-blue-600 hover:bg-blue-50 flex items-center space-x-1"
-                >
-                  <Play className="h-4 w-4" />
-                  <span>Take Tour</span>
-                </Button>
-              )}
+
               <LanguageSelector />
             </div>
 
@@ -1305,14 +1294,7 @@ export default function Landing() {
         </DialogContent>
       </Dialog>
       
-      {/* Tutorial Walkthrough */}
-      {tutorial.showTutorial && (
-        <TutorialWalkthrough
-          isVisible={tutorial.showTutorial}
-          onComplete={tutorial.completeTutorial}
-          onSkip={tutorial.skipTutorial}
-        />
-      )}
+
       
       {/* Chat Bot */}
       <ChatBot />
