@@ -85,3 +85,6 @@ export type DemoRequest = typeof demoRequests.$inferSelect;
 
 export type SubscriptionPlan = typeof subscriptionPlans.$inferSelect;
 export type InsertSubscriptionPlan = typeof subscriptionPlans.$inferInsert;
+
+// Re-export AI schemas
+export * from './ai-schema';

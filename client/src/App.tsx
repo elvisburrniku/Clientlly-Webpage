@@ -31,6 +31,7 @@ import CompareFeatures from "@/pages/compare-features";
 import LoadingDemo from "@/pages/loading-demo";
 import Success from "@/pages/success";
 import NotFound from "@/pages/not-found";
+import AIDashboard from "@/pages/ai-dashboard";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -70,6 +71,7 @@ function Router() {
           <Route path="/compare-features" component={CompareFeatures} />
           <Route path="/loading-demo" component={LoadingDemo} />
           <Route path="/success" component={Success} />
+          <Route path="/ai-dashboard" component={AIDashboard} />
         </>
       ) : (
         <>
@@ -97,6 +99,7 @@ function Router() {
           <Route path="/compare-features" component={CompareFeatures} />
           <Route path="/loading-demo" component={LoadingDemo} />
           <Route path="/success" component={Success} />
+          <Route path="/ai-dashboard" component={AIDashboard} />
         </>
       )}
       <Route component={NotFound} />

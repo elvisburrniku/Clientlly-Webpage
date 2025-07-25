@@ -26,7 +26,9 @@ import {
   Sparkles,
   TrendingUp,
   Calendar,
-  Clock
+  Clock,
+  Brain,
+  ChevronRight
 } from "lucide-react";
 
 interface SubscriptionStatus {
@@ -587,6 +589,35 @@ export default function Dashboard() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* AI Dashboard Link */}
+        <div className="mb-8">
+          <Link href="/ai-dashboard">
+            <Card className="border-purple-200 bg-gradient-to-r from-purple-50 to-blue-50 hover:shadow-lg transition-all duration-200 cursor-pointer group">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl group-hover:scale-110 transition-transform">
+                      <Brain className="h-8 w-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                        AI-Powered Business Intelligence
+                      </h3>
+                      <p className="text-gray-600">
+                        Discover smart insights, voice commands, and automation
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-purple-600 group-hover:translate-x-2 transition-transform">
+                    <span className="text-sm font-medium">Explore AI Features</span>
+                    <ChevronRight className="h-5 w-5" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
 
         {/* Quick Stats */}
