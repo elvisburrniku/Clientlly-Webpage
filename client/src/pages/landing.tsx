@@ -797,84 +797,141 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Growing Together Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20 relative overflow-hidden">
-        {/* Simple background elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      {/* Growing Together Section - HoneyBook Style */}
+      <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating sparkle elements */}
+          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
+            <Sparkles className="w-4 h-4 text-amber-600/30" />
+          </div>
+          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
+            <Sparkles className="w-6 h-6 text-orange-600/40" />
+          </div>
+          <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
+            <Sparkles className="w-3 h-3 text-yellow-600/30" />
+          </div>
         </div>
         
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            {/* Main Title */}
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
-              Let's <span className="text-blue-600">grow</span> together
-            </h2>
-          </div>
-
-          {/* Content Card */}
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-3xl p-12 lg:p-16 shadow-2xl border border-white/20 dark:border-gray-700/30 relative overflow-hidden">
-              
-              <div className="text-center space-y-12">
-                {/* Main Quote */}
-                <div className="max-w-4xl mx-auto">
-                  <p className="text-2xl lg:text-3xl text-foreground leading-relaxed font-semibold mb-6">
-                    Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
-                  </p>
-                  <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
-                    When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
-                  </p>
+        <div className="relative z-10 h-full flex items-center">
+          <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
+            <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+              {/* Left Side - Content */}
+              <div className="space-y-8 lg:space-y-12">
+                {/* Main Heading */}
+                <div className="space-y-6">
+                  <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
+                    Let's work
+                    <br />
+                    <span className="text-gray-800 dark:text-gray-100">wonders</span>
+                  </h2>
+                  
+                  <div className="space-y-4">
+                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed font-medium">
+                      Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
+                    </p>
+                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                      When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                    </p>
+                  </div>
                 </div>
                 
                 {/* Feature Highlights */}
-                <div className="grid md:grid-cols-3 gap-8 mt-16">
+                <div className="space-y-6">
                   {/* Your Ideas */}
-                  <div className="group text-center p-8 bg-blue-50/50 dark:bg-blue-900/20 rounded-2xl hover:bg-blue-100/80 dark:hover:bg-blue-900/40 transition-all duration-300 hover:scale-105">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Lightbulb className="h-8 w-8 text-white" />
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground mb-3">Your Ideas</h4>
-                    <p className="text-muted-foreground">Share your vision and we'll make it reality</p>
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Your Ideas</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">Share your vision and we'll make it reality</p>
                   </div>
                   
                   {/* Fast Development */}
-                  <div className="group text-center p-8 bg-purple-50/50 dark:bg-purple-900/20 rounded-2xl hover:bg-purple-100/80 dark:hover:bg-purple-900/40 transition-all duration-300 hover:scale-105 delay-100">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <Zap className="h-8 w-8 text-white" />
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground mb-3">Fast Development</h4>
-                    <p className="text-muted-foreground">Ideas become features in record time</p>
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Fast Development</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">Ideas become features in record time</p>
                   </div>
                   
                   {/* Mutual Growth */}
-                  <div className="group text-center p-8 bg-indigo-50/50 dark:bg-indigo-900/20 rounded-2xl hover:bg-indigo-100/80 dark:hover:bg-indigo-900/40 transition-all duration-300 hover:scale-105 delay-200">
-                    <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <TrendingUp className="h-8 w-8 text-white" />
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground mb-3">Mutual Growth</h4>
-                    <p className="text-muted-foreground">We succeed when you succeed</p>
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mutual Growth</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">We succeed when you succeed</p>
                   </div>
                 </div>
                 
                 {/* Call to Action */}
-                <div className="pt-8">
+                <div className="pt-4">
                   <Button 
                     onClick={() => window.location.href = '/collaboration'}
-                    className="group px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    className="group px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
                     <span className="flex items-center">
-                      Learn More About Our Community
+                      Learn more
                       <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
                     </span>
                   </Button>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-3">
+                    No credit card required
+                  </p>
+                </div>
+              </div>
+              
+              {/* Right Side - Interactive Element */}
+              <div className="relative">
+                {/* Main interactive card */}
+                <div className="relative max-w-md mx-auto lg:max-w-lg">
+                  <div className="bg-white/95 dark:bg-gray-100/95 backdrop-blur-xl rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/30 relative overflow-hidden transform hover:scale-105 transition-all duration-500">
+                    
+                    {/* Mock search interface */}
+                    <div className="space-y-6">
+                      <div className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-200 rounded-xl border-2 border-gray-200 dark:border-gray-300">
+                        <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                          <Heart className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-gray-800 dark:text-gray-900 font-medium text-lg flex-1">
+                          grow my business?
+                        </span>
+                        <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center cursor-pointer hover:bg-blue-600 transition-colors">
+                          <ArrowRight className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
+                      
+                      {/* Suggestions */}
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-3 p-3 bg-gray-100/80 dark:bg-gray-200/80 rounded-lg">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                          <span className="text-gray-700 dark:text-gray-800 text-sm">Streamline operations</span>
+                        </div>
+                        <div className="flex items-center space-x-3 p-3 bg-gray-100/80 dark:bg-gray-200/80 rounded-lg">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <span className="text-gray-700 dark:text-gray-800 text-sm">Automate workflows</span>
+                        </div>
+                        <div className="flex items-center space-x-3 p-3 bg-gray-100/80 dark:bg-gray-200/80 rounded-lg">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span className="text-gray-700 dark:text-gray-800 text-sm">Improve efficiency</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Floating elements around the card */}
+                    <div className="absolute -top-6 -right-6 w-12 h-12 bg-blue-500 rounded-full shadow-lg animate-bounce">
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Lightbulb className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    
+                    <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-purple-500 rounded-full shadow-lg animate-pulse">
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-white" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
 
       {/* Pricing Section */}
       <section id="pricing-section" className="py-20 px-4 bg-muted/30 pricing-section">
