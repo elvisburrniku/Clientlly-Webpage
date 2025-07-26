@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { 
   ArrowRight,
+  ArrowDown,
+  ChevronDown,
   Users,
   Lightbulb,
   Code,
@@ -18,6 +20,13 @@ import logoPath from "@assets/3d_1753268267691.png";
 
 const CollaborationPage = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -137,11 +146,23 @@ const CollaborationPage = () => {
           >
             Start Collaborating Today
           </Button>
+          
+          {/* Animated Arrow Down */}
+          <div className="mt-12">
+            <div className="flex justify-center">
+              <button 
+                onClick={() => scrollToSection('how-it-works')}
+                className="animate-bounce hover:animate-pulse transition-all duration-300 cursor-pointer"
+              >
+                <ChevronDown className="w-8 h-8 text-muted-foreground hover:text-blue-600" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* How It Works */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+      <section id="how-it-works" className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight">
@@ -199,11 +220,27 @@ const CollaborationPage = () => {
               </div>
             </Card>
           </div>
+          
+          {/* Animated Arrow Navigation */}
+          <div className="flex justify-center mt-12">
+            <button 
+              onClick={() => scrollToSection('expert-support')}
+              className="flex items-center space-x-4 hover:scale-105 transition-all duration-300 cursor-pointer"
+            >
+              <div className="animate-pulse hover:animate-bounce">
+                <ArrowDown className="w-6 h-6 text-blue-500" />
+              </div>
+              <span className="text-sm text-muted-foreground hover:text-blue-600">Continue to Expert Support</span>
+              <div className="animate-pulse hover:animate-bounce">
+                <ArrowDown className="w-6 h-6 text-purple-500" />
+              </div>
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Team Support Section - Yellow Background */}
-      <section className="relative w-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+      <section id="expert-support" className="relative w-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
@@ -260,12 +297,31 @@ const CollaborationPage = () => {
                 </div>
               </Card>
             </div>
+            
+            {/* Animated Flow Arrow */}
+            <div className="flex justify-center mt-12">
+              <button 
+                onClick={() => scrollToSection('final-cta')}
+                className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 cursor-pointer"
+              >
+                <div className="animate-bounce delay-0 hover:animate-pulse">
+                  <ArrowRight className="w-5 h-5 text-amber-600" />
+                </div>
+                <div className="animate-bounce delay-200 hover:animate-pulse">
+                  <ArrowRight className="w-5 h-5 text-orange-600" />
+                </div>
+                <div className="animate-bounce delay-400 hover:animate-pulse">
+                  <ArrowRight className="w-5 h-5 text-red-600" />
+                </div>
+                <span className="text-sm text-gray-800 dark:text-gray-100 font-medium hover:text-gray-900 dark:hover:text-white">Ready to Start?</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="py-16">
+      <section id="final-cta" className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 border-0 shadow-lg">
             <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight">
