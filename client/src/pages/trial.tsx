@@ -307,16 +307,28 @@ export default function Trial() {
           <div className="grid lg:grid-cols-2 gap-20 items-start">
             {/* Left Side - Enhanced Trial Form */}
             <Card className={`relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-              {/* Form Header with Gradient */}
-              <div className="bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1 rounded-t-3xl">
-                <div className="bg-white dark:bg-gray-900 rounded-t-[calc(1.5rem-1px)] p-8">
-                  <div className="text-center mb-8">
-                    <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                      <Rocket className="h-10 w-10 text-white" />
-                    </div>
-                    <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Ready to Launch?</h2>
-                    <p className="text-lg text-gray-600 dark:text-gray-300">Your business transformation starts with these 5 simple fields.</p>
+              {/* Form Header with Yellow Background */}
+              <div className="relative w-full px-4 py-8 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden rounded-t-3xl">
+                {/* Decorative Elements */}
+                <div className="absolute inset-0 overflow-hidden">
+                  {/* Floating sparkle elements */}
+                  <div className="absolute top-4 left-8 w-3 h-3 animate-ping delay-0">
+                    <Sparkles className="w-3 h-3 text-amber-600/30" />
                   </div>
+                  <div className="absolute bottom-4 right-12 w-4 h-4 animate-ping delay-1000">
+                    <Sparkles className="w-4 h-4 text-orange-600/40" />
+                  </div>
+                  <div className="absolute top-6 right-16 w-2 h-2 animate-ping delay-2000">
+                    <Sparkles className="w-2 h-2 text-yellow-600/30" />
+                  </div>
+                </div>
+
+                <div className="relative z-10 text-center">
+                  <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Rocket className="h-10 w-10 text-white" />
+                  </div>
+                  <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Ready to Launch?</h2>
+                  <p className="text-lg text-gray-800 dark:text-gray-200">Your business transformation starts with these 5 simple fields.</p>
                 </div>
               </div>
 
