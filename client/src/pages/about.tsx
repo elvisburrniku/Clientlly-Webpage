@@ -467,6 +467,39 @@ const AboutPage = () => {
                           </div>
                         </div>
                       </div>
+                      
+                      {/* Enhanced CTA */}
+                      <div className="pt-2">
+                        <button 
+                          onClick={() => window.location.href = '/collaboration'}
+                          className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 rounded-2xl py-4 font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-orange-500/50 cursor-pointer"
+                        >
+                          <span className="flex items-center justify-center">
+                            Join Our Community
+                            <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 hover:translate-x-1" />
+                          </span>
+                        </button>
+                        <p className="text-sm text-gray-500 dark:text-gray-600 text-center mt-3 font-medium">
+                          Join 50,000+ growing businesses
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Enhanced Floating Elements */}
+                  <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl backdrop-blur-sm floating-element shadow-xl opacity-80">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Sparkles className="w-8 h-8 text-white animate-spin-slow" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl backdrop-blur-sm floating-delayed shadow-lg opacity-80">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-white animate-pulse" />
+                    </div>
+                  </div>
+                  <div className="absolute top-1/2 -right-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg backdrop-blur-sm floating-element shadow-md opacity-70">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Heart className="w-4 h-4 text-white animate-bounce" />
                     </div>
                   </div>
                 </div>
