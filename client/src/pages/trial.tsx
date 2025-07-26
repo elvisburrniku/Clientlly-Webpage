@@ -525,69 +525,77 @@ export default function Trial() {
                   </Card>
                 </div>
               </div>
-
-              {/* Enhanced Support Promise with Full Yellow Background */}
-              <div className="relative overflow-hidden bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 rounded-3xl shadow-2xl p-8">
-                {/* Floating Sparkles */}
-                <div className="absolute top-4 left-4 w-2 h-2 bg-yellow-200 rounded-full animate-bounce"></div>
-                <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-orange-200 rounded-full animate-bounce delay-300"></div>
-                <div className="absolute bottom-6 left-8 w-1 h-1 bg-amber-200 rounded-full animate-bounce delay-500"></div>
-                <div className="absolute bottom-4 right-4 w-2 h-2 bg-yellow-200 rounded-full animate-bounce delay-700"></div>
-                
-                <div className="text-center relative">
-                  {/* 5-Star Rating */}
-                  <div className="flex justify-center mb-4">
-                    <div className="flex space-x-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-7 w-7 fill-yellow-600 text-yellow-600 animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">
-                    VIP Support Experience
-                  </h3>
-                  <p className="text-lg text-gray-800 mb-6 leading-relaxed">
-                    Get <span className="font-bold text-orange-800">personal onboarding</span> and dedicated support throughout your entire trial.
-                  </p>
-                  
-                  {/* Support Channels */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
-                        <Target className="h-6 w-6 text-white" />
-                      </div>
-                      <p className="text-sm font-bold text-gray-900">Live Chat</p>
-                      <p className="text-xs text-gray-800">Instant Help</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
-                        <Mail className="h-6 w-6 text-white" />
-                      </div>
-                      <p className="text-sm font-bold text-gray-900">Email Support</p>
-                      <p className="text-xs text-gray-800">24h Response</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
-                        <Headphones className="h-6 w-6 text-white" />
-                      </div>
-                      <p className="text-sm font-bold text-gray-900">Phone Support</p>
-                      <p className="text-xs text-gray-800">Direct Line</p>
-                    </div>
-                  </div>
-
-                  {/* Guarantee Badge */}
-                  <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl p-4 text-white shadow-lg">
-                    <div className="flex items-center justify-center space-x-2 mb-1">
-                      <Award className="h-5 w-5" />
-                      <span className="font-bold">Success Guarantee</span>
-                    </div>
-                    <p className="text-sm text-emerald-100">We'll help you succeed or your money back</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* VIP Support Experience - Full Width Section */}
+      <div className="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-16 px-4 relative overflow-hidden">
+        {/* Floating Sparkles */}
+        <div className="absolute top-8 left-8 w-3 h-3 bg-yellow-200 rounded-full animate-bounce"></div>
+        <div className="absolute top-16 right-16 w-2 h-2 bg-orange-200 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute bottom-12 left-16 w-2 h-2 bg-amber-200 rounded-full animate-bounce delay-500"></div>
+        <div className="absolute bottom-8 right-8 w-3 h-3 bg-yellow-200 rounded-full animate-bounce delay-700"></div>
+        <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 bg-orange-300 rounded-full animate-bounce delay-200"></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-yellow-300 rounded-full animate-bounce delay-600"></div>
+        
+        <div className="max-w-6xl mx-auto text-center relative">
+          {/* 5-Star Rating */}
+          <div className="flex justify-center mb-6">
+            <div className="flex space-x-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-8 w-8 fill-yellow-600 text-yellow-600 animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
+              ))}
+            </div>
+          </div>
+          
+          <h3 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 tracking-tight">
+            VIP Support Experience
+          </h3>
+          <p className="text-xl lg:text-2xl text-gray-800 mb-12 leading-relaxed max-w-4xl mx-auto">
+            Get <span className="font-bold text-orange-800">personal onboarding</span> and dedicated support throughout your entire trial.
+          </p>
+          
+          {/* Support Channels */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Target className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-lg font-bold text-gray-900 mb-2">Live Chat</p>
+              <p className="text-gray-800">Instant Help</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Mail className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-lg font-bold text-gray-900 mb-2">Email Support</p>
+              <p className="text-gray-800">24h Response</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Headphones className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-lg font-bold text-gray-900 mb-2">Phone Support</p>
+              <p className="text-gray-800">Direct Line</p>
+            </div>
+          </div>
+
+          {/* Guarantee Badge */}
+          <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-3xl p-6 text-white shadow-2xl max-w-md mx-auto">
+            <div className="flex items-center justify-center space-x-3 mb-2">
+              <Award className="h-6 w-6" />
+              <span className="text-xl font-bold">Success Guarantee</span>
+            </div>
+            <p className="text-emerald-100">We'll help you succeed or your money back</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Continue with the rest of the page */}
+      <div className="px-4 relative">
+        <div className="max-w-7xl mx-auto">
 
           {/* Bottom CTA Section */}
           <div className="mt-20 text-center">
