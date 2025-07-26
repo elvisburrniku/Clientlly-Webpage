@@ -20,7 +20,9 @@ import {
   Globe,
   ArrowLeft,
   CheckCircle,
-  Star
+  Star,
+  Sparkles,
+  Shield
 } from "lucide-react";
 
 export default function Contact() {
@@ -312,54 +314,88 @@ export default function Contact() {
                 </Card>
               </div>
 
-              {/* Let's Grow Together Section */}
-              <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-yellow-50/80 to-orange-50/80 dark:from-yellow-900/20 dark:to-orange-900/20 fade-in stagger-4 overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Let's Grow Together Section - Enhanced Design with Yellow Background */}
+              <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 rounded-3xl shadow-2xl overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
+                {/* Decorative Sparkles */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-8 left-12 w-4 h-4 animate-ping delay-0">
+                    <Sparkles className="w-4 h-4 text-amber-600/40" />
+                  </div>
+                  <div className="absolute bottom-16 right-16 w-6 h-6 animate-ping delay-1000">
+                    <Sparkles className="w-6 h-6 text-orange-600/50" />
+                  </div>
+                  <div className="absolute top-20 right-24 w-3 h-3 animate-ping delay-2000">
+                    <Sparkles className="w-3 h-3 text-yellow-600/40" />
+                  </div>
+                  <div className="absolute bottom-32 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
+                  <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
+                </div>
                 
-                {/* Floating Sparkles */}
-                <div className="absolute top-4 right-6 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-                <div className="absolute bottom-6 left-4 w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse"></div>
-                <div className="absolute top-1/2 right-4 w-1 h-1 bg-yellow-300 rounded-full animate-bounce"></div>
-                
-                <CardContent className="p-8 relative z-10">
+                <div className="p-12 relative z-10">
                   <div className="text-center">
-                    <div className="flex justify-center mb-6">
-                      <div className="flex space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-6 w-6 fill-yellow-400 text-yellow-400 animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-3xl font-black text-foreground mb-4 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
-                      Let's Grow Together
+                    {/* Title */}
+                    <h3 className="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
+                      <span className="inline-block animate-elegant-rise animation-delay-0">Let's</span>{' '}
+                      <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">grow</span>{' '}
+                      <span className="inline-block animate-elegant-rise animation-delay-400">together</span>
                     </h3>
                     
-                    <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                    {/* Description */}
+                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed mb-12 max-w-4xl mx-auto">
                       Join 10,000+ businesses that trust BusinessFlow Pro for their operations. 
                       Your success drives our development.
                     </p>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-                      <div className="flex flex-col items-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl group-hover:bg-white/70 transition-colors duration-300">
-                        <CheckCircle className="h-6 w-6 text-green-500 mb-2" />
-                        <span className="font-medium text-foreground">99.9% Uptime</span>
-                        <span className="text-muted-foreground text-xs">Always reliable</span>
+                    {/* Trust Indicators Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                      {/* 99.9% Uptime */}
+                      <div className="group/card">
+                        <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-8 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                          <div className="flex flex-col items-center text-center space-y-4">
+                            <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
+                              <CheckCircle className="h-8 w-8 text-white" />
+                            </div>
+                            <div>
+                              <h4 className="text-2xl font-black text-gray-900 dark:text-white mb-2">99.9% Uptime</h4>
+                              <p className="text-gray-700 dark:text-gray-200 font-medium">Always reliable</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex flex-col items-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl group-hover:bg-white/70 transition-colors duration-300">
-                        <CheckCircle className="h-6 w-6 text-green-500 mb-2" />
-                        <span className="font-medium text-foreground">24/7 Support</span>
-                        <span className="text-muted-foreground text-xs">We're here for you</span>
+                      
+                      {/* 24/7 Support */}
+                      <div className="group/card">
+                        <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-8 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                          <div className="flex flex-col items-center text-center space-y-4">
+                            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
+                              <Headphones className="h-8 w-8 text-white" />
+                            </div>
+                            <div>
+                              <h4 className="text-2xl font-black text-gray-900 dark:text-white mb-2">24/7 Support</h4>
+                              <p className="text-gray-700 dark:text-gray-200 font-medium">We're here for you</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex flex-col items-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl group-hover:bg-white/70 transition-colors duration-300">
-                        <CheckCircle className="h-6 w-6 text-green-500 mb-2" />
-                        <span className="font-medium text-foreground">Bank-level Security</span>
-                        <span className="text-muted-foreground text-xs">Your data is safe</span>
+                      
+                      {/* Bank-level Security */}
+                      <div className="group/card">
+                        <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-8 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                          <div className="flex flex-col items-center text-center space-y-4">
+                            <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
+                              <Shield className="h-8 w-8 text-white" />
+                            </div>
+                            <div>
+                              <h4 className="text-2xl font-black text-gray-900 dark:text-white mb-2">Bank-level Security</h4>
+                              <p className="text-gray-700 dark:text-gray-200 font-medium">Enterprise grade</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
           </div>
         </div>
