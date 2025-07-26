@@ -917,7 +917,7 @@ export default function Subscribe() {
 
             {/* Enhanced Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8">
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-emerald-200/50 dark:border-emerald-700/50">
+              <div className="flex items-center space-x-3 px-6 py-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
                   <Shield className="h-6 w-6 text-white" />
                 </div>
@@ -927,15 +927,17 @@ export default function Subscribe() {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-xl text-white transform hover:scale-105 transition-transform duration-300">
-                <Clock className="h-6 w-6" />
+              <div className="flex items-center space-x-3 px-6 py-3 transform hover:scale-105 transition-transform duration-300">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <Clock className="h-6 w-6 text-white" />
+                </div>
                 <div className="text-left">
-                  <div className="font-bold">14 Days Free</div>
-                  <div className="text-sm opacity-90">Full Access</div>
+                  <div className="font-bold text-gray-900 dark:text-white">14 Days Free</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Full Access</div>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-200/50 dark:border-purple-700/50">
+              <div className="flex items-center space-x-3 px-6 py-3">
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
                   <Headphones className="h-6 w-6 text-white" />
                 </div>
