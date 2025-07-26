@@ -21,7 +21,15 @@ import {
   MapPin,
   Sparkles,
   Code,
-  HeadphonesIcon
+  HeadphonesIcon,
+  Rocket,
+  Compass,
+  Crown,
+  ChevronRight,
+  Play,
+  Brain,
+  Infinity,
+  FileText
 } from "lucide-react";
 import logoPath from "@assets/3d_1753268267691.png";
 
@@ -54,33 +62,37 @@ const AboutPage = () => {
     };
   }, []);
 
-  const stats = [
-    { number: "50,000+", label: "Happy Customers", icon: Users },
-    { number: "99.9%", label: "Uptime Guarantee", icon: Shield },
-    { number: "150+", label: "Countries Served", icon: Globe },
-    { number: "24/7", label: "Customer Support", icon: Heart }
+  const heroStats = [
+    { number: "50K+", label: "Businesses Trust Us", icon: Building2, color: "from-blue-500 to-cyan-500" },
+    { number: "2.5M+", label: "Invoices Processed", icon: FileText, color: "from-purple-500 to-pink-500" },
+    { number: "120+", label: "Countries Worldwide", icon: Globe, color: "from-green-500 to-emerald-500" },
+    { number: "99.9%", label: "Uptime Reliability", icon: Shield, color: "from-orange-500 to-red-500" }
   ];
 
-  const values = [
+  const principles = [
     {
-      icon: Lightbulb,
-      title: "Innovation First",
-      description: "We constantly push boundaries to deliver cutting-edge business solutions that stay ahead of industry trends."
+      icon: Rocket,
+      title: "Innovation at Heart",
+      description: "We constantly push the boundaries of what's possible, creating tomorrow's business solutions today.",
+      color: "from-blue-500 to-purple-600"
     },
     {
       icon: Users,
-      title: "Customer Success",
-      description: "Your success is our mission. We're dedicated to helping businesses of all sizes achieve their goals."
+      title: "Community First",
+      description: "Every feature is built with our community in mind, ensuring real value for real businesses.",
+      color: "from-purple-500 to-pink-600"
     },
     {
-      icon: Shield,
-      title: "Trust & Security",
-      description: "Bank-level security and complete data protection ensure your business information is always safe."
+      icon: Crown,
+      title: "Excellence Always",
+      description: "We maintain the highest standards in everything we do, from code quality to customer support.",
+      color: "from-amber-500 to-orange-600"
     },
     {
-      icon: Target,
-      title: "Results Driven",
-      description: "Every feature we build is designed to deliver measurable results and improve your bottom line."
+      icon: Heart,
+      title: "Genuine Care",
+      description: "Your success is our success. We're here to support you every step of your business journey.",
+      color: "from-green-500 to-teal-600"
     }
   ];
 
@@ -232,9 +244,11 @@ const AboutPage = () => {
             
             {/* Stats Grid */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-              {stats.map((stat, index) => (
-                <Card key={index} className={`p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-2xl transition-all duration-500 group ${isVisible ? 'animate-fade-in-up' : ''}`} style={{animationDelay: `${index * 200}ms`}}>
-                  <stat.icon className="w-12 h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+              {heroStats.map((stat, index) => (
+                <Card key={index} className={`p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 hover:shadow-2xl transition-all duration-500 group ${isVisible ? 'animate-fade-in-up' : ''}`} style={{animationDelay: `${index * 200}ms`}}>
+                  <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <stat.icon className="w-8 h-8 text-white" />
+                  </div>
                   <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {stat.number}
                   </div>
@@ -323,16 +337,16 @@ const AboutPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-2xl transition-all duration-500 group hover:scale-105 scroll-animate" style={{animationDelay: `${index * 200}ms`}}>
+            {principles.map((value, index) => (
+              <Card key={index} className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 hover:shadow-2xl transition-all duration-500 group hover:scale-105 scroll-animate" style={{animationDelay: `${index * 200}ms`}}>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300`}>
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {value.title}
                   </h3>
-                  <p className="text-muted-foreground font-black leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {value.description}
                   </p>
                 </div>
