@@ -221,11 +221,13 @@ export default function CompareFeatures() {
               One Platform • Multiple Plans
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
-              Choose your <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">perfect fit</span>
+            <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-8">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
+                Choose your perfect fit
+              </span>
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
               All plans include the complete BusinessFlow Pro feature suite. Only pricing differs based on team size and invoice volume to match your business needs.
             </p>
 
@@ -238,21 +240,25 @@ export default function CompareFeatures() {
                       <Heart className="h-8 w-8 text-white" />
                     </div>
                   </div>
-                  <h2 className="text-3xl font-bold text-foreground mb-6">Why One Plan Fits All?</h2>
+                  <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                    <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                      Why One Plan Fits All?
+                    </span>
+                  </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-foreground mb-2">No Feature Restrictions</h3>
-                          <p className="text-muted-foreground">Every business deserves access to professional tools. We believe limiting features based on price creates unnecessary barriers to growth.</p>
+                          <h3 className="text-xl font-bold text-foreground mb-2">No Feature Restrictions</h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">Every business deserves access to professional tools. We believe limiting features based on price creates unnecessary barriers to growth.</p>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-foreground mb-2">Fair & Transparent</h3>
-                          <p className="text-muted-foreground">Pay based on your actual usage - team size and invoice volume - not artificial feature limitations that don't reflect real value.</p>
+                          <h3 className="text-xl font-bold text-foreground mb-2">Fair & Transparent</h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">Pay based on your actual usage - team size and invoice volume - not artificial feature limitations that don't reflect real value.</p>
                         </div>
                       </div>
                     </div>
@@ -260,15 +266,15 @@ export default function CompareFeatures() {
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-foreground mb-2">Scale Without Limits</h3>
-                          <p className="text-muted-foreground">As your business grows, you won't hit feature walls. Your capabilities remain the same - only your capacity changes.</p>
+                          <h3 className="text-xl font-bold text-foreground mb-2">Scale Without Limits</h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">As your business grows, you won't hit feature walls. Your capabilities remain the same - only your capacity changes.</p>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                         <div>
-                          <h3 className="font-semibold text-foreground mb-2">Customer-First Approach</h3>
-                          <p className="text-muted-foreground">We built this platform to help businesses succeed, not to maximize revenue through feature restrictions. Your success is our success.</p>
+                          <h3 className="text-xl font-bold text-foreground mb-2">Customer-First Approach</h3>
+                          <p className="text-lg text-muted-foreground leading-relaxed">We built this platform to help businesses succeed, not to maximize revenue through feature restrictions. Your success is our success.</p>
                         </div>
                       </div>
                     </div>
@@ -303,11 +309,11 @@ export default function CompareFeatures() {
                     <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <Building2 className="h-10 w-10 text-white" />
                     </div>
-                    <CardTitle className="text-3xl font-bold text-foreground mb-2">{plan.name}</CardTitle>
+                    <CardTitle className="text-2xl font-bold text-foreground mb-2">{plan.name}</CardTitle>
                     <div className="text-5xl font-bold gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                       {plan.price}<span className="text-2xl font-normal text-muted-foreground">/month</span>
                     </div>
-                    <p className="text-muted-foreground text-lg mb-6">{plan.description}</p>
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">{plan.description}</p>
                     
                     {/* Usage Limits */}
                     <div className="space-y-3 bg-white/30 rounded-xl p-4 backdrop-blur-sm">
@@ -329,7 +335,7 @@ export default function CompareFeatures() {
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-white/20 transition-colors">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground font-medium">{feature}</span>
+                        <span className="text-foreground font-medium leading-relaxed">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -352,10 +358,12 @@ export default function CompareFeatures() {
           {/* Core Features Section */}
           <div className="text-center mb-20">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Complete Feature Set Included in <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Every Plan</span>
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Complete Feature Set Included in Every Plan
+                </span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-16 leading-relaxed">
+              <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto mb-16 leading-relaxed">
                 Every subscription tier includes our complete business management suite. No features are locked behind higher pricing tiers.
               </p>
             </div>
@@ -374,10 +382,10 @@ export default function CompareFeatures() {
                       <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110">
                         <feature.icon className="h-10 w-10 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-blue-600 transition-colors duration-300">
                         {feature.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                      <p className="text-lg text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
                         {feature.description}
                       </p>
                     </div>
@@ -397,10 +405,12 @@ export default function CompareFeatures() {
                   <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <Award className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    Full Access, Fair Pricing
+                  <h3 className="text-3xl font-bold text-foreground mb-4">
+                    <span className="bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent">
+                      Full Access, Fair Pricing
+                    </span>
                   </h3>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-xl text-muted-foreground leading-relaxed">
                     Unlike other platforms that restrict features to force expensive upgrades, we believe every business should have access to professional tools. Our pricing scales with your usage, not your capabilities.
                   </p>
                 </CardContent>
@@ -422,11 +432,13 @@ export default function CompareFeatures() {
                   <Zap className="h-12 w-12 text-white" />
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                  Ready to Transform Your <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Business?</span>
+                <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
+                    Ready to Transform Your Business?
+                  </span>
                 </h2>
                 
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
+                <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
                   Join thousands of businesses already streamlining their operations with BusinessFlow Pro. Experience the full feature set with any plan you choose.
                 </p>
 
