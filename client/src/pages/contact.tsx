@@ -349,7 +349,7 @@ export default function Contact() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center">
               {/* Title */}
-              <h3 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
+              <h3 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
                 <span className="inline-block animate-elegant-rise animation-delay-0">Let's</span>{' '}
                 <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">grow</span>{' '}
                 <span className="inline-block animate-elegant-rise animation-delay-400">together</span>
