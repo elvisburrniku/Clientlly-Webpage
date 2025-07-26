@@ -10,14 +10,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (July 26, 2025)
 
-✓ COMPLETED Enterprise plan pricing update with bold formatting (July 26, 2025)
-✓ Updated Enterprise plan to show "Up to 50 users" and "**€1 per additional user after 50**" as separate lines
-✓ Implemented markdown bold text parsing across all pricing components (subscribe, landing, compare-features)
-✓ Added bold orange highlighting for additional user cost information in all pricing displays
-✓ Modified server/routes.ts to separate user limits and additional cost into distinct feature lines
-✓ Updated client pricing components to parse **bold** markdown syntax and render as styled text
-✓ Applied consistent bold formatting across subscribe page, landing page, and compare-features page
-✓ Enhanced readability by making pricing structure more prominent and visually distinct
+✓ COMPLETED user/invoice limits bold and animated formatting (July 26, 2025)
+✓ Made all user and invoice limits bold with **markdown syntax** in server plan features
+✓ Enhanced client-side rendering with special blue styling and pulse animations for usage limits
+✓ Added gradient backgrounds, borders, and rounded styling to usage limit features
+✓ Applied smart detection to identify users/invoices/€ content for special animated treatment
+✓ Updated all three pricing plans: Starter (3 users, 100 invoices), Professional (10 users, 500 invoices), Enterprise (50 users, unlimited invoices)
+✓ Made "€1 per additional user after 50" prominently animated with pulse effect
+✓ Applied consistent animated formatting across subscribe, landing, and compare-features pages
+✓ Enhanced visual hierarchy making usage limits stand out with blue pulse animations
 
 ✓ COMPLETED unified footer design implementation across all pages (July 26, 2025)
 ✓ Created comprehensive Footer component (client/src/components/Footer.tsx) based on user-provided design

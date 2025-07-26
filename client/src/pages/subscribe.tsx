@@ -494,9 +494,18 @@ export default function Subscribe() {
                           <span className="text-muted-foreground">
                             {parts.map((part, partIndex) => {
                               if (part.startsWith('**') && part.endsWith('**')) {
+                                const content = part.slice(2, -2);
+                                const isUsageLimit = content.includes('users') || content.includes('invoices') || content.includes('€');
                                 return (
-                                  <strong key={partIndex} className="font-bold text-orange-600 dark:text-orange-400">
-                                    {part.slice(2, -2)}
+                                  <strong 
+                                    key={partIndex} 
+                                    className={`font-bold ${
+                                      isUsageLimit 
+                                        ? 'text-blue-600 dark:text-blue-400 animate-pulse bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 px-2 py-1 rounded-lg border border-blue-200 dark:border-blue-700/30' 
+                                        : 'text-orange-600 dark:text-orange-400'
+                                    }`}
+                                  >
+                                    {content}
                                   </strong>
                                 );
                               }

@@ -27,8 +27,8 @@ const SUBSCRIPTION_PLANS = {
     },
     description: "Perfect for small businesses and freelancers",
     features: [
-      "Up to 3 users",
-      "Up to 100 invoices/month",
+      "**Up to 3 users**",
+      "**Up to 100 invoices/month**",
       "Professional invoicing & billing",
       "Advanced expense tracking & management", 
       "Complete CRM with contact management",
@@ -103,8 +103,8 @@ const SUBSCRIPTION_PLANS = {
     },
     description: "Ideal for growing businesses and teams",
     features: [
-      "Up to 10 users",
-      "Up to 500 invoices/month",
+      "**Up to 10 users**",
+      "**Up to 500 invoices/month**",
       "Professional invoicing & billing",
       "Advanced expense tracking & management", 
       "Complete CRM with contact management",
@@ -179,9 +179,9 @@ const SUBSCRIPTION_PLANS = {
     },
     description: "For large teams and enterprises requiring maximum capabilities",
     features: [
-      "Up to 50 users",
+      "**Up to 50 users**",
       "**€1 per additional user after 50**",
-      "Unlimited invoices/month",
+      "**Unlimited invoices/month**",
       "Professional invoicing & billing",
       "Advanced expense tracking & management", 
       "Complete CRM with contact management",
