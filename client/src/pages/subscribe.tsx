@@ -340,7 +340,11 @@ export default function Subscribe() {
 
   const renderPlanSelection = () => (
     <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
-      <div className="text-center mb-12">
+      <div className="text-center mb-16">
+        <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in leading-tight tracking-tight animate-slide-up">
+          Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
+        </h2>
+        
         <div className="flex justify-center mb-12">
           <div className="glass-effect border border-white/20 rounded-2xl p-2 backdrop-blur-xl">
             <div className="flex items-center space-x-2">
@@ -370,118 +374,153 @@ export default function Subscribe() {
         </div>
       </div>
       
-      <CardContent className="space-y-8 p-0">
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {plansLoading ? (
-            // Skeleton loading states
-            Array.from({ length: 3 }).map((_, index) => (
-              <Card key={index} className={`animate-pulse ${index === 1 ? 'border-primary/30' : ''}`}>
-                <CardContent className="p-6">
-                  {index === 1 && (
-                    <div className="h-6 bg-gradient-to-r from-primary/20 to-secondary/20 rounded mb-4 w-24"></div>
-                  )}
-                  <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-                  <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-4 w-32"></div>
-                  <div className="space-y-2 mb-6">
-                    {Array.from({ length: 4 }).map((_, i) => (
-                      <div key={i} className="flex items-center space-x-2">
-                        <div className="h-4 w-4 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded flex-1"></div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
-                </CardContent>
-              </Card>
-            ))
-          ) : (
-            plans?.map((plan, index) => {
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pricing-grid">
+        {plansLoading ? (
+          // Skeleton loading states
+          Array.from({ length: 3 }).map((_, index) => (
+            <Card key={index} className={`animate-pulse ${index === 1 ? 'border-primary/30' : ''}`}>
+              <CardContent className="p-6">
+                {index === 1 && (
+                  <div className="h-6 bg-gradient-to-r from-primary/20 to-secondary/20 rounded mb-4 w-24"></div>
+                )}
+                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
+                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-4 w-32"></div>
+                <div className="space-y-2 mb-6">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i} className="flex items-center space-x-2">
+                      <div className="h-4 w-4 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                      <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded flex-1"></div>
+                    </div>
+                  ))}
+                </div>
+                <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          plans?.map((plan, index) => {
             const price = billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
             const isSelected = selectedPlan === plan.id;
             
             return (
               <Card 
                 key={plan.id} 
-                className={`cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 fade-in-up relative backdrop-blur-xl ${
-                  isSelected 
-                    ? 'bg-gradient-to-br from-blue-500 to-purple-600 text-white border-blue-400 shadow-2xl scale-105' 
-                    : 'glass-effect border-white/30 hover:border-blue-300/50'
-                } ${index === 1 ? 'border-2 border-blue-400 ring-2 ring-blue-200/50' : ''}`}
-                style={{ animationDelay: `${0.6 + index * 0.1}s` }}
+                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer ${
+                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
+                } ${isSelected ? 'ring-2 ring-blue-400 border-blue-400' : ''}`}
                 onClick={() => setSelectedPlan(plan.id)}
               >
-                <CardContent className="p-8 relative">
-                  {index === 1 && (
-                    <Badge className="mb-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-4 py-2 shadow-lg">
-                      <Sparkles className="w-4 h-4 mr-1" />
+                {index === 1 && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                    <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
                       Most Popular
                     </Badge>
-                  )}
-                  
-                  <div className="mb-6">
-                    <h3 className={`text-2xl font-black mb-3 ${
-                      isSelected ? 'text-white' : 'text-gray-800 dark:text-white'
-                    }`}>
-                      {plan.name}
-                    </h3>
-                    <div className="mt-3">
-                      <span className={`text-4xl font-black ${
-                        isSelected ? 'text-white' : 'text-gray-800 dark:text-white'
-                      }`}>
-                        ${Math.floor(price / 100)}
-                      </span>
-                      <span className={`text-lg ml-2 ${
-                        isSelected ? 'text-white/80' : 'text-gray-600 dark:text-gray-300'
-                      }`}>
-                        /{billingPeriod === 'yearly' ? 'year' : 'month'}
-                      </span>
+                  </div>
+                )}
+                
+                <CardContent className="p-8">
+                  <div className="text-center mb-8">
+                    <h3 className="text-3xl font-black text-foreground mb-4 tracking-tight">{plan.name}</h3>
+                    
+                    {/* Individual Plan Billing Toggle */}
+                    <div className="mb-6">
+                      <div className="relative flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-full max-w-xs mx-auto">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setBillingPeriod('monthly');
+                          }}
+                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
+                            billingPeriod === 'monthly'
+                              ? 'text-white'
+                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                          }`}
+                        >
+                          Monthly
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setBillingPeriod('yearly');
+                          }}
+                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
+                            billingPeriod === 'yearly'
+                              ? 'text-white'
+                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                          }`}
+                        >
+                          Yearly
+                        </button>
+                        <div
+                          className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
+                            billingPeriod === 'monthly'
+                              ? 'left-1 w-[calc(50%-4px)]'
+                              : 'right-1 w-[calc(50%-4px)]'
+                          }`}
+                        />
+                      </div>
+                      {billingPeriod === 'yearly' && (
+                        <div className="mt-2">
+                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
+                        </div>
+                      )}
                     </div>
+                    
+                    <div className="text-4xl font-bold gradient-text mb-1">
+                      ${Math.floor(
+                        billingPeriod === 'monthly' ? price / 100 : (price * 12) / 100 / 12
+                      )}
+                      <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
+                    </div>
+                    {billingPeriod === 'yearly' && (
+                      <div className="text-sm text-muted-foreground mb-2">
+                        Billed ${Math.floor((price * 12) / 100)} yearly
+                      </div>
+                    )}
+                    <p className="text-muted-foreground">
+                      {plan.id === 'basic' && "Perfect for freelancers and small teams"}
+                      {plan.id === 'professional' && "Ideal for growing businesses"}
+                      {plan.id === 'business' && "For large teams and enterprises"}
+                    </p>
                   </div>
                   
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.slice(0, 4).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3">
-                        <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
-                          isSelected ? 'bg-white/20' : 'bg-green-100 dark:bg-green-900/30'
-                        }`}>
-                          <Check className={`h-3 w-3 ${
-                            isSelected ? 'text-white' : 'text-green-600 dark:text-green-400'
-                          }`} />
-                        </div>
-                        <span className={`${
-                          isSelected ? 'text-white' : 'text-gray-700 dark:text-gray-300'
-                        }`}>
-                          {feature}
-                        </span>
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
+                        <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   
-                  <Button 
-                    className={`w-full py-3 font-bold text-lg transition-all duration-300 ${
-                      isSelected 
-                        ? 'bg-white text-blue-600 hover:bg-gray-100 shadow-lg' 
-                        : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105 shadow-lg'
-                    }`}
-                    onClick={() => setSelectedPlan(plan.id)}
-                  >
-                    {isSelected ? (
-                      <>
-                        <Check className="w-5 h-5 mr-2" />
-                        Selected
-                      </>
-                    ) : (
-                      'Select Plan'
-                    )}
-                  </Button>
+                  <div className="space-y-3">
+                    <Button 
+                      className={`w-full font-medium py-2 ${
+                        isSelected 
+                          ? 'bg-green-600 text-white hover:bg-green-700' 
+                          : 'bg-blue-600 text-white hover:bg-blue-700'
+                      }`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedPlan(plan.id);
+                      }}
+                    >
+                      {isSelected ? (
+                        <>
+                          <Check className="w-4 h-4 mr-2" />
+                          Selected
+                        </>
+                      ) : (
+                        'Select Plan'
+                      )}
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             );
           })
-          )}
-        </div>
-      </CardContent>
+        )}
+      </div>
     </div>
   );
 
