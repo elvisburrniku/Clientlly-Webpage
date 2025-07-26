@@ -959,7 +959,7 @@ export default function Subscribe() {
                     business transformation
                   </span>
                   <br />
-                  <span className="text-5xl lg:text-6xl xl:text-7xl text-gray-700 dark:text-gray-300">
+                  <span className="text-6xl lg:text-7xl xl:text-8xl text-gray-700 dark:text-gray-300">
                     today
                   </span>
                 </h1>
