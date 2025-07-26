@@ -18,7 +18,8 @@ import {
   Star,
   Building2,
   Calendar,
-  MapPin
+  MapPin,
+  Sparkles
 } from "lucide-react";
 import logoPath from "@assets/3d_1753268267691.png";
 
