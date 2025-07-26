@@ -128,10 +128,9 @@ const CollaborationPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-spin-slow"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/5 to-purple-400/5 rounded-full blur-3xl animate-spin-slow"></div>
       </div>
 
       {/* Navigation */}
@@ -314,62 +313,62 @@ const CollaborationPage = () => {
       </section>
 
       {/* Collaboration Features */}
-      <section className="py-32 relative">
+      <section className="py-32 relative bg-gradient-to-br from-gray-50/30 via-blue-50/20 to-purple-50/20 dark:from-gray-900/30 dark:via-blue-950/20 dark:to-purple-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 animate-text-reveal tracking-tight leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                How We Collaborate
+              </span>
+            </h2>
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Your success is our priority. Here's how we work together to build amazing features.
+            </p>
+          </div>
+          
           <div className="grid lg:grid-cols-2 gap-12 mb-20">
             {collaborationFeatures.map((feature, index) => (
-              <Card key={index} className={`p-10 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 hover:shadow-3xl transition-all duration-700 group hover:scale-105 hover:-translate-y-2 hover:rotate-1 rounded-3xl animate-fade-in-up ${
-                index === 0 ? 'border-amber-200 dark:border-amber-700 hover:border-amber-400' :
-                index === 1 ? 'border-blue-200 dark:border-blue-700 hover:border-blue-400' :
-                index === 2 ? 'border-purple-200 dark:border-purple-700 hover:border-purple-400' :
-                'border-green-200 dark:border-green-700 hover:border-green-400'
+              <Card key={index} className={`p-12 bg-white/98 dark:bg-gray-800/98 backdrop-blur-xl border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group hover:scale-[1.02] hover:-translate-y-1 rounded-3xl animate-fade-in-up ${
+                index === 0 ? 'hover:shadow-amber-500/20' :
+                index === 1 ? 'hover:shadow-blue-500/20' :
+                index === 2 ? 'hover:shadow-purple-500/20' :
+                'hover:shadow-green-500/20'
               }`} style={{ animationDelay: `${index * 200}ms` }}>
-                {/* Animated Background Gradient */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-3xl ${
+                {/* Subtle Background Gradient */}
+                <div className={`absolute inset-0 opacity-0 group-hover:opacity-30 transition-all duration-500 rounded-3xl ${
                   feature.gradientBg
                 }`}></div>
                 
-                {/* Floating Animation Elements */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className={`absolute top-4 right-4 w-3 h-3 rounded-full animate-bounce bg-gradient-to-r ${feature.color}`}></div>
-                  <div className={`absolute bottom-6 left-4 w-2 h-2 rounded-full animate-ping bg-gradient-to-r ${feature.color}`}></div>
-                  <div className={`absolute top-1/2 left-2 w-1.5 h-1.5 rounded-full animate-pulse bg-gradient-to-r ${feature.color}`}></div>
-                </div>
-                
                 <div className="relative z-10">
-                  {/* Animated Icon */}
+                  {/* Clean Icon */}
                   <div className="relative mb-8">
-                    <div className={`w-32 h-32 mx-auto rounded-full shadow-2xl group-hover:shadow-3xl transition-all duration-700 group-hover:scale-125 group-hover:rotate-12 flex items-center justify-center bg-gradient-to-br ${feature.color}`}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
-                      <feature.icon className="w-16 h-16 text-white relative z-10 group-hover:animate-pulse" />
+                    <div className={`w-24 h-24 mx-auto rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110 flex items-center justify-center bg-gradient-to-br ${feature.color}`}>
+                      <feature.icon className="w-12 h-12 text-white" />
                     </div>
                   </div>
                   
-                  {/* Animated Title */}
-                  <h3 className="text-3xl font-black text-foreground mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500 group-hover:scale-105 text-center">
+                  {/* Clean Title */}
+                  <h3 className="text-3xl font-black text-foreground mb-6 text-center">
                     {feature.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-8 text-lg group-hover:text-foreground transition-all duration-500 text-center">
+                  <p className="text-muted-foreground leading-relaxed mb-8 text-lg text-center">
                     {feature.description}
                   </p>
                   
                   {/* Benefits */}
                   <div className="space-y-4">
                     {feature.benefits.map((benefit, benefitIndex) => (
-                      <div key={benefitIndex} className="flex items-center space-x-4 group/item">
-                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300 bg-gradient-to-r ${feature.color}`}>
-                          <CheckCircle className="w-5 h-5 text-white" />
+                      <div key={benefitIndex} className="flex items-center space-x-4">
+                        <div className={`w-6 h-6 rounded-lg flex items-center justify-center bg-gradient-to-r ${feature.color}`}>
+                          <CheckCircle className="w-4 h-4 text-white" />
                         </div>
-                        <span className="font-medium text-foreground group-hover:scale-105 transition-transform duration-300">{benefit}</span>
+                        <span className="font-medium text-foreground">{benefit}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-                
-                {/* Animated Border Glow */}
-                <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_30px_rgba(59,130,246,0.3)]`}></div>
               </Card>
             ))}
           </div>
@@ -409,39 +408,25 @@ const CollaborationPage = () => {
             {/* Team Support Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {teamSupport.map((support, index) => (
-                <Card key={index} className="group relative overflow-hidden bg-white/95 dark:bg-gray-50/95 backdrop-blur-xl border-2 border-white/40 hover:border-white/60 hover:shadow-3xl transition-all duration-700 hover:scale-110 hover:-translate-y-8 hover:rotate-1 rounded-3xl">
-                  {/* Animated Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-3xl ${support.color}/20`}></div>
-                  
-                  {/* Floating Animation Elements */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
-                    <div className="absolute bottom-6 left-4 w-2 h-2 bg-purple-400 rounded-full animate-ping"></div>
-                    <div className="absolute top-1/2 left-2 w-1.5 h-1.5 bg-green-300 rounded-full animate-pulse"></div>
-                  </div>
-                  
-                  <div className="p-8 text-center relative z-10">
-                    {/* Animated Icon Avatar */}
+                <Card key={index} className="group relative bg-white/98 dark:bg-gray-50/98 backdrop-blur-xl border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-3xl">
+                  <div className="p-8 text-center">
+                    {/* Clean Icon */}
                     <div className="relative mb-8">
-                      <div className={`w-32 h-32 mx-auto rounded-full shadow-2xl group-hover:shadow-3xl transition-all duration-700 group-hover:scale-125 group-hover:rotate-12 flex items-center justify-center bg-gradient-to-br ${support.color}`}>
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
-                        <support.icon className="w-16 h-16 text-white relative z-10 group-hover:animate-pulse" />
+                      <div className={`w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110 flex items-center justify-center bg-gradient-to-br ${support.color}`}>
+                        <support.icon className="w-10 h-10 text-white" />
                       </div>
                     </div>
                     
-                    {/* Animated Title */}
-                    <h3 className="text-2xl font-black text-gray-900 dark:text-gray-800 mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500 group-hover:scale-105">
+                    {/* Clean Title */}
+                    <h3 className="text-2xl font-black text-gray-900 dark:text-gray-800 mb-3">
                       {support.title}
                     </h3>
                     
-                    {/* Animated Description */}
-                    <p className="text-gray-700 dark:text-gray-800 leading-relaxed group-hover:text-gray-900 transition-all duration-500 group-hover:scale-105">
+                    {/* Clean Description */}
+                    <p className="text-gray-700 dark:text-gray-800 leading-relaxed">
                       {support.description}
                     </p>
                   </div>
-                  
-                  {/* Animated Border Glow */}
-                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_30px_rgba(59,130,246,0.5)]"></div>
                 </Card>
               ))}
             </div>
