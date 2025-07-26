@@ -322,7 +322,7 @@ const CollaborationPage = () => {
                 Your Success Drives Our Innovation
               </span>
             </h3>
-            <p className="text-base text-muted-foreground leading-relaxed animate-bounce">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
               When you succeed, we all succeed.
             </p>
