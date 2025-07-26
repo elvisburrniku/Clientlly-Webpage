@@ -4,6 +4,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Enhanced Trial Page Animations */
+@keyframes animate-gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+@keyframes animate-spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-gradient-x {
+  animation: animate-gradient-x 6s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-spin-slow {
+  animation: animate-spin-slow 3s linear infinite;
+}
+
 :root {
   --background: hsl(0, 0%, 96%);
   --foreground: hsl(0, 0%, 0%);
