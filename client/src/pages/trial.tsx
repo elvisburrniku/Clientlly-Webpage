@@ -652,52 +652,7 @@ export default function Trial() {
         </div>
       </div>
 
-      {/* Continue with the rest of the page */}
-      <div className="px-4 relative">
-        <div className="max-w-7xl mx-auto">
 
-          {/* Bottom CTA Section */}
-          <div className="mt-20 text-center">
-            <div className={`bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-3xl p-12 border border-white/30 dark:border-gray-700/30 shadow-2xl transform transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">
-                Ready to Transform Your Business?
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Join thousands of successful entrepreneurs who've already streamlined their operations with BusinessFlow Pro.
-              </p>
-              
-              {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-                <div className="text-center">
-                  <div className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-2">50,000+</div>
-                  <p className="text-gray-600 dark:text-gray-400">Happy Customers</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-black text-blue-600 dark:text-blue-400 mb-2">2M+</div>
-                  <p className="text-gray-600 dark:text-gray-400">Invoices Created</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-black text-purple-600 dark:text-purple-400 mb-2">98%</div>
-                  <p className="text-gray-600 dark:text-gray-400">Satisfaction Rate</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-black text-orange-600 dark:text-orange-400 mb-2">120+</div>
-                  <p className="text-gray-600 dark:text-gray-400">Countries</p>
-                </div>
-              </div>
-
-              {/* Final CTA */}
-              <Link href="#" onClick={() => document.getElementById('firstName')?.scrollIntoView({ behavior: 'smooth' })}>
-                <Button className="h-16 px-12 text-xl font-bold bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 hover:from-emerald-700 hover:via-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 group">
-                  <ArrowRight className="h-6 w-6 mr-3 group-hover:translate-x-1 transition-transform duration-300" />
-                  Start Your Free Trial Above
-                  <Rocket className="h-6 w-6 ml-3 group-hover:animate-bounce" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Footer */}
       <Footer />
