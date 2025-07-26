@@ -34,14 +34,7 @@
   animation: animate-spin-slow 3s linear infinite;
 }
 
-/* Hide hero section when arriving from Buy Now buttons */
-.hide-hero-section .hero-section {
-  display: none;
-}
 
-.hide-hero-section .subscription-content {
-  padding-top: 120px; /* Account for fixed nav */
-}
 
 :root {
   --background: hsl(0, 0%, 96%);
