@@ -19,7 +19,9 @@ import {
   Building2,
   Calendar,
   MapPin,
-  Sparkles
+  Sparkles,
+  Code,
+  HeadphonesIcon
 } from "lucide-react";
 import logoPath from "@assets/3d_1753268267691.png";
 
@@ -447,7 +449,7 @@ const AboutPage = () => {
                         
                         <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
                           <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                            <Headphones className="w-6 h-6 text-white" />
+                            <HeadphonesIcon className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1">
                             <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Expert Team Support</h4>
