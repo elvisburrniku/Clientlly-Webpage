@@ -14,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock, Gift } from "lucide-react";
+import { Star } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -1008,6 +1009,75 @@ export default function Subscribe() {
         </div>
       </div>
       
+      {/* VIP Support Experience - Full Width Section */}
+      <div className="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-16 px-4 relative overflow-hidden">
+        {/* Floating Sparkles */}
+        <div className="absolute top-8 left-8 w-3 h-3 bg-yellow-200 rounded-full animate-bounce"></div>
+        <div className="absolute top-16 right-16 w-2 h-2 bg-orange-200 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute bottom-12 left-16 w-2 h-2 bg-amber-200 rounded-full animate-bounce delay-500"></div>
+        <div className="absolute bottom-8 right-8 w-3 h-3 bg-yellow-200 rounded-full animate-bounce delay-700"></div>
+        <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 bg-orange-300 rounded-full animate-bounce delay-200"></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-yellow-300 rounded-full animate-bounce delay-600"></div>
+        
+        <div className="max-w-6xl mx-auto text-center relative">
+          {/* 5-Star Rating */}
+          <div className="flex justify-center mb-6">
+            <div className="flex space-x-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-8 w-8 fill-yellow-600 text-yellow-600 animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
+              ))}
+            </div>
+          </div>
+          
+          <h3 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 tracking-tight">
+            VIP Support Experience
+          </h3>
+          
+          <p className="text-xl lg:text-2xl text-gray-800 mb-12 leading-relaxed max-w-4xl mx-auto">
+            Get <span className="font-bold text-orange-800">personal onboarding</span> and dedicated support throughout your entire subscription.
+          </p>
+          
+          {/* Support Channels */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Mail className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-lg font-bold text-gray-900 mb-2">Live Chat</p>
+              <p className="text-gray-800">Instant Help</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Mail className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-lg font-bold text-gray-900 mb-2">Email Support</p>
+              <p className="text-gray-800">24h Response</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
+                <Headphones className="h-8 w-8 text-white" />
+              </div>
+              <p className="text-lg font-bold text-gray-900 mb-2">Phone Support</p>
+              <p className="text-gray-800">Priority Line</p>
+            </div>
+          </div>
+          
+          {/* Guarantee Badges */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-12">
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
+              <Shield className="h-12 w-12 text-green-600 mx-auto mb-3" />
+              <p className="text-lg font-bold text-gray-900 mb-2">30-Day Money Back</p>
+              <p className="text-gray-800">100% Satisfaction Guaranteed</p>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
+              <Clock className="h-12 w-12 text-blue-600 mx-auto mb-3" />
+              <p className="text-lg font-bold text-gray-900 mb-2">Same-Day Setup</p>
+              <p className="text-gray-800">Get Started Immediately</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Footer */}
       <Footer />
     </div>
