@@ -223,16 +223,16 @@ const AboutPage = () => {
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-sm text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
-              <Link href="/#features" className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
+              <Link href="/about" className="text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
+              <Link href="/#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = '/subscribe'}
-                className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
               >
                 Pricing
               </Button>
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 font-bold">Contact Us</Link>
+              <Link href="/contact" className="text-muted-foreground hover:text-primary transition-all duration-300 font-bold">Contact Us</Link>
             </div>
 
             {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
@@ -280,19 +280,19 @@ const AboutPage = () => {
           <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
               {/* Navigation Links */}
-              <Link href="/about" className="block text-sm text-primary transition-colors font-bold">About Us</Link>
-              <Link href="/#features" className="block text-sm text-muted-foreground hover:text-primary transition-colors font-bold">Features</Link>
+              <Link href="/about" className="block text-primary transition-colors font-bold">About Us</Link>
+              <Link href="/#features" className="block text-muted-foreground hover:text-primary transition-colors font-bold">Features</Link>
               <Button 
                 variant="ghost"
                 onClick={() => {
                   window.location.href = '/subscribe';
                   setShowMobileMenu(false);
                 }}
-                className="w-full text-left justify-start text-sm text-muted-foreground hover:text-primary font-bold"
+                className="w-full text-left justify-start text-muted-foreground hover:text-primary font-bold"
               >
                 Pricing
               </Button>
-              <Link href="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors font-bold">Contact Us</Link>
+              <Link href="/contact" className="block text-muted-foreground hover:text-primary transition-colors font-bold">Contact Us</Link>
               
               {/* Action Buttons */}
               <div className="pt-4 space-y-2">

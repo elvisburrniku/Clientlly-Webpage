@@ -824,19 +824,19 @@ export default function Subscribe() {
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-sm text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">About Us</Link>
-              <Link href="/#features" className="text-sm text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">Features</Link>
+              <Link href="/about" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">About Us</Link>
+              <Link href="/#features" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">Features</Link>
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = '/subscribe'}
-                className="text-sm text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
               >
                 Pricing
               </Button>
               <Button 
                 variant="ghost" 
                 onClick={() => window.location.href = '/contact'} 
-                className="text-sm text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
               >
                 Contact Us
               </Button>
@@ -887,15 +887,15 @@ export default function Subscribe() {
           <div className="lg:hidden bg-white border-b border-gray-200">
             <div className="px-4 py-4 space-y-4">
               {/* Navigation Links */}
-              <Link href="/about" className="block text-sm text-gray-600 hover:text-gray-800 font-bold">About Us</Link>
-              <Link href="/#features" className="block text-sm text-gray-600 hover:text-gray-800 font-bold">Features</Link>
+              <Link href="/about" className="block text-gray-600 hover:text-gray-800 font-bold">About Us</Link>
+              <Link href="/#features" className="block text-gray-600 hover:text-gray-800 font-bold">Features</Link>
               <Button 
                 variant="ghost"
                 onClick={() => {
                   window.location.href = '/subscribe';
                   setShowMobileMenu(false);
                 }}
-                className="w-full text-left justify-start text-sm text-gray-600 hover:text-gray-800 font-bold"
+                className="w-full text-left justify-start text-gray-600 hover:text-gray-800 font-bold"
               >
                 Pricing
               </Button>
@@ -905,7 +905,7 @@ export default function Subscribe() {
                   window.location.href = '/contact';
                   setShowMobileMenu(false);
                 }} 
-                className="w-full text-left justify-start text-sm text-gray-600 hover:text-gray-800 font-bold"
+                className="w-full text-left justify-start text-gray-600 hover:text-gray-800 font-bold"
               >
                 Contact Us
               </Button>
