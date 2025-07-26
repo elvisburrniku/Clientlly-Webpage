@@ -139,13 +139,6 @@ const CollaborationPage = () => {
             Your business needs drive our development. When you subscribe, you get a dedicated team 
             committed to building features that solve your challenges.
           </p>
-
-          <Button 
-            onClick={() => window.location.href = '/subscribe'}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Start Collaborating Today
-          </Button>
           
           {/* Animated Arrow Down */}
           <div className="mt-12">
