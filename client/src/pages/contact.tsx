@@ -22,11 +22,15 @@ import {
   CheckCircle,
   Star,
   Sparkles,
-  Shield
+  Shield,
+  Menu,
+  X
 } from "lucide-react";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 export default function Contact() {
   const { toast } = useToast();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [contactForm, setContactForm] = useState({
     firstName: "",
     lastName: "",
@@ -72,47 +76,126 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-              <img 
-                src="/logo-transparent.svg" 
-                alt="BusinessFlow Pro" 
-                className="w-10 h-8"
-                onLoad={() => console.log('Logo loaded successfully')}
-                onError={() => console.log('Logo failed to load')}
-              />
-              <span className="text-xl font-black text-foreground">BusinessFlow Pro</span>
+      <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
+          <div className="flex items-center justify-between h-16">
+            {/* Left Section - Logo and Company Name */}
+            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
+              <div className="relative">
+                <img 
+                  src="/attached_assets/3d_1753268267691.png" 
+                  alt="BusinessFlow Pro" 
+                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
+                  style={{ 
+                    filter: 'none',
+                    background: 'transparent'
+                  }}
+                  onError={(e) => {
+                    console.error('Logo failed to load:', e);
+                    e.currentTarget.style.border = '2px solid red';
+                  }}
+                  onLoad={() => console.log('Logo loaded successfully')}
+                />
+              </div>
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About Us</Link>
-              <Link href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</Link>
-              <Link href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</Link>
-              <Link href="/contact" className="text-foreground font-medium">Contact Us</Link>
+            {/* Center Section - Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
+              <Link href="/#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</Link>
+              <Link href="/#pricing-section" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Pricing</Link>
+              <Link href="/contact" className="text-primary transition-all duration-300 font-medium">Contact Us</Link>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex items-center space-x-3">
+            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
+            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
               <Button 
-                variant="outline"
+                variant="ghost"
                 onClick={() => window.location.href = "/api/login"}
-                className="border-blue-500 text-blue-600 hover:bg-blue-50"
+                className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
                 Login
               </Button>
               <Button 
-                onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
-                className="bg-blue-600 hover:bg-blue-700 text-white"
+                variant="outline"
+                onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
+                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+              >
+                Buy Now
+              </Button>
+              <Button 
+                onClick={() => window.location.href = "/trial"}
+                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
+              </Button>
+
+              <LanguageSelector />
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <div className="flex lg:hidden items-center space-x-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="scale-in"
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+              >
+                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {showMobileMenu && (
+          <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
+            <div className="px-4 py-4 space-y-4">
+              {/* Navigation Links */}
+              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About Us</Link>
+              <Link href="/#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</Link>
+              <Link href="/#pricing-section" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
+              <Link href="/contact" className="block text-primary transition-colors">Contact Us</Link>
+              
+              {/* Action Buttons */}
+              <div className="pt-4 space-y-2">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    window.location.href = "/api/login";
+                    setShowMobileMenu(false);
+                  }} 
+                  className="w-full text-left justify-start text-muted-foreground hover:text-primary"
+                >
+                  Login
+                </Button>
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    window.location.href = '/subscribe?plan=business&billing=monthly';
+                    setShowMobileMenu(false);
+                  }}
+                  className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                >
+                  Buy Now
+                </Button>
+                <Button 
+                  onClick={() => {
+                    window.location.href = "/trial";
+                    setShowMobileMenu(false);
+                  }}
+                  className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                >
+                  Start Your Trial
+                </Button>
+                <div className="pt-2">
+                  <LanguageSelector />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Header Section with Full Width Yellow Background */}
