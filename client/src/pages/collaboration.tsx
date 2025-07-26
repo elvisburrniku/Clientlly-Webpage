@@ -310,23 +310,7 @@ const CollaborationPage = () => {
               </Card>
             </div>
             
-            {/* Animated Flow Arrow */}
-            <div className="flex justify-center mt-12">
-              <button 
-                onClick={() => scrollToSection('final-cta')}
-                className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 cursor-pointer"
-              >
-                <div className="animate-bounce delay-0 hover:animate-pulse">
-                  <ArrowRight className="w-5 h-5 text-amber-600" />
-                </div>
-                <div className="animate-bounce delay-200 hover:animate-pulse">
-                  <ArrowRight className="w-5 h-5 text-orange-600" />
-                </div>
-                <div className="animate-bounce delay-400 hover:animate-pulse">
-                  <ArrowRight className="w-5 h-5 text-red-600" />
-                </div>
-              </button>
-            </div>
+
           </div>
         </div>
       </section>
