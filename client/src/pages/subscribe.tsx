@@ -891,8 +891,8 @@ export default function Subscribe() {
           <div className="text-center mb-20 relative">
             {/* Animated Badge */}
             <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500/20 via-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-full text-lg font-bold text-emerald-700 dark:text-emerald-300 mb-8 shadow-xl">
-              <Gift className="w-6 h-6 mr-3 animate-pulse" />
-              🎉 Choose Your Perfect Plan - Start Free
+              <CreditCard className="w-6 h-6 mr-3 animate-pulse" />
+              🚀 Choose Your Perfect Plan - Get Started Today
               <Sparkles className="w-6 h-6 ml-3 animate-spin" />
             </div>
             
@@ -912,7 +912,7 @@ export default function Subscribe() {
             <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
               Join thousands of businesses already transforming their operations. 
               <br className="hidden lg:block" />
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">Choose the plan that fits your needs and start growing today.</span>
+              <span className="font-bold text-emerald-600 dark:text-emerald-400">Select your subscription plan and unlock the full power of BusinessFlow Pro.</span>
             </p>
 
             {/* Enhanced Trust Indicators */}
