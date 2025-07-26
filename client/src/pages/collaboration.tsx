@@ -336,7 +336,7 @@ const CollaborationPage = () => {
       <section id="final-cta" className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-yellow-500 mb-4 leading-tight tracking-tight animate-pulse">
+            <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-yellow-400 mb-4 leading-tight tracking-tight animate-pulse">
               Your Success Drives Our Innovation
             </h3>
             <p className="text-base text-muted-foreground leading-relaxed">
