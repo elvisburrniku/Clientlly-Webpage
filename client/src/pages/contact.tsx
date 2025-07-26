@@ -262,16 +262,16 @@ export default function Contact() {
             </div>
 
             {/* Contact Information - Takes 1 column */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Mail className="h-7 w-7 text-white" />
+                <CardContent className="p-5">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg">
+                      <Mail className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-black text-foreground text-lg mb-2">Email Us</h3>
-                      <p className="text-muted-foreground text-sm mb-2">Get in touch via email</p>
+                      <h3 className="font-black text-foreground text-base mb-1">Email Us</h3>
+                      <p className="text-muted-foreground text-xs mb-1">Get in touch via email</p>
                       <p className="text-blue-600 font-medium text-sm">support@businessflowpro.com</p>
                     </div>
                   </div>
@@ -279,14 +279,14 @@ export default function Contact() {
               </Card>
 
               <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Phone className="h-7 w-7 text-white" />
+                <CardContent className="p-5">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
+                      <Phone className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-black text-foreground text-lg mb-2">Phone Support</h3>
-                      <p className="text-muted-foreground text-sm mb-2">Speak directly with our experts</p>
+                      <h3 className="font-black text-foreground text-base mb-1">Phone Support</h3>
+                      <p className="text-muted-foreground text-xs mb-1">Speak directly with our experts</p>
                       <p className="text-purple-600 font-medium text-sm">+1 (555) 123-4567</p>
                     </div>
                   </div>
@@ -294,30 +294,30 @@ export default function Contact() {
               </Card>
 
               <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <MapPin className="h-7 w-7 text-white" />
+                <CardContent className="p-5">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center shadow-lg">
+                      <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-black text-foreground text-lg mb-2">Visit Us</h3>
-                      <p className="text-muted-foreground text-sm mb-2">Come see us in person</p>
-                      <p className="text-muted-foreground text-sm">123 Business Street<br />Suite 100<br />New York, NY 10001</p>
+                      <h3 className="font-black text-foreground text-base mb-1">Visit Us</h3>
+                      <p className="text-muted-foreground text-xs mb-1">Come see us in person</p>
+                      <p className="text-muted-foreground text-sm">123 Business Street, NY 10001</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-14 h-14 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Clock className="h-7 w-7 text-white" />
+                <CardContent className="p-5">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg">
+                      <Clock className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-black text-foreground text-lg mb-2">Business Hours</h3>
-                      <p className="text-muted-foreground text-sm mb-2">We're here when you need us</p>
-                      <p className="text-muted-foreground text-sm">Monday - Friday: 9:00 AM - 6:00 PM EST<br />Saturday - Sunday: 10:00 AM - 4:00 PM EST</p>
+                      <h3 className="font-black text-foreground text-base mb-1">Business Hours</h3>
+                      <p className="text-muted-foreground text-xs mb-1">We're here when you need us</p>
+                      <p className="text-muted-foreground text-sm">Mon-Fri: 9AM-6PM EST</p>
                     </div>
                   </div>
                 </CardContent>
