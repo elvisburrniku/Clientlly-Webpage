@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock, Gift } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -739,14 +739,10 @@ export default function Subscribe() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Clean Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Subtle gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50 dark:via-gray-900/30 dark:to-gray-900/50"></div>
-        
-        {/* Floating Background Elements */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow"></div>
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-yellow-200 to-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow" style={{ animationDelay: '4s' }}></div>
       </div>
 
       {/* Navigation */}
@@ -888,57 +884,72 @@ export default function Subscribe() {
         )}
       </nav>
 
-      <div className="max-w-7xl mx-auto relative z-10 pt-24 py-8 px-4">
-        {/* Hero Section */}
-        <div className="text-center mb-16 fade-in">
-          <div className="mb-12 fade-in-up space-y-6" style={{ animationDelay: '0.1s' }}>
-            <div className="inline-block">
-              <Badge className="glass-effect border border-white/20 px-6 py-3 text-sm font-medium bg-gradient-to-r from-blue-600/10 to-purple-600/10 text-blue-800 dark:text-blue-200 backdrop-blur-xl">
-                <Sparkles className="w-4 h-4 mr-2 inline animate-pulse" />
-                Start Your Business Transformation
-              </Badge>
+      {/* Hero Section */}
+      <div className="pt-32 pb-20 px-4 relative">
+        <div className="max-w-7xl mx-auto">
+          {/* Hero Header */}
+          <div className="text-center mb-20 relative">
+            {/* Animated Badge */}
+            <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500/20 via-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-full text-lg font-bold text-emerald-700 dark:text-emerald-300 mb-8 shadow-xl">
+              <Gift className="w-6 h-6 mr-3 animate-pulse" />
+              🎉 Choose Your Perfect Plan - Start Free
+              <Sparkles className="w-6 h-6 ml-3 animate-spin" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-6 leading-tight">
-              Choose Your Plan
+            
+            {/* Main Title */}
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
+              Choose your{' '}
+              <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+                perfect plan
+              </span>
+              <br />
+              <span className="text-5xl lg:text-6xl xl:text-7xl text-gray-700 dark:text-gray-300">
+                and transform your business
+              </span>
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
-              {t('subscribe.title', 'Join thousands of businesses already transforming their operations with our comprehensive platform')}
+            
+            {/* Subtitle */}
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+              Join thousands of businesses already transforming their operations. 
+              <br className="hidden lg:block" />
+              <span className="font-bold text-emerald-600 dark:text-emerald-400">Choose the plan that fits your needs and start growing today.</span>
             </p>
-          </div>
-          
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12 fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="glass-effect border border-white/20 rounded-2xl p-6 hover:scale-105 transition-all duration-300 backdrop-blur-xl">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
+
+            {/* Enhanced Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              <div className="flex items-center space-x-3 px-6 py-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-emerald-200/50 dark:border-emerald-700/50">
+                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
                   <Shield className="h-6 w-6 text-white" />
                 </div>
-                <span className="font-bold text-gray-800 dark:text-white">Bank-Level Security</span>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300">256-bit SSL encryption protects all your data</p>
-            </div>
-            
-            <div className="glass-effect border border-white/20 rounded-2xl p-6 hover:scale-105 transition-all duration-300 backdrop-blur-xl">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
-                  <Check className="h-6 w-6 text-white" />
+                <div className="text-left">
+                  <div className="font-bold text-gray-900 dark:text-white">Bank-Level Security</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">256-bit SSL</div>
                 </div>
-                <span className="font-bold text-gray-800 dark:text-white">14-Day Free Trial</span>
               </div>
-              <p className="text-gray-600 dark:text-gray-300">Full access to all features, no commitments</p>
-            </div>
-            
-            <div className="glass-effect border border-white/20 rounded-2xl p-6 hover:scale-105 transition-all duration-300 backdrop-blur-xl">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+
+              <div className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-xl text-white transform hover:scale-105 transition-transform duration-300">
+                <Clock className="h-6 w-6" />
+                <div className="text-left">
+                  <div className="font-bold">14 Days Free</div>
+                  <div className="text-sm opacity-90">Full Access</div>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3 px-6 py-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-200/50 dark:border-purple-700/50">
+                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
                   <Headphones className="h-6 w-6 text-white" />
                 </div>
-                <span className="font-bold text-gray-800 dark:text-white">24/7 Support</span>
+                <div className="text-left">
+                  <div className="font-bold text-gray-900 dark:text-white">24/7 Support</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Expert Help</div>
+                </div>
               </div>
-              <p className="text-gray-600 dark:text-gray-300">Expert help whenever you need it</p>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10 px-4">
 
         {renderStepIndicator()}
         
