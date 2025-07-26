@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2, Headphones, Menu, X } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2, Headphones, Menu, X, Sparkles } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -341,29 +341,29 @@ export default function Subscribe() {
   const renderPlanSelection = () => (
     <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
       <div className="text-center mb-12">
-        <div className="flex justify-center mb-8">
-          <div className="bg-gray-200 rounded-lg p-1">
-            <div className="flex items-center space-x-1">
+        <div className="flex justify-center mb-12">
+          <div className="glass-effect border border-white/20 rounded-2xl p-2 backdrop-blur-xl">
+            <div className="flex items-center space-x-2">
               <button
                 onClick={() => setBillingPeriod('monthly')}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                className={`px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${
                   billingPeriod === 'monthly' 
-                    ? 'bg-white text-black shadow-sm' 
-                    : 'text-black hover:text-black hover:bg-white/50'
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg scale-105' 
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white hover:bg-white/50'
                 }`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setBillingPeriod('yearly')}
-                className={`px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 relative ${
+                className={`px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300 relative ${
                   billingPeriod === 'yearly' 
-                    ? 'bg-white text-black shadow-sm' 
-                    : 'text-black hover:text-black hover:bg-white/50'
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg scale-105' 
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white hover:bg-white/50'
                 }`}
               >
                 Yearly
-                <Badge className="ml-2 bg-green-500 text-white text-xs">Save 17%</Badge>
+                <Badge className="ml-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold">Save 17%</Badge>
               </button>
             </div>
           </div>
@@ -403,47 +403,54 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`cursor-pointer transition-all duration-300 hover:shadow-lg fade-in-up relative ${
-                  isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-xl' : 'bg-white hover:bg-gray-50 border-gray-200'
-                } ${index === 1 ? 'border-2 border-blue-500' : ''}`}
+                className={`cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-105 fade-in-up relative backdrop-blur-xl ${
+                  isSelected 
+                    ? 'bg-gradient-to-br from-blue-500 to-purple-600 text-white border-blue-400 shadow-2xl scale-105' 
+                    : 'glass-effect border-white/30 hover:border-blue-300/50'
+                } ${index === 1 ? 'border-2 border-blue-400 ring-2 ring-blue-200/50' : ''}`}
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                 onClick={() => setSelectedPlan(plan.id)}
               >
-                <CardContent className="p-6 relative">
+                <CardContent className="p-8 relative">
                   {index === 1 && (
-                    <Badge className="mb-4 bg-blue-600 text-white">
+                    <Badge className="mb-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold px-4 py-2 shadow-lg">
+                      <Sparkles className="w-4 h-4 mr-1" />
                       Most Popular
                     </Badge>
                   )}
                   
-                  <div className="mb-4">
-                    <h3 className={`text-xl font-bold mb-2 ${
-                      isSelected ? 'text-white' : 'text-black'
+                  <div className="mb-6">
+                    <h3 className={`text-2xl font-black mb-3 ${
+                      isSelected ? 'text-white' : 'text-gray-800 dark:text-white'
                     }`}>
                       {plan.name}
                     </h3>
-                    <div className="mt-2">
-                      <span className={`text-3xl font-bold ${
-                        isSelected ? 'text-white' : 'text-black'
+                    <div className="mt-3">
+                      <span className={`text-4xl font-black ${
+                        isSelected ? 'text-white' : 'text-gray-800 dark:text-white'
                       }`}>
                         ${Math.floor(price / 100)}
                       </span>
-                      <span className={`text-lg ml-1 ${
-                        isSelected ? 'text-white/80' : 'text-gray-600'
+                      <span className={`text-lg ml-2 ${
+                        isSelected ? 'text-white/80' : 'text-gray-600 dark:text-gray-300'
                       }`}>
                         /{billingPeriod === 'yearly' ? 'year' : 'month'}
                       </span>
                     </div>
                   </div>
                   
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-3 mb-8">
                     {plan.features.slice(0, 4).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2">
-                        <Check className={`h-4 w-4 ${
-                          isSelected ? 'text-white' : 'text-green-500'
-                        }`} />
-                        <span className={`text-sm ${
-                          isSelected ? 'text-white' : 'text-black'
+                      <li key={featureIndex} className="flex items-center space-x-3">
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
+                          isSelected ? 'bg-white/20' : 'bg-green-100 dark:bg-green-900/30'
+                        }`}>
+                          <Check className={`h-3 w-3 ${
+                            isSelected ? 'text-white' : 'text-green-600 dark:text-green-400'
+                          }`} />
+                        </div>
+                        <span className={`${
+                          isSelected ? 'text-white' : 'text-gray-700 dark:text-gray-300'
                         }`}>
                           {feature}
                         </span>
@@ -452,15 +459,21 @@ export default function Subscribe() {
                   </ul>
                   
                   <Button 
-                    variant={isSelected ? "secondary" : "default"}
-                    className={`w-full ${
+                    className={`w-full py-3 font-bold text-lg transition-all duration-300 ${
                       isSelected 
-                        ? 'bg-white text-blue-600 hover:bg-gray-100' 
-                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                        ? 'bg-white text-blue-600 hover:bg-gray-100 shadow-lg' 
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105 shadow-lg'
                     }`}
                     onClick={() => setSelectedPlan(plan.id)}
                   >
-                    {isSelected ? 'Selected' : 'Select Plan'}
+                    {isSelected ? (
+                      <>
+                        <Check className="w-5 h-5 mr-2" />
+                        Selected
+                      </>
+                    ) : (
+                      'Select Plan'
+                    )}
                   </Button>
                 </CardContent>
               </Card>
@@ -473,10 +486,10 @@ export default function Subscribe() {
   );
 
   const renderAccountCreation = () => (
-    <Card className="max-w-lg mx-auto">
+    <Card className="max-w-lg mx-auto glass-effect border border-white/20 backdrop-blur-xl">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl">Create Your Account</CardTitle>
-        <p className="text-muted-foreground">
+        <CardTitle className="text-3xl font-black text-gray-800 dark:text-white mb-3">Create Your Account</CardTitle>
+        <p className="text-gray-600 dark:text-gray-300 text-lg">
           Set up your BusinessFlow Pro account to get started
         </p>
       </CardHeader>
@@ -570,10 +583,10 @@ export default function Subscribe() {
   );
 
   const renderTeamSetup = () => (
-    <Card className="max-w-lg mx-auto">
+    <Card className="max-w-lg mx-auto glass-effect border border-white/20 backdrop-blur-xl">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl">Company Details</CardTitle>
-        <p className="text-muted-foreground">
+        <CardTitle className="text-3xl font-black text-gray-800 dark:text-white mb-3">Company Details</CardTitle>
+        <p className="text-gray-600 dark:text-gray-300 text-lg">
           Tell us about your business to customize your experience
         </p>
       </CardHeader>
@@ -626,9 +639,9 @@ export default function Subscribe() {
           </Select>
         </div>
 
-        <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <h4 className="font-medium text-blue-900 mb-2">What's Next?</h4>
-          <p className="text-sm text-blue-700">
+        <div className="p-6 glass-effect border border-white/20 rounded-2xl backdrop-blur-xl">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-3 text-lg">What's Next?</h4>
+          <p className="text-gray-600 dark:text-gray-300">
             After setup, you'll be able to invite team members, customize your workspace, and start managing your business operations.
           </p>
         </div>
@@ -640,10 +653,10 @@ export default function Subscribe() {
     if (!selectedPlanData) return null;
 
     return (
-      <Card className="max-w-lg mx-auto">
+      <Card className="max-w-lg mx-auto glass-effect border border-white/20 backdrop-blur-xl">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Review & Complete</CardTitle>
-          <p className="text-muted-foreground">
+          <CardTitle className="text-3xl font-black text-gray-800 dark:text-white mb-3">Review & Complete</CardTitle>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">
             Review your order and complete your subscription
           </p>
         </CardHeader>
@@ -674,11 +687,21 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50 dark:via-gray-900/30 dark:to-gray-900/50"></div>
+        
+        {/* Floating Background Elements */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow"></div>
+        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-yellow-200 to-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-bounce-slow" style={{ animationDelay: '4s' }}></div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-200 shadow-sm">
+      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/20 shadow-lg">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Left Section - Logo and Company Name */}
             <Link href="/" className="flex items-center space-x-3 transition-all duration-300">
               <img 
@@ -686,24 +709,24 @@ export default function Subscribe() {
                 alt="BusinessFlow Pro" 
                 className="w-10 h-8 object-contain"
               />
-              <span className="text-lg font-bold text-gray-800">BusinessFlow Pro</span>
+              <span className="text-lg font-bold text-gray-800 dark:text-white">BusinessFlow Pro</span>
             </Link>
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-gray-600 hover:text-gray-800 font-medium">About Us</Link>
-              <Link href="/#features" className="text-gray-600 hover:text-gray-800 font-medium">Features</Link>
+              <Link href="/about" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium">About Us</Link>
+              <Link href="/#features" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium">Features</Link>
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = '/subscribe'}
-                className="text-gray-600 hover:text-gray-800 font-medium"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
               >
                 Pricing
               </Button>
               <Button 
                 variant="ghost" 
                 onClick={() => window.location.href = '/contact'} 
-                className="text-gray-600 hover:text-gray-800 font-medium"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
               >
                 Contact Us
               </Button>
@@ -714,14 +737,14 @@ export default function Subscribe() {
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = "/api/login"}
-                className="text-gray-600 hover:text-gray-800 font-medium"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
               >
                 Login
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
-                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 font-medium"
               >
                 Buy Now
               </Button>
@@ -814,55 +837,54 @@ export default function Subscribe() {
         )}
       </nav>
 
-      {/* Background Grid Pattern - Matching Landing Page */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-      
-      <div className="max-w-7xl mx-auto relative z-10 pt-20 py-8 px-4">
+      <div className="max-w-7xl mx-auto relative z-10 pt-24 py-8 px-4">
+        {/* Hero Section */}
         <div className="text-center mb-16 fade-in">
-          
           <div className="mb-12 fade-in-up space-y-6" style={{ animationDelay: '0.1s' }}>
             <div className="inline-block">
-              <Badge className="bg-blue-50 text-blue-600 border-blue-200 px-4 py-2 text-sm font-medium">
-                🚀 Start Your Business Transformation
+              <Badge className="glass-effect border border-white/20 px-6 py-3 text-sm font-medium bg-gradient-to-r from-blue-600/10 to-purple-600/10 text-blue-800 dark:text-blue-200 backdrop-blur-xl">
+                <Sparkles className="w-4 h-4 mr-2 inline animate-pulse" />
+                Start Your Business Transformation
               </Badge>
             </div>
-            <h1 className="text-5xl font-bold text-black mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-6 leading-tight">
               Choose Your Plan
             </h1>
-            <p className="text-black/70 text-xl max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-gray-600 dark:text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">
               {t('subscribe.title', 'Join thousands of businesses already transforming their operations with our comprehensive platform')}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8 fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                  <Shield className="h-5 w-5 text-white" />
+          {/* Trust Indicators */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12 fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <div className="glass-effect border border-white/20 rounded-2xl p-6 hover:scale-105 transition-all duration-300 backdrop-blur-xl">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center shadow-lg">
+                  <Shield className="h-6 w-6 text-white" />
                 </div>
-                <span className="font-semibold text-black">Bank-Level Security</span>
+                <span className="font-bold text-gray-800 dark:text-white">Bank-Level Security</span>
               </div>
-              <p className="text-sm text-black/60">256-bit SSL encryption protects all your data</p>
+              <p className="text-gray-600 dark:text-gray-300">256-bit SSL encryption protects all your data</p>
             </div>
             
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-                  <Check className="h-5 w-5 text-white" />
+            <div className="glass-effect border border-white/20 rounded-2xl p-6 hover:scale-105 transition-all duration-300 backdrop-blur-xl">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
+                  <Check className="h-6 w-6 text-white" />
                 </div>
-                <span className="font-semibold text-black">14-Day Free Trial</span>
+                <span className="font-bold text-gray-800 dark:text-white">14-Day Free Trial</span>
               </div>
-              <p className="text-sm text-black/60">Full access to all features, no commitments</p>
+              <p className="text-gray-600 dark:text-gray-300">Full access to all features, no commitments</p>
             </div>
             
-            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-all duration-300">
-              <div className="flex items-center space-x-3 mb-2">
-                <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
-                  <Headphones className="h-5 w-5 text-white" />
+            <div className="glass-effect border border-white/20 rounded-2xl p-6 hover:scale-105 transition-all duration-300 backdrop-blur-xl">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+                  <Headphones className="h-6 w-6 text-white" />
                 </div>
-                <span className="font-semibold text-black">24/7 Support</span>
+                <span className="font-bold text-gray-800 dark:text-white">24/7 Support</span>
               </div>
-              <p className="text-sm text-black/60">Expert help whenever you need it</p>
+              <p className="text-gray-600 dark:text-gray-300">Expert help whenever you need it</p>
             </div>
           </div>
         </div>
@@ -873,14 +895,14 @@ export default function Subscribe() {
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-4 fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex justify-center space-x-6 fade-in-up" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
               onClick={prevStep}
-              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+              className="flex items-center space-x-2 px-8 py-3 glass-effect border-white/30 text-gray-700 dark:text-gray-300 hover:border-gray-400 hover:bg-white/50 font-bold backdrop-blur-xl"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-5 w-5" />
               <span>Back</span>
             </Button>
           )}
@@ -889,30 +911,35 @@ export default function Subscribe() {
             <Button 
               onClick={nextStep}
               disabled={!canProceedToNext()}
-              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:scale-105 transition-all duration-300"
             >
               <span>Continue</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-5 w-5" />
             </Button>
           )}
         </div>
 
-        <div className="text-center mt-12 fade-in-up" style={{ animationDelay: '0.9s' }}>
-          <div className="glass-effect border border-white/20 rounded-2xl p-6 max-w-md mx-auto">
-            <div className="flex items-center justify-center space-x-2 mb-3">
-              <Shield className="h-5 w-5 text-primary" />
-              <span className="text-foreground font-semibold">Need Help?</span>
+        {/* Help Section */}
+        <div className="text-center mt-16 fade-in-up" style={{ animationDelay: '0.9s' }}>
+          <div className="glass-effect border border-white/20 rounded-2xl p-8 max-w-md mx-auto backdrop-blur-xl">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                <Shield className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-gray-800 dark:text-white font-bold text-lg">Need Help?</span>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
               Our support team is available 24/7 to assist you
             </p>
-            <div className="flex justify-center space-x-4">
-              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
-                Chat Support
+            <div className="flex justify-center space-x-6">
+              <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1">
+                <Headphones className="w-4 h-4" />
+                <span>Chat Support</span>
               </a>
-              <span className="text-muted-foreground">•</span>
-              <a href="#" className="text-primary hover:text-primary/80 transition-colors duration-300 text-sm font-medium hover:underline">
-                Email Us
+              <span className="text-gray-400">•</span>
+              <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1">
+                <Building className="w-4 h-4" />
+                <span>Email Us</span>
               </a>
             </div>
           </div>
