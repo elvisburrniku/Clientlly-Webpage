@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2, Headphones, Menu, X, Sparkles } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -486,39 +486,56 @@ export default function Subscribe() {
   );
 
   const renderAccountCreation = () => (
-    <Card className="max-w-lg mx-auto glass-effect border border-white/20 backdrop-blur-xl">
-      <CardHeader className="text-center">
-        <CardTitle className="text-3xl font-black text-gray-800 dark:text-white mb-3">Create Your Account</CardTitle>
-        <p className="text-gray-600 dark:text-gray-300 text-lg">
-          Set up your BusinessFlow Pro account to get started
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <Label htmlFor="firstName">First Name</Label>
+    <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
+      {/* Form Header with Gradient */}
+      <div className="bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1 rounded-t-3xl">
+        <div className="bg-white dark:bg-gray-900 rounded-t-[calc(1.5rem-1px)] p-8">
+          <div className="text-center mb-8">
+            <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+              <Users className="h-10 w-10 text-white" />
+            </div>
+            <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Create Your Account</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">Set up your BusinessFlow Pro account to get started</p>
+          </div>
+        </div>
+      </div>
+      <CardContent className="p-8 pt-0 space-y-8">
+        <div className="grid grid-cols-2 gap-6">
+          <div className="space-y-3">
+            <Label htmlFor="firstName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+              <Users className="h-5 w-5 mr-2 text-emerald-500" />
+              First Name
+            </Label>
             <Input
               id="firstName"
               value={userData.firstName}
               onChange={(e) => setUserData({...userData, firstName: e.target.value})}
               placeholder="John"
               required
+              className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 focus:ring-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400"
             />
           </div>
-          <div>
-            <Label htmlFor="lastName">Last Name</Label>
+          <div className="space-y-3">
+            <Label htmlFor="lastName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+              <Users className="h-5 w-5 mr-2 text-blue-500" />
+              Last Name
+            </Label>
             <Input
               id="lastName"
               value={userData.lastName}
               onChange={(e) => setUserData({...userData, lastName: e.target.value})}
               placeholder="Doe"
               required
+              className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-blue-400"
             />
           </div>
         </div>
 
-        <div>
-          <Label htmlFor="email">Email Address</Label>
+        <div className="space-y-3">
+          <Label htmlFor="email" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+            <Mail className="h-5 w-5 mr-2 text-purple-500" />
+            Email Address
+          </Label>
           <Input
             id="email"
             type="email"
@@ -526,11 +543,15 @@ export default function Subscribe() {
             onChange={(e) => setUserData({...userData, email: e.target.value})}
             placeholder="john@company.com"
             required
+            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-purple-500 focus:ring-purple-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-purple-400"
           />
         </div>
 
-        <div>
-          <Label htmlFor="password">Password</Label>
+        <div className="space-y-3">
+          <Label htmlFor="password" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+            <Lock className="h-5 w-5 mr-2 text-orange-500" />
+            Password
+          </Label>
           <Input
             id="password"
             type="password"
@@ -538,11 +559,15 @@ export default function Subscribe() {
             onChange={(e) => setUserData({...userData, password: e.target.value})}
             placeholder="Minimum 8 characters"
             required
+            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-orange-500 focus:ring-orange-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-400"
           />
         </div>
 
-        <div>
-          <Label htmlFor="confirmPassword">Confirm Password</Label>
+        <div className="space-y-3">
+          <Label htmlFor="confirmPassword" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+            <Shield className="h-5 w-5 mr-2 text-green-500" />
+            Confirm Password
+          </Label>
           <Input
             id="confirmPassword"
             type="password"
@@ -550,9 +575,13 @@ export default function Subscribe() {
             onChange={(e) => setUserData({...userData, confirmPassword: e.target.value})}
             placeholder="Confirm your password"
             required
+            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-green-500 focus:ring-green-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-green-400"
           />
           {userData.password && userData.confirmPassword && userData.password !== userData.confirmPassword && (
-            <p className="text-sm text-red-600 mt-1">Passwords do not match</p>
+            <p className="text-sm text-red-600 mt-2 flex items-center">
+              <X className="h-4 w-4 mr-1" />
+              Passwords do not match
+            </p>
           )}
         </div>
 
@@ -583,29 +612,42 @@ export default function Subscribe() {
   );
 
   const renderTeamSetup = () => (
-    <Card className="max-w-lg mx-auto glass-effect border border-white/20 backdrop-blur-xl">
-      <CardHeader className="text-center">
-        <CardTitle className="text-3xl font-black text-gray-800 dark:text-white mb-3">Company Details</CardTitle>
-        <p className="text-gray-600 dark:text-gray-300 text-lg">
-          Tell us about your business to customize your experience
-        </p>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div>
-          <Label htmlFor="companyName">Company Name</Label>
+    <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
+      {/* Form Header with Gradient */}
+      <div className="bg-gradient-to-r from-orange-500 via-purple-500 to-blue-500 p-1 rounded-t-3xl">
+        <div className="bg-white dark:bg-gray-900 rounded-t-[calc(1.5rem-1px)] p-8">
+          <div className="text-center mb-8">
+            <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+              <Building2 className="h-10 w-10 text-white" />
+            </div>
+            <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Company Details</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">Tell us about your business to customize your experience</p>
+          </div>
+        </div>
+      </div>
+      <CardContent className="p-8 pt-0 space-y-8">
+        <div className="space-y-3">
+          <Label htmlFor="companyName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+            <Building2 className="h-5 w-5 mr-2 text-orange-500" />
+            Company Name
+          </Label>
           <Input
             id="companyName"
             value={userData.companyName}
             onChange={(e) => setUserData({...userData, companyName: e.target.value})}
             placeholder="Your Company Inc."
             required
+            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-orange-500 focus:ring-orange-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-400"
           />
         </div>
 
-        <div>
-          <Label htmlFor="companySize">Company Size</Label>
+        <div className="space-y-3">
+          <Label htmlFor="companySize" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+            <Users className="h-5 w-5 mr-2 text-blue-500" />
+            Company Size
+          </Label>
           <Select value={userData.companySize} onValueChange={(value) => setUserData({...userData, companySize: value})}>
-            <SelectTrigger>
+            <SelectTrigger className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-blue-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-blue-400">
               <SelectValue placeholder="Select company size" />
             </SelectTrigger>
             <SelectContent>
@@ -618,10 +660,13 @@ export default function Subscribe() {
           </Select>
         </div>
 
-        <div>
-          <Label htmlFor="industry">Industry</Label>
+        <div className="space-y-3">
+          <Label htmlFor="industry" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+            <Globe className="h-5 w-5 mr-2 text-emerald-500" />
+            Industry
+          </Label>
           <Select value={userData.industry} onValueChange={(value) => setUserData({...userData, industry: value})}>
-            <SelectTrigger>
+            <SelectTrigger className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400">
               <SelectValue placeholder="Select your industry" />
             </SelectTrigger>
             <SelectContent>
@@ -653,13 +698,19 @@ export default function Subscribe() {
     if (!selectedPlanData) return null;
 
     return (
-      <Card className="max-w-lg mx-auto glass-effect border border-white/20 backdrop-blur-xl">
-        <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-black text-gray-800 dark:text-white mb-3">Review & Complete</CardTitle>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Review your order and complete your subscription
-          </p>
-        </CardHeader>
+      <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
+        {/* Form Header with Gradient */}
+        <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 p-1 rounded-t-3xl">
+          <div className="bg-white dark:bg-gray-900 rounded-t-[calc(1.5rem-1px)] p-8">
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <CreditCard className="h-10 w-10 text-white" />
+              </div>
+              <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Review & Complete</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300">Review your order and complete your subscription</p>
+            </div>
+          </div>
+        </div>
         <CardContent>
           <CheckoutForm 
             userData={userData} 
