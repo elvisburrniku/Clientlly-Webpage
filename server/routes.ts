@@ -18,20 +18,27 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 const SUBSCRIPTION_PLANS = {
   basic: {
     id: "basic",
-    name: "Basic",
+    name: "Starter",
     monthlyPrice: 2900, // $29.00 in cents
     yearlyPrice: 29000, // $290.00 in cents (2 months free)
     stripePriceId: {
       monthly: process.env.STRIPE_BASIC_MONTHLY_PRICE_ID || "price_basic_monthly",
       yearly: process.env.STRIPE_BASIC_YEARLY_PRICE_ID || "price_basic_yearly"
     },
-    description: "Perfect for freelancers and small teams getting started",
+    description: "Perfect for small businesses and freelancers",
     features: [
+      "Up to 3 users",
       "Up to 100 invoices/month",
-      "Basic expense tracking",
-      "CRM for up to 500 contacts",
-      "Email support",
-      "2 team members"
+      "Professional invoicing & billing",
+      "Advanced expense tracking & management", 
+      "Complete CRM with contact management",
+      "HR management & employee tracking",
+      "Contract management & e-signatures",
+      "Real-time analytics & reporting",
+      "Bank-level security & data protection",
+      "24/7 customer support",
+      "Mobile app access",
+      "API integrations"
     ],
     detailedFeatures: {
       invoicing: {
@@ -88,21 +95,26 @@ const SUBSCRIPTION_PLANS = {
   professional: {
     id: "professional",
     name: "Professional",
-    monthlyPrice: 7900, // $79.00 in cents
-    yearlyPrice: 79000, // $790.00 in cents (2 months free)
+    monthlyPrice: 4900, // $49.00 in cents
+    yearlyPrice: 49000, // $490.00 in cents (2 months free)
     stripePriceId: {
       monthly: process.env.STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID || "price_professional_monthly",
       yearly: process.env.STRIPE_PROFESSIONAL_YEARLY_PRICE_ID || "price_professional_yearly"
     },
-    description: "Ideal for growing businesses with advanced needs",
+    description: "Ideal for growing businesses and teams",
     features: [
-      "Unlimited invoices",
-      "Advanced expense management",
-      "CRM for up to 5,000 contacts",
-      "HR management module",
-      "Contract management",
-      "Priority support",
-      "Up to 10 team members"
+      "Up to 10 users",
+      "Up to 500 invoices/month",
+      "Professional invoicing & billing",
+      "Advanced expense tracking & management", 
+      "Complete CRM with contact management",
+      "HR management & employee tracking",
+      "Contract management & e-signatures",
+      "Real-time analytics & reporting",
+      "Bank-level security & data protection",
+      "24/7 customer support",
+      "Mobile app access",
+      "API integrations"
     ],
     detailedFeatures: {
       invoicing: {
@@ -158,21 +170,27 @@ const SUBSCRIPTION_PLANS = {
   },
   business: {
     id: "business",
-    name: "Business Plus",
-    monthlyPrice: 15900, // $159.00 in cents
-    yearlyPrice: 159000, // $1590.00 in cents (2 months free)
+    name: "Enterprise",
+    monthlyPrice: 8900, // $89.00 in cents
+    yearlyPrice: 89000, // $890.00 in cents (2 months free)
     stripePriceId: {
       monthly: process.env.STRIPE_BUSINESS_MONTHLY_PRICE_ID || "price_business_monthly",
       yearly: process.env.STRIPE_BUSINESS_YEARLY_PRICE_ID || "price_business_yearly"
     },
     description: "For large teams and enterprises requiring maximum capabilities",
     features: [
-      "Everything in Professional",
-      "Unlimited contacts & users",
-      "Advanced analytics & reporting",
-      "Custom integrations",
-      "Dedicated account manager",
-      "24/7 phone support"
+      "Up to 50 users",
+      "Unlimited invoices/month",
+      "Professional invoicing & billing",
+      "Advanced expense tracking & management", 
+      "Complete CRM with contact management",
+      "HR management & employee tracking",
+      "Contract management & e-signatures",
+      "Real-time analytics & reporting",
+      "Bank-level security & data protection",
+      "24/7 customer support",
+      "Mobile app access",
+      "API integrations"
     ],
     detailedFeatures: {
       invoicing: {

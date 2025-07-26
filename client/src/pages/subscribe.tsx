@@ -478,9 +478,9 @@ export default function Subscribe() {
                       </div>
                     )}
                     <p className="text-muted-foreground">
-                      {plan.id === 'basic' && "Perfect for freelancers and small teams"}
-                      {plan.id === 'professional' && "Ideal for growing businesses"}
-                      {plan.id === 'business' && "For large teams and enterprises"}
+                      {plan.id === 'basic' && "Perfect for small businesses and freelancers"}
+                      {plan.id === 'professional' && "Ideal for growing businesses and teams"}
+                      {plan.id === 'business' && "For large teams and enterprises requiring maximum capabilities"}
                     </p>
                   </div>
                   
