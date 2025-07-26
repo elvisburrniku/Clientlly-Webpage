@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import logoPath from "@assets/3d_1753268267691.png";
 
-export default function About() {
+const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -339,230 +339,133 @@ export default function About() {
         </div>
       </section>
 
-      {/* Customer Collaboration Section */}
-      <section className="py-32 bg-gradient-to-br from-green-50 to-blue-50 dark:from-gray-900 dark:to-green-950 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-green-300/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-40 right-20 w-80 h-80 bg-blue-300/15 rounded-full blur-3xl animate-float-delayed"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-text-reveal">
-              <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                Growing Together Through Collaboration
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground font-black max-w-4xl mx-auto leading-relaxed animate-fade-in-delayed">
-              Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
-            </p>
+      {/* Growing Together Section - HoneyBook Style */}
+      <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating sparkle elements */}
+          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
+            <Sparkles className="w-4 h-4 text-amber-600/30" />
           </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {collaborationFeatures.map((feature, index) => (
-              <Card key={index} className={`p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 hover:shadow-2xl transition-all duration-500 group hover:scale-[1.02] scroll-animate ${
-                index === 0 ? 'border-green-200 dark:border-green-700 hover:border-green-400' :
-                index === 1 ? 'border-blue-200 dark:border-blue-700 hover:border-blue-400' :
-                index === 2 ? 'border-purple-200 dark:border-purple-700 hover:border-purple-400' :
-                'border-orange-200 dark:border-orange-700 hover:border-orange-400'
-              }`}>
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:rotate-12 transition-transform duration-300 ${
-                  index === 0 ? 'bg-gradient-to-br from-green-500 to-green-600' :
-                  index === 1 ? 'bg-gradient-to-br from-blue-500 to-blue-600' :
-                  index === 2 ? 'bg-gradient-to-br from-purple-500 to-purple-600' :
-                  'bg-gradient-to-br from-orange-500 to-orange-600'
-                }`}>
-                  <feature.icon className="h-8 w-8 text-white" />
+          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
+            <Sparkles className="w-6 h-6 text-orange-600/40" />
+          </div>
+          <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
+            <Sparkles className="w-3 h-3 text-yellow-600/30" />
+          </div>
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center">
+          <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
+            <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+              {/* Left Side - Content */}
+              <div className="space-y-8 lg:space-y-12">
+                {/* Main Heading */}
+                <div className="space-y-6">
+                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight">
+                    <span className="inline-block animate-elegant-rise animation-delay-0">Let's</span>{' '}
+                    <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">grow</span>{' '}
+                    <span className="inline-block animate-elegant-rise animation-delay-400">together</span>
+                  </h2>
+                  
+                  <div className="space-y-4">
+                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed">
+                      Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
+                    </p>
+                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                      When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                    </p>
+                  </div>
                 </div>
                 
-                <h3 className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
-                  index === 0 ? 'text-foreground group-hover:text-green-600' :
-                  index === 1 ? 'text-foreground group-hover:text-blue-600' :
-                  index === 2 ? 'text-foreground group-hover:text-purple-600' :
-                  'text-foreground group-hover:text-orange-600'
-                }`}>
-                  {feature.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {feature.description}
-                </p>
-                
-                <div className="space-y-3">
-                  {feature.benefits.map((benefit, benefitIndex) => (
-                    <div key={benefitIndex} className="flex items-center space-x-3">
-                      <CheckCircle className={`h-5 w-5 ${
-                        index === 0 ? 'text-green-500' :
-                        index === 1 ? 'text-blue-500' :
-                        index === 2 ? 'text-purple-500' :
-                        'text-orange-500'
-                      }`} />
-                      <span className="text-sm font-medium text-foreground">{benefit}</span>
+                {/* Feature Highlights */}
+                <div className="space-y-6">
+                  {collaborationFeatures.map((feature, index) => (
+                    <div key={index} className="group">
+                      <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h4>
+                      <p className="text-lg text-gray-700 dark:text-gray-200">{feature.description}</p>
                     </div>
                   ))}
                 </div>
-              </Card>
-            ))}
-          </div>
-
-          {/* How It Works Process */}
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-12 border-2 border-gradient-to-br from-green-200 to-blue-200 dark:from-green-700 dark:to-blue-700 shadow-2xl">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-foreground mb-4">
-                How Our Collaboration Process Works
-              </h3>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                From idea to implementation, here's how we work together to enhance your business operations
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-4 gap-8">
-              {[
-                {
-                  step: "01",
-                  title: "Your Ideas",
-                  description: "Share your business needs, workflow challenges, or feature requests through your subscriber dashboard.",
-                  icon: Lightbulb,
-                  color: "green"
-                },
-                {
-                  step: "02", 
-                  title: "Expert Review",
-                  description: "Our development team analyzes your suggestions and provides technical feasibility assessments within 48 hours.",
-                  icon: Users,
-                  color: "blue"
-                },
-                {
-                  step: "03",
-                  title: "Collaborative Design",
-                  description: "Work directly with our engineers to refine specifications and create prototypes that match your exact needs.",
-                  icon: Target,
-                  color: "purple"
-                },
-                {
-                  step: "04",
-                  title: "Fast Development",
-                  description: "Ideas become features in record time with our agile development process and dedicated team support.",
-                  icon: Zap,
-                  color: "orange"
-                }
-              ].map((process, index) => (
-                <div key={index} className="text-center group">
-                  <div className={`w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 ${
-                    process.color === 'green' ? 'bg-gradient-to-br from-green-500 to-green-600' :
-                    process.color === 'blue' ? 'bg-gradient-to-br from-blue-500 to-blue-600' :
-                    process.color === 'purple' ? 'bg-gradient-to-br from-purple-500 to-purple-600' :
-                    'bg-gradient-to-br from-orange-500 to-orange-600'
-                  }`}>
-                    <process.icon className="h-10 w-10 text-white" />
-                  </div>
-                  
-                  <div className={`text-sm font-bold mb-2 ${
-                    process.color === 'green' ? 'text-green-600' :
-                    process.color === 'blue' ? 'text-blue-600' :
-                    process.color === 'purple' ? 'text-purple-600' :
-                    'text-orange-600'
-                  }`}>
-                    STEP {process.step}
-                  </div>
-                  
-                  <h4 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                    {process.title}
-                  </h4>
-                  
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    {process.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12">
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/95 via-green-50/80 to-blue-50/95 dark:from-gray-900/95 dark:via-green-950/80 dark:to-blue-950/95 backdrop-blur-xl border border-gradient-to-r from-green-200/50 to-blue-200/50 dark:from-green-700/50 dark:to-blue-700/50 shadow-2xl">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-30">
-                  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.1)_25%,rgba(59,130,246,0.1)_50%,transparent_50%,transparent_75%,rgba(34,197,94,0.1)_75%)] bg-[length:32px_32px]"></div>
-                </div>
                 
-                <div className="relative z-10 p-12 text-center">
-                  {/* Icon Section */}
-                  <div className="flex items-center justify-center mb-8">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-500 rounded-full blur-xl opacity-30 animate-pulse"></div>
-                      <div className="relative w-20 h-20 bg-gradient-to-br from-green-500 via-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-6 hover:rotate-12 transition-transform duration-500">
-                        <div className="flex items-center space-x-1">
-                          <Heart className="h-6 w-6 text-white animate-bounce" style={{animationDelay: '0ms'}} />
-                          <Star className="h-7 w-7 text-white animate-bounce" style={{animationDelay: '150ms'}} />
-                          <TrendingUp className="h-6 w-6 text-white animate-bounce" style={{animationDelay: '300ms'}} />
+                {/* Call to Action */}
+                <div className="pt-4">
+                  <Button 
+                    onClick={() => window.location.href = '/collaboration'}
+                    className="group px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  >
+                    <span className="flex items-center">
+                      Learn more
+                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </div>
+              </div>
+              
+              {/* Right Side - Premium Community Card */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative group perspective-1000">
+                  {/* Main Card */}
+                  <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl hover:shadow-amber-500/20">
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative space-y-8">
+                      {/* Header with Animated Icon */}
+                      <div className="text-center">
+                        <div className="relative mb-6">
+                          <div className="w-20 h-20 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+                            <Users className="w-10 h-10 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                          {/* Floating particles around icon */}
+                          <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-400/60 rounded-full animate-bounce"></div>
+                          <div className="absolute -bottom-1 -left-3 w-3 h-3 bg-purple-400/60 rounded-full animate-bounce delay-300"></div>
+                        </div>
+                        
+                        <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 transform transition-all duration-500 hover:scale-105 hover:text-orange-600">
+                          Community First
+                        </h3>
+                        <p className="text-lg text-gray-700 dark:text-gray-800 leading-relaxed font-medium">
+                          Your success drives our development. Every feature we build strengthens our entire community.
+                        </p>
+                      </div>
+                      
+                      {/* Enhanced Benefits Grid */}
+                      <div className="space-y-5">
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <Code className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Free Custom Development</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Dedicated team builds your ideas at no extra cost</p>
+                          </div>
+                        </div>
+                        
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <Headphones className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Expert Team Support</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Direct access to our development experts</p>
+                          </div>
+                        </div>
+                        
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <TrendingUp className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Shared Growth</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Community-driven feature roadmap</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  {/* Title */}
-                  <div className="mb-8">
-                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 rounded-full text-sm font-semibold text-green-700 dark:text-green-300 mb-4">
-                      Community Impact
-                    </div>
-                    <h4 className="text-4xl lg:text-5xl font-black bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-2 tracking-tight leading-tight">
-                      Mutual Growth
-                    </h4>
-                  </div>
-
-                  {/* Content Grid */}
-                  <div className="grid lg:grid-cols-3 gap-8 mb-10">
-                    {/* Your Ideas */}
-                    <div className="text-center group">
-                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <Lightbulb className="h-8 w-8 text-white" />
-                      </div>
-                      <h5 className="text-xl font-bold text-foreground mb-3">Your Ideas</h5>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        Share your vision and we'll make it reality
-                      </p>
-                    </div>
-
-                    {/* Fast Development */}
-                    <div className="text-center group">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <Zap className="h-8 w-8 text-white" />
-                      </div>
-                      <h5 className="text-xl font-bold text-foreground mb-3">Fast Development</h5>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        Ideas become features in record time
-                      </p>
-                    </div>
-
-                    {/* Mutual Growth */}
-                    <div className="text-center group">
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <TrendingUp className="h-8 w-8 text-white" />
-                      </div>
-                      <h5 className="text-xl font-bold text-foreground mb-3">Mutual Growth</h5>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        We succeed when you succeed
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Main Quote */}
-                  <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-green-200/50 dark:border-green-700/50">
-                    <p className="text-xl lg:text-2xl font-semibold text-foreground max-w-4xl mx-auto leading-relaxed italic" style={{ fontFamily: 'Playfair Display, serif' }}>
-                      "Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth."
-                    </p>
-                  </div>
-
-                  {/* CTA Button */}
-                  <Button 
-                    onClick={() => window.location.href = '/subscribe'}
-                    className="bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 hover:from-green-600 hover:via-blue-600 hover:to-purple-600 text-white px-10 py-4 text-lg font-bold rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 hover:rotate-1 group"
-                  >
-                    <span className="flex items-center">
-                      Start Collaborating Today
-                      <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-                    </span>
-                  </Button>
                 </div>
               </div>
             </div>
@@ -655,165 +558,11 @@ export default function About() {
               </Card>
             ))}
           </div>
-
-          {/* Office Photos Grid */}
-          <div className="grid md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-20">
-            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-blue-200 dark:border-blue-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
-              <div className="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Software development team working together"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <h4 className="text-lg font-bold text-foreground group-hover:text-blue-600 transition-colors duration-300">
-                  Collaborative Development
-                </h4>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Software engineers collaborating on cutting-edge business solutions
-                </p>
-              </div>
-            </Card>
-
-            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-purple-200 dark:border-purple-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
-              <div className="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Developer coding on multiple monitors"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <h4 className="text-lg font-bold text-foreground group-hover:text-purple-600 transition-colors duration-300">
-                  Code Excellence
-                </h4>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Advanced development workflows with modern tools and frameworks
-                </p>
-              </div>
-            </Card>
-
-            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-green-200 dark:border-green-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
-              <div className="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Professional software design meeting"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <h4 className="text-lg font-bold text-foreground group-hover:text-green-600 transition-colors duration-300">
-                  Strategic Design
-                </h4>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Product strategy sessions focused on user experience and innovation
-                </p>
-              </div>
-            </Card>
-
-            {/* Additional Office Photos */}
-            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-orange-200 dark:border-orange-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
-              <div className="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Software engineer working on laptop"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <h4 className="text-lg font-bold text-foreground group-hover:text-orange-600 transition-colors duration-300">
-                  Remote Development
-                </h4>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Distributed teams building world-class software solutions
-                </p>
-              </div>
-            </Card>
-
-            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-indigo-200 dark:border-indigo-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
-              <div className="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Clean coding workspace with laptop"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <h4 className="text-lg font-bold text-foreground group-hover:text-indigo-600 transition-colors duration-300">
-                  Clean Code Environment
-                </h4>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Minimalist workspaces optimized for focused development
-                </p>
-              </div>
-            </Card>
-
-            <Card className="p-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-teal-200 dark:border-teal-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
-              <div className="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80"
-                  alt="Data analysis and business intelligence"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <h4 className="text-lg font-bold text-foreground group-hover:text-teal-600 transition-colors duration-300">
-                  Data-Driven Insights
-                </h4>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Analytics and business intelligence powering smart decisions
-                </p>
-              </div>
-            </Card>
-          </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-br from-blue-600 to-purple-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-white rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Join thousands of businesses worldwide who trust BusinessFlow Pro to streamline 
-            their operations and accelerate growth.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group">
-              Start Your Free Trial
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-            <Link href="/" className="text-blue-100 hover:text-white underline font-medium transition-colors duration-300">
-              Learn more about our features
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <img src={logoPath} alt="BusinessFlow Pro" className="w-10 h-8 object-contain" />
-              <span className="text-xl font-bold">BusinessFlow Pro</span>
-            </div>
-            <div className="text-gray-400 text-sm">
-              © 2024 BusinessFlow Pro. All rights reserved.
-            </div>
-          </div>
-        </div>
-      </footer>
-      </div>
+    </div>
     </div>
   );
-}
+};
+
+export default AboutPage;
