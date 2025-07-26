@@ -316,15 +316,17 @@ const CollaborationPage = () => {
       {/* Final CTA */}
       <section id="final-cta" className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 border-0 shadow-lg">
-            <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight">
-              Your Success Drives Our Innovation
+          <div className="animate-fade-in-up">
+            <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight animate-pulse">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Your Success Drives Our Innovation
+              </span>
             </h3>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed animate-bounce">
               Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
               When you succeed, we all succeed.
             </p>
-          </Card>
+          </div>
         </div>
       </section>
 
