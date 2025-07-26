@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2, Headphones } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Loader2, Headphones, Menu, X } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -240,6 +240,7 @@ export default function Subscribe() {
   const { t } = useTranslation();
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [userData, setUserData] = useState<UserData>({
     email: '',
     password: '',
@@ -673,26 +674,151 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-8 px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Navigation */}
+      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/90 border-b border-gray-200 shadow-sm">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
+          <div className="flex items-center justify-between h-16">
+            {/* Left Section - Logo and Company Name */}
+            <Link href="/" className="flex items-center space-x-3 transition-all duration-300">
+              <img 
+                src="/attached_assets/3d_1753268267691.png" 
+                alt="BusinessFlow Pro" 
+                className="w-10 h-8 object-contain"
+              />
+              <span className="text-lg font-bold text-gray-800">BusinessFlow Pro</span>
+            </Link>
+
+            {/* Center Section - Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/about" className="text-gray-600 hover:text-gray-800 font-medium">About Us</Link>
+              <Link href="/#features" className="text-gray-600 hover:text-gray-800 font-medium">Features</Link>
+              <Button 
+                variant="ghost"
+                onClick={() => window.location.href = '/subscribe'}
+                className="text-gray-600 hover:text-gray-800 font-medium"
+              >
+                Pricing
+              </Button>
+              <Button 
+                variant="ghost" 
+                onClick={() => window.location.href = '/contact'} 
+                className="text-gray-600 hover:text-gray-800 font-medium"
+              >
+                Contact Us
+              </Button>
+            </div>
+
+            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
+            <div className="hidden lg:flex items-center space-x-3">
+              <Button 
+                variant="ghost"
+                onClick={() => window.location.href = "/api/login"}
+                className="text-gray-600 hover:text-gray-800 font-medium"
+              >
+                Login
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
+                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+              >
+                Buy Now
+              </Button>
+              <Button 
+                onClick={() => window.location.href = "/trial"}
+                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
+              >
+                Start Your Trial
+              </Button>
+              <div className="flex items-center">
+                <LanguageSelector />
+              </div>
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <div className="flex lg:hidden items-center space-x-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+              >
+                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {showMobileMenu && (
+          <div className="lg:hidden bg-white border-b border-gray-200">
+            <div className="px-4 py-4 space-y-4">
+              {/* Navigation Links */}
+              <Link href="/about" className="block text-gray-600 hover:text-gray-800">About Us</Link>
+              <Link href="/#features" className="block text-gray-600 hover:text-gray-800">Features</Link>
+              <Button 
+                variant="ghost"
+                onClick={() => {
+                  window.location.href = '/subscribe';
+                  setShowMobileMenu(false);
+                }}
+                className="w-full text-left justify-start text-gray-600 hover:text-gray-800"
+              >
+                Pricing
+              </Button>
+              <Button 
+                variant="ghost" 
+                onClick={() => {
+                  window.location.href = '/contact';
+                  setShowMobileMenu(false);
+                }} 
+                className="w-full text-left justify-start text-gray-600 hover:text-gray-800"
+              >
+                Contact Us
+              </Button>
+              
+              {/* Action Buttons */}
+              <div className="pt-4 space-y-2">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    window.location.href = "/api/login";
+                    setShowMobileMenu(false);
+                  }} 
+                  className="w-full text-left justify-start text-gray-600 hover:text-gray-800"
+                >
+                  Login
+                </Button>
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    window.location.href = '/subscribe?plan=business&billing=monthly';
+                    setShowMobileMenu(false);
+                  }}
+                  className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                >
+                  Buy Now
+                </Button>
+                <Button 
+                  onClick={() => {
+                    window.location.href = "/trial";
+                    setShowMobileMenu(false);
+                  }}
+                  className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                >
+                  Start Your Trial
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+
       {/* Background Grid Pattern - Matching Landing Page */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-      <div className="max-w-7xl mx-auto relative z-10">
+      
+      <div className="max-w-7xl mx-auto relative z-10 pt-20 py-8 px-4">
         <div className="text-center mb-16 fade-in">
-          <div className="flex items-center justify-between mb-12">
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
-              <div className="bg-white dark:bg-transparent p-1 rounded-lg">
-                <img 
-                  src="/attached_assets/3d_1753268267691.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain"
-                />
-              </div>
-              <span className="text-lg font-bold text-black">
-                BusinessFlow Pro
-              </span>
-            </Link>
-            <LanguageSelector />
-          </div>
           
           <div className="mb-12 fade-in-up space-y-6" style={{ animationDelay: '0.1s' }}>
             <div className="inline-block">

@@ -93,54 +93,48 @@ export default function Trial() {
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex items-center justify-between h-20">
             {/* Left Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
-              <div className="relative">
-                <img 
-                  src={logoPath}
-                  alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
-                  style={{ 
-                    filter: 'none',
-                    background: 'transparent'
-                  }}
-                />
-              </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
+            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
+              <img 
+                src={logoPath}
+                alt="BusinessFlow Pro" 
+                className="w-10 h-8 object-contain"
+              />
+              <span className="text-lg font-bold text-gray-800 dark:text-white">BusinessFlow Pro</span>
             </Link>
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
-              <Link href="/#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</Link>
+              <Link href="/about" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium">About Us</Link>
+              <Link href="/#features" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium">Features</Link>
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = '/subscribe'}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
               >
                 Pricing
               </Button>
               <Button 
                 variant="ghost" 
                 onClick={() => window.location.href = '/contact'} 
-                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
               >
                 Contact Us
               </Button>
             </div>
 
             {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
-            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
+            <div className="hidden lg:flex items-center space-x-3">
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = "/api/login"}
-                className="text-muted-foreground hover:text-primary transition-all duration-300"
+                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
               >
                 Login
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
-                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 font-medium"
               >
                 Buy Now
               </Button>
@@ -150,8 +144,9 @@ export default function Trial() {
               >
                 Start Your Trial
               </Button>
-
-              <LanguageSelector />
+              <div className="flex items-center">
+                <LanguageSelector />
+              </div>
             </div>
 
             {/* Mobile Menu Toggle */}
