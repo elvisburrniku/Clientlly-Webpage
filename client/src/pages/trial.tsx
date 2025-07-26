@@ -526,65 +526,63 @@ export default function Trial() {
                 </div>
               </div>
 
-              {/* Enhanced Support Promise with Yellow Background */}
-              <div className="relative overflow-hidden bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 p-1 rounded-3xl shadow-2xl">
-                <div className="bg-white dark:bg-gray-900 rounded-[calc(1.5rem-1px)] p-8 relative">
-                  {/* Floating Sparkles */}
-                  <div className="absolute top-4 left-4 w-2 h-2 bg-yellow-300 rounded-full animate-bounce"></div>
-                  <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-orange-300 rounded-full animate-bounce delay-300"></div>
-                  <div className="absolute bottom-6 left-8 w-1 h-1 bg-amber-300 rounded-full animate-bounce delay-500"></div>
-                  <div className="absolute bottom-4 right-4 w-2 h-2 bg-yellow-300 rounded-full animate-bounce delay-700"></div>
+              {/* Enhanced Support Promise with Full Yellow Background */}
+              <div className="relative overflow-hidden bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 rounded-3xl shadow-2xl p-8">
+                {/* Floating Sparkles */}
+                <div className="absolute top-4 left-4 w-2 h-2 bg-yellow-200 rounded-full animate-bounce"></div>
+                <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-orange-200 rounded-full animate-bounce delay-300"></div>
+                <div className="absolute bottom-6 left-8 w-1 h-1 bg-amber-200 rounded-full animate-bounce delay-500"></div>
+                <div className="absolute bottom-4 right-4 w-2 h-2 bg-yellow-200 rounded-full animate-bounce delay-700"></div>
+                
+                <div className="text-center relative">
+                  {/* 5-Star Rating */}
+                  <div className="flex justify-center mb-4">
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-7 w-7 fill-yellow-600 text-yellow-600 animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
+                      ))}
+                    </div>
+                  </div>
                   
-                  <div className="text-center relative">
-                    {/* 5-Star Rating */}
-                    <div className="flex justify-center mb-4">
-                      <div className="flex space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-7 w-7 fill-yellow-400 text-yellow-400 animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
-                        ))}
+                  <h3 className="text-2xl font-black text-gray-900 mb-3 tracking-tight">
+                    VIP Support Experience
+                  </h3>
+                  <p className="text-lg text-gray-800 mb-6 leading-relaxed">
+                    Get <span className="font-bold text-orange-800">personal onboarding</span> and dedicated support throughout your entire trial.
+                  </p>
+                  
+                  {/* Support Channels */}
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
+                        <Target className="h-6 w-6 text-white" />
                       </div>
+                      <p className="text-sm font-bold text-gray-900">Live Chat</p>
+                      <p className="text-xs text-gray-800">Instant Help</p>
                     </div>
-                    
-                    <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">
-                      VIP Support Experience
-                    </h3>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                      Get <span className="font-bold text-orange-600 dark:text-orange-400">personal onboarding</span> and dedicated support throughout your entire trial.
-                    </p>
-                    
-                    {/* Support Channels */}
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
-                          <Target className="h-6 w-6 text-white" />
-                        </div>
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">Live Chat</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">Instant Help</p>
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
+                        <Mail className="h-6 w-6 text-white" />
                       </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
-                          <Mail className="h-6 w-6 text-white" />
-                        </div>
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">Email Support</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">24h Response</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
-                          <Headphones className="h-6 w-6 text-white" />
-                        </div>
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">Phone Support</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400">Direct Line</p>
-                      </div>
+                      <p className="text-sm font-bold text-gray-900">Email Support</p>
+                      <p className="text-xs text-gray-800">24h Response</p>
                     </div>
+                    <div className="text-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-2 shadow-lg">
+                        <Headphones className="h-6 w-6 text-white" />
+                      </div>
+                      <p className="text-sm font-bold text-gray-900">Phone Support</p>
+                      <p className="text-xs text-gray-800">Direct Line</p>
+                    </div>
+                  </div>
 
-                    {/* Guarantee Badge */}
-                    <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl p-4 text-white shadow-lg">
-                      <div className="flex items-center justify-center space-x-2 mb-1">
-                        <Award className="h-5 w-5" />
-                        <span className="font-bold">Success Guarantee</span>
-                      </div>
-                      <p className="text-sm text-emerald-100">We'll help you succeed or your money back</p>
+                  {/* Guarantee Badge */}
+                  <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl p-4 text-white shadow-lg">
+                    <div className="flex items-center justify-center space-x-2 mb-1">
+                      <Award className="h-5 w-5" />
+                      <span className="font-bold">Success Guarantee</span>
                     </div>
+                    <p className="text-sm text-emerald-100">We'll help you succeed or your money back</p>
                   </div>
                 </div>
               </div>
