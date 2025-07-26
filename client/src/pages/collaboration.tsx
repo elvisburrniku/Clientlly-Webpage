@@ -320,20 +320,10 @@ const CollaborationPage = () => {
             <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight">
               Your Success Drives Our Innovation
             </h3>
-            <p className="text-base text-muted-foreground leading-relaxed mb-6">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
               When you succeed, we all succeed.
             </p>
-            
-            <Button 
-              onClick={() => window.location.href = '/subscribe'}
-              className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-black rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
-            >
-              <span className="flex items-center">
-                Start Collaborating Today
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </span>
-            </Button>
           </Card>
         </div>
       </section>
