@@ -122,7 +122,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto">
           {/* Header with Yellow Background - Matching "Let's Grow Together" */}
           <div className="text-center mb-16 relative">
-            <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-800/40 dark:to-orange-800/40 fade-in overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
+            <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 rounded-3xl shadow-2xl overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Floating Sparkles */}
@@ -130,15 +130,15 @@ export default function Contact() {
               <div className="absolute bottom-6 left-4 w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse"></div>
               <div className="absolute top-1/2 right-4 w-1 h-1 bg-yellow-300 rounded-full animate-bounce"></div>
               
-              <CardContent className="p-12 relative z-10">
-                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+              <div className="p-12 relative z-10">
+                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
                   Get in Touch
                 </h1>
-                <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                <p className="text-2xl lg:text-3xl text-gray-800 dark:text-gray-100 max-w-4xl mx-auto leading-relaxed">
                   Have questions? Need support? We're here to help your business succeed.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
