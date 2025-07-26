@@ -72,7 +72,6 @@ export default function Contact() {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       </div>
 
       {/* Navigation */}
@@ -128,7 +127,7 @@ export default function Contact() {
                 Get in Touch
               </span>
             </h1>
-            <p className="text-2xl lg:text-3xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Have questions? Need support? We're here to help your business succeed.
             </p>
           </div>
@@ -139,7 +138,7 @@ export default function Contact() {
               <CardContent className="p-8">
                 <div className="mb-8">
                   <h2 className="text-3xl font-black text-foreground mb-2 tracking-tight">Send us a Message</h2>
-                  <p className="text-muted-foreground font-black">Fill out the form below and we'll get back to you within 24 hours.</p>
+                  <p className="text-muted-foreground">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </div>
 
                 <form onSubmit={handleContactSubmit} className="space-y-6">
@@ -250,7 +249,7 @@ export default function Contact() {
                         <Mail className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">Email Support</h3>
+                        <h3 className="font-black text-foreground mb-1">Email Support</h3>
                         <p className="text-muted-foreground text-sm mb-2">Get help from our support team</p>
                         <p className="text-blue-600 font-medium">support@businessflowpro.com</p>
                       </div>
@@ -265,7 +264,7 @@ export default function Contact() {
                         <Headphones className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">Live Chat</h3>
+                        <h3 className="font-black text-foreground mb-1">Live Chat</h3>
                         <p className="text-muted-foreground text-sm mb-2">Chat with our team in real-time</p>
                         <Badge className="bg-green-100 text-green-700">Available 24/7</Badge>
                       </div>
@@ -280,7 +279,7 @@ export default function Contact() {
                         <Phone className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">Phone Support</h3>
+                        <h3 className="font-black text-foreground mb-1">Phone Support</h3>
                         <p className="text-muted-foreground text-sm mb-2">Speak directly with our experts</p>
                         <p className="text-purple-600 font-medium">+1 (555) 123-4567</p>
                       </div>
@@ -295,7 +294,7 @@ export default function Contact() {
                         <Clock className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-1">Business Hours</h3>
+                        <h3 className="font-black text-foreground mb-1">Business Hours</h3>
                         <p className="text-muted-foreground text-sm mb-2">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
                         <p className="text-muted-foreground text-sm">Saturday - Sunday: 10:00 AM - 4:00 PM EST</p>
                       </div>
@@ -304,33 +303,49 @@ export default function Contact() {
                 </Card>
               </div>
 
-              {/* Trust Indicators */}
-              <Card className="glass-effect border-0 shadow-lg bg-gradient-to-r from-blue-50/50 to-purple-50/50 fade-in stagger-4">
-                <CardContent className="p-6">
+              {/* Let's Grow Together Section */}
+              <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-yellow-50/80 to-orange-50/80 dark:from-yellow-900/20 dark:to-orange-900/20 fade-in stagger-4 overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Floating Sparkles */}
+                <div className="absolute top-4 right-6 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+                <div className="absolute bottom-6 left-4 w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse"></div>
+                <div className="absolute top-1/2 right-4 w-1 h-1 bg-yellow-300 rounded-full animate-bounce"></div>
+                
+                <CardContent className="p-8 relative z-10">
                   <div className="text-center">
-                    <div className="flex justify-center mb-4">
+                    <div className="flex justify-center mb-6">
                       <div className="flex space-x-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                          <Star key={i} className="h-6 w-6 fill-yellow-400 text-yellow-400 animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />
                         ))}
                       </div>
                     </div>
-                    <h3 className="font-semibold text-foreground mb-2">Trusted by 10,000+ Businesses</h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Join thousands of businesses that trust BusinessFlow Pro for their operations
+                    
+                    <h3 className="text-3xl font-black text-foreground mb-4 bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+                      Let's Grow Together
+                    </h3>
+                    
+                    <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                      Join 10,000+ businesses that trust BusinessFlow Pro for their operations. 
+                      Your success drives our development.
                     </p>
-                    <div className="flex justify-center items-center space-x-4 text-sm text-muted-foreground">
-                      <div className="flex items-center space-x-1">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span>99.9% Uptime</span>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                      <div className="flex flex-col items-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl group-hover:bg-white/70 transition-colors duration-300">
+                        <CheckCircle className="h-6 w-6 text-green-500 mb-2" />
+                        <span className="font-medium text-foreground">99.9% Uptime</span>
+                        <span className="text-muted-foreground text-xs">Always reliable</span>
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span>24/7 Support</span>
+                      <div className="flex flex-col items-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl group-hover:bg-white/70 transition-colors duration-300">
+                        <CheckCircle className="h-6 w-6 text-green-500 mb-2" />
+                        <span className="font-medium text-foreground">24/7 Support</span>
+                        <span className="text-muted-foreground text-xs">We're here for you</span>
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span>Bank-level Security</span>
+                      <div className="flex flex-col items-center p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl group-hover:bg-white/70 transition-colors duration-300">
+                        <CheckCircle className="h-6 w-6 text-green-500 mb-2" />
+                        <span className="font-medium text-foreground">Bank-level Security</span>
+                        <span className="text-muted-foreground text-xs">Your data is safe</span>
                       </div>
                     </div>
                   </div>
