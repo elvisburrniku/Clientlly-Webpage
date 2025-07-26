@@ -120,7 +120,7 @@ const CollaborationPage = () => {
       {/* Hero Section */}
       <section className="py-20 lg:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-black text-foreground mb-6 leading-tight">
+          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 leading-tight tracking-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
               Growing Together Through Collaboration
             </span>
@@ -144,7 +144,7 @@ const CollaborationPage = () => {
       <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-foreground mb-4">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight">
               How We Collaborate
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -220,7 +220,7 @@ const CollaborationPage = () => {
         <div className="relative z-10">
           <div className="max-w-6xl mx-auto px-4 py-16">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-black text-gray-900 dark:text-white leading-tight mb-4">
+              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight">
                 <span>Expert</span>{' '}
                 <span className="bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold">Team</span>{' '}
                 <span>Support</span>
@@ -268,7 +268,7 @@ const CollaborationPage = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 border-0 shadow-lg">
-            <h3 className="text-2xl font-black text-foreground mb-4">
+            <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight">
               Your Success Drives Our Innovation
             </h3>
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
