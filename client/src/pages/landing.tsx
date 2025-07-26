@@ -253,7 +253,7 @@ export default function Landing() {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.location.href = "/trial"}
+                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -329,7 +329,7 @@ export default function Landing() {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.location.href = "/trial";
+                    window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank");
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
@@ -1092,7 +1092,7 @@ export default function Landing() {
                         variant="outline" 
                         size="sm"
                         className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50"
-                        onClick={() => window.location.href = '/trial'}
+                        onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
                       >
                         Start Your Trial
                       </Button>

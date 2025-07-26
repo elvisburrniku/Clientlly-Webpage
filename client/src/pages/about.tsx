@@ -252,7 +252,7 @@ const AboutPage = () => {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.location.href = "/trial"}
+                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -318,7 +318,7 @@ const AboutPage = () => {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.location.href = "/trial";
+                    window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank");
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"

@@ -117,7 +117,7 @@ export default function FeatureExpenses() {
                 <Button 
                   size="lg" 
                   className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300"
-                  onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+                  onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
                 >
                   Start Free Trial
                 </Button>
