@@ -275,10 +275,10 @@ export default function Trial() {
               </div>
 
               <div className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-xl text-white transform hover:scale-105 transition-transform duration-300">
-                <Clock className="h-6 w-6" />
+                <Clock className="h-6 w-6 text-white" />
                 <div className="text-left">
-                  <div className="font-bold">14 Days Free</div>
-                  <div className="text-sm opacity-90">Full Access</div>
+                  <div className="font-bold text-white">14 Days Free</div>
+                  <div className="text-sm text-white opacity-90">Full Access</div>
                 </div>
               </div>
 
@@ -447,9 +447,9 @@ export default function Trial() {
                           </>
                         ) : (
                           <>
-                            <Rocket className="h-6 w-6 mr-3 group-hover:animate-bounce" />
-                            Start My Free Trial Now
-                            <Sparkles className="h-6 w-6 ml-3 group-hover:animate-spin" />
+                            <Rocket className="h-6 w-6 mr-3 group-hover:animate-bounce text-white" />
+                            <span className="text-white">Start My Free Trial Now</span>
+                            <Sparkles className="h-6 w-6 ml-3 group-hover:animate-spin text-white" />
                           </>
                         )}
                       </div>
@@ -494,10 +494,10 @@ export default function Trial() {
                     
                     <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl p-6 text-white shadow-xl">
                       <div className="flex items-center justify-center space-x-2 mb-2">
-                        <DollarSign className="h-6 w-6" />
-                        <span className="text-2xl font-black">$79 Value</span>
+                        <DollarSign className="h-6 w-6 text-white" />
+                        <span className="text-2xl font-black text-white">$79 Value</span>
                       </div>
-                      <p className="text-emerald-100 font-medium">Completely FREE for 14 days</p>
+                      <p className="text-white font-medium">Completely FREE for 14 days</p>
                     </div>
                   </div>
                 </CardContent>
@@ -656,10 +656,10 @@ export default function Trial() {
           {/* Guarantee Badge */}
           <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-3xl p-6 text-white shadow-2xl max-w-md mx-auto">
             <div className="flex items-center justify-center space-x-3 mb-2">
-              <Award className="h-6 w-6" />
-              <span className="text-xl font-bold">Success Guarantee</span>
+              <Award className="h-6 w-6 text-white" />
+              <span className="text-xl font-bold text-white">Success Guarantee</span>
             </div>
-            <p className="text-emerald-100">We'll help you succeed or your money back</p>
+            <p className="text-white">We'll help you succeed or your money back</p>
           </div>
         </div>
       </div>
