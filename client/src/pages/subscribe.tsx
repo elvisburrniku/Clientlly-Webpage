@@ -357,7 +357,7 @@ export default function Subscribe() {
   );
 
   const renderPlanSelection = () => (
-    <div id="pricing-section" className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
+    <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
       <div className="text-center mb-16">
         <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in leading-tight tracking-tight animate-slide-up">
           Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
@@ -954,7 +954,7 @@ export default function Subscribe() {
             </div>
             
             {/* Combined Title and Trust Indicators with Yellow Background */}
-            <div className="relative w-screen -ml-[50vw] left-1/2 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden mb-12">
+            <div id="pricing-section" className="relative w-screen -ml-[50vw] left-1/2 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden mb-12">
               {/* Decorative Elements */}
               <div className="absolute inset-0 overflow-hidden">
                 {/* Floating sparkle elements */}
