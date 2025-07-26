@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { Footer } from "@/components/Footer";
 import logoPath from "@assets/3d_1753268267691.png";
 import {
   ArrowLeft,
@@ -639,6 +640,9 @@ export default function Trial() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
