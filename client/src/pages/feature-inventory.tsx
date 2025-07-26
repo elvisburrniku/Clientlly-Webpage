@@ -90,7 +90,7 @@ export default function FeatureInventory() {
                 <Badge className="bg-red-100 text-red-700 hover:bg-red-200">
                   Intelligent Inventory Management
                 </Badge>
-                <h1 className="text-5xl font-bold text-foreground">
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight">
                   Stay on top of orders and <span className="gradient-text">quantities</span>
                 </h1>
                 <p className="text-xl text-muted-foreground">

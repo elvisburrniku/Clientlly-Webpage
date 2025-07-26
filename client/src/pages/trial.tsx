@@ -110,11 +110,11 @@ export default function Trial() {
               14-Day Free Trial
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in">
+            <h1 className="text-6xl md:text-7xl xl:text-8xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
               Start your <span className="gradient-text bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">free trial</span>
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1 mb-8">
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 mb-8">
               Experience the full power of BusinessFlow Pro with our risk-free 14-day trial. No credit card required, cancel anytime.
             </p>
 
@@ -144,7 +144,7 @@ export default function Trial() {
             <Card className="glass-effect border-0 shadow-2xl fade-in stagger-3">
               <CardContent className="p-8">
                 <div className="mb-8">
-                  <h2 className="text-2xl font-bold text-foreground mb-2">Get Started in Minutes</h2>
+                  <h2 className="text-3xl font-black text-foreground mb-2 tracking-tight">Get Started in Minutes</h2>
                   <p className="text-muted-foreground">Tell us a bit about yourself and we'll set up your free trial instantly.</p>
                 </div>
 

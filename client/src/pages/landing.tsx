@@ -371,7 +371,7 @@ export default function Landing() {
             
             {/* Main Heading */}
             <div className="space-y-12">
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight fade-in">
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
                 <span className="text-foreground leading-tight">
                   Everything you need to
                 </span>
@@ -382,7 +382,7 @@ export default function Landing() {
               
               <div className="max-w-5xl mx-auto space-y-8">
                 <p className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1">
-                  Empower your small business to compete with enterprise-level efficiency. Our comprehensive <span className="font-bold text-foreground">accounting software</span> streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
+                  Empower your small business to compete with enterprise-level efficiency. Our comprehensive <span className="font-black text-foreground">accounting software</span> streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
                 </p>
                 
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
@@ -426,13 +426,13 @@ export default function Landing() {
       <section id="features" className="py-16 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 fade-in">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
               <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
             </h2>
-            <p className="text-xl font-semibold text-muted-foreground mb-6 fade-in stagger-1">
+            <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
             </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-2">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2">
               Everything your business needs in one powerful platform.
             </p>
           </div>
@@ -448,7 +448,7 @@ export default function Landing() {
                     <FileText className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Professional Invoicing</h3>
+                    <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
                     <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
                   </div>
                 </div>
@@ -470,7 +470,7 @@ export default function Landing() {
                     <Receipt className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Smart Expense Tracking</h3>
+                    <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
                     <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
                   </div>
                 </div>
@@ -492,7 +492,7 @@ export default function Landing() {
                     <CreditCard className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Debt Management</h3>
+                    <h3 className="text-xl font-black text-foreground">Debt Management</h3>
                     <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
                   </div>
                 </div>
@@ -514,7 +514,7 @@ export default function Landing() {
                     <BarChart3 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Insights & Reports</h3>
+                    <h3 className="text-xl font-black text-foreground">Insights & Reports</h3>
                     <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
                   </div>
                 </div>
@@ -536,7 +536,7 @@ export default function Landing() {
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Client Management</h3>
+                    <h3 className="text-xl font-black text-foreground">Client Management</h3>
                     <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
                   </div>
                 </div>
@@ -558,7 +558,7 @@ export default function Landing() {
                     <Building2 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Vendor Management</h3>
+                    <h3 className="text-xl font-black text-foreground">Vendor Management</h3>
                     <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
                   </div>
                 </div>
@@ -580,7 +580,7 @@ export default function Landing() {
                     <Package className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Inventory Management</h3>
+                    <h3 className="text-xl font-black text-foreground">Inventory Management</h3>
                     <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
                   </div>
                 </div>
@@ -602,7 +602,7 @@ export default function Landing() {
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Smart Attendance</h3>
+                    <h3 className="text-xl font-black text-foreground">Smart Attendance</h3>
                     <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
                   </div>
                 </div>
@@ -626,7 +626,7 @@ export default function Landing() {
                     <RefreshCw className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">Easy Migration</h3>
+                    <h3 className="text-xl font-black text-foreground">Easy Migration</h3>
                     <p className="text-sm text-muted-foreground">Automated data transfer & expert support</p>
                   </div>
                 </div>
@@ -696,10 +696,10 @@ export default function Landing() {
       <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 fade-in">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
               Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1">
               Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
             </p>
           </div>
@@ -752,7 +752,7 @@ export default function Landing() {
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Clock className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Save 15+ Hours Weekly</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">Save 15+ Hours Weekly</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
               </p>
@@ -763,7 +763,7 @@ export default function Landing() {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Boost Revenue by 30%</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">Boost Revenue by 30%</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
               </p>
@@ -774,7 +774,7 @@ export default function Landing() {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Shield className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">Eliminate 95% of Errors</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">Eliminate 95% of Errors</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
               </p>
@@ -969,7 +969,7 @@ export default function Landing() {
           <div className="text-center mb-16">
 
             
-            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-1 leading-tight tracking-tight animate-slide-up">
               Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
             </h2>
             
@@ -994,7 +994,7 @@ export default function Landing() {
                 
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
+                    <h3 className="text-3xl font-black text-foreground mb-4 tracking-tight">{plan.name}</h3>
                     
                     {/* Individual Plan Billing Toggle */}
                     <div className="mb-6">

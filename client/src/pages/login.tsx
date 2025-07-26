@@ -78,11 +78,11 @@ export default function Login() {
                       Secure Login
                     </div>
                     
-                    <h1 className="text-3xl font-bold text-foreground mb-3">
+                    <h1 className="text-4xl lg:text-5xl font-black text-foreground mb-3 tracking-tight leading-tight">
                       Welcome <span className="gradient-text bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">back</span>
                     </h1>
                     
-                    <p className="text-muted-foreground">
+                    <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
                       Sign in to access your BusinessFlow Pro dashboard and manage your business operations.
                     </p>
                   </div>

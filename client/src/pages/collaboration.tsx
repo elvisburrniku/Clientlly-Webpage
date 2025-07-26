@@ -117,7 +117,7 @@ export default function Collaboration() {
       {/* Hero Section */}
       <section className="py-32 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-8 animate-text-reveal">
+          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 animate-text-reveal tracking-tight leading-tight">
             <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               Growing Together Through Collaboration
             </span>

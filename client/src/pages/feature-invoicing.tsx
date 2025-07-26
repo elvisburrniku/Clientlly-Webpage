@@ -92,7 +92,7 @@ export default function FeatureInvoicing() {
                 <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-200">
                   Professional Invoicing Suite
                 </Badge>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight">
                   Create stunning invoices that <span className="gradient-text">get paid faster</span>
                 </h1>
                 <p className="text-lg sm:text-xl text-muted-foreground">

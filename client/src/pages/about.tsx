@@ -217,12 +217,12 @@ export default function About() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-8">
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
                 About BusinessFlow Pro
               </span>
             </h1>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-12">
               We're on a mission to empower businesses worldwide with intelligent automation, 
               seamless workflows, and data-driven insights that drive real growth.
             </p>
@@ -248,7 +248,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-8 scroll-animate-letters">
+              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-8 scroll-animate-letters tracking-tight leading-tight">
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Our Story
                 </span>

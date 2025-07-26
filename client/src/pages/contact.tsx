@@ -123,17 +123,13 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-6">
-              <MessageSquare className="w-4 h-4 mr-2" />
-              Get in Touch
-            </div>
-            
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in">
-              Let's start a <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">conversation</span>
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Get in Touch
+              </span>
             </h1>
-            
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed fade-in stagger-1">
-              Whether you have questions, need support, or want to explore how BusinessFlow Pro can transform your business, we're here to help.
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Have questions? Need support? We're here to help your business succeed.
             </p>
           </div>
 
@@ -142,7 +138,7 @@ export default function Contact() {
             <Card className="glass-effect border-0 shadow-2xl fade-in stagger-2">
               <CardContent className="p-8">
                 <div className="mb-8">
-                  <h2 className="text-2xl font-bold text-foreground mb-2">Send us a Message</h2>
+                  <h2 className="text-3xl font-black text-foreground mb-2 tracking-tight">Send us a Message</h2>
                   <p className="text-muted-foreground">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </div>
 
