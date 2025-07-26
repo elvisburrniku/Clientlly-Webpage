@@ -66,34 +66,18 @@ const CollaborationPage = () => {
     {
       icon: Lightbulb,
       title: "Share Your Ideas",
-      description: "As a subscriber, you have direct access to submit feature requests, workflow improvements, and business automation ideas through your dashboard. Your real-world challenges become our development priorities.",
+      description: "Submit feature requests and workflow improvements through your dashboard. Your real-world challenges become our development priorities.",
       benefits: ["Priority review process", "Direct developer feedback", "Implementation timeline updates"],
       color: "from-amber-500 to-yellow-500",
       gradientBg: "from-amber-500/20 via-yellow-500/20 to-orange-500/20"
     },
     {
-      icon: Users,
-      title: "Collaborative Development",
-      description: "Work closely with our development team to design custom features that match your exact business needs. Your input shapes the final product to ensure it solves real problems effectively.",
-      benefits: ["One-on-one consultations", "Custom prototyping", "Real-time progress tracking"],
-      color: "from-blue-500 to-cyan-500",
-      gradientBg: "from-blue-500/20 via-cyan-500/20 to-indigo-500/20"
-    },
-    {
-      icon: Zap,
+      icon: Rocket,
       title: "Free Implementation",
-      description: "All approved customer suggestions are developed and deployed at no additional cost. Your ideas become features that enhance everyone's experience, creating a win-win ecosystem for all users.",
+      description: "All approved customer suggestions are developed and deployed at no additional cost. Your ideas become features for everyone.",
       benefits: ["Zero development fees", "Automatic updates", "Lifetime feature access"],
       color: "from-purple-500 to-pink-500",
       gradientBg: "from-purple-500/20 via-pink-500/20 to-rose-500/20"
-    },
-    {
-      icon: TrendingUp,
-      title: "Mutual Growth",
-      description: "As your business grows and evolves, so does our platform. This collaborative approach creates scalable solutions that adapt to industry changes and emerging business needs over time.",
-      benefits: ["Scalable solutions", "Industry-specific tools", "Community-driven features"],
-      color: "from-green-500 to-emerald-500",
-      gradientBg: "from-green-500/20 via-emerald-500/20 to-teal-500/20"
     }
   ];
 
@@ -101,26 +85,14 @@ const CollaborationPage = () => {
     { 
       icon: Code, 
       title: "Dedicated Developers", 
-      description: "Assigned team members who learn your business",
+      description: "Assigned team members who learn your business and provide ongoing technical support",
       color: "from-blue-500 to-purple-600"
     },
     { 
-      icon: Headphones, 
-      title: "24/7 Expert Support", 
-      description: "Direct access to our development experts",
-      color: "from-purple-500 to-pink-600"
-    },
-    { 
       icon: Rocket, 
-      title: "Rapid Deployment", 
-      description: "Ideas become features in record time",
-      color: "from-green-500 to-blue-600"
-    },
-    { 
-      icon: Brain, 
-      title: "Strategic Consultation", 
-      description: "Business optimization and workflow advice",
-      color: "from-orange-500 to-red-600"
+      title: "Rapid Implementation", 
+      description: "Fast development and deployment of your custom features with professional quality",
+      color: "from-purple-500 to-pink-500"
     }
   ];
 
@@ -315,24 +287,21 @@ const CollaborationPage = () => {
       {/* Collaboration Features */}
       <section className="py-32 relative bg-gradient-to-br from-gray-50/30 via-blue-50/20 to-purple-50/20 dark:from-gray-900/30 dark:via-blue-950/20 dark:to-purple-950/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 animate-text-reveal tracking-tight leading-tight">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-4 tracking-tight leading-tight">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 How We Collaborate
               </span>
             </h2>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Your success is our priority. Here's how we work together to build amazing features.
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
             {collaborationFeatures.map((feature, index) => (
-              <Card key={index} className={`p-12 bg-white/98 dark:bg-gray-800/98 backdrop-blur-xl border-0 shadow-xl hover:shadow-2xl transition-all duration-500 group hover:scale-[1.02] hover:-translate-y-1 rounded-3xl animate-fade-in-up ${
-                index === 0 ? 'hover:shadow-amber-500/20' :
-                index === 1 ? 'hover:shadow-blue-500/20' :
-                index === 2 ? 'hover:shadow-purple-500/20' :
-                'hover:shadow-green-500/20'
+              <Card key={index} className={`p-8 bg-white/98 dark:bg-gray-800/98 backdrop-blur-xl border-0 shadow-lg hover:shadow-xl transition-all duration-300 group hover:scale-[1.01] hover:-translate-y-1 rounded-2xl animate-fade-in-up ${
+                index === 0 ? 'hover:shadow-amber-500/20' : 'hover:shadow-purple-500/20'
               }`} style={{ animationDelay: `${index * 200}ms` }}>
                 {/* Subtle Background Gradient */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-30 transition-all duration-500 rounded-3xl ${
@@ -341,19 +310,19 @@ const CollaborationPage = () => {
                 
                 <div className="relative z-10">
                   {/* Clean Icon */}
-                  <div className="relative mb-8">
-                    <div className={`w-24 h-24 mx-auto rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110 flex items-center justify-center bg-gradient-to-br ${feature.color}`}>
-                      <feature.icon className="w-12 h-12 text-white" />
+                  <div className="relative mb-6">
+                    <div className={`w-16 h-16 mx-auto rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 flex items-center justify-center bg-gradient-to-br ${feature.color}`}>
+                      <feature.icon className="w-8 h-8 text-white" />
                     </div>
                   </div>
                   
                   {/* Clean Title */}
-                  <h3 className="text-3xl font-black text-foreground mb-6 text-center">
+                  <h3 className="text-2xl font-black text-foreground mb-3 text-center">
                     {feature.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-8 text-lg text-center">
+                  <p className="text-muted-foreground leading-relaxed mb-6 text-base text-center">
                     {feature.description}
                   </p>
                   
@@ -393,37 +362,37 @@ const CollaborationPage = () => {
         
         <div className="relative z-10 h-full flex items-center">
           <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
-            <div className="text-center mb-16">
-              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-8 tracking-tight">
-                <span className="inline-block animate-elegant-rise animation-delay-0">Expert</span>{' '}
-                <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">Team</span>{' '}
-                <span className="inline-block animate-elegant-rise animation-delay-400">Support</span>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight">
+                <span className="inline-block">Expert</span>{' '}
+                <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold">Team</span>{' '}
+                <span className="inline-block">Support</span>
               </h2>
               
-              <p className="text-2xl lg:text-3xl text-gray-800 dark:text-gray-100 leading-relaxed max-w-4xl mx-auto">
+              <p className="text-lg lg:text-xl text-gray-800 dark:text-gray-100 leading-relaxed max-w-3xl mx-auto">
                 Our dedicated development team becomes your extended tech department at no additional cost
               </p>
             </div>
 
             {/* Team Support Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {teamSupport.map((support, index) => (
-                <Card key={index} className="group relative bg-white/98 dark:bg-gray-50/98 backdrop-blur-xl border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 rounded-3xl">
-                  <div className="p-8 text-center">
+                <Card key={index} className="group relative bg-white/98 dark:bg-gray-50/98 backdrop-blur-xl border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 rounded-2xl">
+                  <div className="p-6 text-center">
                     {/* Clean Icon */}
-                    <div className="relative mb-8">
-                      <div className={`w-20 h-20 mx-auto rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110 flex items-center justify-center bg-gradient-to-br ${support.color}`}>
-                        <support.icon className="w-10 h-10 text-white" />
+                    <div className="relative mb-4">
+                      <div className={`w-16 h-16 mx-auto rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 flex items-center justify-center bg-gradient-to-br ${support.color}`}>
+                        <support.icon className="w-8 h-8 text-white" />
                       </div>
                     </div>
                     
                     {/* Clean Title */}
-                    <h3 className="text-2xl font-black text-gray-900 dark:text-gray-800 mb-3">
+                    <h3 className="text-xl font-black text-gray-900 dark:text-gray-800 mb-2">
                       {support.title}
                     </h3>
                     
                     {/* Clean Description */}
-                    <p className="text-gray-700 dark:text-gray-800 leading-relaxed">
+                    <p className="text-gray-700 dark:text-gray-800 leading-relaxed text-sm">
                       {support.description}
                     </p>
                   </div>
@@ -435,43 +404,27 @@ const CollaborationPage = () => {
       </section>
 
       {/* Success Story Section */}
-      <section className="py-32 bg-white/50 dark:bg-gray-900/50 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 scroll-animate">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+      <section className="py-20 bg-white/50 dark:bg-gray-900/50 relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="p-8 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 border-0 shadow-lg max-w-4xl mx-auto">
+            <div className="text-center">
+              <h3 className="text-2xl font-black text-foreground mb-4">
                 Your Success Drives Our Innovation
-              </span>
-            </h2>
-          </div>
-
-          <Card className="p-12 bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-950 dark:to-blue-950 border-2 border-green-200 dark:border-green-700 max-w-4xl mx-auto scroll-animate">
-            <div className="flex items-center justify-center space-x-6 mb-8">
-              <Heart className="h-12 w-12 text-red-500" />
-              <Star className="h-12 w-12 text-yellow-500" />
-              <TrendingUp className="h-12 w-12 text-green-500" />
-            </div>
-            <h3 className="text-3xl font-black text-foreground mb-6 text-center">
-              Your Success Drives Our Innovation
-            </h3>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8 text-center">
-              Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
-              When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
-            </p>
-            
-            <div className="text-center space-y-6">
+              </h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
+                When you succeed, we all succeed.
+              </p>
+              
               <Button 
                 onClick={() => window.location.href = '/subscribe'}
-                className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-12 py-4 text-xl font-black rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+                className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg font-black rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
               >
                 <span className="flex items-center">
                   Start Collaborating Today
-                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </Button>
-              <p className="text-sm text-muted-foreground">
-                Join 50,000+ businesses already growing with us
-              </p>
             </div>
           </Card>
         </div>
