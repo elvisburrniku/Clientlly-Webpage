@@ -194,9 +194,9 @@ export function translate(
   fallbackLanguage: string = 'en'
 ): string {
   const getNestedValue = (obj: Translations, path: string): string => {
-    return path.split('.').reduce((current, key) => {
-      return current && typeof current === 'object' ? current[key] as any : current;
-    }, obj) as string;
+    return path.split('.').reduce((current: any, key: string) => {
+      return current && typeof current === 'object' ? current[key] : current;
+    }, obj as any) as string;
   };
 
   // Try current language

@@ -33,7 +33,7 @@ export function VoiceCommands() {
   const [confidence, setConfidence] = useState(0);
   const [lastCommand, setLastCommand] = useState<VoiceCommandResult | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
-  const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const recognitionRef = useRef<any | null>(null);
 
   const processVoiceCommandMutation = useMutation({
     mutationFn: async (command: string): Promise<VoiceCommandResult> => {
