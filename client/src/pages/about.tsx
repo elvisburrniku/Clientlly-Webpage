@@ -383,12 +383,23 @@ const AboutPage = () => {
                 
                 {/* Feature Highlights */}
                 <div className="space-y-6">
-                  {collaborationFeatures.map((feature, index) => (
-                    <div key={index} className="group">
-                      <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h4>
-                      <p className="text-lg text-gray-700 dark:text-gray-200">{feature.description}</p>
-                    </div>
-                  ))}
+                  {/* Your Ideas */}
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Your Ideas</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">Share your vision and we'll make it reality</p>
+                  </div>
+                  
+                  {/* Fast Development */}
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Fast Development</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">Ideas become features in record time</p>
+                  </div>
+                  
+                  {/* Mutual Growth */}
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mutual Growth</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">We succeed when you succeed</p>
+                  </div>
                 </div>
                 
                 {/* Call to Action */}
@@ -497,11 +508,8 @@ const AboutPage = () => {
                       <Zap className="w-6 h-6 text-white animate-pulse" />
                     </div>
                   </div>
-                  <div className="absolute top-1/2 -right-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg backdrop-blur-sm floating-element shadow-md opacity-70">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Heart className="w-4 h-4 text-white animate-bounce" />
-                    </div>
-                  </div>
+                  <div className="absolute top-1/3 -left-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full backdrop-blur-sm floating-slow shadow-lg opacity-70"></div>
+                  <div className="absolute top-1/4 -right-10 w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full backdrop-blur-sm floating-element shadow-lg opacity-70"></div>
                 </div>
               </div>
             </div>
