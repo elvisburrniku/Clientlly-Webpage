@@ -225,7 +225,13 @@ const AboutPage = () => {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/about" className="text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
               <Link href="/#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</Link>
-              <Link href="/#pricing-section" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Pricing</Link>
+              <Button 
+                variant="ghost"
+                onClick={() => window.location.href = '/subscribe'}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium"
+              >
+                Pricing
+              </Button>
               <Link href="/contact" className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium">Contact Us</Link>
             </div>
 
@@ -276,7 +282,16 @@ const AboutPage = () => {
               {/* Navigation Links */}
               <Link href="/about" className="block text-primary transition-colors">About Us</Link>
               <Link href="/#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</Link>
-              <Link href="/#pricing-section" className="block text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
+              <Button 
+                variant="ghost"
+                onClick={() => {
+                  window.location.href = '/subscribe';
+                  setShowMobileMenu(false);
+                }}
+                className="w-full text-left justify-start text-muted-foreground hover:text-primary"
+              >
+                Pricing
+              </Button>
               <Link href="/contact" className="block text-muted-foreground hover:text-primary transition-colors">Contact Us</Link>
               
               {/* Action Buttons */}

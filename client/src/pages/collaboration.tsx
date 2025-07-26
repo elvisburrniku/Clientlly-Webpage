@@ -231,7 +231,7 @@ export default function Collaboration() {
             
             <div className="text-center space-y-4">
               <Button 
-                onClick={() => window.location.href = '/#pricing-section'}
+                onClick={() => window.location.href = '/subscribe'}
                 className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-12 py-4 text-xl font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 Start Collaborating Today

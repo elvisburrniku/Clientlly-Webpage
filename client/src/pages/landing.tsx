@@ -219,19 +219,13 @@ export default function Landing() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
-              <button 
-                onClick={() => {
-                  console.log('Pricing button clicked');
-                  const element = document.getElementById('pricing-section');
-                  console.log('Pricing section element:', element);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
-                  }
-                }}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium bg-transparent border-none cursor-pointer"
+              <Button 
+                variant="ghost"
+                onClick={() => window.location.href = '/subscribe'}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium"
               >
                 Pricing
-              </button>
+              </Button>
 
               <Button 
                 variant="ghost" 
@@ -289,20 +283,16 @@ export default function Landing() {
               {/* Navigation Links */}
               <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About Us</Link>
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
-              <button 
+              <Button 
+                variant="ghost"
                 onClick={() => {
-                  console.log('Mobile pricing button clicked');
-                  const element = document.getElementById('pricing-section');
-                  console.log('Mobile pricing section element:', element);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
-                  }
+                  window.location.href = '/subscribe';
                   setShowMobileMenu(false);
                 }}
-                className="block text-muted-foreground hover:text-primary transition-colors text-left"
+                className="w-full text-left justify-start text-muted-foreground hover:text-primary"
               >
                 Pricing
-              </button>
+              </Button>
 
               <Button 
                 variant="ghost" 
