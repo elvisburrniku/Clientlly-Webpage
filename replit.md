@@ -108,7 +108,8 @@ Preferred communication style: Simple, everyday language.
 ✓ Users now see all pricing options ($29 Starter, $49 Professional, $89 Enterprise) with unified feature sets
 ✓ Maintained customer-first pricing philosophy where all plans include identical comprehensive features
 ✓ Added auto-scroll functionality to pricing section when users arrive from "Buy Now" buttons
-✓ Implemented smooth scrolling animation to "Choose the perfect plan" section with 500ms delay
+✓ Implemented smooth scrolling animation to step indicators and "Choose the perfect plan" section with 500ms delay
+✓ Auto-scroll targets the subscription process flow (Choose Plan, Create Account, Team & Add-ons, Review & Pay) before pricing cards
 
 ✓ COMPLETED trial page complete redesign with stunning modern design (July 26, 2025)
 ✓ Created beautiful animated hero section with gradient backgrounds and professional typography
