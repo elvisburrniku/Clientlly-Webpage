@@ -897,7 +897,7 @@ export default function Subscribe() {
             </div>
             
             {/* Title and Subtitle with Yellow Background */}
-            <div className="relative w-full -mx-4 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden mb-12">
+            <div className="relative w-screen -ml-[50vw] left-1/2 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden mb-12">
               {/* Decorative Elements */}
               <div className="absolute inset-0 overflow-hidden">
                 {/* Floating sparkle elements */}
