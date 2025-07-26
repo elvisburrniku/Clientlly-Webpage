@@ -929,10 +929,10 @@ export default function Subscribe() {
               </div>
 
               <div className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-xl text-white transform hover:scale-105 transition-transform duration-300">
-                <Clock className="h-6 w-6" />
+                <CreditCard className="h-6 w-6" />
                 <div className="text-left">
-                  <div className="font-bold">14 Days Free</div>
-                  <div className="text-sm opacity-90">Full Access</div>
+                  <div className="font-bold">Instant Access</div>
+                  <div className="text-sm opacity-90">All Features</div>
                 </div>
               </div>
 
