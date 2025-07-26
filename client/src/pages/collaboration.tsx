@@ -34,7 +34,33 @@ const CollaborationPage = () => {
       <nav className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex justify-between items-center h-20">
-            {/* Left Side - Action Buttons */}
+            {/* Left Side - Logo and Company Name */}
+            <div className="flex items-center space-x-3">
+              <img 
+                src={logoPath} 
+                alt="BusinessFlow Pro" 
+                className="w-12 h-9 transition-all duration-500 hover:scale-110"
+              />
+              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
+            </div>
+
+            {/* Center - Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
+              <Button variant="ghost" onClick={() => window.location.href = "/about"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
+                About Us
+              </Button>
+              <Button variant="ghost" onClick={() => window.location.href = "/#features"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
+                Features
+              </Button>
+              <Button variant="ghost" onClick={() => window.location.href = "/subscribe"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
+                Pricing
+              </Button>
+              <Button variant="ghost" onClick={() => window.location.href = "/contact"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
+                Contact Us
+              </Button>
+            </div>
+
+            {/* Right Side - Action Buttons */}
             <div className="hidden lg:flex items-center space-x-6">
               <Button 
                 variant="ghost" 
@@ -57,32 +83,6 @@ const CollaborationPage = () => {
                 Start Your Trial
               </Button>
               <LanguageSelector />
-            </div>
-
-            {/* Center - Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
-              <Button variant="ghost" onClick={() => window.location.href = "/about"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
-                About Us
-              </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/#features"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
-                Features
-              </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/subscribe"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
-                Pricing
-              </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/contact"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-medium">
-                Contact Us
-              </Button>
-            </div>
-
-            {/* Right Side - Logo and Company Name */}
-            <div className="flex items-center space-x-3">
-              <img 
-                src={logoPath} 
-                alt="BusinessFlow Pro" 
-                className="w-12 h-9 transition-all duration-500 hover:scale-110"
-              />
-              <span className="text-xl font-bold text-foreground">BusinessFlow Pro</span>
             </div>
 
             {/* Mobile Menu Button */}
