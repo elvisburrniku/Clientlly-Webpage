@@ -935,7 +935,7 @@ export default function Subscribe() {
               <Sparkles className="w-6 h-6 ml-3 animate-spin" />
             </div>
             
-            {/* Title and Subtitle with Yellow Background */}
+            {/* Combined Title and Trust Indicators with Yellow Background */}
             <div className="relative w-screen -ml-[50vw] left-1/2 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden mb-12">
               {/* Decorative Elements */}
               <div className="absolute inset-0 overflow-hidden">
@@ -949,74 +949,64 @@ export default function Subscribe() {
                 <div className="absolute top-12 right-32 w-3 h-3 animate-ping delay-2000">
                   <Sparkles className="w-3 h-3 text-yellow-600/30" />
                 </div>
-              </div>
-
-              <div className="relative z-10 text-center">
-                {/* Main Title */}
-                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
-                  Start your{' '}
-                  <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                    business transformation
-                  </span>
-                  <br />
-                  <span className="text-6xl lg:text-7xl xl:text-8xl text-gray-700 dark:text-gray-300">
-                    today
-                  </span>
-                </h1>
-                
-                {/* Subtitle */}
-                <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                  Ready to streamline your operations and boost productivity? 
-                  <br className="hidden lg:block" />
-                  <span className="font-bold text-gray-900 dark:text-white">Choose your plan and get instant access to all BusinessFlow Pro features.</span>
-                </p>
-              </div>
-            </div>
-
-            {/* Enhanced Trust Indicators with Yellow Background */}
-            <div className="relative w-screen -ml-[50vw] left-1/2 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
-              {/* Decorative Elements */}
-              <div className="absolute inset-0 overflow-hidden">
-                {/* Floating sparkle elements */}
-                <div className="absolute top-8 left-16 w-4 h-4 animate-ping delay-0">
-                  <Sparkles className="w-4 h-4 text-amber-600/30" />
-                </div>
-                <div className="absolute bottom-8 right-20 w-6 h-6 animate-ping delay-1000">
-                  <Sparkles className="w-6 h-6 text-orange-600/40" />
-                </div>
-                <div className="absolute top-12 right-32 w-3 h-3 animate-ping delay-2000">
-                  <Sparkles className="w-3 h-3 text-yellow-600/30" />
+                <div className="absolute bottom-20 left-32 w-5 h-5 animate-ping delay-3000">
+                  <Sparkles className="w-5 h-5 text-amber-500/40" />
                 </div>
               </div>
 
-              <div className="relative z-10 flex flex-wrap justify-center items-center gap-8">
-                <div className="flex items-center space-x-3 px-6 py-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-gray-900 dark:text-white">Bank-Level Security</div>
-                    <div className="text-sm text-gray-800 dark:text-gray-200">256-bit SSL</div>
-                  </div>
+              <div className="relative z-10">
+                {/* Title Section */}
+                <div className="text-center mb-16">
+                  {/* Main Title */}
+                  <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
+                    Start your{' '}
+                    <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+                      business transformation
+                    </span>
+                    <br />
+                    <span className="text-6xl lg:text-7xl xl:text-8xl text-gray-700 dark:text-gray-300">
+                      today
+                    </span>
+                  </h1>
+                  
+                  {/* Subtitle */}
+                  <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                    Ready to streamline your operations and boost productivity? 
+                    <br className="hidden lg:block" />
+                    <span className="font-bold text-gray-900 dark:text-white">Choose your plan and get instant access to all BusinessFlow Pro features.</span>
+                  </p>
                 </div>
 
-                <div className="flex items-center space-x-3 px-6 py-3 transform hover:scale-105 transition-transform duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-white" />
+                {/* Trust Indicators */}
+                <div className="flex flex-wrap justify-center items-center gap-8">
+                  <div className="flex items-center space-x-3 px-6 py-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                      <Shield className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="font-bold text-gray-900 dark:text-white">Bank-Level Security</div>
+                      <div className="text-sm text-gray-800 dark:text-gray-200">256-bit SSL</div>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <div className="font-bold text-gray-900 dark:text-white">14 Days Free</div>
-                    <div className="text-sm text-gray-800 dark:text-gray-200">Full Access</div>
-                  </div>
-                </div>
 
-                <div className="flex items-center space-x-3 px-6 py-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <Headphones className="h-6 w-6 text-white" />
+                  <div className="flex items-center space-x-3 px-6 py-3 transform hover:scale-105 transition-transform duration-300">
+                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                      <Clock className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="font-bold text-gray-900 dark:text-white">14 Days Free</div>
+                      <div className="text-sm text-gray-800 dark:text-gray-200">Full Access</div>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <div className="font-bold text-gray-900 dark:text-white">24/7 Support</div>
-                    <div className="text-sm text-gray-800 dark:text-gray-200">Expert Help</div>
+
+                  <div className="flex items-center space-x-3 px-6 py-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                      <Headphones className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="text-left">
+                      <div className="font-bold text-gray-900 dark:text-white">24/7 Support</div>
+                      <div className="text-sm text-gray-800 dark:text-gray-200">Expert Help</div>
+                    </div>
                   </div>
                 </div>
               </div>
