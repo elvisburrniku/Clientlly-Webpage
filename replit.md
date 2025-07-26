@@ -10,6 +10,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (July 26, 2025)
 
+✓ COMPLETED navigation menu text bold formatting across all pages (July 26, 2025)
+✓ Updated navigation links (About Us, Features, Pricing, Contact Us) to font-bold styling
+✓ Applied bold formatting to desktop navigation menus on all pages: landing, subscribe, trial, about, login, contact, compare-features, collaboration
+✓ Updated mobile navigation menus with bold text across all pages for consistency
+✓ Enhanced navigation typography for better visual hierarchy and improved readability
+✓ Maintained hover effects and transitions while upgrading to bold font weight
+
 ✓ COMPLETED user/invoice limits bold and animated formatting (July 26, 2025)
 ✓ Made all user and invoice limits bold with **markdown syntax** in server plan features
 ✓ Enhanced client-side rendering with special blue styling and pulse animations for usage limits

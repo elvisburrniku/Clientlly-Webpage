@@ -56,19 +56,19 @@ export default function Login() {
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
-              <Link href="/#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</Link>
+              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
+              <Link href="/#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = '/subscribe'}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
               >
                 Pricing
               </Button>
               <Button 
                 variant="ghost" 
                 onClick={() => window.location.href = '/contact'} 
-                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-bold"
               >
                 Contact Us
               </Button>
