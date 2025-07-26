@@ -314,18 +314,37 @@ const CollaborationPage = () => {
       </section>
 
       {/* Final CTA */}
-      <section id="final-cta" className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fade-in-up">
-            <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight animate-pulse">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+      <section id="final-cta" className="relative w-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute top-32 right-20 w-3 h-3 animate-ping delay-1000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute bottom-24 left-1/4 w-2 h-2 animate-ping delay-2000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute top-16 right-1/3 w-3 h-3 animate-ping delay-3000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute bottom-16 right-16 w-4 h-4 animate-ping delay-4000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+        </div>
+
+        <div className="relative z-10 py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="animate-fade-in-up">
+              <h3 className="text-4xl lg:text-5xl xl:text-6xl font-black text-gray-800 dark:text-gray-100 mb-4 leading-tight tracking-tight animate-pulse">
                 Your Success Drives Our Innovation
-              </span>
-            </h3>
-            <p className="text-base text-muted-foreground leading-relaxed">
-              Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
-              When you succeed, we all succeed.
-            </p>
+              </h3>
+              <p className="text-base text-gray-700 dark:text-gray-200 leading-relaxed">
+                Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. 
+                When you succeed, we all succeed.
+              </p>
+            </div>
           </div>
         </div>
       </section>
