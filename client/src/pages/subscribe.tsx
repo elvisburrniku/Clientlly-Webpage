@@ -269,6 +269,24 @@ export default function Subscribe() {
     if (billingFromUrl) {
       setBillingPeriod(billingFromUrl);
     }
+
+    // Auto-scroll to pricing section when arriving from "Buy Now" button
+    const scrollToPricing = () => {
+      const pricingSection = document.getElementById('pricing-section');
+      if (pricingSection) {
+        setTimeout(() => {
+          pricingSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }, 500); // Small delay to ensure page is loaded
+      }
+    };
+
+    // Check if coming from a "Buy Now" button (no plan specified)
+    if (!planFromUrl && location.includes('/subscribe')) {
+      scrollToPricing();
+    }
   }, [location]);
 
   const selectedPlanData = plans?.find(p => p.id === selectedPlan);
@@ -339,7 +357,7 @@ export default function Subscribe() {
   );
 
   const renderPlanSelection = () => (
-    <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
+    <div id="pricing-section" className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
       <div className="text-center mb-16">
         <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in leading-tight tracking-tight animate-slide-up">
           Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
