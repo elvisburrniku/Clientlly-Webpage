@@ -260,60 +260,92 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-32 bg-white/50 dark:bg-gray-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Our Journey Section */}
+      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-32 left-16 w-4 h-4 animate-ping delay-0">
+            <Sparkles className="w-4 h-4 text-blue-500/40" />
+          </div>
+          <div className="absolute top-48 right-24 w-6 h-6 animate-ping delay-1000">
+            <Star className="w-6 h-6 text-purple-500/40" />
+          </div>
+          <div className="absolute bottom-40 left-32 w-3 h-3 animate-ping delay-2000">
+            <Heart className="w-3 h-3 text-pink-500/40" />
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-8 scroll-animate-letters tracking-tight leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Our Journey
+              </span>
+            </h2>
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed scroll-animate">
+              From a simple idea to empowering businesses worldwide
+            </p>
+          </div>
+          
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-8 scroll-animate-letters tracking-tight leading-tight">
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Our Story
-                </span>
-              </h2>
-              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p className="scroll-animate">
-                  BusinessFlow Pro was born from a simple observation: small and medium businesses 
-                  were drowning in manual processes, disconnected tools, and endless paperwork. 
-                  Our founders, having experienced these challenges firsthand, knew there had to be a better way.
-                </p>
-                <p className="scroll-animate" style={{animationDelay: '200ms'}}>
-                  Starting in 2019 with a small team of passionate entrepreneurs and engineers, 
-                  we set out to build the business management platform we wished existed. Today, 
-                  we're proud to serve over 50,000 businesses across 150+ countries, helping them 
-                  automate workflows, gain insights, and focus on what matters most - growing their business.
-                </p>
-                <p className="scroll-animate" style={{animationDelay: '400ms'}}>
-                  Every feature we build, every decision we make, is guided by one principle: 
-                  making business operations so simple and powerful that success becomes inevitable.
-                </p>
+            <div className="space-y-8">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 group">
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Lightbulb className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-blue-600 transition-colors duration-300">The Vision</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Born from the frustration of managing business operations with disconnected tools and manual processes. We envisioned a world where technology truly serves business growth.
+                    </p>
+                  </div>
+                </div>
               </div>
               
-              <div className="mt-8 flex items-center space-x-4">
-                <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-4 py-2">
-                  <Award className="w-4 h-4 mr-2" />
-                  Founded 2019
-                </Badge>
-                <Badge className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-4 py-2">
-                  <Building2 className="w-4 h-4 mr-2" />
-                  San Francisco, CA
-                </Badge>
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 group">
+                <div className="flex items-start space-x-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-purple-600 transition-colors duration-300">The Community</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Today, over 50,000 businesses across 120+ countries trust BusinessFlow Pro to streamline their operations, automate workflows, and accelerate growth.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="order-1 lg:order-2">
-              <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/50 dark:to-purple-950/50 border-2 border-blue-200 dark:border-blue-700 hover:shadow-2xl transition-all duration-500 group">
-                <div className="aspect-video rounded-xl overflow-hidden shadow-inner relative">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
+              <Card className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-white/40 hover:shadow-3xl transition-all duration-500 group overflow-hidden">
+                <div className="aspect-video rounded-2xl overflow-hidden m-6 relative">
                   <img 
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
-                    alt="Software development team in modern office"
+                    alt="Modern business team collaboration"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-xl p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm font-medium text-muted-foreground">Growth Rate</span>
+                        <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                          +300%
+                        </Badge>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full w-3/4"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-6 text-center">
-                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">Growing Every Day</h3>
-                  <p className="text-muted-foreground font-black">
-                    From a startup dream to a global platform trusted by thousands
+                <div className="p-6 pt-0">
+                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">Empowering Growth</h3>
+                  <p className="text-muted-foreground">
+                    From startup dreams to enterprise solutions, we've grown alongside our community
                   </p>
                 </div>
               </Card>
@@ -322,17 +354,24 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Our Principles Section */}
+      <section className="py-32 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/20 dark:to-pink-950/20"></div>
+          <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 scroll-animate-letters">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Our Values
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-8 scroll-animate-letters tracking-tight leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                What Drives Us
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground font-black max-w-3xl mx-auto leading-relaxed scroll-animate">
-              The principles that guide everything we do and every decision we make
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed scroll-animate">
+              Four core principles that shape every decision, every feature, and every interaction
             </p>
           </div>
 
