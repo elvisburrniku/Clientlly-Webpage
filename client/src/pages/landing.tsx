@@ -381,8 +381,8 @@ export default function Landing() {
               </h1>
               
               <div className="max-w-5xl mx-auto space-y-8">
-                <p className="text-2xl lg:text-3xl font-black text-muted-foreground leading-relaxed fade-in stagger-1 tracking-tight">
-                  Empower your small business to compete with enterprise-level efficiency. Our comprehensive <span className="font-black text-foreground">accounting software</span> streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
+                <p className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1 tracking-tight">
+                  Empower your small business to compete with enterprise-level efficiency. Our comprehensive <span className="font-semibold text-foreground">accounting software</span> streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
                 </p>
                 
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
@@ -401,7 +401,7 @@ export default function Landing() {
             <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground fade-in stagger-5 pt-8">
               <div className="flex items-center space-x-3">
                 <Check className="h-6 w-6 text-green-500" />
-                <span className="font-black">Free setup & migration</span>
+                <span className="font-medium">Free setup & migration</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Check className="h-6 w-6 text-green-500" />
@@ -699,7 +699,7 @@ export default function Landing() {
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
               Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
             </h2>
-            <p className="text-2xl lg:text-3xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
               Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
             </p>
           </div>
@@ -713,7 +713,7 @@ export default function Landing() {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
-              <p className="text-muted-foreground font-black">Active Users</p>
+              <p className="text-muted-foreground">Active Users</p>
             </div>
 
             {/* Invoices Processed */}
@@ -722,7 +722,7 @@ export default function Landing() {
                 <FileText className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
-              <p className="text-muted-foreground font-black">Invoices Processed</p>
+              <p className="text-muted-foreground">Invoices Processed</p>
             </div>
 
             {/* Customer Satisfaction */}
@@ -731,7 +731,7 @@ export default function Landing() {
                 <Star className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">98%</div>
-              <p className="text-muted-foreground font-black">Satisfaction Rate</p>
+              <p className="text-muted-foreground">Satisfaction Rate</p>
             </div>
 
             {/* Countries */}
@@ -740,7 +740,7 @@ export default function Landing() {
                 <Globe className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">120+</div>
-              <p className="text-muted-foreground font-black">Countries</p>
+              <p className="text-muted-foreground">Countries</p>
             </div>
           </div>
 
@@ -753,7 +753,7 @@ export default function Landing() {
                 <Clock className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">Save 15+ Hours Weekly</h3>
-              <p className="text-muted-foreground font-black leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
               </p>
             </div>
@@ -764,7 +764,7 @@ export default function Landing() {
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">Boost Revenue by 30%</h3>
-              <p className="text-muted-foreground font-black leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
               </p>
             </div>
@@ -775,7 +775,7 @@ export default function Landing() {
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">Eliminate 95% of Errors</h3>
-              <p className="text-muted-foreground font-black leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
               </p>
             </div>
@@ -815,10 +815,10 @@ export default function Landing() {
                   </h2>
                   
                   <div className="space-y-4">
-                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed font-black">
+                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed">
                       Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
                     </p>
-                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-black">
+                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
                       When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
                     </p>
                   </div>

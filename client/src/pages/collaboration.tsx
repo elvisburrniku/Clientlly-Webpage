@@ -123,7 +123,7 @@ export default function Collaboration() {
             </span>
           </h1>
           
-          <p className="text-xl lg:text-2xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in-delayed">
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in-delayed">
             Your business needs drive our development. When you subscribe, you become part of our innovation process – 
             helping shape features that benefit the entire community while solving your unique challenges.
           </p>
@@ -138,7 +138,7 @@ export default function Collaboration() {
             <h2 className="text-3xl font-bold text-foreground mb-6">
               🚀 Our Dedicated Team Provides Complete Support - Absolutely Free
             </h2>
-            <p className="text-lg font-black text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Once you're a subscriber, our experienced development team becomes your extended tech department. 
               We don't just build what you request - we collaborate with you to understand your workflow, analyze your 
               business processes, and design solutions that streamline your operations. From initial consultation to 

@@ -10,16 +10,16 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (July 26, 2025)
 
-✓ COMPLETED comprehensive bold font styling implementation across entire application (July 26, 2025)
-✓ Applied "Let's grow together" font styling (font-black, text-6xl to text-8xl, tracking-tight) to ALL page headers
-✓ Updated main landing page sections including Trust, pricing, and hero sections with consistent bold typography
-✓ Enhanced about.tsx, collaboration.tsx, contact.tsx, login.tsx, and trial.tsx with impactful font styling
-✓ Applied bold font styling to ALL 12 feature pages: invoicing, calendar, clients, expenses, debt, inventory, reports, vendors, attendance, mobile, security, and migration
-✓ Standardized typography hierarchy with larger text sizes (text-6xl to text-8xl) and tight letter spacing
-✓ Maintained gradient text effects while upgrading to more impactful font weights throughout application
-✓ Fixed all JSX syntax issues and TypeScript compilation errors during font styling updates
-✓ Achieved consistent visual design language with bold, professional headers across 20+ pages
-✓ Application now displays unified design aesthetic with powerful, attention-grabbing typography
+✓ CORRECTED font styling approach based on user feedback (July 26, 2025)
+✓ Reverted ALL regular text content (paragraphs, descriptions, captions) back to normal font weight
+✓ Maintained bold font styling (font-black) ONLY on titles and headers as requested
+✓ Updated landing page hero section, trust indicators, benefits, and community sections with proper typography
+✓ Fixed feature pages (invoicing, expenses, clients, calendar) to have normal text with bold headers only
+✓ Corrected about.tsx, collaboration.tsx, contact.tsx, login.tsx, and trial.tsx typography approach
+✓ Applied font-medium or normal weight to all feature descriptions and paragraph content
+✓ Preserved gradient text effects and large header sizes while fixing content text weight
+✓ Achieved proper typography hierarchy: bold impactful headers with readable normal-weight content
+✓ User clarification: "text and content should not be bold, only titles" - implemented correctly
 
 ✓ COMPLETED compare-features page redesign with usage-based pricing philosophy (July 26, 2025)
 ✓ Redesigned page to match About Us styling with glass effects, animations, and professional card layouts

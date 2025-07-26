@@ -92,7 +92,7 @@ export default function FeatureExpenses() {
                 <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight">
                   Get set for tax time with <span className="gradient-text">organized expenses</span>
                 </h1>
-                <p className="text-xl font-black text-muted-foreground">
+                <p className="text-xl text-muted-foreground">
                   Capture receipts instantly with your phone, automatically categorize expenses, 
                   and generate tax-ready reports in seconds. Never lose a receipt again.
                 </p>
@@ -101,15 +101,15 @@ export default function FeatureExpenses() {
               <div className="flex flex-wrap gap-6 fade-in stagger-1">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-black">AI-powered categorization</span>
+                  <span className="font-medium">AI-powered categorization</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-black">Receipt scanning</span>
+                  <span className="font-medium">Receipt scanning</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-black">Tax-ready reports</span>
+                  <span className="font-medium">Tax-ready reports</span>
                 </div>
               </div>
 
