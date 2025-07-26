@@ -287,68 +287,55 @@ const AboutPage = () => {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Lightbulb className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-blue-600 transition-colors duration-300">The Vision</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Born from the frustration of managing business operations with disconnected tools and manual processes. We envisioned a world where technology truly serves business growth.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:shadow-3xl transition-all duration-500 group">
-                <div className="flex items-start space-x-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-purple-600 transition-colors duration-300">The Community</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Today, over 50,000 businesses across 120+ countries trust BusinessFlow Pro to streamline their operations, automate workflows, and accelerate growth.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Timeline with Years */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Central Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
             
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
-              <Card className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-white/40 hover:shadow-3xl transition-all duration-500 group overflow-hidden">
-                <div className="aspect-video rounded-2xl overflow-hidden m-6 relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
-                    alt="Modern business team collaboration"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-xl p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-muted-foreground">Growth Rate</span>
-                        <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                          +300%
-                        </Badge>
+            <div className="space-y-16">
+              {timeline.map((item, index) => (
+                <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'} group`}>
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-black text-lg shadow-2xl z-10 group-hover:scale-125 transition-all duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+                    <span className="text-sm">{item.year}</span>
+                  </div>
+                  
+                  {/* Content Card */}
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-16' : 'pl-16'}`}>
+                    <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-700 group-hover:scale-110 hover:-translate-y-4 overflow-hidden relative">
+                      {/* Animated Background */}
+                      <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-700 ${
+                        index % 3 === 0 ? 'from-blue-500 to-purple-600' :
+                        index % 3 === 1 ? 'from-purple-500 to-pink-600' :
+                        'from-pink-500 to-blue-600'
+                      }`}></div>
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center space-x-4 mb-4">
+                          <Badge className={`px-4 py-2 font-bold text-lg ${
+                            index % 3 === 0 ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
+                            index % 3 === 1 ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' :
+                            'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200'
+                          }`}>
+                            {item.year}
+                          </Badge>
+                        </div>
+                        <h3 className="text-2xl font-black text-foreground mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed text-lg group-hover:text-foreground transition-colors duration-500">
+                          {item.description}
+                        </p>
                       </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full w-3/4"></div>
-                      </div>
-                    </div>
+                      
+                      {/* Floating Elements */}
+                      <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400/30 rounded-full animate-ping group-hover:animate-bounce"></div>
+                      <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400/30 rounded-full animate-pulse group-hover:animate-spin"></div>
+                    </Card>
                   </div>
                 </div>
-                <div className="p-6 pt-0">
-                  <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">Empowering Growth</h3>
-                  <p className="text-muted-foreground">
-                    From startup dreams to enterprise solutions, we've grown alongside our community
-                  </p>
-                </div>
-              </Card>
+              ))}
             </div>
           </div>
         </div>
