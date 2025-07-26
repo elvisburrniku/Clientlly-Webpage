@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import ChatBot from "@/components/ChatBot";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -52,15 +54,18 @@ import {
   Zap,
   TrendingUp,
   Heart,
+  Sparkles,
   ArrowRight,
-  Gift
+  Gift,
+  Code
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
-import TutorialWalkthrough from "@/components/TutorialWalkthrough";
-import { useTutorial } from "@/hooks/useTutorial";
+
+import { SocialLinks } from "@/components/ui/animated-icons";
+import Footer from "@/components/Footer";
 
 
 interface SubscriptionPlan {
@@ -74,12 +79,12 @@ interface SubscriptionPlan {
 export default function Landing() {
   const { toast } = useToast();
   const { t } = useTranslation();
-  const tutorial = useTutorial();
+
 
 
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [selectedFAQ, setSelectedFAQ] = useState<string | null>(null);
+
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [selectedCurrency, setSelectedCurrency] = useState('USD');
   const { locationData, isLoading: locationLoading } = useLocationDetection();
@@ -187,7 +192,7 @@ export default function Landing() {
 
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-16">
+        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex items-center justify-between h-16">
             {/* Left Section - Logo and Company Name */}
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
@@ -195,9 +200,9 @@ export default function Landing() {
                 <img 
                   src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-playful cursor-pointer"
+                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
                   style={{ 
-                    filter: 'drop-shadow(0 0 0 transparent)',
+                    filter: 'none',
                     background: 'transparent'
                   }}
                   onError={(e) => {
@@ -207,7 +212,7 @@ export default function Landing() {
                   onLoad={() => console.log('Logo loaded successfully')}
                 />
               </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-105 transform">BusinessFlow Pro</span>
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
 
             {/* Center Section - Navigation Links */}
@@ -215,7 +220,14 @@ export default function Landing() {
               <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
               <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</a>
               <button 
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  console.log('Pricing button clicked');
+                  const element = document.getElementById('pricing-section');
+                  console.log('Pricing section element:', element);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
+                  }
+                }}
                 className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium bg-transparent border-none cursor-pointer"
               >
                 Pricing
@@ -241,28 +253,18 @@ export default function Landing() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-green-600 bg-green-600 text-white hover:bg-green-700 transition-all duration-300"
+                onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
+                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
               >
                 Buy Now
               </Button>
               <Button 
                 onClick={() => window.location.href = "/trial"}
-                className="bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 cta-button"
+                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
               </Button>
-              {tutorial.isFirstVisit && (
-                <Button 
-                  variant="outline"
-                  size="sm"
-                  onClick={tutorial.startTutorial}
-                  className="border-blue-500 text-blue-600 hover:bg-blue-50 flex items-center space-x-1"
-                >
-                  <Play className="h-4 w-4" />
-                  <span>Take Tour</span>
-                </Button>
-              )}
+
               <LanguageSelector />
             </div>
 
@@ -289,7 +291,12 @@ export default function Landing() {
               <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</a>
               <button 
                 onClick={() => {
-                  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                  console.log('Mobile pricing button clicked');
+                  const element = document.getElementById('pricing-section');
+                  console.log('Mobile pricing section element:', element);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'instant', block: 'start' });
+                  }
                   setShowMobileMenu(false);
                 }}
                 className="block text-muted-foreground hover:text-primary transition-colors text-left"
@@ -321,11 +328,12 @@ export default function Landing() {
                   Login
                 </Button>
                 <Button 
+                  variant="outline"
                   onClick={() => {
-                    document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+                    window.location.href = '/subscribe?plan=business&billing=monthly';
                     setShowMobileMenu(false);
                   }}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
+                  className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
                 >
                   Buy Now
                 </Button>
@@ -334,7 +342,7 @@ export default function Landing() {
                     window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
                 >
                   Start Your Trial
                 </Button>
@@ -348,7 +356,7 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 px-4 overflow-hidden min-h-screen flex items-center">
+      <section className="hero-section relative pt-20 pb-32 px-4 overflow-hidden min-h-screen flex items-center">
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -360,26 +368,32 @@ export default function Landing() {
 
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center space-y-16">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-8 slide-in-up shadow-lg">
-              <Star className="w-4 h-4 mr-2 fill-current text-yellow-500" />
-              Used by thousands of businesses worldwide
-            </div>
+
             
             {/* Main Heading */}
-            <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
-                <span className="text-foreground block mb-1 leading-tight">
+            <div className="space-y-12">
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
+                <span className="text-foreground leading-tight">
                   Everything you need to
                 </span>
-                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
-                  run your business
+                <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
+                  {" "}run your business
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-3 mt-6">
-                Our comprehensive platform manages every aspect of your business operations for maximum efficiency and growth.
-              </p>
+              <div className="max-w-5xl mx-auto space-y-8">
+                <p className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1 tracking-tight">
+                  Empower your small business to compete with enterprise-level efficiency. Our comprehensive <span className="font-semibold text-foreground">accounting software</span> streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
+                </p>
+                
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
+
+                  <div className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-md">
+                    <Clock className="h-4 w-4 text-white" />
+                    <span className="text-sm font-black text-white">14-day free trial</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
 
@@ -392,15 +406,15 @@ export default function Landing() {
               </div>
               <div className="flex items-center space-x-3">
                 <Check className="h-6 w-6 text-green-500" />
-                <span className="font-medium">Cancel anytime</span>
+                <span className="font-black">Cancel anytime</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Check className="h-6 w-6 text-green-500" />
-                <span className="font-medium">24/7 expert support</span>
+                <span className="font-black">24/7 expert support</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Shield className="h-6 w-6 text-green-500" />
-                <span className="font-medium">Bank-level security</span>
+                <span className="font-black">Bank-level security</span>
               </div>
             </div>
           </div>
@@ -409,180 +423,546 @@ export default function Landing() {
         </div>
       </section>
 
-
-
       {/* Features Section */}
-      <section id="features" className="py-12 px-4 relative -mt-12 features-section">
+      <section id="features" className="py-16 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 fade-in">
-              The features you need. <span className="gradient-text">All in one place</span>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
+              <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
             </h2>
+            <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
+              No more juggling multiple tools.
+            </p>
+            <p className="text-xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2 tracking-tight">
+              Everything your business needs in one powerful platform.
+            </p>
           </div>
 
-          {/* Reorganized Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 features-grid">
+          {/* Compact Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 features-grid">
             
             {/* 1. Professional Invoicing */}
             <div className="group relative fade-in stagger-1">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-blue-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <FileText className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <FileText className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
+                    <p className="text-sm font-black text-muted-foreground">Custom invoices & payment tracking</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Professional Invoicing</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Create professional custom invoices, send payment reminders, and match payments to invoices, automatically.</p>
-
+                <a 
+                  href="/features/invoicing"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 2. Smart Expense Tracking */}
             <div className="group relative fade-in stagger-2">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-green-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Receipt className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-green-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Receipt className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
+                    <p className="text-sm font-black text-muted-foreground">Organized expenses for tax time</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Smart Expense Tracking</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Get set for tax time with all your expenses organised in one place.</p>
-
+                <a 
+                  href="/features/expenses"
+                  className="inline-flex items-center text-green-600 hover:text-green-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 3. Debt Management */}
             <div className="group relative fade-in stagger-3">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-red-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-red-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <CreditCard className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-red-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <CreditCard className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Debt Management</h3>
+                    <p className="text-sm font-black text-muted-foreground">Track debts & payment scheduling</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Debt Management</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Track business debts, schedule payments, and optimize debt reduction strategies with smart analytics and payment planning tools.</p>
-
+                <a 
+                  href="/features/debt"
+                  className="inline-flex items-center text-red-600 hover:text-red-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 4. Insights & Reports */}
             <div className="group relative fade-in stagger-4">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-cyan-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <BarChart3 className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <BarChart3 className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Insights & Reports</h3>
+                    <p className="text-sm font-black text-muted-foreground">Business analytics & cash flow planning</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Insights & Reports</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how your business is doing, and how it could look in the next 90 days, with a range of popular reports and the cash flow planner.</p>
-
+                <a 
+                  href="/features/reports"
+                  className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 5. Client Management */}
             <div className="group relative fade-in stagger-5">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-indigo-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Users className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Client Management</h3>
+                    <p className="text-sm font-black text-muted-foreground">Profiles, projects & communication tracking</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Client Management</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Manage all your clients in one place with detailed profiles, contact information, project history, and communication tracking for better relationships.</p>
-
+                <a 
+                  href="/features/clients"
+                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 6. Vendor Management */}
             <div className="group relative fade-in stagger-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-amber-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-amber-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Building2 className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-amber-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Building2 className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Vendor Management</h3>
+                    <p className="text-sm font-black text-muted-foreground">Supplier tracking & purchase orders</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Vendor Management</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Streamline your vendor relationships with comprehensive supplier profiles, purchase order tracking, payment management, and performance analytics.</p>
-
+                <a 
+                  href="/features/vendors"
+                  className="inline-flex items-center text-amber-600 hover:text-amber-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 7. Inventory Management */}
             <div className="group relative fade-in stagger-7">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-red-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-red-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Package className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-violet-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Package className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Inventory Management</h3>
+                    <p className="text-sm font-black text-muted-foreground">Real-time inventory & order tracking</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Inventory Management</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Stay on top of your orders and quantities while managing your inventory in real-time.</p>
-
+                <a 
+                  href="/features/inventory"
+                  className="inline-flex items-center text-violet-600 hover:text-violet-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
             {/* 8. Attendance */}
             <div className="group relative fade-in stagger-8">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-green-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Clock className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Clock className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Smart Attendance</h3>
+                    <p className="text-sm font-black text-muted-foreground">GPS tracking & workforce management</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Smart Attendance</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">GPS-based time tracking with offline support, team management, and comprehensive attendance analytics for modern workforces.</p>
-
+                <a 
+                  href="/features/attendance"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
 
-            {/* 9. Smart Calendar */}
-            <div className="group relative fade-in stagger-9">
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-violet-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-violet-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-violet-500 to-violet-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Calendar className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Smart Calendar</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Integrated calendar system for scheduling meetings, tracking deadlines, managing appointments, and coordinating team activities with smart notifications.</p>
 
-              </div>
-            </div>
 
-            {/* Keep remaining features for completeness */}
-            {/* Mobile App */}
+            {/* 10. Easy Migration */}
             <div className="group relative fade-in stagger-10">
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-teal-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-teal-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Smartphone className="h-7 w-7 text-white" />
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-pink-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <RefreshCw className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-foreground">Easy Migration</h3>
+                    <p className="text-sm font-black text-muted-foreground">Automated data transfer & expert support</p>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Mobile App</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Save time by running your business on-the go with your mobile device*.</p>
-
-              </div>
-            </div>
-
-            {/* Enterprise Security */}
-            <div className="group relative fade-in stagger-11">
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-500/20 to-slate-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-slate-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-slate-500 to-slate-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <Shield className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Enterprise Security</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">See how we keep your information safe and compliant at all times.</p>
-
-              </div>
-            </div>
-
-            {/* Easy Migration */}
-            <div className="group relative fade-in stagger-12">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-pink-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
-              <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-6 lg:p-8 hover:border-pink-500/30 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl">
-                <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                  <RefreshCw className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">Easy Migration</h3>
-                <p className="text-muted-foreground leading-relaxed mb-4 text-sm min-h-[3rem]">Switch from other platforms with automated data transfer and expert support.</p>
-
+                <a 
+                  href="/features/migration"
+                  className="inline-flex items-center text-slate-600 hover:text-slate-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more
+                  <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
 
+          {/* Compare Features Section */}
+          <div className="text-center mt-16 fade-in stagger-11">
+            <button 
+              onClick={() => window.location.href = '/compare-features'}
+              className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-xl font-bold text-lg transform transition-all duration-300 hover:scale-105 active:scale-95 group overflow-hidden"
+              onMouseDown={(e) => {
+                // Create expanding circle effect on click
+                const button = e.currentTarget;
+                const rect = button.getBoundingClientRect();
+                const circle = document.createElement('div');
+                const size = Math.max(rect.width, rect.height) * 2;
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
+                circle.style.cssText = `
+                  width: ${size}px;
+                  height: ${size}px;
+                  left: ${x}px;
+                  top: ${y}px;
+                  transform: scale(0);
+                  transition: transform 0.5s ease-out;
+                `;
+                
+                button.appendChild(circle);
+                
+                // Trigger animation
+                requestAnimationFrame(() => {
+                  circle.style.transform = 'scale(1)';
+                  circle.style.opacity = '0';
+                });
+                
+                // Remove circle after animation
+                setTimeout(() => {
+                  circle.remove();
+                }, 500);
+              }}
+            >
+              {/* Content */}
+              <div className="relative z-10 flex items-center text-white">
+                <span className="mr-2 text-white font-black">Compare plan features</span>
+                <ChevronDown className="h-5 w-5 text-white group-active:rotate-180 transition-transform duration-300 ease-out" />
+              </div>
+              
+              {/* Animated background on click */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-active:opacity-100 transition-opacity duration-200 rounded-xl"></div>
+            </button>
+          </div>
         </div>
       </section>
+
+      {/* Trust & Success Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
+              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
+            </h2>
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
+              Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
+            </p>
+          </div>
+
+          {/* Trust Indicators Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            
+            {/* Active Users */}
+            <div className="text-center group fade-in stagger-1">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
+              <p className="text-muted-foreground">Active Users</p>
+            </div>
+
+            {/* Invoices Processed */}
+            <div className="text-center group fade-in stagger-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
+              <p className="text-muted-foreground">Invoices Processed</p>
+            </div>
+
+            {/* Customer Satisfaction */}
+            <div className="text-center group fade-in stagger-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Star className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">98%</div>
+              <p className="text-muted-foreground">Satisfaction Rate</p>
+            </div>
+
+            {/* Countries */}
+            <div className="text-center group fade-in stagger-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Globe className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">120+</div>
+              <p className="text-muted-foreground">Countries</p>
+            </div>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Save Time */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-1">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Clock className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-foreground mb-4">Save 15+ Hours Weekly</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
+              </p>
+            </div>
+
+            {/* Increase Revenue */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-2">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <TrendingUp className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-foreground mb-4">Boost Revenue by 30%</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
+              </p>
+            </div>
+
+            {/* Reduce Errors */}
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-foreground mb-4">Eliminate 95% of Errors</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+      {/* Growing Together Section - HoneyBook Style */}
+      <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating sparkle elements */}
+          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
+            <Sparkles className="w-4 h-4 text-amber-600/30" />
+          </div>
+          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
+            <Sparkles className="w-6 h-6 text-orange-600/40" />
+          </div>
+          <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
+            <Sparkles className="w-3 h-3 text-yellow-600/30" />
+          </div>
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center">
+          <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
+            <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+              {/* Left Side - Content */}
+              <div className="space-y-8 lg:space-y-12">
+                {/* Main Heading */}
+                <div className="space-y-6">
+                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight">
+                    <span className="inline-block animate-elegant-rise animation-delay-0">Let's</span>{' '}
+                    <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">grow</span>{' '}
+                    <span className="inline-block animate-elegant-rise animation-delay-400">together</span>
+                  </h2>
+                  
+                  <div className="space-y-4">
+                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed">
+                      Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
+                    </p>
+                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                      When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Feature Highlights */}
+                <div className="space-y-6">
+                  {/* Your Ideas */}
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Your Ideas</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">Share your vision and we'll make it reality</p>
+                  </div>
+                  
+                  {/* Fast Development */}
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Fast Development</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">Ideas become features in record time</p>
+                  </div>
+                  
+                  {/* Mutual Growth */}
+                  <div className="group">
+                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mutual Growth</h4>
+                    <p className="text-lg text-gray-700 dark:text-gray-200">We succeed when you succeed</p>
+                  </div>
+                </div>
+                
+                {/* Call to Action */}
+                <div className="pt-4">
+                  <Button 
+                    onClick={() => window.location.href = '/collaboration'}
+                    className="group px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  >
+                    <span className="flex items-center">
+                      Learn more
+                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    </span>
+                  </Button>
+
+                </div>
+              </div>
+              
+              {/* Right Side - Premium Community Card */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative group perspective-1000">
+                  {/* Main Card */}
+                  <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl hover:shadow-amber-500/20">
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative space-y-8">
+                      {/* Header with Animated Icon */}
+                      <div className="text-center">
+                        <div className="relative mb-6">
+                          <div className="w-20 h-20 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+                            <Users className="w-10 h-10 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                          </div>
+                          {/* Floating particles around icon */}
+                          <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-400/60 rounded-full animate-bounce"></div>
+                          <div className="absolute -bottom-1 -left-3 w-3 h-3 bg-purple-400/60 rounded-full animate-bounce delay-300"></div>
+                        </div>
+                        
+                        <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 transform transition-all duration-500 hover:scale-105 hover:text-orange-600">
+                          Community First
+                        </h3>
+                        <p className="text-lg text-gray-700 dark:text-gray-800 leading-relaxed font-medium">
+                          Your success drives our development. Every feature we build strengthens our entire community.
+                        </p>
+                      </div>
+                      
+                      {/* Enhanced Benefits Grid */}
+                      <div className="space-y-5">
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <Code className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Free Custom Development</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Dedicated team builds your ideas at no extra cost</p>
+                          </div>
+                        </div>
+                        
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <Headphones className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Expert Team Support</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Direct access to our development experts</p>
+                          </div>
+                        </div>
+                        
+                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
+                            <TrendingUp className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Shared Growth</h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">Community-driven feature roadmap</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Enhanced CTA */}
+                      <div className="pt-2">
+                        <button 
+                          onClick={() => window.location.href = '/collaboration'}
+                          className="w-full bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white border-0 rounded-2xl py-4 font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-orange-500/50 cursor-pointer"
+                        >
+                          <span className="flex items-center justify-center">
+                            Join Our Community
+                            <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 hover:translate-x-1" />
+                          </span>
+                        </button>
+                        <p className="text-sm text-gray-500 dark:text-gray-600 text-center mt-3 font-medium">
+                          Join 50,000+ growing businesses
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Enhanced Floating Elements */}
+                  <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl backdrop-blur-sm floating-element shadow-xl opacity-80">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Sparkles className="w-8 h-8 text-white animate-spin-slow" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl backdrop-blur-sm floating-delayed shadow-lg opacity-80">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-white animate-pulse" />
+                    </div>
+                  </div>
+                  <div className="absolute top-1/3 -left-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full backdrop-blur-sm floating-slow shadow-lg opacity-70"></div>
+                  <div className="absolute top-1/4 -right-10 w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full backdrop-blur-sm floating-element shadow-lg opacity-70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* Pricing Section */}
       <section id="pricing-section" className="py-20 px-4 bg-muted/30 pricing-section">
@@ -590,52 +970,9 @@ export default function Landing() {
           <div className="text-center mb-16">
 
             
-            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 fade-in stagger-1 leading-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business and let's <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">grow together</span>
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-1 leading-tight tracking-tight animate-slide-up">
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
             </h2>
-            
-            <div className="max-w-4xl mx-auto mb-16">
-              {/* Professional Collaboration Section */}
-              <div className="bg-white/95 dark:bg-gray-900/95 rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm">
-                
-                <div className="text-center space-y-6">
-                  
-                  {/* Section Header */}
-                  <div className="space-y-3">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
-                      Growing Together
-                    </h3>
-                    <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-                  </div>
-                  
-                  {/* Main Content */}
-                  <div className="max-w-3xl mx-auto space-y-6">
-                    <p className="text-lg text-foreground leading-relaxed">
-                      With your ideas and feedback, we continuously improve our platform{' '}
-                      <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent font-semibold">free of charge</span>
-                      {' '}because we believe the best growth happens when we grow together.
-                    </p>
-                    
-                    {/* Call to Action */}
-                    <div className="pt-4">
-                      <Button 
-                        variant="outline"
-                        onClick={() => window.location.href = '/collaboration'}
-                        className="group border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-base font-semibold shadow-sm hover:shadow-md"
-                      >
-                        <span className="flex items-center">
-                          <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent group-hover:text-white">Learn more</span>
-                          <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            
-
             
 
           </div>
@@ -649,14 +986,16 @@ export default function Landing() {
                 }`}
               >
                 {index === 1 && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 pulse-glow">
-                    <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-1">Most Popular</Badge>
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                    <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
+                      Most Popular
+                    </Badge>
                   </div>
                 )}
                 
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-foreground mb-4">{plan.name}</h3>
+                    <h3 className="text-3xl font-black text-foreground mb-4 tracking-tight">{plan.name}</h3>
                     
                     {/* Individual Plan Billing Toggle */}
                     <div className="mb-6">
@@ -733,21 +1072,16 @@ export default function Landing() {
                   
                   <div className="space-y-3">
                     <Button 
-                      className={`w-full transition-all duration-300 hover:scale-105 ${
-                        index === 1 
-                          ? 'bg-gradient-to-r from-primary to-secondary pulse-glow' 
-                          : 'glow-border'
-                      }`}
-                      variant={index === 1 ? "default" : "outline"}
+                      className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium py-2"
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                     >
-                      {plan.id === 'basic' ? 'Buy Now' : 'Buy Now'}
+                      Buy Now
                     </Button>
                     {plan.id === 'basic' && (
                       <Button 
-                        variant="ghost" 
+                        variant="outline" 
                         size="sm"
-                        className="w-full text-primary hover:text-primary/80"
+                        className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50"
                         onClick={() => window.location.href = `/trial?plan=${plan.id}&billing=${billingPeriod}`}
                       >
                         Start Your Trial
@@ -755,9 +1089,9 @@ export default function Landing() {
                     )}
                     {plan.id !== 'basic' && (
                       <Button 
-                        variant="ghost" 
+                        variant="outline" 
                         size="sm"
-                        className="w-full text-primary hover:text-primary/80"
+                        className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50"
                         onClick={() => window.location.href = '/trial'}
                       >
                         Start Your Trial
@@ -771,348 +1105,13 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Collaboration section moved to separate /collaboration page */}
 
-
-
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <Clock className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1 relative z-10">
-                          <h4 className="font-semibold text-xs text-foreground mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors duration-300">Free Trial Period</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed group-hover:text-blue-600/80 dark:group-hover:text-blue-400/80 transition-colors duration-300">
-                            <span className="font-medium text-blue-600 dark:text-blue-400">14 days free</span> with full access
-                          </p>
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-blue-500 dark:text-blue-400 mt-1 font-medium">
-                            → Click for details
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div 
-                      onClick={() => setSelectedFAQ('cancel')}
-                      className="group p-3 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-xl border border-green-200/50 dark:border-green-700/50 hover:shadow-lg hover:shadow-green-200/50 dark:hover:shadow-green-800/50 transition-all duration-300 fade-in stagger-2 cursor-pointer hover:scale-105 hover:border-green-400/70 dark:hover:border-green-500/70 relative overflow-hidden"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <Shield className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1 relative z-10">
-                          <h4 className="font-semibold text-xs text-foreground mb-1 group-hover:text-green-700 dark:group-hover:text-green-300 transition-colors duration-300">Easy Cancellation</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed group-hover:text-green-600/80 dark:group-hover:text-green-400/80 transition-colors duration-300">
-                            Cancel <span className="font-medium text-green-600 dark:text-green-400">anytime</span> with one click
-                          </p>
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-green-500 dark:text-green-400 mt-1 font-medium">
-                            → Click for details
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div 
-                      onClick={() => setSelectedFAQ('migration')}
-                      className="group p-3 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950/50 dark:to-pink-950/50 rounded-xl border border-purple-200/50 dark:border-purple-700/50 hover:shadow-lg hover:shadow-purple-200/50 dark:hover:shadow-purple-800/50 transition-all duration-300 fade-in stagger-3 cursor-pointer hover:scale-105 hover:border-purple-400/70 dark:hover:border-purple-500/70 relative overflow-hidden"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <Database className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1 relative z-10">
-                          <h4 className="font-semibold text-xs text-foreground mb-1 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors duration-300">Data Migration</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed group-hover:text-purple-600/80 dark:group-hover:text-purple-400/80 transition-colors duration-300">
-                            <span className="font-medium text-purple-600 dark:text-purple-400">Free migration</span> from 50+ platforms
-                          </p>
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-purple-500 dark:text-purple-400 mt-1 font-medium">
-                            → Click for details
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div 
-                      onClick={() => setSelectedFAQ('support')}
-                      className="group p-3 bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-950/50 dark:to-yellow-950/50 rounded-xl border border-orange-200/50 dark:border-orange-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-4 cursor-pointer hover:scale-105"
-                    >
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <HeadphonesIcon className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">24/7 Support</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
-                            Expert help with <span className="font-medium text-orange-600 dark:text-orange-400">&lt;5min response</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div 
-                      onClick={() => setSelectedFAQ('security')}
-                      className="group p-3 bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-950/50 dark:to-pink-950/50 rounded-xl border border-red-200/50 dark:border-red-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-5 cursor-pointer hover:scale-105"
-                    >
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <Lock className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">Bank-Level Security</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
-                            <span className="font-medium text-red-600 dark:text-red-400">SOC 2 compliant</span> with encryption
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div 
-                      onClick={() => setSelectedFAQ('pricing')}
-                      className="group p-3 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/50 dark:to-blue-950/50 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-6 cursor-pointer hover:scale-105"
-                    >
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <CreditCard className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">Flexible Pricing</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
-                            Plans from <span className="font-medium text-indigo-600 dark:text-indigo-400">$29/month</span> with discounts
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div 
-                      onClick={() => setSelectedFAQ('integration')}
-                      className="group p-3 bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/50 dark:to-cyan-950/50 rounded-xl border border-teal-200/50 dark:border-teal-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-7 cursor-pointer hover:scale-105"
-                    >
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <RefreshCw className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">Easy Integration</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
-                            <span className="font-medium text-teal-600 dark:text-teal-400">5-minute setup</span> with existing tools
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div 
-                      onClick={() => setSelectedFAQ('training')}
-                      className="group p-3 bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/50 dark:to-purple-950/50 rounded-xl border border-violet-200/50 dark:border-violet-700/50 hover:shadow-lg transition-all duration-300 fade-in stagger-8 cursor-pointer hover:scale-105"
-                    >
-                      <div className="flex items-start space-x-3">
-                        <div className="w-7 h-7 bg-gradient-to-r from-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-md flex-shrink-0 group-hover:rotate-12 transition-transform duration-300">
-                          <Users className="h-3 w-3 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="font-semibold text-xs text-foreground mb-1">Free Training</h4>
-                          <p className="text-xs text-muted-foreground leading-relaxed">
-                            <span className="font-medium text-violet-600 dark:text-violet-400">Live onboarding</span> & tutorials
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* FAQ Popup Modal */}
-          {selectedFAQ && (
-            <div 
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-              onClick={() => setSelectedFAQ(null)}
-            >
-              <div 
-                className="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md w-full shadow-2xl animate-in fade-in zoom-in-95 duration-300"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {selectedFAQ === 'trial' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <Clock className="w-6 h-6 text-blue-500 mr-3" />
-                      Free Trial Period
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Get full access to BusinessFlow Pro for 14 days absolutely free. No credit card required to start. 
-                      Experience all premium features including unlimited invoices, expense tracking, client management, 
-                      and advanced reporting. Cancel anytime during the trial with no charges.
-                    </p>
-                  </>
-                )}
-                {selectedFAQ === 'cancel' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <Shield className="w-6 h-6 text-green-500 mr-3" />
-                      Easy Cancellation
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Cancel your subscription with just one click from your account dashboard. No phone calls, 
-                      no hassle, no questions asked. Your cancellation takes effect immediately, and you'll 
-                      retain access until your current billing period ends.
-                    </p>
-                  </>
-                )}
-                {selectedFAQ === 'migration' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <Database className="w-6 h-6 text-purple-500 mr-3" />
-                      Data Migration
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      We offer free data migration from over 50 popular business platforms including QuickBooks, 
-                      Xero, FreshBooks, and more. Our expert team handles the entire process, ensuring your 
-                      invoices, clients, expenses, and reports transfer seamlessly without any data loss.
-                    </p>
-                  </>
-                )}
-                {selectedFAQ === 'support' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <HeadphonesIcon className="w-6 h-6 text-orange-500 mr-3" />
-                      24/7 Support
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Get expert help whenever you need it with our 24/7 customer support. Live chat, email, 
-                      and phone support available with average response times under 5 minutes. Our dedicated 
-                      team is trained to help with setup, troubleshooting, and business optimization tips.
-                    </p>
-                  </>
-                )}
-                {selectedFAQ === 'security' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <Lock className="w-6 h-6 text-red-500 mr-3" />
-                      Bank-Level Security
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Your data is protected with enterprise-grade security including 256-bit SSL encryption, 
-                      SOC 2 Type II compliance, and regular security audits. We use the same security standards 
-                      as major banks to ensure your business information remains completely secure.
-                    </p>
-                  </>
-                )}
-                {selectedFAQ === 'pricing' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <CreditCard className="w-6 h-6 text-indigo-500 mr-3" />
-                      Flexible Pricing
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Choose from three flexible plans starting at just $29/month. Save 20% with annual billing. 
-                      All plans include core features with higher tiers offering advanced reporting, unlimited users, 
-                      and priority support. Upgrade or downgrade anytime to match your business needs.
-                    </p>
-                  </>
-                )}
-                {selectedFAQ === 'integration' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <RefreshCw className="w-6 h-6 text-teal-500 mr-3" />
-                      Easy Integration
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Connect BusinessFlow Pro with your existing tools in minutes. We integrate with popular 
-                      payment processors, banks, CRM systems, and productivity apps. Our step-by-step setup 
-                      wizard makes integration simple, even for non-technical users.
-                    </p>
-                  </>
-                )}
-                {selectedFAQ === 'training' && (
-                  <>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center">
-                      <Users className="w-6 h-6 text-violet-500 mr-3" />
-                      Free Training
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Get up to speed quickly with our comprehensive training program. Includes live onboarding 
-                      sessions, video tutorials, step-by-step guides, and best practices webinars. Our training 
-                      ensures your team maximizes BusinessFlow Pro's potential from day one.
-                    </p>
-                  </>
-                )}
-                <Button 
-                  onClick={() => setSelectedFAQ(null)}
-                  className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl"
-                >
-                  Got it, thanks!
-                </Button>
-              </div>
-            </div>
-          )}
-
-
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 slide-in-bottom">
-            <span className="inline-block animate-bounce-in bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-              {t('landing.footer.ready', 'Ready to transform your business?')}
-            </span>
-          </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto slide-in-bottom stagger-1 animate-fade-in-up leading-relaxed">
-            {t('landing.footer.join', 'Join thousands of businesses that have streamlined their operations with BusinessFlow Pro. Start your free trial today.')}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center slide-in-bottom stagger-2">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg px-8 py-4 font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border-0"
-              onClick={() => window.location.href = "/api/login"}
-            >
-              {t('landing.getStarted', 'Start Your Trial')}
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-blue-400 text-blue-100 hover:bg-blue-400 hover:text-slate-900 text-lg px-8 py-4 font-bold backdrop-blur-sm bg-white/10 hover:bg-blue-400 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-              onClick={() => setShowDemoModal(true)}
-            >
-              Learn More
-            </Button>
-          </div>
-
-          <div className="mt-8 flex justify-center space-x-8 text-white/80 text-sm">
-            <div className="flex items-center space-x-2">
-              <Shield className="h-4 w-4" />
-              <span>{t('landing.footer.security', 'Bank-level security')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Globe className="h-4 w-4" />
-              <span>{t('landing.footer.uptime', '99.9% uptime')}</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Headphones className="h-4 w-4" />
-              <span>{t('landing.footer.support24', '24/7 support')}</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full opacity-5">
-            <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
           </div>
         </div>
         
@@ -1122,28 +1121,32 @@ export default function Landing() {
 
               {/* Product Links */}
               <div className="fade-in stagger-1">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Product
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#features" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      Features
+                    <a href="#features" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Features</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#pricing" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      Pricing
+                    <a href="#pricing" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Pricing</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      Integrations
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Integrations</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      API
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">API</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
@@ -1151,23 +1154,26 @@ export default function Landing() {
 
               {/* Company Links */}
               <div className="fade-in stagger-2">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Company
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="/about" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      About
+                    <a href="/about" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">About</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      Careers
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Careers</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      Contact
+                    <a href="#contact" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Contact</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
@@ -1175,23 +1181,26 @@ export default function Landing() {
 
               {/* Support Links */}
               <div className="fade-in stagger-3">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Support
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.help
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Help Center</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.tutorials
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Tutorials</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      Community
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Community</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
@@ -1199,45 +1208,67 @@ export default function Landing() {
 
               {/* Resources Links */}
               <div className="fade-in stagger-4">
-                <h4 className="text-lg font-bold text-white mb-6 bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                <h4 className="text-lg font-bold text-white mb-6">
                   Resources
                 </h4>
                 <ul className="space-y-4">
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.blog
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Blog</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.webinars
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Webinars</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-1 inline-block">
-                      landing.footer.case_studies
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Case Studies</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-gray-400 text-sm">
-                © 2025 BusinessFlow Pro. landing.footer.rights
-              </div>
-              <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  landing.footer.privacy
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  landing.footer.terms
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  landing.footer.cookies
-                </a>
+            {/* Social Media Icons Section */}
+            <div className="border-t border-gray-800 pt-12 pb-8">
+              <div className="text-center">
+                <h4 className="text-xl font-bold text-white mb-8">
+                  Get Our App & Follow Us
+                </h4>
+                <div className="flex justify-center mb-12">
+                  <SocialLinks className="animate-fade-in-up stagger-1" />
+                </div>
+                
+                {/* Copyright Section integrated into footer */}
+                <div className="border-t border-gray-700 pt-8">
+                  <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div className="text-white/80 text-sm">
+                      © 2025 BusinessFlow Pro. All rights reserved.
+                    </div>
+                    <div className="flex space-x-6 text-sm">
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Privacy Policy</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                      </a>
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Terms of Service</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                      </a>
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Cookie Policy</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </footer>
@@ -1264,14 +1295,12 @@ export default function Landing() {
         </DialogContent>
       </Dialog>
       
-      {/* Tutorial Walkthrough */}
-      {tutorial.showTutorial && (
-        <TutorialWalkthrough
-          isVisible={tutorial.showTutorial}
-          onComplete={tutorial.completeTutorial}
-          onSkip={tutorial.skipTutorial}
-        />
-      )}
+
+      
+      {/* Chat Bot */}
+      <ChatBot />
+      
+
     </div>
   );
 }
