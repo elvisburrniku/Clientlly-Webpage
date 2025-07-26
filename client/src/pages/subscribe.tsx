@@ -275,14 +275,9 @@ export default function Subscribe() {
       const pricingSection = document.getElementById('pricing-section');
       if (pricingSection) {
         setTimeout(() => {
-          // Calculate offset to show title at top
-          const headerHeight = 80; // Account for fixed navigation
-          const titleOffset = 20; // Additional spacing above title
-          const elementTop = pricingSection.offsetTop - headerHeight - titleOffset;
-          
-          window.scrollTo({
-            top: elementTop,
-            behavior: 'smooth'
+          pricingSection.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
           });
         }, 500); // Small delay to ensure page is loaded
       }
