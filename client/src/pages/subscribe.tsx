@@ -896,27 +896,8 @@ export default function Subscribe() {
               <Sparkles className="w-6 h-6 ml-3 animate-spin" />
             </div>
             
-            {/* Main Title */}
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
-              Choose your{' '}
-              <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                perfect plan
-              </span>
-              <br />
-              <span className="text-5xl lg:text-6xl xl:text-7xl text-gray-700 dark:text-gray-300">
-                and transform your business
-              </span>
-            </h1>
-            
-            {/* Subtitle */}
-            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-              Join thousands of businesses already transforming their operations. 
-              <br className="hidden lg:block" />
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">Select your subscription plan and unlock the full power of BusinessFlow Pro.</span>
-            </p>
-
-            {/* Enhanced Trust Indicators with Yellow Background */}
-            <div className="relative w-full -mx-4 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+            {/* Title and Subtitle with Yellow Background */}
+            <div className="relative w-full -mx-4 px-4 py-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden mb-12">
               {/* Decorative Elements */}
               <div className="absolute inset-0 overflow-hidden">
                 {/* Floating sparkle elements */}
@@ -931,35 +912,57 @@ export default function Subscribe() {
                 </div>
               </div>
 
-              <div className="relative z-10 flex flex-wrap justify-center items-center gap-8">
-                <div className="flex items-center space-x-3 px-6 py-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-gray-900 dark:text-white">Bank-Level Security</div>
-                    <div className="text-sm text-gray-800 dark:text-gray-200">256-bit SSL</div>
-                  </div>
-                </div>
+              <div className="relative z-10 text-center">
+                {/* Main Title */}
+                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
+                  Choose your{' '}
+                  <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+                    perfect plan
+                  </span>
+                  <br />
+                  <span className="text-5xl lg:text-6xl xl:text-7xl text-gray-700 dark:text-gray-300">
+                    and transform your business
+                  </span>
+                </h1>
+                
+                {/* Subtitle */}
+                <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                  Join thousands of businesses already transforming their operations. 
+                  <br className="hidden lg:block" />
+                  <span className="font-bold text-gray-900 dark:text-white">Select your subscription plan and unlock the full power of BusinessFlow Pro.</span>
+                </p>
+              </div>
+            </div>
 
-                <div className="flex items-center space-x-3 px-6 py-3 transform hover:scale-105 transition-transform duration-300">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
-                    <Clock className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-gray-900 dark:text-white">14 Days Free</div>
-                    <div className="text-sm text-gray-800 dark:text-gray-200">Full Access</div>
-                  </div>
+            {/* Enhanced Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              <div className="flex items-center space-x-3 px-6 py-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-white" />
                 </div>
+                <div className="text-left">
+                  <div className="font-bold text-gray-900 dark:text-white">Bank-Level Security</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">256-bit SSL</div>
+                </div>
+              </div>
 
-                <div className="flex items-center space-x-3 px-6 py-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <Headphones className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-bold text-gray-900 dark:text-white">24/7 Support</div>
-                    <div className="text-sm text-gray-800 dark:text-gray-200">Expert Help</div>
-                  </div>
+              <div className="flex items-center space-x-3 px-6 py-3 transform hover:scale-105 transition-transform duration-300">
+                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                  <Clock className="h-6 w-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <div className="font-bold text-gray-900 dark:text-white">14 Days Free</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Full Access</div>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-3 px-6 py-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <Headphones className="h-6 w-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <div className="font-bold text-gray-900 dark:text-white">24/7 Support</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Expert Help</div>
                 </div>
               </div>
             </div>
