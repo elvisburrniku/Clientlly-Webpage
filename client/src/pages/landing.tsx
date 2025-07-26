@@ -4,7 +4,6 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import ChatBot from "@/components/ChatBot";
-import { Footer } from "@/components/Footer";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -1108,7 +1107,170 @@ export default function Landing() {
 
 
       {/* Footer */}
-      <Footer />
+      <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full opacity-5">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-16">
+
+              {/* Product Links */}
+              <div className="fade-in stagger-1">
+                <h4 className="text-lg font-bold text-white mb-6">
+                  Product
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#features" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Features</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#pricing" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Pricing</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Integrations</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">API</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company Links */}
+              <div className="fade-in stagger-2">
+                <h4 className="text-lg font-bold text-white mb-6">
+                  Company
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="/about" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">About</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Careers</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contact" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Contact</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Support Links */}
+              <div className="fade-in stagger-3">
+                <h4 className="text-lg font-bold text-white mb-6">
+                  Support
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Help Center</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Tutorials</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Community</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Resources Links */}
+              <div className="fade-in stagger-4">
+                <h4 className="text-lg font-bold text-white mb-6">
+                  Resources
+                </h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Blog</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Webinars</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white hover:text-blue-300 transition-all duration-300 hover:translate-x-2 hover:scale-105 inline-block relative group">
+                      <span className="relative z-10">Case Studies</span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-md scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-1 -my-1"></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Social Media Icons Section */}
+            <div className="border-t border-gray-800 pt-12 pb-8">
+              <div className="text-center">
+                <h4 className="text-xl font-bold text-white mb-8">
+                  Get Our App & Follow Us
+                </h4>
+                <div className="flex justify-center mb-12">
+                  <SocialLinks className="animate-fade-in-up stagger-1" />
+                </div>
+                
+                {/* Copyright Section integrated into footer */}
+                <div className="border-t border-gray-700 pt-8">
+                  <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div className="text-white/80 text-sm">
+                      © 2025 BusinessFlow Pro. All rights reserved.
+                    </div>
+                    <div className="flex space-x-6 text-sm">
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Privacy Policy</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                      </a>
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Terms of Service</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                      </a>
+                      <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                        <span className="relative z-10">Cookie Policy</span>
+                        <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </footer>
 
       {/* Demo Modal */}
       <Dialog open={showDemoModal} onOpenChange={() => setShowDemoModal(false)}>

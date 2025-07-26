@@ -35,7 +35,6 @@ import {
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { SocialLinks } from "@/components/ui/animated-icons";
-import { Footer } from "@/components/Footer";
 import logoPath from "@assets/3d_1753268267691.png";
 
 const AboutPage = () => {
@@ -795,8 +794,49 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer with Social Media */}
+      <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full opacity-5">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 py-16 px-4">
+          <div className="max-w-7xl mx-auto text-center">
+            {/* Social Media Icons Section */}
+            <div className="border-b border-gray-800 pb-12 mb-8">
+              <h4 className="text-xl font-bold text-white mb-8">
+                Get Our App & Follow Us
+              </h4>
+              <div className="flex justify-center">
+                <SocialLinks className="animate-fade-in-up stagger-1" />
+              </div>
+            </div>
+            
+            {/* Copyright Section */}
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-white/80 text-sm">
+                © 2025 BusinessFlow Pro. All rights reserved.
+              </div>
+              <div className="flex space-x-6 text-sm">
+                <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                  <span className="relative z-10">Privacy Policy</span>
+                  <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                </a>
+                <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                  <span className="relative z-10">Terms of Service</span>
+                  <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                </a>
+                <a href="#" className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300 ease-out relative group">
+                  <span className="relative z-10">Cookie Policy</span>
+                  <span className="absolute inset-0 bg-blue-500/20 rounded px-2 py-1 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out -mx-2 -my-1"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
     </div>
   );

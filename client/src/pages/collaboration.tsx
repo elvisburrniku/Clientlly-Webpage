@@ -18,7 +18,6 @@ import {
   Calendar,
   MapPin
 } from "lucide-react";
-import { Footer } from "@/components/Footer";
 import logoPath from "@assets/3d_1753268267691.png";
 
 export default function Collaboration() {
@@ -246,7 +245,31 @@ export default function Collaboration() {
       </section>
 
       {/* Footer */}
-      <Footer />
+      <footer className="py-16 bg-gray-900 dark:bg-black text-white relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center mb-6">
+            <img 
+              src={logoPath} 
+              alt="BusinessFlow Pro" 
+              className="w-12 h-9 filter brightness-110"
+            />
+          </div>
+          <p className="text-gray-400 mb-4">
+            © 2024 BusinessFlow Pro. All rights reserved.
+          </p>
+          <div className="flex items-center justify-center space-x-6">
+            <Link href="/" className="text-gray-400 hover:text-white transition-colors duration-300">
+              Home
+            </Link>
+            <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">
+              About
+            </Link>
+            <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300">
+              Contact
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
