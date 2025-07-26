@@ -558,63 +558,87 @@ const AboutPage = () => {
       </section>
 
       {/* Meet Our Team Section */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-32 right-20 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-32 left-20 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-8 animate-text-reveal tracking-tight leading-tight">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 animate-text-reveal tracking-tight leading-tight">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Meet Our Team
               </span>
             </h2>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in-delayed">
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-delayed">
               The passionate innovators driving BusinessFlow Pro's success story
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {team.map((member, index) => (
-              <Card key={index} className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-700 group hover:scale-110 hover:-translate-y-6 overflow-hidden relative">
-                {/* Animated Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-700 ${
-                  index === 0 ? 'from-blue-500 to-purple-600' :
-                  index === 1 ? 'from-purple-500 to-pink-600' :
-                  index === 2 ? 'from-green-500 to-blue-600' :
-                  'from-orange-500 to-red-600'
+              <Card key={index} className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-white/20 hover:border-white/40 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-3 rounded-2xl">
+                {/* Gradient Border Effect */}
+                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl ${
+                  index === 0 ? 'from-blue-500/30 to-purple-600/30' :
+                  index === 1 ? 'from-purple-500/30 to-pink-600/30' :
+                  index === 2 ? 'from-green-500/30 to-blue-600/30' :
+                  'from-orange-500/30 to-red-600/30'
                 }`}></div>
                 
-                <div className="text-center relative z-10">
-                  <div className={`w-32 h-32 bg-gradient-to-br ${
-                    index === 0 ? 'from-blue-500 to-purple-600' :
-                    index === 1 ? 'from-purple-500 to-pink-600' :
-                    index === 2 ? 'from-green-500 to-blue-600' :
-                    'from-orange-500 to-red-600'
-                  } rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 overflow-hidden shadow-2xl`}>
-                    <img 
-                      src={`https://images.unsplash.com/photo-${index === 0 ? '1494790108755-2616814b3388' : index === 1 ? '1507003211169-0a1dd7228f2d' : index === 2 ? '1573496359142-b8c6c46a7ef4' : '1472099645785-5658abf4ff4e'}?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80`}
-                      alt={member.name}
-                      className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
-                    />
+                <div className="p-6 text-center relative z-10">
+                  {/* Profile Image */}
+                  <div className="relative mb-6">
+                    <div className={`w-24 h-24 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/20 group-hover:ring-8 transition-all duration-500 ${
+                      index === 0 ? 'group-hover:ring-blue-500/30' :
+                      index === 1 ? 'group-hover:ring-purple-500/30' :
+                      index === 2 ? 'group-hover:ring-green-500/30' :
+                      'group-hover:ring-orange-500/30'
+                    }`}>
+                      <img 
+                        src={`https://images.unsplash.com/photo-${index === 0 ? '1494790108755-2616814b3388' : index === 1 ? '1507003211169-0a1dd7228f2d' : index === 2 ? '1573496359142-b8c6c46a7ef4' : '1472099645785-5658abf4ff4e'}?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80`}
+                        alt={member.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    
+                    {/* Role Badge */}
+                    <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg ${
+                      index === 0 ? 'bg-gradient-to-r from-blue-500 to-purple-600' :
+                      index === 1 ? 'bg-gradient-to-r from-purple-500 to-pink-600' :
+                      index === 2 ? 'bg-gradient-to-r from-green-500 to-blue-600' :
+                      'bg-gradient-to-r from-orange-500 to-red-600'
+                    }`}>
+                      {member.role.split(' ')[0]}
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-black text-foreground mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
+                  
+                  {/* Name */}
+                  <h3 className="text-xl font-black text-foreground mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300">
                     {member.name}
                   </h3>
-                  <div className="text-blue-600 dark:text-blue-400 font-bold mb-4 text-lg group-hover:text-purple-600 transition-colors duration-500">
+                  
+                  {/* Full Role */}
+                  <div className={`text-sm font-bold mb-3 transition-colors duration-300 ${
+                    index === 0 ? 'text-blue-600 dark:text-blue-400 group-hover:text-blue-700' :
+                    index === 1 ? 'text-purple-600 dark:text-purple-400 group-hover:text-purple-700' :
+                    index === 2 ? 'text-green-600 dark:text-green-400 group-hover:text-green-700' :
+                    'text-orange-600 dark:text-orange-400 group-hover:text-orange-700'
+                  }`}>
                     {member.role}
                   </div>
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-500">
+                  
+                  {/* Bio */}
+                  <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground transition-colors duration-300">
                     {member.bio}
                   </p>
                 </div>
                 
-                {/* Floating Particles */}
-                <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400/30 rounded-full animate-ping group-hover:animate-bounce"></div>
-                <div className="absolute bottom-6 left-6 w-2 h-2 bg-purple-400/30 rounded-full animate-pulse group-hover:animate-spin"></div>
+                {/* Decorative Elements */}
+                <div className="absolute top-3 right-3 w-2 h-2 bg-current rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-current rounded-full opacity-15 group-hover:opacity-30 transition-opacity duration-300"></div>
               </Card>
             ))}
           </div>
