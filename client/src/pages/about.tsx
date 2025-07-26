@@ -377,18 +377,25 @@ const AboutPage = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {principles.map((value, index) => (
-              <Card key={index} className="p-8 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 hover:shadow-2xl transition-all duration-500 group hover:scale-105 scroll-animate" style={{animationDelay: `${index * 200}ms`}}>
-                <div className="text-center">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300`}>
-                    <value.icon className="w-8 h-8 text-white" />
+              <Card key={index} className="p-10 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:border-white/40 hover:shadow-3xl transition-all duration-700 group hover:scale-110 hover:-translate-y-4 scroll-animate overflow-hidden relative" style={{animationDelay: `${index * 200}ms`}}>
+                {/* Animated Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-700 ${value.color}"></div>
+                
+                <div className="text-center relative z-10">
+                  <div className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:rotate-12 group-hover:scale-125 transition-all duration-500`}>
+                    <value.icon className="w-10 h-10 text-white group-hover:animate-pulse" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-black text-foreground mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
                     {value.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed text-lg group-hover:text-foreground transition-colors duration-500">
                     {value.description}
                   </p>
                 </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400/30 rounded-full animate-ping group-hover:animate-bounce"></div>
+                <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400/30 rounded-full animate-pulse group-hover:animate-spin"></div>
               </Card>
             ))}
           </div>
@@ -570,88 +577,64 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-32 bg-white/50 dark:bg-gray-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 scroll-animate-letters">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Our Journey
-              </span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
-              Key milestones that shaped BusinessFlow Pro into what it is today
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-600"></div>
-            
-            <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <div key={index} className="relative flex items-start space-x-8">
-                  {/* Timeline Dot */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg relative z-10">
-                    {item.year.slice(-2)}
-                  </div>
-                  
-                  {/* Content */}
-                  <Card className="flex-1 p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-xl transition-all duration-500 group scroll-animate">
-                    <div className="flex items-center space-x-4 mb-3">
-                      <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 font-bold">
-                        {item.year}
-                      </Badge>
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
+      {/* Meet Our Team Section */}
+      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-32 right-20 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-32 left-20 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6 animate-text-reveal">
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-8 animate-text-reveal tracking-tight leading-tight">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Meet Our Team
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-delayed">
-              The passionate innovators behind BusinessFlow Pro's success
+            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in-delayed">
+              The passionate innovators driving BusinessFlow Pro's success story
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {team.map((member, index) => (
-              <Card key={index} className="p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-700 dark:to-purple-700 hover:shadow-2xl transition-all duration-500 group hover:scale-105">
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold group-hover:rotate-12 transition-transform duration-300 overflow-hidden">
+              <Card key={index} className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-700 group hover:scale-110 hover:-translate-y-6 overflow-hidden relative">
+                {/* Animated Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 transition-opacity duration-700 ${
+                  index === 0 ? 'from-blue-500 to-purple-600' :
+                  index === 1 ? 'from-purple-500 to-pink-600' :
+                  index === 2 ? 'from-green-500 to-blue-600' :
+                  'from-orange-500 to-red-600'
+                }`}></div>
+                
+                <div className="text-center relative z-10">
+                  <div className={`w-32 h-32 bg-gradient-to-br ${
+                    index === 0 ? 'from-blue-500 to-purple-600' :
+                    index === 1 ? 'from-purple-500 to-pink-600' :
+                    index === 2 ? 'from-green-500 to-blue-600' :
+                    'from-orange-500 to-red-600'
+                  } rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 overflow-hidden shadow-2xl`}>
                     <img 
-                      src={`https://images.unsplash.com/photo-${index === 0 ? '1494790108755-2616814b3388' : index === 1 ? '1507003211169-0a1dd7228f2d' : index === 2 ? '1573496359142-b8c6c46a7ef4' : '1472099645785-5658abf4ff4e'}?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80`}
+                      src={`https://images.unsplash.com/photo-${index === 0 ? '1494790108755-2616814b3388' : index === 1 ? '1507003211169-0a1dd7228f2d' : index === 2 ? '1573496359142-b8c6c46a7ef4' : '1472099645785-5658abf4ff4e'}?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80`}
                       alt={member.name}
-                      className="w-full h-full object-cover rounded-full"
+                      className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-black text-foreground mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
                     {member.name}
                   </h3>
-                  <div className="text-blue-600 dark:text-blue-400 font-medium mb-3">
+                  <div className="text-blue-600 dark:text-blue-400 font-bold mb-4 text-lg group-hover:text-purple-600 transition-colors duration-500">
                     {member.role}
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-500">
                     {member.bio}
                   </p>
                 </div>
+                
+                {/* Floating Particles */}
+                <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400/30 rounded-full animate-ping group-hover:animate-bounce"></div>
+                <div className="absolute bottom-6 left-6 w-2 h-2 bg-purple-400/30 rounded-full animate-pulse group-hover:animate-spin"></div>
               </Card>
             ))}
           </div>
