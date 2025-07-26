@@ -114,7 +114,7 @@ export default function Trial() {
               Start your <span className="gradient-text bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">free trial</span>
             </h1>
             
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 mb-8">
+            <p className="text-2xl lg:text-3xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 mb-8">
               Experience the full power of BusinessFlow Pro with our risk-free 14-day trial. No credit card required, cancel anytime.
             </p>
 
@@ -122,7 +122,7 @@ export default function Trial() {
             <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-2">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="font-medium">No credit card required</span>
+                <span className="font-black">No credit card required</span>
               </div>
               <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-md">
                 <Clock className="h-5 w-5 text-white" />
@@ -130,11 +130,11 @@ export default function Trial() {
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-5 w-5 text-green-500" />
-                <span className="font-medium">Full feature access</span>
+                <span className="font-black">Full feature access</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Shield className="h-5 w-5 text-green-500" />
-                <span className="font-medium">100% secure</span>
+                <span className="font-black">100% secure</span>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@ export default function Trial() {
               <CardContent className="p-8">
                 <div className="mb-8">
                   <h2 className="text-3xl font-black text-foreground mb-2 tracking-tight">Get Started in Minutes</h2>
-                  <p className="text-muted-foreground">Tell us a bit about yourself and we'll set up your free trial instantly.</p>
+                  <p className="text-muted-foreground font-black">Tell us a bit about yourself and we'll set up your free trial instantly.</p>
                 </div>
 
                 <form onSubmit={handleTrialSubmit} className="space-y-6">

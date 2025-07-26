@@ -128,7 +128,7 @@ export default function Contact() {
                 Get in Touch
               </span>
             </h1>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-2xl lg:text-3xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Have questions? Need support? We're here to help your business succeed.
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function Contact() {
               <CardContent className="p-8">
                 <div className="mb-8">
                   <h2 className="text-3xl font-black text-foreground mb-2 tracking-tight">Send us a Message</h2>
-                  <p className="text-muted-foreground">Fill out the form below and we'll get back to you within 24 hours.</p>
+                  <p className="text-muted-foreground font-black">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </div>
 
                 <form onSubmit={handleContactSubmit} className="space-y-6">

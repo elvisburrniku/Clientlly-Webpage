@@ -222,7 +222,7 @@ export default function About() {
                 About BusinessFlow Pro
               </span>
             </h1>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-12">
+            <p className="text-2xl lg:text-3xl font-black text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-12 tracking-tight">
               We're on a mission to empower businesses worldwide with intelligent automation, 
               seamless workflows, and data-driven insights that drive real growth.
             </p>
@@ -235,7 +235,7 @@ export default function About() {
                   <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {stat.number}
                   </div>
-                  <div className="text-muted-foreground font-medium">{stat.label}</div>
+                  <div className="text-muted-foreground font-black">{stat.label}</div>
                 </Card>
               ))}
             </div>
@@ -254,18 +254,18 @@ export default function About() {
                 </span>
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p className="scroll-animate">
+                <p className="scroll-animate font-black">
                   BusinessFlow Pro was born from a simple observation: small and medium businesses 
                   were drowning in manual processes, disconnected tools, and endless paperwork. 
                   Our founders, having experienced these challenges firsthand, knew there had to be a better way.
                 </p>
-                <p className="scroll-animate" style={{animationDelay: '200ms'}}>
+                <p className="scroll-animate font-black" style={{animationDelay: '200ms'}}>
                   Starting in 2019 with a small team of passionate entrepreneurs and engineers, 
                   we set out to build the business management platform we wished existed. Today, 
                   we're proud to serve over 50,000 businesses across 150+ countries, helping them 
                   automate workflows, gain insights, and focus on what matters most - growing their business.
                 </p>
-                <p className="scroll-animate" style={{animationDelay: '400ms'}}>
+                <p className="scroll-animate font-black" style={{animationDelay: '400ms'}}>
                   Every feature we build, every decision we make, is guided by one principle: 
                   making business operations so simple and powerful that success becomes inevitable.
                 </p>
@@ -295,7 +295,7 @@ export default function About() {
                 </div>
                 <div className="mt-6 text-center">
                   <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">Growing Every Day</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground font-black">
                     From a startup dream to a global platform trusted by thousands
                   </p>
                 </div>
@@ -314,7 +314,7 @@ export default function About() {
                 Our Values
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
+            <p className="text-xl text-muted-foreground font-black max-w-3xl mx-auto leading-relaxed scroll-animate">
               The principles that guide everything we do and every decision we make
             </p>
           </div>
@@ -329,7 +329,7 @@ export default function About() {
                   <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {value.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground font-black leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -354,7 +354,7 @@ export default function About() {
                 Growing Together Through Collaboration
               </span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-fade-in-delayed">
+            <p className="text-xl text-muted-foreground font-black max-w-4xl mx-auto leading-relaxed animate-fade-in-delayed">
               Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community. When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
             </p>
           </div>

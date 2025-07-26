@@ -62,7 +62,7 @@ export default function FeatureClients() {
                 Client Management
               </span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl font-black text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
               Build stronger relationships and grow your business with comprehensive client management tools designed for modern businesses.
             </p>
           </div>

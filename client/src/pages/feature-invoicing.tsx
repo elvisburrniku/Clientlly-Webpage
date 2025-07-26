@@ -95,7 +95,7 @@ export default function FeatureInvoicing() {
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight">
                   Create stunning invoices that <span className="gradient-text">get paid faster</span>
                 </h1>
-                <p className="text-lg sm:text-xl text-muted-foreground">
+                <p className="text-lg sm:text-xl font-black text-muted-foreground">
                   Professional invoice creation, automated payment reminders, and seamless payment tracking. 
                   Get paid 40% faster with our intelligent invoicing system.
                 </p>
@@ -104,15 +104,15 @@ export default function FeatureInvoicing() {
               <div className="flex flex-wrap gap-6 fade-in stagger-1">
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-medium">Custom branding</span>
+                  <span className="font-black">Custom branding</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-medium">Auto payment reminders</span>
+                  <span className="font-black">Auto payment reminders</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-medium">Multi-currency support</span>
+                  <span className="font-black">Multi-currency support</span>
                 </div>
               </div>
 

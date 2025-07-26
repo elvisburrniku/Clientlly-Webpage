@@ -381,7 +381,7 @@ export default function Landing() {
               </h1>
               
               <div className="max-w-5xl mx-auto space-y-8">
-                <p className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1">
+                <p className="text-2xl lg:text-3xl font-black text-muted-foreground leading-relaxed fade-in stagger-1 tracking-tight">
                   Empower your small business to compete with enterprise-level efficiency. Our comprehensive <span className="font-black text-foreground">accounting software</span> streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.
                 </p>
                 
@@ -389,7 +389,7 @@ export default function Landing() {
 
                   <div className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-md">
                     <Clock className="h-4 w-4 text-white" />
-                    <span className="text-sm font-semibold text-white">14-day free trial</span>
+                    <span className="text-sm font-black text-white">14-day free trial</span>
                   </div>
                 </div>
               </div>
@@ -401,19 +401,19 @@ export default function Landing() {
             <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground fade-in stagger-5 pt-8">
               <div className="flex items-center space-x-3">
                 <Check className="h-6 w-6 text-green-500" />
-                <span className="font-medium">Free setup & migration</span>
+                <span className="font-black">Free setup & migration</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Check className="h-6 w-6 text-green-500" />
-                <span className="font-medium">Cancel anytime</span>
+                <span className="font-black">Cancel anytime</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Check className="h-6 w-6 text-green-500" />
-                <span className="font-medium">24/7 expert support</span>
+                <span className="font-black">24/7 expert support</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Shield className="h-6 w-6 text-green-500" />
-                <span className="font-medium">Bank-level security</span>
+                <span className="font-black">Bank-level security</span>
               </div>
             </div>
           </div>
@@ -432,7 +432,7 @@ export default function Landing() {
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
             </p>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2">
+            <p className="text-xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2 tracking-tight">
               Everything your business needs in one powerful platform.
             </p>
           </div>
@@ -449,12 +449,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
-                    <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
+                    <p className="text-sm font-black text-muted-foreground">Custom invoices & payment tracking</p>
                   </div>
                 </div>
                 <a 
                   href="/features/invoicing"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -471,12 +471,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
-                    <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
+                    <p className="text-sm font-black text-muted-foreground">Organized expenses for tax time</p>
                   </div>
                 </div>
                 <a 
                   href="/features/expenses"
-                  className="inline-flex items-center text-green-600 hover:text-green-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-green-600 hover:text-green-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -493,12 +493,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Debt Management</h3>
-                    <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
+                    <p className="text-sm font-black text-muted-foreground">Track debts & payment scheduling</p>
                   </div>
                 </div>
                 <a 
                   href="/features/debt"
-                  className="inline-flex items-center text-red-600 hover:text-red-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-red-600 hover:text-red-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -515,12 +515,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Insights & Reports</h3>
-                    <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
+                    <p className="text-sm font-black text-muted-foreground">Business analytics & cash flow planning</p>
                   </div>
                 </div>
                 <a 
                   href="/features/reports"
-                  className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -537,12 +537,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Client Management</h3>
-                    <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
+                    <p className="text-sm font-black text-muted-foreground">Profiles, projects & communication tracking</p>
                   </div>
                 </div>
                 <a 
                   href="/features/clients"
-                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -559,12 +559,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Vendor Management</h3>
-                    <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
+                    <p className="text-sm font-black text-muted-foreground">Supplier tracking & purchase orders</p>
                   </div>
                 </div>
                 <a 
                   href="/features/vendors"
-                  className="inline-flex items-center text-amber-600 hover:text-amber-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-amber-600 hover:text-amber-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -581,12 +581,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Inventory Management</h3>
-                    <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
+                    <p className="text-sm font-black text-muted-foreground">Real-time inventory & order tracking</p>
                   </div>
                 </div>
                 <a 
                   href="/features/inventory"
-                  className="inline-flex items-center text-violet-600 hover:text-violet-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-violet-600 hover:text-violet-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -603,12 +603,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Smart Attendance</h3>
-                    <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
+                    <p className="text-sm font-black text-muted-foreground">GPS tracking & workforce management</p>
                   </div>
                 </div>
                 <a 
                   href="/features/attendance"
-                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -627,12 +627,12 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Easy Migration</h3>
-                    <p className="text-sm text-muted-foreground">Automated data transfer & expert support</p>
+                    <p className="text-sm font-black text-muted-foreground">Automated data transfer & expert support</p>
                   </div>
                 </div>
                 <a 
                   href="/features/migration"
-                  className="inline-flex items-center text-slate-600 hover:text-slate-800 font-semibold text-sm group-hover:translate-x-1 transition-all duration-300"
+                  className="inline-flex items-center text-slate-600 hover:text-slate-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
                   <ArrowRight className="ml-1 h-4 w-4" />
@@ -681,7 +681,7 @@ export default function Landing() {
             >
               {/* Content */}
               <div className="relative z-10 flex items-center text-white">
-                <span className="mr-2 text-white">Compare plan features</span>
+                <span className="mr-2 text-white font-black">Compare plan features</span>
                 <ChevronDown className="h-5 w-5 text-white group-active:rotate-180 transition-transform duration-300 ease-out" />
               </div>
               
@@ -699,7 +699,7 @@ export default function Landing() {
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
               Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
             </h2>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1">
+            <p className="text-2xl lg:text-3xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
               Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
             </p>
           </div>
@@ -713,7 +713,7 @@ export default function Landing() {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
-              <p className="text-muted-foreground">Active Users</p>
+              <p className="text-muted-foreground font-black">Active Users</p>
             </div>
 
             {/* Invoices Processed */}
@@ -722,7 +722,7 @@ export default function Landing() {
                 <FileText className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
-              <p className="text-muted-foreground">Invoices Processed</p>
+              <p className="text-muted-foreground font-black">Invoices Processed</p>
             </div>
 
             {/* Customer Satisfaction */}
@@ -731,7 +731,7 @@ export default function Landing() {
                 <Star className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">98%</div>
-              <p className="text-muted-foreground">Satisfaction Rate</p>
+              <p className="text-muted-foreground font-black">Satisfaction Rate</p>
             </div>
 
             {/* Countries */}
@@ -740,7 +740,7 @@ export default function Landing() {
                 <Globe className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">120+</div>
-              <p className="text-muted-foreground">Countries</p>
+              <p className="text-muted-foreground font-black">Countries</p>
             </div>
           </div>
 
@@ -753,7 +753,7 @@ export default function Landing() {
                 <Clock className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">Save 15+ Hours Weekly</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground font-black leading-relaxed">
                 Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
               </p>
             </div>
@@ -764,7 +764,7 @@ export default function Landing() {
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">Boost Revenue by 30%</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground font-black leading-relaxed">
                 Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
               </p>
             </div>
@@ -775,7 +775,7 @@ export default function Landing() {
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-black text-foreground mb-4">Eliminate 95% of Errors</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground font-black leading-relaxed">
                 Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
               </p>
             </div>
@@ -815,10 +815,10 @@ export default function Landing() {
                   </h2>
                   
                   <div className="space-y-4">
-                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed font-medium">
+                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed font-black">
                       Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
                     </p>
-                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-black">
                       When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
                     </p>
                   </div>

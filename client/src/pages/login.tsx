@@ -82,7 +82,7 @@ export default function Login() {
                       Welcome <span className="gradient-text bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">back</span>
                     </h1>
                     
-                    <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+                    <p className="text-lg lg:text-xl font-black text-muted-foreground leading-relaxed">
                       Sign in to access your BusinessFlow Pro dashboard and manage your business operations.
                     </p>
                   </div>
@@ -109,7 +109,7 @@ export default function Login() {
                       <Shield className="h-4 w-4" />
                       <span className="text-sm font-medium">Secure Authentication</span>
                     </div>
-                    <p className="text-sm text-green-600 dark:text-green-400 mt-1">
+                    <p className="text-sm font-black text-green-600 dark:text-green-400 mt-1">
                       Your login is protected with bank-level encryption and secure OAuth authentication.
                     </p>
                   </div>
@@ -119,15 +119,15 @@ export default function Login() {
                     <div className="flex items-center justify-center space-x-6 text-sm text-muted-foreground">
                       <div className="flex items-center space-x-1">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span>SSL Encrypted</span>
+                        <span className="font-black">SSL Encrypted</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span>GDPR Compliant</span>
+                        <span className="font-black">GDPR Compliant</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span>SOC2 Certified</span>
+                        <span className="font-black">SOC2 Certified</span>
                       </div>
                     </div>
                   </div>
@@ -145,7 +145,7 @@ export default function Login() {
                     command center
                   </span>
                 </h2>
-                <p className="text-xl text-muted-foreground leading-relaxed">
+                <p className="text-xl font-black text-muted-foreground leading-relaxed">
                   Everything you need to run and grow your business, all in one powerful platform.
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function Login() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-foreground mb-2">Instant Access</h3>
-                        <p className="text-muted-foreground text-sm">
+                        <p className="text-muted-foreground font-black text-sm">
                           Jump straight into your dashboard with all your business data, reports, and tools ready to use.
                         </p>
                       </div>

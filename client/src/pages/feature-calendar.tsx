@@ -62,7 +62,7 @@ export default function FeatureCalendar() {
                 Smart Calendar
               </span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl font-black text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Intelligent scheduling and time management with AI-powered features that help you stay organized and never miss important deadlines.
             </p>
           </div>
