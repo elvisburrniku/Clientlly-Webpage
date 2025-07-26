@@ -378,10 +378,13 @@ export default function Landing() {
                 
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
 
-                  <div className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg shadow-md">
+                  <button 
+                    onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                    className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+                  >
                     <Clock className="h-4 w-4 text-white" />
                     <span className="text-sm font-black text-white">14-day free trial</span>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
