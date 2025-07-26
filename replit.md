@@ -10,6 +10,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (July 26, 2025)
 
+✓ COMPLETED Enterprise plan pricing update with additional user cost (July 26, 2025)
+✓ Updated Enterprise plan to include "€1 per additional user after 50" pricing structure
+✓ Modified server/routes.ts subscription plans to reflect additional user cost information
+✓ Updated client/src/pages/calculator.tsx static plan definitions to match server configuration
+✓ Applied consistent pricing display across all frontend components showing Enterprise features
+✓ Enhanced Enterprise plan description to clearly communicate scalable pricing model
+
 ✓ COMPLETED unified footer design implementation across all pages (July 26, 2025)
 ✓ Created comprehensive Footer component (client/src/components/Footer.tsx) based on user-provided design
 ✓ Replaced existing footer sections in trial.tsx, contact.tsx, about.tsx, collaboration.tsx, login.tsx, landing.tsx, compare-features.tsx, and subscribe.tsx

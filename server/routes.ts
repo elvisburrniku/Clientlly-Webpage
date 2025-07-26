@@ -179,7 +179,7 @@ const SUBSCRIPTION_PLANS = {
     },
     description: "For large teams and enterprises requiring maximum capabilities",
     features: [
-      "Up to 50 users",
+      "Up to 50 users (€1 per additional user)",
       "Unlimited invoices/month",
       "Professional invoicing & billing",
       "Advanced expense tracking & management", 

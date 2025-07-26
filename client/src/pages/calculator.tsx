@@ -82,17 +82,17 @@ const plans: Plan[] = [
   },
   {
     id: 'business',
-    name: 'Business Plus',
-    monthlyPrice: 15900,
-    yearlyPrice: 159000,
+    name: 'Enterprise',
+    monthlyPrice: 8900,
+    yearlyPrice: 89000,
     color: 'orange',
     features: {
       users: 50,
-      invoicesPerMonth: 2000,
-      storageGB: 200,
-      integrations: 50,
+      invoicesPerMonth: 'Unlimited',
+      storageGB: 'Unlimited',
+      integrations: 'Unlimited',
       support: '24/7 Phone Support',
-      advancedFeatures: ['White Label', 'Advanced Analytics', 'Custom Workflows', 'Dedicated Manager']
+      advancedFeatures: ['€1 per additional user after 50', 'White Label', 'Advanced Analytics', 'Custom Workflows', 'Dedicated Manager']
     }
   }
 ];
