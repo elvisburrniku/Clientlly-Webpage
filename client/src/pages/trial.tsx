@@ -526,13 +526,16 @@ export default function Trial() {
                 </div>
               </div>
 
-              {/* Enhanced Support Promise */}
-              <Card className="relative overflow-hidden bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 dark:from-yellow-950/30 dark:via-orange-950/30 dark:to-red-950/30 border-2 border-yellow-200/50 dark:border-yellow-700/50 shadow-2xl rounded-3xl">
-                {/* Background Animation */}
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 via-orange-400/10 to-red-400/10 animate-pulse"></div>
-                
-                <CardContent className="p-8 relative">
-                  <div className="text-center">
+              {/* Enhanced Support Promise with Yellow Background */}
+              <div className="relative overflow-hidden bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 p-1 rounded-3xl shadow-2xl">
+                <div className="bg-white dark:bg-gray-900 rounded-[calc(1.5rem-1px)] p-8 relative">
+                  {/* Floating Sparkles */}
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-yellow-300 rounded-full animate-bounce"></div>
+                  <div className="absolute top-8 right-8 w-1.5 h-1.5 bg-orange-300 rounded-full animate-bounce delay-300"></div>
+                  <div className="absolute bottom-6 left-8 w-1 h-1 bg-amber-300 rounded-full animate-bounce delay-500"></div>
+                  <div className="absolute bottom-4 right-4 w-2 h-2 bg-yellow-300 rounded-full animate-bounce delay-700"></div>
+                  
+                  <div className="text-center relative">
                     {/* 5-Star Rating */}
                     <div className="flex justify-center mb-4">
                       <div className="flex space-x-1">
@@ -575,7 +578,7 @@ export default function Trial() {
                     </div>
 
                     {/* Guarantee Badge */}
-                    <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl p-4 text-white">
+                    <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl p-4 text-white shadow-lg">
                       <div className="flex items-center justify-center space-x-2 mb-1">
                         <Award className="h-5 w-5" />
                         <span className="font-bold">Success Guarantee</span>
@@ -583,8 +586,8 @@ export default function Trial() {
                       <p className="text-sm text-emerald-100">We'll help you succeed or your money back</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </div>
           </div>
 
