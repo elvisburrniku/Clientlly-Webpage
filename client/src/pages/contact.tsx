@@ -122,8 +122,8 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto">
           {/* Header with Yellow Background - Matching "Let's Grow Together" */}
           <div className="text-center mb-16 relative">
-            <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-yellow-50/80 to-orange-50/80 dark:from-yellow-900/20 dark:to-orange-900/20 fade-in overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-yellow-100 to-orange-100 dark:from-yellow-800/40 dark:to-orange-800/40 fade-in overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Floating Sparkles */}
               <div className="absolute top-4 right-6 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
