@@ -577,51 +577,72 @@ const AboutPage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {team.map((member, index) => (
-              <Card key={index} className="group relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 border-white/20 hover:border-white/40 hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-3 rounded-2xl">
-                {/* Gradient Border Effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl ${
-                  index === 0 ? 'from-blue-500/30 to-purple-600/30' :
-                  index === 1 ? 'from-purple-500/30 to-pink-600/30' :
-                  index === 2 ? 'from-green-500/30 to-blue-600/30' :
-                  'from-orange-500/30 to-red-600/30'
+              <Card key={index} className="group relative overflow-hidden bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:border-white/60 hover:shadow-3xl transition-all duration-700 hover:scale-110 hover:-translate-y-8 hover:rotate-1 rounded-3xl">
+                {/* Animated Background Gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-3xl ${
+                  index === 0 ? 'from-blue-500/20 via-purple-500/20 to-blue-600/20' :
+                  index === 1 ? 'from-purple-500/20 via-pink-500/20 to-purple-600/20' :
+                  index === 2 ? 'from-green-500/20 via-blue-500/20 to-green-600/20' :
+                  'from-orange-500/20 via-red-500/20 to-orange-600/20'
                 }`}></div>
                 
-                <div className="p-6 text-center relative z-10">
-                  {/* Profile Image */}
-                  <div className="relative mb-6">
-                    <div className={`w-24 h-24 mx-auto rounded-2xl overflow-hidden shadow-xl ring-4 ring-white/20 group-hover:ring-8 transition-all duration-500 ${
-                      index === 0 ? 'group-hover:ring-blue-500/30' :
-                      index === 1 ? 'group-hover:ring-purple-500/30' :
-                      index === 2 ? 'group-hover:ring-green-500/30' :
-                      'group-hover:ring-orange-500/30'
+                {/* Floating Animation Elements */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  <div className={`absolute top-4 right-4 w-3 h-3 rounded-full animate-bounce ${
+                    index === 0 ? 'bg-blue-400' :
+                    index === 1 ? 'bg-purple-400' :
+                    index === 2 ? 'bg-green-400' :
+                    'bg-orange-400'
+                  }`}></div>
+                  <div className={`absolute bottom-6 left-4 w-2 h-2 rounded-full animate-ping ${
+                    index === 0 ? 'bg-purple-400' :
+                    index === 1 ? 'bg-pink-400' :
+                    index === 2 ? 'bg-blue-400' :
+                    'bg-red-400'
+                  }`}></div>
+                  <div className={`absolute top-1/2 left-2 w-1.5 h-1.5 rounded-full animate-pulse ${
+                    index === 0 ? 'bg-blue-300' :
+                    index === 1 ? 'bg-purple-300' :
+                    index === 2 ? 'bg-green-300' :
+                    'bg-orange-300'
+                  }`}></div>
+                </div>
+                
+                <div className="p-8 text-center relative z-10">
+                  {/* Animated Icon Avatar */}
+                  <div className="relative mb-8">
+                    <div className={`w-32 h-32 mx-auto rounded-full shadow-2xl group-hover:shadow-3xl transition-all duration-700 group-hover:scale-125 group-hover:rotate-12 flex items-center justify-center bg-gradient-to-br ${
+                      index === 0 ? 'from-blue-500 to-purple-600' :
+                      index === 1 ? 'from-purple-500 to-pink-600' :
+                      index === 2 ? 'from-green-500 to-blue-600' :
+                      'from-orange-500 to-red-600'
                     }`}>
-                      <img 
-                        src={`https://images.unsplash.com/photo-${index === 0 ? '1494790108755-2616814b3388' : index === 1 ? '1507003211169-0a1dd7228f2d' : index === 2 ? '1573496359142-b8c6c46a7ef4' : '1472099645785-5658abf4ff4e'}?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80`}
-                        alt={member.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+                      <div className="relative text-4xl font-black text-white group-hover:animate-pulse">
+                        {member.name.split(' ').map(name => name[0]).join('')}
+                      </div>
                     </div>
                     
-                    {/* Role Badge */}
-                    <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg ${
-                      index === 0 ? 'bg-gradient-to-r from-blue-500 to-purple-600' :
-                      index === 1 ? 'bg-gradient-to-r from-purple-500 to-pink-600' :
-                      index === 2 ? 'bg-gradient-to-r from-green-500 to-blue-600' :
-                      'bg-gradient-to-r from-orange-500 to-red-600'
+                    {/* Animated Role Badge */}
+                    <div className={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-2xl text-sm font-black text-white shadow-xl group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 bg-gradient-to-r ${
+                      index === 0 ? 'from-blue-600 to-purple-700' :
+                      index === 1 ? 'from-purple-600 to-pink-700' :
+                      index === 2 ? 'from-green-600 to-blue-700' :
+                      'from-orange-600 to-red-700'
                     }`}>
                       {member.role.split(' ')[0]}
                     </div>
                   </div>
                   
-                  {/* Name */}
-                  <h3 className="text-xl font-black text-foreground mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300">
+                  {/* Animated Name */}
+                  <h3 className="text-2xl font-black text-foreground mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500 group-hover:scale-105">
                     {member.name}
                   </h3>
                   
-                  {/* Full Role */}
-                  <div className={`text-sm font-bold mb-3 transition-colors duration-300 ${
+                  {/* Animated Role */}
+                  <div className={`text-lg font-bold mb-4 transition-all duration-500 group-hover:scale-105 ${
                     index === 0 ? 'text-blue-600 dark:text-blue-400 group-hover:text-blue-700' :
                     index === 1 ? 'text-purple-600 dark:text-purple-400 group-hover:text-purple-700' :
                     index === 2 ? 'text-green-600 dark:text-green-400 group-hover:text-green-700' :
@@ -630,15 +651,19 @@ const AboutPage = () => {
                     {member.role}
                   </div>
                   
-                  {/* Bio */}
-                  <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                  {/* Animated Bio */}
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-all duration-500 group-hover:scale-105">
                     {member.bio}
                   </p>
                 </div>
                 
-                {/* Decorative Elements */}
-                <div className="absolute top-3 right-3 w-2 h-2 bg-current rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
-                <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-current rounded-full opacity-15 group-hover:opacity-30 transition-opacity duration-300"></div>
+                {/* Animated Border Glow */}
+                <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${
+                  index === 0 ? 'shadow-[0_0_30px_rgba(59,130,246,0.5)]' :
+                  index === 1 ? 'shadow-[0_0_30px_rgba(147,51,234,0.5)]' :
+                  index === 2 ? 'shadow-[0_0_30px_rgba(34,197,94,0.5)]' :
+                  'shadow-[0_0_30px_rgba(249,115,22,0.5)]'
+                }`}></div>
               </Card>
             ))}
           </div>
