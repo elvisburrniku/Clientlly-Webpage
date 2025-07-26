@@ -954,21 +954,21 @@ export default function Subscribe() {
               <div className="relative z-10 text-center">
                 {/* Main Title */}
                 <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
-                  Choose your{' '}
+                  Start your{' '}
                   <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
-                    perfect plan
+                    business transformation
                   </span>
                   <br />
                   <span className="text-5xl lg:text-6xl xl:text-7xl text-gray-700 dark:text-gray-300">
-                    and transform your business
+                    today
                   </span>
                 </h1>
                 
                 {/* Subtitle */}
                 <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                  Join thousands of businesses already transforming their operations. 
+                  Ready to streamline your operations and boost productivity? 
                   <br className="hidden lg:block" />
-                  <span className="font-bold text-gray-900 dark:text-white">Select your subscription plan and unlock the full power of BusinessFlow Pro.</span>
+                  <span className="font-bold text-gray-900 dark:text-white">Choose your plan and get instant access to all BusinessFlow Pro features.</span>
                 </p>
               </div>
             </div>
