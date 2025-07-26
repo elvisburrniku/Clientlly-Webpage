@@ -270,22 +270,13 @@ export default function Subscribe() {
       setBillingPeriod(billingFromUrl);
     }
 
-    // Auto-scroll to pricing section when arriving from "Buy Now" button
-    const scrollToPricing = () => {
-      const pricingSection = document.getElementById('pricing-section');
-      if (pricingSection) {
-        setTimeout(() => {
-          pricingSection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          });
-        }, 500); // Small delay to ensure page is loaded
-      }
-    };
-
-    // Check if coming from a "Buy Now" button (no plan specified)
+    // Skip hero section and show pricing directly when arriving from "Buy Now" button
     if (!planFromUrl && location.includes('/subscribe')) {
-      scrollToPricing();
+      // Users coming from "Buy Now" should see pricing immediately
+      // Hero section will be hidden via CSS class
+      document.body.classList.add('hide-hero-section');
+    } else {
+      document.body.classList.remove('hide-hero-section');
     }
   }, [location]);
 
@@ -942,7 +933,7 @@ export default function Subscribe() {
       </nav>
 
       {/* Hero Section */}
-      <div className="pt-32 pb-20 px-4 relative">
+      <div className="pt-32 pb-20 px-4 relative hero-section">
         <div className="max-w-7xl mx-auto">
           {/* Hero Header */}
           <div className="text-center mb-20 relative">
@@ -1033,7 +1024,7 @@ export default function Subscribe() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4">
+      <div className="max-w-7xl mx-auto relative z-10 px-4 subscription-content">
 
         <div id="pricing-section">
           {renderStepIndicator()}
