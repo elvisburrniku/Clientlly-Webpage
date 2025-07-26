@@ -127,7 +127,7 @@ export default function Contact() {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
+                onClick={() => window.location.href = '/subscribe'}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
               >
                 Buy Now
@@ -190,7 +190,7 @@ export default function Contact() {
                 <Button 
                   variant="outline"
                   onClick={() => {
-                    window.location.href = '/subscribe?plan=business&billing=monthly';
+                    window.location.href = '/subscribe';
                     setShowMobileMenu(false);
                   }}
                   className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
