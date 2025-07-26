@@ -444,12 +444,27 @@ export default function CompareFeatures() {
                 {/* Plan Features */}
                 <CardContent className="p-8">
                   <div className="space-y-4 mb-8">
-                    {plan.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-white/20 transition-colors">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground font-medium leading-relaxed">{feature}</span>
-                      </div>
-                    ))}
+                    {plan.features.map((feature, idx) => {
+                      // Parse markdown bold text **text** and render as bold
+                      const parts = feature.split(/(\*\*.*?\*\*)/g);
+                      return (
+                        <div key={idx} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-white/20 transition-colors">
+                          <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground font-medium leading-relaxed">
+                            {parts.map((part, partIndex) => {
+                              if (part.startsWith('**') && part.endsWith('**')) {
+                                return (
+                                  <strong key={partIndex} className="font-bold text-orange-600 dark:text-orange-400">
+                                    {part.slice(2, -2)}
+                                  </strong>
+                                );
+                              }
+                              return part;
+                            })}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                   
                   <Button 

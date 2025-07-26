@@ -1038,12 +1038,27 @@ export default function Landing() {
                   </div>
                   
                   <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
-                        <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
+                    {plan.features.map((feature, featureIndex) => {
+                      // Parse markdown bold text **text** and render as bold
+                      const parts = feature.split(/(\*\*.*?\*\*)/g);
+                      return (
+                        <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
+                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
+                          <span className="text-muted-foreground">
+                            {parts.map((part, partIndex) => {
+                              if (part.startsWith('**') && part.endsWith('**')) {
+                                return (
+                                  <strong key={partIndex} className="font-bold text-orange-600 dark:text-orange-400">
+                                    {part.slice(2, -2)}
+                                  </strong>
+                                );
+                              }
+                              return part;
+                            })}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
                   
                   <div className="space-y-3">
