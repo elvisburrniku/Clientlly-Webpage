@@ -92,54 +92,75 @@ export default function Trial() {
       <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/20 shadow-lg">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex items-center justify-between h-20">
-            {/* Left Side - Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/login">
-                <Button variant="ghost" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  Login
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button variant="outline" className="border-blue-500 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950 font-medium">
-                  Contact Us
-                </Button>
-              </Link>
-              <Link href="/">
-                <Button variant="ghost" className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Home
-                </Button>
-              </Link>
-            </div>
-
-            {/* Center - Logo */}
-            <Link href="/" className="flex items-center space-x-4 group">
+            {/* Left Section - Logo and Company Name */}
+            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
               <div className="relative">
                 <img 
                   src={logoPath}
                   alt="BusinessFlow Pro" 
-                  className="w-16 h-12 object-contain transition-all duration-300 group-hover:scale-110"
-                  style={{ filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))' }}
+                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
+                  style={{ 
+                    filter: 'none',
+                    background: 'transparent'
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <span className="text-2xl font-black text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                BusinessFlow Pro
-              </span>
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
 
-            {/* Right Side - Language Selector */}
-            <div className="hidden lg:flex items-center space-x-4">
+            {/* Center Section - Navigation Links */}
+            <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">About Us</Link>
+              <Link href="/#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium">Features</Link>
+              <Button 
+                variant="ghost"
+                onClick={() => window.location.href = '/subscribe'}
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-medium"
+              >
+                Pricing
+              </Button>
+              <Button 
+                variant="ghost" 
+                onClick={() => window.location.href = '/contact'} 
+                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
+              >
+                Contact Us
+              </Button>
+            </div>
+
+            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
+            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
+              <Button 
+                variant="ghost"
+                onClick={() => window.location.href = "/api/login"}
+                className="text-muted-foreground hover:text-primary transition-all duration-300"
+              >
+                Login
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => window.location.href = '/subscribe?plan=business&billing=monthly'}
+                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+              >
+                Buy Now
+              </Button>
+              <Button 
+                onClick={() => window.location.href = "/trial"}
+                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
+              >
+                Start Your Trial
+              </Button>
+
               <LanguageSelector />
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden">
+            {/* Mobile Menu Toggle */}
+            <div className="flex lg:hidden items-center space-x-2">
               <Button
                 variant="ghost"
-                size="sm"
+                size="icon"
+                className="scale-in"
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
-                className="text-gray-700 dark:text-gray-200"
               >
                 {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
@@ -148,25 +169,67 @@ export default function Trial() {
 
           {/* Mobile Menu */}
           {showMobileMenu && (
-            <div className="lg:hidden py-4 space-y-3 border-t border-gray-200 dark:border-gray-700 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80">
-              <Link href="/" className="block">
-                <Button variant="ghost" className="w-full justify-start text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Home
+            <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
+              <div className="px-4 py-4 space-y-4">
+                {/* Navigation Links */}
+                <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors">About Us</Link>
+                <Link href="/#features" className="block text-muted-foreground hover:text-primary transition-colors">Features</Link>
+                <Button 
+                  variant="ghost"
+                  onClick={() => {
+                    window.location.href = '/subscribe';
+                    setShowMobileMenu(false);
+                  }}
+                  className="w-full text-left justify-start text-muted-foreground hover:text-primary"
+                >
+                  Pricing
                 </Button>
-              </Link>
-              <Link href="/login" className="block">
-                <Button variant="ghost" className="w-full justify-start text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400">
-                  Login
-                </Button>
-              </Link>
-              <Link href="/contact" className="block">
-                <Button variant="outline" className="w-full justify-start border-blue-500 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => {
+                    window.location.href = '/contact';
+                    setShowMobileMenu(false);
+                  }} 
+                  className="w-full text-left justify-start text-muted-foreground hover:text-primary"
+                >
                   Contact Us
                 </Button>
-              </Link>
-              <div className="px-3">
-                <LanguageSelector />
+                
+                {/* Action Buttons */}
+                <div className="pt-4 space-y-2">
+                  <Button 
+                    variant="ghost" 
+                    onClick={() => {
+                      window.location.href = "/api/login";
+                      setShowMobileMenu(false);
+                    }} 
+                    className="w-full text-left justify-start text-muted-foreground hover:text-primary"
+                  >
+                    Login
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    onClick={() => {
+                      window.location.href = '/subscribe?plan=business&billing=monthly';
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                  >
+                    Buy Now
+                  </Button>
+                  <Button 
+                    onClick={() => {
+                      window.location.href = "/trial";
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                  >
+                    Start Your Trial
+                  </Button>
+                  <div className="px-3">
+                    <LanguageSelector />
+                  </div>
+                </div>
               </div>
             </div>
           )}
