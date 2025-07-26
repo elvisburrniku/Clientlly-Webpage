@@ -115,29 +115,38 @@ export default function Contact() {
         </div>
       </nav>
 
-      {/* Main Content */}
-      <div className="pt-20 pb-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Header with Yellow Background */}
-          <div className="text-center mb-12 relative">
-            <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 rounded-3xl shadow-2xl overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              {/* Floating Sparkles */}
-              <div className="absolute top-4 right-6 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-              <div className="absolute bottom-6 left-4 w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse"></div>
-              <div className="absolute top-1/2 right-4 w-1 h-1 bg-yellow-300 rounded-full animate-bounce"></div>
-              
-              <div className="p-10 relative z-10">
-                <h1 className="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
-                  Get in Touch
-                </h1>
-                <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 max-w-3xl mx-auto leading-relaxed">
-                  Have questions? Need support? We're here to help your business succeed.
-                </p>
-              </div>
-            </div>
+      {/* Header Section with Full Width Yellow Background */}
+      <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        {/* Floating Sparkles */}
+        <div className="absolute top-8 right-12 w-4 h-4 animate-ping delay-0">
+          <Sparkles className="w-4 h-4 text-amber-600/40" />
+        </div>
+        <div className="absolute bottom-16 left-16 w-6 h-6 animate-ping delay-1000">
+          <Sparkles className="w-6 h-6 text-orange-600/50" />
+        </div>
+        <div className="absolute top-20 right-24 w-3 h-3 animate-ping delay-2000">
+          <Sparkles className="w-3 h-3 text-yellow-600/40" />
+        </div>
+        <div className="absolute bottom-32 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
+        <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
+        
+        <div className="pt-20 pb-16 px-4 relative z-10">
+          <div className="max-w-7xl mx-auto text-center">
+            <h1 className="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
+              Get in Touch
+            </h1>
+            <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 max-w-3xl mx-auto leading-relaxed">
+              Have questions? Need support? We're here to help your business succeed.
+            </p>
           </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="py-12 px-4">
+        <div className="max-w-7xl mx-auto">
 
           {/* Compact Layout - 3 columns */}
           <div className="grid lg:grid-cols-3 gap-6 items-start">
@@ -312,83 +321,84 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Let's Grow Together Section - Enhanced Design with Yellow Background */}
-          <div className="mt-12">
-            <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 rounded-3xl shadow-2xl overflow-hidden relative group hover:shadow-3xl transition-all duration-500">
-              {/* Decorative Sparkles */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-8 left-12 w-4 h-4 animate-ping delay-0">
-                  <Sparkles className="w-4 h-4 text-amber-600/40" />
-                </div>
-                <div className="absolute bottom-16 right-16 w-6 h-6 animate-ping delay-1000">
-                  <Sparkles className="w-6 h-6 text-orange-600/50" />
-                </div>
-                <div className="absolute top-20 right-24 w-3 h-3 animate-ping delay-2000">
-                  <Sparkles className="w-3 h-3 text-yellow-600/40" />
-                </div>
-                <div className="absolute bottom-32 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
-                <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
-              </div>
+        </div>
+      </div>
+
+      {/* Let's Grow Together Section - Full Width Yellow Background */}
+      <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 relative overflow-hidden">
+        {/* Decorative Sparkles */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-8 left-12 w-4 h-4 animate-ping delay-0">
+            <Sparkles className="w-4 h-4 text-amber-600/40" />
+          </div>
+          <div className="absolute bottom-16 right-16 w-6 h-6 animate-ping delay-1000">
+            <Sparkles className="w-6 h-6 text-orange-600/50" />
+          </div>
+          <div className="absolute top-20 right-24 w-3 h-3 animate-ping delay-2000">
+            <Sparkles className="w-3 h-3 text-yellow-600/40" />
+          </div>
+          <div className="absolute bottom-32 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
+          <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
+        </div>
+        
+        <div className="py-16 px-4 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center">
+              {/* Title */}
+              <h3 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
+                <span className="inline-block animate-elegant-rise animation-delay-0">Let's</span>{' '}
+                <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">grow</span>{' '}
+                <span className="inline-block animate-elegant-rise animation-delay-400">together</span>
+              </h3>
               
-              <div className="p-10 relative z-10">
-                <div className="text-center">
-                  {/* Title */}
-                  <h3 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
-                    <span className="inline-block animate-elegant-rise animation-delay-0">Let's</span>{' '}
-                    <span className="inline-block bg-gradient-to-r from-amber-600 via-orange-500 to-red-500 dark:from-amber-400 dark:via-orange-400 dark:to-red-400 bg-clip-text text-transparent font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">grow</span>{' '}
-                    <span className="inline-block animate-elegant-rise animation-delay-400">together</span>
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-lg lg:text-xl text-gray-800 dark:text-gray-100 leading-relaxed mb-8 max-w-3xl mx-auto">
-                    Join 10,000+ businesses that trust BusinessFlow Pro for their operations. 
-                    Your success drives our development.
-                  </p>
-                  
-                  {/* Trust Indicators Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                    {/* 99.9% Uptime */}
-                    <div className="group/card">
-                      <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                        <div className="flex flex-col items-center text-center space-y-3">
-                          <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
-                            <CheckCircle className="h-7 w-7 text-white" />
-                          </div>
-                          <div>
-                            <h4 className="text-xl font-black text-gray-900 dark:text-white mb-1">99.9% Uptime</h4>
-                            <p className="text-gray-700 dark:text-gray-200 font-medium text-sm">Always reliable</p>
-                          </div>
-                        </div>
+              {/* Description */}
+              <p className="text-lg lg:text-xl text-gray-800 dark:text-gray-100 leading-relaxed mb-8 max-w-3xl mx-auto">
+                Join 10,000+ businesses that trust BusinessFlow Pro for their operations. 
+                Your success drives our development.
+              </p>
+              
+              {/* Trust Indicators Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                {/* 99.9% Uptime */}
+                <div className="group/card">
+                  <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div className="flex flex-col items-center text-center space-y-3">
+                      <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
+                        <CheckCircle className="h-7 w-7 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-black text-gray-900 dark:text-white mb-1">99.9% Uptime</h4>
+                        <p className="text-gray-700 dark:text-gray-200 font-medium text-sm">Always reliable</p>
                       </div>
                     </div>
-                    
-                    {/* 24/7 Support */}
-                    <div className="group/card">
-                      <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                        <div className="flex flex-col items-center text-center space-y-3">
-                          <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
-                            <Headphones className="h-7 w-7 text-white" />
-                          </div>
-                          <div>
-                            <h4 className="text-xl font-black text-gray-900 dark:text-white mb-1">24/7 Support</h4>
-                            <p className="text-gray-700 dark:text-gray-200 font-medium text-sm">We're here for you</p>
-                          </div>
-                        </div>
+                  </div>
+                </div>
+                
+                {/* 24/7 Support */}
+                <div className="group/card">
+                  <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div className="flex flex-col items-center text-center space-y-3">
+                      <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
+                        <Headphones className="h-7 w-7 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-black text-gray-900 dark:text-white mb-1">24/7 Support</h4>
+                        <p className="text-gray-700 dark:text-gray-200 font-medium text-sm">We're here for you</p>
                       </div>
                     </div>
-                    
-                    {/* Bank-level Security */}
-                    <div className="group/card">
-                      <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-                        <div className="flex flex-col items-center text-center space-y-3">
-                          <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-violet-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
-                            <Shield className="h-7 w-7 text-white" />
-                          </div>
-                          <div>
-                            <h4 className="text-xl font-black text-gray-900 dark:text-white mb-1">Bank-level Security</h4>
-                            <p className="text-gray-700 dark:text-gray-200 font-medium text-sm">Enterprise grade</p>
-                          </div>
-                        </div>
+                  </div>
+                </div>
+                
+                {/* Bank-level Security */}
+                <div className="group/card">
+                  <div className="bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 dark:border-gray-700/30 hover:bg-white/30 dark:hover:bg-gray-900/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div className="flex flex-col items-center text-center space-y-3">
+                      <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-violet-500 rounded-2xl flex items-center justify-center shadow-lg group-hover/card:scale-110 transition-transform duration-300">
+                        <Shield className="h-7 w-7 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-black text-gray-900 dark:text-white mb-1">Bank-level Security</h4>
+                        <p className="text-gray-700 dark:text-gray-200 font-medium text-sm">Enterprise grade</p>
                       </div>
                     </div>
                   </div>
