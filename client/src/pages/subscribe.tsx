@@ -270,23 +270,7 @@ export default function Subscribe() {
       setBillingPeriod(billingFromUrl);
     }
 
-    // Auto-scroll to pricing section when arriving from "Buy Now" button
-    const scrollToPricing = () => {
-      const pricingSection = document.getElementById('pricing-section');
-      if (pricingSection) {
-        setTimeout(() => {
-          pricingSection.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          });
-        }, 500); // Small delay to ensure page is loaded
-      }
-    };
 
-    // Check if coming from a "Buy Now" button (no plan specified)
-    if (!planFromUrl && location.includes('/subscribe')) {
-      scrollToPricing();
-    }
   }, [location]);
 
   const selectedPlanData = plans?.find(p => p.id === selectedPlan);

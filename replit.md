@@ -107,9 +107,8 @@ Preferred communication style: Simple, everyday language.
 ✓ Updated both desktop and mobile menu "Buy Now" buttons for consistent navigation
 ✓ Users now see all pricing options ($29 Starter, $49 Professional, $89 Enterprise) with unified feature sets
 ✓ Maintained customer-first pricing philosophy where all plans include identical comprehensive features
-✓ Added auto-scroll functionality to pricing section when users arrive from "Buy Now" buttons
-✓ Implemented smooth scrolling animation to step indicators and "Choose the perfect plan" section with 500ms delay
-✓ "Buy Now" buttons display full hero content then auto-scroll to subscription section for complete user experience
+✓ "Buy Now" buttons redirect to /subscribe page showing full hero content and pricing section
+✓ Removed auto-scrolling to allow users to view complete subscribe page content naturally
 
 ✓ COMPLETED trial page complete redesign with stunning modern design (July 26, 2025)
 ✓ Created beautiful animated hero section with gradient backgrounds and professional typography
