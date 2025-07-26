@@ -120,16 +120,29 @@ export default function Contact() {
       {/* Main Content */}
       <div className="pt-20 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Get in Touch
-              </span>
-            </h1>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Have questions? Need support? We're here to help your business succeed.
-            </p>
+          {/* Header with Yellow Background */}
+          <div className="text-center mb-16 relative">
+            <div className="bg-gradient-to-br from-yellow-50/90 to-orange-50/90 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-3xl p-12 shadow-2xl backdrop-blur-xl border border-yellow-200/30 dark:border-yellow-700/30 relative overflow-hidden group">
+              {/* Floating Sparkles */}
+              <div className="absolute top-6 right-8 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
+              <div className="absolute bottom-8 left-6 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-bounce"></div>
+              <div className="absolute top-8 left-1/2 w-1 h-1 bg-orange-300 rounded-full animate-ping delay-1000"></div>
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-orange-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative z-10">
+                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
+                  <span className="bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 bg-clip-text text-transparent">
+                    Get in Touch
+                  </span>
+                </h1>
+                <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                  Have questions? Need support? We're here to help your business succeed.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
