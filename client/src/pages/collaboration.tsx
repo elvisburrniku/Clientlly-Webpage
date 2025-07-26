@@ -325,7 +325,6 @@ const CollaborationPage = () => {
                 <div className="animate-bounce delay-400 hover:animate-pulse">
                   <ArrowRight className="w-5 h-5 text-red-600" />
                 </div>
-                <span className="text-sm text-gray-800 dark:text-gray-100 font-medium hover:text-gray-900 dark:hover:text-white">Ready to Start?</span>
               </button>
             </div>
           </div>
