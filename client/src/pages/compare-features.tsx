@@ -27,6 +27,7 @@ import {
   Shield,
   TrendingUp
 } from 'lucide-react';
+import Footer from "@/components/Footer";
 import logoPath from "@assets/3d_1753268267691.png";
 
 export default function CompareFeatures() {
@@ -484,6 +485,9 @@ export default function CompareFeatures() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
