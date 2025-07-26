@@ -46,16 +46,16 @@ const CollaborationPage = () => {
 
             {/* Center - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
-              <Button variant="ghost" onClick={() => window.location.href = "/about"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/about"} className="text-sm text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
                 About Us
               </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/#features"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/#features"} className="text-sm text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
                 Features
               </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/subscribe"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/subscribe"} className="text-sm text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
                 Pricing
               </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/contact"} className="text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/contact"} className="text-sm text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
                 Contact Us
               </Button>
             </div>
@@ -100,16 +100,16 @@ const CollaborationPage = () => {
         {showMobileMenu && (
           <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-6 py-4 space-y-4">
-              <Button variant="ghost" onClick={() => window.location.href = "/about"} className="w-full justify-start text-gray-600 dark:text-gray-300 font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/about"} className="w-full justify-start text-sm text-gray-600 dark:text-gray-300 font-bold">
                 About Us
               </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/#features"} className="w-full justify-start text-gray-600 dark:text-gray-300 font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/#features"} className="w-full justify-start text-sm text-gray-600 dark:text-gray-300 font-bold">
                 Features
               </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/subscribe"} className="w-full justify-start text-gray-600 dark:text-gray-300 font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/subscribe"} className="w-full justify-start text-sm text-gray-600 dark:text-gray-300 font-bold">
                 Pricing
               </Button>
-              <Button variant="ghost" onClick={() => window.location.href = "/contact"} className="w-full justify-start text-gray-600 dark:text-gray-300 font-bold">
+              <Button variant="ghost" onClick={() => window.location.href = "/contact"} className="w-full justify-start text-sm text-gray-600 dark:text-gray-300 font-bold">
                 Contact Us
               </Button>
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="w-full justify-start text-gray-600 dark:text-gray-300">

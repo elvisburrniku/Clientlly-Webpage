@@ -217,12 +217,12 @@ export default function Landing() {
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
-              <a href="#features" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</a>
+              <Link href="/about" className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
+              <a href="#features" className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</a>
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = '/subscribe'}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
+                className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
               >
                 Pricing
               </Button>
@@ -230,7 +230,7 @@ export default function Landing() {
               <Button 
                 variant="ghost" 
                 onClick={() => window.location.href = '/contact'} 
-                className="text-muted-foreground hover:text-primary transition-all duration-300 font-bold"
+                className="text-sm text-muted-foreground hover:text-primary transition-all duration-300 font-bold"
               >
                 Contact Us
               </Button>
@@ -281,15 +281,15 @@ export default function Landing() {
           <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
               {/* Navigation Links */}
-              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors font-bold">About Us</Link>
-              <a href="#features" className="block text-muted-foreground hover:text-primary transition-colors font-bold">Features</a>
+              <Link href="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors font-bold">About Us</Link>
+              <a href="#features" className="block text-sm text-muted-foreground hover:text-primary transition-colors font-bold">Features</a>
               <Button 
                 variant="ghost"
                 onClick={() => {
                   window.location.href = '/subscribe';
                   setShowMobileMenu(false);
                 }}
-                className="w-full text-left justify-start text-muted-foreground hover:text-primary font-bold"
+                className="w-full text-left justify-start text-sm text-muted-foreground hover:text-primary font-bold"
               >
                 Pricing
               </Button>
@@ -300,7 +300,7 @@ export default function Landing() {
                   setShowDemoModal(true);
                   setShowMobileMenu(false);
                 }} 
-                className="w-full text-left justify-start text-muted-foreground hover:text-primary font-bold"
+                className="w-full text-left justify-start text-sm text-muted-foreground hover:text-primary font-bold"
               >
                 Contact Us
               </Button>
