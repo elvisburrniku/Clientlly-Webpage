@@ -487,16 +487,16 @@ const DataProtectionPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '2s'}}>
             <Button 
               onClick={() => window.location.href = "/trial"}
-              className="bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-8 py-3 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
+              className="bg-gradient-to-r from-white via-gray-50 to-white text-blue-600 hover:from-gray-50 hover:via-white hover:to-gray-50 font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-500 hover:shadow-white/30 border-2 border-white/20"
             >
-              Start Free Trial
+              🚀 Start Free Trial
             </Button>
             <Button 
-              onClick={() => window.location.href = "/contact"}
+              onClick={() => window.location.href = "/trial"}
               variant="outline"
-              className="border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-3 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
+              className="border-2 border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white font-bold text-lg px-10 py-4 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-500 hover:shadow-white/20"
             >
-              Have Questions?
+              ⭐ Start Your Trial
             </Button>
           </div>
 
