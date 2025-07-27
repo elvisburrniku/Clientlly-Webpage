@@ -398,7 +398,7 @@ export default function Landing() {
             <div className="space-y-8">
               <div className="max-w-5xl mx-auto space-y-8">
                 
-                <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-12 fade-in stagger-3">
 
                   <button 
                     onClick={() => window.location.href = "/trial"}
