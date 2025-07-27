@@ -11,7 +11,6 @@ import {
   CreditCard, 
   BarChart3, 
   Users, 
-  Building2, 
   Package, 
   Clock, 
   Calendar, 
@@ -63,59 +62,7 @@ export default function CompareFeatures() {
     };
   }, []);
 
-  const plans = [
-    {
-      id: "starter",
-      name: "Starter",
-      price: "$29",
-      users: "Up to 3 users",
-      invoices: "100 invoices/month",
-      description: "Perfect for small teams and freelancers",
-      popular: false,
-      features: [
-        "All core features included",
-        "3 team members",
-        "100 invoices per month",
-        "Basic reporting",
-        "Email support"
-      ]
-    },
-    {
-      id: "professional", 
-      name: "Professional",
-      price: "$79",
-      users: "Up to 10 users",
-      invoices: "500 invoices/month",
-      description: "Best for growing businesses",
-      popular: true,
-      features: [
-        "All core features included",
-        "10 team members",
-        "500 invoices per month",
-        "Advanced reporting & analytics",
-        "Priority support",
-        "Custom branding"
-      ]
-    },
-    {
-      id: "enterprise",
-      name: "Enterprise", 
-      price: "$159",
-      users: "Unlimited users",
-      invoices: "Unlimited invoices",
-      description: "For large organizations",
-      popular: false,
-      features: [
-        "All core features included",
-        "Unlimited team members",
-        "Unlimited invoices",
-        "Premium reporting suite",
-        "24/7 phone support",
-        "Custom integrations",
-        "Dedicated account manager"
-      ]
-    }
-  ];
+
 
   const coreFeatures = [
     {
@@ -394,96 +341,7 @@ export default function CompareFeatures() {
             </Card>
           </div>
 
-          {/* Plans Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {plans.map((plan, index) => (
-              <Card 
-                key={plan.id} 
-                className={`relative glass-effect border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 ${
-                  plan.popular ? 'ring-2 ring-blue-500 shadow-2xl' : ''
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 shadow-lg">
-                      <Star className="w-4 h-4 mr-2" />
-                      Most Popular
-                    </Badge>
-                  </div>
-                )}
-                
-                {/* Plan Header */}
-                <CardHeader className="text-center p-8 bg-gradient-to-b from-white/50 to-transparent relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50"></div>
-                  <div className="relative z-10">
-                    <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <Building2 className="h-10 w-10 text-white" />
-                    </div>
-                    <CardTitle className="text-3xl font-black text-foreground mb-2 tracking-tight">{plan.name}</CardTitle>
-                    <div className="text-5xl font-bold gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                      {plan.price}<span className="text-2xl font-normal text-muted-foreground">/month</span>
-                    </div>
-                    <p className="text-xl text-muted-foreground leading-relaxed mb-6">{plan.description}</p>
-                    
-                    {/* Usage Limits */}
-                    <div className="space-y-3 bg-white/30 rounded-xl p-4 backdrop-blur-sm">
-                      <div className="flex items-center justify-center space-x-3">
-                        <Users className="h-5 w-5 text-blue-600" />
-                        <span className="font-semibold text-foreground">{plan.users}</span>
-                      </div>
-                      <div className="flex items-center justify-center space-x-3">
-                        <FileText className="h-5 w-5 text-purple-600" />
-                        <span className="font-semibold text-foreground">{plan.invoices}</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardHeader>
-                
-                {/* Plan Features */}
-                <CardContent className="p-8">
-                  <div className="space-y-4 mb-8">
-                    {plan.features.map((feature, idx) => {
-                      // Parse markdown bold text **text** and render as bold
-                      const parts = feature.split(/(\*\*.*?\*\*)/g);
-                      return (
-                        <div key={idx} className="flex items-start space-x-3 p-2 rounded-lg hover:bg-white/20 transition-colors">
-                          <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-foreground font-medium leading-relaxed">
-                            {parts.map((part, partIndex) => {
-                              if (part.startsWith('**') && part.endsWith('**')) {
-                                const content = part.slice(2, -2);
-                                const isUsageLimit = content.includes('users') || content.includes('invoices') || content.includes('€');
-                                return (
-                                  <strong 
-                                    key={partIndex} 
-                                    className={`font-bold ${
-                                      isUsageLimit 
-                                        ? 'text-blue-600 dark:text-blue-400 animate-pulse bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 px-2 py-1 rounded-lg border border-blue-200 dark:border-blue-700/30' 
-                                        : 'text-orange-600 dark:text-orange-400'
-                                    }`}
-                                  >
-                                    {content}
-                                  </strong>
-                                );
-                              }
-                              return part;
-                            })}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
 
-                  <Button 
-                    className="w-full py-6 text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-                    onClick={() => window.location.href = '/subscribe'}
-                  >
-                    Choose {plan.name}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
 
           {/* Core Features Overview */}
           <div className="mb-20">
