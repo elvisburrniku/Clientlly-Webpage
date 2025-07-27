@@ -575,6 +575,17 @@
     color: black;
   }
 
+  /* Remove orange focus circles from all buttons */
+  button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  button:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
   .hover-lift:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 25px 50px rgba(133, 77, 255, 0.15), 0 10px 20px rgba(0,0,0,0.1);
