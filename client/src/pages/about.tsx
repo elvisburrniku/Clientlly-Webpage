@@ -565,10 +565,10 @@ const AboutPage = () => {
               <div className="space-y-8 lg:space-y-12">
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-4 tracking-tight text-yellow-500 dark:text-yellow-400">
-                    <span className="inline-block animate-elegant-rise animation-delay-0">Let's</span>{' '}
-                    <span className="inline-block font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce">grow</span>{' '}
-                    <span className="inline-block animate-elegant-rise animation-delay-400">together</span>
+                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-4 tracking-tight">
+                    <span className="inline-block animate-elegant-rise animation-delay-0 text-black dark:text-white">Let's</span>{' '}
+                    <span className="inline-block font-extrabold animate-elegant-rise animation-delay-200 hover:animate-gentle-bounce text-yellow-500 dark:text-yellow-400">grow</span>{' '}
+                    <span className="inline-block animate-elegant-rise animation-delay-400 text-black dark:text-white">together</span>
                   </h2>
                   
                   <div className="space-y-4">
