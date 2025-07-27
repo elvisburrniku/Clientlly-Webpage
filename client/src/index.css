@@ -578,30 +578,48 @@
   /* Remove orange focus circles from all interactive elements */
   * {
     outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   *:focus {
     outline: none !important;
     box-shadow: none !important;
+    -webkit-focus-ring-color: transparent !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   *:focus-visible {
     outline: none !important;
     box-shadow: none !important;
+    -webkit-focus-ring-color: transparent !important;
   }
 
-  button, a, input, textarea, select {
+  button, a, input, textarea, select, [tabindex] {
     outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
   }
 
-  button:focus, a:focus, input:focus, textarea:focus, select:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-
-  button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  button:focus, a:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
     outline: none !important;
     box-shadow: none !important;
+    -webkit-focus-ring-color: transparent !important;
+    -webkit-tap-highlight-color: transparent !important;
+    border: none !important;
+  }
+
+  button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-focus-ring-color: transparent !important;
+    -webkit-tap-highlight-color: transparent !important;
+    border: none !important;
+  }
+
+  button:active, a:active {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   .hover-lift:hover {
