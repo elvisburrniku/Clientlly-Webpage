@@ -1005,7 +1005,7 @@ export default function Subscribe() {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <div className="pt-32 pb-14 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
+      <div className="pt-32 pb-12 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
         {/* Floating Sparkles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
