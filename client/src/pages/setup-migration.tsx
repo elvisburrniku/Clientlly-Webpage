@@ -150,10 +150,10 @@ const SetupMigrationPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400">
+      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-orange-400 via-orange-500 to-purple-500">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
@@ -266,7 +266,7 @@ const SetupMigrationPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+      <section className="py-20 px-4 bg-gradient-to-r from-orange-400 via-orange-500 to-purple-500 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
