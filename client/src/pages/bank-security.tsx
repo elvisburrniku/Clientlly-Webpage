@@ -205,45 +205,50 @@ const BankSecurityPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4 overflow-hidden">
+      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-400">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          {/* Floating sparkles */}
+          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
+          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white/80 rounded-full animate-pulse delay-700"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute top-2/3 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse delay-200"></div>
+          <div className="absolute top-1/5 right-1/5 w-2 h-2 bg-white/70 rounded-full animate-pulse delay-900"></div>
         </div>
 
         <div className="max-w-7xl mx-auto text-center">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200/50 rounded-full text-sm font-bold text-blue-700 mb-8">
-              <Shield className="w-4 h-4 mr-2" />
-              Bank-Level Security Certified
+            <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
+              <Shield className="w-4 h-4 mr-2 text-gray-700" />
+              Try Risk-Free Today
             </div>
             
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
-              <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">
-                Bank-Level
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
+              <span className="text-gray-900 drop-shadow-lg">
+                Try Risk-Free
               </span>
               <br />
-              <span className="text-foreground">Security</span>
+              <span className="text-gray-900 drop-shadow-lg">Today</span>
             </h1>
             
-            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
-              Your business data is protected by the same enterprise-grade security standards used by 
-              major financial institutions. Trust, transparency, and total protection.
+            <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
+              Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-16">
-              <div className="flex items-center space-x-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
-                <Lock className="h-5 w-5 text-blue-600" />
-                <span className="font-bold text-blue-800 dark:text-blue-300">256-bit encryption</span>
-              </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-cyan-100 dark:bg-cyan-900/20 rounded-lg">
-                <Award className="h-5 w-5 text-cyan-600" />
-                <span className="font-bold text-cyan-800 dark:text-cyan-300">SOC 2 certified</span>
-              </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                <Globe className="h-5 w-5 text-purple-600" />
-                <span className="font-bold text-purple-800 dark:text-purple-300">GDPR compliant</span>
-              </div>
+              <Button 
+                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                className="px-8 py-4 bg-gray-900 text-white hover:bg-gray-800 rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+              >
+                Start Free Trial
+              </Button>
+              <Button 
+                onClick={() => window.location.href = '/subscribe'}
+                variant="outline"
+                className="px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+              >
+                View Pricing Plans
+              </Button>
             </div>
           </div>
         </div>
