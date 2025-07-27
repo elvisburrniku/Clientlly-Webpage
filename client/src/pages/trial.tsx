@@ -329,7 +329,7 @@ export default function Trial() {
                   <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                     <Rocket className="h-10 w-10 text-white" />
                   </div>
-                  <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Ready to Launch?</h2>
+                  <h2 className="text-4xl font-black text-white mb-3 tracking-tight animate-smooth-slide-in animate-floating-glow">Ready to <span className="animate-enhanced-text-wave">Launch</span>?</h2>
                   <p className="text-lg text-gray-800 dark:text-gray-200">Your business transformation starts with these 5 simple fields.</p>
                 </div>
               </div>
