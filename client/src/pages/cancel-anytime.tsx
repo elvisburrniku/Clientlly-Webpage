@@ -177,35 +177,35 @@ const CancelAnytimePage = () => {
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
               <AlertCircle className="w-4 h-4 mr-2 text-gray-700" />
-              No Commitment Required
+              Try Risk-Free Today
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
               <span className="text-gray-900 drop-shadow-lg">
-                Cancel Anytime
+                Try Risk-Free
               </span>
               <br />
-              <span className="text-gray-900 drop-shadow-lg">No Questions Asked</span>
+              <span className="text-gray-900 drop-shadow-lg">Today</span>
             </h1>
             
             <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
-              We believe in earning your business every month. That's why you can cancel your subscription 
-              at any time with just a few clicks - no phone calls, no contracts, no hassle.
+              Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-16">
-              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
-                <Clock className="h-5 w-5 text-gray-700" />
-                <span className="font-bold text-gray-800">Cancel instantly</span>
-              </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
-                <Shield className="h-5 w-5 text-gray-700" />
-                <span className="font-bold text-gray-800">No cancellation fees</span>
-              </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
-                <Zap className="h-5 w-5 text-gray-700" />
-                <span className="font-bold text-gray-800">Keep your data</span>
-              </div>
+              <Button 
+                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                className="px-8 py-4 bg-gray-900 text-white hover:bg-gray-800 rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+              >
+                Start Free Trial
+              </Button>
+              <Button 
+                onClick={() => window.location.href = '/subscribe'}
+                variant="outline"
+                className="px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+              >
+                View Pricing Plans
+              </Button>
             </div>
           </div>
         </div>
