@@ -182,9 +182,9 @@ const ExpertSupportPage = () => {
               24/7 Expert Support
             </div>
             
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                Expert Support
+                Expert <span className="animate-subtle-gradient">Support</span>
               </span>
               <br />
               <span className="text-gray-900 drop-shadow-lg">When You Need It</span>

@@ -236,8 +236,8 @@ export default function Contact() {
         
         <div className="pt-20 pb-16 px-4 relative z-10">
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight">
-              Get in Touch
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight animate-professional-fade">
+              Get in <span className="animate-subtle-gradient">Touch</span>
             </h1>
             <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 max-w-3xl mx-auto leading-relaxed">
               Have questions? Need support? We're here to help your business succeed.

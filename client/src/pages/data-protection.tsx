@@ -198,8 +198,8 @@ const DataProtectionPage = () => {
               <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-green-500 rounded-3xl mb-8 shadow-2xl">
                 <Shield className="w-10 h-10 text-white" />
               </div>
-              <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight">
-                Data Protection & <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Privacy</span>
+              <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-professional-fade">
+                Data Protection & <span className="animate-subtle-gradient">Privacy</span>
               </h1>
               <p className="text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
                 Your trust is our foundation. Learn how we protect your business data with enterprise-grade security, transparent policies, and complete user control.
@@ -213,8 +213,8 @@ const DataProtectionPage = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight">
-              Our Privacy <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Principles</span>
+            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
+              Our Privacy <span className="animate-subtle-gradient">Principles</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Built on transparency, user control, and legal compliance

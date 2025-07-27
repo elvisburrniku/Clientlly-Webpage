@@ -323,9 +323,9 @@ const MigrationRequestPage = () => {
                   <RefreshCw className="h-10 w-10 text-white" />
                 </div>
                 
-                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight">
+                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight animate-professional-fade">
                   Start Your{' '}
-                  <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+                  <span className="animate-subtle-gradient">
                     Free Migration
                   </span>
                 </h1>

@@ -60,8 +60,8 @@ export default function FeatureReports() {
               <BarChart3 className="h-10 w-10 text-white" />
             </div>
           </div>
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight">
-            Insights & <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Reports</span>
+          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">
+            Insights & <span className="animate-subtle-gradient">Reports</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Transform your business data into actionable insights with powerful analytics, interactive dashboards, and comprehensive reporting tools.

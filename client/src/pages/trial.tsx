@@ -246,9 +246,9 @@ export default function Trial() {
             </div>
             
             {/* Main Title */}
-            <h1 className={`text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h1 className={`text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight animate-professional-fade`}>
               Start your{' '}
-              <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent animate-gradient-x">
+              <span className="animate-subtle-gradient">
                 free trial
               </span>
               <br />

@@ -57,8 +57,8 @@ export default function FeatureSecurity() {
               <Shield className="h-10 w-10 text-white" />
             </div>
           </div>
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight">
-            Enterprise <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Security</span>
+          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">
+            Enterprise <span className="animate-subtle-gradient">Security</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Protect your business data with bank-level security, advanced encryption, and comprehensive compliance features trusted by enterprises worldwide.

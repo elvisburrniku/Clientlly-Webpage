@@ -328,9 +328,9 @@ export default function Dashboard() {
 
               {/* Step 2: Personalized Greeting with Typing Effect */}
               <div className={`transition-all duration-1000 delay-300 ${animationStep >= 2 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
-                <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-professional-fade">
                   <span className="text-foreground block mb-3">{getTimeBasedGreeting()},</span>
-                  <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-orange-600 bg-clip-text text-transparent animate-pulse">
+                  <span className="animate-subtle-gradient">
                     {(user as any)?.firstName || 'there'}!
                   </span>
                 </h1>

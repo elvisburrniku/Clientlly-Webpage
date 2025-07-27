@@ -223,12 +223,12 @@ const BankSecurityPage = () => {
               Try Risk-Free Today
             </div>
             
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                Try Risk-Free
+                Bank-Level <span className="animate-subtle-gradient">Security</span>
               </span>
               <br />
-              <span className="text-gray-900 drop-shadow-lg">Today</span>
+              <span className="text-gray-900 drop-shadow-lg">Protection</span>
             </h1>
             
             <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
@@ -258,8 +258,8 @@ const BankSecurityPage = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              Enterprise <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">Security Features</span>
+            <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
+              Enterprise <span className="animate-subtle-gradient">Security Features</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Multi-layered security protection that exceeds industry standards and regulatory requirements.

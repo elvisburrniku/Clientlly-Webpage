@@ -90,8 +90,8 @@ export default function FeatureInventory() {
                 <Badge className="bg-red-100 text-red-700 hover:bg-red-200">
                   Intelligent Inventory Management
                 </Badge>
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight">
-                  Stay on top of orders and <span className="gradient-text">quantities</span>
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight animate-professional-fade">
+                  Stay on top of orders and <span className="animate-subtle-gradient">quantities</span>
                 </h1>
                 <p className="text-xl text-muted-foreground">
                   Track inventory levels in real-time, manage orders automatically, and never run out of stock again. 

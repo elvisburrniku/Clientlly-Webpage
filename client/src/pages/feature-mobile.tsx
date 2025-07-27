@@ -60,8 +60,8 @@ export default function FeatureMobile() {
               <Smartphone className="h-10 w-10 text-white" />
             </div>
           </div>
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight">
-            Mobile <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">App</span>
+          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">
+            Mobile <span className="animate-subtle-gradient">App</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Take your business management anywhere with our powerful mobile app. Access all features, manage finances, and stay connected with your team on the go.

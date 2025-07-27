@@ -90,8 +90,8 @@ export default function FeatureTax() {
                 <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-200">
                   Tax Compliance & Planning
                 </Badge>
-                <h1 className="text-5xl font-bold text-foreground">
-                  Stay organized and <span className="gradient-text">tax-ready</span> year-round
+                <h1 className="text-5xl font-bold text-foreground animate-professional-fade">
+                  Stay organized and <span className="animate-subtle-gradient">tax-ready</span> year-round
                 </h1>
                 <p className="text-xl text-muted-foreground">
                   Automatically categorize expenses by tax code, track deductibles, and calculate sales tax. 

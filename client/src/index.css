@@ -143,6 +143,25 @@
   }
 }
 
+.animate-professional-fade {
+  animation: professional-fade-in 0.8s ease-out forwards;
+}
+
+.animate-subtle-gradient {
+  background: linear-gradient(90deg, 
+    #374151 0%, 
+    #374151 20%,
+    #3b82f6 40%, 
+    #8b5cf6 50%, 
+    #374151 60%,
+    #374151 100%);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: subtle-gradient 4s ease-in-out infinite;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

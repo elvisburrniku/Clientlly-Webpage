@@ -59,8 +59,8 @@ export default function FeatureMigration() {
               <ArrowRight className="h-10 w-10 text-white" />
             </div>
           </div>
-          <h1 className="text-5xl font-bold text-foreground mb-6">
-            Easy <span className="bg-gradient-to-r from-teal-600 to-green-600 bg-clip-text text-transparent">Migration</span>
+          <h1 className="text-5xl font-bold text-foreground mb-6 animate-professional-fade">
+            Easy <span className="animate-subtle-gradient">Migration</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Switch to BusinessFlow Pro seamlessly with our automated migration tools, expert support, and zero-downtime transition process.

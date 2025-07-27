@@ -89,8 +89,8 @@ export default function FeatureExpenses() {
                 <Badge className="bg-green-100 text-green-700 hover:bg-green-200">
                   Tax-Ready Expense Management
                 </Badge>
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight">
-                  Get set for tax time with <span className="gradient-text">organized expenses</span>
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight animate-professional-fade">
+                  Get set for tax time with <span className="animate-subtle-gradient">organized expenses</span>
                 </h1>
                 <p className="text-xl text-muted-foreground">
                   Capture receipts instantly with your phone, automatically categorize expenses, 

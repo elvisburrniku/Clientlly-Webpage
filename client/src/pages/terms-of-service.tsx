@@ -43,8 +43,8 @@ export default function TermsOfService() {
             <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
               <Scale className="h-10 w-10 text-white" />
             </div>
-            <h1 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              Terms of <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Service</span>
+            <h1 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
+              Terms of <span className="animate-subtle-gradient">Service</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Last updated: July 27, 2025

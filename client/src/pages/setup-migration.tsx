@@ -181,9 +181,9 @@ const SetupMigrationPage = () => {
               <span className="animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">100% Free Setup & Migration</span>
             </div>
             
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                Free Setup &
+                Free <span className="animate-subtle-gradient">Setup</span> &
               </span>
               <br />
               <span className="text-gray-900 drop-shadow-lg">Migration Service</span>

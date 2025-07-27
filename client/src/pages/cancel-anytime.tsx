@@ -180,9 +180,9 @@ const CancelAnytimePage = () => {
               Try Risk-Free Today
             </div>
             
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                Try Risk-Free
+                Try <span className="animate-subtle-gradient">Risk-Free</span>
               </span>
               <br />
               <span className="text-gray-900 drop-shadow-lg">Today</span>
@@ -201,8 +201,8 @@ const CancelAnytimePage = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              True <span className="animate-gradient-x bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">Flexibility</span>
+            <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
+              True <span className="animate-subtle-gradient">Flexibility</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Our cancellation policy is designed with your business needs in mind. No surprises, no complications.

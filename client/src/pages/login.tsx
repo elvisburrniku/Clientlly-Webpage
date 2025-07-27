@@ -148,8 +148,8 @@ export default function Login() {
           <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
             <LogIn className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-text-wave">
-            Welcome Back to BusinessFlow Pro
+          <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-professional-fade">
+            Welcome Back to <span className="animate-subtle-gradient">BusinessFlow Pro</span>
           </h1>
           <p className="text-xl text-black/80 max-w-3xl mx-auto mb-8">
             Continue managing your business operations with our comprehensive platform trusted by thousands of businesses worldwide.
@@ -164,8 +164,8 @@ export default function Login() {
             {/* Left Column - Login Form */}
             <div className="space-y-8">
               <div className="text-center lg:text-left">
-                <h2 className="text-4xl font-black text-foreground mb-6 tracking-tight">
-                  Sign In to Your <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Dashboard</span>
+                <h2 className="text-4xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
+                  Sign In to Your <span className="animate-subtle-gradient">Dashboard</span>
                 </h2>
                 <p className="text-lg text-muted-foreground">
                   Access your business command center with secure authentication powered by Replit.

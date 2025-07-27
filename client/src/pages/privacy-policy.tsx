@@ -46,8 +46,8 @@ export default function PrivacyPolicy() {
             <div className="w-20 h-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
               <Shield className="h-10 w-10 text-white" />
             </div>
-            <h1 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              Privacy <span className="gradient-text bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Policy</span>
+            <h1 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
+              Privacy <span className="animate-subtle-gradient">Policy</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Last updated: July 27, 2025

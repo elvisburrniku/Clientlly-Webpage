@@ -150,8 +150,8 @@ const CollaborationPage = () => {
 
         <div className="relative z-10 py-20 lg:py-32">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-800 dark:text-gray-100 mb-6 leading-tight tracking-tight">
-              Growing Together Through Collaboration
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-800 dark:text-gray-100 mb-6 leading-tight tracking-tight animate-professional-fade">
+              Growing Together Through <span className="animate-subtle-gradient">Collaboration</span>
             </h1>
             
             <p className="text-xl text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
@@ -178,8 +178,8 @@ const CollaborationPage = () => {
       <section id="how-it-works" className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight">
-              How We Collaborate
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-4 leading-tight tracking-tight animate-professional-fade">
+              How We <span className="animate-subtle-gradient">Collaborate</span>
             </h2>
             <p className="text-lg text-muted-foreground">
               Simple process, powerful results

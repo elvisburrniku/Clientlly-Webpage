@@ -284,8 +284,8 @@ export default function CompareFeatures() {
             One Platform • Multiple Plans
           </div>
           
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight mb-8 tracking-tight drop-shadow-lg">
-            Choose your perfect fit
+          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight mb-8 tracking-tight drop-shadow-lg animate-professional-fade">
+            Choose your <span className="animate-subtle-gradient">perfect fit</span>
           </h1>
           
           <p className="text-2xl lg:text-3xl text-gray-800 max-w-5xl mx-auto leading-relaxed drop-shadow-sm mb-0">
@@ -304,10 +304,8 @@ export default function CompareFeatures() {
                   <Heart className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight text-center">
-                <span className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Why One Plan Fits All?
-                </span>
+              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight text-center animate-professional-fade">
+                Why One Plan <span className="animate-subtle-gradient">Fits All?</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
                 <div className="space-y-4">
