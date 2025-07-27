@@ -1159,8 +1159,8 @@ export default function Landing() {
         </div>
         
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
-            <span className="animate-text-wave">Ready to Trust Your Business</span> with Us?
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg animate-text-wave">
+            Ready to Trust Your Business with Us?
           </h2>
           <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
             Join thousands of businesses who have streamlined their operations with BusinessFlow Pro.
