@@ -387,6 +387,14 @@ export default function Landing() {
                     <Clock className="h-4 w-4 text-white" />
                     <span className="text-sm font-black text-white">14-day free trial</span>
                   </button>
+
+                  <button 
+                    onClick={() => window.location.href = "/cancel-anytime"}
+                    className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+                  >
+                    <Check className="h-4 w-4 text-white" />
+                    <span className="text-sm font-black text-white">Cancel anytime</span>
+                  </button>
                 </div>
               </div>
             </div>
