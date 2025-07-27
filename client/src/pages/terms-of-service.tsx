@@ -213,16 +213,18 @@ export default function TermsOfService() {
                 Join thousands of businesses already using BusinessFlow Pro to streamline their operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/trial">
-                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-bold">
-                    Start Your Trial
-                  </Button>
-                </Link>
-                <Link href="/subscribe">
-                  <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-bold">
-                    Buy Now
-                  </Button>
-                </Link>
+                <button
+                  onClick={() => window.location.href = "/trial"}
+                  className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-bold rounded-md transition-colors duration-300"
+                >
+                  Start Your Trial
+                </button>
+                <button
+                  onClick={() => window.location.href = "/subscribe"}
+                  className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-bold rounded-md transition-colors duration-300"
+                >
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>
