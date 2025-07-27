@@ -172,6 +172,11 @@ export default function CompareFeatures() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      </div>
 
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
@@ -319,41 +324,38 @@ export default function CompareFeatures() {
       </nav>
 
       {/* Hero Section */}
-      <div className="pt-20 pb-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Header with Yellow Background */}
-          <div className="text-center mb-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 rounded-3xl p-12 relative overflow-hidden">
-            {/* Yellow background sparkles */}
-            <div className="absolute top-8 right-12 w-4 h-4 animate-ping delay-0">
-              <div className="w-4 h-4 text-amber-600/40">✨</div>
+      <div className="pt-20 pb-16 px-4 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Yellow background sparkles */}
+        <div className="absolute top-8 right-12 w-4 h-4 animate-ping delay-0">
+          <div className="w-4 h-4 text-amber-600/40">✨</div>
+        </div>
+        <div className="absolute bottom-16 left-16 w-6 h-6 animate-ping delay-1000">
+          <div className="w-6 h-6 text-orange-600/50">✨</div>
+        </div>
+        <div className="absolute top-20 right-24 w-3 h-3 animate-ping delay-2000">
+          <div className="w-3 h-3 text-yellow-600/40">✨</div>
+        </div>
+        <div className="absolute bottom-32 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
+        <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-medium text-gray-800 mb-6">
+              <Award className="w-4 h-4 mr-2 text-gray-700" />
+              One Platform • Multiple Plans
             </div>
-            <div className="absolute bottom-16 left-16 w-6 h-6 animate-ping delay-1000">
-              <div className="w-6 h-6 text-orange-600/50">✨</div>
-            </div>
-            <div className="absolute top-20 right-24 w-3 h-3 animate-ping delay-2000">
-              <div className="w-3 h-3 text-yellow-600/40">✨</div>
-            </div>
-            <div className="absolute bottom-32 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
-            <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
             
-            <div className="relative z-10">
-              <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-medium text-gray-800 mb-6">
-                <Award className="w-4 h-4 mr-2 text-gray-700" />
-                One Platform • Multiple Plans
-              </div>
-              
-              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight mb-8 tracking-tight drop-shadow-lg">
-                Choose your perfect fit
-              </h1>
-              
-              <p className="text-2xl lg:text-3xl text-gray-800 max-w-5xl mx-auto leading-relaxed mb-0 drop-shadow-sm">
-                All plans include the complete BusinessFlow Pro feature suite. Only pricing differs based on team size and invoice volume to match your business needs.
-              </p>
-            </div>
-          </div>
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight mb-8 tracking-tight drop-shadow-lg">
+              Choose your perfect fit
+            </h1>
+            
+            <p className="text-2xl lg:text-3xl text-gray-800 max-w-5xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
+              All plans include the complete BusinessFlow Pro feature suite. Only pricing differs based on team size and invoice volume to match your business needs.
+            </p>
 
-          {/* Why One Plan Philosophy */}
-          <div className="max-w-5xl mx-auto mb-16">
+            {/* Why One Plan Philosophy */}
+            <div className="max-w-5xl mx-auto mb-16">
               <Card className="glass-effect border-0 shadow-xl bg-gradient-to-r from-green-50/50 to-blue-50/50 hover:shadow-2xl transition-all duration-500">
                 <CardContent className="p-10">
                   <div className="flex items-center justify-center mb-6">
@@ -627,4 +629,3 @@ export default function CompareFeatures() {
     </div>
   );
 }
-
