@@ -1004,19 +1004,28 @@ export default function Subscribe() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <div className="pt-32 pb-20 px-4 relative">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero Section with Yellow Background */}
+      <div className="pt-32 pb-20 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
+        {/* Floating Sparkles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Hero Header */}
           <div className="text-center mb-20 relative">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in leading-tight tracking-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-text-wave">perfect plan</span> for your business
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 fade-in leading-tight tracking-tight animate-slide-up">
+              Choose the <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
             </h1>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4">
+      <div className="max-w-7xl mx-auto relative z-10 px-4 pt-20 bg-white dark:bg-gray-900">
 
         <div id="pricing-section">
           {renderStepIndicator()}
