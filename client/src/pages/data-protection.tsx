@@ -441,29 +441,79 @@ const DataProtectionPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 relative overflow-hidden">
+        {/* Floating elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/20 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-white/15 rounded-full animate-bounce" style={{animationDelay: '2s', animationDuration: '3.5s'}}></div>
+          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/25 rounded-full animate-bounce" style={{animationDelay: '0.5s', animationDuration: '4.5s'}}></div>
+          <div className="absolute bottom-1/3 right-1/2 w-2 h-2 bg-white/20 rounded-full animate-bounce" style={{animationDelay: '1.5s', animationDuration: '3s'}}></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          {/* Animated title with gradient text wave effect */}
           <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-            Ready to Trust Your Business Data with Us?
+            <span className="inline-block">
+              {["Ready", "to", "Trust", "Your", "Business", "Data", "with", "Us?"].map((word, index) => (
+                <span
+                  key={index}
+                  className="inline-block mx-1 animate-pulse"
+                  style={{
+                    animationDelay: `${index * 0.2}s`,
+                    animationDuration: '2s',
+                    background: `linear-gradient(45deg, 
+                      hsl(${(index * 60) % 360}, 70%, 70%), 
+                      hsl(${(index * 60 + 60) % 360}, 70%, 70%), 
+                      hsl(${(index * 60 + 120) % 360}, 70%, 70%)
+                    )`,
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    color: 'transparent',
+                    backgroundSize: '200% 200%',
+                    animation: `gradient-wave 3s ease-in-out infinite ${index * 0.2}s, pulse 2s infinite ${index * 0.2}s`
+                  }}
+                >
+                  {word}
+                </span>
+              ))}
+            </span>
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+
+          <p className="text-xl mb-8 opacity-90 animate-fade-in" style={{animationDelay: '1.6s'}}>
             Experience enterprise-grade data protection with complete transparency and user control.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '2s'}}>
             <Button 
               onClick={() => window.location.href = "/trial"}
-              className="bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-8 py-3"
+              className="bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-8 py-3 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
             >
               Start Free Trial
             </Button>
             <Button 
               onClick={() => window.location.href = "/contact"}
               variant="outline"
-              className="border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-3"
+              className="border-white text-white hover:bg-white/10 font-bold text-lg px-8 py-3 transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
             >
               Have Questions?
             </Button>
+          </div>
+
+          {/* Trust indicators with staggered animations */}
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-12 text-sm opacity-80">
+            <div className="flex items-center space-x-2 animate-fade-in" style={{animationDelay: '2.5s'}}>
+              <Shield className="h-4 w-4" />
+              <span>Enterprise Security</span>
+            </div>
+            <div className="flex items-center space-x-2 animate-fade-in" style={{animationDelay: '2.7s'}}>
+              <Lock className="h-4 w-4" />
+              <span>GDPR Compliant</span>
+            </div>
+            <div className="flex items-center space-x-2 animate-fade-in" style={{animationDelay: '2.9s'}}>
+              <Award className="h-4 w-4" />
+              <span>SOC 2 Certified</span>
+            </div>
           </div>
         </div>
       </section>
