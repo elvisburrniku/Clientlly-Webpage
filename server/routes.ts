@@ -115,7 +115,7 @@ const SUBSCRIPTION_PLANS = {
       "24/7 customer support",
       "Mobile app access",
       "API integrations",
-      "**Let's Grow Together: Free custom development**"
+      "**Let's Grow Together:** Free custom development"
     ],
     detailedFeatures: {
       invoicing: {
@@ -194,7 +194,7 @@ const SUBSCRIPTION_PLANS = {
       "24/7 customer support",
       "Mobile app access",
       "API integrations",
-      "**Let's Grow Together: Priority custom development**"
+      "**Let's Grow Together:** Priority custom development"
     ],
     detailedFeatures: {
       invoicing: {
