@@ -378,8 +378,7 @@ const AboutPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-32 relative overflow-hidden">
-
+      <section className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
@@ -391,21 +390,35 @@ const AboutPage = () => {
               We're on a mission to empower businesses worldwide with intelligent automation, 
               seamless workflows, and data-driven insights that drive real growth.
             </p>
-            
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-              {heroStats.map((stat, index) => (
-                <Card key={index} className={`p-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl border-2 hover:shadow-2xl transition-all duration-500 group ${isVisible ? 'animate-fade-in-up' : ''}`} style={{animationDelay: `${index * 200}ms`}}>
-                  <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <stat.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                    {stat.number}
-                  </div>
-                  <div className="text-muted-foreground">{stat.label}</div>
-                </Card>
-              ))}
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section with Yellow Background */}
+      <section className="py-16 relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400">
+        {/* Floating Sparkle Animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-8 left-[10%] w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute top-16 right-[15%] w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-12 left-[20%] w-2.5 h-2.5 bg-white/25 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-8 right-[25%] w-1 h-1 bg-white/35 rounded-full animate-bounce" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute top-12 left-[70%] w-1.5 h-1.5 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-16 right-[5%] w-2 h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '2.5s' }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {heroStats.map((stat, index) => (
+              <Card key={index} className={`p-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 hover:shadow-2xl transition-all duration-500 group ${isVisible ? 'animate-fade-in-up' : ''}`} style={{animationDelay: `${index * 200}ms`}}>
+                <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <stat.icon className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  {stat.number}
+                </div>
+                <div className="text-muted-foreground">{stat.label}</div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
