@@ -378,7 +378,7 @@ const AboutPage = () => {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
+      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400">
         {/* Floating Sparkle Animations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-12 left-[8%] w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
