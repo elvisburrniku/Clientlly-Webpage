@@ -89,9 +89,9 @@ export default function Landing() {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const { locationData, isLoading: locationLoading } = useLocationDetection();
   
-  // Auto-set currency based on detected location
+  // Auto-set currency based on detected location (but keep EUR as default)
   useEffect(() => {
-    if (locationData && !locationLoading) {
+    if (locationData && !locationLoading && locationData.currency !== 'EUR') {
       setSelectedCurrency(locationData.currency);
     }
   }, [locationData, locationLoading]);

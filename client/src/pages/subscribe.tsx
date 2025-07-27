@@ -18,6 +18,8 @@ import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { formatCurrency, convertPrice } from "@/components/currency-selector";
+import { useLocationDetection } from "@/hooks/useLocationDetection";
 import Footer from "@/components/Footer";
 
 if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
@@ -48,10 +50,11 @@ interface UserData {
 const stepIcons = [Home, User, Users, CreditCard];
 const stepTitles = ["Choose Plan", "Create Account", "Team & Add-ons", "Review & Pay"];
 
-const CheckoutForm = ({ userData, plan, billingPeriod }: { 
+const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: { 
   userData: UserData; 
   plan: SubscriptionPlan; 
-  billingPeriod: 'monthly' | 'yearly' 
+  billingPeriod: 'monthly' | 'yearly';
+  selectedCurrency: string;
 }) => {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -134,7 +137,12 @@ const CheckoutForm = ({ userData, plan, billingPeriod }: {
             </p>
           </div>
           <div className="text-right">
-            <div className="font-bold text-2xl">${Math.floor(price / 100)}</div>
+            <div className="font-bold text-2xl">
+              {formatCurrency(
+                convertPrice(price / 100, 'USD', selectedCurrency),
+                selectedCurrency
+              )}
+            </div>
             <div className="text-sm text-muted-foreground">
               /{billingPeriod === 'yearly' ? 'year' : 'month'}
             </div>
@@ -241,6 +249,8 @@ export default function Subscribe() {
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
+  const { locationData, isLoading: locationLoading } = useLocationDetection();
   const [userData, setUserData] = useState<UserData>({
     email: '',
     password: '',
@@ -256,6 +266,13 @@ export default function Subscribe() {
   const { data: plans, isLoading: plansLoading } = useQuery<SubscriptionPlan[]>({
     queryKey: ['/api/subscription-plans'],
   });
+
+  // Auto-set currency based on detected location (but keep EUR as default)
+  useEffect(() => {
+    if (locationData && !locationLoading && locationData.currency !== 'EUR') {
+      setSelectedCurrency(locationData.currency);
+    }
+  }, [locationData, locationLoading]);
 
   useEffect(() => {
     const params = new URLSearchParams(location.split('?')[1] || '');
@@ -467,14 +484,22 @@ export default function Subscribe() {
                     </div>
                     
                     <div className="text-4xl font-bold gradient-text mb-1">
-                      ${Math.floor(
-                        billingPeriod === 'monthly' ? price / 100 : (price * 12) / 100 / 12
+                      {formatCurrency(
+                        convertPrice(
+                          (billingPeriod === 'monthly' ? price : price / 12) / 100,
+                          'USD',
+                          selectedCurrency
+                        ),
+                        selectedCurrency
                       )}
                       <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className="text-sm text-muted-foreground mb-2">
-                        Billed ${Math.floor((price * 12) / 100)} yearly
+                        Billed {formatCurrency(
+                          convertPrice(price / 100, 'USD', selectedCurrency),
+                          selectedCurrency
+                        )} yearly
                       </div>
                     )}
                     <p className="text-muted-foreground">
@@ -791,6 +816,7 @@ export default function Subscribe() {
             userData={userData} 
             plan={selectedPlanData} 
             billingPeriod={billingPeriod}
+            selectedCurrency={selectedCurrency}
           />
         </CardContent>
       </Card>
