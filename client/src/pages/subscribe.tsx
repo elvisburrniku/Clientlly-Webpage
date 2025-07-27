@@ -1019,7 +1019,7 @@ export default function Subscribe() {
           {/* Hero Header */}
           <div className="text-center mb-14 relative">
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 fade-in leading-tight tracking-tight animate-slide-up">
-              Choose the <span className="animate-text-wave">perfect plan</span> for your business
+              Choose the <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
             </h1>
             <p className="text-xl lg:text-2xl text-black/80 font-medium max-w-4xl mx-auto leading-relaxed fade-in" style={{ animationDelay: '0.2s' }}>
               All plans include our complete business management suite. Only usage limits differ – choose based on your team size and invoice volume.
