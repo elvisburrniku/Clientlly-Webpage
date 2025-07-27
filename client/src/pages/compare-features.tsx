@@ -69,47 +69,56 @@ export default function CompareFeatures() {
     {
       icon: FileText,
       title: "Professional Invoicing",
-      description: "Create unlimited professional invoices with custom branding and automated payment reminders"
+      description: "Create unlimited professional invoices with custom branding and automated payment reminders",
+      color: "from-blue-600 to-indigo-600"
     },
     {
       icon: Receipt,
       title: "Smart Expense Tracking",
-      description: "Track business expenses with automated categorization and receipt scanning"
+      description: "Track business expenses with automated categorization and receipt scanning",
+      color: "from-green-500 to-emerald-600"
     },
     {
       icon: CreditCard,
       title: "Debt Management",
-      description: "Monitor and manage business debts with payment scheduling and automated alerts"
+      description: "Monitor and manage business debts with payment scheduling and automated alerts",
+      color: "from-red-500 to-pink-600"
     },
     {
       icon: BarChart3,
       title: "Insights & Reports",
-      description: "Generate comprehensive business reports with advanced analytics and forecasting"
+      description: "Generate comprehensive business reports with advanced analytics and forecasting",
+      color: "from-cyan-500 to-blue-600"
     },
     {
       icon: Users,
       title: "Client Management",
-      description: "Comprehensive CRM with client profiles, communication history, and project tracking"
+      description: "Comprehensive CRM with client profiles, communication history, and project tracking",
+      color: "from-indigo-500 to-purple-600"
     },
     {
       icon: Building2,
       title: "Vendor Management",
-      description: "Track suppliers, purchase orders, and vendor performance analytics"
+      description: "Track suppliers, purchase orders, and vendor performance analytics",
+      color: "from-amber-500 to-orange-600"
     },
     {
       icon: Package,
       title: "Inventory Management",
-      description: "Real-time inventory tracking with low-stock alerts and automated reordering"
+      description: "Real-time inventory tracking with low-stock alerts and automated reordering",
+      color: "from-violet-500 to-purple-600"
     },
     {
       icon: Clock,
       title: "Time & Attendance",
-      description: "GPS-enabled time tracking with team scheduling and productivity analytics"
+      description: "GPS-enabled time tracking with team scheduling and productivity analytics",
+      color: "from-teal-500 to-cyan-600"
     },
     {
       icon: Calendar,
       title: "Smart Calendar",
-      description: "AI-powered scheduling with team coordination and automated meeting planning"
+      description: "AI-powered scheduling with team coordination and automated meeting planning",
+      color: "from-slate-600 to-gray-700"
     }
   ];
 
@@ -357,7 +366,7 @@ export default function CompareFeatures() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {coreFeatures.map((feature, index) => (
                   <div key={index} className="group p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <feature.icon className="h-8 w-8 text-white" />
                     </div>
                     
