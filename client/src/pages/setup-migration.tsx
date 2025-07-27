@@ -166,36 +166,36 @@ const SetupMigrationPage = () => {
 
         <div className="max-w-7xl mx-auto text-center">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-bold text-white mb-8">
+            <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
               <Download className="w-4 h-4 mr-2" />
               100% Free Setup & Migration
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
-              <span className="text-white drop-shadow-lg">
+              <span className="text-gray-900 drop-shadow-lg">
                 Free Setup &
               </span>
               <br />
-              <span className="text-white drop-shadow-lg">Migration Service</span>
+              <span className="text-gray-900 drop-shadow-lg">Migration Service</span>
             </h1>
             
-            <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
+            <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
               Our expert team will migrate all your business data and set up your system completely free. 
               No technical knowledge required - we handle everything for you.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-16">
-              <div className="flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg">
-                <Clock className="h-5 w-5 text-white" />
-                <span className="font-bold text-white">Setup in 24-48 hours</span>
+              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
+                <Clock className="h-5 w-5 text-gray-700" />
+                <span className="font-bold text-gray-800">Setup in 24-48 hours</span>
               </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg">
-                <Shield className="h-5 w-5 text-white" />
-                <span className="font-bold text-white">100% Data security</span>
+              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
+                <Shield className="h-5 w-5 text-gray-700" />
+                <span className="font-bold text-gray-800">100% Data security</span>
               </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg">
-                <Zap className="h-5 w-5 text-white" />
-                <span className="font-bold text-white">Zero downtime</span>
+              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
+                <Zap className="h-5 w-5 text-gray-700" />
+                <span className="font-bold text-gray-800">Zero downtime</span>
               </div>
             </div>
           </div>
