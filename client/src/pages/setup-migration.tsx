@@ -349,76 +349,45 @@ const SetupMigrationPage = () => {
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 px-4 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-black text-foreground mb-4 tracking-tight">
-              <span className="animate-text-wave">Why Choose BusinessFlow Pro?</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experience the confidence and security of our premium migration service
-            </p>
-          </div>
+      <section className="py-12 px-4 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto text-center">
+          <h3 className="text-xl font-bold text-foreground mb-8">Why Choose BusinessFlow Pro?</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground">
             <button 
               onClick={() => window.location.href = "/trial"}
-              className="group relative bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+              className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative text-center">
-                <div className="text-3xl mb-3">🎯</div>
-                <h3 className="font-bold text-lg mb-2">14-Day Free Trial</h3>
-                <p className="text-sm opacity-90">Full access, no credit card required</p>
-              </div>
+              <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
+              <span className="font-bold text-sm">14-day free trial</span>
             </button>
-
             <button 
               onClick={() => window.location.href = "/setup-migration"}
-              className="group relative bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+              className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative text-center">
-                <div className="text-3xl mb-3">🚀</div>
-                <h3 className="font-bold text-lg mb-2">Free Setup & Migration</h3>
-                <p className="text-sm opacity-90">Complete data transfer included</p>
-              </div>
+              <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
+              <span className="font-bold text-sm">Free setup & migration</span>
             </button>
-
             <button 
               onClick={() => window.location.href = "/cancel-anytime"}
-              className="group relative bg-gradient-to-r from-purple-500 to-pink-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+              className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative text-center">
-                <div className="text-3xl mb-3">💫</div>
-                <h3 className="font-bold text-lg mb-2">Cancel Anytime</h3>
-                <p className="text-sm opacity-90">No long-term commitments</p>
-              </div>
+              <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
+              <span className="font-bold text-sm">Cancel anytime</span>
             </button>
-
             <button 
               onClick={() => window.location.href = "/expert-support"}
-              className="group relative bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+              className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative text-center">
-                <div className="text-3xl mb-3">🎧</div>
-                <h3 className="font-bold text-lg mb-2">24/7 Expert Support</h3>
-                <p className="text-sm opacity-90">Always available to help</p>
-              </div>
+              <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
+              <span className="font-bold text-sm">24/7 expert support</span>
             </button>
-
             <button 
               onClick={() => window.location.href = "/bank-security"}
-              className="group relative bg-gradient-to-r from-slate-500 to-gray-600 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+              className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-600 to-gray-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative text-center">
-                <div className="text-3xl mb-3">🔒</div>
-                <h3 className="font-bold text-lg mb-2">Bank-Level Security</h3>
-                <p className="text-sm opacity-90">Enterprise-grade protection</p>
-              </div>
+              <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
+              <span className="font-bold text-sm">Bank-level security</span>
             </button>
           </div>
         </div>
