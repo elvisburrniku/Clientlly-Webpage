@@ -356,29 +356,16 @@ export default function CompareFeatures() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {coreFeatures.map((feature, index) => (
-                  <div 
-                    key={index} 
-                    className="group p-6 text-center bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 rounded-3xl relative overflow-hidden"
-                  >
-                    {/* Sparkle animations for all cards */}
-                    <>
-                      <div className="absolute top-4 left-4 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: `${index * 0.2}s` }} />
-                      <div className="absolute top-8 right-6 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: `${index * 0.2 + 1}s` }} />
-                      <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: `${index * 0.2 + 2}s` }} />
-                      <div className="absolute bottom-4 right-4 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: `${index * 0.2 + 3}s` }} />
-                      <div className="absolute top-1/2 left-3 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: `${index * 0.2 + 1.5}s` }} />
-                      <div className="absolute top-1/3 right-3 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: `${index * 0.2 + 2.5}s` }} />
-                    </>
-
-                    <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10">
+                  <div key={index} className="group p-6 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <feature.icon className="h-8 w-8 text-white" />
                     </div>
                     
-                    <h3 className="text-xl font-black text-black mb-3 tracking-tight relative z-10 animate-text-wave">
+                    <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">
                       {feature.title}
                     </h3>
                     
-                    <p className="text-black font-medium leading-relaxed relative z-10">
+                    <p className="text-muted-foreground leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
