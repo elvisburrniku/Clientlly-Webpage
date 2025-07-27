@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Full width breakout utility */
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 /* Animated text wave effect for Easy Migration */
 @keyframes text-wave {
   0%, 100% {
