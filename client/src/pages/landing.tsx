@@ -382,18 +382,20 @@ export default function Landing() {
 
                   <button 
                     onClick={() => window.location.href = "/trial"}
-                    className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+                    className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-green-400/30 hover:border-green-300/50"
                   >
-                    <Clock className="h-4 w-4 text-white" />
+                    <Clock className="h-5 w-5 text-white" />
                     <span className="text-sm font-black text-white">14-day free trial</span>
+                    <ExternalLink className="h-4 w-4 text-white/80" />
                   </button>
 
                   <button 
                     onClick={() => window.location.href = "/cancel-anytime"}
-                    className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+                    className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-purple-400/30 hover:border-purple-300/50"
                   >
-                    <Check className="h-4 w-4 text-white" />
+                    <Check className="h-5 w-5 text-white" />
                     <span className="text-sm font-black text-white">Cancel anytime</span>
+                    <ExternalLink className="h-4 w-4 text-white/80" />
                   </button>
                 </div>
               </div>
@@ -402,37 +404,39 @@ export default function Landing() {
 
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground fade-in stagger-5 pt-8">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5 pt-8">
               <button 
                 onClick={() => window.location.href = "/data-protection"}
-                className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-green-400/50 hover:bg-green-50/20 dark:hover:bg-green-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
               >
                 <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm">Data protection & privacy</span>
+                <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-green-600 dark:group-hover:text-green-400">Data protection & privacy</span>
+                <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-green-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </button>
               <button 
                 onClick={() => window.location.href = "/setup-migration"}
-                className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-blue-400/50 hover:bg-blue-50/20 dark:hover:bg-blue-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
               >
-                <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm">Free setup & migration</span>
+                <Check className="h-5 w-5 text-blue-500 group-hover:animate-pulse" />
+                <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400">Free setup & migration</span>
+                <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </button>
               <button 
                 onClick={() => window.location.href = "/expert-support"}
-                className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-purple-400/50 hover:bg-purple-50/20 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
               >
-                <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm">24/7 expert support</span>
+                <Check className="h-5 w-5 text-purple-500 group-hover:animate-pulse" />
+                <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">24/7 expert support</span>
+                <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-purple-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </button>
-
               <button 
                 onClick={() => window.location.href = "/bank-security"}
-                className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-orange-400/50 hover:bg-orange-50/20 dark:hover:bg-orange-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
               >
-                <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm">Bank-level security</span>
+                <Shield className="h-5 w-5 text-orange-500 group-hover:animate-pulse" />
+                <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-orange-600 dark:group-hover:text-orange-400">Bank-level security</span>
+                <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-orange-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </button>
-
             </div>
           </div>
 
