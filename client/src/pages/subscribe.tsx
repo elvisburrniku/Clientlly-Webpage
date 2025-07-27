@@ -1075,15 +1075,27 @@ export default function Subscribe() {
               Our support team is available 24/7 to assist you
             </p>
             <div className="flex justify-center space-x-6">
-              <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1">
+              <button 
+                onClick={() => {
+                  // Open chat widget or redirect to chat platform
+                  window.open('https://businessflowpro.com/chat', '_blank');
+                }}
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1 bg-transparent border-none cursor-pointer"
+              >
                 <Headphones className="w-4 h-4" />
                 <span>Chat Support</span>
-              </a>
+              </button>
               <span className="text-gray-400">•</span>
-              <a href="#" className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1">
+              <button 
+                onClick={() => {
+                  // Open email client with pre-filled support email
+                  window.location.href = 'mailto:support@businessflowpro.com?subject=Subscription Support Request&body=Hi, I need help with my subscription. Please describe your issue below:';
+                }}
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1 bg-transparent border-none cursor-pointer"
+              >
                 <Building className="w-4 h-4" />
                 <span>Email Us</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
