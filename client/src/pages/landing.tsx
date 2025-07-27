@@ -340,8 +340,43 @@ export default function Landing() {
         )}
       </nav>
 
+      {/* Yellow Background Section - Positioned right under navigation */}
+      <div className="absolute left-0 right-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden z-10" style={{ top: '64px', height: 'auto' }}>
+        {/* Floating Sparkles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute top-3/4 left-1/3 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
+        </div>
+        
+        {/* Content Container */}
+        <div className="py-16 px-4">
+          <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight fade-in tracking-tight text-black">
+              Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
+            </h1>
+            
+            <div className="max-w-5xl mx-auto">
+              <div className="text-2xl lg:text-3xl text-black/80 leading-tight fade-in stagger-1 tracking-tight">
+                <div className="space-y-1 max-w-4xl mx-auto">
+                  <p className="text-center">
+                    Empower your <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
+                  </p>
+                  <p className="text-center">
+                    while simplifying your financial management.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section className="hero-section relative pb-32 px-4 overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '64px' }}>
+      <section className="hero-section relative pb-32 overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '64px' }}>
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -354,38 +389,9 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center space-y-16">
             
-            {/* Yellow Background Section - Full Width */}
-            <div className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 py-16 overflow-hidden full-width">
-              {/* Floating Sparkles */}
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
-                <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-                <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute top-3/4 left-1/3 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
-              </div>
-              
-              {/* Main Heading */}
-              <div className="space-y-8 relative z-10 max-w-7xl mx-auto px-4">
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight fade-in tracking-tight text-black">
-                  Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
-                </h1>
-                
-                <div className="max-w-5xl mx-auto">
-                  <div className="text-2xl lg:text-3xl text-black/80 leading-tight fade-in stagger-1 tracking-tight">
-                    <div className="space-y-1 max-w-4xl mx-auto">
-                      <p className="text-center">
-                        Empower your <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
-                      </p>
-                      <p className="text-center">
-                        while simplifying your financial management.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Spacer for yellow section */}
+            <div style={{ height: '24rem' }}></div>
+
             
             {/* Action Buttons - Outside Yellow Background */}
             <div className="space-y-8">
