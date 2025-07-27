@@ -497,14 +497,11 @@ const DataProtectionPage = () => {
               💼 Buy Now
             </Button>
             <Button 
-              onClick={() => {
-                window.location.href = "/subscribe";
-                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-              }}
+              onClick={() => window.location.href = "/trial"}
               className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-500 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
               style={{outline: 'none', boxShadow: 'none'}}
             >
-              🛒 Buy Now
+              🚀 Start Your Trial
             </Button>
           </div>
 
