@@ -333,14 +333,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Missing required user data or plan information" });
       }
 
-      // Get plan details
-      const plans = [
-        { id: 'basic', name: 'Basic', monthlyPrice: 2900, yearlyPrice: 29600 },
-        { id: 'professional', name: 'Professional', monthlyPrice: 7900, yearlyPrice: 80640 },
-        { id: 'business', name: 'Business Plus', monthlyPrice: 15900, yearlyPrice: 162240 }
-      ];
-      
-      const plan = plans.find(p => p.id === planId);
+      // Get plan details from the main subscription plans configuration
+      const plan = SUBSCRIPTION_PLANS[planId as keyof typeof SUBSCRIPTION_PLANS];
       if (!plan) {
         return res.status(400).json({ message: "Invalid plan selected" });
       }
