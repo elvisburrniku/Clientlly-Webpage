@@ -1005,7 +1005,7 @@ export default function Subscribe() {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <div className="pt-32 pb-20 px-4 relative bg-gradient-to-r from-blue-500 to-purple-600 full-width">
+      <div className="pt-32 pb-20 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
         {/* Floating Sparkles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
@@ -1018,10 +1018,10 @@ export default function Subscribe() {
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Hero Header */}
           <div className="text-center mb-14 relative">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-6 animate-professional-fade leading-tight tracking-tight">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 animate-professional-fade leading-tight tracking-tight">
               Choose the <span className="animate-subtle-gradient">perfect plan</span> for your business
             </h1>
-            <p className="text-xl lg:text-2xl text-white/80 font-medium max-w-4xl mx-auto leading-relaxed fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl lg:text-2xl text-black font-medium max-w-4xl mx-auto leading-relaxed fade-in" style={{ animationDelay: '0.2s' }}>
               All plans include our complete business management suite. Only usage limits differ – choose based on your team size and invoice volume.
             </p>
           </div>
