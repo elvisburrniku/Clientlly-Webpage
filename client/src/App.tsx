@@ -32,6 +32,10 @@ import LoadingDemo from "@/pages/loading-demo";
 import Success from "@/pages/success";
 import NotFound from "@/pages/not-found";
 import AIDashboard from "@/pages/ai-dashboard";
+import SetupMigration from "@/pages/setup-migration";
+import CancelAnytime from "@/pages/cancel-anytime";
+import ExpertSupport from "@/pages/expert-support";
+import BankSecurity from "@/pages/bank-security";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -72,6 +76,10 @@ function Router() {
           <Route path="/loading-demo" component={LoadingDemo} />
           <Route path="/success" component={Success} />
           <Route path="/ai-dashboard" component={AIDashboard} />
+          <Route path="/setup-migration" component={SetupMigration} />
+          <Route path="/cancel-anytime" component={CancelAnytime} />
+          <Route path="/expert-support" component={ExpertSupport} />
+          <Route path="/bank-security" component={BankSecurity} />
         </>
       ) : (
         <>
@@ -100,6 +108,10 @@ function Router() {
           <Route path="/loading-demo" component={LoadingDemo} />
           <Route path="/success" component={Success} />
           <Route path="/ai-dashboard" component={AIDashboard} />
+          <Route path="/setup-migration" component={SetupMigration} />
+          <Route path="/cancel-anytime" component={CancelAnytime} />
+          <Route path="/expert-support" component={ExpertSupport} />
+          <Route path="/bank-security" component={BankSecurity} />
         </>
       )}
       <Route component={NotFound} />

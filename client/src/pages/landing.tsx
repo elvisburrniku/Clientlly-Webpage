@@ -393,22 +393,34 @@ export default function Landing() {
 
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground fade-in stagger-5 pt-8">
-              <div className="flex items-center space-x-3">
-                <Check className="h-6 w-6 text-green-500" />
-                <span className="font-medium">Free setup & migration</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Check className="h-6 w-6 text-green-500" />
-                <span className="font-black">Cancel anytime</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Check className="h-6 w-6 text-green-500" />
-                <span className="font-black">24/7 expert support</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Shield className="h-6 w-6 text-green-500" />
-                <span className="font-black">Bank-level security</span>
-              </div>
+              <button 
+                onClick={() => window.location.href = "/setup-migration"}
+                className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 cursor-pointer group"
+              >
+                <Check className="h-6 w-6 text-green-500 group-hover:animate-pulse" />
+                <span className="font-bold animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Free setup & migration</span>
+              </button>
+              <button 
+                onClick={() => window.location.href = "/cancel-anytime"}
+                className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 cursor-pointer group"
+              >
+                <Check className="h-6 w-6 text-green-500 group-hover:animate-pulse" />
+                <span className="font-bold animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Cancel anytime</span>
+              </button>
+              <button 
+                onClick={() => window.location.href = "/expert-support"}
+                className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 cursor-pointer group"
+              >
+                <Check className="h-6 w-6 text-green-500 group-hover:animate-pulse" />
+                <span className="font-bold animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">24/7 expert support</span>
+              </button>
+              <button 
+                onClick={() => window.location.href = "/bank-security"}
+                className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 cursor-pointer group"
+              >
+                <Shield className="h-6 w-6 text-green-500 group-hover:animate-pulse" />
+                <span className="font-bold animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Bank-level security</span>
+              </button>
             </div>
           </div>
 
