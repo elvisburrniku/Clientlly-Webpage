@@ -328,20 +328,36 @@ export default function CompareFeatures() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-6">
-              <Award className="w-4 h-4 mr-2" />
-              One Platform • Multiple Plans
+            {/* Yellow background section for specific content */}
+            <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden rounded-3xl p-12 mb-16">
+              {/* Yellow background sparkles */}
+              <div className="absolute top-8 right-12 w-4 h-4 animate-ping delay-0">
+                <div className="w-4 h-4 text-amber-600/40">✨</div>
+              </div>
+              <div className="absolute bottom-8 left-16 w-6 h-6 animate-ping delay-1000">
+                <div className="w-6 h-6 text-orange-600/50">✨</div>
+              </div>
+              <div className="absolute top-8 right-24 w-3 h-3 animate-ping delay-2000">
+                <div className="w-3 h-3 text-yellow-600/40">✨</div>
+              </div>
+              <div className="absolute bottom-8 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
+              <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-medium text-gray-800 mb-6">
+                  <Award className="w-4 h-4 mr-2 text-gray-700" />
+                  One Platform • Multiple Plans
+                </div>
+                
+                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight mb-8 tracking-tight drop-shadow-lg">
+                  Choose your perfect fit
+                </h1>
+                
+                <p className="text-2xl lg:text-3xl text-gray-800 max-w-5xl mx-auto leading-relaxed drop-shadow-sm">
+                  All plans include the complete BusinessFlow Pro feature suite. Only pricing differs based on team size and invoice volume to match your business needs.
+                </p>
+              </div>
             </div>
-            
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground leading-tight mb-8 tracking-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Choose your perfect fit
-              </span>
-            </h1>
-            
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-12">
-              All plans include the complete BusinessFlow Pro feature suite. Only pricing differs based on team size and invoice volume to match your business needs.
-            </p>
 
             {/* Why One Plan Philosophy */}
             <div className="max-w-5xl mx-auto mb-16">
@@ -416,7 +432,7 @@ export default function CompareFeatures() {
                 
                 {/* Plan Header */}
                 <CardHeader className="text-center p-8 bg-gradient-to-b from-white/50 to-transparent relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 animate-gradient-shift"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50"></div>
                   <div className="relative z-10">
                     <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <Building2 className="h-10 w-10 text-white" />
@@ -555,7 +571,7 @@ export default function CompareFeatures() {
           {/* CTA Section */}
           <div className="text-center">
             <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-blue-600/5 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 to-purple-50/20 animate-gradient-shift"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 to-purple-50/20"></div>
               <CardContent className="p-16 relative z-10">
                 <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
                   <Zap className="h-12 w-12 text-white" />
