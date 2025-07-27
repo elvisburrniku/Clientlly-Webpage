@@ -340,15 +340,17 @@ export default function Landing() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="hero-section relative pt-20 pb-32 px-4 overflow-hidden min-h-screen flex items-center">
+      {/* Hero Section with Yellow Background */}
+      <section className="hero-section relative pt-20 pb-32 px-4 overflow-hidden min-h-screen flex items-center bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600">
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
-          {/* Grid Pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          {/* Floating Sparkles */}
+          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute top-3/4 left-1/3 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
         </div>
 
         <div className="max-w-7xl mx-auto w-full">
@@ -357,15 +359,15 @@ export default function Landing() {
             
             {/* Main Heading */}
             <div className="space-y-12">
-              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight text-foreground">
-                Everything you need <span className="animate-black-fade">to run your business</span>
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight text-black">
+                Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
               </h1>
               
               <div className="max-w-5xl mx-auto space-y-8">
-                <div className="text-2xl lg:text-3xl text-muted-foreground leading-tight fade-in stagger-1 tracking-tight">
+                <div className="text-2xl lg:text-3xl text-black/80 leading-tight fade-in stagger-1 tracking-tight">
                   <div className="space-y-1 max-w-4xl mx-auto">
                     <p className="text-center">
-                      Empower your <span className="font-black gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
+                      Empower your <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
                     </p>
                     <p className="text-center">
                       while simplifying your financial management.
