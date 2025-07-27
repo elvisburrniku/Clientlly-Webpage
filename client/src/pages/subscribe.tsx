@@ -75,34 +75,46 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
         billing: billingPeriod
       });
       
-      setLoadingStage('Saving your information...');
+      setLoadingStage('Creating secure checkout session...');
       
-      // Store checkout data in sessionStorage for the custom checkout page
-      const checkoutData = {
-        email: userData.email,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
-        companyName: userData.companyName,
-        companySize: userData.companySize,
-        industry: userData.industry
-      };
-      
-      sessionStorage.setItem('checkoutData', JSON.stringify(checkoutData));
-      
-      setLoadingStage('Redirecting to secure checkout...');
-      
-      // Redirect to custom checkout page instead of Stripe directly
-      setTimeout(() => {
-        window.location.href = `/checkout/${plan.id}/${billingPeriod}`;
-      }, 800);
+      // Create account and redirect to Stripe checkout
+      const response = await fetch('/api/create-account-and-subscription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userData,
+          planId: plan.id,
+          billingPeriod
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (data.checkoutUrl) {
+        setLoadingStage('Redirecting to secure payment...');
+        
+        // Add a brief delay to show the final stage
+        setTimeout(() => {
+          window.location.href = data.checkoutUrl;
+        }, 800);
+      } else {
+        throw new Error('Failed to create checkout session - no checkout URL received');
+      }
 
     } catch (error: any) {
-      console.error('Checkout redirection error:', error);
+      console.error('Payment error:', error);
       
-      const errorMessage = error.message || 'There was an error setting up your checkout. Please try again.';
+      const errorMessage = error.message || 'There was an error setting up your payment. Please try again.';
       
       toast({
-        title: "Checkout Setup Failed",
+        title: "Payment Setup Failed",
         description: errorMessage,
         variant: "destructive",
       });
@@ -164,10 +176,15 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
         <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
           <div className="flex items-center space-x-2 text-green-700">
             <Shield className="h-4 w-4" />
-            <span className="text-sm font-medium">Secure Checkout with EUR Pricing</span>
+            <span className="text-sm font-medium">
+              {process.env.NODE_ENV === 'development' ? 'Demo Payment Mode' : 'Secure Payment with Stripe'}
+            </span>
           </div>
           <p className="text-sm text-green-600 mt-1">
-            You'll be redirected to our secure checkout page with proper EUR pricing and BusinessFlow Pro branding.
+            {process.env.NODE_ENV === 'development' 
+              ? "You'll be redirected to Stripe's test payment page. Use test card 4242 4242 4242 4242 for testing."
+              : "You'll be redirected to Stripe's secure payment page to complete your subscription."
+            }
           </p>
         </div>
 
@@ -185,7 +202,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
           ) : (
             <div className="flex items-center space-x-2">
               <CreditCard className="h-4 w-4" />
-              <span>Continue to Checkout</span>
+              <span>Continue to Payment</span>
             </div>
           )}
           {isProcessing && (
@@ -205,7 +222,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
                 </div>
               </div>
               
-              <h3 className="text-lg font-semibold mb-2">Preparing Your Checkout</h3>
+              <h3 className="text-lg font-semibold mb-2">Processing Your Subscription</h3>
               <p className="text-muted-foreground mb-4">{loadingStage}</p>
               
               <div className="flex justify-center space-x-1 loading-dots">

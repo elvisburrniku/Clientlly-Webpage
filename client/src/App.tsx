@@ -40,7 +40,6 @@ import BankSecurity from "@/pages/bank-security";
 import DataProtection from "@/pages/data-protection";
 import TermsOfService from "@/pages/terms-of-service";
 import PrivacyPolicy from "@/pages/privacy-policy";
-import Checkout from "@/pages/checkout";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -89,7 +88,6 @@ function Router() {
           <Route path="/data-protection" component={DataProtection} />
           <Route path="/terms-of-service" component={TermsOfService} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
-          <Route path="/checkout/:planId/:billingPeriod" component={Checkout} />
         </>
       ) : (
         <>
@@ -126,7 +124,6 @@ function Router() {
           <Route path="/data-protection" component={DataProtection} />
           <Route path="/terms-of-service" component={TermsOfService} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
-          <Route path="/checkout/:planId/:billingPeriod" component={Checkout} />
         </>
       )}
       <Route component={NotFound} />
