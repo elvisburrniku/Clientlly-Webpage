@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   ArrowLeft,
@@ -14,12 +14,17 @@ import {
   Building2,
   Globe,
   Menu,
-  X
+  X,
+  Sparkles,
+  TrendingUp,
+  Clock,
+  Award
 } from "lucide-react";
 import Footer from "../components/Footer";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const handleLogin = () => {
     setIsLoading(true);
@@ -27,24 +32,24 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50 dark:via-gray-900/30 dark:to-gray-900/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       </div>
 
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
+      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/20 shadow-lg">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Left Section - Logo and Company Name */}
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
               <div className="relative">
                 <img 
                   src="/attached_assets/3d_1753268267691.png" 
                   alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
+                  className="w-12 h-9 object-contain logo-simple cursor-pointer"
                   style={{ 
                     filter: 'none',
                     background: 'transparent'
@@ -98,53 +103,95 @@ export default function Login() {
               </Button>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="flex lg:hidden items-center space-x-2">
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden">
               <Button
                 variant="ghost"
-                size="icon"
-                className="scale-in"
+                size="sm"
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+                className="text-muted-foreground"
               >
-                <Menu className="h-6 w-6" />
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`lg:hidden ${showMobileMenu ? 'block' : 'hidden'} backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-t border-white/20 dark:border-gray-700/20`}>
+          <div className="px-4 py-4 space-y-3">
+            <Link href="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">About Us</Link>
+            <Link href="/#features" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Features</Link>
+            <Link href="/subscribe" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
+            <Link href="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Contact Us</Link>
+            <div className="pt-2 border-t border-white/20">
+              <Button variant="ghost" className="w-full justify-start text-sm mb-2" onClick={handleLogin}>Login</Button>
+              <Button className="w-full text-sm mb-2" onClick={() => window.location.href = '/subscribe'}>Buy Now</Button>
+              <Button onClick={() => window.location.href = '/trial'} className="w-full text-sm">Start Your Trial</Button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Main Content */}
-      <div className="pt-20 pb-16 px-4 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
-            {/* Left Side - Login Form */}
-            <div className="order-2 lg:order-1">
-              <Card className="glass-effect border-0 shadow-2xl max-w-md mx-auto fade-in">
-                <CardContent className="p-8">
-                  {/* Header */}
-                  <div className="text-center mb-8">
-                    <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200/50 rounded-full text-sm font-medium text-indigo-700 mb-6">
-                      <LogIn className="w-4 h-4 mr-2" />
-                      Secure Login
-                    </div>
-                    
-                    <h1 className="text-4xl lg:text-5xl font-black text-foreground mb-3 tracking-tight leading-tight">
-                      Welcome <span className="gradient-text bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">back</span>
-                    </h1>
-                    
-                    <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                      Sign in to access your BusinessFlow Pro dashboard and manage your business operations.
-                    </p>
-                  </div>
+      {/* Hero Section with Yellow Background */}
+      <div className="relative z-10 pt-32 pb-16 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 overflow-hidden">
+        {/* Floating Sparkles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute top-32 right-20 w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-40 left-1/4 w-1.5 h-1.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-28 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-36 left-3/4 w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '4s' }}></div>
+        </div>
 
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+            <LogIn className="h-10 w-10 text-white" />
+          </div>
+          <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-text-wave">
+            Welcome Back to BusinessFlow Pro
+          </h1>
+          <p className="text-xl text-black/80 max-w-3xl mx-auto mb-8">
+            Continue managing your business operations with our comprehensive platform trusted by thousands of businesses worldwide.
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 py-20 bg-white dark:bg-gray-900">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Column - Login Form */}
+            <div className="space-y-8">
+              <div className="text-center lg:text-left">
+                <h2 className="text-4xl font-black text-foreground mb-6 tracking-tight">
+                  Sign In to Your <span className="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Dashboard</span>
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Access your business command center with secure authentication powered by Replit.
+                </p>
+              </div>
+
+              {/* Login Card */}
+              <Card className="max-w-md mx-auto lg:mx-0 glass-effect border border-white/20 backdrop-blur-xl shadow-2xl rounded-3xl">
+                <CardHeader className="text-center pb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <Shield className="h-8 w-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl font-bold">Secure Login</CardTitle>
+                </CardHeader>
+                <CardContent className="p-8 pt-0">
                   {/* Login Button */}
                   <Button 
                     onClick={handleLogin}
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] rounded-2xl"
                   >
                     {isLoading ? (
-                      "Signing you in..."
+                      <div className="flex items-center space-x-2">
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        <span>Signing you in...</span>
+                      </div>
                     ) : (
                       <>
                         <LogIn className="h-5 w-5 mr-2" />
@@ -154,112 +201,106 @@ export default function Login() {
                   </Button>
 
                   {/* Security Notice */}
-                  <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl">
                     <div className="flex items-center space-x-2 text-green-700 dark:text-green-300">
                       <Shield className="h-4 w-4" />
-                      <span className="text-sm font-medium">Secure Authentication</span>
+                      <span className="text-sm font-medium">Bank-Level Security</span>
                     </div>
                     <p className="text-sm text-green-600 dark:text-green-400 mt-1">
-                      Your login is protected with bank-level encryption and secure OAuth authentication.
+                      Your login is protected with enterprise-grade encryption and secure OAuth 2.0 authentication.
                     </p>
                   </div>
 
-                  {/* Trust Indicators */}
-                  <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center justify-center space-x-6 text-sm text-muted-foreground">
-                      <div className="flex items-center space-x-1">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="font-black">SSL Encrypted</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="font-black">GDPR Compliant</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <CheckCircle className="h-4 w-4 text-green-500" />
-                        <span className="font-black">SOC2 Certified</span>
-                      </div>
+                  {/* Navigation Links */}
+                  <div className="mt-8 space-y-3 text-center">
+                    <div className="text-sm text-muted-foreground">
+                      Don't have an account?{" "}
+                      <Link href="/trial" className="text-primary hover:underline font-medium">
+                        Start Your Free Trial
+                      </Link>
+                    </div>
+                    <div className="text-sm">
+                      <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors">
+                        <ArrowLeft className="h-4 w-4 mr-1" />
+                        Back to Home
+                      </Link>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Right Side - Benefits */}
-            <div className="order-1 lg:order-2 space-y-8">
-              {/* Header */}
-              <div className="text-center lg:text-left fade-in stagger-1">
-                <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                  Access your business
-                  <span className="block gradient-text bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                    command center
-                  </span>
-                </h2>
-                <p className="text-xl font-black text-muted-foreground leading-relaxed">
-                  Everything you need to run and grow your business, all in one powerful platform.
+            {/* Right Column - Benefits */}
+            <div className="space-y-8">
+              <div className="text-center lg:text-left">
+                <h3 className="text-3xl font-bold text-foreground mb-6">
+                  Your Business <span className="gradient-text bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">Command Center</span>
+                </h3>
+                <p className="text-lg text-muted-foreground">
+                  Continue managing your operations with powerful tools designed for business growth.
                 </p>
               </div>
 
-              {/* Benefits Grid */}
-              <div className="grid gap-6">
-                <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] fade-in stagger-2">
+              {/* Feature Cards */}
+              <div className="space-y-6">
+                <Card className="glass-effect border border-white/20 backdrop-blur-xl hover:shadow-lg transition-all duration-300 group">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                         <Zap className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-2">Instant Access</h3>
-                        <p className="text-muted-foreground font-black text-sm">
-                          Jump straight into your dashboard with all your business data, reports, and tools ready to use.
+                        <h4 className="text-lg font-semibold text-foreground mb-2">Lightning Fast Dashboard</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Instant access to real-time business metrics, reports, and analytics with zero loading time.
                         </p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] fade-in stagger-3">
+                <Card className="glass-effect border border-white/20 backdrop-blur-xl hover:shadow-lg transition-all duration-300 group">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                         <Users className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-2">Team Collaboration</h3>
-                        <p className="text-muted-foreground text-sm">
-                          Manage your team, assign tasks, and collaborate on projects with powerful team management tools.
+                        <h4 className="text-lg font-semibold text-foreground mb-2">Team Collaboration Hub</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Seamlessly collaborate with team members, share projects, and track progress in real-time.
                         </p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] fade-in stagger-4">
+                <Card className="glass-effect border border-white/20 backdrop-blur-xl hover:shadow-lg transition-all duration-300 group">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                        <Building2 className="h-6 w-6 text-white" />
+                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <TrendingUp className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-2">Business Intelligence</h3>
-                        <p className="text-muted-foreground text-sm">
-                          Get insights and analytics that help you make smarter business decisions and grow faster.
+                        <h4 className="text-lg font-semibold text-foreground mb-2">Business Intelligence</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Advanced analytics and AI-powered insights to drive informed business decisions.
                         </p>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] fade-in stagger-5">
+                <Card className="glass-effect border border-white/20 backdrop-blur-xl hover:shadow-lg transition-all duration-300 group">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                        <Globe className="h-6 w-6 text-white" />
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Clock className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-foreground mb-2">Multi-Location Support</h3>
-                        <p className="text-muted-foreground text-sm">
-                          Manage multiple business locations, currencies, and time zones from a single platform.
+                        <h4 className="text-lg font-semibold text-foreground mb-2">Time-Saving Automation</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Automated workflows, smart scheduling, and intelligent task management to boost productivity.
                         </p>
                       </div>
                     </div>
@@ -267,35 +308,51 @@ export default function Login() {
                 </Card>
               </div>
 
-              {/* Social Proof */}
-              <Card className="glass-effect border-0 shadow-lg bg-gradient-to-r from-indigo-50/50 to-purple-50/50 fade-in stagger-6">
-                <CardContent className="p-6">
-                  <div className="text-center">
-                    <div className="flex justify-center mb-3">
-                      <div className="flex space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
-                    </div>
-                    <h3 className="font-semibold text-foreground mb-2">Trusted by 10,000+ Businesses</h3>
-                    <p className="text-muted-foreground text-sm">
-                      "BusinessFlow Pro transformed how we manage our operations. The dashboard is intuitive and powerful."
-                    </p>
-                    <div className="mt-3">
-                      <Badge variant="secondary" className="bg-indigo-100 text-indigo-700">
-                        Sarah Johnson, CEO at TechStart
-                      </Badge>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                <Badge variant="secondary" className="flex items-center space-x-2 px-4 py-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300">
+                  <CheckCircle className="h-4 w-4" />
+                  <span className="font-medium">50,000+ Active Users</span>
+                </Badge>
+                <Badge variant="secondary" className="flex items-center space-x-2 px-4 py-2 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-700 dark:text-yellow-300">
+                  <Star className="h-4 w-4" />
+                  <span className="font-medium">4.9/5 Rating</span>
+                </Badge>
+                <Badge variant="secondary" className="flex items-center space-x-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300">
+                  <Award className="h-4 w-4" />
+                  <span className="font-medium">ISO 27001 Certified</span>
+                </Badge>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Footer */}
+      {/* CTA Section */}
+      <div className="relative z-10 py-16 bg-gradient-to-r from-slate-100 to-gray-100 dark:from-gray-800 dark:to-slate-800">
+        <div className="max-w-4xl mx-auto text-center px-6 sm:px-8 lg:px-12">
+          <h3 className="text-3xl font-bold text-foreground mb-6">
+            New to BusinessFlow Pro?
+          </h3>
+          <p className="text-lg text-muted-foreground mb-8">
+            Join thousands of businesses that have transformed their operations with our comprehensive platform.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/trial">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 px-8 py-3 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                <Sparkles className="h-5 w-5 mr-2" />
+                Start Your 14-Day Trial
+              </Button>
+            </Link>
+            <Link href="/subscribe">
+              <Button variant="outline" className="px-8 py-3 text-lg font-semibold rounded-2xl border-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300">
+                View Pricing Plans
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

@@ -716,9 +716,9 @@ export default function Subscribe() {
           />
           <Label htmlFor="terms" className="text-sm">
             I agree to the{" "}
-            <a href="#" className="text-primary hover:underline">Terms of Service</a>
+            <a href="/terms-of-service" target="_blank" className="text-primary hover:underline">Terms of Service</a>
             {" "}and{" "}
-            <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+            <a href="/privacy-policy" target="_blank" className="text-primary hover:underline">Privacy Policy</a>
           </Label>
         </div>
 

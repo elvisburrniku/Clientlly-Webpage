@@ -38,6 +38,8 @@ import CancelAnytime from "@/pages/cancel-anytime";
 import ExpertSupport from "@/pages/expert-support";
 import BankSecurity from "@/pages/bank-security";
 import DataProtection from "@/pages/data-protection";
+import TermsOfService from "@/pages/terms-of-service";
+import PrivacyPolicy from "@/pages/privacy-policy";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -84,6 +86,8 @@ function Router() {
           <Route path="/expert-support" component={ExpertSupport} />
           <Route path="/bank-security" component={BankSecurity} />
           <Route path="/data-protection" component={DataProtection} />
+          <Route path="/terms-of-service" component={TermsOfService} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
         </>
       ) : (
         <>
@@ -118,6 +122,8 @@ function Router() {
           <Route path="/expert-support" component={ExpertSupport} />
           <Route path="/bank-security" component={BankSecurity} />
           <Route path="/data-protection" component={DataProtection} />
+          <Route path="/terms-of-service" component={TermsOfService} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
         </>
       )}
       <Route component={NotFound} />
