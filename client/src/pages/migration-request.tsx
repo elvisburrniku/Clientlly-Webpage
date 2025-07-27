@@ -132,6 +132,9 @@ const MigrationRequestPage = () => {
     'Zoho Books',
     'Peachtree',
     'Simply Accounting',
+    'InfoSoft (Kosovo)',
+    'FlexAccounts (North Macedonia)',
+    'AlbaBooks (Albania)',
     'Other'
   ];
 

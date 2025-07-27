@@ -41,14 +41,17 @@ const SetupMigrationPage = () => {
   ];
 
   const supportedPlatforms = [
-    { name: "QuickBooks", icon: "💼" },
-    { name: "Xero", icon: "📊" },
-    { name: "Excel/CSV", icon: "📋" },
-    { name: "Sage", icon: "🏢" },
-    { name: "FreshBooks", icon: "📘" },
-    { name: "Wave", icon: "🌊" },
-    { name: "Zoho Books", icon: "📚" },
-    { name: "Custom Systems", icon: "⚙️" }
+    { name: "QuickBooks", icon: "💼", region: "Global" },
+    { name: "Xero", icon: "📊", region: "Global" },
+    { name: "Excel/CSV", icon: "📋", region: "Global" },
+    { name: "Sage", icon: "🏢", region: "Global" },
+    { name: "FreshBooks", icon: "📘", region: "Global" },
+    { name: "Wave", icon: "🌊", region: "Global" },
+    { name: "Zoho Books", icon: "📚", region: "Global" },
+    { name: "InfoSoft", icon: "🇽🇰", region: "Kosovo" },
+    { name: "FlexAccounts", icon: "🇲🇰", region: "North Macedonia" },
+    { name: "AlbaBooks", icon: "🇦🇱", region: "Albania" },
+    { name: "Custom Systems", icon: "⚙️", region: "Global" }
   ];
 
   return (
@@ -241,26 +244,100 @@ const SetupMigrationPage = () => {
       </section>
 
       {/* Supported Platforms */}
-      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900/50">
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 dark:from-gray-900/50 dark:via-blue-950/20 dark:to-purple-950/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
               Migrate From <span className="animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Any Platform</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
               We support data migration from all major accounting and business management platforms.
             </p>
+            <div className="inline-flex items-center space-x-2 bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded-full">
+              <Check className="w-5 h-5 text-green-600" />
+              <span className="text-green-700 dark:text-green-300 font-semibold">100% Data Integrity Guaranteed</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
-            {supportedPlatforms.map((platform, index) => (
-              <Card key={index} className="bg-white dark:bg-gray-800 border-2 animate-gradient-border hover:shadow-lg transition-all duration-300 hover:scale-105">
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-3">{platform.icon}</div>
-                  <h3 className="font-bold text-sm text-foreground">{platform.name}</h3>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Global Platforms */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">
+              🌍 Global Platforms
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-8">
+              {supportedPlatforms.filter(platform => platform.region === "Global" && platform.name !== "Custom Systems").map((platform, index) => (
+                <Card key={index} className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-blue-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <CardContent className="relative p-6 text-center">
+                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{platform.icon}</div>
+                    <h3 className="font-bold text-lg text-foreground mb-1">{platform.name}</h3>
+                    <span className="text-xs text-muted-foreground bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">Full Migration</span>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Regional Platforms */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">
+              🌎 Regional Platforms
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {supportedPlatforms.filter(platform => platform.region !== "Global" && platform.name !== "Custom Systems").map((platform, index) => (
+                <Card key={index} className="group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <CardContent className="relative p-8 text-center">
+                    <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">{platform.icon}</div>
+                    <h3 className="font-bold text-xl text-foreground mb-2">{platform.name}</h3>
+                    <span className="text-sm text-muted-foreground bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full font-medium">{platform.region}</span>
+                    <p className="text-xs text-muted-foreground mt-3">Specialized regional support</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Custom Systems */}
+          <div className="text-center">
+            <Card className="inline-block bg-gradient-to-r from-purple-100 to-indigo-100 dark:from-purple-900/30 dark:to-indigo-900/30 border-2 border-purple-200 dark:border-purple-700 hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="text-6xl mb-4">⚙️</div>
+                <h3 className="font-bold text-2xl text-foreground mb-2">Custom Systems</h3>
+                <p className="text-muted-foreground max-w-md">
+                  Have a unique platform? Our migration experts can handle any custom system or database format.
+                </p>
+                <div className="mt-4 inline-flex items-center space-x-2 bg-purple-200 dark:bg-purple-800/50 px-4 py-2 rounded-full">
+                  <Zap className="w-4 h-4 text-purple-600" />
+                  <span className="text-purple-700 dark:text-purple-300 font-semibold text-sm">Expert Consultation</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Migration Features */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="font-bold text-lg mb-2">Zero Data Loss</h4>
+              <p className="text-muted-foreground text-sm">Advanced validation ensures 100% data integrity during migration</p>
+            </div>
+            <div className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="font-bold text-lg mb-2">24-48 Hours</h4>
+              <p className="text-muted-foreground text-sm">Most migrations completed within 1-2 business days</p>
+            </div>
+            <div className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="font-bold text-lg mb-2">Expert Support</h4>
+              <p className="text-muted-foreground text-sm">Dedicated migration specialists guide you through the process</p>
+            </div>
           </div>
         </div>
       </section>
