@@ -68,16 +68,17 @@
 .animate-text-wave {
   background: linear-gradient(90deg, 
     #000 0%, 
-    #3b82f6 20%, 
-    #8b5cf6 40%, 
-    #10b981 60%, 
-    #000 80%, 
+    #000 10%,
+    #3b82f6 25%, 
+    #8b5cf6 35%, 
+    #10b981 45%, 
+    #000 55%,
     #000 100%);
-  background-size: 300% 100%;
+  background-size: 400% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: text-wave 3s ease-in-out infinite;
+  animation: text-wave 6s ease-in-out infinite;
 }
 
 
