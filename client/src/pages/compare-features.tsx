@@ -427,71 +427,75 @@ export default function CompareFeatures() {
             </div>
           </div>
 
-          {/* CTA Section with Yellow Background */}
-          <div className="text-center mt-16">
-            <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 p-16 rounded-3xl relative overflow-hidden">
-              {/* Sparkle animations */}
-              <div className="absolute top-8 left-8 w-3 h-3 bg-white rounded-full animate-ping" style={{ animationDelay: '0s' }} />
-              <div className="absolute top-12 right-12 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '1s' }} />
-              <div className="absolute bottom-12 left-16 w-2.5 h-2.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2s' }} />
-              <div className="absolute bottom-8 right-8 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '3s' }} />
-              <div className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
-              <div className="absolute top-1/3 right-6 w-2.5 h-2.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2.5s' }} />
-              <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '3.5s' }} />
+        </div>
 
-              <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl relative z-10">
-                <Zap className="h-12 w-12 text-white" />
+        {/* Full Width CTA Section with Yellow Background */}
+        <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 py-16 px-4 text-center relative overflow-hidden mt-16 w-screen -mx-[50vw] ml-[calc(50%-50vw)]">
+          {/* Sparkle animations */}
+          <div className="absolute top-8 left-8 w-3 h-3 bg-white rounded-full animate-ping" style={{ animationDelay: '0s' }} />
+          <div className="absolute top-12 right-12 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '1s' }} />
+          <div className="absolute bottom-12 left-16 w-2.5 h-2.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+          <div className="absolute bottom-8 right-8 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '3s' }} />
+          <div className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
+          <div className="absolute top-1/3 right-6 w-2.5 h-2.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2.5s' }} />
+          <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '3.5s' }} />
+
+          <div className="max-w-6xl mx-auto">
+            <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl relative z-10">
+              <Zap className="h-12 w-12 text-white" />
+            </div>
+            
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black mb-6 tracking-tight leading-tight relative z-10">
+              <span className="text-black animate-text-wave">
+                Ready to Transform Your Business?
+              </span>
+            </h2>
+            
+            <p className="text-2xl lg:text-3xl text-black max-w-4xl mx-auto mb-10 leading-relaxed font-medium relative z-10">
+              Join thousands of businesses already streamlining their operations with BusinessFlow Pro. Experience the full feature set with any plan you choose.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8 relative z-10">
+                <Button 
+                  size="lg" 
+                  onClick={() => window.location.href = "/trial"}
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 animate-pulse-glow"
+                >
+                  <Star className="w-5 h-5 mr-2" />
+                  Start Free Trial
+                </Button>
+              <Link href="/contact">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="border-2 border-black text-black hover:bg-black hover:text-white px-10 py-5 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
+                >
+                  <Globe className="w-5 h-5 mr-2" />
+                  Contact Sales
+                </Button>
+              </Link>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-black font-medium relative z-10">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>No credit card required</span>
               </div>
-              
-              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black mb-6 tracking-tight leading-tight relative z-10">
-                <span className="text-black animate-text-wave">
-                  Ready to Transform Your Business?
-                </span>
-              </h2>
-              
-              <p className="text-2xl lg:text-3xl text-black max-w-4xl mx-auto mb-10 leading-relaxed font-medium relative z-10">
-                Join thousands of businesses already streamlining their operations with BusinessFlow Pro. Experience the full feature set with any plan you choose.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8 relative z-10">
-                  <Button 
-                    size="lg" 
-                    onClick={() => window.location.href = "/trial"}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 animate-pulse-glow"
-                  >
-                    <Star className="w-5 h-5 mr-2" />
-                    Start Free Trial
-                  </Button>
-                <Link href="/contact">
-                  <Button 
-                    size="lg" 
-                    variant="outline"
-                    className="border-2 border-black text-black hover:bg-black hover:text-white px-10 py-5 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-                  >
-                    <Globe className="w-5 h-5 mr-2" />
-                    Contact Sales
-                  </Button>
-                </Link>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>14-day free trial</span>
               </div>
-
-              {/* Trust indicators */}
-              <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-black font-medium relative z-10">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>No credit card required</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>14-day free trial</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  <span>Full feature access</span>
-                </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-4 w-4 text-green-600" />
+                <span>Full feature access</span>
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         </div>
       </div>
 
