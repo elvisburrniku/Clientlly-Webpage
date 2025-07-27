@@ -172,8 +172,8 @@ export default function ChatBot() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <Card className={`w-84 sm:w-[420px] transition-all duration-300 ease-in-out shadow-2xl border-0 overflow-hidden transform ${
-        isMinimized ? 'h-16 scale-95' : 'h-[560px] sm:h-[600px] scale-100'
+      <Card className={`w-80 sm:w-[400px] transition-all duration-300 ease-in-out shadow-2xl border-0 overflow-hidden transform ${
+        isMinimized ? 'h-16 scale-95' : 'h-[600px] scale-100'
       } ${
         isClosing 
           ? 'animate-out slide-out-to-bottom-4 fade-out duration-200' 
@@ -183,13 +183,13 @@ export default function ChatBot() {
       }`}>
         <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4 flex-shrink-0">
           <div className="flex items-center justify-between min-h-[44px]">
-            <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+            <div className="flex items-center space-x-3 flex-1 min-w-0">
+              <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="h-5 w-5 text-white" />
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="text-sm sm:text-base font-semibold text-white truncate leading-tight">BusinessFlow Pro</h2>
-                <p className="text-xs sm:text-sm text-blue-100 truncate leading-tight">Support bot • AI Agent</p>
+                <h2 className="text-base font-semibold text-white truncate leading-tight">BusinessFlow Pro</h2>
+                <p className="text-sm text-blue-100 truncate leading-tight">Support bot • AI Agent</p>
               </div>
             </div>
             <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
@@ -222,7 +222,7 @@ export default function ChatBot() {
         </CardHeader>
 
         {!isMinimized && (
-          <CardContent className="p-0 flex flex-col h-[516px] sm:h-[556px]">
+          <CardContent className="p-0 flex flex-col h-[556px]">
             {/* Menu View */}
             {currentView === 'menu' && (
               <div className="flex flex-col h-full min-h-0">
@@ -383,25 +383,25 @@ export default function ChatBot() {
                   </div>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4 bg-gray-50 min-h-0">
+                <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50 min-h-0">
                   {messages.map((message) => (
                     <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`flex items-start space-x-2 max-w-[85%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                      <div className={`flex items-start space-x-3 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          message.sender === 'user' ? 'bg-blue-600' : 'bg-gray-500'
+                          message.sender === 'user' ? 'bg-blue-600' : 'bg-gradient-to-r from-blue-600 to-purple-600'
                         }`}>
                           {message.sender === 'user' ? 
                             <User className="h-4 w-4 text-white" /> : 
                             <Bot className="h-4 w-4 text-white" />
                           }
                         </div>
-                        <div className={`rounded-lg p-3 ${
+                        <div className={`rounded-2xl p-3 shadow-sm ${
                           message.sender === 'user' 
                             ? 'bg-blue-600 text-white' 
-                            : 'bg-white text-gray-900 shadow-sm border border-gray-200'
+                            : 'bg-white text-gray-900 border border-gray-100'
                         }`}>
-                          <p className="text-sm whitespace-pre-wrap">{message.text}</p>
-                          <span className="text-xs opacity-70 mt-1 block">
+                          <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.text}</p>
+                          <span className="text-xs opacity-70 mt-2 block">
                             {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </span>
                         </div>
@@ -411,15 +411,15 @@ export default function ChatBot() {
                   
                   {isTyping && (
                     <div className="flex justify-start">
-                      <div className="flex items-start space-x-2 max-w-[85%]">
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gray-500">
+                      <div className="flex items-start space-x-3 max-w-[80%]">
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600">
                           <Bot className="h-4 w-4 text-white" />
                         </div>
-                        <div className="rounded-lg p-3 bg-white shadow-sm border border-gray-200">
-                          <div className="flex space-x-1">
-                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="rounded-2xl p-3 bg-white shadow-sm border border-gray-100">
+                          <div className="flex space-x-1 items-center">
+                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                           </div>
                         </div>
                       </div>
@@ -428,20 +428,20 @@ export default function ChatBot() {
                   <div ref={messagesEndRef} />
                 </div>
 
-                <div className="p-3 sm:p-4 border-t border-blue-200 bg-white">
-                  <div className="flex space-x-2">
+                <div className="p-4 border-t border-blue-200 bg-white">
+                  <div className="flex space-x-3 items-end">
                     <Input
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleKeyPress}
                       placeholder="Type your message..."
-                      className="flex-1 bg-white border-blue-300 focus:border-blue-500 focus:ring-blue-500"
+                      className="flex-1 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500 rounded-xl py-3 px-4"
                       disabled={isTyping}
                     />
                     <Button 
                       onClick={() => handleSendMessage()}
                       disabled={!inputValue.trim() || isTyping}
-                      className="bg-blue-600 hover:bg-blue-700"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl h-12 w-12 p-0 flex items-center justify-center"
                     >
                       <Send className="h-4 w-4" />
                     </Button>
