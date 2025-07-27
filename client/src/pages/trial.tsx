@@ -310,27 +310,21 @@ export default function Trial() {
             {/* Left Side - Enhanced Trial Form */}
             <Card className={`relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
               {/* Form Header with Yellow Background */}
-              <div className="relative w-full px-4 py-12 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden rounded-t-3xl">
+              <div className="relative w-full px-4 py-12 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden rounded-t-3xl">
                 {/* Decorative Elements */}
                 <div className="absolute inset-0 overflow-hidden">
                   {/* Floating sparkle elements */}
-                  <div className="absolute top-4 left-8 w-3 h-3 animate-ping delay-0">
-                    <Sparkles className="w-3 h-3 text-amber-600/30" />
-                  </div>
-                  <div className="absolute bottom-4 right-12 w-4 h-4 animate-ping delay-1000">
-                    <Sparkles className="w-4 h-4 text-orange-600/40" />
-                  </div>
-                  <div className="absolute top-6 right-16 w-2 h-2 animate-ping delay-2000">
-                    <Sparkles className="w-2 h-2 text-yellow-600/30" />
-                  </div>
+                  <div className="absolute top-4 left-8 w-3 h-3 bg-white/40 rounded-full animate-bounce delay-0"></div>
+                  <div className="absolute bottom-4 right-12 w-4 h-4 bg-white/50 rounded-full animate-bounce delay-1000"></div>
+                  <div className="absolute top-6 right-16 w-2 h-2 bg-white/30 rounded-full animate-bounce delay-2000"></div>
                 </div>
 
                 <div className="relative z-10 text-center">
                   <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                     <Rocket className="h-10 w-10 text-white" />
                   </div>
-                  <h2 className="text-4xl font-black text-white mb-3 tracking-tight animate-professional-fade">Ready to <span className="animate-subtle-gradient">Launch</span>?</h2>
-                  <p className="text-lg text-gray-800 dark:text-gray-200">Your business transformation starts with these 5 simple fields.</p>
+                  <h2 className="text-4xl font-black text-black mb-3 tracking-tight animate-professional-fade">Ready to <span className="animate-subtle-gradient">Launch</span>?</h2>
+                  <p className="text-lg text-black">Your business transformation starts with these 5 simple fields.</p>
                 </div>
               </div>
 

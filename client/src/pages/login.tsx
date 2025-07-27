@@ -329,23 +329,31 @@ export default function Login() {
       </div>
 
       {/* CTA Section */}
-      <div className="relative z-10 py-16 bg-gradient-to-r from-slate-100 to-gray-100 dark:from-gray-800 dark:to-slate-800">
-        <div className="max-w-4xl mx-auto text-center px-6 sm:px-8 lg:px-12">
-          <h3 className="text-3xl font-bold text-foreground mb-6">
+      <div className="relative z-10 py-16 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 overflow-hidden">
+        {/* Floating Sparkles */}
+        <div className="absolute top-8 left-8 w-3 h-3 bg-white/40 rounded-full animate-bounce"></div>
+        <div className="absolute top-16 right-16 w-2 h-2 bg-white/50 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute bottom-12 left-16 w-2 h-2 bg-white/30 rounded-full animate-bounce delay-500"></div>
+        <div className="absolute bottom-8 right-8 w-3 h-3 bg-white/60 rounded-full animate-bounce delay-700"></div>
+        <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 bg-white/35 rounded-full animate-bounce delay-200"></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/45 rounded-full animate-bounce delay-600"></div>
+
+        <div className="max-w-4xl mx-auto text-center px-6 sm:px-8 lg:px-12 relative z-10">
+          <h3 className="text-3xl font-bold text-black mb-6">
             New to BusinessFlow Pro?
           </h3>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-black mb-8">
             Join thousands of businesses that have transformed their operations with our comprehensive platform.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/trial">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 px-8 py-3 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
                 <Sparkles className="h-5 w-5 mr-2" />
                 Start Your 14-Day Trial
               </Button>
             </Link>
             <Link href="/subscribe">
-              <Button variant="outline" className="px-8 py-3 text-lg font-semibold rounded-2xl border-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300">
+              <Button variant="outline" className="px-8 py-3 text-lg font-semibold rounded-2xl border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300">
                 View Pricing Plans
               </Button>
             </Link>
