@@ -340,41 +340,6 @@ export default function Landing() {
         )}
       </nav>
 
-      {/* Yellow Background Section - Positioned right under navigation */}
-      <div className="absolute left-0 right-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden z-10" style={{ top: '64px', height: 'auto' }}>
-        {/* Floating Sparkles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
-          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-          <div className="absolute top-3/4 left-1/3 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
-        </div>
-        
-        {/* Content Container */}
-        <div className="py-16 px-4">
-          <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black leading-tight fade-in tracking-tight text-black">
-              Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
-            </h1>
-            
-            <div className="max-w-5xl mx-auto">
-              <div className="text-2xl lg:text-3xl text-black/80 leading-tight fade-in stagger-1 tracking-tight">
-                <div className="space-y-1 max-w-4xl mx-auto">
-                  <p className="text-center">
-                    Empower your <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
-                  </p>
-                  <p className="text-center">
-                    while simplifying your financial management.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="hero-section relative pb-32 overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '64px' }}>
         {/* Background Elements */}
@@ -389,8 +354,25 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center space-y-16">
             
-            {/* Spacer for yellow section */}
-            <div style={{ height: '24rem' }}></div>
+            {/* Hero Content */}
+            <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight fade-in tracking-tight">
+                Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
+              </h1>
+              
+              <div className="max-w-5xl mx-auto">
+                <div className="text-2xl lg:text-3xl text-muted-foreground leading-tight fade-in stagger-1 tracking-tight">
+                  <div className="space-y-1 max-w-4xl mx-auto">
+                    <p className="text-center">
+                      Empower your <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
+                    </p>
+                    <p className="text-center">
+                      while simplifying your financial management.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             
             {/* Action Buttons - Outside Yellow Background */}
@@ -831,7 +813,7 @@ export default function Landing() {
       </section>
 
       {/* Growing Together Section - HoneyBook Style */}
-      <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+      <section className="relative w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Floating sparkle elements */}
@@ -1161,7 +1143,7 @@ export default function Landing() {
       </section>
 
       {/* Ready to Trust Your Business CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>

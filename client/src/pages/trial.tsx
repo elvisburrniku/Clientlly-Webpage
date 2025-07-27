@@ -310,7 +310,7 @@ export default function Trial() {
             {/* Left Side - Enhanced Trial Form */}
             <Card className={`relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
               {/* Form Header with Yellow Background */}
-              <div className="relative w-full px-4 py-12 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden rounded-t-3xl">
+              <div className="relative w-full px-4 py-12 bg-gradient-to-br from-blue-500 to-purple-600 overflow-hidden rounded-t-3xl">
                 {/* Decorative Elements */}
                 <div className="absolute inset-0 overflow-hidden">
                   {/* Floating sparkle elements */}
@@ -604,7 +604,7 @@ export default function Trial() {
       </div>
 
       {/* VIP Support Experience - Full Width Section */}
-      <div className="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-20 px-4 relative overflow-hidden">
+      <div className="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-20 px-4 relative overflow-hidden">
         {/* Floating Sparkles */}
         <div className="absolute top-8 left-8 w-3 h-3 bg-yellow-200 rounded-full animate-bounce"></div>
         <div className="absolute top-16 right-16 w-2 h-2 bg-orange-200 rounded-full animate-bounce delay-300"></div>

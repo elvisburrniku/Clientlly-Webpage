@@ -378,7 +378,7 @@ const AboutPage = () => {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400">
+      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
         {/* Floating Sparkle Animations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-12 left-[8%] w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
@@ -545,7 +545,7 @@ const AboutPage = () => {
       </section>
 
       {/* Growing Together Section - HoneyBook Style */}
-      <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+      <section className="relative w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Floating sparkle elements */}
@@ -815,7 +815,7 @@ const AboutPage = () => {
       </section>
 
       {/* Ready to Trust Your Business CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+      <section className="py-24 px-4 bg-gradient-to-r from-blue-500 to-purple-600 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
