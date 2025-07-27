@@ -344,119 +344,110 @@ export default function CompareFeatures() {
 
           {/* Core Features Overview */}
           <div className="mb-20">
-            <Card className="glass-effect border-0 shadow-xl bg-gradient-to-r from-purple-50/50 to-pink-50/50 hover:shadow-2xl transition-all duration-500">
-              <CardContent className="p-10">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Target className="h-8 w-8 text-white" />
-                  </div>
+            <div className="p-10">
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Target className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight text-center">
-                  <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">
-                    Complete Business Suite Included
-                  </span>
-                </h2>
-                <p className="text-2xl text-muted-foreground text-center mb-10 leading-relaxed max-w-4xl mx-auto">
-                  Every plan includes our complete feature set. No restrictions, no limitations - just the tools your business needs to succeed.
-                </p>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight text-center">
+                <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">
+                  Complete Business Suite Included
+                </span>
+              </h2>
+              <p className="text-2xl text-muted-foreground text-center mb-10 leading-relaxed max-w-4xl mx-auto">
+                Every plan includes our complete feature set. No restrictions, no limitations - just the tools your business needs to succeed.
+              </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {coreFeatures.map((feature, index) => (
-                    <Card key={index} className="group glass-effect border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 relative overflow-hidden">
-                      <CardContent className="p-6 text-center">
-                        <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                          <feature.icon className="h-8 w-8 text-white" />
-                        </div>
-                        <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">
-                          {feature.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {coreFeatures.map((feature, index) => (
+                  <div key={index} className="group p-6 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Additional explanation */}
           <div className="mt-16">
-            <Card className="glass-effect border-0 shadow-xl bg-gradient-to-r from-orange-50/50 to-yellow-50/50 max-w-4xl mx-auto">
-              <CardContent className="p-10 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <Award className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-4xl font-black text-foreground mb-4 tracking-tight leading-tight">
-                  <span className="bg-gradient-to-r from-orange-600 via-yellow-600 to-red-600 bg-clip-text text-transparent">
-                    Full Access, Fair Pricing
-                  </span>
-                </h3>
-                <p className="text-2xl text-muted-foreground leading-relaxed">
-                  Unlike other platforms that restrict features to force expensive upgrades, we believe every business should have access to professional tools. Our pricing scales with your usage, not your capabilities.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="p-10 text-center max-w-4xl mx-auto">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <Award className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-4xl font-black text-foreground mb-4 tracking-tight leading-tight">
+                <span className="bg-gradient-to-r from-orange-600 via-yellow-600 to-red-600 bg-clip-text text-transparent">
+                  Full Access, Fair Pricing
+                </span>
+              </h3>
+              <p className="text-2xl text-muted-foreground leading-relaxed">
+                Unlike other platforms that restrict features to force expensive upgrades, we believe every business should have access to professional tools. Our pricing scales with your usage, not your capabilities.
+              </p>
+            </div>
           </div>
 
           {/* CTA Section */}
           <div className="text-center mt-16">
-            <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-blue-600/5 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 to-purple-50/20"></div>
-              <CardContent className="p-16 relative z-10">
-                <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
-                  <Zap className="h-12 w-12 text-white" />
-                </div>
-                
-                <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 tracking-tight leading-tight">
-                  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Ready to Transform Your Business?
-                  </span>
-                </h2>
-                
-                <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto mb-10 leading-relaxed">
-                  Join thousands of businesses already streamlining their operations with BusinessFlow Pro. Experience the full feature set with any plan you choose.
-                </p>
+            <div className="p-16">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
+                <Zap className="h-12 w-12 text-white" />
+              </div>
+              
+              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 tracking-tight leading-tight">
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Ready to Transform Your Business?
+                </span>
+              </h2>
+              
+              <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto mb-10 leading-relaxed">
+                Join thousands of businesses already streamlining their operations with BusinessFlow Pro. Experience the full feature set with any plan you choose.
+              </p>
 
-                <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                    <Button 
-                      size="lg" 
-                      onClick={() => window.location.href = "/trial"}
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 animate-pulse-glow"
-                    >
-                      <Star className="w-5 h-5 mr-2" />
-                      Start Free Trial
-                    </Button>
-                  <Link href="/contact">
-                    <Button 
-                      size="lg" 
-                      variant="outline"
-                      className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 hover:border-purple-600 hover:text-purple-600 px-10 py-5 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-                    >
-                      <Globe className="w-5 h-5 mr-2" />
-                      Contact Sales
-                    </Button>
-                  </Link>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+                  <Button 
+                    size="lg" 
+                    onClick={() => window.location.href = "/trial"}
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 animate-pulse-glow"
+                  >
+                    <Star className="w-5 h-5 mr-2" />
+                    Start Free Trial
+                  </Button>
+                <Link href="/contact">
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 hover:border-purple-600 hover:text-purple-600 px-10 py-5 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
+                  >
+                    <Globe className="w-5 h-5 mr-2" />
+                    Contact Sales
+                  </Button>
+                </Link>
+              </div>
 
-                {/* Trust indicators */}
-                <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground">
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>No credit card required</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>14-day free trial</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span>Full feature access</span>
-                  </div>
+              {/* Trust indicators */}
+              <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-muted-foreground">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>No credit card required</span>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>14-day free trial</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <span>Full feature access</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
