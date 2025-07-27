@@ -604,14 +604,14 @@ export default function Trial() {
       </div>
 
       {/* VIP Support Experience - Full Width Section */}
-      <div className="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-20 px-4 relative overflow-hidden">
+      <div className="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-20 px-4 relative overflow-hidden">
         {/* Floating Sparkles */}
-        <div className="absolute top-8 left-8 w-3 h-3 bg-yellow-200 rounded-full animate-bounce"></div>
-        <div className="absolute top-16 right-16 w-2 h-2 bg-orange-200 rounded-full animate-bounce delay-300"></div>
-        <div className="absolute bottom-12 left-16 w-2 h-2 bg-amber-200 rounded-full animate-bounce delay-500"></div>
-        <div className="absolute bottom-8 right-8 w-3 h-3 bg-yellow-200 rounded-full animate-bounce delay-700"></div>
-        <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 bg-orange-300 rounded-full animate-bounce delay-200"></div>
-        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-yellow-300 rounded-full animate-bounce delay-600"></div>
+        <div className="absolute top-8 left-8 w-3 h-3 bg-white/40 rounded-full animate-bounce"></div>
+        <div className="absolute top-16 right-16 w-2 h-2 bg-white/50 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute bottom-12 left-16 w-2 h-2 bg-white/30 rounded-full animate-bounce delay-500"></div>
+        <div className="absolute bottom-8 right-8 w-3 h-3 bg-white/60 rounded-full animate-bounce delay-700"></div>
+        <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 bg-white/35 rounded-full animate-bounce delay-200"></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/45 rounded-full animate-bounce delay-600"></div>
         
         <div className="max-w-6xl mx-auto text-center relative">
           {/* 5-Star Rating */}
@@ -623,11 +623,11 @@ export default function Trial() {
             </div>
           </div>
           
-          <h3 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 tracking-tight">
+          <h3 className="text-4xl lg:text-5xl font-black text-black mb-6 tracking-tight">
             VIP Support Experience
           </h3>
-          <p className="text-xl lg:text-2xl text-gray-800 mb-12 leading-relaxed max-w-4xl mx-auto">
-            Get <span className="font-bold text-orange-800">personal onboarding</span> and dedicated support throughout your entire trial.
+          <p className="text-xl lg:text-2xl text-black mb-12 leading-relaxed max-w-4xl mx-auto">
+            Get <span className="font-bold text-black">personal onboarding</span> and dedicated support throughout your entire trial.
           </p>
           
           {/* Support Channels */}
@@ -636,22 +636,22 @@ export default function Trial() {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
                 <Target className="h-8 w-8 text-white" />
               </div>
-              <p className="text-lg font-bold text-gray-900 mb-2">Live Chat</p>
-              <p className="text-gray-800">Instant Help</p>
+              <p className="text-lg font-bold text-black mb-2">Live Chat</p>
+              <p className="text-black">Instant Help</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
                 <Mail className="h-8 w-8 text-white" />
               </div>
-              <p className="text-lg font-bold text-gray-900 mb-2">Email Support</p>
-              <p className="text-gray-800">24h Response</p>
+              <p className="text-lg font-bold text-black mb-2">Email Support</p>
+              <p className="text-black">24h Response</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
                 <Headphones className="h-8 w-8 text-white" />
               </div>
-              <p className="text-lg font-bold text-gray-900 mb-2">Phone Support</p>
-              <p className="text-gray-800">Direct Line</p>
+              <p className="text-lg font-bold text-black mb-2">Phone Support</p>
+              <p className="text-black">Direct Line</p>
             </div>
           </div>
 
