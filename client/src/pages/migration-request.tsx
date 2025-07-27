@@ -19,7 +19,8 @@ import {
   Calendar,
   Menu,
   X,
-  RefreshCw
+  RefreshCw,
+  MessageSquare
 } from 'lucide-react';
 import { Link } from 'wouter';
 import { LanguageSelector } from '@/components/LanguageSelector';
@@ -30,6 +31,7 @@ const MigrationRequestPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const [formData, setFormData] = useState({
+    contactType: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -50,13 +52,40 @@ const MigrationRequestPage = () => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
       
+      const getSuccessMessage = () => {
+        switch (formData.contactType) {
+          case 'Request Full Migration':
+            return {
+              title: "Migration Request Submitted!",
+              description: "Our migration team will contact you within 24 hours to discuss your free migration."
+            };
+          case 'Consultation First':
+            return {
+              title: "Consultation Request Submitted!",
+              description: "Our team will contact you within 24 hours to schedule your consultation call."
+            };
+          case 'Technical Questions Only':
+            return {
+              title: "Questions Submitted!",
+              description: "Our technical team will contact you within 24 hours to answer your questions."
+            };
+          default:
+            return {
+              title: "Request Submitted!",
+              description: "Our team will contact you within 24 hours."
+            };
+        }
+      };
+
+      const successMessage = getSuccessMessage();
       toast({
-        title: "Migration Request Submitted!",
-        description: "Our migration team will contact you within 24 hours to discuss your free migration.",
+        title: successMessage.title,
+        description: successMessage.description,
       });
 
       // Reset form
       setFormData({
+        contactType: '',
         firstName: '',
         lastName: '',
         email: '',
@@ -85,6 +114,12 @@ const MigrationRequestPage = () => {
       [field]: value
     }));
   };
+
+  const contactTypes = [
+    'Request Full Migration', 
+    'Consultation First', 
+    'Technical Questions Only'
+  ];
 
   const currentPlatforms = [
     'QuickBooks Desktop',
@@ -358,13 +393,49 @@ const MigrationRequestPage = () => {
               <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                 <Database className="h-10 w-10 text-white" />
               </div>
-              <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Request Your Free Migration</h2>
-              <p className="text-lg text-gray-800 dark:text-gray-200">Fill out this form and our migration experts will contact you within 24 hours</p>
+              <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">
+                {formData.contactType === 'Request Full Migration' 
+                  ? 'Request Your Free Migration'
+                  : formData.contactType === 'Consultation First'
+                  ? 'Schedule Your Consultation'
+                  : formData.contactType === 'Technical Questions Only'
+                  ? 'Submit Your Questions'
+                  : 'Contact Our Migration Team'
+                }
+              </h2>
+              <p className="text-lg text-gray-800 dark:text-gray-200">
+                {formData.contactType === 'Request Full Migration' 
+                  ? 'Fill out this form and our migration experts will contact you within 24 hours'
+                  : formData.contactType === 'Consultation First'
+                  ? 'Fill out this form and our team will schedule a consultation call within 24 hours'
+                  : formData.contactType === 'Technical Questions Only'
+                  ? 'Fill out this form and our technical team will answer your questions within 24 hours'
+                  : 'Fill out this form and our team will contact you within 24 hours'
+                }
+              </p>
             </div>
           </div>
 
           <CardContent className="p-8 space-y-6">
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Contact Type */}
+              <div className="space-y-3">
+                <Label htmlFor="contactType" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+                  <MessageSquare className="h-5 w-5 mr-2 text-indigo-500" />
+                  What can we help you with?
+                </Label>
+                <Select value={formData.contactType} onValueChange={(value) => handleInputChange('contactType', value)}>
+                  <SelectTrigger className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-indigo-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400">
+                    <SelectValue placeholder="Choose the type of assistance you need" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {contactTypes.map((type) => (
+                      <SelectItem key={type} value={type}>{type}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
               {/* Personal Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-3">
@@ -505,7 +576,15 @@ const MigrationRequestPage = () => {
                   id="specificRequirements"
                   value={formData.specificRequirements}
                   onChange={(e) => handleInputChange('specificRequirements', e.target.value)}
-                  placeholder="Tell us about any specific requirements, custom fields, or concerns you have about the migration..."
+                  placeholder={
+                    formData.contactType === 'Request Full Migration' 
+                      ? 'Tell us about any specific requirements, custom fields, or concerns you have about the migration...'
+                      : formData.contactType === 'Consultation First'
+                      ? 'Tell us about your current situation and what you\'d like to discuss in the consultation...'
+                      : formData.contactType === 'Technical Questions Only'
+                      ? 'What specific technical questions do you have about our platform or migration process?'
+                      : 'Tell us how we can help you...'
+                  }
                   className="min-h-32 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 focus:ring-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400"
                 />
               </div>
@@ -517,13 +596,18 @@ const MigrationRequestPage = () => {
                   onCheckedChange={(checked) => handleInputChange('agreeToTerms', checked as boolean)}
                 />
                 <Label htmlFor="terms" className="text-sm">
-                  I agree to be contacted by BusinessFlow Pro's migration team regarding my free migration request
+                  {formData.contactType === 'Request Full Migration' 
+                    ? 'I agree to be contacted by BusinessFlow Pro\'s migration team regarding my free migration request'
+                    : formData.contactType === 'Consultation First'
+                    ? 'I agree to be contacted by BusinessFlow Pro\'s team for a consultation call'
+                    : 'I agree to be contacted by BusinessFlow Pro\'s technical team regarding my questions'
+                  }
                 </Label>
               </div>
 
               <Button 
                 type="submit" 
-                disabled={!formData.agreeToTerms || isSubmitting}
+                disabled={!formData.agreeToTerms || !formData.contactType || isSubmitting}
                 className="w-full h-16 text-xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 hover:from-emerald-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
@@ -534,7 +618,16 @@ const MigrationRequestPage = () => {
                 ) : (
                   <div className="flex items-center space-x-2">
                     <Upload className="w-6 h-6" />
-                    <span>Request Free Migration</span>
+                    <span>
+                      {formData.contactType === 'Request Full Migration' 
+                        ? 'Request Free Migration'
+                        : formData.contactType === 'Consultation First'
+                        ? 'Schedule Consultation'
+                        : formData.contactType === 'Technical Questions Only'
+                        ? 'Submit Questions'
+                        : 'Submit Request'
+                      }
+                    </span>
                     <ArrowRight className="w-6 h-6" />
                   </div>
                 )}

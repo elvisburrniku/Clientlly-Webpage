@@ -298,7 +298,7 @@ const SetupMigrationPage = () => {
             <Button 
               size="lg"
               variant="outline"
-              onClick={() => window.location.href = "/contact"}
+              onClick={() => window.location.href = "/migration-request"}
               className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white bg-white/50 backdrop-blur-sm px-8 py-4 text-lg font-bold transition-all duration-300"
             >
               Contact Migration Team
