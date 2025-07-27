@@ -196,23 +196,34 @@ export default function TermsOfService() {
             </section>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-            <p className="text-muted-foreground mb-6">
-              Join thousands of businesses already using BusinessFlow Pro to streamline their operations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/trial">
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700">
-                  Start Your Trial
-                </Button>
-              </Link>
-              <Link href="/subscribe">
-                <Button variant="outline">
-                  Buy Now
-                </Button>
-              </Link>
+          {/* Bottom CTA with Yellow Background */}
+          <div className="mt-16 -mx-6 sm:-mx-8 lg:-mx-12 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden py-16 px-6 sm:px-8 lg:px-12">
+            {/* Floating Sparkles */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
+              <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+              <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+              <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            </div>
+            
+            <div className="text-center relative z-10">
+              <h3 className="text-3xl lg:text-4xl font-black text-black mb-4">Ready to Get Started?</h3>
+              <p className="text-xl text-black/80 mb-8 max-w-2xl mx-auto">
+                Join thousands of businesses already using BusinessFlow Pro to streamline their operations.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/trial">
+                  <Button className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-bold">
+                    Start Your Trial
+                  </Button>
+                </Link>
+                <Link href="/subscribe">
+                  <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-bold">
+                    Buy Now
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
