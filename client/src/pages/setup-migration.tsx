@@ -290,12 +290,19 @@ const SetupMigrationPage = () => {
             <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">
               🌎 Regional Platforms
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-8">
               {supportedPlatforms.filter(platform => platform.region !== "Global" && platform.name !== "Custom Systems").map((platform, index) => (
-                <Card key={index} className="group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                <Card key={index} className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <CardContent className="relative p-8 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                  <CardContent className="relative p-6 text-center">
+                    {/* Country Flag */}
+                    <div className="absolute top-2 right-2 text-xl opacity-70">
+                      {platform.region === "Albania" && "🇦🇱"}
+                      {platform.region === "Kosovo" && "🇽🇰"}
+                      {platform.region === "North Macedonia" && "🇲🇰"}
+                    </div>
+                    
+                    <div className="w-12 h-12 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                       {platform.icon.startsWith('http') || platform.icon.startsWith('data:') ? (
                         <img 
                           src={platform.icon} 
@@ -310,18 +317,12 @@ const SetupMigrationPage = () => {
                           }}
                         />
                       ) : (
-                        <div className="text-4xl">{platform.icon}</div>
+                        <div className="text-3xl">{platform.icon}</div>
                       )}
-                      <div className="text-4xl hidden">🏢</div>
+                      <div className="text-3xl hidden">🏢</div>
                     </div>
-                    <h3 className="font-bold text-xl text-foreground mb-2">{platform.name}</h3>
-                    <span className="text-sm text-muted-foreground bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full font-medium">{platform.region}</span>
-                    {platform.description && (
-                      <p className="text-xs text-muted-foreground mt-3">{platform.description}</p>
-                    )}
-                    {!platform.description && (
-                      <p className="text-xs text-muted-foreground mt-3">Specialized regional support</p>
-                    )}
+                    <h3 className="font-bold text-lg text-foreground mb-1">{platform.name}</h3>
+                    <span className="text-xs text-muted-foreground bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded-full">Regional Migration</span>
                   </CardContent>
                 </Card>
               ))}
