@@ -129,6 +129,12 @@ Preferred communication style: Simple, everyday language.
 ✓ Added descriptive subtitle explaining plan structure and value proposition
 ✓ Removed white background from subscription steps section for seamless design flow
 
+✓ COMPLETED Terms of Service page design cleanup (July 27, 2025)
+✓ Removed all card containers and grid layouts for cleaner, simpler design
+✓ Eliminated bouncing animations and complex background elements
+✓ Converted to clean section-based layout with icon headers
+✓ Removed glass effects and decorative cards for minimal professional appearance
+
 ✓ COMPLETED trust indicators enhancement with bold styling, animations, and dedicated pages (July 27, 2025)
 ✓ Made all trust indicators (Free setup & migration, Cancel anytime, 24/7 expert support, Bank-level security) bold with gradient animations
 ✓ Enhanced trust indicators with hover effects similar to main title animation style
