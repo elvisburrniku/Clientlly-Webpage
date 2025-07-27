@@ -377,16 +377,26 @@ const AboutPage = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-24 relative overflow-hidden">
+      {/* Hero Section with Yellow Background */}
+      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400">
+        {/* Floating Sparkle Animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-12 left-[8%] w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+          <div className="absolute top-20 right-[12%] w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+          <div className="absolute bottom-16 left-[15%] w-2.5 h-2.5 bg-white/25 rounded-full animate-bounce" style={{ animationDelay: '0.6s' }}></div>
+          <div className="absolute bottom-12 right-[20%] w-1 h-1 bg-white/35 rounded-full animate-bounce" style={{ animationDelay: '0.9s' }}></div>
+          <div className="absolute top-16 left-[75%] w-1.5 h-1.5 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '1.2s' }}></div>
+          <div className="absolute bottom-20 right-[8%] w-2 h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute top-32 left-[45%] w-1 h-1 bg-white/35 rounded-full animate-bounce" style={{ animationDelay: '1.8s' }}></div>
+          <div className="absolute bottom-32 right-[40%] w-1.5 h-1.5 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '2.1s' }}></div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">
-                About BusinessFlow Pro
-              </span>
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-8 tracking-tight leading-tight">
+              About BusinessFlow Pro
             </h1>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-12 tracking-tight">
+            <p className="text-2xl lg:text-3xl text-black max-w-5xl mx-auto leading-relaxed mb-12 tracking-tight">
               We're on a mission to empower businesses worldwide with intelligent automation, 
               seamless workflows, and data-driven insights that drive real growth.
             </p>
