@@ -355,7 +355,7 @@
 .accessibility-high-contrast-blue button {
   background: var(--primary) !important;
   color: var(--primary-foreground) !important;
-  border: 2px solid var(--border) !important;
+  border: none !important;
 }
 
 .accessibility-high-contrast-light a,
