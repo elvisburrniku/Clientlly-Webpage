@@ -36,6 +36,9 @@ import logoPath from "@assets/3d_1753268267691.png";
 export default function CompareFeatures() {
   const [isVisible, setIsVisible] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [highlightedFeature, setHighlightedFeature] = useState<number | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [spotlightVisible, setSpotlightVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -58,8 +61,16 @@ export default function CompareFeatures() {
     const animateElements = document.querySelectorAll('.scroll-animate');
     animateElements.forEach((el) => observer.observe(el));
 
+    // Mouse tracking for spotlight effect
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+
     return () => {
       animateElements.forEach((el) => observer.unobserve(el));
+      document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -110,11 +121,6 @@ export default function CompareFeatures() {
       icon: Calendar,
       title: "Smart Calendar",
       description: "AI-powered scheduling with team coordination and automated meeting planning"
-    },
-    {
-      icon: RefreshCw,
-      title: "Easy Migration",
-      description: "Seamless data import from popular business platforms with guided setup process"
     }
   ];
 
@@ -359,18 +365,77 @@ export default function CompareFeatures() {
                 Every plan includes our complete feature set. No restrictions, no limitations - just the tools your business needs to succeed.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative"
+                onMouseEnter={() => setSpotlightVisible(true)}
+                onMouseLeave={() => {
+                  setSpotlightVisible(false);
+                  setHighlightedFeature(null);
+                }}
+              >
+                {/* Spotlight Effect */}
+                {spotlightVisible && (
+                  <div
+                    className="fixed pointer-events-none z-10 rounded-full transition-all duration-300 ease-out"
+                    style={{
+                      left: mousePosition.x - 150,
+                      top: mousePosition.y - 150,
+                      width: '300px',
+                      height: '300px',
+                      background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.1) 30%, transparent 70%)',
+                      boxShadow: '0 0 100px rgba(59, 130, 246, 0.3)',
+                    }}
+                  />
+                )}
+
                 {coreFeatures.map((feature, index) => (
-                  <div key={index} className="group p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className="h-8 w-8 text-white" />
+                  <div 
+                    key={index} 
+                    className={`group p-6 text-center relative transition-all duration-500 rounded-2xl ${
+                      highlightedFeature === index 
+                        ? 'transform scale-105 bg-gradient-to-br from-blue-50/50 to-purple-50/50 shadow-2xl border border-blue-200/50 spotlight-feature feature-glow' 
+                        : 'hover:transform hover:scale-102'
+                    }`}
+                    onMouseEnter={() => setHighlightedFeature(index)}
+                    onMouseLeave={() => setHighlightedFeature(null)}
+                  >
+                    {/* Glow effect for highlighted feature */}
+                    {highlightedFeature === index && (
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/20 to-purple-400/20 animate-pulse" />
+                    )}
+                    
+                    <div className={`relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg transition-all duration-300 ${
+                      highlightedFeature === index 
+                        ? 'bg-gradient-to-r from-blue-500 to-purple-500 scale-110 shadow-xl feature-glow' 
+                        : 'bg-gradient-to-r from-blue-600 to-purple-600 group-hover:scale-110'
+                    }`}>
+                      <feature.icon className={`h-8 w-8 text-white transition-all duration-300 ${
+                        highlightedFeature === index ? 'scale-110 icon-bounce' : ''
+                      }`} />
                     </div>
-                    <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">
+                    
+                    <h3 className={`text-xl font-black mb-3 tracking-tight transition-all duration-300 ${
+                      highlightedFeature === index 
+                        ? 'text-blue-600 scale-105' 
+                        : 'text-foreground'
+                    }`}>
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    
+                    <p className={`leading-relaxed transition-all duration-300 ${
+                      highlightedFeature === index 
+                        ? 'text-foreground font-medium' 
+                        : 'text-muted-foreground'
+                    }`}>
                       {feature.description}
                     </p>
+
+                    {/* Animated border for highlighted feature */}
+                    {highlightedFeature === index && (
+                      <div className="absolute inset-0 rounded-2xl">
+                        <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-blue-500 to-purple-500 opacity-30 animate-pulse" />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
