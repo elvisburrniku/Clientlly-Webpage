@@ -362,13 +362,8 @@ export default function Landing() {
             
             {/* Main Heading */}
             <div className="space-y-12">
-              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
-                <span className="text-foreground leading-tight">
-                  Everything you need to
-                </span>
-                <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
-                  {" "}run your business
-                </span>
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight text-foreground">
+                Everything you need to run your business
               </h1>
               
               <div className="max-w-5xl mx-auto space-y-8">
