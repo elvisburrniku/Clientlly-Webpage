@@ -550,16 +550,28 @@ export default function Subscribe() {
 
   const renderAccountCreation = () => (
     <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
-      {/* Form Header with Gradient */}
-      <div className="bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 p-1 rounded-t-3xl">
-        <div className="bg-white dark:bg-gray-900 rounded-t-[calc(1.5rem-1px)] p-8">
-          <div className="text-center mb-8">
-            <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-              <Users className="h-10 w-10 text-white" />
-            </div>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Create Your Account</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">Set up your BusinessFlow Pro account to get started</p>
+      {/* Form Header with Yellow Gradient Background */}
+      <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 p-8 rounded-t-3xl relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating sparkle elements */}
+          <div className="absolute top-2 left-4 w-3 h-3 animate-ping delay-0">
+            <Sparkles className="w-3 h-3 text-amber-600/30" />
           </div>
+          <div className="absolute bottom-2 right-6 w-4 h-4 animate-ping delay-1000">
+            <Sparkles className="w-4 h-4 text-orange-600/40" />
+          </div>
+          <div className="absolute top-4 right-8 w-2 h-2 animate-ping delay-2000">
+            <Sparkles className="w-2 h-2 text-yellow-600/30" />
+          </div>
+        </div>
+        
+        <div className="relative z-10 text-center mb-8">
+          <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+            <Users className="h-10 w-10 text-white" />
+          </div>
+          <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Create Your Account</h2>
+          <p className="text-lg text-gray-800 dark:text-gray-200">Set up your BusinessFlow Pro account to get started</p>
         </div>
       </div>
       <CardContent className="p-8 pt-0 space-y-8">
