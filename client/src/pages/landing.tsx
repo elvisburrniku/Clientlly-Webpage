@@ -181,13 +181,13 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 relative overflow-hidden">
-      {/* Background Grid Pattern - Only for hero and features sections */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: '130vh' }}>
-        {/* Grid pattern that fades out before the "Trusted by businesses worldwide" section */}
+      {/* Background Grid Pattern - From hero through features section */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: '150vh' }}>
+        {/* Grid pattern that starts from hero and fades out at the end of features section */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
              style={{
-               maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%)',
-               WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.3) 80%, rgba(0,0,0,0) 100%)'
+               maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0) 100%)',
+               WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0) 100%)'
              }}></div>
       </div>
 
