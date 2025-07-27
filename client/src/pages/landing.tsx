@@ -253,7 +253,7 @@ export default function Landing() {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                onClick={() => window.location.href = "/trial"}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -329,7 +329,7 @@ export default function Landing() {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank");
+                    window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
@@ -381,7 +381,7 @@ export default function Landing() {
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
 
                   <button 
-                    onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                    onClick={() => window.location.href = "/trial"}
                     className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
                   >
                     <Clock className="h-4 w-4 text-white" />
@@ -1109,7 +1109,7 @@ export default function Landing() {
                         variant="outline" 
                         size="sm"
                         className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50"
-                        onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                        onClick={() => window.location.href = "/trial"}
                       >
                         Start Your Trial
                       </Button>

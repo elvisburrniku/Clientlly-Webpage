@@ -100,7 +100,7 @@ const SetupMigrationPage = () => {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                onClick={() => window.location.href = "/trial"}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -141,7 +141,7 @@ const SetupMigrationPage = () => {
               <Button onClick={() => window.location.href = '/subscribe'} className="w-full bg-blue-600 text-white hover:bg-blue-700">
                 Buy Now
               </Button>
-              <Button onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")} className="w-full bg-green-600 text-white hover:bg-green-700">
+              <Button onClick={() => window.location.href = "/trial"} className="w-full bg-green-600 text-white hover:bg-green-700">
                 Start Your Trial
               </Button>
             </div>
@@ -289,7 +289,7 @@ const SetupMigrationPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+              onClick={() => window.location.href = "/trial"}
               className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <Star className="w-5 h-5 mr-2" />

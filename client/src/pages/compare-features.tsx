@@ -235,7 +235,7 @@ export default function CompareFeatures() {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                onClick={() => window.location.href = "/trial"}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -310,7 +310,7 @@ export default function CompareFeatures() {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank");
+                    window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
@@ -581,7 +581,7 @@ export default function CompareFeatures() {
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
                     <Button 
                       size="lg" 
-                      onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                      onClick={() => window.location.href = "/trial"}
                       className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 animate-pulse-glow"
                     >
                       <Star className="w-5 h-5 mr-2" />

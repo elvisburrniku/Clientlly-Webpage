@@ -859,7 +859,7 @@ export default function Subscribe() {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                onClick={() => window.location.href = "/trial"}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -934,7 +934,7 @@ export default function Subscribe() {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank");
+                    window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"

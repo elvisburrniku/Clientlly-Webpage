@@ -77,7 +77,7 @@ const CollaborationPage = () => {
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                onClick={() => window.location.href = "/trial"}
                 className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -118,7 +118,7 @@ const CollaborationPage = () => {
               <Button onClick={() => window.location.href = '/subscribe'} className="w-full bg-blue-600 text-white hover:bg-blue-700">
                 Buy Now
               </Button>
-              <Button onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")} className="w-full bg-green-600 text-white hover:bg-green-700">
+              <Button onClick={() => window.location.href = "/trial"} className="w-full bg-green-600 text-white hover:bg-green-700">
                 Start Your Trial
               </Button>
             </div>
