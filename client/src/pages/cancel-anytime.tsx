@@ -192,7 +192,21 @@ const CancelAnytimePage = () => {
               Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.
             </p>
 
-
+            <div className="flex flex-wrap justify-center gap-6 mb-16">
+              <Button 
+                onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                className="px-8 py-4 bg-gray-900 text-white hover:bg-gray-800 rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+              >
+                Start Free Trial
+              </Button>
+              <Button 
+                onClick={() => window.location.href = '/subscribe'}
+                variant="outline"
+                className="px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+              >
+                View Pricing Plans
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -276,7 +290,25 @@ const CancelAnytimePage = () => {
                 Experience the full power of BusinessFlow Pro with complete peace of mind.
               </p>
               
-
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg"
+                  onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  <Star className="w-5 h-5 mr-2" />
+                  Start Free Trial
+                </Button>
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  onClick={() => window.location.href = "/subscribe"}
+                  className="border-2 border-gray-300 hover:border-orange-500 px-8 py-4 text-lg font-bold transition-all duration-300"
+                >
+                  View Pricing Plans
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>

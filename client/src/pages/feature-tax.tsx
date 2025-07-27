@@ -117,6 +117,13 @@ export default function FeatureTax() {
               <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-2">
                 <Button 
                   size="lg" 
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300"
+                  onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                >
+                  Start Free Trial
+                </Button>
+                <Button 
+                  size="lg" 
                   variant="outline" 
                   className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300"
                 >

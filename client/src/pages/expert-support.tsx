@@ -305,6 +305,14 @@ const ExpertSupportPage = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg"
+                  onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                >
+                  <Star className="w-5 h-5 mr-2" />
+                  Start Free Trial
+                </Button>
+                <Button 
+                  size="lg"
                   variant="outline"
                   onClick={() => window.location.href = "/contact"}
                   className="border-2 border-gray-300 hover:border-purple-500 px-8 py-4 text-lg font-bold transition-all duration-300"
