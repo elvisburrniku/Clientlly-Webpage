@@ -378,14 +378,21 @@ export default function Landing() {
                   </div>
                 </div>
                 
-                <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
-
+                <div className="flex flex-col justify-center items-center gap-3 mt-6 fade-in stagger-3">
                   <button 
                     onClick={() => window.location.href = "/trial"}
                     className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
                   >
                     <Clock className="h-4 w-4 text-white" />
                     <span className="text-sm font-black text-white">14-day free trial</span>
+                  </button>
+
+                  <button 
+                    onClick={() => window.location.href = "/cancel-anytime"}
+                    className="flex items-center space-x-2 px-5 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+                  >
+                    <Check className="h-4 w-4 text-white" />
+                    <span className="text-sm font-black text-white">Cancel anytime</span>
                   </button>
                 </div>
               </div>
