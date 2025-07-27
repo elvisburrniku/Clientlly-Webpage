@@ -292,54 +292,52 @@ export default function CompareFeatures() {
         <div className="max-w-7xl mx-auto">
           {/* Why One Plan Philosophy */}
           <div className="max-w-5xl mx-auto mb-16">
-            <Card className="glass-effect border-0 shadow-xl bg-gradient-to-r from-green-50/50 to-blue-50/50 hover:shadow-2xl transition-all duration-500">
-              <CardContent className="p-10">
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Heart className="h-8 w-8 text-white" />
-                  </div>
+            <div className="p-10">
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Heart className="h-8 w-8 text-white" />
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight">
-                  <span className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Why One Plan Fits All?
-                  </span>
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-2xl font-black text-foreground mb-3">No Feature Restrictions</h3>
-                        <p className="text-xl text-muted-foreground leading-relaxed">Every business deserves access to professional tools. We believe limiting features based on price creates unnecessary barriers to growth.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-2xl font-black text-foreground mb-3">Fair & Transparent</h3>
-                        <p className="text-xl text-muted-foreground leading-relaxed">Pay based on your actual usage - team size and invoice volume - not artificial feature limitations that don't reflect real value.</p>
-                      </div>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight text-center">
+                <span className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Why One Plan Fits All?
+                </span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-2xl font-black text-foreground mb-3">No Feature Restrictions</h3>
+                      <p className="text-xl text-muted-foreground leading-relaxed">Every business deserves access to professional tools. We believe limiting features based on price creates unnecessary barriers to growth.</p>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-2xl font-black text-foreground mb-3">Scale Without Limits</h3>
-                        <p className="text-xl text-muted-foreground leading-relaxed">As your business grows, you won't hit feature walls. Your capabilities remain the same - only your capacity changes.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                      <div>
-                        <h3 className="text-2xl font-black text-foreground mb-3">Customer-First Approach</h3>
-                        <p className="text-xl text-muted-foreground leading-relaxed">We built this platform to help businesses succeed, not to maximize revenue through feature restrictions. Your success is our success.</p>
-                      </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-2xl font-black text-foreground mb-3">Fair & Transparent</h3>
+                      <p className="text-xl text-muted-foreground leading-relaxed">Pay based on your actual usage - team size and invoice volume - not artificial feature limitations that don't reflect real value.</p>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-2xl font-black text-foreground mb-3">Scale Without Limits</h3>
+                      <p className="text-xl text-muted-foreground leading-relaxed">As your business grows, you won't hit feature walls. Your capabilities remain the same - only your capacity changes.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-2xl font-black text-foreground mb-3">Customer-First Approach</h3>
+                      <p className="text-xl text-muted-foreground leading-relaxed">We built this platform to help businesses succeed, not to maximize revenue through feature restrictions. Your success is our success.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
 
