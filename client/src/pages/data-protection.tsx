@@ -277,20 +277,7 @@ const DataProtectionPage = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Card className="inline-block bg-gradient-to-r from-green-500 to-blue-500 text-white p-1 rounded-2xl shadow-xl">
-              <CardContent className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-2">Exercise Your Rights</h3>
-                <p className="text-white/90 mb-4">Contact our Data Protection Officer to exercise any of these rights</p>
-                <Button 
-                  onClick={() => window.location.href = "/contact"}
-                  className="bg-white text-green-600 hover:bg-gray-100 font-bold"
-                >
-                  Contact Us <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+
         </div>
       </section>
 
