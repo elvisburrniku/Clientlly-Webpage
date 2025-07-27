@@ -112,8 +112,28 @@
 }
 
 
+@keyframes text-wave {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
 
-
+.animate-text-wave {
+  background: linear-gradient(90deg, 
+    #3b82f6 0%, 
+    #8b5cf6 33%, 
+    #10b981 66%, 
+    #3b82f6 100%
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-wave 3s ease-in-out infinite;
+}
 
 :root {
   --background: hsl(0, 0%, 96%);
