@@ -813,7 +813,7 @@ const AboutPage = () => {
       </section>
 
       {/* Ready to Trust Your Business CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-r from-blue-500 to-purple-600 relative overflow-hidden">
+      <section className="py-24 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
@@ -825,10 +825,10 @@ const AboutPage = () => {
         </div>
         
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg animate-text-wave">
+          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg animate-professional-fade">
             Ready to Trust Your Business with Us?
           </h2>
-          <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
+          <p className="text-xl text-black mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
             Join thousands of businesses who have streamlined their operations with BusinessFlow Pro.
             Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.
           </p>
@@ -837,7 +837,7 @@ const AboutPage = () => {
             <Button 
               size="lg"
               onClick={() => window.location.href = "/trial"}
-              className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Start Your Trial
             </Button>
@@ -845,7 +845,7 @@ const AboutPage = () => {
               size="lg"
               variant="outline"
               onClick={() => window.location.href = "/subscribe"}
-              className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
+              className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
               Buy Now
             </Button>
