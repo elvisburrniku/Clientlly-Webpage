@@ -475,7 +475,7 @@ export default function Landing() {
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight text-center">
               <span className="text-foreground">The features you need.</span> <br />
-              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-text-wave">All in one place</span>
+              <span className="animate-text-wave">All in one place</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
@@ -745,7 +745,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-text-wave">businesses worldwide</span>
+              Trusted by <span className="animate-text-wave">businesses worldwide</span>
             </h2>
             <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
               Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
