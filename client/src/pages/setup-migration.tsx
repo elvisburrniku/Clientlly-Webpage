@@ -266,38 +266,44 @@ const SetupMigrationPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          {/* Floating sparkles */}
+          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
+          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white/80 rounded-full animate-pulse delay-700"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute top-2/3 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse delay-200"></div>
+          <div className="absolute top-1/5 right-1/5 w-2 h-2 bg-white/70 rounded-full animate-pulse delay-900"></div>
+        </div>
+        
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 p-1 rounded-3xl">
-            <div className="bg-white dark:bg-gray-900 rounded-3xl p-12">
-              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6">
-                Ready to <span className="animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">Get Started?</span>
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Join thousands of businesses who have successfully migrated to BusinessFlow Pro. 
-                Our expert team is ready to help you make the switch seamlessly.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg"
-                  onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
-                  className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                >
-                  <Star className="w-5 h-5 mr-2" />
-                  Start Free Migration
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  onClick={() => window.location.href = "/contact"}
-                  className="border-2 border-gray-300 hover:border-blue-500 px-8 py-4 text-lg font-bold transition-all duration-300"
-                >
-                  Contact Migration Team
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </div>
-            </div>
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
+            Ready to <span className="text-gray-900">Get Started?</span>
+          </h2>
+          <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
+            Join thousands of businesses who have successfully migrated to BusinessFlow Pro. 
+            Our expert team is ready to help you make the switch seamlessly.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg"
+              onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+              className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <Star className="w-5 h-5 mr-2" />
+              Start Free Migration
+            </Button>
+            <Button 
+              size="lg"
+              variant="outline"
+              onClick={() => window.location.href = "/contact"}
+              className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white bg-white/50 backdrop-blur-sm px-8 py-4 text-lg font-bold transition-all duration-300"
+            >
+              Contact Migration Team
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
           </div>
         </div>
       </section>
