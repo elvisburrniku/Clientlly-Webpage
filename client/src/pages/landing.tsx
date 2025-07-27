@@ -398,7 +398,7 @@ export default function Landing() {
             <div className="space-y-8">
               <div className="max-w-5xl mx-auto space-y-8">
                 
-                <div className="flex flex-wrap justify-center items-center gap-4 mt-20 fade-in stagger-3">
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-28 fade-in stagger-3">
 
                   <button 
                     onClick={() => window.location.href = "/trial"}
@@ -424,7 +424,7 @@ export default function Landing() {
 
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5 pt-16 mt-8">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5 pt-20 mt-12">
               <button 
                 onClick={() => window.location.href = "/data-protection"}
                 className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-green-400/50 hover:bg-green-50/20 dark:hover:bg-green-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
