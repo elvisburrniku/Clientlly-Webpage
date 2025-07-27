@@ -87,11 +87,6 @@ export default function CompareFeatures() {
       description: "Generate comprehensive business reports with advanced analytics and forecasting"
     },
     {
-      icon: RefreshCw,
-      title: "Easy Migration",
-      description: "Seamless data import from popular business platforms with guided setup process"
-    },
-    {
       icon: Users,
       title: "Client Management",
       description: "Comprehensive CRM with client profiles, communication history, and project tracking"
