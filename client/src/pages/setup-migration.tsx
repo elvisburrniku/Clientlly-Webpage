@@ -48,9 +48,14 @@ const SetupMigrationPage = () => {
     { name: "FreshBooks", icon: "📘", region: "Global" },
     { name: "Wave", icon: "🌊", region: "Global" },
     { name: "Zoho Books", icon: "📚", region: "Global" },
+    { name: "NetSuite", icon: "🌐", region: "Global" },
     { name: "InfoSoft", icon: "🇽🇰", region: "Kosovo" },
     { name: "FlexAccounts", icon: "🇲🇰", region: "North Macedonia" },
     { name: "AlbaBooks", icon: "🇦🇱", region: "Albania" },
+    { name: "SerbiaSoft", icon: "🇷🇸", region: "Serbia" },
+    { name: "BulgarAccounts", icon: "🇧🇬", region: "Bulgaria" },
+    { name: "CroatiaBooks", icon: "🇭🇷", region: "Croatia" },
+    { name: "SloveniaPro", icon: "🇸🇮", region: "Slovenia" },
     { name: "Custom Systems", icon: "⚙️", region: "Global" }
   ];
 
