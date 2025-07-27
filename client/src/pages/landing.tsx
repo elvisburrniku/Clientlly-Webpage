@@ -368,7 +368,7 @@ export default function Landing() {
               
               {/* Main Heading */}
               <div className="space-y-8 relative z-10 max-w-7xl mx-auto px-4">
-                <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight text-black">
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight fade-in tracking-tight text-black">
                   Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
                 </h1>
                 
