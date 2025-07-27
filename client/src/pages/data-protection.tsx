@@ -283,8 +283,121 @@ const DataProtectionPage = () => {
         </div>
       </section>
 
-      {/* Data Categories */}
+      {/* Data Encryption & Security */}
       <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight">
+              How Your Data is <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Protected</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Military-grade encryption and enterprise security measures protecting your business data
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            <Card className="group relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-red-400/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-orange-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="relative p-8">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <KeyRound className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-2xl font-black text-foreground">End-to-End Encryption</h3>
+                </div>
+                
+                <p className="text-muted-foreground mb-6 leading-relaxed">Your data is encrypted with AES-256 encryption at rest and TLS 1.3 in transit, ensuring complete protection from unauthorized access.</p>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>AES-256 encryption</strong> for all stored data</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>TLS 1.3 encryption</strong> for all data transfers</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>Zero-knowledge architecture</strong> - we can't see your data</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>Hardware Security Modules (HSM)</strong> for key management</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="group relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-blue-400/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="relative p-8">
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Server className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-2xl font-black text-foreground">Secure Infrastructure</h3>
+                </div>
+                
+                <p className="text-muted-foreground mb-6 leading-relaxed">Your data is stored in SOC 2 Type II certified data centers with enterprise-grade physical and network security.</p>
+                
+                <ul className="space-y-3">
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>SOC 2 Type II</strong> certified data centers</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>24/7 physical security</strong> and monitoring</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>Redundant backups</strong> across multiple geographic regions</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span className="text-sm text-muted-foreground"><strong>Network intrusion detection</strong> and prevention systems</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-1 rounded-2xl shadow-xl">
+            <CardContent className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+              <div className="text-center">
+                <div className="flex items-center justify-center w-20 h-20 bg-white/20 rounded-3xl mb-6 mx-auto">
+                  <Award className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Industry Certifications</h3>
+                <p className="text-white/90 mb-6 max-w-2xl mx-auto">We maintain the highest security standards with regular third-party audits and compliance certifications.</p>
+                
+                <div className="grid md:grid-cols-4 gap-6 text-center">
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <h4 className="font-bold text-lg mb-2">ISO 27001</h4>
+                    <p className="text-sm text-white/80">Information Security Management</p>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <h4 className="font-bold text-lg mb-2">SOC 2 Type II</h4>
+                    <p className="text-sm text-white/80">Security & Availability</p>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <h4 className="font-bold text-lg mb-2">GDPR</h4>
+                    <p className="text-sm text-white/80">Privacy Compliance</p>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <h4 className="font-bold text-lg mb-2">PCI DSS</h4>
+                    <p className="text-sm text-white/80">Payment Security</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Data Categories */}
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-purple-50/30 to-blue-50/20 dark:from-gray-900/50 dark:via-purple-950/20 dark:to-blue-950/10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight">
