@@ -205,7 +205,7 @@ const BankSecurityPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-400">
+      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
