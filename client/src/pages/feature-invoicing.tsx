@@ -119,13 +119,6 @@ export default function FeatureInvoicing() {
               <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-2">
                 <Button 
                   size="lg" 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300"
-                  onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
-                >
-                  Start Free Trial
-                </Button>
-                <Button 
-                  size="lg" 
                   variant="outline" 
                   className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300"
                 >
