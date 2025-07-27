@@ -382,20 +382,18 @@ export default function Landing() {
 
                   <button 
                     onClick={() => window.location.href = "/trial"}
-                    className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-green-400/30 hover:border-green-300/50"
+                    className="flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-bold text-sm transition-colors duration-200 cursor-pointer"
                   >
-                    <Clock className="h-5 w-5 text-white" />
-                    <span className="text-sm font-black text-white">14-day free trial</span>
-                    <ExternalLink className="h-4 w-4 text-white/80" />
+                    <Clock className="h-4 w-4" />
+                    <span>14-day free trial</span>
                   </button>
 
                   <button 
                     onClick={() => window.location.href = "/cancel-anytime"}
-                    className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 cursor-pointer border-2 border-purple-400/30 hover:border-purple-300/50"
+                    className="flex items-center space-x-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-bold text-sm transition-colors duration-200 cursor-pointer"
                   >
-                    <Check className="h-5 w-5 text-white" />
-                    <span className="text-sm font-black text-white">Cancel anytime</span>
-                    <ExternalLink className="h-4 w-4 text-white/80" />
+                    <Check className="h-4 w-4" />
+                    <span>Cancel anytime</span>
                   </button>
                 </div>
               </div>
