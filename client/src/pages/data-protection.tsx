@@ -124,11 +124,12 @@ const DataProtectionPage = () => {
                 <Button variant="outline" className="border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium">Login</Button>
               </Link>
               <Link href="/subscribe">
-                <Button className="bg-gray-900 text-white hover:bg-gray-800 font-medium">Buy Now</Button>
+                <Button className="bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>Buy Now</Button>
               </Link>
               <Button 
                 onClick={() => window.location.href = "/trial"}
-                className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                className="bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Start Your Trial
               </Button>
@@ -487,14 +488,15 @@ const DataProtectionPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '2s'}}>
             <Button 
               onClick={() => window.location.href = "/trial"}
-              className="bg-gradient-to-r from-white via-gray-50 to-white text-blue-600 hover:from-gray-50 hover:via-white hover:to-gray-50 font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-500 hover:shadow-white/30 border-2 border-white/20"
+              className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-500 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+              style={{outline: 'none', boxShadow: 'none'}}
             >
               🚀 Start Free Trial
             </Button>
             <Button 
               onClick={() => window.location.href = "/trial"}
-              variant="outline"
-              className="border-2 border-white/80 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 hover:border-white font-bold text-lg px-10 py-4 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-500 hover:shadow-white/20"
+              className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-500 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+              style={{outline: 'none', boxShadow: 'none'}}
             >
               ⭐ Start Your Trial
             </Button>

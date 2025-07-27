@@ -308,8 +308,9 @@ export default function FeatureAttendance() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3"
-              onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+              onClick={() => window.location.href = "/trial"}
+              style={{outline: 'none', boxShadow: 'none'}}
             >
               Start Free Trial
             </Button>

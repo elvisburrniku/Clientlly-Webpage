@@ -70,15 +70,16 @@ const CollaborationPage = () => {
                 Login
               </Button>
               <Button 
-                variant="outline"
                 onClick={() => window.location.href = '/subscribe'}
-                className="border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                className="bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Buy Now
               </Button>
               <Button 
                 onClick={() => window.location.href = "/trial"}
-                className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                className="bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Start Your Trial
               </Button>
@@ -115,10 +116,10 @@ const CollaborationPage = () => {
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="w-full justify-start text-gray-600 dark:text-gray-300">
                 Login
               </Button>
-              <Button onClick={() => window.location.href = '/subscribe'} className="w-full bg-blue-600 text-white hover:bg-blue-700">
+              <Button onClick={() => window.location.href = '/subscribe'} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>
                 Buy Now
               </Button>
-              <Button onClick={() => window.location.href = "/trial"} className="w-full bg-green-600 text-white hover:bg-green-700">
+              <Button onClick={() => window.location.href = "/trial"} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>
                 Start Your Trial
               </Button>
             </div>

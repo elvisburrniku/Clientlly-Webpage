@@ -132,15 +132,16 @@ export default function Trial() {
                 Login
               </Button>
               <Button 
-                variant="outline"
                 onClick={() => window.location.href = '/subscribe'}
-                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 font-medium"
+                className="px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Buy Now
               </Button>
               <Button 
                 onClick={() => window.location.href = "/trial"}
-                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Start Your Trial
               </Button>
@@ -203,12 +204,12 @@ export default function Trial() {
                     Login
                   </Button>
                   <Button 
-                    variant="outline"
                     onClick={() => {
                       window.location.href = '/subscribe';
                       setShowMobileMenu(false);
                     }}
-                    className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                    className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                    style={{outline: 'none', boxShadow: 'none'}}
                   >
                     Buy Now
                   </Button>
@@ -217,7 +218,8 @@ export default function Trial() {
                       window.location.href = "/trial";
                       setShowMobileMenu(false);
                     }}
-                    className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                    className="w-full bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                    style={{outline: 'none', boxShadow: 'none'}}
                   >
                     Start Your Trial
                   </Button>

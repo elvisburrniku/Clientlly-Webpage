@@ -117,8 +117,9 @@ export default function FeatureTax() {
               <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-2">
                 <Button 
                   size="lg" 
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300"
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                   onClick={() => window.location.href = "/trial"}
+                  style={{outline: 'none', boxShadow: 'none'}}
                 >
                   Start Free Trial
                 </Button>

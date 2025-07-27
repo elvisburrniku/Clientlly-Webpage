@@ -167,15 +167,16 @@ export default function CompareFeatures() {
                 </Button>
               </Link>
               <Button 
-                variant="outline"
                 onClick={() => window.location.href = '/subscribe'}
-                className="border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                className="bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Buy Now
               </Button>
               <Button 
                 onClick={() => window.location.href = "/trial"}
-                className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                className="bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Start Your Trial
               </Button>
@@ -237,12 +238,12 @@ export default function CompareFeatures() {
                   Login
                 </Button>
                 <Button 
-                  variant="outline"
                   onClick={() => {
                     window.location.href = '/subscribe';
                     setShowMobileMenu(false);
                   }}
-                  className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+                  className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                  style={{outline: 'none', boxShadow: 'none'}}
                 >
                   Buy Now
                 </Button>
@@ -251,7 +252,8 @@ export default function CompareFeatures() {
                     window.location.href = "/trial";
                     setShowMobileMenu(false);
                   }}
-                  className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
+                  className="w-full bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                  style={{outline: 'none', boxShadow: 'none'}}
                 >
                   Start Your Trial
                 </Button>
@@ -432,13 +434,15 @@ export default function CompareFeatures() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8 relative z-10">
               <button 
                 onClick={() => window.location.href = "/trial"}
-                className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Start Your Trial
               </button>
               <button 
                 onClick={() => window.location.href = "/subscribe"}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 Buy Now
               </button>
