@@ -353,9 +353,9 @@ export default function Landing() {
         </div>
         
         {/* Content Container */}
-        <div className="py-16 px-4">
+        <div className="py-24 px-4">
           <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight text-black">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black mb-6 fade-in tracking-tight leading-tight text-black">
               Everything you need <br />
               <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
             </h1>
