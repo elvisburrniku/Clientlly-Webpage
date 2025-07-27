@@ -355,9 +355,9 @@ export default function Landing() {
           <div className="text-center space-y-16">
 
             
-            {/* Main Heading with Yellow Background */}
+            {/* Main Heading with Full-Width Yellow Background */}
             <div className="space-y-12">
-              <div className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 rounded-3xl py-16 px-8 mx-4 overflow-hidden">
+              <div className="relative -mx-[100vw] left-1/2 right-1/2 translate-x-[-50%] bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 py-16 px-4 overflow-hidden">
                 {/* Floating Sparkles */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                   <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
@@ -368,7 +368,7 @@ export default function Landing() {
                   <div className="absolute top-3/4 left-1/3 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
                 </div>
                 
-                <div className="relative z-10">
+                <div className="relative z-10 max-w-7xl mx-auto">
                   <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight text-black mb-8">
                     Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
                   </h1>

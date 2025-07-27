@@ -69,7 +69,7 @@ Preferred communication style: Simple, everyday language.
 ✓ COMPLETED comprehensive trial button redirection to internal trial page (July 27, 2025)
 ✓ UPDATED data protection page: one "Buy Now" button (to /subscribe) and one "Start Your Trial" button (to /trial) (July 27, 2025)
 ✓ MODERATELY reduced yellow background section height on subscribe page for better proportions (July 27, 2025)
-✓ ADDED contained yellow background card to landing page hero title and subtitle only - "Everything you need to run your business" section with sparkle animations (July 27, 2025)
+✓ ADDED full-width yellow background to landing page hero title and subtitle - "Everything you need to run your business" section with sparkle animations (July 27, 2025)
 ✓ Updated all "Start Your Trial" buttons across entire website to redirect to internal /trial page
 ✓ Eliminated all external Replit trial system links - complete transition to internal trial flow
 ✓ Updated both desktop and mobile navigation trial buttons on all pages: landing, about, contact, login, subscribe, trial, compare-features
