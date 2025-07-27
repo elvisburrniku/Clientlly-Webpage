@@ -396,11 +396,11 @@ export default function Landing() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground fade-in stagger-5 pt-8">
               <button 
-                onClick={() => window.location.href = "/trial"}
+                onClick={() => window.location.href = "/bank-security"}
                 className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
               >
-                <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm">14-day free trial</span>
+                <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
+                <span className="font-bold text-sm">Data protection & privacy</span>
               </button>
               <button 
                 onClick={() => window.location.href = "/setup-migration"}
@@ -423,13 +423,7 @@ export default function Landing() {
                 <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
                 <span className="font-bold text-sm">24/7 expert support</span>
               </button>
-              <button 
-                onClick={() => window.location.href = "/bank-security"}
-                className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
-              >
-                <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm">Bank-level security</span>
-              </button>
+
             </div>
           </div>
 
