@@ -162,7 +162,7 @@ const CancelAnytimePage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700">
+      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
@@ -181,14 +181,14 @@ const CancelAnytimePage = () => {
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
-              <span className="text-white drop-shadow-lg">
+              <span className="text-gray-900 drop-shadow-lg">
                 Cancel Anytime
               </span>
               <br />
-              <span className="text-white drop-shadow-lg">No Questions Asked</span>
+              <span className="text-gray-900 drop-shadow-lg">No Questions Asked</span>
             </h1>
             
-            <p className="text-2xl text-white max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
+            <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
               We believe in earning your business every month. That's why you can cancel your subscription 
               at any time with just a few clicks - no phone calls, no contracts, no hassle.
             </p>
