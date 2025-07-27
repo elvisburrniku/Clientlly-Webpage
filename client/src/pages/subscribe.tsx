@@ -267,12 +267,11 @@ export default function Subscribe() {
     queryKey: ['/api/subscription-plans'],
   });
 
-  // Auto-set currency based on detected location (but keep EUR as default)
+  // Keep EUR as default - don't auto-change currency
   useEffect(() => {
-    if (locationData && !locationLoading && locationData.currency !== 'EUR') {
-      setSelectedCurrency(locationData.currency);
-    }
-  }, [locationData, locationLoading]);
+    // Always use EUR as default, user can change manually if needed
+    setSelectedCurrency('EUR');
+  }, []);
 
   useEffect(() => {
     const params = new URLSearchParams(location.split('?')[1] || '');

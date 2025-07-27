@@ -103,12 +103,11 @@ export default function Calculator() {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const { locationData, isLoading: locationLoading } = useLocationDetection();
   
-  // Auto-set currency based on detected location
+  // Keep EUR as default - don't auto-change currency
   useEffect(() => {
-    if (locationData && !locationLoading) {
-      setSelectedCurrency(locationData.currency);
-    }
-  }, [locationData, locationLoading]);
+    // Always use EUR as default, user can change manually if needed
+    setSelectedCurrency('EUR');
+  }, []);
   const [teamSize, setTeamSize] = useState([5]);
   const [invoicesPerMonth, setInvoicesPerMonth] = useState([100]);
   const [businessType, setBusinessType] = useState('startup');

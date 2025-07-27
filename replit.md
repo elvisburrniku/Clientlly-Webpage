@@ -16,6 +16,9 @@ Preferred communication style: Simple, everyday language.
 ✓ Applied Euro defaults to landing page, subscribe page, calculator page, and currency selector
 ✓ Updated i18n.ts detection logic to prioritize EUR currency and Germany timezone
 ✓ All pricing displays now show in Euro currency by default with proper € symbol formatting
+✓ FIXED: Disabled auto-currency detection to ensure EUR remains default regardless of user location
+✓ Removed location-based currency override that was switching EUR back to USD/other currencies
+✓ Ensured consistent EUR pricing display: €24.65/month (Starter), €41.65/month (Professional), €75.65/month (Enterprise)
 
 ✓ COMPLETED background grid pattern with precise fade-out coverage (July 27, 2025)
 ✓ Added subtle grid pattern from hero section ("Everything you need to run your business") through features section ("Compare plan features")
