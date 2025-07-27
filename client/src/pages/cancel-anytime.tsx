@@ -264,38 +264,44 @@ const CancelAnytimePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-r from-purple-300 via-purple-400 to-purple-500">
+        <div className="absolute inset-0 -z-10">
+          {/* Floating sparkles */}
+          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
+          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white/80 rounded-full animate-pulse delay-700"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute top-2/3 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse delay-200"></div>
+          <div className="absolute top-1/5 right-1/5 w-2 h-2 bg-white/70 rounded-full animate-pulse delay-900"></div>
+        </div>
+
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 p-1 rounded-3xl">
-            <div className="bg-white dark:bg-gray-900 rounded-3xl p-12">
-              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6">
-                Try Risk-Free <span className="animate-gradient-x bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">Today</span>
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Start your free trial knowing you can cancel anytime without any complications. 
-                Experience the full power of BusinessFlow Pro with complete peace of mind.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg"
-                  onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                >
-                  <Star className="w-5 h-5 mr-2" />
-                  Start Free Trial
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  onClick={() => window.location.href = "/subscribe"}
-                  className="border-2 border-gray-300 hover:border-orange-500 px-8 py-4 text-lg font-bold transition-all duration-300"
-                >
-                  View Pricing Plans
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </div>
-            </div>
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
+            Try Risk-Free <span className="text-gray-900 drop-shadow-lg">Today</span>
+          </h2>
+          <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
+            Start your free trial knowing you can cancel anytime without any complications. 
+            Experience the full power of BusinessFlow Pro with complete peace of mind.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg"
+              onClick={() => window.open("https://replit.com/@albangunga79/Clientlly-Webpage", "_blank")}
+              className="px-8 py-4 bg-gray-900 text-white hover:bg-gray-800 rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+            >
+              <Star className="w-5 h-5 mr-2" />
+              Start Free Trial
+            </Button>
+            <Button 
+              size="lg"
+              variant="outline"
+              onClick={() => window.location.href = "/subscribe"}
+              className="px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
+            >
+              View Pricing Plans
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
           </div>
         </div>
       </section>
