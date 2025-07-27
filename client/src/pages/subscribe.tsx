@@ -1005,7 +1005,7 @@ export default function Subscribe() {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <div className="pt-32 pb-20 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
+      <div className="pt-32 pb-12 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
         {/* Floating Sparkles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
@@ -1017,7 +1017,7 @@ export default function Subscribe() {
         
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Hero Header */}
-          <div className="text-center mb-20 relative">
+          <div className="text-center mb-12 relative">
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 fade-in leading-tight tracking-tight animate-slide-up">
               Choose the <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
             </h1>
