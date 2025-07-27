@@ -222,13 +222,7 @@ export default function Landing() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
               <a href="#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</a>
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
-                className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
-              >
-                Pricing
-              </Button>
+              <a href="#pricing-section" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Pricing</a>
 
               <Button 
                 variant="ghost" 
@@ -287,16 +281,13 @@ export default function Landing() {
               {/* Navigation Links */}
               <Link href="/about" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">About Us</Link>
               <a href="#features" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">Features</a>
-              <Button 
-                variant="ghost"
-                onClick={() => {
-                  window.location.href = '/subscribe';
-                  setShowMobileMenu(false);
-                }}
-                className="w-full text-left justify-start text-lg text-muted-foreground hover:text-primary font-bold"
+              <a 
+                href="#pricing-section" 
+                onClick={() => setShowMobileMenu(false)}
+                className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold"
               >
                 Pricing
-              </Button>
+              </a>
 
               <Button 
                 variant="ghost" 
