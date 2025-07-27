@@ -1028,7 +1028,7 @@ export default function Subscribe() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4 pt-20 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto relative z-10 px-4 pt-20">
 
         <div id="pricing-section">
           {renderStepIndicator()}
