@@ -29,6 +29,12 @@ Preferred communication style: Simple, everyday language.
 ✓ Maintained all existing animations (animate-elegant-rise) while updating color scheme
 ✓ Enhanced visual hierarchy with yellow accent on "grow" word only
 
+✓ COMPLETED unified title sizing between landing and about pages (July 27, 2025)
+✓ Updated "Everything you need to run your business" title on landing page to match About page sizing
+✓ Changed from text-5xl lg:text-6xl xl:text-7xl to text-6xl lg:text-7xl xl:text-8xl for consistency
+✓ Both main hero titles now use identical font sizing and styling approach
+✓ Enhanced visual consistency across primary page titles throughout the website
+
 ## Recent Changes (July 27, 2025)
 
 ✓ COMPLETED EUR as default currency across entire application (July 27, 2025)

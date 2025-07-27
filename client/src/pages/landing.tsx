@@ -356,7 +356,7 @@ export default function Landing() {
             
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight animate-professional-fade tracking-tight">
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight animate-professional-fade tracking-tight">
                 Everything you need <span className="animate-subtle-gradient">to run your business</span>
               </h1>
               
