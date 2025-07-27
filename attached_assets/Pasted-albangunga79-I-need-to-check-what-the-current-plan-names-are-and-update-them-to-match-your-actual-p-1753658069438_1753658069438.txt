@@ -1,0 +1,66 @@
+albangunga79
+I need to check what the current plan names are and update them to match your actual plans. Let me look at the subscription plans in the server configuration:
+
+
+Opened server/routes.ts
+
+Searched for "Find subscription plans configuration with plan names and pricing"
+I can see that the current server configuration shows "Starter", "Professional", and "Enterprise" plans, but you're saying these don't match your actual plans. Could you tell me what the correct plan names should be?
+
+Looking at the current configuration:
+
+Current Plans:
+
+Starter (basic) - €24.65/month, 3 users, 100 invoices
+Professional (professional) - €41.65/month, 10 users, 500 invoices
+Enterprise (business) - €75.65/month, 50 users, unlimited invoices
+What should the correct plan names be? Please provide:
+
+The correct names for each plan tier
+Any pricing adjustments needed
+Any feature/limit changes required
+Once you provide the correct plan names, I'll update them throughout the entire application including:
+
+Server configuration (routes.ts)
+All frontend pages (subscribe, landing, compare-features, etc.)
+Database schema if needed
+Documentation
+
+Scroll to latest
+Agent is ready
+
+Message Agent…
+/
+
+2m
+ • 
+3 minutes ago
+Port :5000 opened on
+Private Dev URL
+Teams
+Restrict Dev URL access to authenticated editors only.
+When this option is disabled, anyone with the Dev URL can access your app preview.
+
+Dev URL:
+https://bdadd7ba-2585-42a9-a7f6-b1a2881d4d83-00-3qz2121mt39lx.worf.replit.dev/
+Dev URLs are temporary and will sleep after you leave the workspace.
+Ports
+Learn more
+Internal Port
+External Port
+Name
+Pid
+0.0.0.0:5000
+node
+26628
+This port config is saved in the .
+Enable "Accessible Terminal" in Workspace Settings to use a screen reader with the shell.
+Unknown Error
+CHANNEL_CLOSED
+The command was interrupted. Please try again.
+Unknown Error
+CHANNEL_CLOSED
+The command was interrupted. Please try again.
+Unknown Error
+CHANNEL_CLOSED
+The command was interrupted. Please try again.
