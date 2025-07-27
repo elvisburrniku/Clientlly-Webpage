@@ -418,13 +418,6 @@ export default function Landing() {
                 <span className="font-bold text-sm">Free setup & migration</span>
               </button>
               <button 
-                onClick={() => window.location.href = "/cancel-anytime"}
-                className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
-              >
-                <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm">Cancel anytime</span>
-              </button>
-              <button 
                 onClick={() => window.location.href = "/expert-support"}
                 className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
               >
