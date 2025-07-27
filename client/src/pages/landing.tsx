@@ -357,8 +357,8 @@ export default function Landing() {
         <div className="py-24 px-4">
           <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black mb-6 fade-in tracking-tight leading-tight text-black text-center">
-              Everything you need to <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">run</span> <br />
-              <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">your business</span>
+              Everything you need to <span className="animate-text-wave">run</span> <br />
+              <span className="animate-text-wave">your business</span>
             </h1>
             
             <div className="max-w-5xl mx-auto">
@@ -474,7 +474,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight text-center">
-              <span className="text-foreground">The features you need.</span> <br />
+              <span className="animate-text-wave">The features you need.</span> <br />
               <span className="animate-text-wave">All in one place</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
@@ -745,7 +745,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              Trusted by <span className="animate-text-wave">businesses worldwide</span>
+              <span className="animate-text-wave">Trusted by</span> <span className="animate-text-wave">businesses worldwide</span>
             </h2>
             <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
               Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
