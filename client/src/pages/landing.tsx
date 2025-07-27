@@ -66,7 +66,6 @@ import { useLocationDetection } from "@/hooks/useLocationDetection";
 
 import { SocialLinks } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
-import animationImage from "@assets/animation_1753654112186.png";
 
 
 interface SubscriptionPlan {
@@ -354,11 +353,10 @@ export default function Landing() {
         </div>
         
         {/* Content Container */}
-        <div className="py-24 px-4">
+        <div className="py-16 px-4">
           <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black mb-6 fade-in tracking-tight leading-tight text-black text-center">
-              Everything you need to <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">run</span> <br />
-              <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">your business</span>
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black leading-tight fade-in tracking-tight text-black">
+              Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
             </h1>
             
             <div className="max-w-5xl mx-auto">
@@ -399,7 +397,7 @@ export default function Landing() {
             <div className="space-y-8">
               <div className="max-w-5xl mx-auto space-y-8">
                 
-                <div className="flex flex-wrap justify-center items-center gap-4 mt-28 fade-in stagger-3">
+                <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
 
                   <button 
                     onClick={() => window.location.href = "/trial"}
@@ -424,21 +422,8 @@ export default function Landing() {
 
 
 
-            {/* Trust Indicators with Animation */}
-            <div className="relative pt-20 mt-12">
-              {/* Background Animation */}
-              <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-                <div className="relative animate-float">
-                  <img 
-                    src={animationImage} 
-                    alt="Team collaboration animation"
-                    className="h-32 md:h-40 opacity-20 filter blur-sm"
-                  />
-                </div>
-              </div>
-              
-              {/* Trust Indicators Content */}
-              <div className="relative z-10 flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5">
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5 pt-8">
               <button 
                 onClick={() => window.location.href = "/data-protection"}
                 className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-green-400/50 hover:bg-green-50/20 dark:hover:bg-green-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
@@ -475,7 +460,6 @@ export default function Landing() {
                 <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-orange-600 dark:group-hover:text-orange-400">Bank-level security</span>
                 <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-orange-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </button>
-              </div>
             </div>
           </div>
 
@@ -484,12 +468,11 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 relative -mt-12 features-section">
+      <section id="features" className="py-16 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight text-center">
-              <span className="text-foreground">The features you need.</span> <br />
-              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-text-wave">All in one place</span>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
+              <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
