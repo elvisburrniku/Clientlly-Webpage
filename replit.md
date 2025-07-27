@@ -120,6 +120,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Removed promotional badge with sparkle animations for cleaner design
 ✓ Updated first step title from "Choose Plan" to "Choose the perfect plan for your business"
 ✓ Streamlined step indicator with more descriptive and professional step naming
+✓ Added main page title "Choose the perfect plan for your business" with gradient text effects and animations
 
 ✓ COMPLETED trust indicators enhancement with bold styling, animations, and dedicated pages (July 27, 2025)
 ✓ Made all trust indicators (Free setup & migration, Cancel anytime, 24/7 expert support, Bank-level security) bold with gradient animations

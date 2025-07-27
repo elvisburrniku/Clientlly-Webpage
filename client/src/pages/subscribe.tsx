@@ -1013,7 +1013,9 @@ export default function Subscribe() {
         <div className="max-w-7xl mx-auto">
           {/* Hero Header */}
           <div className="text-center mb-20 relative">
-
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in leading-tight tracking-tight animate-slide-up">
+              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-text-wave">perfect plan</span> for your business
+            </h1>
           </div>
         </div>
       </div>
