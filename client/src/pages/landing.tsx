@@ -424,21 +424,21 @@ export default function Landing() {
 
 
 
-            {/* Trust Indicators with Animation */}
-            <div className="relative pt-20 mt-12">
-              {/* Background Animation */}
-              <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-                <div className="relative animate-float">
+            {/* Trust Indicators with Side Image */}
+            <div className="pt-20 mt-12">
+              <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                {/* Team Animation Image */}
+                <div className="flex justify-center lg:justify-end">
                   <img 
                     src={animationImage} 
-                    alt="Team collaboration animation"
-                    className="h-32 md:h-40 opacity-20 filter blur-sm"
+                    alt="Team collaboration"
+                    className="h-48 md:h-56 lg:h-64 w-auto"
                   />
                 </div>
-              </div>
-              
-              {/* Trust Indicators Content */}
-              <div className="relative z-10 flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5">
+                
+                {/* Trust Indicators Content */}
+                <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 text-base text-muted-foreground fade-in stagger-5">
               <button 
                 onClick={() => window.location.href = "/data-protection"}
                 className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-green-400/50 hover:bg-green-50/20 dark:hover:bg-green-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
@@ -475,6 +475,7 @@ export default function Landing() {
                 <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-orange-600 dark:group-hover:text-orange-400">Bank-level security</span>
                 <ExternalLink className="h-3 w-3 text-gray-400 group-hover:text-orange-500 opacity-0 group-hover:opacity-100 transition-all duration-300" />
               </button>
+                </div>
               </div>
             </div>
           </div>
