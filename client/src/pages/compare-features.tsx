@@ -11,6 +11,7 @@ import {
   CreditCard, 
   BarChart3, 
   Users, 
+  Building2,
   Package, 
   Clock, 
   Calendar, 
