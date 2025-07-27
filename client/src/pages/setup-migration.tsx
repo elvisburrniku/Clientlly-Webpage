@@ -382,7 +382,7 @@ const SetupMigrationPage = () => {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
-            Ready to <span className="text-gray-900">Get Started?</span>
+            <span className="animate-text-wave">Ready to Get Started?</span>
           </h2>
           <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
             Join thousands of businesses who have successfully migrated to BusinessFlow Pro. 
