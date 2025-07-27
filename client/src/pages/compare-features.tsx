@@ -324,22 +324,33 @@ export default function CompareFeatures() {
       </nav>
 
       {/* Hero Section */}
-      <div className="pt-20 pb-16 px-4">
-        <div className="max-w-7xl mx-auto">
+      <div className="pt-20 pb-16 px-4 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Yellow background sparkles */}
+        <div className="absolute top-8 right-12 w-4 h-4 animate-ping delay-0">
+          <div className="w-4 h-4 text-amber-600/40">✨</div>
+        </div>
+        <div className="absolute bottom-16 left-16 w-6 h-6 animate-ping delay-1000">
+          <div className="w-6 h-6 text-orange-600/50">✨</div>
+        </div>
+        <div className="absolute top-20 right-24 w-3 h-3 animate-ping delay-2000">
+          <div className="w-3 h-3 text-yellow-600/40">✨</div>
+        </div>
+        <div className="absolute bottom-32 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
+        <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 rounded-full text-sm font-medium text-blue-700 mb-6">
-              <Award className="w-4 h-4 mr-2" />
+            <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-medium text-gray-800 mb-6">
+              <Award className="w-4 h-4 mr-2 text-gray-700" />
               One Platform • Multiple Plans
             </div>
             
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground leading-tight mb-8 tracking-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Choose your perfect fit
-              </span>
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight mb-8 tracking-tight drop-shadow-lg">
+              Choose your perfect fit
             </h1>
             
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-5xl mx-auto leading-relaxed mb-12">
+            <p className="text-2xl lg:text-3xl text-gray-800 max-w-5xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
               All plans include the complete BusinessFlow Pro feature suite. Only pricing differs based on team size and invoice volume to match your business needs.
             </p>
 
@@ -407,7 +418,7 @@ export default function CompareFeatures() {
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 shadow-lg animate-bounce-gentle">
+                    <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 shadow-lg">
                       <Star className="w-4 h-4 mr-2" />
                       Most Popular
                     </Badge>
@@ -526,9 +537,7 @@ export default function CompareFeatures() {
                       </p>
                     </div>
 
-                    {/* Floating elements */}
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full animate-float opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-full animate-float-vertical opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ animationDelay: '1s' }}></div>
+
                   </CardContent>
                 </Card>
               ))}
@@ -559,12 +568,7 @@ export default function CompareFeatures() {
             <Card className="glass-effect border-0 shadow-2xl bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-blue-600/5 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 to-purple-50/20 animate-gradient-shift"></div>
               <CardContent className="p-16 relative z-10">
-                {/* Floating background elements */}
-                <div className="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full animate-float"></div>
-                <div className="absolute bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-purple-400/10 to-blue-400/10 rounded-full animate-float-vertical" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-gradient-to-br from-blue-300/10 to-purple-300/10 rounded-full animate-pulse-slow"></div>
-
-                <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl animate-bounce-gentle">
+                <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl">
                   <Zap className="h-12 w-12 text-white" />
                 </div>
                 
