@@ -17,10 +17,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 // Detailed subscription plan configurations with categorized features
 const SUBSCRIPTION_PLANS = {
   basic: {
-    id: "basic",
+    id: "basic", 
     name: "Starter",
     monthlyPrice: 2900, // $29.00 in cents
-    yearlyPrice: 29000, // $290.00 in cents (2 months free)
+    yearlyPrice: 27840, // $278.40 in cents (20% discount: $29 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_BASIC_MONTHLY_PRICE_ID || "price_basic_monthly",
       yearly: process.env.STRIPE_BASIC_YEARLY_PRICE_ID || "price_basic_yearly"
@@ -94,9 +94,9 @@ const SUBSCRIPTION_PLANS = {
   },
   professional: {
     id: "professional",
-    name: "Professional",
+    name: "Professional", 
     monthlyPrice: 4900, // $49.00 in cents
-    yearlyPrice: 49000, // $490.00 in cents (2 months free)
+    yearlyPrice: 47040, // $470.40 in cents (20% discount: $49 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID || "price_professional_monthly",
       yearly: process.env.STRIPE_PROFESSIONAL_YEARLY_PRICE_ID || "price_professional_yearly"
@@ -172,7 +172,7 @@ const SUBSCRIPTION_PLANS = {
     id: "business",
     name: "Enterprise",
     monthlyPrice: 8900, // $89.00 in cents
-    yearlyPrice: 89000, // $890.00 in cents (2 months free)
+    yearlyPrice: 85440, // $854.40 in cents (20% discount: $89 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_BUSINESS_MONTHLY_PRICE_ID || "price_business_monthly",
       yearly: process.env.STRIPE_BUSINESS_YEARLY_PRICE_ID || "price_business_yearly"

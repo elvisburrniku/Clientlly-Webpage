@@ -1037,7 +1037,7 @@ export default function Landing() {
                       </div>
                       {billingPeriod === 'yearly' && (
                         <div className="mt-2">
-                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
+                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 20%</span>
                         </div>
                       )}
                     </div>

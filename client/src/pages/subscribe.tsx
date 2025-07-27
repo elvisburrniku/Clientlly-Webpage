@@ -367,7 +367,7 @@ export default function Subscribe() {
                 }`}
               >
                 Yearly
-                <Badge className="ml-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold">Save 17%</Badge>
+                <Badge className="ml-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold">Save 20%</Badge>
               </button>
             </div>
           </div>
@@ -461,7 +461,7 @@ export default function Subscribe() {
                       </div>
                       {billingPeriod === 'yearly' && (
                         <div className="mt-2">
-                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 17%</span>
+                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 20%</span>
                         </div>
                       )}
                     </div>
