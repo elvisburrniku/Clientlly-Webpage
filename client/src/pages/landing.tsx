@@ -354,8 +354,8 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center space-y-16">
             
-            {/* Yellow Background Section - Just for Main Content */}
-            <div className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 py-16 px-8 rounded-3xl overflow-hidden">
+            {/* Yellow Background Section - Full Width */}
+            <div className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 py-16 overflow-hidden full-width">
               {/* Floating Sparkles */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
@@ -367,7 +367,7 @@ export default function Landing() {
               </div>
               
               {/* Main Heading */}
-              <div className="space-y-8 relative z-10">
+              <div className="space-y-8 relative z-10 max-w-7xl mx-auto px-4">
                 <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight text-black">
                   Everything you need <span className="animate-text-wave bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 bg-clip-text text-transparent">to run your business</span>
                 </h1>
