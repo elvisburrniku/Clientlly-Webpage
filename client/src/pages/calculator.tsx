@@ -100,7 +100,7 @@ const plans: Plan[] = [
 export default function Calculator() {
   const [, navigate] = useLocation();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
-  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const { locationData, isLoading: locationLoading } = useLocationDetection();
   
   // Auto-set currency based on detected location

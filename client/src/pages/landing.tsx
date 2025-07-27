@@ -86,7 +86,7 @@ export default function Landing() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
-  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const { locationData, isLoading: locationLoading } = useLocationDetection();
   
   // Auto-set currency based on detected location

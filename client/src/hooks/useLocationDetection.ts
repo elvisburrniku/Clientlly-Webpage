@@ -60,7 +60,7 @@ export function useLocationDetection() {
           const locale = navigator.language || 'en-US';
           
           // Extract country from locale (e.g., 'en-US' -> 'US')
-          const countryFromLocale = locale.split('-')[1] || 'US';
+          const countryFromLocale = locale.split('-')[1] || 'DE';
           
           // Enhanced timezone-based country detection
           let detectedCountry = countryFromLocale;
@@ -80,7 +80,7 @@ export function useLocationDetection() {
           
           data = {
             country: detectedCountry,
-            currency: countryToCurrency[detectedCountry] || 'USD',
+            currency: countryToCurrency[detectedCountry] || 'EUR',
             timezone: timezone,
             city: 'Unknown'
           };
@@ -88,12 +88,12 @@ export function useLocationDetection() {
           console.log('Browser detection failed, using defaults');
         }
 
-        // Final fallback: Use default US location
+        // Final fallback: Use default EU location
         if (!data) {
           data = {
-            country: 'US',
-            currency: 'USD',
-            timezone: 'America/New_York',
+            country: 'DE',
+            currency: 'EUR',
+            timezone: 'Europe/Berlin',
             city: 'Unknown'
           };
         }
@@ -106,9 +106,9 @@ export function useLocationDetection() {
         
         // Fallback to default
         setLocationData({
-          country: 'US',
-          currency: 'USD',
-          timezone: 'UTC'
+          country: 'DE',
+          currency: 'EUR',
+          timezone: 'Europe/Berlin'
         });
       } finally {
         setIsLoading(false);

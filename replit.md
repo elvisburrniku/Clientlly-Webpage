@@ -10,6 +10,13 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (July 27, 2025)
 
+✓ COMPLETED EUR as default currency across entire application (July 27, 2025)
+✓ Set Euro (EUR) as default currency instead of USD in all pages and components
+✓ Updated location detection fallbacks to default to Germany/EUR instead of US/USD
+✓ Applied Euro defaults to landing page, subscribe page, calculator page, and currency selector
+✓ Updated i18n.ts detection logic to prioritize EUR currency and Germany timezone
+✓ All pricing displays now show in Euro currency by default with proper € symbol formatting
+
 ✓ COMPLETED background grid pattern with precise fade-out coverage (July 27, 2025)
 ✓ Added subtle grid pattern from hero section ("Everything you need to run your business") through features section ("Compare plan features")
 ✓ Implemented gradual fade-out effect using CSS mask properties ending exactly at features section boundary

@@ -62,9 +62,9 @@ export async function detectUserLocation(): Promise<{
     
     // Detect country from timezone more accurately
     const timezoneParts = timezone.split('/');
-    let detectedCountry = 'US';
-    let detectedCurrency = 'USD';
-    let currencySymbol = '$';
+    let detectedCountry = 'DE';
+    let detectedCurrency = 'EUR';
+    let currencySymbol = '€';
     
     // Enhanced timezone to region mapping
     if (timezone.includes('Europe/')) {
@@ -101,10 +101,10 @@ export async function detectUserLocation(): Promise<{
     };
   } catch (error) {
     return {
-      country: 'US',
-      currency: 'USD',
-      timezone: 'America/New_York',
-      currencySymbol: '$',
+      country: 'DE',
+      currency: 'EUR',
+      timezone: 'Europe/Berlin',
+      currencySymbol: '€',
     };
   }
 }
