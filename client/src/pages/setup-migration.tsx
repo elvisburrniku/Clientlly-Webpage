@@ -49,13 +49,15 @@ const SetupMigrationPage = () => {
     { name: "Wave", icon: "🌊", region: "Global" },
     { name: "Zoho Books", icon: "📚", region: "Global" },
     { name: "NetSuite", icon: "🌐", region: "Global" },
-    { name: "InfoSoft", icon: "🇽🇰", region: "Kosovo" },
-    { name: "FlexAccounts", icon: "🇲🇰", region: "North Macedonia" },
-    { name: "AlbaBooks", icon: "🇦🇱", region: "Albania" },
-    { name: "SerbiaSoft", icon: "🇷🇸", region: "Serbia" },
-    { name: "BulgarAccounts", icon: "🇧🇬", region: "Bulgaria" },
-    { name: "CroatiaBooks", icon: "🇭🇷", region: "Croatia" },
-    { name: "SloveniaPro", icon: "🇸🇮", region: "Slovenia" },
+    { name: "Financa 5", icon: "https://isdwebassets.s3.eu-central-1.amazonaws.com/images/1.+Products+Logos/F5_Logo_Circular_128x128.png", region: "Albania", description: "InfoSoft - Leading Albanian ERP" },
+    { name: "Alpha Business", icon: "https://imb.al/wp-content/uploads/2023/12/l-1.png", region: "Albania", description: "IMB - Complete financial system" },
+    { name: "ECOVIS", icon: "https://www.ecovis.com/global/wp-content/uploads/2019/05/ecovis-logo.png", region: "North Macedonia", description: "International audit & tax services" },
+    { name: "Accace", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAuNSAyMEMxMC41IDEyLjU0IDE2LjU0IDYuNSAyNCA2LjVTMzcuNSAxMi41NCAzNy41IDIwUzMxLjQ2IDMzLjUgMjQgMzMuNVMxMC41IDI3LjQ2IDEwLjUgMjBaIiBmaWxsPSIjMDA3M0M4Ii8+CjwvZz4KPC9zdmc+", region: "North Macedonia", description: "Global cloud accounting technology" },
+    { name: "Logo Software", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAuNSAyMEMxMC41IDEyLjU0IDE2LjU0IDYuNSAyNCA2LjVTMzcuNSAxMi41NCAzNy41IDIwUzMxLjQ2IDMzLjUgMjQgMzMuNVMxMC41IDI3LjQ2IDEwLjUgMjBaIiBmaWxsPSIjRkY0QjAwIi8+CjwvZz4KPC9zdmc+", region: "Kosovo", description: "Regional ERP solutions" },
+    { name: "Kontabiliteti Alpha", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAuNSAyMEwxNS41IDEwSDI0TDMwLjUgMjBMMjQgMzBIMTUuNUwxMC41IDIwWiIgZmlsbD0iIzMzN0FDNyIvPgo8L2c+Cjwvc3ZnPg==", region: "Albania", description: "Complete accounting suite" },
+    { name: "InfoSoft Group", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTIwIDIwTDI1IDE1VjI1TDIwIDIwWiIgZmlsbD0iIzAwOEI4QiIvPgo8L2c+Cjwvc3ZnPg==", region: "Kosovo", description: "Regional technology leader" },
+    { name: "RSM Albania", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTE1IDE1SDI1VjI1SDE1VjE1WiIgZmlsbD0iI0M4MTAyRSIvPgo8L2c+Cjwvc3ZnPg==", region: "Albania", description: "Global audit network member" },
+    { name: "ICARM", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTIwIDIwTDI1IDIwTDIwIDI1TDE1IDIwTDIwIDIwWiIgZmlsbD0iIzMzNzNCNyIvPgo8L2c+Cjwvc3ZnPg==", region: "North Macedonia", description: "Institute of certified auditors" },
     { name: "Custom Systems", icon: "⚙️", region: "Global" }
   ];
 
@@ -293,10 +295,33 @@ const SetupMigrationPage = () => {
                 <Card key={index} className="group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <CardContent className="relative p-8 text-center">
-                    <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">{platform.icon}</div>
+                    <div className="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                      {platform.icon.startsWith('http') || platform.icon.startsWith('data:') ? (
+                        <img 
+                          src={platform.icon} 
+                          alt={platform.name}
+                          className="w-full h-full object-contain rounded-lg"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.style.display = 'block';
+                            }
+                          }}
+                        />
+                      ) : (
+                        <div className="text-4xl">{platform.icon}</div>
+                      )}
+                      <div className="text-4xl hidden">🏢</div>
+                    </div>
                     <h3 className="font-bold text-xl text-foreground mb-2">{platform.name}</h3>
                     <span className="text-sm text-muted-foreground bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full font-medium">{platform.region}</span>
-                    <p className="text-xs text-muted-foreground mt-3">Specialized regional support</p>
+                    {platform.description && (
+                      <p className="text-xs text-muted-foreground mt-3">{platform.description}</p>
+                    )}
+                    {!platform.description && (
+                      <p className="text-xs text-muted-foreground mt-3">Specialized regional support</p>
+                    )}
                   </CardContent>
                 </Card>
               ))}
