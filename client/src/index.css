@@ -575,13 +575,31 @@
     color: black;
   }
 
-  /* Remove orange focus circles from all buttons */
-  button:focus {
+  /* Remove orange focus circles from all interactive elements */
+  * {
+    outline: none !important;
+  }
+
+  *:focus {
     outline: none !important;
     box-shadow: none !important;
   }
 
-  button:focus-visible {
+  *:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  button, a, input, textarea, select {
+    outline: none !important;
+  }
+
+  button:focus, a:focus, input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
     outline: none !important;
     box-shadow: none !important;
   }
