@@ -469,11 +469,12 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 px-4 relative -mt-12 features-section">
+      <section id="features" className="py-20 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight text-center">
+              <span className="text-foreground">The features you need.</span> <br />
+              <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-text-wave">All in one place</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
