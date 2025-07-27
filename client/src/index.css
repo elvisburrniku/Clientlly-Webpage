@@ -35,14 +35,20 @@
 }
 
 @keyframes animate-border-colors {
-  0%, 100% {
+  0% {
     border-color: #fbbf24; /* amber-400 */
   }
-  33% {
+  25% {
     border-color: #facc15; /* yellow-400 */
   }
-  66% {
+  50% {
     border-color: #fb923c; /* orange-400 */
+  }
+  75% {
+    border-color: #a855f7; /* purple-500 */
+  }
+  100% {
+    border-color: #fbbf24; /* amber-400 */
   }
 }
 
