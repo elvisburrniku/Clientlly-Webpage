@@ -382,7 +382,8 @@ export default function Landing() {
 
                   <button 
                     onClick={() => window.location.href = "/trial"}
-                    className="flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-bold text-sm transition-colors duration-200 cursor-pointer"
+                    className="flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-white font-bold text-sm transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                    style={{outline: 'none', boxShadow: 'none'}}
                   >
                     <Clock className="h-4 w-4" />
                     <span>14-day free trial</span>
@@ -390,7 +391,8 @@ export default function Landing() {
 
                   <button 
                     onClick={() => window.location.href = "/cancel-anytime"}
-                    className="flex items-center space-x-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-bold text-sm transition-colors duration-200 cursor-pointer"
+                    className="flex items-center space-x-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-bold text-sm transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                    style={{outline: 'none', boxShadow: 'none'}}
                   >
                     <Check className="h-4 w-4" />
                     <span>Cancel anytime</span>
@@ -405,7 +407,8 @@ export default function Landing() {
             <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5 pt-8">
               <button 
                 onClick={() => window.location.href = "/data-protection"}
-                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-green-400/50 hover:bg-green-50/20 dark:hover:bg-green-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-green-400/50 hover:bg-green-50/20 dark:hover:bg-green-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
                 <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-green-600 dark:group-hover:text-green-400">Data protection & privacy</span>
@@ -413,7 +416,8 @@ export default function Landing() {
               </button>
               <button 
                 onClick={() => window.location.href = "/setup-migration"}
-                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-blue-400/50 hover:bg-blue-50/20 dark:hover:bg-blue-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-blue-400/50 hover:bg-blue-50/20 dark:hover:bg-blue-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 <Check className="h-5 w-5 text-blue-500 group-hover:animate-pulse" />
                 <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400">Free setup & migration</span>
@@ -421,7 +425,8 @@ export default function Landing() {
               </button>
               <button 
                 onClick={() => window.location.href = "/expert-support"}
-                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-purple-400/50 hover:bg-purple-50/20 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-purple-400/50 hover:bg-purple-50/20 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 <Check className="h-5 w-5 text-purple-500 group-hover:animate-pulse" />
                 <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400">24/7 expert support</span>
@@ -429,7 +434,8 @@ export default function Landing() {
               </button>
               <button 
                 onClick={() => window.location.href = "/bank-security"}
-                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-orange-400/50 hover:bg-orange-50/20 dark:hover:bg-orange-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md"
+                className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-orange-400/50 hover:bg-orange-50/20 dark:hover:bg-orange-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                style={{outline: 'none', boxShadow: 'none'}}
               >
                 <Shield className="h-5 w-5 text-orange-500 group-hover:animate-pulse" />
                 <span className="font-bold text-sm text-gray-700 dark:text-gray-200 group-hover:text-orange-600 dark:group-hover:text-orange-400">Bank-level security</span>
