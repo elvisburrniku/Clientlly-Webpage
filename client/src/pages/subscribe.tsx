@@ -595,7 +595,7 @@ export default function Subscribe() {
   const renderAccountCreation = () => (
     <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
       {/* Form Header with Yellow Gradient Background */}
-      <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 p-8 rounded-t-3xl relative overflow-hidden">
+      <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 p-12 rounded-t-3xl relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Floating sparkle elements */}
@@ -1005,7 +1005,7 @@ export default function Subscribe() {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <div className="pt-32 pb-12 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
+      <div className="pt-32 pb-20 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
         {/* Floating Sparkles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>

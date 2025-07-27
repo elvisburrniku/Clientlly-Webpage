@@ -378,7 +378,7 @@ const AboutPage = () => {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400">
+      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400">
         {/* Floating Sparkle Animations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-12 left-[8%] w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
@@ -815,7 +815,7 @@ const AboutPage = () => {
       </section>
 
       {/* Ready to Trust Your Business CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+      <section className="py-24 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
