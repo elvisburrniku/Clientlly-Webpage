@@ -10,6 +10,14 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes (July 27, 2025)
 
+✓ COMPLETED dedicated data protection & privacy page with comprehensive content (July 27, 2025)
+✓ Created professional data-protection.tsx page with enterprise-grade privacy policy content
+✓ Added comprehensive sections: Privacy Principles, Your Privacy Rights, Data Categories, Retention Policies
+✓ Implemented professional design matching site-wide styling with gradient backgrounds and card layouts
+✓ Updated trust indicators to link to new /data-protection page instead of bank-security page
+✓ Added routing for /data-protection path in both authenticated and non-authenticated sections
+✓ Enhanced GDPR compliance information with detailed user rights and data handling procedures
+
 ✓ COMPLETED migration request system with dedicated form page (July 27, 2025)
 ✓ Created comprehensive migration-request.tsx page with professional form
 ✓ Added bright yellow background hero section matching site-wide design theme

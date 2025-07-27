@@ -37,6 +37,7 @@ import MigrationRequest from "@/pages/migration-request";
 import CancelAnytime from "@/pages/cancel-anytime";
 import ExpertSupport from "@/pages/expert-support";
 import BankSecurity from "@/pages/bank-security";
+import DataProtection from "@/pages/data-protection";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -82,6 +83,7 @@ function Router() {
           <Route path="/cancel-anytime" component={CancelAnytime} />
           <Route path="/expert-support" component={ExpertSupport} />
           <Route path="/bank-security" component={BankSecurity} />
+          <Route path="/data-protection" component={DataProtection} />
         </>
       ) : (
         <>
@@ -115,6 +117,7 @@ function Router() {
           <Route path="/cancel-anytime" component={CancelAnytime} />
           <Route path="/expert-support" component={ExpertSupport} />
           <Route path="/bank-security" component={BankSecurity} />
+          <Route path="/data-protection" component={DataProtection} />
         </>
       )}
       <Route component={NotFound} />
