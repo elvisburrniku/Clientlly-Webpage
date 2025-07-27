@@ -164,7 +164,7 @@ const ExpertSupportPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600">
+      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-orange-200 via-orange-300 to-orange-400">
         <div className="absolute inset-0 -z-10">
           {/* Floating sparkles */}
           <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
