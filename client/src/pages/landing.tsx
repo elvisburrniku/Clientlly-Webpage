@@ -375,10 +375,7 @@ export default function Landing() {
                 <div className="text-2xl lg:text-3xl text-muted-foreground leading-tight fade-in stagger-1 tracking-tight">
                   <div className="space-y-1 max-w-4xl mx-auto">
                     <p className="text-center">
-                      Empower your <span className="font-black animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency.
-                    </p>
-                    <p className="text-center">
-                      Our comprehensive <span className="font-black animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
+                      Empower your <span className="font-black animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
                     </p>
                     <p className="text-center">
                       while simplifying your financial management.
