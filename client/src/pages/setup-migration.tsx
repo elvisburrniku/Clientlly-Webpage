@@ -268,9 +268,17 @@ const SetupMigrationPage = () => {
 
           {/* Global Platforms */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">
-              🌍 Global Platforms
-            </h3>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl mb-4 shadow-lg">
+                <span className="text-3xl">🌍</span>
+              </div>
+              <h3 className="text-4xl lg:text-5xl font-black text-foreground mb-4 tracking-tight">
+                <span className="animate-text-wave">Global Platforms</span>
+              </h3>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Seamless migration from worldwide accounting software solutions
+              </p>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-8">
               {supportedPlatforms.filter(platform => platform.region === "Global" && platform.name !== "Custom Systems").map((platform, index) => (
                 <Card key={index} className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-blue-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
@@ -287,9 +295,17 @@ const SetupMigrationPage = () => {
 
           {/* Regional Platforms */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">
-              🌎 Regional Platforms
-            </h3>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl mb-4 shadow-lg">
+                <span className="text-3xl">🌎</span>
+              </div>
+              <h3 className="text-4xl lg:text-5xl font-black text-foreground mb-4 tracking-tight">
+                <span className="animate-text-wave">Regional Platforms</span>
+              </h3>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Specialized support for Balkan and regional accounting software
+              </p>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-8">
               {supportedPlatforms.filter(platform => platform.region !== "Global" && platform.name !== "Custom Systems").map((platform, index) => (
                 <Card key={index} className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
