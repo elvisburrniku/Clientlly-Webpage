@@ -179,20 +179,31 @@ const DataProtectionPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-green-50/50 dark:from-blue-950/20 dark:via-purple-950/10 dark:to-green-950/20"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-green-500 rounded-3xl mb-8 shadow-2xl">
-              <Shield className="w-10 h-10 text-white" />
+      <section className="relative overflow-hidden">
+        {/* Full-width yellow background */}
+        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-20 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400">
+          {/* Floating sparkles */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/60 rounded-full animate-pulse"></div>
+            <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+            <div className="absolute bottom-1/3 right-1/2 w-1 h-1 bg-white/60 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-3/4 left-1/2 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '2.5s'}}></div>
+          </div>
+          
+          <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-green-500 rounded-3xl mb-8 shadow-2xl">
+                <Shield className="w-10 h-10 text-white" />
+              </div>
+              <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight">
+                Data Protection & <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Privacy</span>
+              </h1>
+              <p className="text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
+                Your trust is our foundation. Learn how we protect your business data with enterprise-grade security, transparent policies, and complete user control.
+              </p>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              Data Protection & <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Privacy</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Your trust is our foundation. Learn how we protect your business data with enterprise-grade security, transparent policies, and complete user control.
-            </p>
           </div>
         </div>
       </section>
