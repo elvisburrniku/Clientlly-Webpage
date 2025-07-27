@@ -348,6 +348,82 @@ const SetupMigrationPage = () => {
         </div>
       </section>
 
+      {/* Trust Indicators */}
+      <section className="py-16 px-4 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-black text-foreground mb-4 tracking-tight">
+              <span className="animate-text-wave">Why Choose BusinessFlow Pro?</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Experience the confidence and security of our premium migration service
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <button 
+              onClick={() => window.location.href = "/trial"}
+              className="group relative bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative text-center">
+                <div className="text-3xl mb-3">🎯</div>
+                <h3 className="font-bold text-lg mb-2">14-Day Free Trial</h3>
+                <p className="text-sm opacity-90">Full access, no credit card required</p>
+              </div>
+            </button>
+
+            <button 
+              onClick={() => window.location.href = "/setup-migration"}
+              className="group relative bg-gradient-to-r from-blue-500 to-cyan-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative text-center">
+                <div className="text-3xl mb-3">🚀</div>
+                <h3 className="font-bold text-lg mb-2">Free Setup & Migration</h3>
+                <p className="text-sm opacity-90">Complete data transfer included</p>
+              </div>
+            </button>
+
+            <button 
+              onClick={() => window.location.href = "/cancel-anytime"}
+              className="group relative bg-gradient-to-r from-purple-500 to-pink-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative text-center">
+                <div className="text-3xl mb-3">💫</div>
+                <h3 className="font-bold text-lg mb-2">Cancel Anytime</h3>
+                <p className="text-sm opacity-90">No long-term commitments</p>
+              </div>
+            </button>
+
+            <button 
+              onClick={() => window.location.href = "/expert-support"}
+              className="group relative bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative text-center">
+                <div className="text-3xl mb-3">🎧</div>
+                <h3 className="font-bold text-lg mb-2">24/7 Expert Support</h3>
+                <p className="text-sm opacity-90">Always available to help</p>
+              </div>
+            </button>
+
+            <button 
+              onClick={() => window.location.href = "/bank-security"}
+              className="group relative bg-gradient-to-r from-slate-500 to-gray-600 text-white p-6 rounded-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 border-0 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-600 to-gray-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative text-center">
+                <div className="text-3xl mb-3">🔒</div>
+                <h3 className="font-bold text-lg mb-2">Bank-Level Security</h3>
+                <p className="text-sm opacity-90">Enterprise-grade protection</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Custom Systems - Full Width Yellow Section */}
       <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 py-20 px-4 relative overflow-hidden">
         {/* Decorative Elements */}
