@@ -550,6 +550,31 @@
     animation: fade-in 0.8s ease-out both;
   }
 
+  /* Black fading animation for title text */
+  @keyframes black-fade {
+    0%, 100% {
+      opacity: 1;
+      color: black;
+    }
+    25% {
+      opacity: 0.7;
+      color: hsl(0, 0%, 20%);
+    }
+    50% {
+      opacity: 0.5;
+      color: hsl(0, 0%, 40%);
+    }
+    75% {
+      opacity: 0.7;
+      color: hsl(0, 0%, 20%);
+    }
+  }
+
+  .animate-black-fade {
+    animation: black-fade 3s ease-in-out infinite;
+    color: black;
+  }
+
   .hover-lift:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 25px 50px rgba(133, 77, 255, 0.15), 0 10px 20px rgba(0,0,0,0.1);

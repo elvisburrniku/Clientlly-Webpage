@@ -363,7 +363,7 @@ export default function Landing() {
             {/* Main Heading */}
             <div className="space-y-12">
               <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight text-foreground">
-                Everything you need <span className="animate-text-wave">to run your business</span>
+                Everything you need <span className="animate-black-fade">to run your business</span>
               </h1>
               
               <div className="max-w-5xl mx-auto space-y-8">
