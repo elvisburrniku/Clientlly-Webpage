@@ -1146,7 +1146,66 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Ready to Trust Your Business CTA Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          {/* Floating sparkles */}
+          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
+          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white/80 rounded-full animate-pulse delay-700"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute top-2/3 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse delay-200"></div>
+          <div className="absolute top-1/5 right-1/5 w-2 h-2 bg-white/70 rounded-full animate-pulse delay-900"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
+            <span className="animate-text-wave">Ready to Trust Your Business</span> with Us?
+          </h2>
+          <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
+            Join thousands of businesses who have streamlined their operations with BusinessFlow Pro.
+            Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              size="lg"
+              onClick={() => window.location.href = "/trial"}
+              className="bg-gray-900 text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              Start Your Trial
+            </Button>
+            <Button 
+              size="lg"
+              variant="outline"
+              onClick={() => window.location.href = "/subscribe"}
+              className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
+            >
+              Buy Now
+            </Button>
+          </div>
 
+          {/* Trust indicators */}
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-700">
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-green-600" />
+              <span className="font-medium">Free setup & migration</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-green-600" />
+              <span className="font-medium">Cancel anytime</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-green-600" />
+              <span className="font-medium">24/7 expert support</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4 text-green-600" />
+              <span className="font-medium">Bank-level security</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <Footer />
