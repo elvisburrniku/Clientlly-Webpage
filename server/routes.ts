@@ -19,8 +19,8 @@ const SUBSCRIPTION_PLANS = {
   basic: {
     id: "basic", 
     name: "Starter",
-    monthlyPrice: 2900, // $29.00 in cents
-    yearlyPrice: 27840, // $278.40 in cents (20% discount: $29 * 12 * 0.8)
+    monthlyPrice: 2465, // €24.65 in cents
+    yearlyPrice: 23664, // €236.64 in cents (20% discount: €24.65 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_BASIC_MONTHLY_PRICE_ID || "price_basic_monthly",
       yearly: process.env.STRIPE_BASIC_YEARLY_PRICE_ID || "price_basic_yearly"
@@ -95,8 +95,8 @@ const SUBSCRIPTION_PLANS = {
   professional: {
     id: "professional",
     name: "Professional", 
-    monthlyPrice: 4900, // $49.00 in cents
-    yearlyPrice: 47040, // $470.40 in cents (20% discount: $49 * 12 * 0.8)
+    monthlyPrice: 4165, // €41.65 in cents
+    yearlyPrice: 39984, // €399.84 in cents (20% discount: €41.65 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID || "price_professional_monthly",
       yearly: process.env.STRIPE_PROFESSIONAL_YEARLY_PRICE_ID || "price_professional_yearly"
@@ -171,8 +171,8 @@ const SUBSCRIPTION_PLANS = {
   business: {
     id: "business",
     name: "Enterprise",
-    monthlyPrice: 8900, // $89.00 in cents
-    yearlyPrice: 85440, // $854.40 in cents (20% discount: $89 * 12 * 0.8)
+    monthlyPrice: 7565, // €75.65 in cents
+    yearlyPrice: 72624, // €726.24 in cents (20% discount: €75.65 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_BUSINESS_MONTHLY_PRICE_ID || "price_business_monthly",
       yearly: process.env.STRIPE_BUSINESS_YEARLY_PRICE_ID || "price_business_yearly"
@@ -353,7 +353,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         line_items: [
           {
             price_data: {
-              currency: 'usd',
+              currency: 'eur',
               product_data: {
                 name: `BusinessFlow Pro ${plan.name} Plan`,
                 description: `${billingPeriod === 'yearly' ? 'Annual' : 'Monthly'} subscription to BusinessFlow Pro`,
