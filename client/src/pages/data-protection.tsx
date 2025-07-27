@@ -487,18 +487,24 @@ const DataProtectionPage = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '2s'}}>
             <Button 
-              onClick={() => window.location.href = "/trial"}
+              onClick={() => {
+                window.location.href = "/subscribe";
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }}
               className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-500 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
               style={{outline: 'none', boxShadow: 'none'}}
             >
-              🚀 Start Free Trial
+              💼 Buy Now
             </Button>
             <Button 
-              onClick={() => window.location.href = "/trial"}
+              onClick={() => {
+                window.location.href = "/subscribe";
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }}
               className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-500 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
               style={{outline: 'none', boxShadow: 'none'}}
             >
-              ⭐ Start Your Trial
+              🛒 Buy Now
             </Button>
           </div>
 
