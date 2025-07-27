@@ -138,9 +138,17 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
           </div>
           <div className="text-right">
             <div className="font-bold text-2xl">
-              {formatCurrency(
-                convertPrice(price / 100, 'USD', selectedCurrency),
-                selectedCurrency
+              {selectedCurrency === 'EUR' ? (
+                // For EUR, use direct Euro pricing instead of USD conversion
+                `€${((billingPeriod === 'monthly' ? 
+                  (plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65) : 
+                  (plan.id === 'basic' ? 24.65 * 10 : plan.id === 'professional' ? 41.65 * 10 : 75.65 * 10)
+                )).toFixed(2)}`
+              ) : (
+                formatCurrency(
+                  convertPrice(price / 100, 'USD', selectedCurrency),
+                  selectedCurrency
+                )
               )}
             </div>
             <div className="text-sm text-muted-foreground">
@@ -487,21 +495,33 @@ export default function Subscribe() {
                     </div>
                     
                     <div className="text-4xl font-bold gradient-text mb-1">
-                      {formatCurrency(
-                        convertPrice(
-                          (billingPeriod === 'monthly' ? price : price / 12) / 100,
-                          'USD',
+                      {selectedCurrency === 'EUR' ? (
+                        // For EUR, use direct Euro pricing instead of USD conversion
+                        `€${((billingPeriod === 'monthly' ? 
+                          (plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65) : 
+                          (plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65)
+                        )).toFixed(2)}`
+                      ) : (
+                        formatCurrency(
+                          convertPrice(
+                            (billingPeriod === 'monthly' ? price : price / 12) / 100,
+                            'USD',
+                            selectedCurrency
+                          ),
                           selectedCurrency
-                        ),
-                        selectedCurrency
+                        )
                       )}
                       <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className="text-sm text-muted-foreground mb-2">
-                        Billed {formatCurrency(
-                          convertPrice(price / 100, 'USD', selectedCurrency),
-                          selectedCurrency
+                        Billed {selectedCurrency === 'EUR' ? (
+                          `€${((plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65) * 10).toFixed(2)}`
+                        ) : (
+                          formatCurrency(
+                            convertPrice(price / 100, 'USD', selectedCurrency),
+                            selectedCurrency
+                          )
                         )} yearly
                       </div>
                     )}
