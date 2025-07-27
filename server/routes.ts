@@ -114,7 +114,8 @@ const SUBSCRIPTION_PLANS = {
       "Bank-level security & data protection",
       "24/7 customer support",
       "Mobile app access",
-      "API integrations"
+      "API integrations",
+      "**Let's Grow Together: Free custom development**"
     ],
     detailedFeatures: {
       invoicing: {
@@ -164,7 +165,8 @@ const SUBSCRIPTION_PLANS = {
         "Response time": "4 hours",
         "Knowledge base": "✓",
         "Video tutorials": "✓",
-        "Dedicated manager": "❌"
+        "Dedicated manager": "❌",
+        "Custom development": "Free feature requests & implementation"
       }
     }
   },
@@ -191,7 +193,8 @@ const SUBSCRIPTION_PLANS = {
       "Bank-level security & data protection",
       "24/7 customer support",
       "Mobile app access",
-      "API integrations"
+      "API integrations",
+      "**Let's Grow Together: Priority custom development**"
     ],
     detailedFeatures: {
       invoicing: {
@@ -241,7 +244,8 @@ const SUBSCRIPTION_PLANS = {
         "Response time": "1 hour",
         "Knowledge base": "✓",
         "Video tutorials": "✓",
-        "Dedicated manager": "✓"
+        "Dedicated manager": "✓",
+        "Custom development": "Priority feature requests & dedicated dev team"
       }
     }
   }
