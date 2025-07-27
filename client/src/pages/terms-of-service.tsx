@@ -220,7 +220,10 @@ export default function TermsOfService() {
                   Start Your Trial
                 </button>
                 <button
-                  onClick={() => window.location.href = "/subscribe"}
+                  onClick={() => {
+                    window.location.href = "/subscribe";
+                    setTimeout(() => window.scrollTo(0, 0), 100);
+                  }}
                   className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-bold rounded-md transition-colors duration-300"
                 >
                   Buy Now
