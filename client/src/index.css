@@ -4,6 +4,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animated text wave effect for Easy Migration */
+@keyframes text-wave {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-text-wave {
+  background: linear-gradient(90deg, 
+    #000 0%, 
+    #000 10%,
+    #3b82f6 25%, 
+    #8b5cf6 35%, 
+    #10b981 45%, 
+    #000 55%,
+    #000 65%,
+    #f59e0b 75%,
+    #ef4444 85%,
+    #000 95%,
+    #000 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-wave 3s ease-in-out infinite;
+}
+
 /* Enhanced Trial Page Animations */
 @keyframes animate-gradient-x {
   0%, 100% {

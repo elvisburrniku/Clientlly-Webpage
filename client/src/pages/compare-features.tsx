@@ -110,6 +110,11 @@ export default function CompareFeatures() {
       icon: Calendar,
       title: "Smart Calendar",
       description: "AI-powered scheduling with team coordination and automated meeting planning"
+    },
+    {
+      icon: RefreshCw,
+      title: "Easy Migration",
+      description: "Seamless data import from popular business platforms with guided setup process"
     }
   ];
 
@@ -356,14 +361,47 @@ export default function CompareFeatures() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {coreFeatures.map((feature, index) => (
-                  <div key={index} className="group p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div 
+                    key={index} 
+                    className={`group p-6 text-center ${
+                      feature.title === "Easy Migration" 
+                        ? "bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 rounded-3xl relative overflow-hidden" 
+                        : ""
+                    }`}
+                  >
+                    {/* Sparkle animations for Easy Migration */}
+                    {feature.title === "Easy Migration" && (
+                      <>
+                        <div className="absolute top-4 left-4 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '0s' }} />
+                        <div className="absolute top-8 right-6 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '1s' }} />
+                        <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2s' }} />
+                        <div className="absolute bottom-4 right-4 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '3s' }} />
+                        <div className="absolute top-1/2 left-3 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
+                        <div className="absolute top-1/3 right-3 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2.5s' }} />
+                      </>
+                    )}
+
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10 ${
+                      feature.title === "Easy Migration" 
+                        ? "bg-gradient-to-r from-orange-500 to-red-500" 
+                        : "bg-gradient-to-r from-blue-600 to-purple-600"
+                    }`}>
                       <feature.icon className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">
+                    
+                    <h3 className={`text-xl font-black mb-3 tracking-tight relative z-10 ${
+                      feature.title === "Easy Migration" 
+                        ? "text-black animate-text-wave" 
+                        : "text-foreground"
+                    }`}>
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    
+                    <p className={`leading-relaxed relative z-10 ${
+                      feature.title === "Easy Migration" 
+                        ? "text-black font-medium" 
+                        : "text-muted-foreground"
+                    }`}>
                       {feature.description}
                     </p>
                   </div>
