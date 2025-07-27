@@ -298,36 +298,48 @@ const SetupMigrationPage = () => {
             </div>
           </div>
 
-          {/* Custom Systems */}
-          <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 -mx-4 px-4 py-16 relative overflow-hidden">
-            {/* Decorative Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-4 left-8 w-3 h-3 animate-ping delay-0">
-                <Sparkles className="w-3 h-3 text-amber-600/30" />
-              </div>
-              <div className="absolute bottom-6 right-12 w-4 h-4 animate-ping delay-1000">
-                <Sparkles className="w-4 h-4 text-orange-600/40" />
-              </div>
-              <div className="absolute top-8 right-16 w-2 h-2 animate-ping delay-2000">
-                <Sparkles className="w-2 h-2 text-yellow-600/30" />
-              </div>
-              <div className="absolute bottom-12 left-16 w-3 h-3 animate-ping delay-1500">
-                <Sparkles className="w-3 h-3 text-amber-600/40" />
-              </div>
-            </div>
-            
-            <div className="relative z-10 text-center max-w-4xl mx-auto">
-              <div className="text-6xl mb-6">⚙️</div>
-              <h3 className="font-bold text-4xl text-gray-900 dark:text-white mb-4 tracking-tight">Custom Systems</h3>
-              <p className="text-xl text-gray-800 dark:text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">
-                Have a unique platform? Our migration experts can handle any custom system or database format.
-              </p>
-              <div className="inline-flex items-center space-x-2 bg-white/20 dark:bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
-                <Zap className="w-5 h-5 text-gray-900 dark:text-white" />
-                <span className="text-gray-900 dark:text-white font-bold text-lg">Expert Consultation</span>
-              </div>
-            </div>
+        </div>
+      </section>
+
+      {/* Custom Systems - Full Width Yellow Section */}
+      <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 py-20 px-4 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-8 left-12 w-3 h-3 animate-ping delay-0">
+            <Sparkles className="w-3 h-3 text-amber-600/30" />
           </div>
+          <div className="absolute bottom-12 right-16 w-4 h-4 animate-ping delay-1000">
+            <Sparkles className="w-4 h-4 text-orange-600/40" />
+          </div>
+          <div className="absolute top-16 right-24 w-2 h-2 animate-ping delay-2000">
+            <Sparkles className="w-2 h-2 text-yellow-600/30" />
+          </div>
+          <div className="absolute bottom-20 left-24 w-3 h-3 animate-ping delay-1500">
+            <Sparkles className="w-3 h-3 text-amber-600/40" />
+          </div>
+          <div className="absolute top-32 left-1/3 w-2 h-2 animate-ping delay-3000">
+            <Sparkles className="w-2 h-2 text-yellow-600/40" />
+          </div>
+          <div className="absolute bottom-8 right-1/3 w-3 h-3 animate-ping delay-500">
+            <Sparkles className="w-3 h-3 text-amber-600/35" />
+          </div>
+        </div>
+        
+        <div className="relative z-10 text-center max-w-7xl mx-auto">
+          <div className="text-6xl mb-8">⚙️</div>
+          <h2 className="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">Custom Systems</h2>
+          <p className="text-xl text-gray-800 dark:text-gray-200 mb-8 max-w-3xl mx-auto">
+            Have a unique platform? Our migration experts can handle any custom system or database format.
+          </p>
+          <div className="inline-flex items-center space-x-2 bg-white/20 dark:bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+            <Zap className="w-5 h-5 text-gray-900 dark:text-white" />
+            <span className="text-gray-900 dark:text-white font-bold text-lg">Expert Consultation</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 dark:from-gray-900/50 dark:via-blue-950/20 dark:to-purple-950/10">
+        <div className="max-w-7xl mx-auto">
 
           {/* Migration Features */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
