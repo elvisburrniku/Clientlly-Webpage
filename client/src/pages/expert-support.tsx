@@ -164,44 +164,49 @@ const ExpertSupportPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-4 overflow-hidden">
+      <section className="relative pt-20 pb-16 px-4 overflow-hidden bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          {/* Floating sparkles */}
+          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
+          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white/80 rounded-full animate-pulse delay-700"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute top-2/3 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse delay-200"></div>
+          <div className="absolute top-1/5 right-1/5 w-2 h-2 bg-white/70 rounded-full animate-pulse delay-900"></div>
         </div>
 
         <div className="max-w-7xl mx-auto text-center">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200/50 rounded-full text-sm font-bold text-purple-700 mb-8">
-              <Headphones className="w-4 h-4 mr-2" />
+            <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
+              <Headphones className="w-4 h-4 mr-2 text-gray-700" />
               24/7 Expert Support
             </div>
             
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-8 tracking-tight leading-tight">
-              <span className="animate-gradient-x bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
+              <span className="text-gray-900 drop-shadow-lg">
                 Expert Support
               </span>
               <br />
-              <span className="text-foreground">When You Need It</span>
+              <span className="text-gray-900 drop-shadow-lg">When You Need It</span>
             </h1>
             
-            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
               Get help from certified business software experts 24/7. Our support team is dedicated to 
               ensuring your success with comprehensive assistance and personalized guidance.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-16">
-              <div className="flex items-center space-x-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/20 rounded-lg">
-                <Clock className="h-5 w-5 text-purple-600" />
-                <span className="font-bold text-purple-800 dark:text-purple-300">24/7 availability</span>
+              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
+                <Clock className="h-5 w-5 text-gray-700" />
+                <span className="font-bold text-gray-800">24/7 availability</span>
               </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
-                <Award className="h-5 w-5 text-blue-600" />
-                <span className="font-bold text-blue-800 dark:text-blue-300">Certified experts</span>
+              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
+                <Award className="h-5 w-5 text-gray-700" />
+                <span className="font-bold text-gray-800">Certified experts</span>
               </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-cyan-100 dark:bg-cyan-900/20 rounded-lg">
-                <Zap className="h-5 w-5 text-cyan-600" />
-                <span className="font-bold text-cyan-800 dark:text-cyan-300">Instant response</span>
+              <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
+                <Zap className="h-5 w-5 text-gray-700" />
+                <span className="font-bold text-gray-800">Instant response</span>
               </div>
             </div>
           </div>
