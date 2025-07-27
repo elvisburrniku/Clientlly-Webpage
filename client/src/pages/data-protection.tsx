@@ -361,31 +361,31 @@ const DataProtectionPage = () => {
             </Card>
           </div>
 
-          <Card className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-1 rounded-2xl shadow-xl">
+          <Card className="bg-gradient-to-r from-green-500 to-blue-500 text-yellow-400 p-1 rounded-2xl shadow-xl">
             <CardContent className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
               <div className="text-center">
                 <div className="flex items-center justify-center w-20 h-20 bg-white/20 rounded-3xl mb-6 mx-auto">
-                  <Award className="w-10 h-10 text-white" />
+                  <Award className="w-10 h-10 text-yellow-400" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Industry Certifications</h3>
-                <p className="text-white/90 mb-6 max-w-2xl mx-auto">We maintain the highest security standards with regular third-party audits and compliance certifications.</p>
+                <h3 className="text-2xl font-bold mb-4 text-yellow-400">Industry Certifications</h3>
+                <p className="text-yellow-300/90 mb-6 max-w-2xl mx-auto">We maintain the highest security standards with regular third-party audits and compliance certifications.</p>
                 
                 <div className="grid md:grid-cols-4 gap-6 text-center">
                   <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">ISO 27001</h4>
-                    <p className="text-sm text-white/80">Information Security Management</p>
+                    <h4 className="font-bold text-lg mb-2 text-yellow-400">ISO 27001</h4>
+                    <p className="text-sm text-yellow-300/80">Information Security Management</p>
                   </div>
                   <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">SOC 2 Type II</h4>
-                    <p className="text-sm text-white/80">Security & Availability</p>
+                    <h4 className="font-bold text-lg mb-2 text-yellow-400">SOC 2 Type II</h4>
+                    <p className="text-sm text-yellow-300/80">Security & Availability</p>
                   </div>
                   <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">GDPR</h4>
-                    <p className="text-sm text-white/80">Privacy Compliance</p>
+                    <h4 className="font-bold text-lg mb-2 text-yellow-400">GDPR</h4>
+                    <p className="text-sm text-yellow-300/80">Privacy Compliance</p>
                   </div>
                   <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">PCI DSS</h4>
-                    <p className="text-sm text-white/80">Payment Security</p>
+                    <h4 className="font-bold text-lg mb-2 text-yellow-400">PCI DSS</h4>
+                    <p className="text-sm text-yellow-300/80">Payment Security</p>
                   </div>
                 </div>
               </div>
