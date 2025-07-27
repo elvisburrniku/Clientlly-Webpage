@@ -48,7 +48,7 @@ interface UserData {
 }
 
 const stepIcons = [Home, User, Users, CreditCard];
-const stepTitles = ["Choose Plan", "Create Account", "Team & Add-ons", "Review & Pay"];
+const stepTitles = ["Choose the perfect plan for your business", "Create Account", "Team & Add-ons", "Review & Pay"];
 
 const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: { 
   userData: UserData; 
@@ -1013,12 +1013,7 @@ export default function Subscribe() {
         <div className="max-w-7xl mx-auto">
           {/* Hero Header */}
           <div className="text-center mb-20 relative">
-            {/* Animated Badge */}
-            <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500/20 via-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-full text-lg font-bold text-emerald-700 dark:text-emerald-300 mb-8 shadow-xl">
-              <CreditCard className="w-6 h-6 mr-3 animate-pulse" />
-              🚀 Choose Your Perfect Plan - Get Started Today
-              <Sparkles className="w-6 h-6 ml-3 animate-spin" />
-            </div>
+
           </div>
         </div>
       </div>
