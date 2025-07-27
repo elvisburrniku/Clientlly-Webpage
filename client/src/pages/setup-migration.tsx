@@ -166,9 +166,9 @@ const SetupMigrationPage = () => {
 
         <div className="max-w-7xl mx-auto text-center">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
-              <Download className="w-4 h-4 mr-2" />
-              100% Free Setup & Migration
+            <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold mb-8">
+              <Download className="w-4 h-4 mr-2 text-gray-700" />
+              <span className="animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">100% Free Setup & Migration</span>
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight">
