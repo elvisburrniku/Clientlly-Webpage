@@ -430,24 +430,18 @@ export default function CompareFeatures() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8 relative z-10">
-                <Button 
-                  size="lg" 
-                  onClick={() => window.location.href = "/trial"}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-10 py-5 text-xl font-bold shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 animate-pulse-glow"
-                >
-                  <Star className="w-5 h-5 mr-2" />
-                  Start Free Trial
-                </Button>
-              <Link href="/contact">
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-2 border-black text-black hover:bg-black hover:text-white px-10 py-5 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-                >
-                  <Globe className="w-5 h-5 mr-2" />
-                  Contact Sales
-                </Button>
-              </Link>
+              <button 
+                onClick={() => window.location.href = "/trial"}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
+              >
+                Start Your Trial
+              </button>
+              <button 
+                onClick={() => window.location.href = "/subscribe"}
+                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 rounded-2xl text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center justify-center"
+              >
+                Buy Now
+              </button>
             </div>
 
             {/* Trust indicators */}
