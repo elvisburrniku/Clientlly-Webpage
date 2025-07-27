@@ -374,8 +374,8 @@ export default function Landing() {
               <div className="max-w-5xl mx-auto space-y-8">
                 <div className="text-2xl lg:text-3xl text-muted-foreground leading-relaxed fade-in stagger-1 tracking-tight space-y-2">
                   <p>Empower your <span className="font-black animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency.</p>
-                  <p>Our comprehensive <span className="font-black animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity,</p>
-                  <p>and accelerates growth while simplifying your financial management.</p>
+                  <p>Our comprehensive <span className="font-black animate-gradient-x bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth</p>
+                  <p>while simplifying your financial management.</p>
                 </div>
                 
                 <div className="flex flex-wrap justify-center items-center gap-4 mt-6 fade-in stagger-3">
