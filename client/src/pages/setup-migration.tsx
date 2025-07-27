@@ -216,7 +216,7 @@ const SetupMigrationPage = () => {
 
           <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
             {migrationSteps.map((step, index) => (
-              <Card key={index} className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <Card key={index} className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 animate-gradient-border hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <CardContent className="p-8">
                   <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl mb-6 text-white">
                     {step.icon}
@@ -254,7 +254,7 @@ const SetupMigrationPage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {supportedPlatforms.map((platform, index) => (
-              <Card key={index} className="bg-white dark:bg-gray-800 hover:shadow-lg transition-all duration-300 hover:scale-105">
+              <Card key={index} className="bg-white dark:bg-gray-800 border-2 animate-gradient-border hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-3">{platform.icon}</div>
                   <h3 className="font-bold text-sm text-foreground">{platform.name}</h3>

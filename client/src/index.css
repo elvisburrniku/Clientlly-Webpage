@@ -34,6 +34,22 @@
   animation: animate-spin-slow 3s linear infinite;
 }
 
+@keyframes animate-border-colors {
+  0%, 100% {
+    border-color: #fbbf24; /* amber-400 */
+  }
+  33% {
+    border-color: #facc15; /* yellow-400 */
+  }
+  66% {
+    border-color: #fb923c; /* orange-400 */
+  }
+}
+
+.animate-gradient-border {
+  animation: animate-border-colors 3s ease-in-out infinite;
+}
+
 
 
 :root {
