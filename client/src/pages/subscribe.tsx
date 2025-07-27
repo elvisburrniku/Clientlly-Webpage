@@ -280,7 +280,11 @@ export default function Subscribe() {
     
     if (planFromUrl) {
       setSelectedPlan(planFromUrl);
-      setCurrentStep(1); // Skip plan selection if coming from pricing page
+      // Always start at step 0 so users can see and confirm their plan selection
+      setCurrentStep(0);
+    } else {
+      // If no plan selected, start at step 0 for plan selection
+      setCurrentStep(0);
     }
     if (billingFromUrl) {
       setBillingPeriod(billingFromUrl);
