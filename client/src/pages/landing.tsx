@@ -356,8 +356,8 @@ export default function Landing() {
             
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight animate-smooth-slide-in tracking-tight">
-                Everything you need <span className="animate-enhanced-text-wave">to run your business</span>
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-tight animate-professional-fade tracking-tight">
+                Everything you need <span className="animate-subtle-gradient">to run your business</span>
               </h1>
               
               <div className="max-w-5xl mx-auto">
@@ -453,8 +453,8 @@ export default function Landing() {
       <section id="features" className="py-16 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 animate-smooth-slide-in stagger-2 tracking-tight leading-tight">
-              <span className="text-foreground">The features you need.</span> <span className="animate-floating-glow animate-gradient-shift">All in one place</span>
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 animate-professional-fade stagger-2 tracking-tight leading-tight">
+              <span className="text-foreground">The features you need.</span> <span className="animate-subtle-gradient">All in one place</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
@@ -835,10 +835,8 @@ export default function Landing() {
               <div className="space-y-8 lg:space-y-12">
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight animate-smooth-slide-in">
-                    <span className="inline-block animate-floating-glow">Let's</span>{' '}
-                    <span className="inline-block animate-enhanced-text-wave">grow</span>{' '}
-                    <span className="inline-block animate-gradient-shift">together</span>
+                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight animate-professional-fade">
+                    Let's <span className="animate-subtle-gradient">grow</span> together
                   </h2>
                   
                   <div className="space-y-4">
@@ -1155,8 +1153,8 @@ export default function Landing() {
         </div>
         
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg animate-smooth-slide-in animate-floating-glow">
-            Ready to Trust Your <span className="animate-enhanced-text-wave">Business</span> with Us?
+          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg animate-professional-fade">
+            Ready to Trust Your <span className="animate-subtle-gradient">Business</span> with Us?
           </h2>
           <p className="text-xl text-black/80 mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
             Join thousands of businesses who have streamlined their operations with BusinessFlow Pro.
