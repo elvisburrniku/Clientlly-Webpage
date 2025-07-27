@@ -383,6 +383,14 @@ const SetupMigrationPage = () => {
               <span className="font-bold text-sm">24/7 expert support</span>
             </button>
 
+            <button 
+              onClick={() => window.location.href = "/bank-security"}
+              className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
+            >
+              <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
+              <span className="font-bold text-sm">Bank-level security</span>
+            </button>
+
           </div>
         </div>
       </section>
