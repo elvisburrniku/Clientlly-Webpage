@@ -192,8 +192,8 @@ export default function Landing() {
              }}></div>
       </div>
 
-      {/* Navigation with Yellow Background */}
-      <nav className="fixed w-full top-0 z-50 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 border-b border-white/20">
+      {/* Navigation */}
+      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border-b border-white/20 dark:border-gray-700/20">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex items-center justify-between h-16">
             {/* Left Section - Logo and Company Name */}
@@ -214,19 +214,19 @@ export default function Landing() {
                   onLoad={() => console.log('Logo loaded successfully')}
                 />
               </div>
-              <span className="text-xl font-bold text-black group-hover:text-black/70 transition-colors duration-300">BusinessFlow Pro</span>
+              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-black hover:text-black/70 transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
-              <a href="#features" className="text-lg text-black hover:text-black/70 transition-all duration-300 hover:scale-105 font-bold">Features</a>
-              <a href="#pricing-section" className="text-lg text-black hover:text-black/70 transition-all duration-300 hover:scale-105 font-bold">Pricing</a>
+              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
+              <a href="#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</a>
+              <a href="#pricing-section" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Pricing</a>
 
               <Button 
                 variant="ghost" 
                 onClick={() => window.location.href = '/contact'} 
-                className="text-lg text-black hover:text-black/70 transition-all duration-300 font-bold"
+                className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 font-bold"
               >
                 Contact Us
               </Button>
@@ -237,7 +237,7 @@ export default function Landing() {
               <Button 
                 variant="ghost"
                 onClick={() => window.location.href = "/api/login"}
-                className="text-black hover:text-black/70 transition-all duration-300"
+                className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
                 Login
               </Button>
@@ -264,7 +264,7 @@ export default function Landing() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="scale-in text-black hover:text-black/70"
+                className="scale-in"
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
               >
                 {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -275,15 +275,15 @@ export default function Landing() {
 
         {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="lg:hidden bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 border-b border-white/20 slide-in-bottom">
+          <div className="lg:hidden backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border-b border-white/20 dark:border-gray-700/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
               {/* Navigation Links */}
-              <Link href="/about" className="block text-lg text-black hover:text-black/70 transition-colors font-bold">About Us</Link>
-              <a href="#features" className="block text-lg text-black hover:text-black/70 transition-colors font-bold">Features</a>
+              <Link href="/about" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">About Us</Link>
+              <a href="#features" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">Features</a>
               <a 
                 href="#pricing-section" 
                 onClick={() => setShowMobileMenu(false)}
-                className="block text-lg text-black hover:text-black/70 transition-colors font-bold"
+                className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold"
               >
                 Pricing
               </a>
@@ -294,7 +294,7 @@ export default function Landing() {
                   window.location.href = '/contact';
                   setShowMobileMenu(false);
                 }} 
-                className="w-full text-left justify-start text-lg text-black hover:text-black/70 font-bold"
+                className="w-full text-left justify-start text-lg text-muted-foreground hover:text-primary font-bold"
               >
                 Contact Us
               </Button>
@@ -307,7 +307,7 @@ export default function Landing() {
                     window.location.href = "/api/login";
                     setShowMobileMenu(false);
                   }} 
-                  className="w-full text-left justify-start text-black hover:text-black/70"
+                  className="w-full text-left justify-start text-muted-foreground hover:text-primary"
                 >
                   Login
                 </Button>
