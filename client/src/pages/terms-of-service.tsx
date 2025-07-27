@@ -197,7 +197,7 @@ export default function TermsOfService() {
           </div>
 
           {/* Bottom CTA with Yellow Background */}
-          <div className="mt-16 -mx-6 sm:-mx-8 lg:-mx-12 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden py-16 px-6 sm:px-8 lg:px-12">
+          <div className="mt-16 -mx-6 sm:-mx-8 lg:-mx-12 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden py-12 px-6 sm:px-8 lg:px-12">
             {/* Floating Sparkles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
@@ -209,7 +209,7 @@ export default function TermsOfService() {
             
             <div className="text-center relative z-10">
               <h3 className="text-3xl lg:text-4xl font-black text-black mb-4">Ready to Get Started?</h3>
-              <p className="text-xl text-black/80 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-black/80 mb-6 max-w-2xl mx-auto">
                 Join thousands of businesses already using BusinessFlow Pro to streamline their operations.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
