@@ -1185,25 +1185,7 @@ export default function Landing() {
             </Button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-8 flex flex-wrap justify-center items-center gap-6 text-sm text-gray-700">
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600" />
-              <span className="font-medium">Free setup & migration</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600" />
-              <span className="font-medium">Cancel anytime</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600" />
-              <span className="font-medium">24/7 expert support</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-green-600" />
-              <span className="font-medium">Bank-level security</span>
-            </div>
-          </div>
+
         </div>
       </section>
 
