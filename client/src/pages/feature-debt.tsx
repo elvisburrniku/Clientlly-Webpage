@@ -75,25 +75,13 @@ export default function FeatureDebt() {
               className="rounded-3xl shadow-2xl max-w-4xl w-full hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute top-4 right-4 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
-            <Badge className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-orange-500 text-white">
-              Smart Debt Analytics
-            </Badge>
+
           </div>
         </div>
 
         {/* Key Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-red-200">
-            <CardContent className="p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform duration-300">
-                <AlertTriangle className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">Debt Tracking</h3>
-              <p className="text-muted-foreground text-sm">
-                Monitor all business debts including loans, credit lines, supplier debts, and payment obligations in real-time.
-              </p>
-            </CardContent>
-          </Card>
+
 
           <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-orange-200">
             <CardContent className="p-6">

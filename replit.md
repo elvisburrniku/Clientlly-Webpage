@@ -631,6 +631,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Enhanced hero section with more meaningful business analytics and performance metrics
 ✓ Removed "Get Started" button from navigation for cleaner header design (July 28, 2025)
 ✓ Fixed back button to navigate directly to features section on main page using anchor link /#features (July 28, 2025)
+✓ Removed "Debt Tracking" feature card and "Smart Debt Analytics" badge from debt management page (July 28, 2025)
 
 ✓ COMPLETED comprehensive translation system for entire landing page (July 19, 2025)
 ✓ Implemented reactive language switching with global state management
