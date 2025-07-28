@@ -230,51 +230,51 @@ export default function MobileApp() {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main Description */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">About this app</h2>
-              <div className="prose prose-gray max-w-none">
-                <p className="mb-4">
+              <h2 className="text-2xl font-bold text-black mb-4">About this app</h2>
+              <div className="max-w-none">
+                <p className="mb-4 text-black">
                   <strong>BusinessFlow Pro</strong> is the complete business management solution designed for modern entrepreneurs and small business owners. Transform your smartphone into a powerful business command center with our comprehensive mobile app.
                 </p>
-                <p className="mb-4">
+                <p className="mb-4 text-black">
                   Whether you're tracking expenses on the go, creating invoices for clients, or analyzing your business performance, BusinessFlow Pro puts everything you need right at your fingertips. With advanced features like AI-powered receipt scanning, real-time analytics, and seamless team collaboration, managing your business has never been easier.
                 </p>
-                <p className="mb-6">
+                <p className="mb-6 text-black">
                   Join thousands of successful business owners who trust BusinessFlow Pro to streamline their operations and accelerate their growth.
                 </p>
                 
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Key Features:</h3>
+                <h3 className="text-lg font-bold text-black mb-3">Key Features:</h3>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Complete dashboard with real-time business metrics</span>
+                    <span className="text-black">Complete dashboard with real-time business metrics</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Professional invoice creation and management</span>
+                    <span className="text-black">Professional invoice creation and management</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>AI-powered expense tracking with receipt scanning</span>
+                    <span className="text-black">AI-powered expense tracking with receipt scanning</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Advanced client relationship management</span>
+                    <span className="text-black">Advanced client relationship management</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Comprehensive financial reports and analytics</span>
+                    <span className="text-black">Comprehensive financial reports and analytics</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Team collaboration and communication tools</span>
+                    <span className="text-black">Team collaboration and communication tools</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Offline mode with automatic sync</span>
+                    <span className="text-black">Offline mode with automatic sync</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span>Bank-level security with biometric authentication</span>
+                    <span className="text-black">Bank-level security with biometric authentication</span>
                   </li>
                 </ul>
               </div>
@@ -283,41 +283,41 @@ export default function MobileApp() {
             {/* App Information */}
             <div className="lg:col-span-1">
               <div className="bg-gray-50 rounded-2xl p-6 sticky top-4">
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Information</h3>
+                <h3 className="text-lg font-bold text-black mb-4">Information</h3>
                 <div className="space-y-4 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Developer</span>
-                    <span className="font-medium">{appInfo.developer}</span>
+                    <span className="text-black">Developer</span>
+                    <span className="font-medium text-black">{appInfo.developer}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Category</span>
-                    <span className="font-medium">{appInfo.category}</span>
+                    <span className="text-black">Category</span>
+                    <span className="font-medium text-black">{appInfo.category}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Size</span>
-                    <span className="font-medium">{appInfo.size}</span>
+                    <span className="text-black">Size</span>
+                    <span className="font-medium text-black">{appInfo.size}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Version</span>
-                    <span className="font-medium">{appInfo.version}</span>
+                    <span className="text-black">Version</span>
+                    <span className="font-medium text-black">{appInfo.version}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Updated</span>
-                    <span className="font-medium">{appInfo.updated}</span>
+                    <span className="text-black">Updated</span>
+                    <span className="font-medium text-black">{appInfo.updated}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Compatibility</span>
-                    <span className="font-medium text-right">{appInfo.compatibility}</span>
+                    <span className="text-black">Compatibility</span>
+                    <span className="font-medium text-right text-black">{appInfo.compatibility}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Languages</span>
-                    <span className="font-medium text-right">{appInfo.languages}</span>
+                    <span className="text-black">Languages</span>
+                    <span className="font-medium text-right text-black">{appInfo.languages}</span>
                   </div>
                 </div>
                 
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="font-bold text-gray-800 mb-2">Developer</h4>
-                  <p className="text-sm text-gray-600 mb-3">{appInfo.developer}</p>
+                  <h4 className="font-bold text-black mb-2">Developer</h4>
+                  <p className="text-sm text-black mb-3">{appInfo.developer}</p>
                   <Button variant="outline" className="w-full">
                     View More Apps
                   </Button>
@@ -332,7 +332,7 @@ export default function MobileApp() {
       <section className="py-12 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-800">Ratings and Reviews</h2>
+            <h2 className="text-2xl font-bold text-black">Ratings and Reviews</h2>
             <Button variant="ghost" className="text-blue-600 hover:text-blue-700">
               See All Reviews
             </Button>
