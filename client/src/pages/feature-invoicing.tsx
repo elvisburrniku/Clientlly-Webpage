@@ -209,30 +209,32 @@ export default function FeatureInvoicing() {
                       />
                       {/* Selective blur overlays for privacy */}
                       <div className="absolute inset-0 rounded-lg">
-                        {/* Blur customer names column */}
+                        {/* Blur customer names column - more precise positioning */}
                         <div 
-                          className="absolute rounded"
+                          className="absolute"
                           style={{
-                            left: '13.8%', 
-                            top: '17.5%', 
-                            width: '16.5%', 
-                            height: '76%',
-                            backdropFilter: 'blur(4px)',
-                            WebkitBackdropFilter: 'blur(4px)',
-                            background: 'rgba(255,255,255,0.1)'
+                            left: '13.7%', 
+                            top: '18%', 
+                            width: '16.8%', 
+                            height: '75%',
+                            backdropFilter: 'blur(6px)',
+                            WebkitBackdropFilter: 'blur(6px)',
+                            background: 'rgba(255,255,255,0.2)',
+                            borderRadius: '4px'
                           }}
                         ></div>
-                        {/* Blur invoice by column */}
+                        {/* Blur invoice by column - more precise positioning */}
                         <div 
-                          className="absolute rounded"
+                          className="absolute"
                           style={{
-                            left: '56.2%', 
-                            top: '17.5%', 
-                            width: '12.8%', 
-                            height: '76%',
-                            backdropFilter: 'blur(4px)',
-                            WebkitBackdropFilter: 'blur(4px)',
-                            background: 'rgba(255,255,255,0.1)'
+                            left: '56%', 
+                            top: '18%', 
+                            width: '13%', 
+                            height: '75%',
+                            backdropFilter: 'blur(6px)',
+                            WebkitBackdropFilter: 'blur(6px)',
+                            background: 'rgba(255,255,255,0.2)',
+                            borderRadius: '4px'
                           }}
                         ></div>
                       </div>
