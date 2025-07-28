@@ -402,19 +402,23 @@ export default function FeatureInventory() {
           </div>
           
           {/* Arrow indicator for trust indicators */}
-          <div className="mt-12 flex flex-col items-center">
-            <div className="text-black text-sm font-medium mb-2">Trust & Security Details</div>
-            <div className="animate-bounce">
-              <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <div 
+            className="mt-12 flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300"
+            onClick={() => document.querySelector('#trust-indicators')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <div className="text-black text-lg font-bold mb-4">Trust & Security Details</div>
+            <div className="animate-bounce hover:animate-pulse">
+              <svg className="w-12 h-12 text-black animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
+            <div className="text-black text-sm opacity-60 mt-2">Click to view details</div>
           </div>
         </div>
       </section>
 
       {/* Trust Indicators Footer */}
-      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+      <section id="trust-indicators" className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div 
