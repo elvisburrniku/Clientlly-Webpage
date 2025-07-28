@@ -70,8 +70,8 @@ export default function FeatureClients() {
 
             {/* Main Title with Better Typography */}
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-black tracking-tight" style={{lineHeight: '0.9'}}>
-                <div className="animate-professional-fade">Client</div>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-black tracking-tight leading-tight">
+                <div className="animate-professional-fade mb-1">Client</div>
                 <div className="bg-gradient-to-r from-orange-700 via-red-600 to-purple-700 bg-clip-text text-transparent animate-subtle-gradient">
                   Management
                 </div>
