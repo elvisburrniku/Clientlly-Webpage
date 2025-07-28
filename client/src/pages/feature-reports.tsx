@@ -398,7 +398,10 @@ export default function FeatureReports() {
       <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center p-6">
+            <div 
+              className="text-center p-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+              onClick={() => window.location.href = "/trial"}
+            >
               <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="h-6 w-6 text-blue-600" />
               </div>
@@ -406,7 +409,10 @@ export default function FeatureReports() {
               <p className="text-sm text-gray-600 dark:text-gray-300">Full access to all features with no commitment</p>
             </div>
             
-            <div className="text-center p-6">
+            <div 
+              className="text-center p-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+              onClick={() => window.location.href = "/cancel-anytime"}
+            >
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="h-6 w-6 text-green-600" />
               </div>
@@ -414,7 +420,10 @@ export default function FeatureReports() {
               <p className="text-sm text-gray-600 dark:text-gray-300">No long-term contracts or cancellation fees</p>
             </div>
             
-            <div className="text-center p-6">
+            <div 
+              className="text-center p-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+              onClick={() => window.location.href = "/data-protection"}
+            >
               <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-6 w-6 text-purple-600" />
               </div>
@@ -422,7 +431,10 @@ export default function FeatureReports() {
               <p className="text-sm text-gray-600 dark:text-gray-300">GDPR compliant with enterprise-grade security</p>
             </div>
             
-            <div className="text-center p-6">
+            <div 
+              className="text-center p-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+              onClick={() => window.location.href = "/setup-migration"}
+            >
               <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Download className="h-6 w-6 text-orange-600" />
               </div>
@@ -430,7 +442,10 @@ export default function FeatureReports() {
               <p className="text-sm text-gray-600 dark:text-gray-300">Expert assistance to migrate your existing data</p>
             </div>
             
-            <div className="text-center p-6">
+            <div 
+              className="text-center p-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+              onClick={() => window.location.href = "/expert-support"}
+            >
               <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-6 w-6 text-teal-600" />
               </div>
@@ -438,7 +453,10 @@ export default function FeatureReports() {
               <p className="text-sm text-gray-600 dark:text-gray-300">Round-the-clock assistance from our support team</p>
             </div>
             
-            <div className="text-center p-6">
+            <div 
+              className="text-center p-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+              onClick={() => window.location.href = "/bank-security"}
+            >
               <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-6 w-6 text-red-600" />
               </div>
