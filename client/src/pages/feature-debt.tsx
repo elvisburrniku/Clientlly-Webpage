@@ -86,9 +86,6 @@ export default function FeatureDebt() {
               className="rounded-3xl shadow-2xl max-w-4xl w-full hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute top-4 right-4 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
-            <Badge className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-orange-500 text-white">
-              Smart Debt Analytics
-            </Badge>
           </div>
         </div>
 
