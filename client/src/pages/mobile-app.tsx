@@ -128,7 +128,7 @@ export default function MobileApp() {
                 <div className="flex items-center gap-2">
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-600 text-yellow-600" />
+                      <Star key={i} className="w-5 h-5 fill-orange-600 text-orange-600" />
                     ))}
                   </div>
                   <span className="font-bold">{appInfo.rating}</span>
