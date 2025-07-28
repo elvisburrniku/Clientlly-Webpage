@@ -401,8 +401,24 @@ export default function MobileApp() {
       </section>
       
       {/* Download CTA Footer */}
-      <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="py-16 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 text-black relative overflow-hidden">
+        {/* Floating Sparkles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white rounded-full opacity-70 animate-bounce"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="w-24 h-24 bg-white rounded-3xl shadow-2xl flex items-center justify-center mx-auto mb-8">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
               <BarChart3 className="w-10 h-10 text-white" />
@@ -410,13 +426,13 @@ export default function MobileApp() {
           </div>
           
           <h2 className="text-4xl font-black mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-xl text-black mb-8 leading-relaxed">
             Join thousands of successful entrepreneurs using BusinessFlow Pro to streamline operations and accelerate growth.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
-              className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
               onClick={() => window.location.href = "/trial"}
             >
               <Download className="w-5 h-5 mr-2" />
@@ -425,14 +441,14 @@ export default function MobileApp() {
             
             <Button 
               variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 text-lg rounded-xl"
+              className="border-2 border-black text-black hover:bg-black hover:text-white font-bold py-4 px-8 text-lg rounded-xl"
               onClick={() => window.location.href = "/subscribe"}
             >
               View Pricing
             </Button>
           </div>
           
-          <div className="mt-8 text-blue-200 text-sm">
+          <div className="mt-8 text-black opacity-70 text-sm">
             14-day free trial • No credit card required • Cancel anytime
           </div>
         </div>
