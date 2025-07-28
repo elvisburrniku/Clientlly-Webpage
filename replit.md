@@ -658,6 +658,12 @@ Preferred communication style: Simple, everyday language.
 ✓ Updated Learn more button styling to black theme for better visibility on yellow background
 ✓ Enhanced visual consistency with site-wide yellow accent branding strategy
 
+✓ COMPLETED invoicing feature page navigation cleanup (July 28, 2025)
+✓ Removed "Start Your Trial" and "Buy Now" buttons from invoicing feature page navigation bar
+✓ Updated "Back to Features" button to navigate directly to features section on landing page (/#features)
+✓ Streamlined navigation to focus on feature content without subscription prompts
+✓ Enhanced user experience by providing direct access to landing page features section
+
 ✓ COMPLETED comprehensive translation system for entire landing page (July 19, 2025)
 ✓ Implemented reactive language switching with global state management
 ✓ Added location detection with automatic country, currency, and timezone detection

@@ -51,19 +51,11 @@ export default function FeatureInvoicing() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => window.location.href = '/'}
+                onClick={() => window.location.href = '/#features'}
                 className="flex items-center space-x-2 hover:bg-blue-50 dark:hover:bg-blue-900/20"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back to Features</span>
-              </Button>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Button variant="outline" size="sm" onClick={() => window.location.href = '/trial'}>
-                Start Your Trial
-              </Button>
-              <Button size="sm" className="bg-blue-600 hover:bg-blue-700" onClick={() => window.location.href = '/subscribe'}>
-                Buy Now
               </Button>
             </div>
           </div>
