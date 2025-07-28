@@ -63,7 +63,7 @@ export default function FeatureExpenses() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <a 
-                href="/#business-overview"
+                href="/#features"
                 className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
               >
                 <ArrowLeft className="h-4 w-4" />
