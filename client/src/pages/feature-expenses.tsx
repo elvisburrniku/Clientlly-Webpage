@@ -141,36 +141,36 @@ export default function FeatureExpenses() {
               <div className="relative space-y-6">
                 <Card className="glass-effect border-white/20 p-6">
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
-                      <Camera className="h-6 w-6 text-white" />
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <Calculator className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Receipt Processed</h3>
-                      <p className="text-sm text-muted-foreground">Software Subscription - €89.99</p>
+                      <h3 className="font-semibold">Expense Analytics</h3>
+                      <p className="text-sm text-muted-foreground">Monthly Business Overview</p>
                     </div>
-                    <Badge className="bg-green-100 text-green-700 ml-auto">Tax Deductible</Badge>
+                    <Badge className="bg-blue-100 text-blue-700 ml-auto">Live Data</Badge>
                   </div>
                   <div className="bg-white/50 p-4 rounded-lg space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span>Category</span>
-                      <span className="font-medium">Business Software</span>
+                      <span>Total Expenses</span>
+                      <span className="font-medium">€4,299.87</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span>Date</span>
-                      <span>March 15, 2024</span>
+                      <span>Tax Deductible</span>
+                      <span className="text-green-600">€3,847.23</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span>Confidence</span>
-                      <span className="text-green-600 font-medium">99.2%</span>
+                      <span>Business Categories</span>
+                      <span className="text-blue-600 font-medium">12 Active</span>
                     </div>
                   </div>
                 </Card>
 
                 <div className="grid grid-cols-2 gap-4">
                   <Card className="p-4 text-center hover:shadow-lg transition-shadow">
-                    <div className="text-2xl font-bold text-green-600">247</div>
-                    <div className="text-sm text-muted-foreground">Receipts scanned</div>
-                    <div className="text-xs text-green-500 mt-1">+23 this week</div>
+                    <div className="text-2xl font-bold text-green-600">89%</div>
+                    <div className="text-sm text-muted-foreground">Tax Efficiency</div>
+                    <div className="text-xs text-green-500 mt-1">+5% this month</div>
                   </Card>
                   <Card className="p-4 text-center hover:shadow-lg transition-shadow">
                     <div className="text-2xl font-bold text-blue-600">€18,432</div>
