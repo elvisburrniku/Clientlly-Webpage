@@ -516,31 +516,39 @@ export default function FeatureExpenses() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* CTA Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="space-y-8 fade-in">
-            <h2 className="text-4xl font-bold text-foreground">
-              Ready to organize your expenses?
+            <h2 className="text-4xl font-bold text-black animate-professional-fade tracking-tight leading-tight">
+              Ready to <span className="animate-subtle-gradient">organize your expenses?</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-black leading-relaxed font-medium">
               Join thousands of businesses using our expense tracking to save time and money at tax season
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button 
                 size="lg" 
-                className="bg-green-600 hover:bg-green-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-green-500/25 hover:scale-105 transition-all duration-300"
+                className="bg-black hover:bg-gray-800 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
                 onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
               >
                 Start Free Trial
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-10 py-5 text-xl font-semibold rounded-2xl transition-all duration-300"
+                className="bg-black hover:bg-gray-800 text-white border-2 border-black px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
               >
                 <Camera className="h-5 w-5 mr-2" />
-                Try Receipt Scanner
+                Try Receipt Scan
               </Button>
             </div>
           </div>
