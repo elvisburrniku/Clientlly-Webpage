@@ -18,7 +18,7 @@ export default function FeatureInvoicing() {
       description: "Set up automatic payment reminders for overdue invoices with customizable schedules in Euro currency"
     },
     {
-      icon: <DollarSign className="h-6 w-6" />,
+      icon: <Euro className="h-6 w-6" />,
       title: "Payment Tracking",
       description: "Track Euro payments in real-time with detailed status updates and comprehensive payment history"
     },
@@ -41,17 +41,17 @@ export default function FeatureInvoicing() {
 
   const testimonials = [
     {
-      name: "Maria Rodriguez",
-      role: "Freelance Designer",
-      company: "Creative Studios",
-      quote: "BusinessFlow Pro's invoicing system cut my admin time in half. The automated reminders alone have improved my cash flow by 40%.",
+      name: "Sarah Johnson",
+      role: "Marketing Manager",
+      company: "Digital Agency Pro",
+      quote: "The e-signature integration and Euro currency support made our international invoicing seamless. Perfect for European clients.",
       rating: 5
     },
     {
-      name: "James Chen",
-      role: "Consultant",
-      company: "Tech Solutions Inc",
-      quote: "The professional templates and payment tracking features helped me get paid faster. My clients love the clean, branded invoices.",
+      name: "Michael Thompson",
+      role: "Business Owner",
+      company: "Thompson & Associates",
+      quote: "Electronic signatures and automated payment tracking transformed our billing process. The Euro formatting is exactly what we needed.",
       rating: 5
     }
   ];
@@ -366,7 +366,7 @@ export default function FeatureInvoicing() {
                         <span className="text-gray-700 dark:text-gray-300">Invoice viewed notifications</span>
                       </div>
                       <div className="flex items-center space-x-3">
-                        <DollarSign className="h-5 w-5 text-green-500" />
+                        <Euro className="h-5 w-5 text-green-500" />
                         <span className="text-gray-700 dark:text-gray-300">Payment received alerts</span>
                       </div>
                       <div className="flex items-center space-x-3">
