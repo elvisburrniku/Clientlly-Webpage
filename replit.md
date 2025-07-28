@@ -641,7 +641,7 @@ Preferred communication style: Simple, everyday language.
 ✓ Removed background card from "Transform Your Financial Health" benefits section (July 28, 2025)
 ✓ Updated benefits section title to match CTA section font size (text-4xl lg:text-5xl) and styling with animated gradient text (July 28, 2025)
 ✓ Removed logo from navigation and replaced with "Back to Features" button in same position (July 28, 2025)
-✓ Removed "Smart Debt Analytics" badge from dashboard image section (July 28, 2025)
+✓ Removed "Smart Debt Management" badge from hero section with pulsing red indicator (July 28, 2025)
 
 ✓ COMPLETED comprehensive translation system for entire landing page (July 19, 2025)
 ✓ Implemented reactive language switching with global state management
