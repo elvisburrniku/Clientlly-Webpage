@@ -11,8 +11,6 @@ export default function FeatureReports() {
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      
-
       </div>
 
       {/* Navigation */}
@@ -52,52 +50,50 @@ export default function FeatureReports() {
         </div>
       </nav>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
-        {/* Header with Yellow Background */}
-        <section className="relative w-full -mx-4 mb-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
-          {/* Floating sparkle elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute top-1/2 left-32 w-3 h-3 animate-ping delay-500">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute top-40 right-1/3 w-5 h-5 animate-ping delay-1500">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute bottom-20 left-1/4 w-4 h-4 animate-ping delay-2000">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
+      {/* Header with Yellow Background - Full Width */}
+      <section className="relative w-full mb-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+        {/* Floating sparkle elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
           </div>
-          
-          <div className="relative z-10 text-center py-20 px-4">
-            <div className="flex items-center justify-center mb-6">
-              <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl">
-                  <BarChart3 className="h-10 w-10 text-white" />
-                </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
-                  <div className="w-3 h-3 bg-white rounded-full"></div>
-                </div>
+          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute top-1/2 left-32 w-3 h-3 animate-ping delay-500">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute top-40 right-1/3 w-5 h-5 animate-ping delay-1500">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute bottom-20 left-1/4 w-4 h-4 animate-ping delay-2000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 text-center py-20 px-4">
+          <div className="flex items-center justify-center mb-6">
+            <div className="relative">
+              <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl">
+                <BarChart3 className="h-10 w-10 text-white" />
+              </div>
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
               </div>
             </div>
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 tracking-tight leading-tight animate-professional-fade">
-              Insights & <span className="animate-subtle-gradient">Reports</span>
-            </h1>
-            <p className="text-xl text-black max-w-3xl mx-auto">
-              Transform your business data into actionable insights with powerful analytics, interactive dashboards, and comprehensive reporting tools.
-            </p>
           </div>
-        </section>
+          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 tracking-tight leading-tight animate-professional-fade">
+            Insights & <span className="animate-subtle-gradient">Reports</span>
+          </h1>
+          <p className="text-xl text-black max-w-3xl mx-auto">
+            Transform your business data into actionable insights with powerful analytics, interactive dashboards, and comprehensive reporting tools.
+          </p>
+        </div>
+      </section>
 
-
-
-        {/* Sample Financial Reports */}
-        <div className="mb-16 grid md:grid-cols-2 gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
+        {/* Sample Financial Reports - No Grid */}
+        <div className="mb-16 space-y-8">
           <Card className="p-6 hover:shadow-xl transition-all duration-300">
             <div className="text-center mb-6">
               <h3 className="text-xl font-bold mb-2">Monthly Revenue Report</h3>
@@ -163,8 +159,8 @@ export default function FeatureReports() {
           </Card>
         </div>
 
-        {/* Report Types Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Report Types - No Grid */}
+        <div className="mb-16 space-y-8">
           <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
             <CardContent className="p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
@@ -226,138 +222,134 @@ export default function FeatureReports() {
           </Card>
         </div>
 
-        {/* Features Section */}
+        {/* Features Section - No Background Card */}
         <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">Powerful Analytics Features</h2>
             <p className="text-xl text-muted-foreground">Everything you need to make data-driven business decisions</p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Real-time Data Processing</h3>
-                  <p className="text-muted-foreground">All reports update automatically as new data flows in from your business operations.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Interactive Visualizations</h3>
-                  <p className="text-muted-foreground">Click, hover, and drill down into charts for deeper insights and detailed analysis.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Export & Sharing</h3>
-                  <p className="text-muted-foreground">Share reports via email, export to PDF/Excel, or embed charts in presentations.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Automated Scheduling</h3>
-                  <p className="text-muted-foreground">Set up automated report delivery to stakeholders on daily, weekly, or monthly schedules.</p>
-                </div>
+          <div className="space-y-6">
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Real-time Data Processing</h3>
+                <p className="text-muted-foreground">All reports update automatically as new data flows in from your business operations.</p>
               </div>
             </div>
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Comparative Analysis</h3>
-                  <p className="text-muted-foreground">Compare current performance with previous periods, budgets, and industry benchmarks.</p>
-                </div>
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Interactive Visualizations</h3>
+                <p className="text-muted-foreground">Click, hover, and drill down into charts for deeper insights and detailed analysis.</p>
               </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Predictive Analytics</h3>
-                  <p className="text-muted-foreground">AI-powered forecasting helps predict future trends and identify potential issues early.</p>
-                </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Export & Sharing</h3>
+                <p className="text-muted-foreground">Share reports via email, export to PDF/Excel, or embed charts in presentations.</p>
               </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Multi-currency Support</h3>
-                  <p className="text-muted-foreground">Analyze global operations with automatic currency conversion and regional insights.</p>
-                </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Automated Scheduling</h3>
+                <p className="text-muted-foreground">Set up automated report delivery to stakeholders on daily, weekly, or monthly schedules.</p>
               </div>
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Role-based Access</h3>
-                  <p className="text-muted-foreground">Control who sees what data with granular permissions and user-specific dashboards.</p>
-                </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Comparative Analysis</h3>
+                <p className="text-muted-foreground">Compare current performance with previous periods, budgets, and industry benchmarks.</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Predictive Analytics</h3>
+                <p className="text-muted-foreground">AI-powered forecasting helps predict future trends and identify potential issues early.</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Multi-currency Support</h3>
+                <p className="text-muted-foreground">Analyze global operations with automatic currency conversion and regional insights.</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold mb-2">Role-based Access</h3>
+                <p className="text-muted-foreground">Control who sees what data with granular permissions and user-specific dashboards.</p>
               </div>
             </div>
           </div>
         </div>
-
-        {/* CTA Section with Yellow Background */}
-        <section className="relative w-full -mx-4 mb-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
-          {/* Floating sparkle elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute top-1/2 left-32 w-3 h-3 animate-ping delay-500">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute top-40 right-1/3 w-5 h-5 animate-ping delay-1500">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-            <div className="absolute bottom-20 left-1/4 w-4 h-4 animate-ping delay-2000">
-              <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-            </div>
-          </div>
-          
-          <div className="relative z-10 text-center py-20 px-4">
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-black mb-6 tracking-tight leading-tight animate-professional-fade">Start Making Data-Driven Decisions</h2>
-            <p className="text-xl text-black mb-8">Transform your raw business data into powerful insights that drive growth and profitability.</p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button 
-                size="lg" 
-                className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4"
-                onClick={() => window.location.href = '/trial'}
-              >
-                <Zap className="h-5 w-5 mr-2" />
-                Start Your Trial
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4"
-                onClick={() => window.location.href = '/subscribe'}
-              >
-                <Download className="h-5 w-5 mr-2" />
-                Buy Now
-              </Button>
-            </div>
-
-            <div className="flex justify-center items-center space-x-6 text-black">
-              <div className="flex items-center space-x-2">
-                <FileText className="h-5 w-5" />
-                <span>50+ Report Templates</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <BarChart3 className="h-5 w-5" />
-                <span>Real-time Analytics</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Share className="h-5 w-5" />
-                <span>Easy Sharing</span>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
+
+      {/* CTA Section with Yellow Background - Full Width */}
+      <section className="relative w-full mb-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+        {/* Floating sparkle elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute top-1/2 left-32 w-3 h-3 animate-ping delay-500">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute top-40 right-1/3 w-5 h-5 animate-ping delay-1500">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute bottom-20 left-1/4 w-4 h-4 animate-ping delay-2000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+        </div>
+        
+        <div className="relative z-10 text-center py-20 px-4">
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-black mb-6 tracking-tight leading-tight animate-professional-fade">Start Making Data-Driven Decisions</h2>
+          <p className="text-xl text-black mb-8">Transform your raw business data into powerful insights that drive growth and profitability.</p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <Button 
+              size="lg" 
+              className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4"
+              onClick={() => window.location.href = '/trial'}
+            >
+              <Zap className="h-5 w-5 mr-2" />
+              Start Your Trial
+            </Button>
+            <Button 
+              size="lg" 
+              className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4"
+              onClick={() => window.location.href = '/subscribe'}
+            >
+              <Download className="h-5 w-5 mr-2" />
+              Buy Now
+            </Button>
+          </div>
+
+          <div className="flex justify-center items-center space-x-6 text-black">
+            <div className="flex items-center space-x-2">
+              <FileText className="h-5 w-5" />
+              <span>50+ Report Templates</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <BarChart3 className="h-5 w-5" />
+              <span>Real-time Analytics</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Share className="h-5 w-5" />
+              <span>Easy Sharing</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
