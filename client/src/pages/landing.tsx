@@ -66,7 +66,6 @@ import { useLocationDetection } from "@/hooks/useLocationDetection";
 
 import { SocialLinks } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
-import { BusinessTeamIllustration } from "@/components/BusinessTeamIllustration";
 
 
 interface SubscriptionPlan {
@@ -374,10 +373,7 @@ export default function Landing() {
                 </div>
               </div>
 
-              {/* Animated Business Team Illustration */}
-              <div className="mt-16 fade-in stagger-2">
-                <BusinessTeamIllustration />
-              </div>
+
             </div>
 
             
