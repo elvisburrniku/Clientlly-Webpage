@@ -80,14 +80,29 @@ export default function MobileApp() {
   return (
     <div className="min-h-screen bg-white">
       {/* App Store Style Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 text-black relative overflow-hidden">
+        {/* Floating Sparkles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white rounded-full opacity-70 animate-bounce"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`
+              }}
+            />
+          ))}
+        </div>
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex items-center gap-4 mb-2">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => window.location.href = "/"}
-              className="text-white hover:bg-white/20 px-2 sm:px-3"
+              className="text-black hover:bg-black/20 px-2 sm:px-3"
             >
               <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
               <span className="text-sm sm:text-base">Back</span>
@@ -107,19 +122,19 @@ export default function MobileApp() {
             {/* App Info */}
             <div className="flex-1">
               <h1 className="text-4xl md:text-5xl font-black mb-2">{appInfo.name}</h1>
-              <p className="text-xl text-blue-100 mb-4">Complete Business Management Suite</p>
+              <p className="text-xl text-black mb-4">Complete Business Management Suite</p>
               
               <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6">
                 <div className="flex items-center gap-2">
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-5 h-5 fill-yellow-600 text-yellow-600" />
                     ))}
                   </div>
                   <span className="font-bold">{appInfo.rating}</span>
-                  <span className="text-blue-200">({appInfo.totalRatings} ratings)</span>
+                  <span className="text-black opacity-70">({appInfo.totalRatings} ratings)</span>
                 </div>
-                <div className="text-blue-200">
+                <div className="text-black opacity-70">
                   {appInfo.downloads} downloads • {appInfo.category}
                 </div>
               </div>
@@ -127,7 +142,7 @@ export default function MobileApp() {
               {/* Download Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
-                  className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-xl shadow-lg"
+                  className="bg-black text-white hover:bg-gray-800 font-bold py-3 px-8 rounded-xl shadow-lg"
                   onClick={() => {
                     // For demo purposes, show download started message
                     alert('Download started! BusinessFlow Pro will be installed shortly.');
@@ -138,7 +153,7 @@ export default function MobileApp() {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-xl"
+                  className="border-2 border-black text-black hover:bg-black hover:text-white font-bold py-3 px-8 rounded-xl"
                   onClick={() => {
                     alert('Added to wishlist! You\'ll be notified of updates.');
                   }}
