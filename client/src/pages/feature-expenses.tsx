@@ -44,15 +44,7 @@ export default function FeatureExpenses() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <button 
-              onClick={() => {
-                window.location.href = "/";
-                setTimeout(() => {
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }, 100);
-              }}
+              onClick={() => window.location.href = "/#features"}
               className="flex items-center space-x-1 sm:space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
