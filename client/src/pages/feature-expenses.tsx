@@ -58,17 +58,8 @@ export default function FeatureExpenses() {
               <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               <span className="text-sm sm:text-base">Back</span>
             </button>
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
-              <div className="relative overflow-hidden rounded-lg">
-                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
-                  <img 
-                    src="/attached_assets/3d_1753268267691.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-simple cursor-pointer"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-500/0 to-pink-500/0 group-hover:from-rose-500/15 group-hover:to-pink-500/15 transition-all duration-500 rounded-lg"></div>
-              </div>
+            <Link href="/" className="text-2xl font-bold text-foreground hover:text-primary transition-colors">
+              BusinessFlow Pro
             </Link>
             <Button 
               onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
@@ -96,9 +87,10 @@ export default function FeatureExpenses() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4 fade-in">
-                <Badge className="bg-black text-white hover:bg-gray-800">
+                <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-semibold text-sm shadow-lg">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
                   Tax-Ready Expense Management
-                </Badge>
+                </div>
                 <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black tracking-tight leading-tight animate-professional-fade">
                   Get set for tax time with <span className="animate-subtle-gradient">organized expenses</span>
                 </h1>
@@ -134,9 +126,9 @@ export default function FeatureExpenses() {
                 <Button 
                   size="lg" 
                   className="bg-black hover:bg-gray-800 text-white border-2 border-black px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
+                  onClick={() => window.location.href = "/subscribe"}
                 >
-                  <Camera className="h-5 w-5 mr-2" />
-                  Try Receipt Scan
+                  Buy Now
                 </Button>
               </div>
             </div>
@@ -167,7 +159,7 @@ export default function FeatureExpenses() {
                     </div>
                     <div>
                       <h3 className="font-semibold">Receipt Processed</h3>
-                      <p className="text-sm text-muted-foreground">Software Subscription - $89.99</p>
+                      <p className="text-sm text-muted-foreground">Software Subscription - €89.99</p>
                     </div>
                     <Badge className="bg-green-100 text-green-700 ml-auto">Tax Deductible</Badge>
                   </div>
@@ -194,9 +186,9 @@ export default function FeatureExpenses() {
                     <div className="text-xs text-green-500 mt-1">+23 this week</div>
                   </Card>
                   <Card className="p-4 text-center hover:shadow-lg transition-shadow">
-                    <div className="text-2xl font-bold text-blue-600">$18,432</div>
+                    <div className="text-2xl font-bold text-blue-600">€18,432</div>
                     <div className="text-sm text-muted-foreground">Tax deductions</div>
-                    <div className="text-xs text-blue-500 mt-1">Estimated savings: $4,608</div>
+                    <div className="text-xs text-blue-500 mt-1">Estimated savings: €4,608</div>
                   </Card>
                 </div>
 
@@ -214,7 +206,7 @@ export default function FeatureExpenses() {
                           <div className="text-xs text-muted-foreground">Software • Mar 15</div>
                         </div>
                       </div>
-                      <span className="font-bold text-sm">$52.99</span>
+                      <span className="font-bold text-sm">€52.99</span>
                     </div>
                     <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
                       <div className="flex items-center space-x-3">
@@ -226,7 +218,7 @@ export default function FeatureExpenses() {
                           <div className="text-xs text-muted-foreground">Supplies • Mar 14</div>
                         </div>
                       </div>
-                      <span className="font-bold text-sm">$127.45</span>
+                      <span className="font-bold text-sm">€127.45</span>
                     </div>
                     <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
                       <div className="flex items-center space-x-3">
@@ -238,7 +230,7 @@ export default function FeatureExpenses() {
                           <div className="text-xs text-muted-foreground">Communications • Mar 13</div>
                         </div>
                       </div>
-                      <span className="font-bold text-sm">$89.00</span>
+                      <span className="font-bold text-sm">€89.00</span>
                     </div>
                   </div>
                 </Card>
@@ -400,9 +392,9 @@ export default function FeatureExpenses() {
                     {[
                       "Tax-compliant expense reports by category",
                       "Monthly and yearly financial summaries",
-                      "Mileage and travel expense reports",
+                      "Travel expense reports and documentation",
                       "Export to Excel, PDF, and accounting software",
-                      "Direct integration with QuickBooks and Xero"
+                      "Professional tax-ready reporting formats"
                     ].map((feature, index) => (
                       <li key={index} className="flex items-start space-x-3">
                         <BarChart3 className="h-5 w-5 text-purple-500 mt-1 flex-shrink-0" />
@@ -422,10 +414,10 @@ export default function FeatureExpenses() {
                     </div>
                     <div className="space-y-3">
                       {[
-                        { category: "Office Supplies", amount: "$1,234.56", deductible: "100%" },
-                        { category: "Business Meals", amount: "$987.43", deductible: "50%" },
-                        { category: "Travel", amount: "$756.89", deductible: "100%" },
-                        { category: "Software", amount: "$543.21", deductible: "100%" }
+                        { category: "Office Supplies", amount: "€1,234.56", deductible: "100%" },
+                        { category: "Business Meals", amount: "€987.43", deductible: "50%" },
+                        { category: "Travel", amount: "€756.89", deductible: "100%" },
+                        { category: "Software", amount: "€543.21", deductible: "100%" }
                       ].map((item, index) => (
                         <div key={index} className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
                           <div>
@@ -437,7 +429,7 @@ export default function FeatureExpenses() {
                       ))}
                       <div className="border-t pt-3 flex items-center justify-between font-bold text-lg">
                         <span>Total Deductible</span>
-                        <span className="text-green-600">$3,265.59</span>
+                        <span className="text-green-600">€3,265.59</span>
                       </div>
                     </div>
                   </Card>
@@ -475,14 +467,14 @@ export default function FeatureExpenses() {
                       <div className="flex justify-between items-center">
                         <span className="text-muted-foreground">This month</span>
                         <div className="text-right">
-                          <div className="font-bold text-2xl">$4,299</div>
+                          <div className="font-bold text-2xl">€4,299</div>
                           <div className="text-sm text-green-600">↓ 12% vs last month</div>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-muted-foreground">Average monthly</span>
                         <div className="text-right">
-                          <div className="font-bold text-2xl">$4,890</div>
+                          <div className="font-bold text-2xl">€4,890</div>
                           <div className="text-sm text-muted-foreground">6-month average</div>
                         </div>
                       </div>
@@ -501,7 +493,7 @@ export default function FeatureExpenses() {
                           <div className="flex justify-between items-center">
                             <span className="font-medium">{item.category}</span>
                             <span className="text-sm text-muted-foreground">
-                              ${item.spent} / ${item.budget}
+                              €{item.spent} / €{item.budget}
                             </span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
@@ -554,9 +546,9 @@ export default function FeatureExpenses() {
               <Button 
                 size="lg" 
                 className="bg-black hover:bg-gray-800 text-white border-2 border-black px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
+                onClick={() => window.location.href = "/subscribe"}
               >
-                <Camera className="h-5 w-5 mr-2" />
-                Try Receipt Scan
+                Buy Now
               </Button>
             </div>
           </div>
