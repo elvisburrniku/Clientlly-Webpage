@@ -151,11 +151,11 @@ const CollaborationPage = () => {
         <div className="relative z-10 py-20 lg:py-32">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-800 dark:text-gray-100 mb-6 leading-tight tracking-tight animate-professional-fade">
-              Elona thot, Dua të kem femijë me daten 28 <span className="animate-subtle-gradient">Korrik</span>
+              Growing Together Through <span className="animate-subtle-gradient">Collaboration</span>
             </h1>
             
             <p className="text-xl text-gray-700 dark:text-gray-200 mb-8 leading-relaxed">
-              Teksti nuk e di si ta gjej personin e duhur! a do me ndihmosh?
+              Your business needs drive our development. When you subscribe, you become our development partner with direct input on future features.
             </p>
             
             {/* Animated Arrow Down */}
