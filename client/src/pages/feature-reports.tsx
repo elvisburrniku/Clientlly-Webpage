@@ -10,19 +10,7 @@ export default function FeatureReports() {
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
-              <div className="relative overflow-hidden rounded-lg">
-                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
-                  <img 
-                    src="/attached_assets/3d_1753268267691.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-simple cursor-pointer"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/15 group-hover:to-purple-500/15 transition-all duration-500 rounded-lg"></div>
-              </div>
-            </Link>
+          <div className="flex justify-start items-center h-16">
             <Button 
               variant="ghost" 
               size="sm"
