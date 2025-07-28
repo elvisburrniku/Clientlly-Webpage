@@ -93,10 +93,10 @@ export default function FeatureReports() {
         {/* Key Metrics Overview */}
         <section>
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-6 tracking-tight leading-none">
               Real-Time Business Intelligence
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Monitor your business performance with live dashboards and automated reporting
             </p>
           </div>
@@ -155,10 +155,10 @@ export default function FeatureReports() {
         {/* Report Categories */}
         <section>
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-6 tracking-tight leading-none">
               Comprehensive Report Library
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Access over 50+ pre-built report templates covering every aspect of your business
             </p>
           </div>
@@ -340,7 +340,7 @@ export default function FeatureReports() {
             <CardContent className="p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                  <h3 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-6 tracking-tight leading-none">
                     Powerful Features for Data-Driven Decisions
                   </h3>
                   <div className="space-y-6">
