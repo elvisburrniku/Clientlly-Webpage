@@ -50,8 +50,8 @@ export default function FeatureClients() {
                 <span>Professional CRM</span>
               </div>
             </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black leading-tight animate-professional-fade tracking-tight">
-              <span className="block mb-2">Client</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black leading-relaxed animate-professional-fade tracking-tight">
+              <span className="block mb-4">Client</span>
               <span className="block animate-subtle-gradient">Management</span>
             </h1>
             <p className="text-xl text-black/80 max-w-3xl mx-auto leading-relaxed px-4">
