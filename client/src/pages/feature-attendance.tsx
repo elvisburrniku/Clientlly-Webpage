@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'wouter';
-import { ArrowLeft, Clock, Users, MapPin, CheckCircle, Calendar, BarChart3, Smartphone, Wifi, WifiOff, Bell, Target, Star, UserCheck, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Clock, Users, MapPin, CheckCircle, Calendar, BarChart3, Smartphone, Wifi, WifiOff, Bell, Target, Star, UserCheck, TrendingUp, Download, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function FeatureAttendance() {
@@ -387,6 +387,61 @@ export default function FeatureAttendance() {
           
           <div className="mt-8 text-black opacity-70 text-sm">
             14-day free trial • No credit card required • Cancel anytime
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Indicators Footer */}
+      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-6 w-6 text-blue-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">14-day free trial</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Full access to all features with no commitment</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-6 w-6 text-green-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Cancel anytime</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">No long-term contracts or cancellation fees</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Data protection & privacy</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">GDPR compliant with enterprise-grade security</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Download className="h-6 w-6 text-orange-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Free setup & migration</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Expert assistance to migrate your existing data</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-6 w-6 text-teal-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">24/7 expert support</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Round-the-clock assistance from our support team</p>
+            </div>
+            
+            <div className="text-center p-6">
+              <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-6 w-6 text-red-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">Bank-level security</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">256-bit SSL encryption and SOC 2 compliance</p>
+            </div>
           </div>
         </div>
       </section>
