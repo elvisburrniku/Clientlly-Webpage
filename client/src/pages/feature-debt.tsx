@@ -229,30 +229,43 @@ export default function FeatureDebt() {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-red-600 to-orange-600 rounded-3xl p-8 lg:p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">Ready to Take Control of Your Debt?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Join thousands of businesses that have improved their financial health with our debt management tools.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
-              onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
-            >
-              Start Managing Debt Today
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-red-600 px-8 py-3 text-lg font-semibold"
-              onClick={() => window.location.href = "/subscribe?plan=basic&billing=monthly"}
-            >
-              Start Your Trial
-            </Button>
+        {/* CTA Section with Yellow Background */}
+        <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width -mx-4">
+          {/* Floating sparkle animations */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+            <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+            <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+            <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-3/4 left-1/5 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '2.5s'}}></div>
           </div>
-        </div>
+          
+          <div className="max-w-7xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl lg:text-5xl font-black text-black mb-4 animate-professional-fade">
+              Ready to <span className="animate-subtle-gradient">Take Control</span> of Your Debt?
+            </h2>
+            <p className="text-xl text-black font-medium leading-relaxed mb-8 max-w-3xl mx-auto">
+              Join thousands of businesses that have improved their financial health with our debt management tools.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
+                onClick={() => window.location.href = "/subscribe"}
+              >
+                Buy Now
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-black hover:bg-gray-800 text-white border-2 border-black px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
+                onClick={() => window.location.href = "/trial"}
+              >
+                Start Your Trial
+              </Button>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
