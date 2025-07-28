@@ -207,32 +207,32 @@ export default function FeatureInvoicing() {
                         alt="Invoice Management Dashboard"
                         className="w-full h-auto rounded-lg shadow-lg"
                       />
-                      {/* Selective blur overlays for privacy - targeting only customer and invoice by columns */}
+                      {/* Precise blur overlays targeting CUSTOMER and INVOICE BY columns only */}
                       <div className="absolute inset-0 rounded-lg">
-                        {/* Blur customer names column only */}
+                        {/* Blur CUSTOMER column (2nd column) - names like ISRHALLE MUHADBIRI, ILR MUSLU */}
                         <div 
                           className="absolute"
                           style={{
-                            left: '13.5%', 
-                            top: '17.8%', 
-                            width: '17.2%', 
-                            height: '76.5%',
+                            left: '13.8%', 
+                            top: '24.5%', 
+                            width: '16.5%', 
+                            height: '68%',
                             backdropFilter: 'blur(8px)',
                             WebkitBackdropFilter: 'blur(8px)',
-                            background: 'rgba(255,255,255,0.15)'
+                            background: 'rgba(240,240,240,0.2)'
                           }}
                         ></div>
-                        {/* Blur invoice by column only */}
+                        {/* Blur INVOICE BY column (6th column) - names like Ngalisheni Blonti, Lelden Gërgani */}
                         <div 
                           className="absolute"
                           style={{
-                            left: '55.8%', 
-                            top: '17.8%', 
-                            width: '13.5%', 
-                            height: '76.5%',
+                            left: '56.2%', 
+                            top: '24.5%', 
+                            width: '12.5%', 
+                            height: '68%',
                             backdropFilter: 'blur(8px)',
                             WebkitBackdropFilter: 'blur(8px)',
-                            background: 'rgba(255,255,255,0.15)'
+                            background: 'rgba(240,240,240,0.2)'
                           }}
                         ></div>
                       </div>
