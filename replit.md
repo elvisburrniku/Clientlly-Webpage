@@ -560,6 +560,16 @@ Preferred communication style: Simple, everyday language.
 ✓ Added comprehensive Laravel integration documentation with code examples
 ## Recent Changes (July 28, 2025)
 
+✓ COMPLETED pricing structure update to €20/€35/€50 monthly (July 28, 2025)
+✓ Updated server pricing: Starter €20, Professional €35, Enterprise €50 monthly with 20% yearly discount
+✓ Fixed client-side to use actual API pricing data instead of hardcoded values in subscribe and landing pages
+✓ Updated calculator page with correct pricing: Starter (€20), Professional (€35), Enterprise (€50)
+✓ Fixed checkout section in subscribe page to display proper EUR pricing from API
+✓ Increased Starter plan invoice limit from 100 to 200 invoices per month
+✓ Removed all plan descriptions from landing and subscribe pages for cleaner design
+✓ All pricing now consistent across landing, subscribe, calculator, and checkout pages
+✓ Stripe checkout configuration correctly uses EUR currency with updated pricing
+
 ✓ ATTEMPTED custom background graphics for trust indicators section (July 28, 2025)
 ✓ User requested illustration with people and laptops using logo colors (orange, purple, teal)
 ✓ ISSUE IDENTIFIED: Cannot create detailed illustrations with people working on laptops

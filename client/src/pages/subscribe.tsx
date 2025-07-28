@@ -139,11 +139,8 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
           <div className="text-right">
             <div className="font-bold text-2xl">
               {selectedCurrency === 'EUR' ? (
-                // For EUR, use direct Euro pricing instead of USD conversion
-                `€${((billingPeriod === 'monthly' ? 
-                  (plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65) : 
-                  (plan.id === 'basic' ? 24.65 * 10 : plan.id === 'professional' ? 41.65 * 10 : 75.65 * 10)
-                )).toFixed(2)}`
+                // Use actual API pricing data for EUR
+                `€${((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice) / 100).toFixed(2)}`
               ) : (
                 formatCurrency(
                   convertPrice(price / 100, 'USD', selectedCurrency),

@@ -51,13 +51,13 @@ interface Plan {
 const plans: Plan[] = [
   {
     id: 'basic',
-    name: 'Basic',
-    monthlyPrice: 2900,
-    yearlyPrice: 29000,
+    name: 'Starter',
+    monthlyPrice: 2000,
+    yearlyPrice: 19200,
     color: 'blue',
     features: {
       users: 3,
-      invoicesPerMonth: 50,
+      invoicesPerMonth: 200,
       storageGB: 5,
       integrations: 2,
       support: 'Email Support',
@@ -67,8 +67,8 @@ const plans: Plan[] = [
   {
     id: 'professional',
     name: 'Professional',
-    monthlyPrice: 7900,
-    yearlyPrice: 79000,
+    monthlyPrice: 3500,
+    yearlyPrice: 33600,
     color: 'purple',
     popular: true,
     features: {
@@ -83,8 +83,8 @@ const plans: Plan[] = [
   {
     id: 'business',
     name: 'Enterprise',
-    monthlyPrice: 8900,
-    yearlyPrice: 89000,
+    monthlyPrice: 5000,
+    yearlyPrice: 48000,
     color: 'orange',
     features: {
       users: 50,
