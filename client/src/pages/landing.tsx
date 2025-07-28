@@ -404,41 +404,77 @@ export default function Landing() {
 
 
 
-            {/* Trust Indicators with Custom Background */}
+            {/* Trust Indicators with Custom Illustration Background */}
             <div className="relative py-16 px-4 overflow-hidden">
-              {/* Custom Static Background Graphics */}
-              <div className="absolute inset-0 pointer-events-none">
-                {/* Orange shapes */}
-                <div className="absolute top-8 left-16 w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full opacity-10"></div>
-                <div className="absolute bottom-12 right-20 w-32 h-16 bg-orange-400 rounded-2xl opacity-8 transform rotate-12"></div>
-                <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-orange-500 rounded-lg opacity-6 transform -rotate-45"></div>
-                
-                {/* Purple shapes */}
-                <div className="absolute top-12 right-16 w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full opacity-12"></div>
-                <div className="absolute bottom-20 left-12 w-28 h-28 bg-purple-400 rounded-3xl opacity-8 transform rotate-45"></div>
-                <div className="absolute top-1/3 right-1/3 w-12 h-24 bg-purple-500 rounded-full opacity-10"></div>
-                
-                {/* Teal/Green shapes */}
-                <div className="absolute top-20 left-1/2 w-36 h-18 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-2xl opacity-8 transform -rotate-12"></div>
-                <div className="absolute bottom-16 left-1/3 w-20 h-20 bg-teal-500 rounded-full opacity-10"></div>
-                <div className="absolute top-1/2 right-16 w-14 h-28 bg-emerald-400 rounded-xl opacity-6 transform rotate-30"></div>
-                
-                {/* Additional geometric elements */}
-                <div className="absolute top-32 right-1/4 w-8 h-8 bg-orange-400 transform rotate-45 opacity-12"></div>
-                <div className="absolute bottom-32 right-1/2 w-10 h-10 bg-purple-500 rounded-full opacity-8"></div>
-                <div className="absolute top-16 left-1/3 w-6 h-16 bg-teal-400 rounded-full opacity-10"></div>
-                
-                {/* Subtle line elements */}
-                <div className="absolute top-24 left-20 w-32 h-1 bg-gradient-to-r from-orange-400 to-transparent opacity-15"></div>
-                <div className="absolute bottom-24 right-24 w-28 h-1 bg-gradient-to-l from-purple-500 to-transparent opacity-12"></div>
-                <div className="absolute top-1/2 left-8 w-1 h-24 bg-gradient-to-b from-teal-500 to-transparent opacity-10"></div>
+              {/* Custom SVG Illustration Background */}
+              <div className="absolute inset-0 pointer-events-none opacity-15">
+                <svg 
+                  viewBox="0 0 800 400" 
+                  className="absolute inset-0 w-full h-full object-cover"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* Background furniture elements */}
+                  <rect x="50" y="320" width="80" height="60" rx="8" fill="#e2e8f0" />
+                  <rect x="680" y="300" width="70" height="80" rx="8" fill="#f1f5f9" />
+                  
+                  {/* Person 1 - Orange shirt, sitting on bean bag */}
+                  <ellipse cx="120" cy="350" rx="40" ry="20" fill="#cbd5e1" />
+                  <rect x="100" y="300" width="40" height="50" rx="20" fill="#fb923c" />
+                  <circle cx="120" cy="280" r="15" fill="#fbbf24" />
+                  <path d="M108 275 Q120 270 132 275" stroke="#4b5563" strokeWidth="2" fill="none" />
+                  <circle cx="115" cy="275" r="1.5" fill="#374151" />
+                  <circle cx="125" cy="275" r="1.5" fill="#374151" />
+                  <rect x="105" y="320" width="30" height="15" rx="2" fill="#e5e7eb" />
+                  
+                  {/* Person 2 - Green/teal pants, standing with laptop */}
+                  <rect x="280" y="200" width="35" height="60" rx="17" fill="#f3f4f6" />
+                  <rect x="285" y="260" width="25" height="40" fill="#0d9488" />
+                  <circle cx="297" cy="185" r="12" fill="#fbbf24" />
+                  <path d="M289 180 Q297 175 305 180" stroke="#4b5563" strokeWidth="1.5" fill="none" />
+                  <circle cx="293" cy="180" r="1" fill="#374151" />
+                  <circle cx="301" cy="180" r="1" fill="#374151" />
+                  <rect x="315" y="205" width="25" height="18" rx="2" fill="#6b7280" />
+                  <rect x="317" y="207" width="21" height="12" fill="#3b82f6" />
+                  
+                  {/* Person 3 - Yellow skirt, standing with presentation */}
+                  <rect x="450" y="180" width="30" height="50" rx="15" fill="#f9fafb" />
+                  <rect x="455" y="230" width="20" height="35" fill="#fbbf24" />
+                  <circle cx="465" cy="165" r="10" fill="#fb923c" />
+                  <path d="M458 160 Q465 157 472 160" stroke="#4b5563" strokeWidth="1.5" fill="none" />
+                  <circle cx="461" cy="160" r="1" fill="#374151" />
+                  <circle cx="469" cy="160" r="1" fill="#374151" />
+                  <rect x="485" y="150" width="20" height="15" rx="2" fill="#e5e7eb" />
+                  <rect x="487" y="152" width="16" height="8" fill="#22c55e" />
+                  
+                  {/* Person 4 - Teal/blue pants, sitting with laptop */}
+                  <rect x="600" y="320" width="60" height="15" rx="7" fill="#cbd5e1" />
+                  <rect x="610" y="250" width="30" height="50" rx="15" fill="#f3f4f6" />
+                  <rect x="615" y="300" width="20" height="35" fill="#0891b2" />
+                  <circle cx="625" cy="235" r="10" fill="#fbbf24" />
+                  <path d="M618 230 Q625 227 632 230" stroke="#4b5563" strokeWidth="1.5" fill="none" />
+                  <circle cx="621" cy="230" r="1" fill="#374151" />
+                  <circle cx="629" cy="230" r="1" fill="#374151" />
+                  <rect x="590" y="260" width="22" height="16" rx="2" fill="#6b7280" />
+                  <rect x="592" y="262" width="18" height="10" fill="#8b5cf6" />
+                  
+                  {/* Decorative elements */}
+                  <circle cx="150" cy="100" r="8" fill="#fb923c" opacity="0.3" />
+                  <rect x="350" y="80" width="12" height="12" rx="2" fill="#8b5cf6" opacity="0.3" />
+                  <circle cx="550" cy="120" r="6" fill="#0d9488" opacity="0.3" />
+                  <rect x="700" y="150" width="8" height="15" rx="4" fill="#fb923c" opacity="0.25" />
+                  
+                  {/* Additional furniture/workspace elements */}
+                  <rect x="200" y="350" width="100" height="8" rx="4" fill="#e2e8f0" />
+                  <circle cx="400" cy="380" r="12" fill="#f1f5f9" />
+                  <rect x="500" y="370" width="30" height="20" rx="4" fill="#e2e8f0" />
+                </svg>
               </div>
               
               {/* Trust Indicators Content */}
               <div className="relative z-10 flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5">
                 <button 
                   onClick={() => window.location.href = "/data-protection"}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-sm border border-gray-200/40 dark:border-white/20 hover:border-green-400/60 hover:bg-green-50/30 dark:hover:bg-green-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-xl focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-green-400/50 hover:bg-green-50/20 dark:hover:bg-green-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
                   <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
@@ -447,7 +483,7 @@ export default function Landing() {
                 </button>
                 <button 
                   onClick={() => window.location.href = "/setup-migration"}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-sm border border-gray-200/40 dark:border-white/20 hover:border-blue-400/60 hover:bg-blue-50/30 dark:hover:bg-blue-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-xl focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-blue-400/50 hover:bg-blue-50/20 dark:hover:bg-blue-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
                   <Check className="h-5 w-5 text-blue-500 group-hover:animate-pulse" />
@@ -456,7 +492,7 @@ export default function Landing() {
                 </button>
                 <button 
                   onClick={() => window.location.href = "/expert-support"}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-sm border border-gray-200/40 dark:border-white/20 hover:border-purple-400/60 hover:bg-purple-50/30 dark:hover:bg-purple-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-xl focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-purple-400/50 hover:bg-purple-50/20 dark:hover:bg-purple-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
                   <Check className="h-5 w-5 text-purple-500 group-hover:animate-pulse" />
@@ -465,7 +501,7 @@ export default function Landing() {
                 </button>
                 <button 
                   onClick={() => window.location.href = "/bank-security"}
-                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/20 dark:bg-gray-800/30 backdrop-blur-sm border border-gray-200/40 dark:border-white/20 hover:border-orange-400/60 hover:bg-orange-50/30 dark:hover:bg-orange-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-xl focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                  className="flex items-center space-x-2 px-4 py-2 rounded-xl bg-white/10 dark:bg-gray-800/20 backdrop-blur-sm border border-gray-200/30 dark:border-white/10 hover:border-orange-400/50 hover:bg-orange-50/20 dark:hover:bg-orange-900/20 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-sm hover:shadow-md focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
                   <Shield className="h-5 w-5 text-orange-500 group-hover:animate-pulse" />
