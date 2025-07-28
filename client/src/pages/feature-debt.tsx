@@ -178,7 +178,7 @@ export default function FeatureDebt() {
 
         {/* Benefits Section */}
         <div className="mb-16">
-          <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-12 tracking-tight leading-tight text-center animate-professional-fade">
+          <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-12 tracking-tight leading-tight text-center animate-professional-fade">
             Transform Your <span className="animate-subtle-gradient">Financial Health</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
