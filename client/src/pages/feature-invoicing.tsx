@@ -89,9 +89,9 @@ export default function FeatureInvoicing() {
               </div>
               <span>Professional Invoicing Suite</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-black text-black mb-6 animate-fade-in-up">
+            <h1 className="text-4xl lg:text-6xl font-black text-black mb-6 animate-professional-fade tracking-tight leading-tight">
               Professional
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text"> Invoicing</span>
+              <span className="animate-subtle-gradient"> Invoicing</span>
             </h1>
             <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed font-medium">
               Create stunning invoices, automate payment reminders, and track your revenue with our comprehensive invoicing platform designed for modern businesses.
@@ -443,8 +443,8 @@ export default function FeatureInvoicing() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 animate-fade-in-up">
-                Ready to Streamline Your Invoicing?
+              <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 animate-professional-fade tracking-tight leading-tight">
+                Ready to <span className="animate-subtle-gradient">Streamline Your Invoicing?</span>
               </h2>
               <p className="text-xl text-black leading-relaxed font-medium">
                 Join thousands of businesses that have improved their cash flow with BusinessFlow Pro's professional invoicing.
