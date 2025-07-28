@@ -1,525 +1,395 @@
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, BarChart3, TrendingUp, PieChart, FileText, Calendar, Filter, Download, Share, Eye, Target, Zap, CheckCircle, LineChart, Activity, DollarSign, Users, ArrowUpRight, ArrowDownRight, Clock, Bell, Settings, Layers, Globe, Shield } from "lucide-react";
+import { useState } from 'react';
+import { useLocation } from 'wouter';
+import { ArrowLeft, BarChart3, TrendingUp, PieChart, FileText, Calendar, Filter, Download, Share, Eye, Target, CheckCircle, LineChart, Activity, DollarSign, Users, ArrowUpRight, ArrowDownRight, Clock, Bell, Settings, Layers, Globe, Shield, Star } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function FeatureReports() {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [, setLocation] = useLocation();
+
+  const features = [
+    {
+      icon: <BarChart3 className="h-6 w-6" />,
+      title: "Business Intelligence",
+      description: "Advanced analytics with real-time insights, trend analysis, and predictive forecasting"
+    },
+    {
+      icon: <PieChart className="h-6 w-6" />,
+      title: "Financial Reporting",
+      description: "Comprehensive financial reports including P&L, balance sheets, and cash flow statements"
+    },
+    {
+      icon: <TrendingUp className="h-6 w-6" />,
+      title: "Performance Metrics",
+      description: "Track KPIs, performance indicators, and business metrics with customizable dashboards"
+    },
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: "Team Analytics",
+      description: "Employee performance, productivity metrics, and team collaboration insights"
+    },
+    {
+      icon: <Calendar className="h-6 w-6" />,
+      title: "Scheduled Reports",
+      description: "Automated report generation and delivery with customizable scheduling options"
+    },
+    {
+      icon: <Globe className="h-6 w-6" />,
+      title: "Multi-Location Insights",
+      description: "Consolidated reporting across multiple business locations and departments"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Jennifer Walsh",
+      company: "Data Insights Co",
+      rating: 5,
+      text: "The reporting capabilities are outstanding! We can make data-driven decisions faster than ever. The automated reports save us 15+ hours weekly."
+    },
+    {
+      name: "Marcus Thompson",
+      company: "Growth Analytics",
+      rating: 5,
+      text: "Finally, business intelligence that's actually usable. The dashboards are intuitive and the insights have helped us increase revenue by 25%."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
+      <nav className="border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-start items-center h-16">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => {
-                window.location.href = "/";
-                setTimeout(() => {
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }, 100);
-              }}
-              className="px-2 sm:px-3"
-            >
-              <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-              <span className="text-sm sm:text-base">Back to Features</span>
-            </Button>
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-4">
+              <a 
+                href="/#business-overview"
+                className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to Features</span>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section with Yellow Background - Full Width */}
-      <section className="relative w-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden">
-        {/* Floating sparkle elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute top-1/2 left-32 w-3 h-3 animate-ping delay-500">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute top-40 right-1/3 w-5 h-5 animate-ping delay-1500">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute bottom-20 left-1/4 w-4 h-4 animate-ping delay-2000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
+      {/* Hero Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-24">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <div className="flex items-center justify-center mb-8">
-              <div className="relative">
-                <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl flex items-center justify-center shadow-2xl">
-                  <BarChart3 className="h-12 w-12 text-white" />
-                </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
-                  <Activity className="w-4 h-4 text-white" />
-                </div>
-              </div>
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-medium mb-6">
+              <Activity className="h-5 w-5 mr-2 animate-pulse text-green-600" />
+              Advanced Business Analytics
             </div>
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 tracking-tight leading-none">
-              Advanced Business 
-              <span className="block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                Analytics & Reports
-              </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight pb-2">
+              Insights & <span className="animate-subtle-gradient">Reports</span>
             </h1>
-            <p className="text-xl text-black/80 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Transform raw data into actionable insights with our comprehensive analytics suite. 
-              Make data-driven decisions that propel your business forward.
+            <p className="text-xl md:text-2xl text-black mb-8 max-w-3xl mx-auto leading-relaxed">
+              Transform raw data into actionable insights with our comprehensive analytics suite and automated reporting system
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4">
-                <Eye className="h-5 w-5 mr-2" />
-                View Live Demo
-              </Button>
-              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white font-semibold px-8 py-4">
-                <Download className="h-5 w-5 mr-2" />
-                Download Sample Reports
-              </Button>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Business Intelligence
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Financial Reports
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Performance Metrics
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Automated Reports
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Dashboards
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
-        {/* Key Metrics Overview */}
-        <section>
-          <div className="text-center mb-12">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-6 tracking-tight leading-none">
-              Real-Time Business Intelligence
+      {/* Features Grid */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Complete Analytics Solution
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Monitor your business performance with live dashboards and automated reporting
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 border-l-4 border-l-green-500">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-6 w-6 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">€47,325</h3>
-              <p className="text-sm text-gray-600 mb-2">Monthly Revenue</p>
-              <div className="flex items-center justify-center text-green-600 text-sm">
-                <ArrowUpRight className="h-4 w-4 mr-1" />
-                +12.4% vs last month
-              </div>
-            </Card>
-
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 border-l-4 border-l-blue-500">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">1,247</h3>
-              <p className="text-sm text-gray-600 mb-2">Active Customers</p>
-              <div className="flex items-center justify-center text-blue-600 text-sm">
-                <ArrowUpRight className="h-4 w-4 mr-1" />
-                +8.2% growth
-              </div>
-            </Card>
-
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 border-l-4 border-l-purple-500">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <FileText className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">3,891</h3>
-              <p className="text-sm text-gray-600 mb-2">Invoices Processed</p>
-              <div className="flex items-center justify-center text-purple-600 text-sm">
-                <ArrowUpRight className="h-4 w-4 mr-1" />
-                +15.7% efficiency
-              </div>
-            </Card>
-
-            <Card className="p-6 text-center hover:shadow-lg transition-all duration-300 border-l-4 border-l-orange-500">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Target className="h-6 w-6 text-orange-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">94.2%</h3>
-              <p className="text-sm text-gray-600 mb-2">Goal Achievement</p>
-              <div className="flex items-center justify-center text-orange-600 text-sm">
-                <ArrowUpRight className="h-4 w-4 mr-1" />
-                Above target
-              </div>
-            </Card>
-          </div>
-        </section>
-
-        {/* Report Categories */}
-        <section>
-          <div className="text-center mb-12">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-6 tracking-tight leading-none">
-              Comprehensive Report Library
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Access over 50+ pre-built report templates covering every aspect of your business
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to understand your business performance and make data-driven decisions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <LineChart className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-lg">Financial Performance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm mb-4">
-                  Comprehensive P&L statements, balance sheets, cash flow analysis, and financial health indicators.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Monthly/Quarterly/Annual Reports
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Budget vs Actual Analysis
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Profit Margin Tracking
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <PieChart className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-lg">Sales & Revenue</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm mb-4">
-                  Track sales performance, revenue trends, customer analytics, and growth opportunities.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Sales Pipeline Analysis
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Customer Lifetime Value
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Revenue Forecasting
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Activity className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-lg">Operational Insights</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm mb-4">
-                  Monitor operational efficiency, resource utilization, and process optimization opportunities.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Productivity Metrics
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Cost Analysis
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Efficiency Benchmarks
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Calendar className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-lg">Time & Attendance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm mb-4">
-                  Comprehensive workforce analytics including attendance patterns and productivity insights.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Attendance Tracking
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Overtime Analysis
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Schedule Optimization
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Filter className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-lg">Custom Analytics</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm mb-4">
-                  Build personalized reports with our drag-and-drop interface and advanced filtering system.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Drag & Drop Builder
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Advanced Filtering
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Scheduled Delivery
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <CardHeader className="text-center pb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Eye className="h-8 w-8 text-white" />
-                </div>
-                <CardTitle className="text-lg">Interactive Dashboards</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm mb-4">
-                  Real-time visual dashboards with interactive charts, KPI tracking, and collaborative features.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Real-time Updates
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Interactive Charts
-                  </div>
-                  <div className="flex items-center text-sm text-gray-500">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Mobile Responsive
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Features Highlight */}
-        <section>
-          <Card className="overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 border-0 relative">
-            {/* Floating sparkle elements */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-8 left-8 w-3 h-3 animate-ping delay-0">
-                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-              </div>
-              <div className="absolute bottom-16 right-12 w-4 h-4 animate-ping delay-1000">
-                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-              </div>
-              <div className="absolute top-1/2 left-16 w-2 h-2 animate-ping delay-500">
-                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-              </div>
-              <div className="absolute top-20 right-1/4 w-3 h-3 animate-ping delay-1500">
-                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-              </div>
-            </div>
-            <CardContent className="p-12 relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h3 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 tracking-tight leading-none">
-                    Powerful Features for Data-Driven Decisions
-                  </h3>
-                  <div className="space-y-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Layers className="h-5 w-5 text-black" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-black mb-2">Multi-dimensional Analysis</h4>
-                        <p className="text-black/80 text-sm">
-                          Analyze data across multiple dimensions with advanced filtering and grouping capabilities.
-                        </p>
-                      </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="group relative">
+                <div className="h-full p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl text-white mr-4">
+                      {feature.icon}
                     </div>
-                    
-                    <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Globe className="h-5 w-5 text-black" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-black mb-2">Global Currency Support</h4>
-                        <p className="text-black/80 text-sm">
-                          Analyze financial data in multiple currencies with automatic conversion and regional insights.
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Bell className="h-5 w-5 text-black" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-black mb-2">Smart Alerts & Notifications</h4>
-                        <p className="text-black/80 text-sm">
-                          Get notified when key metrics change or anomalies are detected in your business data.
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Shield className="h-5 w-5 text-black" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-black mb-2">Enterprise Security</h4>
-                        <p className="text-black/80 text-sm">
-                          Role-based access control ensures sensitive financial data is only accessible to authorized users.
-                        </p>
-                      </div>
-                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {feature.title}
+                    </h3>
                   </div>
-                </div>
-                
-                <div className="relative">
-                  <div className="bg-white rounded-2xl shadow-2xl p-6">
-                    <div className="flex items-center justify-between mb-6">
-                      <h4 className="font-semibold text-gray-900">Q1 2024 Performance</h4>
-                      <Badge className="bg-green-100 text-green-700">+18.4%</Badge>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Revenue</span>
-                        <span className="font-semibold">€142,750</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div className="bg-blue-600 h-2 rounded-full" style={{width: '75%'}}></div>
-                      </div>
-                      
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Expenses</span>
-                        <span className="font-semibold">€89,420</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div className="bg-red-500 h-2 rounded-full" style={{width: '45%'}}></div>
-                      </div>
-                      
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">Profit Margin</span>
-                        <span className="font-semibold text-green-600">37.4%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div className="bg-green-500 h-2 rounded-full" style={{width: '60%'}}></div>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        </section>
-      </div>
-
-      {/* CTA Section with Yellow Background - Full Width */}
-      <section className="relative w-full bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden">
-        {/* Floating sparkle elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute top-1/2 left-32 w-3 h-3 animate-ping delay-500">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute top-40 right-1/3 w-5 h-5 animate-ping delay-1500">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute bottom-20 left-1/4 w-4 h-4 animate-ping delay-2000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+            ))}
           </div>
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 tracking-tight">
-            Ready to Transform Your 
-            <span className="block">Business Intelligence?</span>
-          </h2>
-          <p className="text-xl text-black/80 mb-10 max-w-2xl mx-auto">
-            Join thousands of businesses already making smarter decisions with our advanced analytics platform.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4"
-              onClick={() => window.location.href = '/trial'}
-            >
-              <Zap className="h-5 w-5 mr-2" />
-              Start Your Free Trial
-            </Button>
-            <Button 
-              size="lg" 
-              className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4"
-              onClick={() => window.location.href = '/subscribe'}
-            >
-              <Target className="h-5 w-5 mr-2" />
-              Get Started Now
-            </Button>
+      </section>
+
+      {/* Tabbed Interface */}
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              Analytics & Reporting Features
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-black/10 rounded-lg flex items-center justify-center mb-3">
-                <FileText className="h-6 w-6 text-black" />
-              </div>
-              <h4 className="font-semibold mb-2">50+ Report Templates</h4>
-              <p className="text-sm opacity-80">Pre-built reports for every business need</p>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <nav className="flex space-x-8 px-6">
+                {[
+                  { id: 'overview', label: 'Overview', icon: BarChart3 },
+                  { id: 'financial', label: 'Financial Reports', icon: DollarSign },
+                  { id: 'performance', label: 'Performance', icon: TrendingUp },
+                  { id: 'scheduling', label: 'Automated Reports', icon: Calendar }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                      activeTab === tab.id
+                        ? 'border-blue-500 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <tab.icon className="h-4 w-4 mr-2" />
+                      {tab.label}
+                    </div>
+                  </button>
+                ))}
+              </nav>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-black/10 rounded-lg flex items-center justify-center mb-3">
-                <Activity className="h-6 w-6 text-black" />
-              </div>
-              <h4 className="font-semibold mb-2">Real-time Analytics</h4>
-              <p className="text-sm opacity-80">Live data updates as they happen</p>
+
+            <div className="p-6">
+              {activeTab === 'overview' && (
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-blue-600 mb-2">€287k</div>
+                      <div className="text-gray-600 dark:text-gray-300">Monthly Revenue</div>
+                    </div>
+                    <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-green-600 mb-2">+23%</div>
+                      <div className="text-gray-600 dark:text-gray-300">Growth Rate</div>
+                    </div>
+                    <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-orange-600 mb-2">847</div>
+                      <div className="text-gray-600 dark:text-gray-300">Active Clients</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'financial' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Financial Performance</h3>
+                  <div className="grid gap-4">
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Profit & Loss Statement</div>
+                          <div className="text-sm text-gray-600">March 2024 • Comprehensive P&L</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">€156,700</div>
+                          <div className="text-sm text-green-600 flex items-center">
+                            <ArrowUpRight className="h-4 w-4 mr-1" />
+                            +12% vs last month
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Cash Flow Statement</div>
+                          <div className="text-sm text-gray-600">March 2024 • Operating Cash Flow</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">€89,200</div>
+                          <div className="text-sm text-blue-600">Positive Cash Flow</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'performance' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Key Performance Indicators</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Customer Acquisition Cost</span>
+                        <span className="font-semibold">€127</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Lifetime Value</span>
+                        <span className="font-semibold">€2,847</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Monthly Recurring Revenue</span>
+                        <span className="font-semibold">€45,600</span>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Customer Retention Rate</span>
+                        <span className="font-semibold">94.2%</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Average Order Value</span>
+                        <span className="font-semibold">€387</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Gross Margin</span>
+                        <span className="font-semibold">68.5%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'scheduling' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Automated Report Schedule</h3>
+                  <div className="grid gap-4">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <Clock className="h-5 w-5 text-blue-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-blue-800">Daily Sales Report</div>
+                          <div className="text-sm text-blue-600">Sent every day at 9:00 AM to management team</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <Calendar className="h-5 w-5 text-green-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-green-800">Monthly Financial Summary</div>
+                          <div className="text-sm text-green-600">Comprehensive monthly report for stakeholders</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <Bell className="h-5 w-5 text-orange-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-orange-800">Performance Alerts</div>
+                          <div className="text-sm text-orange-600">Real-time notifications for KPI changes</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-black/10 rounded-lg flex items-center justify-center mb-3">
-                <Share className="h-6 w-6 text-black" />
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              What Our Customers Say
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-orange-600 text-orange-600" />
+                  ))}
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  "{testimonial.text}"
+                </p>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-500">{testimonial.company}</div>
+                </div>
               </div>
-              <h4 className="font-semibold mb-2">Easy Collaboration</h4>
-              <p className="text-sm opacity-80">Share insights with your team instantly</p>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight">
+            Ready to <span className="animate-subtle-gradient">Make Data-Driven Decisions?</span>
+          </h2>
+          <p className="text-xl text-black mb-8 leading-relaxed">
+            Join thousands of businesses using BusinessFlow Pro to gain powerful insights, track performance, and grow with confidence through intelligent reporting.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/trial"}
+            >
+              Start Your Trial
+            </Button>
+            
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/subscribe"}
+            >
+              Buy Now
+            </Button>
+          </div>
+          
+          <div className="mt-8 text-black opacity-70 text-sm">
+            14-day free trial • No credit card required • Cancel anytime
           </div>
         </div>
       </section>

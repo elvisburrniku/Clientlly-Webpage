@@ -1,64 +1,81 @@
-import { useState } from "react";
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { 
-  Receipt, 
-  Camera, 
-  PieChart, 
-  TrendingUp, 
-  ArrowLeft,
-  CheckCircle,
-  Upload,
-  FileText,
-  Calculator,
-  BarChart3,
-  Download,
-  Smartphone
-} from "lucide-react";
+import { useState } from 'react';
+import { useLocation } from 'wouter';
+import { ArrowLeft, Receipt, Camera, PieChart, TrendingUp, CheckCircle, Upload, FileText, Calculator, BarChart3, Download, Smartphone, Star, CreditCard } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function FeatureExpenses() {
-  const [activeTab, setActiveTab] = useState("capture");
+  const [activeTab, setActiveTab] = useState('overview');
+  const [, setLocation] = useLocation();
+
+  const features = [
+    {
+      icon: <Camera className="h-6 w-6" />,
+      title: "Receipt Scanning",
+      description: "AI-powered receipt capture with automatic data extraction and expense categorization"
+    },
+    {
+      icon: <Calculator className="h-6 w-6" />,
+      title: "Tax Management",
+      description: "Automatic tax calculations with deductible expense tracking and compliance reporting"
+    },
+    {
+      icon: <PieChart className="h-6 w-6" />,
+      title: "Expense Analytics",
+      description: "Comprehensive spending insights with category breakdowns and trend analysis"
+    },
+    {
+      icon: <CreditCard className="h-6 w-6" />,
+      title: "Multi-Payment Methods",
+      description: "Track cash, card, and digital payments with automatic bank reconciliation"
+    },
+    {
+      icon: <FileText className="h-6 w-6" />,
+      title: "Expense Reports",
+      description: "Professional expense reports with customizable templates and approval workflows"
+    },
+    {
+      icon: <Smartphone className="h-6 w-6" />,
+      title: "Mobile App",
+      description: "Capture receipts on-the-go with offline mode and automatic sync capabilities"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Maria Gonzalez",
+      company: "Marketing Pro",
+      rating: 5,
+      text: "The AI receipt scanning is incredible! It saves us 10+ hours per week on expense management. Tax time is now stress-free with automatic categorization."
+    },
+    {
+      name: "Thomas Anderson",
+      company: "Consulting Plus",
+      rating: 5,
+      text: "Perfect for our team's travel expenses. The mobile app works great offline, and the expense reports are professional and detailed."
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-      </div>
-
-      {/* Background Elements - Main Pattern */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
-        {/* Grid Pattern - Applied to entire page */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      </div>
-
-      {/* Additional Grid Pattern for all sections */}
-      <div className="fixed inset-0 pointer-events-none -z-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-
-      <div className="relative z-10">
-      {/* Header */}
-      <div className="sticky top-0 z-50 glass-effect border-b border-white/20">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* Navigation */}
+      <nav className="border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <button 
-              onClick={() => window.location.href = "/#features"}
-              className="flex items-center space-x-1 sm:space-x-2 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span className="text-sm sm:text-base">Back</span>
-            </button>
-            <Link href="/" className="text-2xl font-bold text-foreground hover:text-primary transition-colors">
-              BusinessFlow Pro
-            </Link>
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-4">
+              <a 
+                href="/#business-overview"
+                className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to Features</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* Hero Section with Yellow Background */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width">
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         {/* Floating sparkle animations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
@@ -66,431 +83,275 @@ export default function FeatureExpenses() {
           <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
           <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
           <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-3/4 left-1/5 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '2.5s'}}></div>
         </div>
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="space-y-4 fade-in">
-                <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-semibold text-sm shadow-lg">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-                  Tax-Ready Expense Management
-                </div>
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black tracking-tight leading-tight animate-professional-fade">
-                  Get set for tax time with <span className="animate-subtle-gradient">organized expenses</span>
-                </h1>
-                <p className="text-xl text-black font-medium leading-relaxed">
-                  Capture receipts instantly with your phone, automatically categorize expenses, 
-                  and generate tax-ready reports in seconds. Never lose a receipt again.
-                </p>
-              </div>
-              
-              <div className="flex flex-wrap gap-6 fade-in stagger-1">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-black" />
-                  <span className="font-medium text-black">AI-powered categorization</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-black" />
-                  <span className="font-medium text-black">Receipt scanning</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-black" />
-                  <span className="font-medium text-black">Tax-ready reports</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-2">
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
-                  onClick={() => window.location.href = "/trial"}
-                >
-                  Start Free Trial
-                </Button>
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white border-2 border-black px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
-                  onClick={() => window.location.href = "/subscribe"}
-                >
-                  Buy Now
-                </Button>
-              </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-medium mb-6">
+              <Receipt className="h-5 w-5 mr-2 animate-pulse text-green-600" />
+              Smart Expense Management
             </div>
-
-            <div className="relative fade-in stagger-3">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
-              
-
-
-              <div className="relative space-y-6">
-                <Card className="glass-effect border-white/20 p-6">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <Calculator className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">Expense Analytics</h3>
-                      <p className="text-sm text-muted-foreground">Monthly Business Overview</p>
-                    </div>
-                    <Badge className="bg-blue-100 text-blue-700 ml-auto">Live Data</Badge>
-                  </div>
-                  <div className="bg-white/50 p-4 rounded-lg space-y-2">
-                    <div className="flex justify-between text-sm">
-                      <span>Total Expenses</span>
-                      <span className="font-medium">€4,299.87</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Tax Deductible</span>
-                      <span className="text-green-600">€3,847.23</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span>Business Categories</span>
-                      <span className="text-blue-600 font-medium">12 Active</span>
-                    </div>
-                  </div>
-                </Card>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <Card className="p-4 text-center hover:shadow-lg transition-shadow">
-                    <div className="text-2xl font-bold text-green-600">89%</div>
-                    <div className="text-sm text-muted-foreground">Tax Efficiency</div>
-                    <div className="text-xs text-green-500 mt-1">+5% this month</div>
-                  </Card>
-                  <Card className="p-4 text-center hover:shadow-lg transition-shadow">
-                    <div className="text-2xl font-bold text-blue-600">€18,432</div>
-                    <div className="text-sm text-muted-foreground">Tax deductions</div>
-                    <div className="text-xs text-blue-500 mt-1">Estimated savings: €4,608</div>
-                  </Card>
-                </div>
-
-                {/* Sample Expense Report */}
-                <Card className="p-6">
-                  <h4 className="font-bold mb-4">Recent Expenses</h4>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                          <FileText className="h-4 w-4 text-blue-600" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm">Adobe Creative Cloud</div>
-                          <div className="text-xs text-muted-foreground">Software • Mar 15</div>
-                        </div>
-                      </div>
-                      <span className="font-bold text-sm">€52.99</span>
-                    </div>
-                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                          <Receipt className="h-4 w-4 text-green-600" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm">Office Depot</div>
-                          <div className="text-xs text-muted-foreground">Supplies • Mar 14</div>
-                        </div>
-                      </div>
-                      <span className="font-bold text-sm">€127.45</span>
-                    </div>
-                    <div className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                          <Smartphone className="h-4 w-4 text-purple-600" />
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm">Business Phone Plan</div>
-                          <div className="text-xs text-muted-foreground">Communications • Mar 13</div>
-                        </div>
-                      </div>
-                      <span className="font-bold text-sm">€89.00</span>
-                    </div>
-                  </div>
-                </Card>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight pb-2">
+              Smart Expense <span className="animate-subtle-gradient">Tracking</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-black mb-8 max-w-3xl mx-auto leading-relaxed">
+              AI-powered expense management with receipt scanning, automatic categorization, and comprehensive tax reporting for modern businesses
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Receipt Scanning
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Tax Management
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Analytics
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Mobile App
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Reports
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Feature Tabs */}
-      <section className="py-16 px-4 bg-muted/30">
+      {/* Features Grid */}
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Complete expense management
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Complete Expense Solution
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From receipt capture to tax reports, manage every aspect of your business expenses
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to track, manage, and optimize your business expenses
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {[
-              { id: "capture", label: "Receipt Capture", icon: Camera },
-              { id: "categorization", label: "Categorization", icon: PieChart },
-              { id: "reporting", label: "Reporting", icon: BarChart3 },
-              { id: "insights", label: "Insights", icon: TrendingUp }
-            ].map((tab, index) => {
-              const Icon = tab.icon;
-              return (
-                <Button
-                  key={tab.id}
-                  variant={activeTab === tab.id ? "default" : "outline"}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center space-x-2 transition-all duration-300 scale-in stagger-${index + 1} ${
-                    activeTab === tab.id ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white' : ''
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  <span>{tab.label}</span>
-                </Button>
-              );
-            })}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="group relative">
+                <div className="h-full p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl text-white mr-4">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {feature.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tabbed Interface */}
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              Expense Management Features
+            </h2>
           </div>
 
-          {/* Tab Content */}
-          <div className="max-w-6xl mx-auto">
-            {activeTab === "capture" && (
-              <div className="grid md:grid-cols-2 gap-12 items-center fade-in">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <nav className="flex space-x-8 px-6">
+                {[
+                  { id: 'overview', label: 'Overview', icon: BarChart3 },
+                  { id: 'scanning', label: 'Receipt Scanning', icon: Camera },
+                  { id: 'analytics', label: 'Analytics', icon: PieChart },
+                  { id: 'reports', label: 'Reports', icon: FileText }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                      activeTab === tab.id
+                        ? 'border-blue-500 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <tab.icon className="h-4 w-4 mr-2" />
+                      {tab.label}
+                    </div>
+                  </button>
+                ))}
+              </nav>
+            </div>
+
+            <div className="p-6">
+              {activeTab === 'overview' && (
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold text-foreground">Capture receipts instantly</h3>
-                  <p className="text-lg text-muted-foreground">
-                    Take photos of receipts with your mobile device and our AI automatically extracts all the important data. 
-                    No more manual data entry or lost receipts.
-                  </p>
-                  <ul className="space-y-4">
-                    {[
-                      "AI-powered receipt scanning with 99% accuracy",
-                      "Extract vendor, amount, date, and category automatically",
-                      "Support for receipts in multiple languages",
-                      "Bulk upload for multiple receipts",
-                      "Cloud storage with searchable archive"
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <Camera className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="relative">
-                  <div className="bg-gradient-to-br from-green-100 to-blue-100 p-8 rounded-3xl">
-                    <Smartphone className="mx-auto mb-6 h-32 w-20 text-gray-400" />
-                    <div className="space-y-4">
-                      <div className="bg-white p-4 rounded-xl shadow-lg">
-                        <div className="flex items-center space-x-3 mb-3">
-                          <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                            <CheckCircle className="h-4 w-4 text-white" />
-                          </div>
-                          <span className="font-medium">Receipt processed</span>
-                        </div>
-                        <div className="text-sm space-y-1 text-muted-foreground">
-                          <div>Vendor: Office Depot</div>
-                          <div>Amount: $127.45</div>
-                          <div>Category: Office Supplies</div>
-                          <div>Date: Today</div>
-                        </div>
-                      </div>
-                      <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
-                        <Upload className="h-4 w-4 mr-2" />
-                        Upload Another Receipt
-                      </Button>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-blue-600 mb-2">€4,299</div>
+                      <div className="text-gray-600 dark:text-gray-300">Monthly Expenses</div>
+                    </div>
+                    <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-green-600 mb-2">89%</div>
+                      <div className="text-gray-600 dark:text-gray-300">Tax Efficiency</div>
+                    </div>
+                    <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-orange-600 mb-2">347</div>
+                      <div className="text-gray-600 dark:text-gray-300">Receipts Processed</div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {activeTab === "categorization" && (
-              <div className="grid md:grid-cols-2 gap-12 items-center fade-in">
+              {activeTab === 'scanning' && (
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold text-foreground">Smart expense categorization</h3>
-                  <p className="text-lg text-muted-foreground">
-                    Our AI learns your business patterns and automatically categorizes expenses according to tax codes. 
-                    Customize categories to match your specific business needs.
-                  </p>
-                  <ul className="space-y-4">
-                    {[
-                      "Automatic categorization using machine learning",
-                      "Tax-compliant category suggestions",
-                      "Custom category creation and rules",
-                      "Bulk recategorization tools",
-                      "Category-based spending limits and alerts"
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <PieChart className="h-5 w-5 text-blue-500 mt-1 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    {[
-                      { name: "Office Supplies", amount: "€1,234", percent: 28, color: "bg-blue-500" },
-                      { name: "Travel", amount: "€987", percent: 22, color: "bg-green-500" },
-                      { name: "Software", amount: "€756", percent: 17, color: "bg-purple-500" },
-                      { name: "Meals", amount: "€543", percent: 12, color: "bg-orange-500" }
-                    ].map((category, index) => (
-                      <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300">
-                        <div className="flex items-center justify-between mb-3">
-                          <div className={`w-3 h-3 rounded-full ${category.color}`}></div>
-                          <span className="text-sm font-medium">{category.percent}%</span>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Recent Scanned Receipts</h3>
+                  <div className="grid gap-4">
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Office Supplies Store</div>
+                          <div className="text-sm text-gray-600">Business Supplies • March 15, 2024</div>
                         </div>
-                        <div className="text-sm text-muted-foreground mb-1">{category.name}</div>
-                        <div className="text-lg font-bold">{category.amount}</div>
-                        <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                          <div 
-                            className={`h-2 rounded-full ${category.color}`}
-                            style={{ width: `${category.percent * 3}%` }}
-                          ></div>
+                        <div className="text-right">
+                          <div className="font-semibold">€127.45</div>
+                          <div className="text-sm text-green-600">Tax Deductible</div>
                         </div>
-                      </Card>
-                    ))}
+                      </div>
+                    </div>
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Business Lunch</div>
+                          <div className="text-sm text-gray-600">Meals & Entertainment • March 14, 2024</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">€89.30</div>
+                          <div className="text-sm text-orange-600">50% Deductible</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {activeTab === "reporting" && (
-              <div className="grid md:grid-cols-2 gap-12 items-center fade-in">
+              {activeTab === 'analytics' && (
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold text-foreground">Tax-ready reports</h3>
-                  <p className="text-lg text-muted-foreground">
-                    Generate comprehensive expense reports that are ready for tax filing. 
-                    Export to popular accounting software or share directly with your accountant.
-                  </p>
-                  <ul className="space-y-4">
-                    {[
-                      "Tax-compliant expense reports by category",
-                      "Monthly and yearly financial summaries",
-                      "Travel expense reports and documentation",
-                      "Export to Excel, PDF, and accounting software",
-                      "Professional tax-ready reporting formats"
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <BarChart3 className="h-5 w-5 text-purple-500 mt-1 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="space-y-4">
-                  <Card className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-lg font-semibold">Monthly Expense Report</h4>
-                      <Button size="sm" variant="outline">
-                        <Download className="h-4 w-4 mr-2" />
-                        Export
-                      </Button>
-                    </div>
-                    <div className="space-y-3">
-                      {[
-                        { category: "Office Supplies", amount: "€1,234.56", deductible: "100%" },
-                        { category: "Business Meals", amount: "€987.43", deductible: "50%" },
-                        { category: "Travel", amount: "€756.89", deductible: "100%" },
-                        { category: "Software", amount: "€543.21", deductible: "100%" }
-                      ].map((item, index) => (
-                        <div key={index} className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
-                          <div>
-                            <div className="font-medium">{item.category}</div>
-                            <div className="text-sm text-green-600">{item.deductible} deductible</div>
-                          </div>
-                          <div className="font-bold">{item.amount}</div>
-                        </div>
-                      ))}
-                      <div className="border-t pt-3 flex items-center justify-between font-bold text-lg">
-                        <span>Total Deductible</span>
-                        <span className="text-green-600">€3,265.59</span>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Expense Breakdown</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Office Supplies</span>
+                        <span className="font-semibold">€1,234 (28.7%)</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Travel & Transport</span>
+                        <span className="font-semibold">€987 (23.0%)</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Meals & Entertainment</span>
+                        <span className="font-semibold">€756 (17.6%)</span>
                       </div>
                     </div>
-                  </Card>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Software & Tools</span>
+                        <span className="font-semibold">€543 (12.6%)</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Marketing</span>
+                        <span className="font-semibold">€432 (10.1%)</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Other</span>
+                        <span className="font-semibold">€347 (8.0%)</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {activeTab === "insights" && (
-              <div className="grid md:grid-cols-2 gap-12 items-center fade-in">
+              {activeTab === 'reports' && (
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold text-foreground">Business expense insights</h3>
-                  <p className="text-lg text-muted-foreground">
-                    Get actionable insights into your spending patterns. Identify cost-saving opportunities 
-                    and track your progress toward financial goals.
-                  </p>
-                  <ul className="space-y-4">
-                    {[
-                      "Spending trend analysis and forecasting",
-                      "Budget vs actual expense tracking",
-                      "Cost-saving opportunity identification",
-                      "Expense pattern recognition and alerts",
-                      "Year-over-year comparison reports"
-                    ].map((feature, index) => (
-                      <li key={index} className="flex items-start space-x-3">
-                        <TrendingUp className="h-5 w-5 text-orange-500 mt-1 flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Available Reports</h3>
+                  <div className="grid gap-4">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <FileText className="h-5 w-5 text-blue-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-blue-800">Monthly Expense Report</div>
+                          <div className="text-sm text-blue-600">Complete breakdown by category and tax status</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <Calculator className="h-5 w-5 text-green-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-green-800">Tax Deduction Summary</div>
+                          <div className="text-sm text-green-600">Ready-to-use data for tax preparation</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <TrendingUp className="h-5 w-5 text-orange-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-orange-800">Spending Trends</div>
+                          <div className="text-sm text-orange-600">Year-over-year comparison and insights</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="space-y-6">
-                  <Card className="p-6">
-                    <h4 className="text-lg font-semibold mb-4">Spending Trends</h4>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <span className="text-muted-foreground">This month</span>
-                        <div className="text-right">
-                          <div className="font-bold text-2xl">€4,299</div>
-                          <div className="text-sm text-green-600">↓ 12% vs last month</div>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-muted-foreground">Average monthly</span>
-                        <div className="text-right">
-                          <div className="font-bold text-2xl">€4,890</div>
-                          <div className="text-sm text-muted-foreground">6-month average</div>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                  <Card className="p-6">
-                    <h4 className="text-lg font-semibold mb-4">Budget Performance</h4>
-                    <div className="space-y-4">
-                      {[
-                        { category: "Office", budget: 1500, spent: 1234, color: "green" },
-                        { category: "Travel", budget: 1200, spent: 987, color: "green" },
-                        { category: "Software", budget: 800, spent: 756, color: "orange" },
-                        { category: "Marketing", budget: 1000, spent: 1150, color: "red" }
-                      ].map((item, index) => (
-                        <div key={index} className="space-y-2">
-                          <div className="flex justify-between items-center">
-                            <span className="font-medium">{item.category}</span>
-                            <span className="text-sm text-muted-foreground">
-                              €{item.spent} / €{item.budget}
-                            </span>
-                          </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div 
-                              className={`h-2 rounded-full ${
-                                item.color === 'green' ? 'bg-green-500' :
-                                item.color === 'orange' ? 'bg-orange-500' : 'bg-red-500'
-                              }`}
-                              style={{ width: `${Math.min((item.spent / item.budget) * 100, 100)}%` }}
-                            ></div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </Card>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              What Our Customers Say
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-orange-600 text-orange-600" />
+                  ))}
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  "{testimonial.text}"
+                </p>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-500">{testimonial.company}</div>
                 </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section with Yellow Background */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width">
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         {/* Floating sparkle animations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
@@ -501,33 +362,34 @@ export default function FeatureExpenses() {
         </div>
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="space-y-8 fade-in">
-            <h2 className="text-4xl font-bold text-black animate-professional-fade tracking-tight leading-tight">
-              Ready to <span className="animate-subtle-gradient">organize your expenses?</span>
-            </h2>
-            <p className="text-xl text-black leading-relaxed font-medium">
-              Join thousands of businesses using our expense tracking to save time and money at tax season
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button 
-                size="lg" 
-                className="bg-black hover:bg-gray-800 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
-                onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
-              >
-                Start Free Trial
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-black hover:bg-gray-800 text-white border-2 border-black px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
-                onClick={() => window.location.href = "/subscribe"}
-              >
-                Buy Now
-              </Button>
-            </div>
+          <h2 className="text-4xl md:text-5xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight">
+            Ready to <span className="animate-subtle-gradient">Organize Your Expenses?</span>
+          </h2>
+          <p className="text-xl text-black mb-8 leading-relaxed">
+            Join thousands of businesses using BusinessFlow Pro to streamline expense management, maximize tax deductions, and gain valuable spending insights.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/trial"}
+            >
+              Start Your Trial
+            </Button>
+            
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/subscribe"}
+            >
+              Buy Now
+            </Button>
+          </div>
+          
+          <div className="mt-8 text-black opacity-70 text-sm">
+            14-day free trial • No credit card required • Cancel anytime
           </div>
         </div>
       </section>
-      </div>
     </div>
   );
 }

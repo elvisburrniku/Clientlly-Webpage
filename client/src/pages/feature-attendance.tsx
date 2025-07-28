@@ -1,330 +1,395 @@
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Clock, Users, MapPin, CheckCircle, Calendar, BarChart3, Smartphone, Wifi, WifiOff, Bell, Target } from "lucide-react";
+import { useState } from 'react';
+import { useLocation } from 'wouter';
+import { ArrowLeft, Clock, Users, MapPin, CheckCircle, Calendar, BarChart3, Smartphone, Wifi, WifiOff, Bell, Target, Star, UserCheck, TrendingUp } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function FeatureAttendance() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
-      {/* Background Elements */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      </div>
+  const [activeTab, setActiveTab] = useState('overview');
+  const [, setLocation] = useLocation();
 
+  const features = [
+    {
+      icon: <Clock className="h-6 w-6" />,
+      title: "GPS Time Tracking",
+      description: "Accurate time tracking with GPS verification to ensure employees clock in from designated locations"
+    },
+    {
+      icon: <Smartphone className="h-6 w-6" />,
+      title: "Mobile App Support",
+      description: "Comprehensive mobile app for iOS and Android with offline mode and automatic sync capabilities"
+    },
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: "Team Management",
+      description: "Manage multiple teams, departments, and shifts with customizable attendance policies and workflows"
+    },
+    {
+      icon: <MapPin className="h-6 w-6" />,
+      title: "Geofencing",
+      description: "Set virtual boundaries for work locations with automatic attendance tracking when employees enter or exit"
+    },
+    {
+      icon: <BarChart3 className="h-6 w-6" />,
+      title: "Analytics Dashboard",
+      description: "Comprehensive reporting on attendance patterns, overtime hours, and workforce productivity metrics"
+    },
+    {
+      icon: <Bell className="h-6 w-6" />,
+      title: "Smart Notifications",
+      description: "Automated alerts for late arrivals, missed punches, and overtime thresholds with custom notification rules"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Jennifer Martinez",
+      company: "Construction Plus",
+      rating: 5,
+      text: "The GPS tracking has eliminated time theft completely. We've seen a 20% improvement in productivity since implementing BusinessFlow Pro's attendance system."
+    },
+    {
+      name: "David Kim",
+      company: "Field Services Corp",
+      rating: 5,
+      text: "Perfect for our remote workforce. The geofencing feature ensures our technicians are at the right job sites, and the mobile app works flawlessly offline."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
+      <nav className="border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3 group transition-all duration-300">
-              <div className="relative overflow-hidden rounded-lg">
-                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
-                  <img 
-                    src="/attached_assets/3d_1753268267691.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-12 h-9 object-contain logo-simple cursor-pointer"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 to-emerald-500/0 group-hover:from-green-500/15 group-hover:to-emerald-500/15 transition-all duration-500 rounded-lg"></div>
-              </div>
-            </Link>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => {
-                window.location.href = "/";
-                setTimeout(() => {
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }, 100);
-              }}
-              className="px-2 sm:px-3"
-            >
-              <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-              <span className="text-sm sm:text-base">Back</span>
-            </Button>
+            <div className="flex items-center space-x-4">
+              <a 
+                href="/#business-overview"
+                className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to Features</span>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl flex items-center justify-center shadow-2xl">
-              <Clock className="h-10 w-10 text-white" />
+      {/* Hero Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-medium mb-6">
+              <UserCheck className="h-5 w-5 mr-2 animate-pulse text-green-600" />
+              Smart Workforce Management
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight pb-2">
+              Smart <span className="animate-subtle-gradient">Attendance</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-black mb-8 max-w-3xl mx-auto leading-relaxed">
+              GPS tracking and workforce management with mobile app support, geofencing, and comprehensive analytics for modern teams
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                GPS Tracking
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Mobile App
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Geofencing
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Team Management
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Analytics
+              </div>
             </div>
           </div>
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">
-            Smart <span className="animate-subtle-gradient">Attendance</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Modern time tracking and attendance management with GPS location, offline support, and comprehensive reporting for remote and office teams.
-          </p>
         </div>
+      </section>
 
-        {/* Professional Business Photo */}
-        <div className="mb-16 flex justify-center">
-          <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2084&q=80"
-              alt="Modern workplace with team attendance tracking on mobile devices"
-              className="rounded-3xl shadow-2xl max-w-4xl w-full h-auto border border-border/20"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-3xl"></div>
-            <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg">
-              <div className="flex items-center space-x-4">
-                <div className="text-center">
-                  <div className="text-xl font-bold text-green-600">98.7%</div>
-                  <div className="text-xs text-gray-600">Attendance Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl font-bold text-blue-600">247</div>
-                  <div className="text-xs text-gray-600">Team Members</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-xl font-bold text-purple-600">12</div>
-                  <div className="text-xs text-gray-600">Locations</div>
+      {/* Features Grid */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Complete Attendance Solution
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to track time, manage teams, and optimize workforce productivity
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="group relative">
+                <div className="h-full p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl text-white mr-4">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {feature.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tabbed Interface */}
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              Attendance Management Features
+            </h2>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <nav className="flex space-x-8 px-6">
+                {[
+                  { id: 'overview', label: 'Overview', icon: BarChart3 },
+                  { id: 'tracking', label: 'Time Tracking', icon: Clock },
+                  { id: 'teams', label: 'Team Management', icon: Users },
+                  { id: 'mobile', label: 'Mobile App', icon: Smartphone }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                      activeTab === tab.id
+                        ? 'border-blue-500 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <tab.icon className="h-4 w-4 mr-2" />
+                      {tab.label}
+                    </div>
+                  </button>
+                ))}
+              </nav>
+            </div>
+
+            <div className="p-6">
+              {activeTab === 'overview' && (
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-blue-600 mb-2">247</div>
+                      <div className="text-gray-600 dark:text-gray-300">Active Employees</div>
+                    </div>
+                    <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-green-600 mb-2">98.5%</div>
+                      <div className="text-gray-600 dark:text-gray-300">Attendance Rate</div>
+                    </div>
+                    <div className="bg-orange-50 dark:bg-orange-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-orange-600 mb-2">2.1h</div>
+                      <div className="text-gray-600 dark:text-gray-300">Avg Daily Overtime</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'tracking' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Today's Attendance</h3>
+                  <div className="grid gap-4">
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Sarah Johnson</div>
+                          <div className="text-sm text-gray-600">Marketing Manager</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">8:30 AM - 5:15 PM</div>
+                          <div className="text-sm text-green-600">Present</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Michael Chen</div>
+                          <div className="text-sm text-gray-600">Sales Representative</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">9:15 AM - In Progress</div>
+                          <div className="text-sm text-orange-600">Late Arrival</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'teams' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Team Performance</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Marketing Team</span>
+                        <span className="font-semibold">95% attendance</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Sales Team</span>
+                        <span className="font-semibold">98% attendance</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Development Team</span>
+                        <span className="font-semibold">97% attendance</span>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Average Work Hours</span>
+                        <span className="font-semibold">8.2 hours/day</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Overtime Hours</span>
+                        <span className="font-semibold">12.5 hours/week</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Productivity Score</span>
+                        <span className="font-semibold">94%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'mobile' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Mobile App Features</h3>
+                  <div className="grid gap-4">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <Smartphone className="h-5 w-5 text-blue-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-blue-800">iOS & Android Apps</div>
+                          <div className="text-sm text-blue-600">Native mobile apps with offline support</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <MapPin className="h-5 w-5 text-green-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-green-800">GPS Verification</div>
+                          <div className="text-sm text-green-600">Location-based clock in/out with geofencing</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <WifiOff className="h-5 w-5 text-orange-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-orange-800">Offline Mode</div>
+                          <div className="text-sm text-orange-600">Works without internet, syncs when connected</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Sample Attendance Report */}
-        <div className="mb-16 grid md:grid-cols-2 gap-8">
-          <Card className="p-6 hover:shadow-xl transition-all duration-300">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold mb-2">Weekly Attendance Summary</h3>
-              <Badge className="bg-green-100 text-green-700">March 18-24, 2024</Badge>
-            </div>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                <span className="font-medium">Present Days</span>
-                <span className="font-bold text-green-600">1,247</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
-                <span>Absent Days</span>
-                <span className="font-semibold text-red-600">23</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                <span>Late Arrivals</span>
-                <span className="font-semibold text-yellow-600">45</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                <span>Overtime Hours</span>
-                <span className="font-semibold text-blue-600">127.5</span>
-              </div>
-              <div className="border-t pt-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Efficiency Score</span>
-                  <span className="text-sm font-bold text-green-600">94.2%</span>
-                </div>
-              </div>
-            </div>
-          </Card>
+      {/* Customer Testimonials */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              What Our Customers Say
+            </h2>
+          </div>
 
-          <Card className="p-6 hover:shadow-xl transition-all duration-300">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold mb-2">Top Performers</h3>
-              <Badge className="bg-purple-100 text-purple-700">This Month</Badge>
-            </div>
-            <div className="space-y-4">
-              <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white text-xs font-bold">SJ</div>
-                  <div>
-                    <div className="font-medium text-sm">Sarah Johnson</div>
-                    <div className="text-xs text-muted-foreground">Perfect Attendance</div>
-                  </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-orange-600 text-orange-600" />
+                  ))}
                 </div>
-                <span className="font-bold text-indigo-600">100%</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold">MR</div>
-                  <div>
-                    <div className="font-medium text-sm">Mike Rodriguez</div>
-                    <div className="text-xs text-muted-foreground">Always On Time</div>
-                  </div>
-                </div>
-                <span className="font-bold text-green-600">98.9%</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">AL</div>
-                  <div>
-                    <div className="font-medium text-sm">Anna Lee</div>
-                    <div className="text-xs text-muted-foreground">Consistent Performance</div>
-                  </div>
-                </div>
-                <span className="font-bold text-purple-600">97.8%</span>
-              </div>
-              <div className="border-t pt-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">Team Average</span>
-                  <span className="text-sm font-bold text-green-600">95.4%</span>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  "{testimonial.text}"
+                </p>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-500">{testimonial.company}</div>
                 </div>
               </div>
-            </div>
-          </Card>
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* Key Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-green-200/50 dark:border-green-700/50">
-            <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                <MapPin className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">GPS Time Tracking</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Accurate location-based check-ins and check-outs with GPS verification, geofencing, and automatic location detection for field teams.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-emerald-200/50 dark:border-emerald-700/50">
-            <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                <WifiOff className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Offline Mode</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Continue tracking time even without internet connection. Data syncs automatically when connection is restored.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-teal-200/50 dark:border-teal-700/50">
-            <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                <BarChart3 className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Analytics Dashboard</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Comprehensive attendance reports, overtime tracking, productivity insights, and team performance analytics.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-blue-200/50 dark:border-blue-700/50">
-            <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                <Smartphone className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Mobile App</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Native mobile apps for iOS and Android with biometric authentication, quick check-in/out, and real-time notifications.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-purple-200/50 dark:border-purple-700/50">
-            <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                <Users className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Team Management</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Manage multiple teams, shifts, and departments with custom attendance policies, approval workflows, and role-based access.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-orange-200/50 dark:border-orange-700/50">
-            <CardContent className="p-8">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                <Bell className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Smart Notifications</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Automated reminders for check-in/out, break time alerts, overtime notifications, and schedule change updates.
-              </p>
-            </CardContent>
-          </Card>
+      {/* CTA Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
         </div>
-
-        {/* Benefits Section */}
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-3xl p-12 mb-16">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
-            Transform Your <span className="text-green-600">Workforce Management</span>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight">
+            Ready to <span className="animate-subtle-gradient">Transform Your Attendance?</span>
           </h2>
+          <p className="text-xl text-black mb-8 leading-relaxed">
+            Join thousands of businesses using BusinessFlow Pro to eliminate time theft, improve productivity, and streamline workforce management.
+          </p>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <CheckCircle className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Accurate Time Tracking</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Eliminate time theft and buddy punching with GPS verification and biometric authentication.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <CheckCircle className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Compliance Ready</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Meet labor law requirements with detailed records, overtime calculations, and audit trails.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <CheckCircle className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Payroll Integration</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Seamlessly export time data to popular payroll systems with accurate hours and overtime calculations.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <img 
-                src="/attached_assets/3d_1753189580286.png" 
-                alt="Team Attendance Dashboard" 
-                className="rounded-2xl shadow-xl"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-12 shadow-xl">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Start Managing Attendance Smarter
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of businesses using our smart attendance system to improve productivity and ensure compliance.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
-              size="lg"
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
               onClick={() => window.location.href = "/trial"}
-              style={{outline: 'none', boxShadow: 'none'}}
             >
-              Start Free Trial
+              Start Your Trial
             </Button>
+            
             <Button 
-              size="lg"
-              variant="outline"
-              className="border-green-500 text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 px-8 py-3"
-              onClick={() => window.location.href = "/demo"}
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/subscribe"}
             >
-              Request Demo
+              Buy Now
             </Button>
           </div>
+          
+          <div className="mt-8 text-black opacity-70 text-sm">
+            14-day free trial • No credit card required • Cancel anytime
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

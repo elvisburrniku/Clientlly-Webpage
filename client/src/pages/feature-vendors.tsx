@@ -1,290 +1,399 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Building2, FileText, DollarSign, BarChart3, Truck, Shield, Clock, CheckCircle, TrendingUp, Package, Calculator } from "lucide-react";
+import { useState } from 'react';
+import { useLocation } from 'wouter';
+import { ArrowLeft, Users, Package, FileText, Euro, TrendingUp, Calendar, CheckCircle, Truck, BarChart3, Star, Building, Phone, Mail, Shield, Award } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function FeatureVendors() {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [, setLocation] = useLocation();
+
+  const features = [
+    {
+      icon: <Users className="h-6 w-6" />,
+      title: "Supplier Database",
+      description: "Comprehensive vendor profiles with contact information, payment terms, and performance history tracking"
+    },
+    {
+      icon: <FileText className="h-6 w-6" />,
+      title: "Purchase Orders",
+      description: "Create, send, and track purchase orders with automated approval workflows and delivery tracking"
+    },
+    {
+      icon: <Euro className="h-6 w-6" />,
+      title: "Payment Management",
+      description: "Track vendor payments, manage payment terms, and maintain Euro-based financial records"
+    },
+    {
+      icon: <TrendingUp className="h-6 w-6" />,
+      title: "Performance Analytics",
+      description: "Monitor vendor performance with delivery times, quality metrics, and cost analysis reports"
+    },
+    {
+      icon: <Truck className="h-6 w-6" />,
+      title: "Delivery Tracking",
+      description: "Real-time tracking of orders from placement to delivery with automated status updates"
+    },
+    {
+      icon: <BarChart3 className="h-6 w-6" />,
+      title: "Cost Analysis",
+      description: "Detailed spending analysis by vendor, category, and time period with Euro currency support"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Maria Rodriguez",
+      company: "Global Manufacturing",
+      rating: 5,
+      text: "The vendor management system has transformed our supplier relationships. We've reduced procurement costs by 25% and improved delivery times significantly."
+    },
+    {
+      name: "James Wilson",
+      company: "Tech Solutions Ltd",
+      rating: 5,
+      text: "Outstanding purchase order management. The automated workflows have eliminated manual errors and streamlined our entire procurement process."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Navigation */}
-      <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50">
+      <nav className="border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => {
-                  window.location.href = "/";
-                  setTimeout(() => {
-                    const featuresSection = document.getElementById('features');
-                    if (featuresSection) {
-                      featuresSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }, 100);
-                }}
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white px-2 sm:px-3"
+              <a 
+                href="/#business-overview"
+                className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
               >
-                <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-                <span className="text-sm sm:text-base">Back</span>
-              </Button>
-            </div>
-            <div className="flex items-center space-x-2 sm:space-x-3 group transition-all duration-300">
-              <div className="relative overflow-hidden rounded-lg">
-                <div className="bg-white dark:bg-transparent p-1 rounded-lg">
-                  <img 
-                    src="/attached_assets/3d_1753268267691.png" 
-                    alt="BusinessFlow Pro" 
-                    className="w-10 h-8 sm:w-12 sm:h-9 object-contain logo-simple cursor-pointer"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 to-orange-500/0 group-hover:from-amber-500/15 group-hover:to-orange-500/15 transition-all duration-500 rounded-lg"></div>
-              </div>
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to Features</span>
+              </a>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-10 sm:py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      {/* Hero Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
         </div>
         
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl mb-6 sm:mb-8 shadow-xl">
-              <Building2 className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-medium mb-6">
+              <Building className="h-5 w-5 mr-2 animate-pulse text-green-600" />
+              Professional Vendor Management
             </div>
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-6 tracking-tight leading-tight animate-professional-fade">
-              <span className="animate-subtle-gradient">
-                Vendor Management
-              </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight pb-2">
+              <span className="animate-subtle-gradient">Vendor</span> Management
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Streamline your supply chain and vendor relationships with powerful tools for procurement, tracking, and performance management.
+            <p className="text-xl md:text-2xl text-black mb-8 max-w-3xl mx-auto leading-relaxed">
+              Streamline supplier relationships with comprehensive vendor tracking, purchase order management, and performance analytics
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Supplier Database
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Purchase Orders
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Performance Analytics
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Cost Management
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Delivery Tracking
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Complete Vendor Management Suite
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to manage suppliers, track purchases, and optimize vendor relationships
             </p>
           </div>
 
-          {/* Professional Vendor Management Photo */}
-          <div className="mb-20">
-            <Card className="overflow-hidden shadow-2xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-              <CardContent className="p-0 relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2126&q=80"
-                  alt="Professional vendor management and supply chain coordination meeting"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg max-w-sm">
-                  <h4 className="font-bold text-gray-800 mb-2">Vendor Performance</h4>
-                  <div className="flex items-center space-x-4">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-amber-600">127</div>
-                      <div className="text-xs text-gray-600">Active Vendors</div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="group relative">
+                <div className="h-full p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl text-white mr-4">
+                      {feature.icon}
                     </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">96.2%</div>
-                      <div className="text-xs text-gray-600">On-time Rate</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-orange-600">$2.4M</div>
-                      <div className="text-xs text-gray-600">Annual Spend</div>
-                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {feature.title}
+                    </h3>
                   </div>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* Sample Vendor Reports */}
-          <div className="mb-20 grid md:grid-cols-2 gap-8">
-            <Card className="p-6 hover:shadow-xl transition-all duration-300">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold mb-2">Top Vendors by Spend</h3>
-                <Badge className="bg-amber-100 text-amber-700">Q1 2024</Badge>
-              </div>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-amber-50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-amber-600 rounded-full flex items-center justify-center text-white text-xs font-bold">TS</div>
-                    <div>
-                      <div className="font-medium text-sm">TechSource Solutions</div>
-                      <div className="text-xs text-muted-foreground">IT Equipment</div>
-                    </div>
-                  </div>
-                  <span className="font-bold text-amber-600">$287,500</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold">OS</div>
-                    <div>
-                      <div className="font-medium text-sm">Office Solutions Inc</div>
-                      <div className="text-xs text-muted-foreground">Office Supplies</div>
-                    </div>
-                  </div>
-                  <span className="font-bold text-green-600">$156,200</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">MS</div>
-                    <div>
-                      <div className="font-medium text-sm">Marketing Services Co</div>
-                      <div className="text-xs text-muted-foreground">Professional Services</div>
-                    </div>
-                  </div>
-                  <span className="font-bold text-blue-600">$134,800</span>
-                </div>
-                <div className="border-t pt-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Cost Savings vs Budget</span>
-                    <span className="text-sm font-bold text-green-600">-8.7%</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-6 hover:shadow-xl transition-all duration-300">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold mb-2">Purchase Order Status</h3>
-                <Badge className="bg-blue-100 text-blue-700">This Month</Badge>
-              </div>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                    <span className="font-medium">Delivered</span>
-                  </div>
-                  <span className="font-bold text-green-600">89</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <Truck className="h-4 w-4 text-blue-600" />
-                    <span className="font-medium">In Transit</span>
-                  </div>
-                  <span className="font-bold text-blue-600">23</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <Clock className="h-4 w-4 text-yellow-600" />
-                    <span className="font-medium">Pending</span>
-                  </div>
-                  <span className="font-bold text-yellow-600">12</span>
-                </div>
-                <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                  <div className="flex items-center space-x-2">
-                    <Package className="h-4 w-4 text-orange-600" />
-                    <span className="font-medium">Processing</span>
-                  </div>
-                  <span className="font-bold text-orange-600">7</span>
-                </div>
-                <div className="border-t pt-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Average Lead Time</span>
-                    <span className="text-sm font-bold text-green-600">7.2 days</span>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-amber-200/50 dark:border-amber-700/50">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                  <FileText className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Supplier Profiles</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Comprehensive vendor database with contact information, certifications, contracts, payment terms, and performance history.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-orange-200/50 dark:border-orange-700/50">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                  <Package className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Purchase Orders</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Create, track, and manage purchase orders with automated approval workflows and real-time delivery tracking.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-green-200/50 dark:border-green-700/50">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                  <DollarSign className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Payment Management</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Streamline vendor payments with automated scheduling, multi-currency support, and comprehensive payment tracking.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-blue-200/50 dark:border-blue-700/50">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                  <BarChart3 className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Performance Analytics</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Monitor vendor performance with detailed analytics on delivery times, quality metrics, and cost effectiveness.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-purple-200/50 dark:border-purple-700/50">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Compliance Tracking</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Ensure vendor compliance with certifications, insurance requirements, and regulatory standards tracking.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-indigo-200/50 dark:border-indigo-700/50">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform">
-                  <Calculator className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Cost Optimization</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Analyze spending patterns, negotiate better terms, and identify cost-saving opportunities across your vendor network.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Ready to optimize your vendor relationships?
+      {/* Tabbed Interface */}
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              Vendor Management Features
             </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-                onClick={() => window.location.href = "/api/login"}
-              >
-                Start Free Trial
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white px-8 py-4 text-lg font-semibold"
-                onClick={() => window.location.href = "/#contact"}
-              >
-                Learn More
-              </Button>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <nav className="flex space-x-8 px-6">
+                {[
+                  { id: 'overview', label: 'Overview', icon: BarChart3 },
+                  { id: 'orders', label: 'Purchase Orders', icon: FileText },
+                  { id: 'performance', label: 'Performance', icon: TrendingUp },
+                  { id: 'analytics', label: 'Analytics', icon: BarChart3 }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                      activeTab === tab.id
+                        ? 'border-blue-500 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <tab.icon className="h-4 w-4 mr-2" />
+                      {tab.label}
+                    </div>
+                  </button>
+                ))}
+              </nav>
             </div>
+
+            <div className="p-6">
+              {activeTab === 'overview' && (
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-blue-600 mb-2">247</div>
+                      <div className="text-gray-600 dark:text-gray-300">Active Vendors</div>
+                    </div>
+                    <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-green-600 mb-2">€48,750</div>
+                      <div className="text-gray-600 dark:text-gray-300">Monthly Spend</div>
+                    </div>
+                    <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-purple-600 mb-2">96%</div>
+                      <div className="text-gray-600 dark:text-gray-300">On-Time Delivery</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'orders' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Purchase Order Management</h3>
+                  <div className="grid gap-4">
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">PO-2024-001</div>
+                          <div className="text-sm text-gray-600">Office Supplies Ltd</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">€2,450.00</div>
+                          <div className="text-sm text-green-600">Delivered</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">PO-2024-002</div>
+                          <div className="text-sm text-gray-600">Tech Equipment Inc</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">€8,750.00</div>
+                          <div className="text-sm text-orange-600">In Transit</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'performance' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Vendor Performance Metrics</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Quality Rating</span>
+                        <span className="font-semibold">4.8/5.0</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Delivery Performance</span>
+                        <span className="font-semibold">96%</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Cost Efficiency</span>
+                        <span className="font-semibold">92%</span>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Response Time</span>
+                        <span className="font-semibold">2.3 hours</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Payment Terms</span>
+                        <span className="font-semibold">Net 30</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Contract Compliance</span>
+                        <span className="font-semibold">98%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'analytics' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Spending Analytics</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                      <h4 className="font-semibold mb-4">Top Vendors by Spend</h4>
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span>Office Supplies Ltd</span>
+                          <span>€12,450</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Tech Equipment Inc</span>
+                          <span>€8,750</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Manufacturing Co</span>
+                          <span>€6,320</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                      <h4 className="font-semibold mb-4">Expense Categories</h4>
+                      <div className="space-y-2">
+                        <div className="flex justify-between">
+                          <span>Office Supplies</span>
+                          <span>€15,200</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Equipment</span>
+                          <span>€8,750</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Services</span>
+                          <span>€4,500</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              What Our Customers Say
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-orange-600 text-orange-600" />
+                  ))}
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  "{testimonial.text}"
+                </p>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-500">{testimonial.company}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight">
+            Ready to <span className="animate-subtle-gradient">Streamline Your Vendors?</span>
+          </h2>
+          <p className="text-xl text-black mb-8 leading-relaxed">
+            Join thousands of businesses using BusinessFlow Pro to optimize their vendor relationships and reduce procurement costs.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/trial"}
+            >
+              Start Your Trial
+            </Button>
+            
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/subscribe"}
+            >
+              Buy Now
+            </Button>
+          </div>
+          
+          <div className="mt-8 text-black opacity-70 text-sm">
+            14-day free trial • No credit card required • Cancel anytime
           </div>
         </div>
       </section>

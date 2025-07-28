@@ -1,48 +1,81 @@
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, CreditCard, AlertTriangle, TrendingDown, Calendar, Target, BarChart3, CheckCircle, Zap, Shield, Clock } from "lucide-react";
+import { useState } from 'react';
+import { useLocation } from 'wouter';
+import { ArrowLeft, CreditCard, AlertTriangle, TrendingDown, Calendar, Target, BarChart3, CheckCircle, Shield, Star, DollarSign, Calculator } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function FeatureDebt() {
+  const [activeTab, setActiveTab] = useState('overview');
+  const [, setLocation] = useLocation();
+
+  const features = [
+    {
+      icon: <CreditCard className="h-6 w-6" />,
+      title: "Debt Tracking",
+      description: "Track all business debts including loans, credit cards, and vendor payments with automatic updates"
+    },
+    {
+      icon: <Calendar className="h-6 w-6" />,
+      title: "Payment Scheduling",
+      description: "Smart payment scheduling with automated reminders and optimal payment timing recommendations"
+    },
+    {
+      icon: <TrendingDown className="h-6 w-6" />,
+      title: "Debt Reduction Plans",
+      description: "Strategic debt reduction planning with snowball and avalanche methods for faster payoff"
+    },
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: "Interest Optimization",
+      description: "Minimize interest payments with intelligent payment allocation and refinancing opportunities"
+    },
+    {
+      icon: <BarChart3 className="h-6 w-6" />,
+      title: "Financial Analytics",
+      description: "Comprehensive debt analysis with cash flow impact and financial health scoring"
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: "Credit Monitoring",
+      description: "Monitor business credit scores and receive alerts for opportunities to improve financial standing"
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "Robert Chen",
+      company: "Manufacturing Co",
+      rating: 5,
+      text: "BusinessFlow Pro helped us reduce our debt by 40% in just 18 months. The strategic payment planning saved us thousands in interest payments."
+    },
+    {
+      name: "Lisa Garcia",
+      company: "Retail Solutions",
+      rating: 5,
+      text: "The debt tracking and automated reminders keep us on top of all payments. We've improved our credit score and cash flow significantly."
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
-      {/* Background Elements */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      
-
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
+      <nav className="border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => {
-                window.location.href = "/";
-                setTimeout(() => {
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }, 100);
-              }}
-              className="flex items-center space-x-2 px-3"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              <span>Back to Features</span>
-            </Button>
-
+            <div className="flex items-center space-x-4">
+              <a 
+                href="/#business-overview"
+                className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to Features</span>
+              </a>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width">
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         {/* Floating sparkle animations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
@@ -50,210 +83,290 @@ export default function FeatureDebt() {
           <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
           <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
           <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
-          <div className="absolute top-3/4 left-1/5 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '2.5s'}}></div>
         </div>
         
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <div className="space-y-8">
-            <div className="space-y-4 fade-in">
-
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm border border-white/30 rounded-3xl flex items-center justify-center shadow-2xl">
-                  <CreditCard className="h-10 w-10 text-black" />
-                </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-medium mb-6">
+              <CreditCard className="h-5 w-5 mr-2 animate-pulse text-red-600" />
+              Strategic Debt Management
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight pb-2">
+              Debt <span className="animate-subtle-gradient">Management</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-black mb-8 max-w-3xl mx-auto leading-relaxed">
+              Take control of your business finances with comprehensive debt tracking, payment scheduling, and strategic reduction planning
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Debt Tracking
               </div>
-              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 tracking-tight leading-tight animate-professional-fade">
-                Debt <span className="animate-subtle-gradient">Management</span>
-              </h1>
-              <p className="text-xl text-black font-medium leading-relaxed max-w-3xl mx-auto">
-                Take control of your business finances with comprehensive debt tracking, payment scheduling, and strategic debt reduction planning.
-              </p>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Payment Scheduling
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Reduction Plans
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Credit Monitoring
+              </div>
+              <div className="flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-black">
+                <CheckCircle className="h-5 w-5 mr-2 text-green-600" />
+                Analytics
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
-        {/* Feature Image */}
-        <div className="mb-16 flex justify-center">
-          <div className="relative">
-            <img 
-              src="/attached_assets/image_1752932269458.png" 
-              alt="Debt Management Dashboard" 
-              className="rounded-3xl shadow-2xl max-w-4xl w-full hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute top-4 right-4 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+      {/* Features Grid */}
+      <section className="py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Complete Debt Solution
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to manage, optimize, and eliminate business debt effectively
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="group relative">
+                <div className="h-full p-8 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl text-white mr-4">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {feature.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        {/* Key Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-red-200">
-            <CardContent className="p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform duration-300">
-                <AlertTriangle className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">Debt Tracking</h3>
-              <p className="text-muted-foreground text-sm">
-                Monitor all business debts including loans, credit lines, supplier debts, and payment obligations in real-time.
-              </p>
-            </CardContent>
-          </Card>
+      {/* Tabbed Interface */}
+      <section className="py-20 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              Debt Management Features
+            </h2>
+          </div>
 
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-orange-200">
-            <CardContent className="p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform duration-300">
-                <Calendar className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">Payment Scheduling</h3>
-              <p className="text-muted-foreground text-sm">
-                Set up automated payment reminders and schedule recurring payments to never miss a debt payment deadline.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="border-b border-gray-200 dark:border-gray-700">
+              <nav className="flex space-x-8 px-6">
+                {[
+                  { id: 'overview', label: 'Overview', icon: BarChart3 },
+                  { id: 'tracking', label: 'Debt Tracking', icon: CreditCard },
+                  { id: 'planning', label: 'Reduction Plans', icon: Target },
+                  { id: 'payments', label: 'Payment Schedule', icon: Calendar }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                      activeTab === tab.id
+                        ? 'border-blue-500 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      <tab.icon className="h-4 w-4 mr-2" />
+                      {tab.label}
+                    </div>
+                  </button>
+                ))}
+              </nav>
+            </div>
 
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-green-200">
-            <CardContent className="p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform duration-300">
-                <TrendingDown className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">Reduction Strategies</h3>
-              <p className="text-muted-foreground text-sm">
-                Get AI-powered recommendations for debt consolidation, payment prioritization, and strategic reduction plans.
-              </p>
-            </CardContent>
-          </Card>
+            <div className="p-6">
+              {activeTab === 'overview' && (
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-red-600 mb-2">€87,500</div>
+                      <div className="text-gray-600 dark:text-gray-300">Total Debt</div>
+                    </div>
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-blue-600 mb-2">€2,340</div>
+                      <div className="text-gray-600 dark:text-gray-300">Monthly Payments</div>
+                    </div>
+                    <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-6">
+                      <div className="text-3xl font-black text-green-600 mb-2">24 mo</div>
+                      <div className="text-gray-600 dark:text-gray-300">Projected Payoff</div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-blue-200">
-            <CardContent className="p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform duration-300">
-                <BarChart3 className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">Financial Analytics</h3>
-              <p className="text-muted-foreground text-sm">
-                Comprehensive debt-to-income ratios, cash flow projections, and financial health scoring for better decisions.
-              </p>
-            </CardContent>
-          </Card>
+              {activeTab === 'tracking' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Active Debts</h3>
+                  <div className="grid gap-4">
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Business Credit Card</div>
+                          <div className="text-sm text-gray-600">15.99% APR • Min Payment: €450</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">€12,500</div>
+                          <div className="text-sm text-red-600">High Priority</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div className="font-semibold">Equipment Loan</div>
+                          <div className="text-sm text-gray-600">8.5% APR • Min Payment: €890</div>
+                        </div>
+                        <div className="text-right">
+                          <div className="font-semibold">€45,000</div>
+                          <div className="text-sm text-blue-600">On Track</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-purple-200">
-            <CardContent className="p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform duration-300">
-                <Target className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">Goal Setting</h3>
-              <p className="text-muted-foreground text-sm">
-                Set debt reduction goals, track progress with visual indicators, and celebrate milestones along the way.
-              </p>
-            </CardContent>
-          </Card>
+              {activeTab === 'planning' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Debt Reduction Strategy</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="p-4 bg-blue-50 rounded-lg">
+                        <h4 className="font-semibold text-blue-800 mb-2">Avalanche Method</h4>
+                        <p className="text-sm text-blue-600">Pay minimums on all debts, extra on highest interest rate</p>
+                        <div className="mt-2 text-blue-800 font-semibold">Interest Saved: €4,567</div>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="p-4 bg-green-50 rounded-lg">
+                        <h4 className="font-semibold text-green-800 mb-2">Snowball Method</h4>
+                        <p className="text-sm text-green-600">Pay minimums on all debts, extra on smallest balance</p>
+                        <div className="mt-2 text-green-800 font-semibold">Faster Motivation</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-indigo-200">
-            <CardContent className="p-6">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-6 transition-transform duration-300">
-                <Shield className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3">Credit Monitoring</h3>
-              <p className="text-muted-foreground text-sm">
-                Track business credit scores, monitor credit utilization, and receive alerts for credit report changes.
-              </p>
-            </CardContent>
-          </Card>
+              {activeTab === 'payments' && (
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Upcoming Payments</h3>
+                  <div className="grid gap-4">
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <AlertTriangle className="h-5 w-5 text-yellow-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-yellow-800">Business Credit Card - Due Tomorrow</div>
+                          <div className="text-sm text-yellow-600">€450 minimum payment required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <Calendar className="h-5 w-5 text-blue-600 mr-3" />
+                        <div>
+                          <div className="font-semibold text-blue-800">Equipment Loan - Due March 28</div>
+                          <div className="text-sm text-blue-600">€890 monthly payment scheduled</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Benefits Section */}
-        <div className="mb-16">
-          <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-12 tracking-tight leading-tight text-center animate-professional-fade">
-            Transform Your <span className="animate-subtle-gradient">Financial Health</span>
+      {/* Customer Testimonials */}
+      <section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+              What Our Customers Say
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-orange-600 text-orange-600" />
+                  ))}
+                </div>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  "{testimonial.text}"
+                </p>
+                <div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-500">{testimonial.company}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 animate-professional-fade text-black tracking-tight leading-tight">
+            Ready to <span className="animate-subtle-gradient">Take Control of Your Debt?</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Reduce Financial Stress</h3>
-                  <p className="text-muted-foreground text-sm">Get a clear overview of all debts and create manageable payment plans that fit your cash flow.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Zap className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Improve Cash Flow</h3>
-                  <p className="text-muted-foreground text-sm">Optimize payment timing and negotiate better terms to maintain healthy business operations.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Clock className="h-6 w-6 text-blue-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Save Time & Money</h3>
-                  <p className="text-muted-foreground text-sm">Automated tracking and strategic planning save hours of manual work and identify cost savings.</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <BarChart3 className="h-6 w-6 text-purple-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Better Credit Profile</h3>
-                  <p className="text-muted-foreground text-sm">Systematic debt management helps improve business credit scores and unlock better financing options.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Target className="h-6 w-6 text-red-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Strategic Growth</h3>
-                  <p className="text-muted-foreground text-sm">Free up capital for business investments by optimizing debt structure and payment strategies.</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Shield className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Financial Security</h3>
-                  <p className="text-muted-foreground text-sm">Build emergency reserves and create contingency plans for unexpected financial challenges.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA Section with Yellow Background */}
-        <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width -mx-4">
-          {/* Floating sparkle animations */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
-            <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
-            <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
-            <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
-            <div className="absolute top-3/4 left-1/5 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '2.5s'}}></div>
+          <p className="text-xl text-black mb-8 leading-relaxed">
+            Join thousands of businesses using BusinessFlow Pro to strategically manage debt, reduce interest payments, and improve financial health.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/trial"}
+            >
+              Start Your Trial
+            </Button>
+            
+            <Button 
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
+              onClick={() => window.location.href = "/subscribe"}
+            >
+              Buy Now
+            </Button>
           </div>
           
-          <div className="max-w-7xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl lg:text-5xl font-black text-black mb-4 animate-professional-fade">
-              Ready to <span className="animate-subtle-gradient">Take Control</span> of Your Debt?
-            </h2>
-            <p className="text-xl text-black font-medium leading-relaxed mb-8 max-w-3xl mx-auto">
-              Join thousands of businesses that have improved their financial health with our debt management tools.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
-                onClick={() => window.location.href = "/subscribe"}
-              >
-                Buy Now
-              </Button>
-              <Button 
-                size="lg" 
-                className="bg-black hover:bg-gray-800 text-white border-2 border-black px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
-                onClick={() => window.location.href = "/trial"}
-              >
-                Start Your Trial
-              </Button>
-            </div>
+          <div className="mt-8 text-black opacity-70 text-sm">
+            14-day free trial • No credit card required • Cancel anytime
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
