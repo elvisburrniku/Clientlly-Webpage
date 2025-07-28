@@ -19,16 +19,16 @@ const SUBSCRIPTION_PLANS = {
   basic: {
     id: "basic", 
     name: "Starter",
-    monthlyPrice: 2465, // €24.65 in cents
-    yearlyPrice: 23664, // €236.64 in cents (20% discount: €24.65 * 12 * 0.8)
+    monthlyPrice: 2000, // €20.00 in cents
+    yearlyPrice: 19200, // €192.00 in cents (20% discount: €20.00 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_BASIC_MONTHLY_PRICE_ID || "price_basic_monthly",
       yearly: process.env.STRIPE_BASIC_YEARLY_PRICE_ID || "price_basic_yearly"
     },
-    description: "Perfect for small businesses and freelancers",
+    description: "",
     features: [
       "**Up to 3 users**",
-      "**Up to 100 invoices/month**",
+      "**Up to 200 invoices/month**",
       "Professional invoicing & billing",
       "Advanced expense tracking & management", 
       "Complete CRM with contact management",
@@ -42,7 +42,7 @@ const SUBSCRIPTION_PLANS = {
     ],
     detailedFeatures: {
       invoicing: {
-        "Monthly invoices": "100",
+        "Monthly invoices": "200",
         "Custom templates": "3 templates",
         "Payment tracking": "✓",
         "Tax calculations": "Basic",
@@ -95,16 +95,17 @@ const SUBSCRIPTION_PLANS = {
   professional: {
     id: "professional",
     name: "Professional", 
-    monthlyPrice: 4165, // €41.65 in cents
-    yearlyPrice: 39984, // €399.84 in cents (20% discount: €41.65 * 12 * 0.8)
+    monthlyPrice: 3500, // €35.00 in cents
+    yearlyPrice: 33600, // €336.00 in cents (20% discount: €35.00 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID || "price_professional_monthly",
       yearly: process.env.STRIPE_PROFESSIONAL_YEARLY_PRICE_ID || "price_professional_yearly"
     },
-    description: "Ideal for growing businesses and teams",
+    description: "",
     features: [
       "**Up to 10 users**",
       "**Up to 500 invoices/month**",
+      "**Let's Grow Together: Free custom development**",
       "Professional invoicing & billing",
       "Advanced expense tracking & management", 
       "Complete CRM with contact management",
@@ -114,8 +115,7 @@ const SUBSCRIPTION_PLANS = {
       "Bank-level security & data protection",
       "24/7 customer support",
       "Mobile app access",
-      "API integrations",
-      "**Let's Grow Together:** Free custom development"
+      "API integrations"
     ],
     detailedFeatures: {
       invoicing: {
@@ -173,17 +173,18 @@ const SUBSCRIPTION_PLANS = {
   business: {
     id: "business",
     name: "Enterprise",
-    monthlyPrice: 7565, // €75.65 in cents
-    yearlyPrice: 72624, // €726.24 in cents (20% discount: €75.65 * 12 * 0.8)
+    monthlyPrice: 5000, // €50.00 in cents
+    yearlyPrice: 48000, // €480.00 in cents (20% discount: €50.00 * 12 * 0.8)
     stripePriceId: {
       monthly: process.env.STRIPE_BUSINESS_MONTHLY_PRICE_ID || "price_business_monthly",
       yearly: process.env.STRIPE_BUSINESS_YEARLY_PRICE_ID || "price_business_yearly"
     },
-    description: "For large teams and enterprises requiring maximum capabilities",
+    description: "",
     features: [
       "**Up to 50 users**",
       "**€1 per additional user after 50**",
       "**Unlimited invoices/month**",
+      "**Let's Grow Together: Priority custom development**",
       "Professional invoicing & billing",
       "Advanced expense tracking & management", 
       "Complete CRM with contact management",
@@ -193,8 +194,7 @@ const SUBSCRIPTION_PLANS = {
       "Bank-level security & data protection",
       "24/7 customer support",
       "Mobile app access",
-      "API integrations",
-      "**Let's Grow Together:** Priority custom development"
+      "API integrations"
     ],
     detailedFeatures: {
       invoicing: {

@@ -494,8 +494,8 @@ export default function Subscribe() {
                       {selectedCurrency === 'EUR' ? (
                         // For EUR, use direct Euro pricing instead of USD conversion
                         `€${((billingPeriod === 'monthly' ? 
-                          (plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65) : 
-                          (plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65)
+                          (plan.id === 'basic' ? 20.00 : plan.id === 'professional' ? 35.00 : 50.00) : 
+                          (plan.id === 'basic' ? 20.00 : plan.id === 'professional' ? 35.00 : 50.00)
                         )).toFixed(2)}`
                       ) : (
                         formatCurrency(
@@ -512,7 +512,7 @@ export default function Subscribe() {
                     {billingPeriod === 'yearly' && (
                       <div className="text-sm text-muted-foreground mb-2">
                         Billed {selectedCurrency === 'EUR' ? (
-                          `€${((plan.id === 'basic' ? 24.65 : plan.id === 'professional' ? 41.65 : 75.65) * 10).toFixed(2)}`
+                          `€${((plan.id === 'basic' ? 20.00 : plan.id === 'professional' ? 35.00 : 50.00) * 9.6).toFixed(2)}`
                         ) : (
                           formatCurrency(
                             convertPrice(price / 100, 'USD', selectedCurrency),
@@ -521,11 +521,7 @@ export default function Subscribe() {
                         )} yearly
                       </div>
                     )}
-                    <p className="text-muted-foreground">
-                      {plan.id === 'basic' && "Perfect for small businesses and freelancers"}
-                      {plan.id === 'professional' && "Ideal for growing businesses and teams"}
-                      {plan.id === 'business' && "For large teams and enterprises requiring maximum capabilities"}
-                    </p>
+
                   </div>
                   
                   <ul className="space-y-4 mb-8">
