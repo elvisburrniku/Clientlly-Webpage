@@ -141,24 +141,40 @@ export default function MobileApp() {
               
               {/* Download Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
+                {/* App Store Button - iOS Style */}
                 <Button 
-                  className="bg-black text-white hover:bg-gray-800 font-bold py-3 px-8 rounded-xl shadow-lg"
+                  className="bg-black text-white hover:bg-gray-800 font-bold py-3 px-8 rounded-xl shadow-lg flex items-center gap-3"
                   onClick={() => {
-                    // For demo purposes, show download started message
                     alert('Download started! BusinessFlow Pro will be installed shortly.');
                   }}
                 >
-                  <Download className="w-5 h-5 mr-2" />
-                  Install App
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
+                      <span className="text-black text-xs font-bold">A</span>
+                    </div>
+                    <div className="text-left">
+                      <div className="text-xs opacity-80">Download on the</div>
+                      <div className="text-sm font-bold">App Store</div>
+                    </div>
+                  </div>
                 </Button>
+                
+                {/* Google Play Button - Android Style */}
                 <Button 
-                  variant="outline" 
-                  className="border-2 border-black text-black hover:bg-black hover:text-white font-bold py-3 px-8 rounded-xl"
+                  className="bg-green-600 text-white hover:bg-green-700 font-bold py-3 px-8 rounded-xl shadow-lg flex items-center gap-3"
                   onClick={() => {
-                    alert('Added to wishlist! You\'ll be notified of updates.');
+                    alert('Download started! BusinessFlow Pro will be installed shortly.');
                   }}
                 >
-                  Add to Wishlist
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 bg-gradient-to-br from-blue-400 via-green-400 to-yellow-400 rounded-md flex items-center justify-center">
+                      <span className="text-white text-xs">▶</span>
+                    </div>
+                    <div className="text-left">
+                      <div className="text-xs opacity-80">GET IT ON</div>
+                      <div className="text-sm font-bold">Google Play</div>
+                    </div>
+                  </div>
                 </Button>
               </div>
             </div>
@@ -431,20 +447,40 @@ export default function MobileApp() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* App Store Download Button */}
             <Button 
-              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg"
-              onClick={() => window.location.href = "/trial"}
+              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg flex items-center gap-3"
+              onClick={() => {
+                alert('Download started! BusinessFlow Pro will be installed shortly.');
+              }}
             >
-              <Download className="w-5 h-5 mr-2" />
-              Start Free Trial
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                  <span className="text-black text-sm font-bold">A</span>
+                </div>
+                <div className="text-left">
+                  <div className="text-xs opacity-80">Download on the</div>
+                  <div className="text-base font-bold">App Store</div>
+                </div>
+              </div>
             </Button>
             
+            {/* Google Play Download Button */}
             <Button 
-              variant="outline" 
-              className="border-2 border-black text-black hover:bg-black hover:text-white font-bold py-4 px-8 text-lg rounded-xl"
-              onClick={() => window.location.href = "/subscribe"}
+              className="bg-green-600 text-white hover:bg-green-700 font-bold py-4 px-8 text-lg rounded-xl shadow-lg flex items-center gap-3"
+              onClick={() => {
+                alert('Download started! BusinessFlow Pro will be installed shortly.');
+              }}
             >
-              View Pricing
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-400 via-green-400 to-yellow-400 rounded-md flex items-center justify-center">
+                  <span className="text-white text-sm">▶</span>
+                </div>
+                <div className="text-left">
+                  <div className="text-xs opacity-80">GET IT ON</div>
+                  <div className="text-base font-bold">Google Play</div>
+                </div>
+              </div>
             </Button>
           </div>
           
