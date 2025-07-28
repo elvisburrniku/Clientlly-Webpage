@@ -660,9 +660,10 @@ Preferred communication style: Simple, everyday language.
 
 ✓ COMPLETED invoicing feature page navigation cleanup (July 28, 2025)
 ✓ Removed "Start Your Trial" and "Buy Now" buttons from invoicing feature page navigation bar
-✓ Updated "Back to Features" button to navigate directly to features section on landing page (/#features)
+✓ Updated "Back to Features" button to navigate directly to "Everything you need to run your business" section
+✓ Added "business-overview" ID to hero section containing main business overview content
+✓ Changed navigation target from /#features to /#business-overview for precise section targeting
 ✓ Streamlined navigation to focus on feature content without subscription prompts
-✓ Enhanced user experience by providing direct access to landing page features section
 
 ✓ COMPLETED comprehensive translation system for entire landing page (July 19, 2025)
 ✓ Implemented reactive language switching with global state management
