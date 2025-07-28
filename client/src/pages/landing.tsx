@@ -1048,29 +1048,34 @@ export default function Landing() {
                     </div>
                     
                     <div className="text-4xl font-bold gradient-text mb-1">
-                      {formatCurrency(
-                        convertPrice(
-                          (billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100,
-                          'USD',
+                      {selectedCurrency === 'EUR' ? (
+                        // Use actual API pricing data for EUR
+                        `€${((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100).toFixed(2)}`
+                      ) : (
+                        formatCurrency(
+                          convertPrice(
+                            (billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100,
+                            'USD',
+                            selectedCurrency
+                          ),
                           selectedCurrency
-                        ),
-                        selectedCurrency
+                        )
                       )}
                       <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className="text-sm text-muted-foreground mb-2">
-                        Billed {formatCurrency(
-                          convertPrice(plan.yearlyPrice / 100, 'USD', selectedCurrency),
-                          selectedCurrency
+                        Billed {selectedCurrency === 'EUR' ? (
+                          `€${(plan.yearlyPrice / 100).toFixed(2)}`
+                        ) : (
+                          formatCurrency(
+                            convertPrice(plan.yearlyPrice / 100, 'USD', selectedCurrency),
+                            selectedCurrency
+                          )
                         )} yearly
                       </div>
                     )}
-                    <p className="text-muted-foreground">
-                      {plan.id === 'basic' && "Perfect for freelancers and small teams"}
-                      {plan.id === 'professional' && "Ideal for growing businesses"}
-                      {plan.id === 'business' && "For large teams and enterprises"}
-                    </p>
+
                   </div>
                   
                   <ul className="space-y-4 mb-8">

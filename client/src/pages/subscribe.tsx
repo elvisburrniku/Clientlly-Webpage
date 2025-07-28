@@ -492,11 +492,8 @@ export default function Subscribe() {
                     
                     <div className="text-4xl font-bold gradient-text mb-1">
                       {selectedCurrency === 'EUR' ? (
-                        // For EUR, use direct Euro pricing instead of USD conversion
-                        `€${((billingPeriod === 'monthly' ? 
-                          (plan.id === 'basic' ? 20.00 : plan.id === 'professional' ? 35.00 : 50.00) : 
-                          (plan.id === 'basic' ? 20.00 : plan.id === 'professional' ? 35.00 : 50.00)
-                        )).toFixed(2)}`
+                        // Use actual API pricing data
+                        `€${((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100).toFixed(2)}`
                       ) : (
                         formatCurrency(
                           convertPrice(
@@ -512,7 +509,7 @@ export default function Subscribe() {
                     {billingPeriod === 'yearly' && (
                       <div className="text-sm text-muted-foreground mb-2">
                         Billed {selectedCurrency === 'EUR' ? (
-                          `€${((plan.id === 'basic' ? 20.00 : plan.id === 'professional' ? 35.00 : 50.00) * 9.6).toFixed(2)}`
+                          `€${(plan.yearlyPrice / 100).toFixed(2)}`
                         ) : (
                           formatCurrency(
                             convertPrice(price / 100, 'USD', selectedCurrency),
