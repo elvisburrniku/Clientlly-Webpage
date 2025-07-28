@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useLocation } from 'wouter';
 import { ArrowLeft, FileText, Clock, DollarSign, Euro, Users, CheckCircle, Send, CreditCard, Calendar, TrendingUp, BarChart3, Star, PlayCircle, Eye, Filter, Plus, Download, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import invoiceIndexImage from '@assets/faturat index_1753697333049.jpg';
 
 export default function FeatureInvoicing() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [, setLocation] = useLocation();
 
   const features = [
     {
@@ -52,16 +54,14 @@ export default function FeatureInvoicing() {
                 variant="ghost"
                 size="sm"
                 onClick={() => {
-                  if (window.location.pathname === '/') {
-                    // If already on home page, just scroll
+                  setLocation('/');
+                  // Delay to allow page navigation and DOM ready, then scroll to section
+                  setTimeout(() => {
                     const element = document.getElementById('business-overview');
                     if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                  } else {
-                    // Navigate to home page with anchor
-                    window.location.href = '/#business-overview';
-                  }
+                  }, 300);
                 }}
                 className="flex items-center space-x-2 hover:bg-blue-50 dark:hover:bg-blue-900/20"
               >
