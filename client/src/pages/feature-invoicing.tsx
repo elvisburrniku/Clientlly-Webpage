@@ -89,9 +89,9 @@ export default function FeatureInvoicing() {
               </div>
               <span>Professional Invoicing Suite</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-black text-black mb-6">
+            <h1 className="text-4xl lg:text-6xl font-black text-black mb-6 animate-fade-in-up">
               Professional
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text"> Invoicing</span>
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text animate-pulse"> Invoicing</span>
             </h1>
             <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed font-medium">
               Create stunning invoices, automate payment reminders, and track your revenue with our comprehensive invoicing platform designed for modern businesses.
@@ -120,7 +120,7 @@ export default function FeatureInvoicing() {
       <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6">
+            <h2 className="text-3xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6 animate-bounce">
               Your Invoice Management Hub
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -231,7 +231,7 @@ export default function FeatureInvoicing() {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6">
+            <h2 className="text-3xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6 animate-fade-in-up">
               Complete Invoicing Solution
             </h2>
           </div>
@@ -443,7 +443,7 @@ export default function FeatureInvoicing() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-black text-black mb-6">
+              <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 animate-pulse">
                 Ready to Streamline Your Invoicing?
               </h2>
               <p className="text-xl text-black leading-relaxed font-medium">
