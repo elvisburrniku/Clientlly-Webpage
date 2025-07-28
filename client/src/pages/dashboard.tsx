@@ -28,8 +28,27 @@ import {
   Calendar,
   Clock,
   Brain,
-  ChevronRight
+  ChevronRight,
+  PieChart,
+  BarChart3
 } from "lucide-react";
+import { 
+  LineChart, 
+  Line, 
+  AreaChart, 
+  Area, 
+  BarChart, 
+  Bar, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer,
+  PieChart as RechartsPieChart,
+  Pie,
+  Cell
+} from 'recharts';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
 interface SubscriptionStatus {
   hasSubscription: boolean;
@@ -54,6 +73,38 @@ export default function Dashboard() {
     todayActivities: 0
   });
   const [showConfetti, setShowConfetti] = useState(false);
+
+  // Sample chart data for business analytics
+  const revenueData = [
+    { month: 'Jan', revenue: 45000, expenses: 32000, profit: 13000 },
+    { month: 'Feb', revenue: 52000, expenses: 35000, profit: 17000 },
+    { month: 'Mar', revenue: 48000, expenses: 33000, profit: 15000 },
+    { month: 'Apr', revenue: 61000, expenses: 38000, profit: 23000 },
+    { month: 'May', revenue: 58000, expenses: 40000, profit: 18000 },
+    { month: 'Jun', revenue: 67000, expenses: 42000, profit: 25000 },
+  ];
+
+  const expenseCategories = [
+    { name: 'Operations', value: 35, color: '#8884d8' },
+    { name: 'Marketing', value: 25, color: '#82ca9d' },
+    { name: 'Salaries', value: 30, color: '#ffc658' },
+    { name: 'Other', value: 10, color: '#ff7300' },
+  ];
+
+  const chartConfig = {
+    revenue: {
+      label: "Revenue",
+      color: "#2563eb",
+    },
+    expenses: {
+      label: "Expenses", 
+      color: "#dc2626",
+    },
+    profit: {
+      label: "Profit",
+      color: "#16a34a",
+    },
+  };
 
   // Generate personalized stats based on user activity
   useEffect(() => {
@@ -499,6 +550,109 @@ export default function Dashboard() {
                 </Button>
               </div>
             )}
+          </CardContent>
+        </Card>
+
+        {/* Business Analytics Charts */}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {/* Revenue Trend Chart */}
+          <Card className="glass-effect border-primary/20 hover-lift">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <TrendingUp className="h-5 w-5 text-primary" />
+                <span>Revenue Analytics</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer config={chartConfig} className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={revenueData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="month" />
+                    <YAxis />
+                    <ChartTooltip content={<ChartTooltipContent />} />
+                    <Area 
+                      type="monotone" 
+                      dataKey="revenue" 
+                      stackId="1"
+                      stroke="#2563eb" 
+                      fill="#2563eb" 
+                      fillOpacity={0.6}
+                    />
+                    <Area 
+                      type="monotone" 
+                      dataKey="profit" 
+                      stackId="2"
+                      stroke="#16a34a" 
+                      fill="#16a34a" 
+                      fillOpacity={0.6}
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </ChartContainer>
+            </CardContent>
+          </Card>
+
+          {/* Expense Categories Pie Chart */}
+          <Card className="glass-effect border-primary/20 hover-lift">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <PieChart className="h-5 w-5 text-primary" />
+                <span>Expense Breakdown</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RechartsPieChart>
+                    <Tooltip />
+                    <Pie data={expenseCategories} cx="50%" cy="50%" outerRadius={80} dataKey="value">
+                      {expenseCategories.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
+                  </RechartsPieChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="grid grid-cols-2 gap-2 mt-4">
+                {expenseCategories.map((category, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <div 
+                      className="w-3 h-3 rounded-full" 
+                      style={{ backgroundColor: category.color }}
+                    ></div>
+                    <span className="text-sm text-muted-foreground">
+                      {category.name}: {category.value}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Monthly Performance Bar Chart */}
+        <Card className="glass-effect border-primary/20 hover-lift mb-8">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2">
+              <BarChart3 className="h-5 w-5 text-primary" />
+              <span>Monthly Performance</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ChartContainer config={chartConfig} className="h-[400px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={revenueData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <ChartTooltip content={<ChartTooltipContent />} />
+                  <Bar dataKey="revenue" fill="#2563eb" name="Revenue" />
+                  <Bar dataKey="expenses" fill="#dc2626" name="Expenses" />
+                  <Bar dataKey="profit" fill="#16a34a" name="Profit" />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartContainer>
           </CardContent>
         </Card>
 
