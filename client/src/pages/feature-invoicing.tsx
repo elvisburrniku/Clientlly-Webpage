@@ -50,24 +50,13 @@ export default function FeatureInvoicing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  setLocation('/');
-                  // Delay to allow page navigation and DOM ready, then scroll to section
-                  setTimeout(() => {
-                    const element = document.getElementById('business-overview');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, 300);
-                }}
-                className="flex items-center space-x-2 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+              <a 
+                href="/#business-overview"
+                className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back to Features</span>
-              </Button>
+              </a>
             </div>
           </div>
         </div>

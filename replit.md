@@ -662,9 +662,9 @@ Preferred communication style: Simple, everyday language.
 ✓ Removed "Start Your Trial" and "Buy Now" buttons from invoicing feature page navigation bar
 ✓ Updated "Back to Features" button to navigate directly to "Everything you need to run your business" section
 ✓ Added "business-overview" ID to hero section containing main business overview content
-✓ Implemented wouter-based navigation with setLocation for proper SPA routing
-✓ Added 300ms delay to ensure DOM is ready before scrolling to target section
-✓ Enhanced navigation reliability using proper React Router navigation patterns
+✓ Replaced complex JavaScript navigation with simple HTML anchor link (/#business-overview)
+✓ Used reliable native browser anchor navigation for direct section targeting
+✓ Applied consistent styling to match button appearance while using anchor tag
 ✓ Streamlined navigation to focus on feature content without subscription prompts
 
 ✓ COMPLETED comprehensive translation system for entire landing page (July 19, 2025)
