@@ -478,7 +478,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
-                    <p className="text-sm font-black text-muted-foreground">Custom invoices & payment tracking</p>
+                    <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
                   </div>
                 </div>
                 <a 
@@ -500,7 +500,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
-                    <p className="text-sm font-black text-muted-foreground">Organized expenses for tax time</p>
+                    <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
                   </div>
                 </div>
                 <a 
@@ -522,7 +522,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Debt Management</h3>
-                    <p className="text-sm font-black text-muted-foreground">Track debts & payment scheduling</p>
+                    <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
                   </div>
                 </div>
                 <a 
@@ -544,7 +544,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Insights & Reports</h3>
-                    <p className="text-sm font-black text-muted-foreground">Business analytics & cash flow planning</p>
+                    <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
                   </div>
                 </div>
                 <a 
@@ -566,7 +566,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Client Management</h3>
-                    <p className="text-sm font-black text-muted-foreground">Profiles, projects & communication tracking</p>
+                    <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
                   </div>
                 </div>
                 <a 
@@ -588,7 +588,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Vendor Management</h3>
-                    <p className="text-sm font-black text-muted-foreground">Supplier tracking & purchase orders</p>
+                    <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
                   </div>
                 </div>
                 <a 
@@ -610,7 +610,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Inventory Management</h3>
-                    <p className="text-sm font-black text-muted-foreground">Real-time inventory & order tracking</p>
+                    <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
                   </div>
                 </div>
                 <a 
@@ -632,7 +632,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Smart Attendance</h3>
-                    <p className="text-sm font-black text-muted-foreground">GPS tracking & workforce management</p>
+                    <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
                   </div>
                 </div>
                 <a 
@@ -656,7 +656,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <h3 className="text-xl font-black text-foreground">Easy Migration</h3>
-                    <p className="text-sm font-black text-muted-foreground">Automated data transfer & expert support</p>
+                    <p className="text-sm text-muted-foreground">Automated data transfer & expert support</p>
                   </div>
                 </div>
                 <a 
