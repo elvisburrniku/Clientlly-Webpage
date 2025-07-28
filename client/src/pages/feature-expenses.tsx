@@ -61,12 +61,6 @@ export default function FeatureExpenses() {
             <Link href="/" className="text-2xl font-bold text-foreground hover:text-primary transition-colors">
               BusinessFlow Pro
             </Link>
-            <Button 
-              onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
-              className="bg-green-600 hover:bg-green-700 text-white"
-            >
-              Get Started
-            </Button>
           </div>
         </div>
       </div>
