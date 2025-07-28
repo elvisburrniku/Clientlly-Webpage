@@ -32,31 +32,81 @@ export default function FeatureClients() {
       </nav>
 
       {/* Hero Section with Yellow Background */}
-      <section className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-20 overflow-hidden">
-        {/* Floating Sparkles */}
+      <section className="relative bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 py-28 overflow-hidden">
+        {/* Enhanced Floating Sparkles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-[10%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
-          <div className="absolute top-32 right-[15%] w-3 h-3 bg-white rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
-          <div className="absolute bottom-40 left-[20%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-40 right-[30%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
-          <div className="absolute bottom-60 right-[10%] w-3 h-3 bg-white rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute bg-white rounded-full animate-bounce opacity-80"
+              style={{
+                width: `${2 + Math.random() * 2}px`,
+                height: `${2 + Math.random() * 2}px`,
+                left: `${10 + Math.random() * 80}%`,
+                top: `${10 + Math.random() * 80}%`,
+                animationDelay: `${i * 0.4}s`,
+                animationDuration: '3.5s'
+              }}
+            />
+          ))}
         </div>
+
+        {/* Decorative Blur Elements */}
+        <div className="absolute top-20 left-20 w-40 h-40 bg-orange-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-amber-300/30 rounded-full blur-2xl"></div>
         
-        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
-          <div className="space-y-6">
-            <Badge className="bg-black/10 backdrop-blur-sm text-black border-black/20">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>Professional CRM</span>
+        <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
+          <div className="space-y-8">
+            {/* Enhanced Professional Badge */}
+            <div className="inline-flex items-center gap-3 bg-white/25 backdrop-blur-md border border-white/40 rounded-full px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="relative">
+                <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+                <div className="absolute inset-0 w-3 h-3 bg-emerald-400 rounded-full animate-ping opacity-75"></div>
               </div>
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black animate-professional-fade tracking-tight leading-none">
-              <span className="block">Client</span>
-              <span className="block animate-subtle-gradient">Management</span>
-            </h1>
-            <p className="text-xl text-black/80 max-w-3xl mx-auto leading-relaxed px-4">
-              Build stronger relationships and grow your business with comprehensive client management tools designed for modern businesses.
-            </p>
+              <span className="text-black font-bold text-lg tracking-wide">Professional CRM Suite</span>
+              <div className="w-1 h-6 bg-black/20 mx-2"></div>
+              <span className="text-black/80 font-medium text-sm">Enterprise Ready</span>
+            </div>
+
+            {/* Main Title with Better Typography */}
+            <div className="space-y-4">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-black tracking-tight" style={{lineHeight: '0.9'}}>
+                <div className="animate-professional-fade">Client</div>
+                <div className="bg-gradient-to-r from-orange-700 via-red-600 to-purple-700 bg-clip-text text-transparent animate-subtle-gradient">
+                  Management
+                </div>
+              </h1>
+              
+              {/* Enhanced Description */}
+              <div className="max-w-4xl mx-auto space-y-4">
+                <p className="text-2xl lg:text-3xl text-black font-semibold leading-relaxed">
+                  Transform client relationships with 
+                  <span className="text-orange-800 font-black"> intelligent CRM tools</span>
+                </p>
+                <p className="text-lg text-black/80 font-medium leading-relaxed">
+                  Advanced analytics • Automated workflows • Revenue optimization
+                </p>
+              </div>
+            </div>
+
+            {/* Quick Feature Tags */}
+            <div className="flex flex-wrap justify-center gap-3 pt-4">
+              {[
+                "360° Client Profiles",
+                "Smart Analytics Dashboard", 
+                "Automated Follow-ups",
+                "Revenue Tracking",
+                "Pipeline Management"
+              ].map((feature, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2 text-black font-semibold text-sm shadow-sm hover:bg-white/30 transition-all duration-200"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {feature}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
