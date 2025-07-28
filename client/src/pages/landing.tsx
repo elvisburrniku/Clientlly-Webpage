@@ -815,18 +815,18 @@ export default function Landing() {
       </section>
 
       {/* Growing Together Section - HoneyBook Style */}
-      <section className="relative w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+      <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Floating sparkle elements */}
           <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-            <Sparkles className="w-4 h-4 text-amber-600/30" />
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
           </div>
           <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-            <Sparkles className="w-6 h-6 text-orange-600/40" />
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
           </div>
           <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
-            <Sparkles className="w-3 h-3 text-yellow-600/30" />
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
           </div>
         </div>
         
@@ -837,15 +837,15 @@ export default function Landing() {
               <div className="space-y-8 lg:space-y-12">
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white leading-tight mb-4 tracking-tight animate-professional-fade">
+                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black dark:text-black leading-tight mb-4 tracking-tight animate-professional-fade">
                     Let's <span className="animate-subtle-gradient">grow</span> together
                   </h2>
                   
                   <div className="space-y-4">
-                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed">
+                    <p className="text-xl lg:text-2xl text-black dark:text-black leading-relaxed">
                       Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
                     </p>
-                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                    <p className="text-lg lg:text-xl text-black dark:text-black leading-relaxed">
                       When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
                     </p>
                   </div>
@@ -855,20 +855,20 @@ export default function Landing() {
                 <div className="space-y-6">
                   {/* Your Ideas */}
                   <div className="group">
-                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Your Ideas</h4>
-                    <p className="text-lg text-gray-700 dark:text-gray-200">Share your vision and we'll make it reality</p>
+                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">Your Ideas</h4>
+                    <p className="text-lg text-black dark:text-black">Share your vision and we'll make it reality</p>
                   </div>
                   
                   {/* Fast Development */}
                   <div className="group">
-                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Fast Development</h4>
-                    <p className="text-lg text-gray-700 dark:text-gray-200">Ideas become features in record time</p>
+                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">Fast Development</h4>
+                    <p className="text-lg text-black dark:text-black">Ideas become features in record time</p>
                   </div>
                   
                   {/* Mutual Growth */}
                   <div className="group">
-                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mutual Growth</h4>
-                    <p className="text-lg text-gray-700 dark:text-gray-200">We succeed when you succeed</p>
+                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">Mutual Growth</h4>
+                    <p className="text-lg text-black dark:text-black">We succeed when you succeed</p>
                   </div>
                 </div>
                 
@@ -876,7 +876,7 @@ export default function Landing() {
                 <div className="pt-4">
                   <Button 
                     onClick={() => window.location.href = '/collaboration'}
-                    className="group px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                    className="group px-8 py-4 bg-black hover:bg-gray-800 dark:bg-black dark:hover:bg-gray-800 text-white dark:text-white border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
                     <span className="flex items-center">
                       Learn more
