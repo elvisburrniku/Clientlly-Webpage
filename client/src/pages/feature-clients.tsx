@@ -50,9 +50,9 @@ export default function FeatureClients() {
                 <span>Professional CRM</span>
               </div>
             </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black animate-professional-fade tracking-tight" style={{lineHeight: '1.1'}}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black animate-professional-fade tracking-tight" style={{lineHeight: '0.9'}}>
               <span className="block mb-2">Client</span>
-              <span className="block animate-subtle-gradient">Management</span>
+              <span className="block animate-subtle-gradient" style={{paddingTop: '8px'}}>Management</span>
             </h1>
             <p className="text-xl text-black/80 max-w-3xl mx-auto leading-relaxed px-4">
               Build stronger relationships and grow your business with comprehensive client management tools designed for modern businesses.
