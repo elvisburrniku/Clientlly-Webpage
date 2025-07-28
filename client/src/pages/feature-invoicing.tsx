@@ -200,27 +200,54 @@ export default function FeatureInvoicing() {
                 {/* Invoice Table Preview */}
                 <div className="p-6">
                   <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 relative overflow-hidden">
-                    <img 
-                      src={invoiceIndexImage} 
-                      alt="Invoice Management Dashboard"
-                      className="w-full h-auto rounded-lg shadow-lg"
-                      style={{
-                        filter: 'blur(1px)',
-                        WebkitFilter: 'blur(1px)'
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-black/5 rounded-lg"></div>
+                    {/* Clear invoice dashboard image */}
+                    <div className="relative">
+                      <img 
+                        src={invoiceIndexImage} 
+                        alt="Invoice Management Dashboard"
+                        className="w-full h-auto rounded-lg shadow-lg"
+                      />
+                      {/* Selective blur overlays for privacy */}
+                      <div className="absolute inset-0 rounded-lg">
+                        {/* Blur customer names column */}
+                        <div 
+                          className="absolute rounded"
+                          style={{
+                            left: '13.8%', 
+                            top: '17.5%', 
+                            width: '16.5%', 
+                            height: '76%',
+                            backdropFilter: 'blur(4px)',
+                            WebkitBackdropFilter: 'blur(4px)',
+                            background: 'rgba(255,255,255,0.1)'
+                          }}
+                        ></div>
+                        {/* Blur invoice by column */}
+                        <div 
+                          className="absolute rounded"
+                          style={{
+                            left: '56.2%', 
+                            top: '17.5%', 
+                            width: '12.8%', 
+                            height: '76%',
+                            backdropFilter: 'blur(4px)',
+                            WebkitBackdropFilter: 'blur(4px)',
+                            background: 'rgba(255,255,255,0.1)'
+                          }}
+                        ></div>
+                      </div>
+                    </div>
                     <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       <Eye className="h-4 w-4 inline mr-1" />
                       Live Invoice Dashboard
                     </div>
                     <div className="absolute bottom-4 right-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-lg p-3">
-                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Real-time invoice management with:</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Visible business data:</p>
                       <div className="text-xs text-gray-500 dark:text-gray-400 space-y-1">
-                        <div>• Invoice status tracking</div>
-                        <div>• Payment method monitoring</div>
-                        <div>• Automated follow-ups</div>
-                        <div>• Client communication logs</div>
+                        <div>• Invoice numbers & dates</div>
+                        <div>• Payment amounts & methods</div>
+                        <div>• Status & delay tracking</div>
+                        <div>• Due dates & email actions</div>
                       </div>
                     </div>
                   </div>
