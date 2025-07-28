@@ -136,20 +136,7 @@ export default function FeatureExpenses() {
             <div className="relative fade-in stagger-3">
               <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
               
-              {/* Professional Receipt Scanning Photo */}
-              <div className="relative mb-8">
-                <img 
-                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
-                  alt="Mobile receipt scanning in professional office environment"
-                  className="w-full h-48 object-cover rounded-2xl shadow-2xl"
-                />
-                <div className="absolute -bottom-6 right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <Camera className="h-4 w-4 text-green-500" />
-                    <span className="text-sm font-medium text-gray-700">AI-powered scanning</span>
-                  </div>
-                </div>
-              </div>
+
 
               <div className="relative space-y-6">
                 <Card className="glass-effect border-white/20 p-6">
@@ -355,10 +342,10 @@ export default function FeatureExpenses() {
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { name: "Office Supplies", amount: "$1,234", percent: 28, color: "bg-blue-500" },
-                      { name: "Travel", amount: "$987", percent: 22, color: "bg-green-500" },
-                      { name: "Software", amount: "$756", percent: 17, color: "bg-purple-500" },
-                      { name: "Meals", amount: "$543", percent: 12, color: "bg-orange-500" }
+                      { name: "Office Supplies", amount: "€1,234", percent: 28, color: "bg-blue-500" },
+                      { name: "Travel", amount: "€987", percent: 22, color: "bg-green-500" },
+                      { name: "Software", amount: "€756", percent: 17, color: "bg-purple-500" },
+                      { name: "Meals", amount: "€543", percent: 12, color: "bg-orange-500" }
                     ].map((category, index) => (
                       <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300">
                         <div className="flex items-center justify-between mb-3">

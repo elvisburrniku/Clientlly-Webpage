@@ -622,6 +622,9 @@ Preferred communication style: Simple, everyday language.
 ✓ Removed "Mileage and travel expense reports" from reporting features list
 ✓ Removed "Direct integration with QuickBooks and Xero" reference from reporting features
 ✓ Applied consistent Euro currency formatting across all expense amounts and tax calculations
+✓ Removed professional office environment photo with "AI-powered scanning" caption from hero section
+✓ Fixed final remaining dollar currency references in expense categorization section (€1,234, €987, €756, €543)
+✓ Ensured 100% Euro currency consistency throughout entire expenses feature page
 
 ✓ COMPLETED comprehensive translation system for entire landing page (July 19, 2025)
 ✓ Implemented reactive language switching with global state management
