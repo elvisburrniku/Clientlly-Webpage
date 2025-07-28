@@ -50,22 +50,42 @@ export default function FeatureDebt() {
         </div>
       </nav>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-600 rounded-3xl flex items-center justify-center shadow-2xl">
-              <CreditCard className="h-10 w-10 text-white" />
+      {/* Hero Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-3/4 left-1/5 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '2.5s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto text-center relative z-10">
+          <div className="space-y-8">
+            <div className="space-y-4 fade-in">
+              <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-black font-semibold text-sm shadow-lg">
+                <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+                Smart Debt Management
+              </div>
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm border border-white/30 rounded-3xl flex items-center justify-center shadow-2xl">
+                  <CreditCard className="h-10 w-10 text-black" />
+                </div>
+              </div>
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 tracking-tight leading-tight animate-professional-fade">
+                Debt <span className="animate-subtle-gradient">Management</span>
+              </h1>
+              <p className="text-xl text-black font-medium leading-relaxed max-w-3xl mx-auto">
+                Take control of your business finances with comprehensive debt tracking, payment scheduling, and strategic debt reduction planning.
+              </p>
             </div>
           </div>
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">
-            Debt <span className="animate-subtle-gradient">Management</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Take control of your business finances with comprehensive debt tracking, payment scheduling, and strategic debt reduction planning.
-          </p>
         </div>
+      </section>
 
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
         {/* Feature Image */}
         <div className="mb-16 flex justify-center">
           <div className="relative">
