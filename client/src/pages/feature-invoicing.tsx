@@ -39,22 +39,7 @@ export default function FeatureInvoicing() {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Marketing Manager",
-      company: "Digital Agency Pro",
-      quote: "The e-signature integration and Euro currency support made our international invoicing seamless. Perfect for European clients.",
-      rating: 5
-    },
-    {
-      name: "Michael Thompson",
-      role: "Business Owner",
-      company: "Thompson & Associates",
-      quote: "Electronic signatures and automated payment tracking transformed our billing process. The Euro formatting is exactly what we needed.",
-      rating: 5
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -442,33 +427,7 @@ export default function FeatureInvoicing() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">{testimonial.name.charAt(0)}</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</div>
-                    <div className="text-sm text-blue-600">{testimonial.company}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section with Yellow Background */}
       <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
