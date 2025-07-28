@@ -220,15 +220,27 @@ export default function FeatureClients() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="text-center py-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Ready to strengthen your client relationships?
+        {/* CTA Section with Yellow Background */}
+      </div>
+
+      <section className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-20 overflow-hidden">
+        {/* Floating Sparkles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-[10%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
+          <div className="absolute top-32 right-[15%] w-3 h-3 bg-white rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-20 left-[20%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-10 right-[30%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-10 right-[10%] w-3 h-3 bg-white rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black leading-tight animate-professional-fade tracking-tight mb-8">
+            Ready to strengthen your <span className="animate-subtle-gradient">client relationships</span>?
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               onClick={() => window.location.href = "/trial"}
             >
               Start Your Trial
@@ -236,14 +248,14 @@ export default function FeatureClients() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-600 hover:text-white px-8 py-4 text-lg font-semibold"
+              className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-semibold bg-white/20 backdrop-blur-sm"
               onClick={() => window.location.href = "/subscribe"}
             >
               Buy Now
             </Button>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }
