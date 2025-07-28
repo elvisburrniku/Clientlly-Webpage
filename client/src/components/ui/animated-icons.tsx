@@ -58,18 +58,14 @@ export const InstagramIcon = ({ className = "" }: { className?: string }) => (
 export const SocialLinks = ({ className = "" }: { className?: string }) => (
   <div className={`flex flex-wrap items-center justify-center gap-3 ${className}`}>
     <a
-      href="https://apps.apple.com"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="/mobile-app"
       aria-label="Download on the App Store"
     >
       <AppStoreIcon />
     </a>
     
     <a
-      href="https://play.google.com"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="/mobile-app"
       aria-label="Get it on Google Play"
     >
       <GooglePlayIcon />

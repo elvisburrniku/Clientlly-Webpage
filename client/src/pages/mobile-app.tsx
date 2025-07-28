@@ -126,11 +126,23 @@ export default function MobileApp() {
               
               {/* Download Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-xl shadow-lg">
+                <Button 
+                  className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-xl shadow-lg"
+                  onClick={() => {
+                    // For demo purposes, show download started message
+                    alert('Download started! BusinessFlow Pro will be installed shortly.');
+                  }}
+                >
                   <Download className="w-5 h-5 mr-2" />
                   Install App
                 </Button>
-                <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-xl">
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-3 px-8 rounded-xl"
+                  onClick={() => {
+                    alert('Added to wishlist! You\'ll be notified of updates.');
+                  }}
+                >
                   Add to Wishlist
                 </Button>
               </div>

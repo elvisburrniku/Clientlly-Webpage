@@ -303,11 +303,19 @@ export default function FeatureMobile() {
           <p className="text-xl mb-8 text-blue-100">Get started with BusinessFlow Pro mobile app and take control of your business on the go.</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4">
+            <Button 
+              size="lg" 
+              className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4"
+              onClick={() => window.location.href = "/mobile-app"}
+            >
               <Download className="h-5 w-5 mr-2" />
               Download for iOS
             </Button>
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4">
+            <Button 
+              size="lg" 
+              className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4"
+              onClick={() => window.location.href = "/mobile-app"}
+            >
               <Download className="h-5 w-5 mr-2" />
               Download for Android
             </Button>
