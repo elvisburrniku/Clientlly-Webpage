@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, FileText, Clock, DollarSign, Users, CheckCircle, Send, CreditCard, Calendar, TrendingUp, BarChart3, Star, PlayCircle, Eye, Filter, Plus, Download, Mail } from 'lucide-react';
+import { ArrowLeft, FileText, Clock, DollarSign, Euro, Users, CheckCircle, Send, CreditCard, Calendar, TrendingUp, BarChart3, Star, PlayCircle, Eye, Filter, Plus, Download, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import invoiceIndexImage from '@assets/faturat index_1753697333049.jpg';
 
@@ -10,32 +10,32 @@ export default function FeatureInvoicing() {
     {
       icon: <FileText className="h-6 w-6" />,
       title: "Custom Invoice Templates",
-      description: "Create professional invoices with customizable templates and branding options"
+      description: "Create professional invoices with customizable templates, branding options, and electronic signature collection"
     },
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Automated Reminders",
-      description: "Set up automatic payment reminders for overdue invoices with customizable schedules"
+      description: "Set up automatic payment reminders for overdue invoices with customizable schedules in Euro currency"
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
       title: "Payment Tracking",
-      description: "Track payments in real-time with detailed status updates and payment history"
+      description: "Track Euro payments in real-time with detailed status updates and comprehensive payment history"
     },
     {
       icon: <Users className="h-6 w-6" />,
       title: "Client Management",
-      description: "Manage client information, payment terms, and billing preferences in one place"
+      description: "Manage client information, payment terms, billing preferences, and e-signature workflows in one place"
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,
       title: "Financial Reports",
-      description: "Generate comprehensive reports on invoice performance and revenue analytics"
+      description: "Generate comprehensive Euro-based reports on invoice performance and revenue analytics"
     },
     {
       icon: <Send className="h-6 w-6" />,
       title: "Multi-Channel Delivery",
-      description: "Send invoices via email, SMS, or integrate with client portals automatically"
+      description: "Send invoices via email, SMS, or integrate with client portals with e-signature capabilities"
     }
   ];
 
@@ -85,19 +85,30 @@ export default function FeatureInvoicing() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <FileText className="h-4 w-4" />
+            <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm border border-white/30 text-black px-6 py-3 rounded-2xl text-sm font-bold mb-6 shadow-lg">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
+                <FileText className="h-4 w-4 text-white" />
+              </div>
               <span>Professional Invoicing Suite</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6">
+            <h1 className="text-4xl lg:text-6xl font-black text-black mb-6">
               Professional
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text"> Invoicing</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed font-medium">
               Create stunning invoices, automate payment reminders, and track your revenue with our comprehensive invoicing platform designed for modern businesses.
             </p>
           </div>
@@ -188,7 +199,7 @@ export default function FeatureInvoicing() {
                     </div>
                     <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-xl">
                       <div className="flex items-center space-x-2 mb-2">
-                        <DollarSign className="h-4 w-4 text-purple-600" />
+                        <Euro className="h-4 w-4 text-purple-600" />
                         <span className="text-sm font-medium text-purple-600">Revenue</span>
                       </div>
                       <div className="text-2xl font-bold text-gray-900 dark:text-white">€47,320</div>
@@ -245,7 +256,7 @@ export default function FeatureInvoicing() {
             {[
               { id: 'overview', label: 'Overview', icon: <BarChart3 className="h-4 w-4" /> },
               { id: 'templates', label: 'Templates', icon: <FileText className="h-4 w-4" /> },
-              { id: 'tracking', label: 'Payment Tracking', icon: <DollarSign className="h-4 w-4" /> },
+              { id: 'tracking', label: 'Payment Tracking', icon: <Euro className="h-4 w-4" /> },
               { id: 'automation', label: 'Automation', icon: <Clock className="h-4 w-4" /> }
             ].map((tab) => (
               <button
@@ -434,12 +445,6 @@ export default function FeatureInvoicing() {
       {/* Testimonials */}
       <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6">
-              Trusted by Invoice Professionals
-            </h2>
-          </div>
-          
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
@@ -465,23 +470,34 @@ export default function FeatureInvoicing() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl p-12 text-white">
-            <h2 className="text-3xl lg:text-5xl font-black mb-6">
-              Ready to Streamline Your Invoicing?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses that have improved their cash flow with BusinessFlow Pro's professional invoicing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-blue-50" onClick={() => window.location.href = '/trial'}>
-                <PlayCircle className="mr-2 h-5 w-5" />
+      {/* CTA Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl lg:text-5xl font-black text-black mb-6">
+                Ready to Streamline Your Invoicing?
+              </h2>
+              <p className="text-xl text-black leading-relaxed font-medium">
+                Join thousands of businesses that have improved their cash flow with BusinessFlow Pro's professional invoicing.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+              <Button size="lg" className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold" onClick={() => window.location.href = '/trial'}>
+                <PlayCircle className="mr-2 h-6 w-6" />
                 Start Your Trial
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" onClick={() => window.location.href = '/subscribe'}>
-                View Pricing
+              <Button size="lg" variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold border-2" onClick={() => window.location.href = '/subscribe'}>
+                Buy Now
               </Button>
             </div>
           </div>
