@@ -51,7 +51,18 @@ export default function FeatureInvoicing() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => window.location.href = '/#business-overview'}
+                onClick={() => {
+                  if (window.location.pathname === '/') {
+                    // If already on home page, just scroll
+                    const element = document.getElementById('business-overview');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  } else {
+                    // Navigate to home page with anchor
+                    window.location.href = '/#business-overview';
+                  }
+                }}
                 className="flex items-center space-x-2 hover:bg-blue-50 dark:hover:bg-blue-900/20"
               >
                 <ArrowLeft className="h-4 w-4" />
