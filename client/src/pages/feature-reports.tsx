@@ -336,57 +336,72 @@ export default function FeatureReports() {
 
         {/* Features Highlight */}
         <section>
-          <Card className="overflow-hidden bg-gradient-to-r from-slate-50 to-slate-100 border-0">
-            <CardContent className="p-12">
+          <Card className="overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 border-0 relative">
+            {/* Floating sparkle elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-8 left-8 w-3 h-3 animate-ping delay-0">
+                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+              </div>
+              <div className="absolute bottom-16 right-12 w-4 h-4 animate-ping delay-1000">
+                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+              </div>
+              <div className="absolute top-1/2 left-16 w-2 h-2 animate-ping delay-500">
+                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+              </div>
+              <div className="absolute top-20 right-1/4 w-3 h-3 animate-ping delay-1500">
+                <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+              </div>
+            </div>
+            <CardContent className="p-12 relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-6 tracking-tight leading-none">
+                  <h3 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 tracking-tight leading-none">
                     Powerful Features for Data-Driven Decisions
                   </h3>
                   <div className="space-y-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Layers className="h-5 w-5 text-blue-600" />
+                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Layers className="h-5 w-5 text-black" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Multi-dimensional Analysis</h4>
-                        <p className="text-gray-600 text-sm">
+                        <h4 className="font-semibold text-black mb-2">Multi-dimensional Analysis</h4>
+                        <p className="text-black/80 text-sm">
                           Analyze data across multiple dimensions with advanced filtering and grouping capabilities.
                         </p>
                       </div>
                     </div>
                     
                     <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Globe className="h-5 w-5 text-green-600" />
+                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Globe className="h-5 w-5 text-black" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Global Currency Support</h4>
-                        <p className="text-gray-600 text-sm">
+                        <h4 className="font-semibold text-black mb-2">Global Currency Support</h4>
+                        <p className="text-black/80 text-sm">
                           Analyze financial data in multiple currencies with automatic conversion and regional insights.
                         </p>
                       </div>
                     </div>
                     
                     <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Bell className="h-5 w-5 text-purple-600" />
+                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Bell className="h-5 w-5 text-black" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Smart Alerts & Notifications</h4>
-                        <p className="text-gray-600 text-sm">
+                        <h4 className="font-semibold text-black mb-2">Smart Alerts & Notifications</h4>
+                        <p className="text-black/80 text-sm">
                           Get notified when key metrics change or anomalies are detected in your business data.
                         </p>
                       </div>
                     </div>
                     
                     <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Shield className="h-5 w-5 text-orange-600" />
+                      <div className="w-10 h-10 bg-black/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Shield className="h-5 w-5 text-black" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Enterprise Security</h4>
-                        <p className="text-gray-600 text-sm">
+                        <h4 className="font-semibold text-black mb-2">Enterprise Security</h4>
+                        <p className="text-black/80 text-sm">
                           Role-based access control ensures sensitive financial data is only accessible to authorized users.
                         </p>
                       </div>
