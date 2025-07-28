@@ -41,6 +41,7 @@ import BankSecurity from "@/pages/bank-security";
 import DataProtection from "@/pages/data-protection";
 import TermsOfService from "@/pages/terms-of-service";
 import PrivacyPolicy from "@/pages/privacy-policy";
+import MobileApp from "@/pages/mobile-app";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -90,6 +91,7 @@ function Router() {
           <Route path="/data-protection" component={DataProtection} />
           <Route path="/terms-of-service" component={TermsOfService} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/mobile-app" component={MobileApp} />
         </>
       ) : (
         <>
@@ -127,6 +129,7 @@ function Router() {
           <Route path="/data-protection" component={DataProtection} />
           <Route path="/terms-of-service" component={TermsOfService} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/mobile-app" component={MobileApp} />
         </>
       )}
       <Route component={NotFound} />
