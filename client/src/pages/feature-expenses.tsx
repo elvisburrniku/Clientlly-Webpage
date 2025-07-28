@@ -80,19 +80,29 @@ export default function FeatureExpenses() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero Section with Yellow Background */}
+      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden full-width">
+        {/* Floating sparkle animations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-70"></div>
+          <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-80" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white rounded-full animate-bounce opacity-60" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-3/4 left-1/5 w-1 h-1 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay: '2.5s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4 fade-in">
-                <Badge className="bg-green-100 text-green-700 hover:bg-green-200">
+                <Badge className="bg-black text-white hover:bg-gray-800">
                   Tax-Ready Expense Management
                 </Badge>
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground tracking-tight leading-tight animate-professional-fade">
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black tracking-tight leading-tight animate-professional-fade">
                   Get set for tax time with <span className="animate-subtle-gradient">organized expenses</span>
                 </h1>
-                <p className="text-xl text-muted-foreground">
+                <p className="text-xl text-black font-medium leading-relaxed">
                   Capture receipts instantly with your phone, automatically categorize expenses, 
                   and generate tax-ready reports in seconds. Never lose a receipt again.
                 </p>
@@ -100,32 +110,30 @@ export default function FeatureExpenses() {
               
               <div className="flex flex-wrap gap-6 fade-in stagger-1">
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-medium">AI-powered categorization</span>
+                  <CheckCircle className="h-5 w-5 text-black" />
+                  <span className="font-medium text-black">AI-powered categorization</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-medium">Receipt scanning</span>
+                  <CheckCircle className="h-5 w-5 text-black" />
+                  <span className="font-medium text-black">Receipt scanning</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-medium">Tax-ready reports</span>
+                  <CheckCircle className="h-5 w-5 text-black" />
+                  <span className="font-medium text-black">Tax-ready reports</span>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 fade-in stagger-2">
                 <Button 
                   size="lg" 
-                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
+                  className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
                   onClick={() => window.location.href = "/trial"}
-                  style={{outline: 'none', boxShadow: 'none'}}
                 >
                   Start Free Trial
                 </Button>
                 <Button 
                   size="lg" 
-                  variant="outline" 
-                  className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300"
+                  className="bg-black hover:bg-gray-800 text-white border-2 border-black px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-black/25 hover:scale-105 transition-all duration-300"
                 >
                   <Camera className="h-5 w-5 mr-2" />
                   Try Receipt Scan
