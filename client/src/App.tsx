@@ -19,6 +19,7 @@ import FeatureClients from "@/pages/feature-clients";
 import FeatureVendors from "@/pages/feature-vendors";
 import FeatureCalendar from "@/pages/feature-calendar";
 import FeatureAttendance from "@/pages/feature-attendance";
+import FeatureHR from "@/pages/feature-hr";
 import About from "@/pages/about";
 import Collaboration from "@/pages/collaboration";
 import Contact from "@/pages/contact";
@@ -69,6 +70,7 @@ function Router() {
           <Route path="/features/vendors" component={FeatureVendors} />
           <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/features/attendance" component={FeatureAttendance} />
+          <Route path="/features/hr" component={FeatureHR} />
           <Route path="/about" component={About} />
           <Route path="/collaboration" component={Collaboration} />
           <Route path="/contact" component={Contact} />
@@ -105,6 +107,7 @@ function Router() {
           <Route path="/features/vendors" component={FeatureVendors} />
           <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/features/attendance" component={FeatureAttendance} />
+          <Route path="/features/hr" component={FeatureHR} />
           <Route path="/about" component={About} />
           <Route path="/collaboration" component={Collaboration} />
           <Route path="/contact" component={Contact} />

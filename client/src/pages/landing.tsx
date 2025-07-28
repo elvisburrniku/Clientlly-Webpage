@@ -647,20 +647,20 @@ export default function Landing() {
 
 
 
-            {/* 10. Easy Migration */}
+            {/* 10. HR Management */}
             <div className="group relative fade-in stagger-10">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-pink-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <RefreshCw className="h-6 w-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Easy Migration</h3>
-                    <p className="text-sm text-muted-foreground">Automated data transfer & expert support</p>
+                    <h3 className="text-xl font-black text-foreground">HR Management</h3>
+                    <p className="text-sm text-muted-foreground">Employee tracking, payroll & performance management</p>
                   </div>
                 </div>
                 <a 
-                  href="/features/migration"
+                  href="/features/hr"
                   className="inline-flex items-center text-slate-600 hover:text-slate-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
                   Learn more
