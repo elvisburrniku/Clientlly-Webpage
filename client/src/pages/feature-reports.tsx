@@ -92,8 +92,8 @@ export default function FeatureReports() {
       </section>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
-        {/* Sample Financial Reports - No Grid */}
-        <div className="mb-16 space-y-8">
+        {/* Sample Financial Reports */}
+        <div className="mb-16 grid md:grid-cols-2 gap-8">
           <Card className="p-6 hover:shadow-xl transition-all duration-300">
             <div className="text-center mb-6">
               <h3 className="text-xl font-bold mb-2">Monthly Revenue Report</h3>
@@ -159,8 +159,8 @@ export default function FeatureReports() {
           </Card>
         </div>
 
-        {/* Report Types - No Grid */}
-        <div className="mb-16 space-y-8">
+        {/* Report Types */}
+        <div className="mb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
             <CardContent className="p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
