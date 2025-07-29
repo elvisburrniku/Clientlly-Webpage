@@ -22,6 +22,7 @@ import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
 import Footer from "@/components/Footer";
 
+
 if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
   throw new Error('Missing required Stripe key: VITE_STRIPE_PUBLIC_KEY');
 }
@@ -849,6 +850,15 @@ export default function Subscribe() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
+      {/* Full Width and Height Clientlly Logo Background */}
+      <div className="absolute inset-0 flex items-center justify-center -z-20">
+        <img 
+          src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
+          alt="Clientlly Background" 
+          className="w-full h-full object-contain opacity-10"
+        />
+      </div>
+      
       {/* Clean Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Subtle gradient overlay */}
