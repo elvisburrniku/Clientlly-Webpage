@@ -49,6 +49,7 @@ import {
   Database,
   Lock,
   HeadphonesIcon,
+  Download,
   Play,
   Lightbulb,
   Zap,
@@ -1206,6 +1207,76 @@ export default function Landing() {
           </div>
 
 
+        </div>
+      </section>
+
+      {/* Trust Indicators Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-black text-white mb-4 animate-professional-fade">
+              Trusted by <span className="animate-subtle-gradient bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 bg-clip-text text-transparent">Businesses</span> Worldwide
+            </h2>
+            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+              Join thousands of companies that have streamlined their operations with our comprehensive business management platform.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* 14-day free trial */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group">
+              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Clock className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">14-day free trial</h3>
+              <p className="text-blue-100 text-sm">Try all features risk-free</p>
+            </div>
+
+            {/* Cancel anytime */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group">
+              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <X className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Cancel anytime</h3>
+              <p className="text-blue-100 text-sm">No long-term commitments</p>
+            </div>
+
+            {/* Data protection & privacy */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group">
+              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Shield className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Data protection & privacy</h3>
+              <p className="text-blue-100 text-sm">GDPR compliant security</p>
+            </div>
+
+            {/* Free setup & migration */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group">
+              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Download className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Free setup & migration</h3>
+              <p className="text-blue-100 text-sm">We handle the transition</p>
+            </div>
+
+            {/* 24/7 expert support */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group">
+              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Headphones className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">24/7 expert support</h3>
+              <p className="text-blue-100 text-sm">Always here to help</p>
+            </div>
+
+            {/* Bank-level security */}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group">
+              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Lock className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-white mb-2">Bank-level security</h3>
+              <p className="text-blue-100 text-sm">Enterprise-grade protection</p>
+            </div>
+          </div>
         </div>
       </section>
 
