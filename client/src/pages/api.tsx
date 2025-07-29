@@ -473,12 +473,12 @@ def create_customer():
 
           <div className="text-center mt-12">
             <Button 
-              onClick={() => window.location.href = 'https://docs.businessflowpro.com/api/reference'}
+              onClick={() => window.location.href = '/trial'}
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-white"
             >
-              <ExternalLink className="w-4 h-4 mr-2" />
-              View Complete API Reference
+              <Key className="w-4 h-4 mr-2" />
+              Get API Access
             </Button>
           </div>
         </div>
