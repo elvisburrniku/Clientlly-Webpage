@@ -855,7 +855,7 @@ export default function Subscribe() {
         <img 
           src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
           alt="Clientlly Background" 
-          className="w-full h-full object-contain opacity-10"
+          className="w-full h-full object-contain opacity-30"
         />
       </div>
       
