@@ -87,6 +87,16 @@ const Footer = () => {
                     24/7 expert support
                   </button>
                 </li>
+                <li>
+                  <button onClick={() => handleNavigation('/trial')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    14-day free trial
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/cancel-anytime')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Cancel anytime
+                  </button>
+                </li>
               </ul>
             </div>
 
