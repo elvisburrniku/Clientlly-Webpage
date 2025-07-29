@@ -453,32 +453,9 @@ const DataProtectionPage = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          {/* Animated title with gradient text wave effect */}
-          <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-            <span className="inline-block">
-              {["Ready", "to", "Trust", "Your", "Business", "Data", "with", "Us?"].map((word, index) => (
-                <span
-                  key={index}
-                  className="inline-block mx-1 animate-pulse"
-                  style={{
-                    animationDelay: `${index * 0.2}s`,
-                    animationDuration: '2s',
-                    background: `linear-gradient(45deg, 
-                      hsl(${(index * 60) % 360}, 70%, 70%), 
-                      hsl(${(index * 60 + 60) % 360}, 70%, 70%), 
-                      hsl(${(index * 60 + 120) % 360}, 70%, 70%)
-                    )`,
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent',
-                    backgroundSize: '200% 200%',
-                    animation: `gradient-wave 3s ease-in-out infinite ${index * 0.2}s, pulse 2s infinite ${index * 0.2}s`
-                  }}
-                >
-                  {word}
-                </span>
-              ))}
-            </span>
+          {/* Animated title with standardized animations */}
+          <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight animate-professional-fade">
+            Ready to Trust Your <span className="animate-subtle-gradient">Business Data</span> with Us?
           </h2>
 
           <p className="text-xl mb-8 opacity-90 animate-fade-in" style={{animationDelay: '1.6s'}}>
