@@ -481,13 +481,7 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/invoicing"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
+
               </div>
             </div>
 
@@ -503,13 +497,7 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/expenses"
-                  className="inline-flex items-center text-green-600 hover:text-green-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
+
               </div>
             </div>
 
@@ -525,13 +513,7 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/debt"
-                  className="inline-flex items-center text-red-600 hover:text-red-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
+
               </div>
             </div>
 
@@ -547,13 +529,7 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/reports"
-                  className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
+
               </div>
             </div>
 
@@ -569,13 +545,7 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/clients"
-                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
+
               </div>
             </div>
 
@@ -591,13 +561,6 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/vendors"
-                  className="inline-flex items-center text-amber-600 hover:text-amber-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
               </div>
             </div>
 
@@ -613,13 +576,6 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/inventory"
-                  className="inline-flex items-center text-violet-600 hover:text-violet-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
               </div>
             </div>
 
@@ -635,17 +591,8 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/attendance"
-                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
               </div>
             </div>
-
-
 
             {/* 10. HR Management */}
             <div className="group relative fade-in stagger-10">
@@ -659,13 +606,6 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Employee tracking, payroll & performance management</p>
                   </div>
                 </div>
-                <a 
-                  href="/features/hr"
-                  className="inline-flex items-center text-slate-600 hover:text-slate-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
               </div>
             </div>
           </div>
@@ -673,9 +613,7 @@ export default function Landing() {
           {/* Compare Features Section */}
           <div className="text-center mt-16 fade-in stagger-11">
             <button 
-              onClick={() => window.location.href = '/compare-features'}
-              className="relative inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0 rounded-xl font-bold text-lg transform transition-all duration-300 hover:scale-105 active:scale-95 group overflow-hidden"
-              onMouseDown={(e) => {
+              onClick={() => {
                 // Create expanding circle effect on click
                 const button = e.currentTarget;
                 const rect = button.getBoundingClientRect();
@@ -879,8 +817,7 @@ export default function Landing() {
                     className="group px-8 py-4 bg-black hover:bg-gray-800 dark:bg-black dark:hover:bg-gray-800 text-white dark:text-white border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
                     <span className="flex items-center">
-                      Learn more
-                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+                      Learn More
                     </span>
                   </Button>
 

@@ -23,7 +23,6 @@ export default function FeatureMobile() {
               <div className="relative overflow-hidden rounded-lg">
                 <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                   <img 
-                    src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
                     alt="BusinessFlow Pro" 
                     className="w-12 h-9 object-contain logo-simple cursor-pointer"
                   />

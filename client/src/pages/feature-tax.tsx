@@ -61,7 +61,6 @@ export default function FeatureTax() {
             <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
                 <img 
-                  src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
                   alt="BusinessFlow Pro" 
                   className="w-10 h-8 sm:w-16 sm:h-12 object-contain logo-simple"
                 />
