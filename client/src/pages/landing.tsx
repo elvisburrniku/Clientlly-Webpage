@@ -344,8 +344,7 @@ export default function Landing() {
       <section id="business-overview" className="hero-section relative pb-32 overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '64px' }}>
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
           {/* Grid Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -613,7 +612,7 @@ export default function Landing() {
           {/* Compare Features Section */}
           <div className="text-center mt-16 fade-in stagger-11">
             <button 
-              onClick={() => {
+              onClick={(e) => {
                 // Create expanding circle effect on click
                 const button = e.currentTarget;
                 const rect = button.getBoundingClientRect();
@@ -754,19 +753,7 @@ export default function Landing() {
 
       {/* Growing Together Section - HoneyBook Style */}
       <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden">
 
-          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-        </div>
         
         <div className="relative z-10 h-full flex items-center">
           <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
