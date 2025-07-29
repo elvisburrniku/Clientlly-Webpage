@@ -53,8 +53,8 @@ import {
   Lightbulb,
   Zap,
   TrendingUp,
-  Heart,
   Sparkles,
+  Heart,
   ArrowRight,
   Gift,
   Code
@@ -66,6 +66,7 @@ import { useLocationDetection } from "@/hooks/useLocationDetection";
 
 import { SocialLinks } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
+import clientllyLogo from '@assets/CLIENTLLY_ICON_1753793353861.png';
 
 
 interface SubscriptionPlan {
@@ -344,7 +345,26 @@ export default function Landing() {
       <section id="business-overview" className="hero-section relative pb-32 overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '64px' }}>
         {/* Background Elements */}
         <div className="absolute inset-0 -z-10">
-
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          
+          {/* Floating Logo Backgrounds */}
+          <div className="absolute top-20 left-10 opacity-3 animate-float-slow" style={{animationDelay: '0s'}}>
+            <img src={clientllyLogo} alt="" className="w-32 h-24 rotate-12" />
+          </div>
+          <div className="absolute top-40 right-20 opacity-5 animate-float-slow" style={{animationDelay: '2s'}}>
+            <img src={clientllyLogo} alt="" className="w-24 h-18 -rotate-6" />
+          </div>
+          <div className="absolute bottom-32 left-1/3 opacity-4 animate-float-slow" style={{animationDelay: '4s'}}>
+            <img src={clientllyLogo} alt="" className="w-40 h-30 rotate-3" />
+          </div>
+          <div className="absolute top-1/2 left-16 opacity-6 animate-float-slow" style={{animationDelay: '1s'}}>
+            <img src={clientllyLogo} alt="" className="w-20 h-15 -rotate-12" />
+          </div>
+          <div className="absolute bottom-20 right-10 opacity-8 animate-float-slow" style={{animationDelay: '3s'}}>
+            <img src={clientllyLogo} alt="" className="w-28 h-21 rotate-6" />
+          </div>
+          
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
           {/* Grid Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -451,7 +471,37 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 px-4 relative -mt-12 features-section">
+      <section id="features" className="relative py-16 px-4 -mt-12 features-section overflow-hidden">
+        {/* Floating Background Elements */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-10 left-5 opacity-4 animate-pulse">
+            <Sparkles className="h-6 w-6 text-blue-400" />
+          </div>
+          <div className="absolute top-32 right-10 opacity-3 animate-pulse delay-1000">
+            <Zap className="h-8 w-8 text-purple-400" />
+          </div>
+          <div className="absolute bottom-20 left-20 opacity-5 animate-pulse delay-2000">
+            <Sparkles className="h-10 w-10 text-green-400" />
+          </div>
+          <div className="absolute top-1/2 right-1/3 opacity-4 animate-pulse delay-3000">
+            <Heart className="h-7 w-7 text-pink-400" />
+          </div>
+          
+          {/* Small floating logos around feature cards */}
+          <div className="absolute top-40 left-1/4 opacity-6 animate-float-slow" style={{animationDelay: '1s'}}>
+            <img src={clientllyLogo} alt="" className="w-16 h-12 rotate-12" />
+          </div>
+          <div className="absolute bottom-40 right-1/4 opacity-8 animate-float-slow" style={{animationDelay: '3s'}}>
+            <img src={clientllyLogo} alt="" className="w-20 h-15 -rotate-6" />
+          </div>
+          <div className="absolute top-20 right-16 opacity-4 animate-float-slow" style={{animationDelay: '2s'}}>
+            <img src={clientllyLogo} alt="" className="w-14 h-10 rotate-45" />
+          </div>
+          <div className="absolute bottom-10 left-10 opacity-5 animate-float-slow" style={{animationDelay: '4s'}}>
+            <img src={clientllyLogo} alt="" className="w-18 h-13 -rotate-12" />
+          </div>
+        </div>
+        
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-2 tracking-tight leading-tight">
@@ -680,7 +730,31 @@ export default function Landing() {
       </section>
 
       {/* Trust & Success Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="relative py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+        {/* Floating Background Elements */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-16 left-12 opacity-3 animate-pulse delay-500">
+            <Sparkles className="h-5 w-5 text-blue-300" />
+          </div>
+          <div className="absolute top-48 right-24 opacity-4 animate-pulse delay-1500">
+            <Heart className="h-6 w-6 text-purple-300" />
+          </div>
+          <div className="absolute bottom-32 left-1/3 opacity-5 animate-pulse delay-2500">
+            <Zap className="h-7 w-7 text-green-300" />
+          </div>
+          <div className="absolute top-1/3 right-10 opacity-3 animate-pulse delay-3500">
+            <Sparkles className="h-8 w-8 text-pink-300" />
+          </div>
+          
+          {/* Floating particles around icons */}
+          <div className="absolute top-20 left-20 opacity-6 animate-float-slow" style={{animationDelay: '0.5s'}}>
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+          </div>
+          <div className="absolute bottom-20 right-20 opacity-8 animate-float-slow" style={{animationDelay: '2.5s'}}>
+            <div className="w-3 h-3 bg-purple-400 rounded-full animate-ping"></div>
+          </div>
+        </div>
+        
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
@@ -774,7 +848,29 @@ export default function Landing() {
 
       {/* Growing Together Section - HoneyBook Style */}
       <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
-
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
+            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
+          </div>
+          
+          {/* Floating Icons */}
+          <div className="absolute top-1/4 left-10 animate-pulse">
+            <Sparkles className="h-8 w-8 text-white opacity-30" />
+          </div>
+          <div className="absolute top-1/3 right-16 animate-pulse delay-1000">
+            <Zap className="h-6 w-6 text-white opacity-40" />
+          </div>
+          <div className="absolute bottom-1/4 left-1/3 animate-pulse delay-2000">
+            <Sparkles className="h-10 w-10 text-white opacity-25" />
+          </div>
+        </div>
         
         <div className="relative z-10 h-full flex items-center">
           <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
@@ -908,7 +1004,34 @@ export default function Landing() {
 
 
       {/* Pricing Section */}
-      <section id="pricing-section" className="py-20 px-4 bg-muted/30 pricing-section">
+      <section id="pricing-section" className="relative py-20 px-4 bg-muted/30 pricing-section overflow-hidden">
+        {/* Floating Background Elements for Pricing */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-20 left-10 opacity-4 animate-pulse delay-500">
+            <Sparkles className="h-5 w-5 text-blue-400" />
+          </div>
+          <div className="absolute top-60 right-20 opacity-3 animate-pulse delay-1500">
+            <Heart className="h-6 w-6 text-purple-400" />
+          </div>
+          <div className="absolute bottom-40 left-1/4 opacity-5 animate-pulse delay-2500">
+            <Zap className="h-7 w-7 text-green-400" />
+          </div>
+          <div className="absolute top-1/3 right-1/3 opacity-4 animate-pulse delay-3500">
+            <Sparkles className="h-8 w-8 text-pink-400" />
+          </div>
+          
+          {/* Small floating logos around pricing cards */}
+          <div className="absolute top-32 left-16 opacity-6 animate-float-slow" style={{animationDelay: '1s'}}>
+            <img src={clientllyLogo} alt="" className="w-14 h-10 rotate-12" />
+          </div>
+          <div className="absolute bottom-32 right-16 opacity-8 animate-float-slow" style={{animationDelay: '3s'}}>
+            <img src={clientllyLogo} alt="" className="w-18 h-13 -rotate-6" />
+          </div>
+          <div className="absolute top-1/2 left-8 opacity-5 animate-float-slow" style={{animationDelay: '2s'}}>
+            <img src={clientllyLogo} alt="" className="w-12 h-9 rotate-45" />
+          </div>
+        </div>
+        
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
 
