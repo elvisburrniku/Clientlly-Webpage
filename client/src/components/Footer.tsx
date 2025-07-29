@@ -29,6 +29,11 @@ const Footer = () => {
                   </button>
                 </li>
                 <li>
+                  <button onClick={() => handleNavigation('/collaboration')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Let's grow together
+                  </button>
+                </li>
+                <li>
                   <button onClick={() => handleNavigation('/subscribe')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Pricing
                   </button>
@@ -114,11 +119,6 @@ const Footer = () => {
                 <li>
                   <button onClick={() => handleNavigation('/bank-security')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Bank-level security
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => handleNavigation('/collaboration')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
-                    Let's grow together
                   </button>
                 </li>
               </ul>
