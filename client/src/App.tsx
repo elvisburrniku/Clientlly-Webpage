@@ -51,6 +51,8 @@ import Community from "@/pages/community";
 import Blog from "@/pages/blog";
 // import Webinars from "@/pages/webinars"; // Temporarily removed
 import CaseStudies from "@/pages/case-studies";
+import BestPractices from "@/pages/best-practices";
+import SuccessStories from "@/pages/success-stories";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -110,6 +112,8 @@ function Router() {
           <Route path="/blog" component={Blog} />
           {/* <Route path="/webinars" component={Webinars} /> */}
           <Route path="/case-studies" component={CaseStudies} />
+          <Route path="/best-practices" component={BestPractices} />
+          <Route path="/success-stories" component={SuccessStories} />
         </>
       ) : (
         <>
@@ -157,6 +161,8 @@ function Router() {
           <Route path="/blog" component={Blog} />
           {/* <Route path="/webinars" component={Webinars} /> */}
           <Route path="/case-studies" component={CaseStudies} />
+          <Route path="/best-practices" component={BestPractices} />
+          <Route path="/success-stories" component={SuccessStories} />
         </>
       )}
       <Route component={NotFound} />

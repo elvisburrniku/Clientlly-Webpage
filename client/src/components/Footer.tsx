@@ -109,6 +109,16 @@ const Footer = () => {
                     Case Studies
                   </button>
                 </li>
+                <li>
+                  <button onClick={() => handleNavigation('/best-practices')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Best Practices
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/success-stories')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Success Stories
+                  </button>
+                </li>
               </ul>
             </div>
 
