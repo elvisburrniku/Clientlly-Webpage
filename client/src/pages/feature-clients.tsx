@@ -52,7 +52,8 @@ export default function FeatureClients() {
         </div>
 
         {/* Decorative Blur Elements */}
-
+        <div className="absolute top-20 left-20 w-40 h-40 bg-orange-300/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-amber-300/30 rounded-full blur-2xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 text-center relative z-10">
           <div className="space-y-8">
@@ -273,7 +274,14 @@ export default function FeatureClients() {
       </div>
 
       <section className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-20 overflow-hidden">
-
+        {/* Floating Sparkles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-[10%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
+          <div className="absolute top-32 right-[15%] w-3 h-3 bg-white rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-20 left-[20%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-10 right-[30%] w-2 h-2 bg-white rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
+          <div className="absolute bottom-10 right-[10%] w-3 h-3 bg-white rounded-full animate-bounce" style={{animationDelay: '2s'}}></div>
+        </div>
 
         <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-black leading-tight animate-professional-fade tracking-tight mb-8">
