@@ -42,6 +42,15 @@ import DataProtection from "@/pages/data-protection";
 import TermsOfService from "@/pages/terms-of-service";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import MobileApp from "@/pages/mobile-app";
+import Integrations from "@/pages/integrations";
+import API from "@/pages/api";
+import Careers from "@/pages/careers";
+import HelpCenter from "@/pages/help-center";
+import Tutorials from "@/pages/tutorials";
+import Community from "@/pages/community";
+import Blog from "@/pages/blog";
+import Webinars from "@/pages/webinars";
+import CaseStudies from "@/pages/case-studies";
 import { BrandLoader } from "@/components/LoadingStates";
 
 function Router() {
@@ -92,6 +101,15 @@ function Router() {
           <Route path="/terms-of-service" component={TermsOfService} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/mobile-app" component={MobileApp} />
+          <Route path="/integrations" component={Integrations} />
+          <Route path="/api" component={API} />
+          <Route path="/careers" component={Careers} />
+          <Route path="/help-center" component={HelpCenter} />
+          <Route path="/tutorials" component={Tutorials} />
+          <Route path="/community" component={Community} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/webinars" component={Webinars} />
+          <Route path="/case-studies" component={CaseStudies} />
         </>
       ) : (
         <>
@@ -130,6 +148,15 @@ function Router() {
           <Route path="/terms-of-service" component={TermsOfService} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/mobile-app" component={MobileApp} />
+          <Route path="/integrations" component={Integrations} />
+          <Route path="/api" component={API} />
+          <Route path="/careers" component={Careers} />
+          <Route path="/help-center" component={HelpCenter} />
+          <Route path="/tutorials" component={Tutorials} />
+          <Route path="/community" component={Community} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/webinars" component={Webinars} />
+          <Route path="/case-studies" component={CaseStudies} />
         </>
       )}
       <Route component={NotFound} />

@@ -24,17 +24,17 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#pricing" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/subscribe" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Pricing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/features" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Integrations
                   </Link>
                 </li>
                 <li>
-                  <Link href="/features" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/api" className="text-gray-400 hover:text-white transition-colors duration-300">
                     API
                   </Link>
                 </li>
@@ -51,7 +51,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/collaboration" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/careers" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Careers
                   </Link>
                 </li>
@@ -68,17 +68,17 @@ const Footer = () => {
               <h3 className="text-white font-semibold text-lg mb-6">Support</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/help-center" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Help Center
                   </Link>
                 </li>
                 <li>
-                  <Link href="/trial" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/tutorials" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Tutorials
                   </Link>
                 </li>
                 <li>
-                  <Link href="/collaboration" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/community" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Community
                   </Link>
                 </li>
@@ -90,17 +90,17 @@ const Footer = () => {
               <h3 className="text-white font-semibold text-lg mb-6">Resources</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/blog" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link href="/features" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/webinars" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Webinars
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <Link href="/case-studies" className="text-gray-400 hover:text-white transition-colors duration-300">
                     Case Studies
                   </Link>
                 </li>
