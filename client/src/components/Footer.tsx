@@ -82,6 +82,11 @@ const Footer = () => {
                     Help Center
                   </button>
                 </li>
+                <li>
+                  <button onClick={() => handleNavigation('/expert-support')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    24/7 expert support
+                  </button>
+                </li>
               </ul>
             </div>
 
@@ -109,11 +114,6 @@ const Footer = () => {
                 <li>
                   <button onClick={() => handleNavigation('/setup-migration')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Free setup & migration
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => handleNavigation('/expert-support')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
-                    24/7 expert support
                   </button>
                 </li>
                 <li>
