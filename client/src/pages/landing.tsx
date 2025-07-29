@@ -819,15 +819,6 @@ export default function Landing() {
 
       {/* Growing Together Section - HoneyBook Style */}
       <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
-        {/* Full Width and Height Clientlly Logo Background */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img 
-            src={clientllyLogo} 
-            alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-10"
-          />
-        </div>
-        
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
@@ -985,6 +976,15 @@ export default function Landing() {
 
       {/* Pricing Section */}
       <section id="pricing-section" className="relative py-20 px-4 bg-muted/30 pricing-section overflow-hidden">
+        {/* Full Width and Height Clientlly Logo Background */}
+        <div className="absolute inset-0 flex items-center justify-center -z-20">
+          <img 
+            src={clientllyLogo} 
+            alt="Clientlly Background" 
+            className="w-full h-full object-contain opacity-10"
+          />
+        </div>
+        
         {/* Floating Background Elements for Pricing */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-20 left-10 opacity-4 animate-pulse delay-500">
