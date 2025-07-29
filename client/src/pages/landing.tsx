@@ -819,6 +819,15 @@ export default function Landing() {
 
       {/* Growing Together Section - HoneyBook Style */}
       <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
+        {/* Full Width and Height Clientlly Logo Background */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img 
+            src={clientllyLogo} 
+            alt="Clientlly Background" 
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
@@ -899,18 +908,9 @@ export default function Landing() {
                 </div>
               </div>
               
-              {/* Right Side - Large Static Logo */}
+              {/* Right Side - Premium Community Card */}
               <div className="flex justify-center lg:justify-end">
                 <div className="relative group perspective-1000">
-                  {/* Large Static Clientlly Logo */}
-                  <div className="relative flex items-center justify-center p-8">
-                    <img 
-                      src={clientllyLogo} 
-                      alt="Clientlly" 
-                      className="w-80 h-60 opacity-20 object-contain"
-                    />
-                  </div>
-                  
                   {/* Main Card */}
                   <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl hover:shadow-amber-500/20">
                     
