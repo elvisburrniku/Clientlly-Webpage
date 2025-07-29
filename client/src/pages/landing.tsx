@@ -348,23 +348,6 @@ export default function Landing() {
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           
-          {/* Floating Logo Backgrounds */}
-          <div className="absolute top-20 left-10 opacity-3 animate-float-slow" style={{animationDelay: '0s'}}>
-            <img src={clientllyLogo} alt="" className="w-32 h-24 rotate-12" />
-          </div>
-          <div className="absolute top-40 right-20 opacity-5 animate-float-slow" style={{animationDelay: '2s'}}>
-            <img src={clientllyLogo} alt="" className="w-24 h-18 -rotate-6" />
-          </div>
-          <div className="absolute bottom-32 left-1/3 opacity-4 animate-float-slow" style={{animationDelay: '4s'}}>
-            <img src={clientllyLogo} alt="" className="w-40 h-30 rotate-3" />
-          </div>
-          <div className="absolute top-1/2 left-16 opacity-6 animate-float-slow" style={{animationDelay: '1s'}}>
-            <img src={clientllyLogo} alt="" className="w-20 h-15 -rotate-12" />
-          </div>
-          <div className="absolute bottom-20 right-10 opacity-8 animate-float-slow" style={{animationDelay: '3s'}}>
-            <img src={clientllyLogo} alt="" className="w-28 h-21 rotate-6" />
-          </div>
-          
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
           {/* Grid Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -487,19 +470,7 @@ export default function Landing() {
             <Heart className="h-7 w-7 text-pink-400" />
           </div>
           
-          {/* Small floating logos around feature cards */}
-          <div className="absolute top-40 left-1/4 opacity-6 animate-float-slow" style={{animationDelay: '1s'}}>
-            <img src={clientllyLogo} alt="" className="w-16 h-12 rotate-12" />
-          </div>
-          <div className="absolute bottom-40 right-1/4 opacity-8 animate-float-slow" style={{animationDelay: '3s'}}>
-            <img src={clientllyLogo} alt="" className="w-20 h-15 -rotate-6" />
-          </div>
-          <div className="absolute top-20 right-16 opacity-4 animate-float-slow" style={{animationDelay: '2s'}}>
-            <img src={clientllyLogo} alt="" className="w-14 h-10 rotate-45" />
-          </div>
-          <div className="absolute bottom-10 left-10 opacity-5 animate-float-slow" style={{animationDelay: '4s'}}>
-            <img src={clientllyLogo} alt="" className="w-18 h-13 -rotate-12" />
-          </div>
+
         </div>
         
         <div className="max-w-7xl mx-auto">
@@ -928,9 +899,18 @@ export default function Landing() {
                 </div>
               </div>
               
-              {/* Right Side - Premium Community Card */}
+              {/* Right Side - Large Static Logo */}
               <div className="flex justify-center lg:justify-end">
                 <div className="relative group perspective-1000">
+                  {/* Large Static Clientlly Logo */}
+                  <div className="relative flex items-center justify-center p-8">
+                    <img 
+                      src={clientllyLogo} 
+                      alt="Clientlly" 
+                      className="w-80 h-60 opacity-20 object-contain"
+                    />
+                  </div>
+                  
                   {/* Main Card */}
                   <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl hover:shadow-amber-500/20">
                     
@@ -1020,16 +1000,7 @@ export default function Landing() {
             <Sparkles className="h-8 w-8 text-pink-400" />
           </div>
           
-          {/* Small floating logos around pricing cards */}
-          <div className="absolute top-32 left-16 opacity-6 animate-float-slow" style={{animationDelay: '1s'}}>
-            <img src={clientllyLogo} alt="" className="w-14 h-10 rotate-12" />
-          </div>
-          <div className="absolute bottom-32 right-16 opacity-8 animate-float-slow" style={{animationDelay: '3s'}}>
-            <img src={clientllyLogo} alt="" className="w-18 h-13 -rotate-6" />
-          </div>
-          <div className="absolute top-1/2 left-8 opacity-5 animate-float-slow" style={{animationDelay: '2s'}}>
-            <img src={clientllyLogo} alt="" className="w-12 h-9 rotate-45" />
-          </div>
+
         </div>
         
         <div className="max-w-7xl mx-auto">
