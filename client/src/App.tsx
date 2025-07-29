@@ -49,7 +49,7 @@ import HelpCenter from "@/pages/help-center";
 import Tutorials from "@/pages/tutorials";
 import Community from "@/pages/community";
 import Blog from "@/pages/blog";
-import Webinars from "@/pages/webinars";
+// import Webinars from "@/pages/webinars"; // Temporarily removed
 import CaseStudies from "@/pages/case-studies";
 import { BrandLoader } from "@/components/LoadingStates";
 
@@ -108,7 +108,7 @@ function Router() {
           <Route path="/tutorials" component={Tutorials} />
           <Route path="/community" component={Community} />
           <Route path="/blog" component={Blog} />
-          <Route path="/webinars" component={Webinars} />
+          {/* <Route path="/webinars" component={Webinars} /> */}
           <Route path="/case-studies" component={CaseStudies} />
         </>
       ) : (
@@ -155,7 +155,7 @@ function Router() {
           <Route path="/tutorials" component={Tutorials} />
           <Route path="/community" component={Community} />
           <Route path="/blog" component={Blog} />
-          <Route path="/webinars" component={Webinars} />
+          {/* <Route path="/webinars" component={Webinars} /> */}
           <Route path="/case-studies" component={CaseStudies} />
         </>
       )}

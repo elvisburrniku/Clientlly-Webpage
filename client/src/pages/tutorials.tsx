@@ -337,7 +337,7 @@ export default function Tutorials() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {quickGuides.map((guide, index) => (
-              <Card key={guide.title} className="group hover:scale-105 transition-all duration-300 hover:shadow-xl glass-effect border-white/20 cursor-pointer">
+              <Card key={guide.title} className="group hover:shadow-lg transition-all duration-300 glass-effect border-white/20 cursor-pointer">
                 <CardContent className="p-6 text-center">
                   <div className={`p-3 rounded-xl bg-gradient-to-r ${guide.color} w-fit mx-auto mb-4`}>
                     <guide.icon className="w-6 h-6 text-white" />
@@ -375,7 +375,7 @@ export default function Tutorials() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {learningPaths.map((path, index) => (
-              <Card key={path.title} className="group hover:scale-105 transition-all duration-300 hover:shadow-xl glass-effect border-white/20">
+              <Card key={path.title} className="group hover:shadow-lg transition-all duration-300 glass-effect border-white/20">
                 <CardContent className="p-6">
                   <div className="mb-4">
                     <div className="flex items-center justify-between mb-2">

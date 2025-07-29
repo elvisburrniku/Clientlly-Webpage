@@ -1,6 +1,15 @@
 import { Link } from "wouter";
 import { SocialLinks } from "./ui/animated-icons";
 
+// Helper function to handle navigation with scroll to top
+const handleNavigation = (path: string) => {
+  window.location.href = path;
+  // Small delay to ensure page loads before scrolling
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 100);
+};
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-slate-900 to-black relative overflow-hidden">
@@ -19,24 +28,24 @@ const Footer = () => {
               <h3 className="text-white font-semibold text-lg mb-6">Product</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/features" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/#features')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Features
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/subscribe" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/subscribe')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Pricing
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/integrations')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Integrations
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/api" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/api')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     API
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -46,19 +55,19 @@ const Footer = () => {
               <h3 className="text-white font-semibold text-lg mb-6">Company</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/about')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     About
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/careers" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/careers')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Careers
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/contact')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Contact
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -68,19 +77,19 @@ const Footer = () => {
               <h3 className="text-white font-semibold text-lg mb-6">Support</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/help-center" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/help-center')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Help Center
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/tutorials" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/tutorials')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Tutorials
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/community" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/community')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Community
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -90,19 +99,14 @@ const Footer = () => {
               <h3 className="text-white font-semibold text-lg mb-6">Resources</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/blog" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/blog')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Blog
-                  </Link>
+                  </button>
                 </li>
                 <li>
-                  <Link href="/webinars" className="text-gray-400 hover:text-white transition-colors duration-300">
-                    Webinars
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/case-studies" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <button onClick={() => handleNavigation('/case-studies')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Case Studies
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
