@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="relative z-10 py-20 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Main Footer Content */}
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-8 mb-16">
             {/* Product Column */}
             <div>
               <h3 className="text-white font-semibold text-lg mb-6">Product</h3>
@@ -102,6 +102,43 @@ const Footer = () => {
                 <li>
                   <button onClick={() => handleNavigation('/case-studies')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Case Studies
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Trust Column */}
+            <div>
+              <h3 className="text-white font-semibold text-lg mb-6">Trust</h3>
+              <ul className="space-y-4">
+                <li>
+                  <button onClick={() => handleNavigation('/trial')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    14-day free trial
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/cancel-anytime')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Cancel anytime
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/data-protection')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Data protection & privacy
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/setup-migration')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Free setup & migration
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/expert-support')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    24/7 expert support
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => handleNavigation('/bank-security')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Bank-level security
                   </button>
                 </li>
               </ul>
