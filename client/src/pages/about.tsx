@@ -393,8 +393,8 @@ const AboutPage = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-8 tracking-tight leading-tight animate-professional-fade">
-              About <span className="animate-subtle-gradient">BusinessFlow Pro</span>
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-8 tracking-tight leading-tight fade-in">
+              About <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">BusinessFlow Pro</span>
             </h1>
             <p className="text-2xl lg:text-3xl text-black max-w-5xl mx-auto leading-relaxed mb-12 tracking-tight">
               We're on a mission to empower businesses worldwide with intelligent automation, 
@@ -440,8 +440,8 @@ const AboutPage = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 animate-professional-fade tracking-tight leading-tight">
-              Our <span className="animate-subtle-gradient">Journey</span>
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
+              Our <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Journey</span>
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
               From a simple idea to empowering businesses worldwide
@@ -565,8 +565,8 @@ const AboutPage = () => {
               <div className="space-y-8 lg:space-y-12">
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-4 tracking-tight animate-professional-fade">
-                    Let's <span className="animate-subtle-gradient">grow</span> together
+                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-4 tracking-tight fade-in">
+                    Let's <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">grow</span> together
                   </h2>
                   
                   <div className="space-y-4">
@@ -823,7 +823,7 @@ const AboutPage = () => {
         </div>
         
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg animate-professional-fade">
+          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg fade-in">
             Ready to Trust Your Business with Us?
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">

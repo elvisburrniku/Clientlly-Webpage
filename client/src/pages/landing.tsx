@@ -356,8 +356,8 @@ export default function Landing() {
             
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight animate-professional-fade tracking-tight">
-                Everything you need to <span className="animate-subtle-gradient">run your business</span>
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
+                Everything you need to <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">run your business</span>
               </h1>
               
               <div className="max-w-5xl mx-auto">
@@ -455,8 +455,8 @@ export default function Landing() {
       <section id="features" className="py-16 px-4 relative -mt-12 features-section">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 animate-professional-fade stagger-2 tracking-tight leading-tight">
-              <span className="text-foreground">The features you need.</span> <span className="animate-subtle-gradient">All in one place</span>
+            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-2 tracking-tight leading-tight">
+              <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
