@@ -112,16 +112,6 @@ const Footer = () => {
               <h3 className="text-white font-semibold text-lg mb-6">Trust</h3>
               <ul className="space-y-4">
                 <li>
-                  <button onClick={() => handleNavigation('/trial')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
-                    14-day free trial
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => handleNavigation('/cancel-anytime')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
-                    Cancel anytime
-                  </button>
-                </li>
-                <li>
                   <button onClick={() => handleNavigation('/data-protection')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Data protection & privacy
                   </button>
