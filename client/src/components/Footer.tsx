@@ -1,13 +1,9 @@
 import { Link } from "wouter";
 import { SocialLinks } from "./ui/animated-icons";
 
-// Helper function to handle navigation with scroll to top
+// Helper function to handle direct navigation
 const handleNavigation = (path: string) => {
   window.location.href = path;
-  // Small delay to ensure page loads before scrolling
-  setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 100);
 };
 
 const Footer = () => {
