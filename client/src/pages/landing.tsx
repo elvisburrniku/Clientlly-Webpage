@@ -824,7 +824,7 @@ export default function Landing() {
           <img 
             src={clientllyLogo} 
             alt="Clientlly Background" 
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-contain opacity-10"
           />
         </div>
         
