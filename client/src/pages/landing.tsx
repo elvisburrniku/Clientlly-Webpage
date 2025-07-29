@@ -756,7 +756,7 @@ export default function Landing() {
       <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Floating sparkle elements */}
+
           <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
             <div className="w-full h-full bg-white rounded-full opacity-75"></div>
           </div>
@@ -841,9 +841,7 @@ export default function Landing() {
                             <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
                             <Users className="w-10 h-10 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
                           </div>
-                          {/* Floating particles around icon */}
-                          <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-400/60 rounded-full animate-bounce"></div>
-                          <div className="absolute -bottom-1 -left-3 w-3 h-3 bg-purple-400/60 rounded-full animate-bounce delay-300"></div>
+
                         </div>
                         
                         <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 transform transition-all duration-500 hover:scale-105 hover:text-orange-600">
@@ -891,19 +889,7 @@ export default function Landing() {
                     </div>
                   </div>
                   
-                  {/* Enhanced Floating Elements */}
-                  <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl backdrop-blur-sm floating-element shadow-xl opacity-80">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Sparkles className="w-8 h-8 text-white animate-spin-slow" />
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl backdrop-blur-sm floating-delayed shadow-lg opacity-80">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white animate-pulse" />
-                    </div>
-                  </div>
-                  <div className="absolute top-1/3 -left-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full backdrop-blur-sm floating-slow shadow-lg opacity-70"></div>
-                  <div className="absolute top-1/4 -right-10 w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full backdrop-blur-sm floating-element shadow-lg opacity-70"></div>
+
                 </div>
               </div>
             </div>
@@ -1087,13 +1073,7 @@ export default function Landing() {
       {/* Ready to Trust Your Business CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          {/* Floating sparkles */}
-          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
-          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white/80 rounded-full animate-pulse delay-700"></div>
-          <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse delay-500"></div>
-          <div className="absolute top-2/3 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse delay-200"></div>
-          <div className="absolute top-1/5 right-1/5 w-2 h-2 bg-white/70 rounded-full animate-pulse delay-900"></div>
+
         </div>
         
         <div className="max-w-4xl mx-auto text-center">
