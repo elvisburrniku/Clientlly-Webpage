@@ -66,6 +66,15 @@ export default function FeatureInvoicing() {
                 <span>Back to Features</span>
               </button>
             </div>
+            <div className="flex-1 flex justify-center">
+              <button 
+                onClick={() => window.location.href = "/"}
+                className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+              >
+                <img src="/logo-transparent.svg" alt="BusinessFlow Pro" className="w-12 h-9" />
+                <span className="text-xl font-black text-gray-900 dark:text-white">BusinessFlow Pro</span>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
