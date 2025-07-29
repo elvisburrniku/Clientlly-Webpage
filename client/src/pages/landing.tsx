@@ -480,7 +480,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
                   </div>
                 </div>
-
+                <a 
+                  href="/features/invoicing"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -496,7 +501,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
                   </div>
                 </div>
-
+                <a 
+                  href="/features/expenses"
+                  className="inline-flex items-center text-green-600 hover:text-green-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -512,7 +522,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
                   </div>
                 </div>
-
+                <a 
+                  href="/features/debt"
+                  className="inline-flex items-center text-red-600 hover:text-red-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -528,7 +543,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
                   </div>
                 </div>
-
+                <a 
+                  href="/features/reports"
+                  className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -544,7 +564,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
                   </div>
                 </div>
-
+                <a 
+                  href="/features/clients"
+                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -560,6 +585,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
                   </div>
                 </div>
+                <a 
+                  href="/features/vendors"
+                  className="inline-flex items-center text-amber-600 hover:text-amber-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -575,6 +606,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
                   </div>
                 </div>
+                <a 
+                  href="/features/inventory"
+                  className="inline-flex items-center text-violet-600 hover:text-violet-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -590,6 +627,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
                   </div>
                 </div>
+                <a 
+                  href="/features/attendance"
+                  className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
 
@@ -605,6 +648,12 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Employee tracking, payroll & performance management</p>
                   </div>
                 </div>
+                <a 
+                  href="/features/hr"
+                  className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
           </div>
@@ -613,46 +662,18 @@ export default function Landing() {
           <div className="text-center mt-16 fade-in stagger-11">
             <button 
               onClick={(e) => {
-                // Create expanding circle effect on click
-                const button = e.currentTarget;
-                const rect = button.getBoundingClientRect();
-                const circle = document.createElement('div');
-                const size = Math.max(rect.width, rect.height) * 2;
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
-                circle.style.cssText = `
-                  width: ${size}px;
-                  height: ${size}px;
-                  left: ${x}px;
-                  top: ${y}px;
-                  transform: scale(0);
-                  transition: transform 0.5s ease-out;
-                `;
-                
-                button.appendChild(circle);
-                
-                // Trigger animation
-                requestAnimationFrame(() => {
-                  circle.style.transform = 'scale(1)';
-                  circle.style.opacity = '0';
-                });
-                
-                // Remove circle after animation
-                setTimeout(() => {
-                  circle.remove();
-                }, 500);
+                window.location.href = "/compare-features";
               }}
+              className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-pink-600 px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               {/* Content */}
               <div className="relative z-10 flex items-center text-white">
                 <span className="mr-2 text-white font-black">Compare plan features</span>
-                <ChevronDown className="h-5 w-5 text-white group-active:rotate-180 transition-transform duration-300 ease-out" />
+                <ChevronDown className="h-5 w-5 text-white group-hover:rotate-180 transition-transform duration-300 ease-out" />
               </div>
               
-              {/* Animated background on click */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-active:opacity-100 transition-opacity duration-200 rounded-xl"></div>
+              {/* Animated background on hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-xl"></div>
             </button>
           </div>
         </div>
