@@ -116,6 +116,11 @@ const Footer = () => {
                     Bank-level security
                   </button>
                 </li>
+                <li>
+                  <button onClick={() => handleNavigation('/collaboration')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
+                    Let's grow together
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
