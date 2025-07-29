@@ -10,7 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
-import logoPath from "@assets/3d_1753268267691.png";
+import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import {
   ArrowLeft,
   Zap,

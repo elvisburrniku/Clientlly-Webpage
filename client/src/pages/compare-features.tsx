@@ -31,7 +31,7 @@ import {
 } from 'lucide-react';
 import Footer from "@/components/Footer";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import logoPath from "@assets/3d_1753268267691.png";
+import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
 
 export default function CompareFeatures() {
   const [isVisible, setIsVisible] = useState(false);

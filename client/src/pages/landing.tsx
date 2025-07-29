@@ -200,7 +200,7 @@ export default function Landing() {
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
               <div className="relative">
                 <img 
-                  src="/attached_assets/3d_1753268267691.png" 
+                  src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
                   alt="BusinessFlow Pro" 
                   className="w-14 h-10 object-contain logo-simple cursor-pointer"
                   style={{ 
@@ -349,6 +349,26 @@ export default function Landing() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
           {/* Grid Pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          
+          {/* Background Logo Elements */}
+          <div className="absolute top-20 left-10 w-32 h-32 opacity-5 animate-pulse" style={{ animationDelay: '0s' }}>
+            <img src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" alt="" className="w-full h-full object-contain rotate-12" />
+          </div>
+          <div className="absolute top-32 right-16 w-24 h-24 opacity-8 animate-pulse" style={{ animationDelay: '2s' }}>
+            <img src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" alt="" className="w-full h-full object-contain -rotate-6" />
+          </div>
+          <div className="absolute bottom-40 left-20 w-28 h-28 opacity-6 animate-pulse" style={{ animationDelay: '4s' }}>
+            <img src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" alt="" className="w-full h-full object-contain rotate-45" />
+          </div>
+          <div className="absolute bottom-20 right-32 w-20 h-20 opacity-7 animate-pulse" style={{ animationDelay: '1s' }}>
+            <img src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" alt="" className="w-full h-full object-contain -rotate-12" />
+          </div>
+          <div className="absolute top-1/2 left-8 w-16 h-16 opacity-4 animate-pulse" style={{ animationDelay: '3s' }}>
+            <img src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" alt="" className="w-full h-full object-contain rotate-90" />
+          </div>
+          <div className="absolute top-1/3 right-8 w-36 h-36 opacity-3 animate-pulse" style={{ animationDelay: '5s' }}>
+            <img src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" alt="" className="w-full h-full object-contain -rotate-45" />
+          </div>
         </div>
 
         <div className="max-w-7xl mx-auto w-full">

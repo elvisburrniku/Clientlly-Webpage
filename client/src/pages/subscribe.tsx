@@ -862,7 +862,7 @@ export default function Subscribe() {
             {/* Left Section - Logo and Company Name */}
             <Link href="/" className="flex items-center space-x-3 transition-all duration-300">
               <img 
-                src="/attached_assets/3d_1753268267691.png" 
+                src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
                 alt="BusinessFlow Pro" 
                 className="w-10 h-8 object-contain"
               />

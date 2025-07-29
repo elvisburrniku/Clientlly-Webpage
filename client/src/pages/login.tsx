@@ -47,7 +47,7 @@ export default function Login() {
             <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
               <div className="relative">
                 <img 
-                  src="/attached_assets/3d_1753268267691.png" 
+                  src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
                   alt="BusinessFlow Pro" 
                   className="w-12 h-9 object-contain logo-simple cursor-pointer"
                   style={{ 

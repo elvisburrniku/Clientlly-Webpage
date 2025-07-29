@@ -298,7 +298,7 @@ export default function Dashboard() {
               <div className="relative overflow-hidden rounded-lg">
                 <div className="bg-white dark:bg-transparent p-1 rounded-lg">
                   <img 
-                    src="/attached_assets/3d_1753268267691.png" 
+                    src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
                     alt="BusinessFlow Pro" 
                     className="w-10 h-8 object-contain logo-simple cursor-pointer"
                   />
