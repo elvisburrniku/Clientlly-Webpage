@@ -351,7 +351,7 @@ export default function Landing() {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
           
           {/* Single Large Static Background Logo - Positioned from description to features */}
-          <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] opacity-15">
+          <div className="absolute top-[75%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] opacity-15">
             <img src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" alt="" className="w-full h-full object-contain" />
           </div>
         </div>
