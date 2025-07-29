@@ -54,8 +54,52 @@ export default function Careers() {
   };
 
   const handleSubmit = () => {
-    // Handle form submission
-    alert("Application submitted successfully! We'll get back to you soon.");
+    // Redirect to email application
+    const subject = `Job Application - ${formData.position || 'General Application'}`;
+    const body = `Dear BusinessFlow Pro Team,
+
+I am interested in applying for a position at your company.
+
+Personal Information:
+- Name: ${formData.firstName} ${formData.lastName}
+- Email: ${formData.email}
+- Phone: ${formData.phone}
+- Location: ${formData.location}
+- Position of Interest: ${formData.position}
+- Experience Level: ${formData.experience}
+- Portfolio/LinkedIn: ${formData.portfolio}
+
+Cover Letter:
+${formData.coverLetter}
+
+Best regards,
+${formData.firstName} ${formData.lastName}`;
+
+    const emailUrl = `mailto:info@clientlly.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = emailUrl;
+  };
+
+  const handleResumeSubmit = () => {
+    // Redirect to email for resume submission
+    const subject = `Resume Submission - ${formData.firstName} ${formData.lastName}`;
+    const body = `Dear BusinessFlow Pro Team,
+
+I would like to submit my resume for future opportunities.
+
+Personal Information:
+- Name: ${formData.firstName} ${formData.lastName}
+- Email: ${formData.email}
+- Availability: ${formData.availability}
+
+${formData.resume ? `I have attached my resume: ${formData.resume.name}` : 'Please find my resume attached.'}
+
+I am interested in joining your team and would welcome the opportunity to discuss potential roles.
+
+Best regards,
+${formData.firstName} ${formData.lastName}`;
+
+    const emailUrl = `mailto:info@clientlly.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = emailUrl;
   };
 
   const positions = [
@@ -468,7 +512,7 @@ export default function Careers() {
                   </select>
                 </div>
 
-                <Button onClick={handleSubmit} className="w-full h-12 text-lg bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
+                <Button onClick={handleResumeSubmit} className="w-full h-12 text-lg bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700">
                   <Upload className="w-5 h-5 mr-2" />
                   Send Resume
                 </Button>
