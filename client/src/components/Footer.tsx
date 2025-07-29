@@ -77,16 +77,6 @@ const Footer = () => {
                     Help Center
                   </button>
                 </li>
-                <li>
-                  <button onClick={() => handleNavigation('/tutorials')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
-                    Tutorials
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => handleNavigation('/community')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
-                    Community
-                  </button>
-                </li>
               </ul>
             </div>
 
@@ -94,11 +84,6 @@ const Footer = () => {
             <div>
               <h3 className="text-white font-semibold text-lg mb-6">Resources</h3>
               <ul className="space-y-4">
-                <li>
-                  <button onClick={() => handleNavigation('/blog')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
-                    Blog
-                  </button>
-                </li>
                 <li>
                   <button onClick={() => handleNavigation('/case-studies')} className="text-gray-400 hover:text-white transition-colors duration-300 text-left">
                     Case Studies
