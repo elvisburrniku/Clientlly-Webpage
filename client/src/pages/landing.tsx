@@ -360,7 +360,7 @@ export default function Landing() {
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
               <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
-                Everything you need to <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">run your business</span>
+{t('landing.features.title', 'Everything you need to run your business')}
               </h1>
               
               <div className="max-w-5xl mx-auto">
@@ -477,7 +477,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 id="features-title" className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-2 tracking-tight leading-tight">
-              <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
+<span className="text-foreground">{t('landing.features.title', 'The features you need. All in one place').split('. ')[0]}.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{t('landing.features.title', 'The features you need. All in one place').split('. ')[1]}</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
               No more juggling multiple tools.
@@ -498,8 +498,8 @@ export default function Landing() {
                     <FileText className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
-                    <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.invoicingTitle', 'Professional Invoicing')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.invoicingDesc', 'Custom invoices & payment tracking')}</p>
                   </div>
                 </div>
                 <a 
@@ -519,8 +519,8 @@ export default function Landing() {
                     <Receipt className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
-                    <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.expensesTitle', 'Smart Expense Tracking')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.expensesDesc', 'Organized expenses for tax time')}</p>
                   </div>
                 </div>
                 <a 
@@ -666,7 +666,7 @@ export default function Landing() {
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">HR Management</h3>
+                    <h3 className="text-xl font-black text-foreground">{t('features.hrTitle', 'HR Management')}</h3>
                     <p className="text-sm text-muted-foreground">Employee tracking, payroll & performance management</p>
                   </div>
                 </div>
@@ -1009,7 +1009,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-1 leading-tight tracking-tight animate-slide-up">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
+{t('landing.pricing.title', 'Choose the perfect plan for your business')}
             </h2>
             
 

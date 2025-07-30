@@ -774,16 +774,53 @@ export const translations: { [lang: string]: Translations } = {
         contracts: 'Menaxhimi i Kontratave',
         expenses: 'Ndjekja e Shpenzimeve',
         reports: 'Raporte të Avancuara',
+        title: 'Gjithçka që ju nevojitet për të drejtuar biznesin tuaj',
+        subtitle: 'Platforma jonë e plotë menaxhon çdo aspekt të operacioneve të biznesit tuaj për efikasitet dhe rritje maksimale.',
+        
+        // Individual feature details
+        invoicingTitle: 'Faturim Profesional',
+        invoicingDesc: 'Krijoni, dërgoni dhe ndiqni faturat me përkujtues automatik pagese',
+        expensesTitle: 'Ndjekje e Zgjuar e Shpenzimeve',
+        expensesDesc: 'Kategorizoni dhe ndiqni shpenzimet e biznesit me skanim faturash',
+        debtTitle: 'Menaxhimi i Borxheve',
+        debtDesc: 'Ndiqni dhe menaxhoni borxhet e biznesit me planifikim pagese',
+        reportsTitle: 'Analiza dhe Raporte',
+        reportsDesc: 'Analitika në kohë reale dhe raportim i plotë i biznesit',
+        clientsTitle: 'Menaxhimi i Klientëve',
+        clientsDesc: 'CRM i plotë me profile klientësh dhe histori komunikimi',
+        vendorsTitle: 'Menaxhimi i Furnitorëve',
+        vendorsDesc: 'Menaxhoni furnitorët me porosi blerje dhe ndjekje performancë',
+        inventoryTitle: 'Menaxhimi i Inventarit',
+        inventoryDesc: 'Ndiqni nivelet e stokut me njoftimet automatike të riporosisë',
+        hrTitle: 'Menaxhimi i Burimeve Njerëzore',
+        hrDesc: 'Ndjekje punonjësish, pagesa dhe menaxhim performancë'
       },
       pricing: {
-        title: 'Zgjidh Planin Tënd',
+        title: 'Zgjidhni planin e përkryer për biznesin tuaj',
         monthly: 'Mujor',
         yearly: 'Vjetor',
-        basic: 'Bazik',
-        professional: 'Profesional',
-        business: 'Biznes Plus',
-        selectPlan: 'Zgjidh Planin',
-        mostPopular: 'Më i Popullarizuari',
+        mostPopular: 'Më i popullarizuari',
+        perMonth: 'në muaj',
+        perYear: 'në vit',
+        getStarted: 'Filloni',
+        
+        starter: {
+          name: 'Fillestari',
+          users: 'Deri në 3 përdorues',
+          invoices: '200 fatura/muaj'
+        },
+        professional: {
+          name: 'Profesional',
+          users: 'Deri në 10 përdorues',
+          invoices: '500 fatura/muaj'
+        },
+        enterprise: {
+          name: 'Ndërmarrje',
+          users: 'Deri në 50 përdorues',
+          invoices: 'Fatura të pakufizuara'
+        },
+        
+        compareFeatures: 'Krahasoni veçoritë e planit'
       },
     },
     subscribe: {
@@ -843,16 +880,53 @@ export const translations: { [lang: string]: Translations } = {
         contracts: 'Управување со Договори',
         expenses: 'Следење на Трошоци',
         reports: 'Напредни Извештаи',
+        title: 'Сѐ што ви треба за водење на вашиот бизнис',
+        subtitle: 'Нашата целосна платформа управува со секој аспект од операциите на вашиот бизнис за максимална ефикасност и раст',
+        
+        // Individual feature details
+        invoicingTitle: 'Професионално Фактурирање',
+        invoicingDesc: 'Креирајте, испраќајте и следете фактури со автоматски потсетувања за плаќање',
+        expensesTitle: 'Паметно Следење на Трошоци',
+        expensesDesc: 'Категоризирајте и следете деловни трошоци со скенирање сметки',
+        debtTitle: 'Управување со Долгови',
+        debtDesc: 'Следете и управувајте со деловни долгови со планирање плаќања',
+        reportsTitle: 'Анализи и Извештаи',
+        reportsDesc: 'Аналитика во реално време и сеопфатно деловно известување',
+        clientsTitle: 'Управување со Клиенти',
+        clientsDesc: 'Сеопфатен CRM со профили на клиенти и историја на комуникација',
+        vendorsTitle: 'Управување со Добавувачи',
+        vendorsDesc: 'Управувајте со добавувачи со нарачки за купување и следење перформанси',
+        inventoryTitle: 'Управување со Инвентар',
+        inventoryDesc: 'Следете нивоа на залихи со автоматски известувања за повторно нарачување',
+        hrTitle: 'Управување со Човечки Ресурси',
+        hrDesc: 'Следење вработени, плати и управување со перформанси'
       },
       pricing: {
-        title: 'Избери го Твојот План',
+        title: 'Изберете го совршениот план за вашиот бизнис',
         monthly: 'Месечно',
         yearly: 'Годишно',
-        basic: 'Основен',
-        professional: 'Професионален',
-        business: 'Бизнис Плус',
-        selectPlan: 'Избери План',
         mostPopular: 'Најпопуларен',
+        perMonth: 'месечно',
+        perYear: 'годишно',
+        getStarted: 'Започнете',
+        
+        starter: {
+          name: 'Почетничка',
+          users: 'До 3 корисници',
+          invoices: '200 фактури/месец'
+        },
+        professional: {
+          name: 'Професионална',
+          users: 'До 10 корисници',
+          invoices: '500 фактури/месец'
+        },
+        enterprise: {
+          name: 'Претпријатие',
+          users: 'До 50 корисници',
+          invoices: 'Неограничени фактури'
+        },
+        
+        compareFeatures: 'Спореди карактеристики на планот'
       },
     },
     subscribe: {
