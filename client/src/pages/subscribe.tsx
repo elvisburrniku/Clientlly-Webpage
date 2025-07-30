@@ -855,14 +855,14 @@ export default function Subscribe() {
         <img 
           src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
           alt="Clientlly Background" 
-          className="w-full h-full object-contain opacity-40"
+          className="w-full h-full object-contain opacity-50"
         />
       </div>
       
       {/* Clean Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50 dark:via-gray-900/30 dark:to-gray-900/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/20 dark:via-gray-900/10 dark:to-gray-900/20"></div>
       </div>
 
       {/* Navigation */}
