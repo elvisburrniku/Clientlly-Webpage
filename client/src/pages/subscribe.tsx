@@ -1056,7 +1056,7 @@ export default function Subscribe() {
           {renderCurrentStep()}
         </div>
 
-        <div className="flex justify-center space-x-6 fade-in-up" style={{ animationDelay: '0.8s' }}>
+        <div className="flex justify-center space-x-6 fade-in-up mb-16" style={{ animationDelay: '0.8s' }}>
           {currentStep > 0 && (
             <Button 
               variant="outline" 
