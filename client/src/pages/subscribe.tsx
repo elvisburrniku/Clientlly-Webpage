@@ -428,7 +428,7 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer bg-white/40 dark:bg-gray-900/40 backdrop-blur-sm ${
+                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm ${
                   index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
                 } ${isSelected ? 'ring-2 ring-blue-400 border-blue-400' : ''}`}
                 onClick={() => setSelectedPlan(plan.id)}
@@ -857,7 +857,7 @@ export default function Subscribe() {
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex items-center justify-between h-20">
             {/* Left Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 transition-all duration-300">
+            <Link href="/#business-overview" className="flex items-center space-x-3 transition-all duration-300">
               <img 
                 src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
                 alt="BusinessFlow Pro" 
@@ -1022,7 +1022,7 @@ export default function Subscribe() {
           <img 
             src={clientllyLogo} 
             alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-30"
+            className="w-full h-full object-contain opacity-80"
           />
         </div>
         
