@@ -428,7 +428,7 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer ${
+                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer bg-card/95 backdrop-blur-sm ${
                   index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
                 } ${isSelected ? 'ring-2 ring-blue-400 border-blue-400' : ''}`}
                 onClick={() => setSelectedPlan(plan.id)}
