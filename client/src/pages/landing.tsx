@@ -361,10 +361,47 @@ export default function Landing() {
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
               <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight fade-in">
                 <span className="text-foreground block mb-1 leading-tight">
-                  Everything you need to
+                  <span className="letter-animation">E</span>
+                  <span className="letter-animation">v</span>
+                  <span className="letter-animation">e</span>
+                  <span className="letter-animation">r</span>
+                  <span className="letter-animation">y</span>
+                  <span className="letter-animation">t</span>
+                  <span className="letter-animation">h</span>
+                  <span className="letter-animation">i</span>
+                  <span className="letter-animation">n</span>
+                  <span className="letter-animation">g</span>
+                  <span className="letter-animation">&nbsp;</span>
+                  <span className="letter-animation">y</span>
+                  <span className="letter-animation">o</span>
+                  <span className="letter-animation">u</span>
+                  <span className="letter-animation">&nbsp;</span>
+                  <span className="letter-animation">n</span>
+                  <span className="letter-animation">e</span>
+                  <span className="letter-animation">e</span>
+                  <span className="letter-animation">d</span>
+                  <span className="letter-animation">&nbsp;</span>
+                  <span className="letter-animation">t</span>
+                  <span className="letter-animation">o</span>
                 </span>
                 <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
-                  run your business
+                  <span className="letter-animation">r</span>
+                  <span className="letter-animation">u</span>
+                  <span className="letter-animation">n</span>
+                  <span className="letter-animation">&nbsp;</span>
+                  <span className="letter-animation">y</span>
+                  <span className="letter-animation">o</span>
+                  <span className="letter-animation">u</span>
+                  <span className="letter-animation">r</span>
+                  <span className="letter-animation">&nbsp;</span>
+                  <span className="letter-animation">b</span>
+                  <span className="letter-animation">u</span>
+                  <span className="letter-animation">s</span>
+                  <span className="letter-animation">i</span>
+                  <span className="letter-animation">n</span>
+                  <span className="letter-animation">e</span>
+                  <span className="letter-animation">s</span>
+                  <span className="letter-animation">s</span>
                 </span>
               </h1>
               
