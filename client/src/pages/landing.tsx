@@ -363,12 +363,7 @@ export default function Landing() {
                 <span className="text-foreground block mb-1 leading-tight">
                   Everything you need
                 </span>
-                <span className="block leading-tight" style={{
-                  background: 'linear-gradient(to right, #2563eb, #8b5cf6, #10b981)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}>
+                <span className="block leading-tight text-blue-600">
                   <span className="letter-animation" style={{display: 'inline-block'}}>t</span>
                   <span className="letter-animation" style={{display: 'inline-block'}}>o</span>
                   <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
