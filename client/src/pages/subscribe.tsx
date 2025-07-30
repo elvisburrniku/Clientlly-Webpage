@@ -428,10 +428,8 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer z-10 ${
-                  index === 1 
-                    ? 'bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border-2 border-primary shadow-2xl glass-effect' 
-                    : 'bg-white dark:bg-gray-900 border border-border/50'
+                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer ${
+                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
                 } ${isSelected ? 'ring-2 ring-blue-400 border-blue-400' : ''}`}
                 onClick={() => setSelectedPlan(plan.id)}
               >
@@ -1020,15 +1018,15 @@ export default function Subscribe() {
       {/* Pricing Section - Matching Landing Page Structure */}
       <section className="relative py-20 px-4 pricing-section overflow-hidden">
         {/* Full Width and Height Clientlly Logo Background */}
-        <div className="absolute inset-0 flex items-center justify-center z-0">
+        <div className="absolute inset-0 flex items-center justify-center -z-20">
           <img 
             src={clientllyLogo} 
             alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-15"
+            className="w-full h-full object-contain opacity-30"
           />
         </div>
         
-        {/* Floating Background Elements for Pricing - Exact Landing Page Copy */}
+        {/* Floating Background Elements for Pricing */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-20 left-10 opacity-4 animate-pulse delay-500">
             <Sparkles className="h-5 w-5 text-blue-400" />
