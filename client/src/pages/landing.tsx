@@ -360,7 +360,7 @@ export default function Landing() {
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
               <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
-<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Everything you need to run your business</span>
+<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{t('features.title', 'Everything you need to run your business')}</span>
               </h1>
               
               <div className="max-w-5xl mx-auto">
@@ -477,10 +477,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 id="features-title" className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-2 tracking-tight leading-tight">
-<span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
+<span className="text-foreground">{t('features.sectionsTitle', 'The features you need. All in one place').split('. ')[0]}.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{t('features.sectionsTitle', 'The features you need. All in one place').split('. ')[1]}</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
-No more juggling multiple tools.
+{t('features.noMoreJuggling', 'No more juggling multiple tools.')}
             </p>
             <p className="text-xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2 tracking-tight">
               Everything your business needs in one powerful platform.
@@ -498,15 +498,15 @@ No more juggling multiple tools.
                     <FileText className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
-                    <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.invoicingTitle', 'Professional Invoicing')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.invoicingDesc', 'Custom invoices & payment tracking')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/invoicing"
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -519,15 +519,15 @@ No more juggling multiple tools.
                     <Receipt className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
-                    <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.expensesTitle', 'Smart Expense Tracking')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.expensesDesc', 'Organized expenses for tax time')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/expenses"
                   className="inline-flex items-center text-green-600 hover:text-green-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -540,15 +540,15 @@ No more juggling multiple tools.
                     <CreditCard className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Debt Management</h3>
-                    <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.debtTitle', 'Debt Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.debtDesc', 'Track debts & payment scheduling')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/debt"
                   className="inline-flex items-center text-red-600 hover:text-red-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -561,15 +561,15 @@ No more juggling multiple tools.
                     <BarChart3 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Insights & Reports</h3>
-                    <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.reportsTitle', 'Insights & Reports')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.reportsDesc', 'Business analytics & cash flow planning')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/reports"
                   className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -582,15 +582,15 @@ No more juggling multiple tools.
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Client Management</h3>
-                    <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.clientsTitle', 'Client Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.clientsDesc', 'Profiles, projects & communication tracking')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/clients"
                   className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -603,15 +603,15 @@ No more juggling multiple tools.
                     <Building2 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Vendor Management</h3>
-                    <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.vendorsTitle', 'Vendor Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.vendorsDesc', 'Supplier tracking & purchase orders')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/vendors"
                   className="inline-flex items-center text-amber-600 hover:text-amber-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -624,15 +624,15 @@ No more juggling multiple tools.
                     <Package className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Inventory Management</h3>
-                    <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.inventoryTitle', 'Inventory Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.inventoryDesc', 'Real-time inventory & order tracking')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/inventory"
                   className="inline-flex items-center text-violet-600 hover:text-violet-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -645,15 +645,15 @@ No more juggling multiple tools.
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Smart Attendance</h3>
-                    <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.attendanceTitle', 'Smart Attendance')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.attendanceDesc', 'GPS tracking & workforce management')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/attendance"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -666,15 +666,15 @@ No more juggling multiple tools.
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">HR Management</h3>
-                    <p className="text-sm text-muted-foreground">Employee tracking, payroll & performance management</p>
+                    <h3 className="text-xl font-black text-foreground">{t('features.hrTitle', 'HR Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('features.hrDesc', 'Employee tracking, payroll & performance management')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/hr"
                   className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
