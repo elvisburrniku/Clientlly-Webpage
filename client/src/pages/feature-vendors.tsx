@@ -64,7 +64,13 @@ export default function FeatureVendors() {
             <div className="flex items-center space-x-4">
               <button 
                 onClick={() => {
-                  window.location.href = "/#features-title";
+                  window.location.href = "/";
+                  setTimeout(() => {
+                    const element = document.getElementById('features-title');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
                 }}
                 className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
               >
