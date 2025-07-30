@@ -359,8 +359,13 @@ export default function Landing() {
             
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
-<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Everything you need to run your business</span>
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
+                <span className="text-foreground block mb-1 leading-tight">
+                  Everything you need to
+                </span>
+                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
+                  run your business
+                </span>
               </h1>
               
               <div className="max-w-5xl mx-auto">
