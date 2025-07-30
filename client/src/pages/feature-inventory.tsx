@@ -66,11 +66,18 @@ export default function FeatureInventory() {
                 onClick={() => {
                   window.location.href = "/";
                   setTimeout(() => {
-                    const element = document.getElementById('features');
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
+                    console.log('Trying to navigate to features section...');
+                    let element = document.getElementById('features-title');
+                    if (!element) {
+                      element = document.getElementById('features');
                     }
-                  }, 200);
+                    if (element) {
+                      console.log('Found element, scrolling...');
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                      console.log('Element not found');
+                    }
+                  }, 300);
                 }}
                 className="inline-flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
               >
