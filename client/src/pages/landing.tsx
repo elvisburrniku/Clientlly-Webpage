@@ -371,7 +371,7 @@ export default function Landing() {
                   <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
                   <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>n</span>
                   <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
-                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>y</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block', paddingBottom: '0.3em', marginBottom: '0.1em'}}>y</span>
                   <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>o</span>
                   <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
                   <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>r</span>
