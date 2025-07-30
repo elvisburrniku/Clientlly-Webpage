@@ -360,7 +360,7 @@ export default function Landing() {
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
               <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight fade-in tracking-tight">
-<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{t('features.title', 'Everything you need to run your business')}</span>
+<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Everything you need to run your business</span>
               </h1>
               
               <div className="max-w-5xl mx-auto">
@@ -477,10 +477,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 id="features-title" className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-2 tracking-tight leading-tight">
-<span className="text-foreground">{t('features.sectionsTitle', 'The features you need. All in one place').split('. ')[0]}.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{t('features.sectionsTitle', 'The features you need. All in one place').split('. ')[1]}</span>
+<span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
-{t('features.noMoreJuggling', 'No more juggling multiple tools.')}
+No more juggling multiple tools.
             </p>
             <p className="text-xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2 tracking-tight">
               Everything your business needs in one powerful platform.
@@ -498,15 +498,15 @@ export default function Landing() {
                     <FileText className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">{t('features.invoicingTitle', 'Professional Invoicing')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('features.invoicingDesc', 'Custom invoices & payment tracking')}</p>
+                    <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
+                    <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
                   </div>
                 </div>
                 <a 
                   href="/features/invoicing"
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  {t('features.learnMore', 'Learn more')} →
+                  Learn more →
                 </a>
               </div>
             </div>
@@ -519,15 +519,15 @@ export default function Landing() {
                     <Receipt className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">{t('features.expensesTitle', 'Smart Expense Tracking')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('features.expensesDesc', 'Organized expenses for tax time')}</p>
+                    <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
+                    <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
                   </div>
                 </div>
                 <a 
                   href="/features/expenses"
                   className="inline-flex items-center text-green-600 hover:text-green-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  {t('features.learnMore', 'Learn more')} →
+                  Learn more →
                 </a>
               </div>
             </div>
@@ -582,8 +582,8 @@ export default function Landing() {
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">{t('features.clientsTitle', 'Client Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('features.clientsDesc', 'Profiles, projects & communication tracking')}</p>
+                    <h3 className="text-xl font-black text-foreground">Client Management</h3>
+                    <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
                   </div>
                 </div>
                 <a 
@@ -603,8 +603,8 @@ export default function Landing() {
                     <Building2 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">{t('features.vendorsTitle', 'Vendor Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('features.vendorsDesc', 'Supplier tracking & purchase orders')}</p>
+                    <h3 className="text-xl font-black text-foreground">Vendor Management</h3>
+                    <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
                   </div>
                 </div>
                 <a 
@@ -624,8 +624,8 @@ export default function Landing() {
                     <Package className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">{t('features.inventoryTitle', 'Inventory Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('features.inventoryDesc', 'Real-time inventory & order tracking')}</p>
+                    <h3 className="text-xl font-black text-foreground">Inventory Management</h3>
+                    <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
                   </div>
                 </div>
                 <a 
@@ -666,8 +666,8 @@ export default function Landing() {
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">{t('features.hrTitle', 'HR Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('features.hrDesc', 'Employee tracking, payroll & performance management')}</p>
+                    <h3 className="text-xl font-black text-foreground">HR Management</h3>
+                    <p className="text-sm text-muted-foreground">Employee tracking, payroll & performance management</p>
                   </div>
                 </div>
                 <a 
@@ -1009,7 +1009,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-1 leading-tight tracking-tight animate-slide-up">
-Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-fade-in">{t('pricing.title', 'perfect plan')}</span> for your business
+Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-fade-in">perfect plan</span> for your business
             </h2>
             
 
