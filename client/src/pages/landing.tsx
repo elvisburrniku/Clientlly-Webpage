@@ -385,23 +385,23 @@ export default function Landing() {
                   <span className="letter-animation">o</span>
                 </span>
                 <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
-                  <span className="letter-animation">r</span>
-                  <span className="letter-animation">u</span>
-                  <span className="letter-animation">n</span>
-                  <span className="letter-animation">&nbsp;</span>
-                  <span className="letter-animation">y</span>
-                  <span className="letter-animation">o</span>
-                  <span className="letter-animation">u</span>
-                  <span className="letter-animation">r</span>
-                  <span className="letter-animation">&nbsp;</span>
-                  <span className="letter-animation">b</span>
-                  <span className="letter-animation">u</span>
-                  <span className="letter-animation">s</span>
-                  <span className="letter-animation">i</span>
-                  <span className="letter-animation">n</span>
-                  <span className="letter-animation">e</span>
-                  <span className="letter-animation">s</span>
-                  <span className="letter-animation">s</span>
+                  <span className="letter-animation" style={{animationDelay: '1.15s'}}>r</span>
+                  <span className="letter-animation" style={{animationDelay: '1.20s'}}>u</span>
+                  <span className="letter-animation" style={{animationDelay: '1.25s'}}>n</span>
+                  <span className="letter-animation" style={{animationDelay: '1.30s'}}>&nbsp;</span>
+                  <span className="letter-animation" style={{animationDelay: '1.35s'}}>y</span>
+                  <span className="letter-animation" style={{animationDelay: '1.40s'}}>o</span>
+                  <span className="letter-animation" style={{animationDelay: '1.45s'}}>u</span>
+                  <span className="letter-animation" style={{animationDelay: '1.50s'}}>r</span>
+                  <span className="letter-animation" style={{animationDelay: '1.55s'}}>&nbsp;</span>
+                  <span className="letter-animation" style={{animationDelay: '1.60s'}}>b</span>
+                  <span className="letter-animation" style={{animationDelay: '1.65s'}}>u</span>
+                  <span className="letter-animation" style={{animationDelay: '1.70s'}}>s</span>
+                  <span className="letter-animation" style={{animationDelay: '1.75s'}}>i</span>
+                  <span className="letter-animation" style={{animationDelay: '1.80s'}}>n</span>
+                  <span className="letter-animation" style={{animationDelay: '1.85s'}}>e</span>
+                  <span className="letter-animation" style={{animationDelay: '1.90s'}}>s</span>
+                  <span className="letter-animation" style={{animationDelay: '1.95s'}}>s</span>
                 </span>
               </h1>
               
