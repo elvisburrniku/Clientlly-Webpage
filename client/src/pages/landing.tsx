@@ -361,9 +361,12 @@ export default function Landing() {
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
               <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight fade-in">
                 <span className="text-foreground block mb-1 leading-tight">
-                  Everything you need to
+                  Everything you need
                 </span>
                 <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
+                  <span className="letter-animation">t</span>
+                  <span className="letter-animation">o</span>
+                  <span className="letter-animation">&nbsp;</span>
                   <span className="letter-animation">r</span>
                   <span className="letter-animation">u</span>
                   <span className="letter-animation">n</span>
