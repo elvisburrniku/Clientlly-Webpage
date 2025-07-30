@@ -71,14 +71,15 @@ const ExpertSupportPage = () => {
       <nav className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative overflow-hidden">
-                <img 
-                  src="/logo.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain logo-simple"
-                />
-              </div>
+            <Link href="/" className="flex items-center space-x-4 group cursor-pointer">
+              <img 
+                src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
+                alt="Clientlly" 
+                className="h-8 w-10 object-contain"
+              />
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Clientlly
+              </span>
             </Link>
 
             {/* Center - Navigation Links */}

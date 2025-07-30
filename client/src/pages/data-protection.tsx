@@ -106,16 +106,22 @@ const DataProtectionPage = () => {
       <nav className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <Link href="/">
-                <img src="/logo-transparent.svg" alt="BusinessFlow Pro" className="w-12 h-9" />
-              </Link>
-              <div className="hidden md:flex items-center space-x-8">
-                <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">About Us</Link>
-                <Link href="/#features" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Features</Link>
-                <Link href="/subscribe" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Pricing</Link>
-                <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Contact Us</Link>
-              </div>
+            <Link href="/" className="flex items-center space-x-4 group cursor-pointer">
+              <img 
+                src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
+                alt="Clientlly" 
+                className="h-8 w-10 object-contain"
+              />
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Clientlly
+              </span>
+            </Link>
+
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">About Us</Link>
+              <Link href="/#features" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Features</Link>
+              <Link href="/subscribe" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Pricing</Link>
+              <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Contact Us</Link>
             </div>
             
             <div className="hidden md:flex items-center space-x-4">
