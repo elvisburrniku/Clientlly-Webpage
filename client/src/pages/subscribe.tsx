@@ -850,14 +850,6 @@ export default function Subscribe() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
-      {/* Full Width and Height Clientlly Logo Background */}
-      <div className="absolute inset-0 flex items-center justify-center z-0">
-        <img 
-          src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-          alt="Clientlly Background" 
-          className="w-full h-full object-contain opacity-20"
-        />
-      </div>
 
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/20 shadow-lg">
