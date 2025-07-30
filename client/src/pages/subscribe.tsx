@@ -428,7 +428,7 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm z-10 ${
+                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-10 ${
                   index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
                 } ${isSelected ? 'ring-2 ring-blue-400 border-blue-400' : ''}`}
                 onClick={() => setSelectedPlan(plan.id)}
@@ -1022,9 +1022,7 @@ export default function Subscribe() {
           <img 
             src={clientllyLogo} 
             alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-80 border-4 border-red-500"
-            onLoad={() => console.log('Logo loaded successfully in pricing section')}
-            onError={(e) => console.error('Logo failed to load in pricing section:', e)}
+            className="w-full h-full object-contain opacity-15"
           />
         </div>
         
