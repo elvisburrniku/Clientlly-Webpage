@@ -428,7 +428,7 @@ export default function Subscribe() {
             return (
               <Card 
                 key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer bg-card/95 backdrop-blur-sm ${
+                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer ${
                   index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
                 } ${isSelected ? 'ring-2 ring-blue-400 border-blue-400' : ''}`}
                 onClick={() => setSelectedPlan(plan.id)}
@@ -1017,14 +1017,7 @@ export default function Subscribe() {
 
       {/* Pricing Section - Matching Landing Page Structure */}
       <section className="relative py-20 px-4 pricing-section overflow-hidden">
-        {/* Full Width and Height Clientlly Logo Background */}
-        <div className="absolute inset-0 flex items-center justify-center z-50">
-          <img 
-            src={clientllyLogo} 
-            alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-90 border-8 border-red-500"
-          />
-        </div>
+
         
         {/* Floating Background Elements for Pricing */}
         <div className="absolute inset-0 -z-10">
