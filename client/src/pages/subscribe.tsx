@@ -1018,11 +1018,11 @@ export default function Subscribe() {
       {/* Pricing Section - Matching Landing Page Structure */}
       <section className="relative py-20 px-4 pricing-section overflow-hidden">
         {/* Full Width and Height Clientlly Logo Background */}
-        <div className="absolute inset-0 flex items-center justify-center -z-20">
+        <div className="absolute inset-0 flex items-center justify-center z-50">
           <img 
             src={clientllyLogo} 
             alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-30"
+            className="w-full h-full object-contain opacity-90 border-8 border-red-500"
           />
         </div>
         
