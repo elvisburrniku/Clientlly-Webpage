@@ -851,18 +851,12 @@ export default function Subscribe() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
       {/* Full Width and Height Clientlly Logo Background */}
-      <div className="absolute inset-0 flex items-center justify-center -z-20">
+      <div className="absolute inset-0 flex items-center justify-center z-0">
         <img 
           src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
           alt="Clientlly Background" 
-          className="w-full h-full object-contain opacity-50"
+          className="w-full h-full object-contain opacity-20"
         />
-      </div>
-      
-      {/* Clean Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-white/20 dark:via-gray-900/10 dark:to-gray-900/20"></div>
       </div>
 
       {/* Navigation */}
@@ -1029,6 +1023,14 @@ export default function Subscribe() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 px-4 pt-20">
+        {/* Background Logo for Main Content */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <img 
+            src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
+            alt="Clientlly Content Background" 
+            className="w-full h-full object-contain opacity-40 max-w-2xl"
+          />
+        </div>
 
         <div id="pricing-section">
           {renderStepIndicator()}
