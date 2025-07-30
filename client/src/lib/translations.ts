@@ -793,7 +793,13 @@ export const translations: { [lang: string]: Translations } = {
         inventoryTitle: 'Menaxhimi i Inventarit',
         inventoryDesc: 'Ndiqni nivelet e stokut me njoftimet automatike të riporosisë',
         hrTitle: 'Menaxhimi i Burimeve Njerëzore',
-        hrDesc: 'Ndjekje punonjësish, pagesa dhe menaxhim performancë'
+        hrDesc: 'Ndjekje punonjësish, pagesa dhe menaxhim performancë',
+        
+        // Complete section texts
+        sectionsTitle: 'Veçoritë që ju nevojiten. Të gjitha në një vend',
+        platformDescription: 'Platforma jonë e plotë menaxhon çdo aspekt të operacioneve të biznesit tuaj për efikasitet dhe rritje maksimale',
+        noMoreJuggling: 'Jo më luajtje me mjete të shumta.',
+        learnMore: 'Mëso më shumë'
       },
       pricing: {
         title: 'Zgjidhni planin e përkryer për biznesin tuaj',
@@ -899,7 +905,13 @@ export const translations: { [lang: string]: Translations } = {
         inventoryTitle: 'Управување со Инвентар',
         inventoryDesc: 'Следете нивоа на залихи со автоматски известувања за повторно нарачување',
         hrTitle: 'Управување со Човечки Ресурси',
-        hrDesc: 'Следење вработени, плати и управување со перформанси'
+        hrDesc: 'Следење вработени, плати и управување со перформанси',
+        
+        // Complete section texts  
+        sectionsTitle: 'Карактеристиките што ви требаат. Сѐ на едно место',
+        platformDescription: 'Нашата целосна платформа управува со секој аспект од операциите на вашиот бизнис за максимална ефикасност и раст',
+        noMoreJuggling: 'Нема повеќе жонглирање со повеќе алатки.',
+        learnMore: 'Дознај повеќе'
       },
       pricing: {
         title: 'Изберете го совршениот план за вашиот бизнис',

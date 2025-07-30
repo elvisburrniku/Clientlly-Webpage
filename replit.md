@@ -2,6 +2,15 @@
 
 ## Recent Changes (July 30, 2025)
 
+✓ COMPLETED comprehensive Albanian and Macedonian translations implementation (July 30, 2025)
+✓ Enhanced translations.ts with complete feature descriptions, platform descriptions, and UI elements for both Albanian (sq) and Macedonian (mk) languages
+✓ Updated landing page to use translation system for main hero titles, features section titles, and individual feature descriptions
+✓ Applied translations to key components: "Everything you need to run your business", "The features you need. All in one place", feature titles and descriptions
+✓ Fixed gradient animations and text styling for translated titles maintaining blue-purple-green color scheme
+✓ Added comprehensive translations for pricing titles, learn more buttons, and platform descriptions
+✓ Fixed duplicate translation keys issue and LSP diagnostics for proper functionality
+✓ Multi-language support now working seamlessly with language selector (EN/SQ/MK) in navigation
+
 ✓ COMPLETED navigation fix for "Back to Features" buttons using wouter routing (July 30, 2025)
 ✓ Used setLocation("/") with setTimeout scroll to features-title for proper SPA navigation
 ✓ Fixed navigation timing issues that prevented scrolling to correct section
