@@ -363,27 +363,32 @@ export default function Landing() {
                 <span className="text-foreground block mb-1 leading-tight">
                   Everything you need
                 </span>
-                <span className="gradient-text block bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-tight">
-                  <span className="letter-animation">t</span>
-                  <span className="letter-animation">o</span>
-                  <span className="letter-animation">&nbsp;</span>
-                  <span className="letter-animation">r</span>
-                  <span className="letter-animation">u</span>
-                  <span className="letter-animation">n</span>
-                  <span className="letter-animation">&nbsp;</span>
-                  <span className="letter-animation">y</span>
-                  <span className="letter-animation">o</span>
-                  <span className="letter-animation">u</span>
-                  <span className="letter-animation">r</span>
-                  <span className="letter-animation">&nbsp;</span>
-                  <span className="letter-animation">b</span>
-                  <span className="letter-animation">u</span>
-                  <span className="letter-animation">s</span>
-                  <span className="letter-animation">i</span>
-                  <span className="letter-animation">n</span>
-                  <span className="letter-animation">e</span>
-                  <span className="letter-animation">s</span>
-                  <span className="letter-animation">s</span>
+                <span className="block leading-tight" style={{
+                  background: 'linear-gradient(to right, #2563eb, #8b5cf6, #10b981)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>t</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>o</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>r</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>u</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>n</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>y</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>o</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>u</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>r</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>b</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>u</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>s</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>i</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>n</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>e</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>s</span>
+                  <span className="letter-animation" style={{display: 'inline-block'}}>s</span>
                 </span>
               </h1>
               
