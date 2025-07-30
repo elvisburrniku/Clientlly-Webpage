@@ -363,27 +363,27 @@ export default function Landing() {
                 <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl font-black">
                   Everything you need
                 </span>
-                <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent block leading-tight text-6xl lg:text-7xl xl:text-8xl font-black">
-                  <span className="letter-animation" style={{display: 'inline-block'}}>t</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>o</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>r</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>u</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>n</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>y</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>o</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>u</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>r</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>b</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>u</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>s</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>i</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>n</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>e</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>s</span>
-                  <span className="letter-animation" style={{display: 'inline-block'}}>s</span>
+                <span className="block leading-tight text-6xl lg:text-7xl xl:text-8xl font-black">
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>t</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>o</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>r</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>n</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>y</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>o</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>r</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>b</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>i</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>n</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>e</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
+                  <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
                 </span>
               </h1>
               
