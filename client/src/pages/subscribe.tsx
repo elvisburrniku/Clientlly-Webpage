@@ -1022,19 +1022,18 @@ export default function Subscribe() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative px-4 pt-20">
-        {/* Background Logo - Only behind pricing cards area */}
-        <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center -z-20 pointer-events-none">
-          <div className="relative max-w-4xl mx-auto h-full flex items-center justify-center py-20">
-            <img 
-              src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-              alt="Clientlly Background" 
-              className="w-full h-auto max-h-80 object-contain opacity-30"
-            />
-          </div>
+      {/* Pricing Section - Matching Landing Page Structure */}
+      <section className="relative py-20 px-4 pricing-section overflow-hidden">
+        {/* Full Width and Height Clientlly Logo Background - Exact Landing Page Copy */}
+        <div className="absolute inset-0 flex items-center justify-center -z-20">
+          <img 
+            src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
+            alt="Clientlly Background" 
+            className="w-full h-full object-contain opacity-30"
+          />
         </div>
         
-        {/* Floating Background Elements - Same as Landing Page */}
+        {/* Floating Background Elements for Pricing - Exact Landing Page Copy */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-20 left-10 opacity-4 animate-pulse delay-500">
             <Sparkles className="h-5 w-5 text-blue-400" />
@@ -1049,6 +1048,8 @@ export default function Subscribe() {
             <Sparkles className="h-8 w-8 text-pink-400" />
           </div>
         </div>
+        
+        <div className="max-w-7xl mx-auto">
 
         <div id="pricing-section">
           {renderStepIndicator()}
@@ -1081,9 +1082,8 @@ export default function Subscribe() {
             </Button>
           )}
         </div>
-
-
-      </div>
+        </div>
+      </section>
       
       {/* Footer */}
       <Footer />
