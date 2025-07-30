@@ -359,7 +359,7 @@ export default function Landing() {
             
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-              <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight tracking-tight fade-in">
+              <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight tracking-tight fade-in">
                 <span className="text-foreground block mb-1 leading-tight">
                   Everything you need to
                 </span>
