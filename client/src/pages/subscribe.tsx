@@ -1023,13 +1023,15 @@ export default function Subscribe() {
       </div>
 
       <div className="max-w-7xl mx-auto relative px-4 pt-20">
-        {/* Constrained Background Logo - Same as Landing Page */}
-        <div className="absolute inset-0 flex items-center justify-center -z-20">
-          <img 
-            src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-            alt="Clientlly Background" 
-            className="max-w-2xl h-auto object-contain opacity-30"
-          />
+        {/* Background Logo - Only behind pricing cards area */}
+        <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center -z-20 pointer-events-none">
+          <div className="relative max-w-4xl mx-auto h-full flex items-center justify-center py-20">
+            <img 
+              src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
+              alt="Clientlly Background" 
+              className="w-full h-auto max-h-80 object-contain opacity-30"
+            />
+          </div>
         </div>
         
         {/* Floating Background Elements - Same as Landing Page */}
