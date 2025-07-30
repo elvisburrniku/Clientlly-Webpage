@@ -1080,43 +1080,7 @@ export default function Subscribe() {
           )}
         </div>
 
-        {/* Help Section */}
-        <div className="text-center mt-16 fade-in-up" style={{ animationDelay: '0.9s' }}>
-          <div className="glass-effect border border-white/20 rounded-2xl p-8 max-w-md mx-auto backdrop-blur-xl">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                <Shield className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-gray-800 dark:text-white font-bold text-lg">Need Help?</span>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Our support team is available 24/7 to assist you
-            </p>
-            <div className="flex justify-center space-x-6">
-              <button 
-                onClick={() => {
-                  // Open chat widget or redirect to chat platform
-                  window.open('https://businessflowpro.com/chat', '_blank');
-                }}
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1 bg-transparent border-none cursor-pointer"
-              >
-                <Headphones className="w-4 h-4" />
-                <span>Chat Support</span>
-              </button>
-              <span className="text-gray-400">•</span>
-              <button 
-                onClick={() => {
-                  // Open email client with pre-filled support email
-                  window.location.href = 'mailto:support@businessflowpro.com?subject=Subscription Support Request&body=Hi, I need help with my subscription. Please describe your issue below:';
-                }}
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-medium hover:underline flex items-center space-x-1 bg-transparent border-none cursor-pointer"
-              >
-                <Building className="w-4 h-4" />
-                <span>Email Us</span>
-              </button>
-            </div>
-          </div>
-        </div>
+
       </div>
       
       {/* Footer */}
