@@ -455,7 +455,7 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative py-16 px-4 -mt-12 bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 features-section overflow-hidden">
+      <section id="features" className="relative py-16 px-4 -mt-12 features-section overflow-hidden">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-10 left-5 opacity-4 animate-pulse">
@@ -702,7 +702,7 @@ export default function Landing() {
       </section>
 
       {/* Trust & Success Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 overflow-hidden">
+      <section className="relative py-20 px-4 overflow-hidden">
         {/* Floating Background Elements */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-16 left-12 opacity-3 animate-pulse delay-500">
@@ -976,7 +976,7 @@ export default function Landing() {
 
 
       {/* Pricing Section */}
-      <section id="pricing-section" className="relative py-20 px-4 bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 pricing-section overflow-hidden">
+      <section id="pricing-section" className="relative py-20 px-4 pricing-section overflow-hidden">
         {/* Full Width and Height Clientlly Logo Background */}
         <div className="absolute inset-0 flex items-center justify-center -z-20">
           <img 
