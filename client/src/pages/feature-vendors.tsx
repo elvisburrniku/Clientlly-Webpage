@@ -64,7 +64,7 @@ export default function FeatureVendors() {
             <div className="flex items-center space-x-4">
               <button 
                 onClick={() => {
-                  window.location.href = "/";
+                  window.location.href = "/#features";
                   setTimeout(() => {
                     const element = document.getElementById('features');
                     if (element) {
@@ -78,7 +78,7 @@ export default function FeatureVendors() {
                 <span>Back to Features</span>
               </button>
             </div>
-            <div className="flex-1 flex justify-center">
+            <div className="absolute left-1/2 transform -translate-x-1/2">
               <button 
                 onClick={() => window.location.href = "/"}
                 className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer"

@@ -9,24 +9,39 @@ export default function FeatureClients() {
       {/* Navigation */}
       <nav className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-start items-center h-16">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => {
-                window.location.href = "/";
-                setTimeout(() => {
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    featuresSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }, 100);
-              }}
-              className="px-2 sm:px-3"
-            >
-              <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-              <span className="text-sm sm:text-base">Back to Features</span>
-            </Button>
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-4">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => {
+                  window.location.href = "/#features";
+                  setTimeout(() => {
+                    const featuresSection = document.getElementById('features');
+                    if (featuresSection) {
+                      featuresSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+                className="px-2 sm:px-3"
+              >
+                <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
+                <span className="text-sm sm:text-base">Back to Features</span>
+              </Button>
+            </div>
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+              <button 
+                onClick={() => window.location.href = "/"}
+                className="flex items-center space-x-4 hover:opacity-80 transition-opacity cursor-pointer"
+              >
+                <img 
+                  src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
+                  alt="Clientlly" 
+                  className="h-8 w-10 object-contain"
+                />
+                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Clientlly</span>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
