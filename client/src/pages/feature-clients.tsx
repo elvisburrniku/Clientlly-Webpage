@@ -11,13 +11,21 @@ export default function FeatureClients() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
-              <a 
-                href="/#features"
+              <button 
+                onClick={() => {
+                  window.location.href = "/";
+                  setTimeout(() => {
+                    const featuresSection = document.getElementById('features');
+                    if (featuresSection) {
+                      featuresSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 200);
+                }}
                 className="inline-flex items-center px-2 sm:px-3 py-2 text-sm sm:text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
                 <span>Back to Features</span>
-              </a>
+              </button>
             </div>
             <div className="absolute left-1/2 transform -translate-x-1/2">
               <button 
