@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock, Gift } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock, Gift, Heart, Zap } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -1022,14 +1022,30 @@ export default function Subscribe() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-4 pt-20">
-        {/* Background Logo for Main Content */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="max-w-7xl mx-auto relative px-4 pt-20">
+        {/* Full Width and Height Clientlly Logo Background - Same as Landing Page */}
+        <div className="absolute inset-0 flex items-center justify-center -z-20">
           <img 
             src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-            alt="Clientlly Content Background" 
-            className="w-full h-full object-contain opacity-40 max-w-2xl"
+            alt="Clientlly Background" 
+            className="w-full h-full object-contain opacity-30"
           />
+        </div>
+        
+        {/* Floating Background Elements - Same as Landing Page */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-20 left-10 opacity-4 animate-pulse delay-500">
+            <Sparkles className="h-5 w-5 text-blue-400" />
+          </div>
+          <div className="absolute top-60 right-20 opacity-3 animate-pulse delay-1500">
+            <Heart className="h-6 w-6 text-purple-400" />
+          </div>
+          <div className="absolute bottom-40 left-1/4 opacity-5 animate-pulse delay-2500">
+            <Zap className="h-7 w-7 text-green-400" />
+          </div>
+          <div className="absolute top-1/3 right-1/3 opacity-4 animate-pulse delay-3500">
+            <Sparkles className="h-8 w-8 text-pink-400" />
+          </div>
         </div>
 
         <div id="pricing-section">
