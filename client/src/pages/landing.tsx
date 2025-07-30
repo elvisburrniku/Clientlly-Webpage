@@ -360,10 +360,10 @@ export default function Landing() {
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
               <h1 className="font-black leading-tight tracking-tight fade-in">
-                <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl">
+                <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl font-black">
                   Everything you need
                 </span>
-                <span className="block leading-tight text-blue-600 text-6xl lg:text-7xl xl:text-8xl">
+                <span className="block leading-tight text-blue-600 text-6xl lg:text-7xl xl:text-8xl font-black">
                   <span className="letter-animation" style={{display: 'inline-block'}}>t</span>
                   <span className="letter-animation" style={{display: 'inline-block'}}>o</span>
                   <span className="letter-animation" style={{display: 'inline-block'}}>&nbsp;</span>
