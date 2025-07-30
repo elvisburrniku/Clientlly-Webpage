@@ -1023,12 +1023,12 @@ export default function Subscribe() {
       </div>
 
       <div className="max-w-7xl mx-auto relative px-4 pt-20">
-        {/* Full Width and Height Clientlly Logo Background - Same as Landing Page */}
+        {/* Constrained Background Logo - Same as Landing Page */}
         <div className="absolute inset-0 flex items-center justify-center -z-20">
           <img 
             src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
             alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-30"
+            className="max-w-2xl h-auto object-contain opacity-30"
           />
         </div>
         
