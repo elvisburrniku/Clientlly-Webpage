@@ -435,7 +435,7 @@ const AboutPage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {/* CEO & Founder */}
             <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -469,6 +469,18 @@ const AboutPage = () => {
               <p className="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">VP of Engineering</p>
               <p className="text-muted-foreground leading-relaxed">
                 Engineering strategist ensuring robust development processes and delivering high-quality features that users love.
+              </p>
+            </Card>
+
+            {/* 4th Team Member - Placeholder */}
+            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-foreground mb-2">[Name Needed]</h3>
+              <p className="text-lg font-semibold text-orange-600 dark:text-orange-400 mb-4">[Role Needed]</p>
+              <p className="text-muted-foreground leading-relaxed">
+                [Description needed for the 4th team member]
               </p>
             </Card>
           </div>
