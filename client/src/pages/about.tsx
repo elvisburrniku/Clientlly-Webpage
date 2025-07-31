@@ -423,6 +423,58 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Leadership Team Section */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-800 dark:via-gray-900 dark:to-blue-950/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
+              Our <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Leadership</span>
+            </h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Meet the passionate team building the future of business management
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* CEO & Founder */}
+            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Crown className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-foreground mb-2">Alban Gunga</h3>
+              <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">CEO & Founder</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Visionary leader driving innovation in business management solutions, focusing on empowering small businesses worldwide.
+              </p>
+            </Card>
+
+            {/* CTO */}
+            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Code className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-foreground mb-2">Elvis Burrniku</h3>
+              <p className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">Chief Technology Officer</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Technical mastermind architecting scalable solutions and leading engineering excellence across our platform.
+              </p>
+            </Card>
+
+            {/* VP of Engineering */}
+            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Rocket className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-black text-foreground mb-2">Liridon Salihu</h3>
+              <p className="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">VP of Engineering</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Engineering strategist ensuring robust development processes and delivering high-quality features that users love.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Our Journey Section */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
         {/* Floating Elements */}
