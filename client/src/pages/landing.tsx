@@ -221,16 +221,16 @@ export default function Landing() {
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
-              <a href="#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</a>
-              <a href="#pricing-section" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Pricing</a>
+              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{t('landing.nav.aboutUs', 'About Us')}</Link>
+              <a href="#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{t('landing.nav.features', 'Features')}</a>
+              <a href="#pricing-section" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{t('landing.nav.pricing', 'Pricing')}</a>
 
               <Button 
                 variant="ghost" 
                 onClick={() => window.location.href = '/contact'} 
                 className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 font-bold"
               >
-                Contact Us
+                {t('landing.nav.contactUs', 'Contact Us')}
               </Button>
             </div>
 
@@ -241,21 +241,21 @@ export default function Landing() {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
-                Login
+                {t('landing.nav.login', 'Login')}
               </Button>
               <Button 
                 onClick={() => window.location.href = '/subscribe'}
                 className="px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                 style={{outline: 'none', boxShadow: 'none'}}
               >
-                Buy Now
+                {t('landing.nav.buyNow', 'Buy Now')}
               </Button>
               <Button 
                 onClick={() => window.location.href = "/trial"}
                 className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                 style={{outline: 'none', boxShadow: 'none'}}
               >
-                Start Your Trial
+                {t('landing.nav.startTrial', 'Start Your Trial')}
               </Button>
 
               <LanguageSelector />
@@ -518,13 +518,19 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 id="features-title" className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-2 tracking-tight leading-tight">
-<span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
+              {currentLanguage === 'en' ? (
+                <>
+                  <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
+                </>
+              ) : (
+                <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{t('landing.features.sectionsTitle', 'The features you need. All in one place')}</span>
+              )}
             </h2>
             <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
-No more juggling multiple tools.
+              {t('landing.features.noMoreJuggling', 'No more juggling multiple tools.')}
             </p>
             <p className="text-xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2 tracking-tight">
-              Everything your business needs in one powerful platform.
+              {t('landing.features.platformDescription', 'Everything your business needs in one powerful platform.')}
             </p>
           </div>
 
@@ -539,15 +545,15 @@ No more juggling multiple tools.
                     <FileText className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Professional Invoicing</h3>
-                    <p className="text-sm text-muted-foreground">Custom invoices & payment tracking</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.invoicingTitle', 'Professional Invoicing')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.invoicingDesc', 'Custom invoices & payment tracking')}</p>
                   </div>
                 </div>
                 <a 
                   href="/features/invoicing"
                   className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
                 >
-                  Learn more →
+                  {t('landing.features.learnMore', 'Learn more')} →
                 </a>
               </div>
             </div>
@@ -560,8 +566,8 @@ No more juggling multiple tools.
                     <Receipt className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Smart Expense Tracking</h3>
-                    <p className="text-sm text-muted-foreground">Organized expenses for tax time</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.expensesTitle', 'Smart Expense Tracking')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.expensesDesc', 'Organized expenses for tax time')}</p>
                   </div>
                 </div>
                 <a 
@@ -581,8 +587,8 @@ No more juggling multiple tools.
                     <CreditCard className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Debt Management</h3>
-                    <p className="text-sm text-muted-foreground">Track debts & payment scheduling</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.debtTitle', 'Debt Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.debtDesc', 'Track debts & payment scheduling')}</p>
                   </div>
                 </div>
                 <a 
@@ -602,8 +608,8 @@ No more juggling multiple tools.
                     <BarChart3 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Insights & Reports</h3>
-                    <p className="text-sm text-muted-foreground">Business analytics & cash flow planning</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.reportsTitle', 'Insights & Reports')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.reportsDesc', 'Business analytics & cash flow planning')}</p>
                   </div>
                 </div>
                 <a 
@@ -623,8 +629,8 @@ No more juggling multiple tools.
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Client Management</h3>
-                    <p className="text-sm text-muted-foreground">Profiles, projects & communication tracking</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.clientsTitle', 'Client Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.clientsDesc', 'Profiles, projects & communication tracking')}</p>
                   </div>
                 </div>
                 <a 
@@ -644,8 +650,8 @@ No more juggling multiple tools.
                     <Building2 className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Vendor Management</h3>
-                    <p className="text-sm text-muted-foreground">Supplier tracking & purchase orders</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.vendorsTitle', 'Vendor Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.vendorsDesc', 'Supplier tracking & purchase orders')}</p>
                   </div>
                 </div>
                 <a 
@@ -665,8 +671,8 @@ No more juggling multiple tools.
                     <Package className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Inventory Management</h3>
-                    <p className="text-sm text-muted-foreground">Real-time inventory & order tracking</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.inventoryTitle', 'Inventory Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.inventoryDesc', 'Real-time inventory & order tracking')}</p>
                   </div>
                 </div>
                 <a 
@@ -686,8 +692,8 @@ No more juggling multiple tools.
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">Smart Attendance</h3>
-                    <p className="text-sm text-muted-foreground">GPS tracking & workforce management</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.attendanceTitle', 'Smart Attendance')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.attendanceDesc', 'GPS tracking & workforce management')}</p>
                   </div>
                 </div>
                 <a 
@@ -707,8 +713,8 @@ No more juggling multiple tools.
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-black text-foreground">HR Management</h3>
-                    <p className="text-sm text-muted-foreground">Employee tracking, payroll & performance management</p>
+                    <h3 className="text-xl font-black text-foreground">{t('landing.features.hrTitle', 'HR Management')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('landing.features.hrDesc', 'Employee tracking, payroll & performance management')}</p>
                   </div>
                 </div>
                 <a 
@@ -731,7 +737,7 @@ No more juggling multiple tools.
             >
               {/* Content */}
               <div className="relative z-10 flex items-center text-white">
-                <span className="mr-2 text-white font-black">Compare plan features</span>
+                <span className="mr-2 text-white font-black">{t('landing.pricing.compareFeatures', 'Compare plan features')}</span>
                 <ChevronDown className="h-5 w-5 text-white group-hover:rotate-180 transition-transform duration-300 ease-out" />
               </div>
               
@@ -1050,7 +1056,7 @@ No more juggling multiple tools.
 
             
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-1 leading-tight tracking-tight animate-slide-up">
-Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent animate-fade-in">perfect plan</span> for your business
+{t('landing.pricing.title', 'Choose the perfect plan for your business')}
             </h2>
             
 
@@ -1067,7 +1073,7 @@ Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-pur
                 {index === 1 && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
                     <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
-                      Most Popular
+{t('landing.pricing.mostPopular', 'Most Popular')}
                     </Badge>
                   </div>
                 )}
@@ -1087,7 +1093,7 @@ Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-pur
                               : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                           }`}
                         >
-                          Monthly
+                          {t('landing.pricing.monthly', 'Monthly')}
                         </button>
                         <button
                           onClick={() => setBillingPeriod('yearly')}
@@ -1097,7 +1103,7 @@ Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-pur
                               : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                           }`}
                         >
-                          Yearly
+                          {t('landing.pricing.yearly', 'Yearly')}
                         </button>
                         <div
                           className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
@@ -1222,11 +1228,10 @@ Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-pur
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg animate-professional-fade">
-            Ready to Trust Your <span className="animate-subtle-gradient">Business</span> with Us?
+            {t('landing.cta.title', 'Ready to Trust Your Business with Us?')}
           </h2>
           <p className="text-xl text-black/80 mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
-            Join thousands of businesses who have streamlined their operations with BusinessFlow Pro.
-            Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.
+            {t('landing.cta.subtitle', 'Join thousands of businesses who have streamlined their operations with BusinessFlow Pro. Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -1235,7 +1240,7 @@ Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-pur
               onClick={() => window.location.href = "/trial"}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              Start Your Trial
+              {t('landing.cta.startTrial', 'Start Your Trial')}
             </Button>
             <Button 
               size="lg"
@@ -1243,7 +1248,7 @@ Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-pur
               onClick={() => window.location.href = "/subscribe"}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
-              Buy Now
+              {t('landing.cta.buyNow', 'Buy Now')}
             </Button>
           </div>
 

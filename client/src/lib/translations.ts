@@ -761,11 +761,24 @@ export const translations: { [lang: string]: Translations } = {
         features: 'Karakteristikat',
         pricing: 'Çmimet',
         about: 'Rreth nesh',
+        aboutUs: 'Rreth Nesh',
+        contactUs: 'Na Kontaktoni',
+        login: 'Hyni',
+        buyNow: 'Blini Tani',
+        startTrial: 'Filloni Provën'
       },
       benefits: {
         noSetupFees: 'Pa tarifa instalimi',
         cancelAnytime: 'Anulo kur të duash',
         freeTrial: 'Provë falas 14-ditore',
+        watchDemo: 'Shiko Demon',
+        startFreeTrial: 'Fillo Provën Falas',
+        noCredit: 'Nuk kërkohet kartë krediti',
+        noContract: 'Nuk ka kontratë',
+        dataProtection: 'Mbrojtja e të dhënave dhe privatësia',
+        freeSetup: 'Instalim falas dhe migrim',
+        expertSupport: 'Mbështetje eksperte 24/7',
+        bankSecurity: 'Siguria në nivel banke'
       },
       features: {
         invoicing: 'Faturimi i Zgjuar',
@@ -791,9 +804,11 @@ export const translations: { [lang: string]: Translations } = {
         vendorsTitle: 'Menaxhimi i Furnitorëve',
         vendorsDesc: 'Menaxhoni furnitorët me porosi blerje dhe ndjekje performancë',
         inventoryTitle: 'Menaxhimi i Inventarit',
-        inventoryDesc: 'Ndiqni nivelet e stokut me njoftimet automatike të riporosisë',
+        inventoryDesc: 'Inventar në kohë reale dhe ndjekje porosish',
         hrTitle: 'Menaxhimi i Burimeve Njerëzore',
         hrDesc: 'Ndjekje punonjësish, pagesa dhe menaxhim performancë',
+        attendanceTitle: 'Prania e Zgjuar',
+        attendanceDesc: 'Ndjekje GPS dhe menaxhim force pune',
         
         // Complete section texts
         sectionsTitle: 'Veçoritë që ju nevojiten. Të gjitha në një vend',
@@ -828,6 +843,38 @@ export const translations: { [lang: string]: Translations } = {
         
         compareFeatures: 'Krahasoni veçoritë e planit'
       },
+      community: {
+        title: 'Le të rritemi së bashku',
+        subtitle: 'Bashkohuni me mijëra biznese që po transformojnë operacionet e tyre',
+        description: 'Nevojat e biznesit tuaj udhëheqin zhvillimin tonë. Kur abonoheni, ju bëheni pjesë e një komuniteti që formon të ardhmen e menaxhimit të biznesit.',
+        features: {
+          ideas: 'Ndani Idetë',
+          ideasDesc: 'Sugjeroni karakteristika të reja dhe përmirësime',
+          implementation: 'Zbatim Falas',
+          implementationDesc: 'Ne ndërtojmë atë që ju keni nevojë pa kosto shtesë',
+          priority: 'Mbështetje me Prioritet',
+          priorityDesc: 'Qasje e drejtpërdrejtë në ekipin tonë të zhvillimit',
+          collaboration: 'Bashkëpunim i Vazhdueshëm',
+          collaborationDesc: 'Punojmë së bashku për të ndërtuar zgjidhjen tuaj ideale'
+        },
+        cta: 'Filloni Bashkëpunimin',
+        stats: {
+          customers: '200 klientë aktiv',
+          invoices: '12,000 fatura të përpunuara',
+          countries: '5 vende të shërbyera',
+          uptime: '99.9% kohë punuese'
+        }
+      },
+      cta: {
+        title: 'Gati të Besoni Biznesin Tuaj me Ne?',
+        subtitle: 'Bashkohuni me mijëra biznese që kanë thjeshtësuar operacionet e tyre dhe kanë rritur produktivitetin',
+        feature1: 'Instalim dhe migrim falas',
+        feature2: 'Mbështetje eksperte 24/7',
+        feature3: 'Siguria në nivel banke',
+        feature4: 'Anulo në çdo kohë',
+        startTrial: 'Filloni Provën Tuaj',
+        buyNow: 'Blini Tani'
+      }
     },
     subscribe: {
       title: 'Kompletoni Abonimin Tuaj',
