@@ -472,15 +472,15 @@ const AboutPage = () => {
               </p>
             </Card>
 
-            {/* 4th Team Member - Placeholder */}
+            {/* Product Manager */}
             <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
               <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Users className="w-10 h-10 text-white" />
+                <Target className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-2">[Name Needed]</h3>
-              <p className="text-lg font-semibold text-orange-600 dark:text-orange-400 mb-4">[Role Needed]</p>
+              <h3 className="text-2xl font-black text-foreground mb-2">David Kim</h3>
+              <p className="text-lg font-semibold text-orange-600 dark:text-orange-400 mb-4">Product Manager</p>
               <p className="text-muted-foreground leading-relaxed">
-                [Description needed for the 4th team member]
+                Strategic product leader focused on user experience and feature innovation, driving product roadmap and customer success.
               </p>
             </Card>
           </div>
