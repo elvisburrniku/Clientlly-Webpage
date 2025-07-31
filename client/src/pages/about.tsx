@@ -289,8 +289,12 @@ const AboutPage = () => {
           <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
             <div className="px-4 py-4 space-y-4">
               {/* Navigation Links */}
-              <Link href="/about" className="block text-lg text-primary transition-colors font-bold">About Us</Link>
-              <Link href="/#features" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">Features</Link>
+              <Link href="/about" className="block text-lg text-primary transition-colors font-bold">
+                {language === 'sq' ? 'Rreth Nesh' : 'About Us'}
+              </Link>
+              <Link href="/#features" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">
+                {language === 'sq' ? 'Veçoritë' : 'Features'}
+              </Link>
               <Button 
                 variant="ghost"
                 onClick={() => {
@@ -299,9 +303,11 @@ const AboutPage = () => {
                 }}
                 className="w-full text-left justify-start text-lg text-muted-foreground hover:text-primary font-bold"
               >
-                Pricing
+                {language === 'sq' ? 'Çmimet' : 'Pricing'}
               </Button>
-              <Link href="/contact" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">Contact Us</Link>
+              <Link href="/contact" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">
+                {language === 'sq' ? 'Na Kontaktoni' : 'Contact Us'}
+              </Link>
               
               {/* Action Buttons */}
               <div className="pt-4 space-y-2">
@@ -313,7 +319,7 @@ const AboutPage = () => {
                   }} 
                   className="w-full text-left justify-start text-muted-foreground hover:text-primary"
                 >
-                  Login
+                  {language === 'sq' ? 'Hyni' : 'Login'}
                 </Button>
                 <Button 
                   onClick={() => {
@@ -323,7 +329,7 @@ const AboutPage = () => {
                   className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
-                  Buy Now
+                  {language === 'sq' ? 'Blini Tani' : 'Buy Now'}
                 </Button>
                 <Button 
                   onClick={() => {
@@ -333,7 +339,7 @@ const AboutPage = () => {
                   className="w-full bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
-                  Start Your Trial
+                  {language === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
                 </Button>
                 <div className="pt-2">
                   <LanguageSelector />
@@ -391,10 +397,11 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-8 tracking-tight leading-tight fade-in">
-              {t('about.heroTitle', 'About')} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">BusinessFlow Pro</span>
+              {language === 'sq' ? 'Rreth' : 'About'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">BusinessFlow Pro</span>
             </h1>
             <p className="text-2xl lg:text-3xl text-black max-w-5xl mx-auto leading-relaxed mb-12 tracking-tight">
-              {language === 'sq' ? t('about.heroSubtitle') : 
+              {language === 'sq' ? 
+                'Duke ndërtuar të ardhmen e menaxhimit të biznesit me inovacion shqiptar dhe përsosmëri globale.' : 
                 "We're on a mission to empower businesses worldwide with intelligent automation, seamless workflows, and data-driven insights that drive real growth."
               }
             </p>
@@ -416,10 +423,10 @@ const AboutPage = () => {
                 </div>
                 <div className="text-muted-foreground">
                   {language === 'sq' ? (
-                    stat.label === "Customers Trust Us" ? t('about.statsCustomers') :
-                    stat.label === "Invoices Processed" ? t('about.statsInvoices') :
-                    stat.label === "Countries Worldwide" ? t('about.statsCountries') :
-                    stat.label === "Uptime Reliability" ? t('about.statsUptime') :
+                    stat.label === "Customers Trust Us" ? 'Klientë na Besojnë' :
+                    stat.label === "Invoices Processed" ? 'Fatura të Përpunuara' :
+                    stat.label === "Countries Worldwide" ? 'Vende në Mbarë Botën' :
+                    stat.label === "Uptime Reliability" ? 'Besueshmëria e Kohës së Punës' :
                     stat.label
                   ) : stat.label}
                 </div>
@@ -434,10 +441,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              {language === 'sq' ? t('about.teamTitle') : 'Meet Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Team'}</span>
+              {language === 'sq' ? 'Takoni Ekipin Tonë' : 'Meet Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Team'}</span>
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              {language === 'sq' ? t('about.teamSubtitle') : 'The passionate innovators driving BusinessFlow Pro\'s success story'}
+              {language === 'sq' ? 'Novatorët e apasionuar që drejtojnë historinë e suksesit të BusinessFlow Pro' : 'The passionate innovators driving BusinessFlow Pro\'s success story'}
             </p>
           </div>
 
@@ -511,10 +518,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              {language === 'sq' ? t('about.journeyTitle') : 'Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Journey'}</span>
+              {language === 'sq' ? 'Udhëtimi Ynë' : 'Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Journey'}</span>
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
-              {language === 'sq' ? t('about.journeySubtitle') : 'From a simple idea in 2021 to empowering businesses worldwide'}
+              {language === 'sq' ? 'Nga startup në platformë globale menaxhimi biznesi' : 'From a simple idea in 2021 to empowering businesses worldwide'}
             </p>
           </div>
           
@@ -894,10 +901,11 @@ const AboutPage = () => {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg fade-in">
-            {language === 'sq' ? t('about.readyTitle') : 'Ready to Trust Your Business with Us?'}
+            {language === 'sq' ? 'Gati të Besoni Biznesin Tuaj me Ne?' : 'Ready to Trust Your Business with Us?'}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
-            {language === 'sq' ? t('about.readySubtitle') : 
+            {language === 'sq' ? 
+              'Bashkohuni me qindra biznese që kanë thjeshtuar operacionet e tyre me BusinessFlow Pro.' : 
               'Join thousands of businesses who have streamlined their operations with BusinessFlow Pro. Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.'
             }
           </p>
@@ -908,7 +916,7 @@ const AboutPage = () => {
               onClick={() => window.location.href = "/trial"}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              {language === 'sq' ? t('about.startTrial') : 'Start Your Trial'}
+              {language === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
             </Button>
             <Button 
               size="lg"
@@ -916,7 +924,7 @@ const AboutPage = () => {
               onClick={() => window.location.href = "/subscribe"}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
-              {language === 'sq' ? t('about.buyNow') : 'Buy Now'}
+              {language === 'sq' ? 'Blini Tani' : 'Buy Now'}
             </Button>
           </div>
         </div>
