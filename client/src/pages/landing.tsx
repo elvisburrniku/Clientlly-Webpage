@@ -81,9 +81,6 @@ interface SubscriptionPlan {
 export default function Landing() {
   const { toast } = useToast();
   const { t, currentLanguage } = useTranslation();
-  
-  // Debug: Log current language
-  console.log('Current language in Landing:', currentLanguage);
 
 
 
@@ -779,10 +776,7 @@ export default function Landing() {
         
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            {/* Debug indicator */}
-            <div className="bg-red-500 text-white p-2 rounded mb-4 text-sm">
-              DEBUG: Current Language = {currentLanguage} | Should show Albanian when = 'sq'
-            </div>
+
             
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
               {currentLanguage === 'sq' ? 
