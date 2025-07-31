@@ -80,7 +80,7 @@ interface SubscriptionPlan {
 
 export default function Landing() {
   const { toast } = useToast();
-  const { t } = useTranslation();
+  const { t, currentLanguage } = useTranslation();
 
 
 
@@ -360,17 +360,59 @@ export default function Landing() {
             {/* Hero Content */}
             <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
               <h1 className="font-black leading-relaxed tracking-tight fade-in" style={{lineHeight: '1.2'}}>
-                <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl font-black gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
-                  {t('landing.features.title', 'Everything you need to run your business')}
-                </span>
+                {/* Show original English animation only for English, translated text for other languages */}
+                {currentLanguage === 'en' ? (
+                  <>
+                    <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl font-black">
+                      Everything you need
+                    </span>
+                    <span className="block leading-relaxed text-6xl lg:text-7xl xl:text-8xl font-black" style={{paddingBottom: '0.2em'}}>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>t</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>o</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>r</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>n</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block', paddingBottom: '0.3em', marginBottom: '0.1em'}}>y</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>o</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>r</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>b</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>i</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>n</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>e</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
+                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl font-black gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
+                    {t('landing.features.title', 'Everything you need to run your business')}
+                  </span>
+                )}
               </h1>
               
               <div className="max-w-5xl mx-auto">
                 <div className="text-2xl lg:text-3xl text-muted-foreground leading-tight fade-in stagger-1 tracking-tight">
                   <div className="space-y-1 max-w-4xl mx-auto">
-                    <p className="text-center">
-                      {t('landing.description', 'Empower your small business to compete with enterprise-level efficiency. Our comprehensive accounting software streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.')}
-                    </p>
+                    {currentLanguage === 'en' ? (
+                      <>
+                        <p className="text-center">
+                          Empower your <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
+                        </p>
+                        <p className="text-center">
+                          while simplifying your financial management.
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-center">
+                        {t('landing.description', 'Empower your small business to compete with enterprise-level efficiency. Our comprehensive accounting software streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.')}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
