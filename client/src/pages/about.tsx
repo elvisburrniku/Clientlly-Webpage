@@ -37,10 +37,12 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { SocialLinks } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
 import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const { t, language } = useTranslation();
 
   useEffect(() => {
     setIsVisible(true);
@@ -389,11 +391,12 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-8 tracking-tight leading-tight fade-in">
-              About <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">BusinessFlow Pro</span>
+              {t('about.heroTitle', 'About')} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">BusinessFlow Pro</span>
             </h1>
             <p className="text-2xl lg:text-3xl text-black max-w-5xl mx-auto leading-relaxed mb-12 tracking-tight">
-              We're on a mission to empower businesses worldwide with intelligent automation, 
-              seamless workflows, and data-driven insights that drive real growth.
+              {language === 'sq' ? t('about.heroSubtitle') : 
+                "We're on a mission to empower businesses worldwide with intelligent automation, seamless workflows, and data-driven insights that drive real growth."
+              }
             </p>
           </div>
         </div>
@@ -411,7 +414,15 @@ const AboutPage = () => {
                 <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                   {stat.number}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-muted-foreground">
+                  {language === 'sq' ? (
+                    stat.label === "Customers Trust Us" ? t('about.statsCustomers') :
+                    stat.label === "Invoices Processed" ? t('about.statsInvoices') :
+                    stat.label === "Countries Worldwide" ? t('about.statsCountries') :
+                    stat.label === "Uptime Reliability" ? t('about.statsUptime') :
+                    stat.label
+                  ) : stat.label}
+                </div>
               </Card>
             ))}
           </div>
@@ -423,10 +434,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              Meet Our <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Team</span>
+              {language === 'sq' ? t('about.teamTitle') : 'Meet Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Team'}</span>
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              The passionate innovators driving BusinessFlow Pro's success story
+              {language === 'sq' ? t('about.teamSubtitle') : 'The passionate innovators driving BusinessFlow Pro\'s success story'}
             </p>
           </div>
 
@@ -500,10 +511,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              Our <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Journey</span>
+              {language === 'sq' ? t('about.journeyTitle') : 'Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Journey'}</span>
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
-              From a simple idea in 2021 to empowering businesses worldwide
+              {language === 'sq' ? t('about.journeySubtitle') : 'From a simple idea in 2021 to empowering businesses worldwide'}
             </p>
           </div>
           
@@ -883,11 +894,12 @@ const AboutPage = () => {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg fade-in">
-            Ready to Trust Your Business with Us?
+            {language === 'sq' ? t('about.readyTitle') : 'Ready to Trust Your Business with Us?'}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
-            Join thousands of businesses who have streamlined their operations with BusinessFlow Pro.
-            Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.
+            {language === 'sq' ? t('about.readySubtitle') : 
+              'Join thousands of businesses who have streamlined their operations with BusinessFlow Pro. Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.'
+            }
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -896,7 +908,7 @@ const AboutPage = () => {
               onClick={() => window.location.href = "/trial"}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              Start Your Trial
+              {language === 'sq' ? t('about.startTrial') : 'Start Your Trial'}
             </Button>
             <Button 
               size="lg"
@@ -904,7 +916,7 @@ const AboutPage = () => {
               onClick={() => window.location.href = "/subscribe"}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
-              Buy Now
+              {language === 'sq' ? t('about.buyNow') : 'Buy Now'}
             </Button>
           </div>
         </div>

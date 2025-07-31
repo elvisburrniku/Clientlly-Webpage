@@ -232,6 +232,67 @@ export const translations: { [lang: string]: Translations } = {
       passwordTooShort: 'Password must be at least 6 characters',
       requiredField: 'This field is required',
     },
+    about: {
+      heroTitle: 'About BusinessFlow Pro',
+      heroSubtitle: 'Building the future of business management with Albanian innovation and global excellence.',
+      statsCustomers: 'Customers Trust Us',
+      statsInvoices: 'Invoices Processed', 
+      statsCountries: 'Countries Worldwide',
+      statsUptime: 'Uptime Reliability',
+      teamTitle: 'Meet Our Team',
+      teamSubtitle: 'The passionate innovators driving BusinessFlow Pro\'s success story',
+      journeyTitle: 'Our Journey',
+      journeySubtitle: 'From startup to global business management platform',
+      growTogetherTitle: 'Let\'s grow together',
+      readyTitle: 'Ready to Trust Your Business with Us?',
+      readySubtitle: 'Join hundreds of businesses who have streamlined their operations with BusinessFlow Pro.',
+      startTrial: 'Start Your Trial',
+      buyNow: 'Buy Now'
+    },
+    contact: {
+      heroTitle: 'Get in Touch',
+      heroSubtitle: 'Have questions or need support? We\'re here to help you succeed.',
+      formTitle: 'Send us a message',
+      formSubtitle: 'Fill out the form below and we\'ll get back to you within 24 hours.',
+      firstName: 'First Name',
+      lastName: 'Last Name',
+      email: 'Email Address',
+      company: 'Company Name',
+      subject: 'Subject',
+      message: 'Message',
+      messagePlaceholder: 'Tell us about your needs and how we can help...',
+      sendMessage: 'Send Message',
+      sending: 'Sending...',
+      officeTitle: 'Visit Our Office',
+      supportTitle: 'Get Support',
+      hoursTitle: 'Business Hours',
+      growTogetherTitle: 'Let\'s grow together',
+      growTogetherSubtitle: 'Ready to transform your business operations?'
+    },
+    trial: {
+      heroTitle: 'Ready to Launch?',
+      heroSubtitle: 'Start your 14-day free trial and experience the full power of BusinessFlow Pro.',
+      formTitle: 'Start Your Free Trial',
+      firstName: 'First Name',
+      lastName: 'Last Name', 
+      email: 'Work Email',
+      company: 'Company Name',
+      startTrial: 'Start My Free Trial',
+      starting: 'Starting Trial...',
+      vipTitle: 'VIP Support Experience',
+      vipSubtitle: 'Get premium support during your trial period'
+    },
+    login: {
+      heroTitle: 'Welcome Back',
+      heroSubtitle: 'Sign in to your BusinessFlow Pro account',
+      email: 'Email Address',
+      password: 'Password',
+      signIn: 'Sign In',
+      signingIn: 'Signing In...',
+      newUser: 'New to BusinessFlow Pro?',
+      createAccount: 'Create Account',
+      forgotPassword: 'Forgot Password?'
+    }
   },
   es: {
     common: {
@@ -876,18 +937,67 @@ export const translations: { [lang: string]: Translations } = {
         buyNow: 'Blini Tani'
       }
     },
-    subscribe: {
-      title: 'Kompletoni Abonimin Tuaj',
-      steps: {
-        selectPlan: 'Zgjidh Planin',
-        accountInfo: 'Info e Llogarisë',
-        teamSetup: 'Konfigurimi i Ekipit',
-        payment: 'Pagesa',
-      },
+    about: {
+      heroTitle: 'Rreth BusinessFlow Pro',
+      heroSubtitle: 'Duke ndërtuar të ardhmen e menaxhimit të biznesit me inovacion shqiptar dhe përsosmëri globale.',
+      statsCustomers: 'Klientë na Besojnë',
+      statsInvoices: 'Fatura të Përpunuara', 
+      statsCountries: 'Vende në Mbarë Botën',
+      statsUptime: 'Besueshmëria e Kohës së Punës',
+      teamTitle: 'Takoni Ekipin Tonë',
+      teamSubtitle: 'Novatorët e apasionuar që drejtojnë historinë e suksesit të BusinessFlow Pro',
+      journeyTitle: 'Udhëtimi Ynë',
+      journeySubtitle: 'Nga startup në platformë globale menaxhimi biznesi',
+      growTogetherTitle: 'Le të rritemi së bashku',
+      readyTitle: 'Gati të Besoni Biznesin Tuaj me Ne?',
+      readySubtitle: 'Bashkohuni me qindra biznese që kanë thjeshtuar operacionet e tyre me BusinessFlow Pro.',
+      startTrial: 'Filloni Provën Tuaj',
+      buyNow: 'Blini Tani'
     },
-    calculator: {
-      title: 'Kalkulatori i Planit',
+    contact: {
+      heroTitle: 'Na Kontaktoni',
+      heroSubtitle: 'Keni pyetje ose keni nevojë për mbështetje? Ne jemi këtu për t\'ju ndihmojmë të keni sukses.',
+      formTitle: 'Dërgoni një mesazh',
+      formSubtitle: 'Plotësoni formularin më poshtë dhe ne do t\'ju përgjigjemi brenda 24 orësh.',
+      firstName: 'Emri',
+      lastName: 'Mbiemri',
+      email: 'Adresa e Email-it',
+      company: 'Emri i Kompanisë',
+      subject: 'Tema',
+      message: 'Mesazhi',
+      messagePlaceholder: 'Na tregoni për nevojat tuaja dhe se si mund t\'ju ndihmojmë...',
+      sendMessage: 'Dërgo Mesazhin',
+      sending: 'Duke dërguar...',
+      officeTitle: 'Vizitoni Zyrën Tonë',
+      supportTitle: 'Merrni Mbështetje',
+      hoursTitle: 'Orët e Biznesit',
+      growTogetherTitle: 'Le të rritemi së bashku',
+      growTogetherSubtitle: 'Gati të transformoni operacionet e biznesit tuaj?'
     },
+    trial: {
+      heroTitle: 'Gati për Nisje?',
+      heroSubtitle: 'Filloni provën tuaj falas 14-ditore dhe përjetoni fuqinë e plotë të BusinessFlow Pro.',
+      formTitle: 'Filloni Provën Tuaj Falas',
+      firstName: 'Emri',
+      lastName: 'Mbiemri', 
+      email: 'Email-i i Punës',
+      company: 'Emri i Kompanisë',
+      startTrial: 'Fillo Provën Time Falas',
+      starting: 'Duke Filluar Provën...',
+      vipTitle: 'Përvojë Mbështetje VIP',
+      vipSubtitle: 'Merrni mbështetje premium gjatë periudhës së provës tuaj'
+    },
+    login: {
+      heroTitle: 'Mirë se Erdhët Përsëri',
+      heroSubtitle: 'Hyni në llogarinë tuaj BusinessFlow Pro',
+      email: 'Adresa e Email-it',
+      password: 'Fjalëkalimi',
+      signIn: 'Hyni',
+      signingIn: 'Duke Hyrë...',
+      newUser: 'I ri në BusinessFlow Pro?',
+      createAccount: 'Krijo Llogari',
+      forgotPassword: 'Harruat Fjalëkalimin?'
+    }
   },
   mk: {
     common: {
@@ -987,18 +1097,6 @@ export const translations: { [lang: string]: Translations } = {
         
         compareFeatures: 'Спореди карактеристики на планот'
       },
-    },
-    subscribe: {
-      title: 'Завршете ја Вашата Претплата',
-      steps: {
-        selectPlan: 'Избери План',
-        accountInfo: 'Инфо за Сметка',
-        teamSetup: 'Поставување на Тим',
-        payment: 'Плаќање',
-      },
-    },
-    calculator: {
-      title: 'Калкулатор за План',
-    },
-  },
+    }
+  }
 };
