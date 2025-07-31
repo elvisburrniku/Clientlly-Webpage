@@ -69,9 +69,9 @@ const AboutPage = () => {
   }, []);
 
   const heroStats = [
-    { number: "50K+", label: "Businesses Trust Us", icon: Building2, color: "from-blue-500 to-cyan-500" },
-    { number: "2.5M+", label: "Invoices Processed", icon: FileText, color: "from-purple-500 to-pink-500" },
-    { number: "120+", label: "Countries Worldwide", icon: Globe, color: "from-green-500 to-emerald-500" },
+    { number: "200", label: "Customers Trust Us", icon: Building2, color: "from-blue-500 to-cyan-500" },
+    { number: "12,000", label: "Invoices Processed", icon: FileText, color: "from-purple-500 to-pink-500" },
+    { number: "5", label: "Countries Worldwide", icon: Globe, color: "from-green-500 to-emerald-500" },
     { number: "99.9%", label: "Uptime Reliability", icon: Shield, color: "from-orange-500 to-red-500" }
   ];
 
