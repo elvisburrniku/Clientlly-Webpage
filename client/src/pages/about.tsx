@@ -428,10 +428,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              Our <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Leadership</span>
+              Meet Our <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Team</span>
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Meet the passionate team building the future of business management
+              The passionate innovators driving BusinessFlow Pro's success story
             </p>
           </div>
 
