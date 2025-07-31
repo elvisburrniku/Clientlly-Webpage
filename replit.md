@@ -125,6 +125,8 @@ BusinessFlow Pro is a comprehensive business management SaaS application built w
 
 Preferred communication style: Simple, everyday language.
 
+**CRITICAL TRANSLATION RULE**: NEVER change the English website content when translating to other languages. English content must remain exactly as originally designed with all animations, styling, and text preserved. Translations only apply when users select Albanian or Macedonian languages.
+
 ## Recent Changes (July 27, 2025)
 
 ✓ COMPLETED yellow background for About BusinessFlow Pro hero section (July 27, 2025)
