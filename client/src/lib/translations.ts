@@ -753,7 +753,7 @@ export const translations: { [lang: string]: Translations } = {
     landing: {
       title: 'Menaxhimi i Zgjuar',
       subtitle: 'Transformo Biznesin Tënd me',
-      description: 'Optimizo operacionet e biznesit tënd me platformën tonë të plotë për faturim, CRM, HR dhe menaxhimin e kontratave.',
+      description: 'Fuqizo biznesin tënd të vogël për të konkurruar me efikasitetin e nivelit të ndërmarrjeve. Softueri ynë i plotë i kontabilitetit optimizon operacionet, rrit produktivitetin dhe nxitën rritjen duke thjeshtuar menaxhimin tënd financiar.',
       getStarted: 'Fillo',
       requestDemo: 'Kërko Demo',
       learnMore: 'Mëso më shumë',
@@ -865,7 +865,7 @@ export const translations: { [lang: string]: Translations } = {
     landing: {
       title: 'Паметно Управување',
       subtitle: 'Трансформирај го Твојот Бизнис со',
-      description: 'Оптимизирај ги операциите на твојот бизнис со нашата целосна платформа за фактурирање, CRM, HR и управување со договори.',
+      description: 'Овозможи му на твојот мал бизнис да се натпреварува со ефикасност на ниво на претпријатија. Нашиот сеопфатен софтвер за сметководство ги оптимизира операциите, ја зголемува продуктивноста и го забрзува растот додека го поедноставува твоето финансиско управување.',
       getStarted: 'Започни',
       requestDemo: 'Побарај Демо',
       learnMore: 'Дознај повеќе',
