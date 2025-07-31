@@ -777,10 +777,16 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span>
+              {currentLanguage === 'sq' ? 
+                <>I besuar nga <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">biznese në mbarë botën</span></> :
+                <>Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span></>
+              }
             </h2>
             <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
-              Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.
+              {currentLanguage === 'sq' ? 
+                'Bashkohuni me mijëra kompani që kanë thjeshtuar operacionet e tyre dhe kanë përshpejtuar rritjen me BusinessFlow Pro.' :
+                'Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.'
+              }
             </p>
           </div>
 
@@ -793,7 +799,9 @@ export default function Landing() {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">200</div>
-              <p className="text-muted-foreground">Customers Trust Us</p>
+              <p className="text-muted-foreground">
+                {currentLanguage === 'sq' ? 'Klientë na Besojnë' : 'Customers Trust Us'}
+              </p>
             </div>
 
             {/* Invoices Processed */}
@@ -802,7 +810,9 @@ export default function Landing() {
                 <FileText className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">12,000</div>
-              <p className="text-muted-foreground">Invoices Processed</p>
+              <p className="text-muted-foreground">
+                {currentLanguage === 'sq' ? 'Fatura të Përpunuara' : 'Invoices Processed'}
+              </p>
             </div>
 
             {/* Countries */}
@@ -811,7 +821,9 @@ export default function Landing() {
                 <Globe className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">5</div>
-              <p className="text-muted-foreground">Countries Worldwide</p>
+              <p className="text-muted-foreground">
+                {currentLanguage === 'sq' ? 'Vende në Mbarë Botën' : 'Countries Worldwide'}
+              </p>
             </div>
 
             {/* Uptime Reliability */}
@@ -820,7 +832,9 @@ export default function Landing() {
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">99.9%</div>
-              <p className="text-muted-foreground">Uptime Reliability</p>
+              <p className="text-muted-foreground">
+                {currentLanguage === 'sq' ? 'Besueshmëria e Kohës së Punës' : 'Uptime Reliability'}
+              </p>
             </div>
           </div>
 
@@ -832,9 +846,14 @@ export default function Landing() {
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Clock className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">Save 15+ Hours Weekly</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">
+                {currentLanguage === 'sq' ? 'Kurseni 15+ Orë në Javë' : 'Save 15+ Hours Weekly'}
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.
+                {currentLanguage === 'sq' ? 
+                  'Automatizoni detyrat e përsëritura dhe thjeshtoni rrjedhën e punës. Përdoruesit tanë raportojnë kursim mesatarisht 15 orë në javë në punën administrative.' :
+                  'Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.'
+                }
               </p>
             </div>
 
@@ -843,9 +862,14 @@ export default function Landing() {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">Boost Revenue by 30%</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">
+                {currentLanguage === 'sq' ? 'Rritni të Ardhurat me 30%' : 'Boost Revenue by 30%'}
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.
+                {currentLanguage === 'sq' ? 
+                  'Menaxhimi më i mirë i klientëve dhe faturimi më i shpejtë çojnë në përmirësim të rrjedhës së parave. Shihni rritje të matshme në performancën e biznesit tuaj.' :
+                  'Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.'
+                }
               </p>
             </div>
 
@@ -854,9 +878,14 @@ export default function Landing() {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Shield className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">Eliminate 95% of Errors</h3>
+              <h3 className="text-2xl font-black text-foreground mb-4">
+                {currentLanguage === 'sq' ? 'Eliminoni 95% të Gabimeve' : 'Eliminate 95% of Errors'}
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.
+                {currentLanguage === 'sq' ? 
+                  'Kalkulimet e automatizuara dhe validimi i integruar sigurojnë saktësi në të gjitha operacionet e biznesit dhe regjistrat financiarë.' :
+                  'Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.'
+                }
               </p>
             </div>
           </div>
@@ -899,15 +928,24 @@ export default function Landing() {
                 {/* Main Heading */}
                 <div className="space-y-6">
                   <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black dark:text-black leading-tight mb-4 tracking-tight animate-professional-fade">
-                    Let's <span className="animate-subtle-gradient">grow</span> together
+                    {currentLanguage === 'sq' ? 
+                      <>Le të <span className="animate-subtle-gradient">rritemi</span> së bashku</> :
+                      <>Let's <span className="animate-subtle-gradient">grow</span> together</>
+                    }
                   </h2>
                   
                   <div className="space-y-4">
                     <p className="text-xl lg:text-2xl text-black dark:text-black leading-relaxed">
-                      Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
+                      {currentLanguage === 'sq' ? 
+                        'Çdo veçori që zhvillojmë bazuar në reagimet e klientëve përfiton të gjithë komunitetin e BusinessFlow Pro.' :
+                        'Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.'
+                      }
                     </p>
                     <p className="text-lg lg:text-xl text-black dark:text-black leading-relaxed">
-                      When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
+                      {currentLanguage === 'sq' ? 
+                        'Kur ju keni sukses, të gjithë kemi sukses – duke krijuar një ekosistem të fuqishëm përmirësimi të vazhdueshëm dhe rritje të përbashkët.' :
+                        'When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.'
+                      }
                     </p>
                   </div>
                 </div>
@@ -916,20 +954,32 @@ export default function Landing() {
                 <div className="space-y-6">
                   {/* Your Ideas */}
                   <div className="group">
-                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">Your Ideas</h4>
-                    <p className="text-lg text-black dark:text-black">Share your vision and we'll make it reality</p>
+                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">
+                      {currentLanguage === 'sq' ? 'Idetë Tuaja' : 'Your Ideas'}
+                    </h4>
+                    <p className="text-lg text-black dark:text-black">
+                      {currentLanguage === 'sq' ? 'Ndani vizionin tuaj dhe ne do ta bëjmë realitet' : 'Share your vision and we\'ll make it reality'}
+                    </p>
                   </div>
                   
                   {/* Fast Development */}
                   <div className="group">
-                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">Fast Development</h4>
-                    <p className="text-lg text-black dark:text-black">Ideas become features in record time</p>
+                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">
+                      {currentLanguage === 'sq' ? 'Zhvillim i Shpejtë' : 'Fast Development'}
+                    </h4>
+                    <p className="text-lg text-black dark:text-black">
+                      {currentLanguage === 'sq' ? 'Idetë bëhen veçori në kohë rekord' : 'Ideas become features in record time'}
+                    </p>
                   </div>
                   
                   {/* Mutual Growth */}
                   <div className="group">
-                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">Mutual Growth</h4>
-                    <p className="text-lg text-black dark:text-black">We succeed when you succeed</p>
+                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">
+                      {currentLanguage === 'sq' ? 'Rritje e Përbashkët' : 'Mutual Growth'}
+                    </h4>
+                    <p className="text-lg text-black dark:text-black">
+                      {currentLanguage === 'sq' ? 'Ne kemi sukses kur ju keni sukses' : 'We succeed when you succeed'}
+                    </p>
                   </div>
                 </div>
                 
@@ -940,7 +990,7 @@ export default function Landing() {
                     className="group px-8 py-4 bg-black hover:bg-gray-800 dark:bg-black dark:hover:bg-gray-800 text-white dark:text-white border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   >
                     <span className="flex items-center">
-                      Learn More
+                      {currentLanguage === 'sq' ? 'Mësoni Më Shumë' : 'Learn More'}
                     </span>
                   </Button>
 
@@ -968,10 +1018,13 @@ export default function Landing() {
                         </div>
                         
                         <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 transform transition-all duration-500 hover:scale-105 hover:text-orange-600">
-                          Community First
+                          {currentLanguage === 'sq' ? 'Komuniteti i Parë' : 'Community First'}
                         </h3>
                         <p className="text-lg text-gray-700 dark:text-gray-800 leading-relaxed font-medium">
-                          Your success drives our development. Every feature we build strengthens our entire community.
+                          {currentLanguage === 'sq' ? 
+                            'Suksesi juaj drejton zhvillimin tonë. Çdo veçori që ndërtojmë forcon të gjithë komunitetin tonë.' :
+                            'Your success drives our development. Every feature we build strengthens our entire community.'
+                          }
                         </p>
                       </div>
                       
@@ -982,8 +1035,12 @@ export default function Landing() {
                             <Code className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Free Custom Development</h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">Dedicated team builds your ideas at no extra cost</p>
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">
+                              {currentLanguage === 'sq' ? 'Zhvillim i Përshtatur Falas' : 'Free Custom Development'}
+                            </h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">
+                              {currentLanguage === 'sq' ? 'Ekipi i dedikuar ndërton idetë tuaja pa kosto shtesë' : 'Dedicated team builds your ideas at no extra cost'}
+                            </p>
                           </div>
                         </div>
                         
@@ -992,8 +1049,12 @@ export default function Landing() {
                             <Headphones className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Expert Team Support</h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">Direct access to our development experts</p>
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">
+                              {currentLanguage === 'sq' ? 'Mbështetje Ekspertësh' : 'Expert Team Support'}
+                            </h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">
+                              {currentLanguage === 'sq' ? 'Qasje e drejtpërdrejtë te ekspertët tanë të zhvillimit' : 'Direct access to our development experts'}
+                            </p>
                           </div>
                         </div>
                         
@@ -1002,8 +1063,12 @@ export default function Landing() {
                             <TrendingUp className="w-6 h-6 text-white" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Shared Growth</h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">Community-driven feature roadmap</p>
+                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">
+                              {currentLanguage === 'sq' ? 'Rritje e Përbashkët' : 'Shared Growth'}
+                            </h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-700">
+                              {currentLanguage === 'sq' ? 'Harta e veçorive e drejtuar nga komuniteti' : 'Community-driven feature roadmap'}
+                            </p>
                           </div>
                         </div>
                       </div>
