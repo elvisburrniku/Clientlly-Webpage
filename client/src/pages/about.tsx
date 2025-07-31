@@ -158,34 +158,29 @@ const AboutPage = () => {
 
   const timeline = [
     {
-      year: "2019",
+      year: "2021",
       title: "The Beginning",
       description: "Founded with a vision to simplify business operations for small and medium enterprises."
     },
     {
-      year: "2020",
-      title: "First Milestone",
-      description: "Reached 1,000 customers and launched our comprehensive invoicing platform."
-    },
-    {
-      year: "2021",
-      title: "Rapid Growth",
-      description: "Expanded to 25 countries and introduced advanced reporting and analytics."
-    },
-    {
       year: "2022",
+      title: "First Milestone",
+      description: "Reached 40 customers in 4 countries and launched our comprehensive invoicing platform."
+    },
+    {
+      year: "2023",
+      title: "Platform Growth",
+      description: "Enhanced our features and introduced advanced reporting and analytics capabilities."
+    },
+    {
+      year: "2024",
       title: "AI Integration",
       description: "Launched AI-powered insights and automated business intelligence features."
     },
     {
-      year: "2023",
-      title: "Global Expansion",
-      description: "Reached 50,000+ customers across 150+ countries worldwide."
-    },
-    {
-      year: "2024",
-      title: "Enterprise Ready",
-      description: "Introduced enterprise features and achieved SOC 2 Type II compliance."
+      year: "2025",
+      title: "Current Milestone",
+      description: "Reached 150 customers and continue expanding our comprehensive business management suite."
     }
   ];
 
@@ -508,7 +503,7 @@ const AboutPage = () => {
               Our <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Journey</span>
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
-              From a simple idea to empowering businesses worldwide
+              From a simple idea in 2021 to empowering businesses worldwide
             </p>
           </div>
           
