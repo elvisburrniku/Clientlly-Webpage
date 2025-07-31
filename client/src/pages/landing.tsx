@@ -769,8 +769,8 @@ No more juggling multiple tools.
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-foreground mb-2">50,000+</div>
-              <p className="text-muted-foreground">Active Users</p>
+              <div className="text-3xl font-bold text-foreground mb-2">200</div>
+              <p className="text-muted-foreground">Customers Trust Us</p>
             </div>
 
             {/* Invoices Processed */}
@@ -778,26 +778,26 @@ No more juggling multiple tools.
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <FileText className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-foreground mb-2">2M+</div>
+              <div className="text-3xl font-bold text-foreground mb-2">12,000</div>
               <p className="text-muted-foreground">Invoices Processed</p>
             </div>
 
-            {/* Customer Satisfaction */}
-            <div className="text-center group fade-in stagger-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Star className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">98%</div>
-              <p className="text-muted-foreground">Satisfaction Rate</p>
-            </div>
-
             {/* Countries */}
-            <div className="text-center group fade-in stagger-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="text-center group fade-in stagger-3">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <Globe className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-foreground mb-2">120+</div>
-              <p className="text-muted-foreground">Countries</p>
+              <div className="text-3xl font-bold text-foreground mb-2">5</div>
+              <p className="text-muted-foreground">Countries Worldwide</p>
+            </div>
+
+            {/* Uptime Reliability */}
+            <div className="text-center group fade-in stagger-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-2">99.9%</div>
+              <p className="text-muted-foreground">Uptime Reliability</p>
             </div>
           </div>
 
