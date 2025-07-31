@@ -737,7 +737,7 @@ export default function Landing() {
             >
               {/* Content */}
               <div className="relative z-10 flex items-center text-white">
-                <span className="mr-2 text-white font-black">{t('landing.pricing.compareFeatures', 'Compare plan features')}</span>
+                <span className="mr-2 text-white font-black">{currentLanguage === 'sq' ? 'Krahasoni veçoritë e planeve' : 'Compare plan features'}</span>
                 <ChevronDown className="h-5 w-5 text-white group-hover:rotate-180 transition-transform duration-300 ease-out" />
               </div>
               
@@ -1121,7 +1121,7 @@ export default function Landing() {
 
             
             <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-1 leading-tight tracking-tight animate-slide-up">
-{t('landing.pricing.title', 'Choose the perfect plan for your business')}
+              {currentLanguage === 'sq' ? 'Zgjidhni planin e përsosur për biznesin tuaj' : 'Choose the perfect plan for your business'}
             </h2>
             
 
@@ -1138,7 +1138,7 @@ export default function Landing() {
                 {index === 1 && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
                     <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
-{t('landing.pricing.mostPopular', 'Most Popular')}
+                      {currentLanguage === 'sq' ? 'Më i Popullarizuari' : 'Most Popular'}
                     </Badge>
                   </div>
                 )}
@@ -1158,7 +1158,7 @@ export default function Landing() {
                               : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                           }`}
                         >
-                          {t('landing.pricing.monthly', 'Monthly')}
+                          {currentLanguage === 'sq' ? 'Mujor' : 'Monthly'}
                         </button>
                         <button
                           onClick={() => setBillingPeriod('yearly')}
@@ -1168,7 +1168,7 @@ export default function Landing() {
                               : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                           }`}
                         >
-                          {t('landing.pricing.yearly', 'Yearly')}
+                          {currentLanguage === 'sq' ? 'Vjetor' : 'Yearly'}
                         </button>
                         <div
                           className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
@@ -1199,7 +1199,7 @@ export default function Landing() {
                           selectedCurrency
                         )
                       )}
-                      <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
+                      <span className="text-lg text-muted-foreground">/{currentLanguage === 'sq' ? 'muaj' : 'month'}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className="text-sm text-muted-foreground mb-2">
@@ -1255,7 +1255,7 @@ export default function Landing() {
                       style={{outline: 'none', boxShadow: 'none'}}
                       onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
                     >
-                      Buy Now
+                      {currentLanguage === 'sq' ? 'Blej Tani' : 'Buy Now'}
                     </Button>
                     {plan.id === 'basic' && (
                       <Button 
@@ -1264,7 +1264,7 @@ export default function Landing() {
                         style={{outline: 'none', boxShadow: 'none'}}
                         onClick={() => window.location.href = `/trial?plan=${plan.id}&billing=${billingPeriod}`}
                       >
-                        Start Your Trial
+                        {currentLanguage === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
                       </Button>
                     )}
                     {plan.id !== 'basic' && (
@@ -1274,7 +1274,7 @@ export default function Landing() {
                         style={{outline: 'none', boxShadow: 'none'}}
                         onClick={() => window.location.href = "/trial"}
                       >
-                        Start Your Trial
+                        {currentLanguage === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
                       </Button>
                     )}
                   </div>
@@ -1293,10 +1293,13 @@ export default function Landing() {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg animate-professional-fade">
-            {t('landing.cta.title', 'Ready to Trust Your Business with Us?')}
+            {currentLanguage === 'sq' ? 'Gati të Besoni Biznesin Tuaj tek Ne?' : 'Ready to Trust Your Business with Us?'}
           </h2>
           <p className="text-xl text-black/80 mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
-            {t('landing.cta.subtitle', 'Join thousands of businesses who have streamlined their operations with BusinessFlow Pro. Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.')}
+            {currentLanguage === 'sq' ? 
+              'Bashkohuni me mijëra biznese që kanë thjeshtuar operacionet e tyre me BusinessFlow Pro. Përjetoni sigurinë e nivelit të ndërmarrjeve, mbështetjen e ekspertëve dhe migrimin pa probleme - të gjitha të mbështetura nga garancia jonë e suksesit.' :
+              'Join thousands of businesses who have streamlined their operations with BusinessFlow Pro. Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.'
+            }
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -1305,7 +1308,7 @@ export default function Landing() {
               onClick={() => window.location.href = "/trial"}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              {t('landing.cta.startTrial', 'Start Your Trial')}
+              {currentLanguage === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
             </Button>
             <Button 
               size="lg"
@@ -1313,7 +1316,7 @@ export default function Landing() {
               onClick={() => window.location.href = "/subscribe"}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
-              {t('landing.cta.buyNow', 'Buy Now')}
+              {currentLanguage === 'sq' ? 'Blej Tani' : 'Buy Now'}
             </Button>
           </div>
 
