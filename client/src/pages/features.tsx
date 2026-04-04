@@ -4,7 +4,7 @@ import {
   FileText, Receipt, CreditCard, BarChart3, Users, Building2, Package, Clock,
   ArrowRight, Menu, X, CheckCircle, Star, Zap, Shield, TrendingUp,
   ChevronRight, Globe, Headphones, Car, CalendarDays, ClipboardList,
-  MapPin, Wrench, FileCheck, LayoutTemplate
+  MapPin, Wrench, Mail, PenLine, Eye, Send, Bell, Smartphone
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
@@ -28,19 +28,19 @@ const features = [
     dotColor: "bg-cyan-400",
     category: "finance" as Category,
     tag: { sq: "Financë", en: "Finance" },
-    title: { sq: "Oferta & Kuota", en: "Quotes & Offers" },
-    tagline: { sq: "Nga oferta tek fatura me një klikim", en: "From quote to invoice in one click" },
+    title: { sq: "Oferta & Kuota Elektronike", en: "Electronic Quotes & Offers" },
+    tagline: { sq: "Dërgoni, gjurmoni dhe nënshkruani — pa letër", en: "Send, track and sign — paperless" },
     desc: {
-      sq: "Krijoni oferta profesionale për produkte dhe shërbime duke zgjedhur nga shabllone të ndryshme. Me aprovimin e klientit, oferta konvertohet automatikisht në faturë — zero humbje kohe.",
-      en: "Create professional offers for products and services choosing from different templates. On client approval, the quote converts automatically to an invoice — zero time wasted."
+      sq: "Krijoni oferta profesionale me shabllone të ndryshme dhe dërgojini direkt me email. Klienti e hap, e lexon dhe e nënshkruan direkt nga telefoni ose kompjuteri i tij. Ju shikoni çdo hap në kohë reale.",
+      en: "Create professional quotes with different templates and send them directly by email. The client opens, reads and signs directly from their phone or computer. You see every step in real time."
     },
     benefits: [
-      { sq: "Shabllone profesionale për oferta dhe fatura", en: "Professional templates for quotes and invoices" },
-      { sq: "Konvertim me 1 klikim: Ofertë → Faturë", en: "1-click conversion: Quote → Invoice" },
-      { sq: "Nënshkrim dixhital i klientit online", en: "Online digital client signature" },
-      { sq: "Gjurmim statusit: dërguar, parë, aprovuar", en: "Status tracking: sent, viewed, approved" },
-      { sq: "Çmime, zbritje dhe taksa të personalizuara", en: "Custom prices, discounts and taxes" },
-      { sq: "Eksport PDF me markën tuaj", en: "PDF export with your branding" },
+      { sq: "Dërgim elektronik me email — pa printer, pa letër", en: "Electronic delivery by email — no printer, no paper" },
+      { sq: "Klienti nënshkruan direkt nga telefoni ose PC", en: "Client signs directly from phone or PC" },
+      { sq: "Ju nënshkruani gjithashtu nga aplikacioni", en: "You also sign from the app" },
+      { sq: "Gjurmim: dërguar → hapur → lexuar → nënshkruar", en: "Tracking: sent → opened → read → signed" },
+      { sq: "Njoftim i menjëhershëm kur klienti e hap ofertën", en: "Instant alert when client opens the quote" },
+      { sq: "Konvertim automatik Ofertë → Faturë pas aprovimit", en: "Auto conversion Quote → Invoice after approval" },
     ],
     href: "/features/invoicing",
     stat: { value: "3×", label: { sq: "oferta të aprovuara", en: "faster quote approval" } },
@@ -54,19 +54,19 @@ const features = [
     dotColor: "bg-blue-500",
     category: "finance" as Category,
     tag: { sq: "Financë", en: "Finance" },
-    title: { sq: "Faturim Profesional", en: "Professional Invoicing" },
-    tagline: { sq: "Dërgoni fatura në sekonda, paguani më shpejt", en: "Send invoices in seconds, get paid faster" },
+    title: { sq: "Faturim Profesional Elektronik", en: "Professional Electronic Invoicing" },
+    tagline: { sq: "Dërgoni me email, gjurmoni hapjen, nënshkruani dixhitalisht", en: "Send by email, track the opening, sign digitally" },
     desc: {
-      sq: "Krijoni fatura me markë profesionale nga çdo pajisje. Shabllone të shumëfishta, rikujtime automatike dhe gjurmim pagesash në kohë reale. Klientët paguajnë deri 40% më shpejt.",
-      en: "Create branded invoices from any device. Multiple templates, automatic reminders and real-time payment tracking. Clients pay up to 40% faster."
+      sq: "Krijoni dhe dërgoni fatura me email me një klikim. Ju shikoni nëse klienti e ka hapur faturën ose jo, dhe klienti mund ta nënshkruajë direkt nga telefoni ose kompjuteri pa asnjë printer.",
+      en: "Create and send invoices by email in one click. You can see whether the client has opened the invoice or not, and the client can sign it directly from phone or computer without any printer."
     },
     benefits: [
-      { sq: "Shabllone të ndryshme — zgjidhni stilin tuaj", en: "Multiple templates — choose your style" },
-      { sq: "Rikujtime automatike të pagesave", en: "Automatic payment reminders" },
-      { sq: "Gjurmim i pagesave në kohë reale", en: "Real-time payment tracking" },
-      { sq: "Pranoni pagesa online (kartë, bankë, cash)", en: "Accept online payments (card, bank, cash)" },
-      { sq: "Fatura periodike dhe automatike", en: "Recurring and automatic invoices" },
-      { sq: "Raporte të ardhurash mujore/vjetore", en: "Monthly/yearly revenue reports" },
+      { sq: "Dërgim fature me email — profesional dhe i menjëhershëm", en: "Invoice delivery by email — professional and instant" },
+      { sq: "Shiko nëse fatura është hapur nga klienti", en: "See if the invoice was opened by the client" },
+      { sq: "Nënshkrim dixhital i klientit (telefon ose PC)", en: "Client digital signature (phone or PC)" },
+      { sq: "Nënshkrim nga ana e kompanisë suaj gjithashtu", en: "Signature from your company side too" },
+      { sq: "Rikujtime automatike kur fatura nuk paguhet", en: "Auto reminders when invoice is unpaid" },
+      { sq: "Shabllone të ndryshme me markën tuaj", en: "Multiple templates with your branding" },
     ],
     href: "/features/invoicing",
     stat: { value: "40%", label: { sq: "pagesa më shpejt", en: "faster payments" } },
@@ -520,6 +520,131 @@ export default function Features() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── E-SIGNATURE & DOCUMENT TRACKING ── */}
+      <section className="py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5">
+              <PenLine className="h-3.5 w-3.5" />
+              {sq(lang, "Nënshkrimi Dixhital & Gjurmimi i Dokumenteve", "Digital Signature & Document Tracking")}
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              {sq(lang,
+                <>Dërgoni, gjurmoni dhe nënshkruani<br /><span className="text-indigo-600">pa asnjë printer</span></>,
+                <>Send, track and sign<br /><span className="text-indigo-600">without a single printer</span></>
+              )}
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
+              {sq(lang,
+                "Çdo faturë dhe ofertë dërgohet elektronikisht. Ju shikoni çdo hap — kur u dërgua, kur u hap, dhe kur u nënshkrua.",
+                "Every invoice and quote is sent electronically. You see every step — when it was sent, when it was opened, and when it was signed."
+              )}
+            </p>
+          </div>
+
+          {/* Flow steps */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              {
+                icon: Send,
+                color: "bg-indigo-100 text-indigo-600",
+                step: "1",
+                title: { sq: "Krijoni & Dërgoni", en: "Create & Send" },
+                desc: { sq: "Zgjidhni shabllonin, plotësoni detajet dhe dërgoni me email me 1 klikim.", en: "Choose a template, fill in the details and send by email in 1 click." },
+              },
+              {
+                icon: Eye,
+                color: "bg-amber-100 text-amber-600",
+                step: "2",
+                title: { sq: "Gjurmoni Hapjen", en: "Track the Opening" },
+                desc: { sq: "Merrni njoftim të menjëhershëm kur klienti e hap emailin dhe faturën/ofertën.", en: "Get an instant notification when the client opens the email and document." },
+              },
+              {
+                icon: PenLine,
+                color: "bg-emerald-100 text-emerald-600",
+                step: "3",
+                title: { sq: "Nënshkrim Dixhital", en: "Digital Signature" },
+                desc: { sq: "Klienti nënshkruan direkt nga telefoni ose kompjuteri. Ju nënshkruani gjithashtu.", en: "Client signs directly from phone or computer. You sign too." },
+              },
+              {
+                icon: CheckCircle,
+                color: "bg-green-100 text-green-600",
+                step: "4",
+                title: { sq: "Finalizuar & Arkivuar", en: "Finalised & Archived" },
+                desc: { sq: "Dokumenti i plotë ruhet automatikisht. Oferta bëhet faturë me 1 klikim.", en: "Complete document saved automatically. Quote becomes invoice in 1 click." },
+              },
+            ].map(({ icon: Icon, color, step, title, desc }, i) => (
+              <div key={i} className="relative p-5 bg-gray-50 border border-gray-100 rounded-2xl hover:border-indigo-100 hover:bg-white transition-all duration-300 group">
+                <div className="absolute -top-2.5 -left-2.5 w-6 h-6 bg-gray-900 text-white text-xs font-extrabold rounded-full flex items-center justify-center">
+                  {step}
+                </div>
+                <div className={`inline-flex p-2.5 rounded-xl ${color} mb-3`}>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h4 className="font-bold text-gray-900 text-sm mb-1.5">{lang === 'sq' ? title.sq : title.en}</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">{lang === 'sq' ? desc.sq : desc.en}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Feature pills */}
+          <div className="bg-gradient-to-br from-indigo-50 to-slate-50 border border-indigo-100 rounded-2xl p-7">
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-indigo-600" />
+                  {sq(lang, "Çfarë shihni JU (kompania)", "What YOU see (company side)")}
+                </h4>
+                <ul className="space-y-2.5">
+                  {(lang === 'sq' ? [
+                    "✓ Dërguar — 14 Prill 2025, 10:32",
+                    "✓ Hapur — 14 Prill 2025, 11:15 (3 herë)",
+                    "✓ Nënshkruar nga klienti — 14 Prill 2025, 11:22",
+                    "✓ Nënshkruar nga kompania — 14 Prill 2025, 11:30",
+                    "✓ Fatura e gjeneruar automatikisht",
+                  ] : [
+                    "✓ Sent — 14 April 2025, 10:32",
+                    "✓ Opened — 14 April 2025, 11:15 (3 times)",
+                    "✓ Signed by client — 14 April 2025, 11:22",
+                    "✓ Signed by company — 14 April 2025, 11:30",
+                    "✓ Invoice generated automatically",
+                  ]).map((item, i) => (
+                    <li key={i} className="text-sm text-gray-700 font-medium flex items-center gap-2">
+                      <span className="text-emerald-500">●</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-extrabold text-gray-900 mb-4 flex items-center gap-2">
+                  <Smartphone className="h-4 w-4 text-indigo-600" />
+                  {sq(lang, "Çfarë sheh KLIENTI (nga email-i)", "What the CLIENT sees (from email)")}
+                </h4>
+                <ul className="space-y-2.5">
+                  {(lang === 'sq' ? [
+                    "📧 Merr email me PDF të ofertës/faturës",
+                    "🔗 Klikon linkun — hapet direkt në browser",
+                    "📱 Lexon dokumentin nga telefoni ose PC",
+                    "✍️ Nënshkruan me gisht ose mouse",
+                    "✅ Merr konfirmimin dhe kopjen finale",
+                  ] : [
+                    "📧 Receives email with PDF quote/invoice",
+                    "🔗 Clicks the link — opens directly in browser",
+                    "📱 Reads the document from phone or PC",
+                    "✍️ Signs with finger or mouse",
+                    "✅ Receives confirmation and final copy",
+                  ]).map((item, i) => (
+                    <li key={i} className="text-sm text-gray-600 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full flex-shrink-0"></span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
