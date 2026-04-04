@@ -880,10 +880,10 @@ export default function Features() {
                       </li>
                     ))}
                   </ul>
-                  <Link href={href} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
+                  <button onClick={() => go(href)} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
                     {sq(lang, "Shiko detajet e plota", "See full details")}
                     <ChevronRight className="h-4 w-4" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}
