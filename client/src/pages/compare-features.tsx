@@ -171,16 +171,6 @@ export default function CompareFeatures() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button
-                onClick={() => go("/trial")}
-                className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md hover:-translate-y-0.5"
-              >
-                <span className="flex flex-col items-start leading-tight">
-                  <span className="text-[9px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
-                  <span className="text-xs">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
-                </span>
-                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
-              </button>
               <LanguageSelector />
             </div>
 
@@ -196,7 +186,6 @@ export default function CompareFeatures() {
             <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <Link href="/trial" className="block text-center text-sm font-bold px-4 py-3 bg-indigo-600 text-white rounded-xl">{sq(lang, "Fillo Provën Tani — 14 Ditë Falas", "Start Free Trial — 14 Days Free")}</Link>
               <LanguageSelector />
             </div>
           </div>
