@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
@@ -363,6 +364,7 @@ export default function Contact() {
       </section>
 
       <Footer />
+      <ChatBot />
     </div>
   );
 }
