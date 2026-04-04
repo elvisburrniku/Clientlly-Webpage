@@ -850,168 +850,66 @@ export default function Subscribe() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
+    <div className="min-h-screen bg-white">
 
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/20 shadow-lg">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
-          <div className="flex items-center justify-between h-20">
-            {/* Left Section - Logo and Company Name */}
-            <Link href="/#business-overview" className="flex items-center space-x-3 transition-all duration-300">
-              <img 
-                src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-                alt="BusinessFlow Pro" 
-                className="w-10 h-8 object-contain"
-              />
-              <span className="text-lg font-bold text-gray-800 dark:text-white">BusinessFlow Pro</span>
+      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative flex items-center h-16">
+            <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
-
-            {/* Center Section - Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">About Us</Link>
-              <Link href="/#features" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">Features</Link>
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
-                className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
-              >
-                Pricing
-              </Button>
-              <Button 
-                variant="ghost" 
-                onClick={() => window.location.href = '/contact'} 
-                className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
-              >
-                Contact Us
-              </Button>
+            <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Ballina</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Rreth Nesh</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Veçoritë</Link>
+              <Link href="/subscribe" className="text-sm font-semibold text-indigo-600">Çmimet</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Kontakt</Link>
             </div>
-
-            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
-            <div className="hidden lg:flex items-center space-x-3">
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = "/api/login"}
-                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
-              >
-                Login
-              </Button>
-              <Button 
-                variant="outline"
-                onClick={() => window.location.href = '/subscribe'}
-                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 font-medium"
-              >
-                Buy Now
-              </Button>
-              <Button 
-                onClick={() => window.location.href = "/trial"}
-                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >
-                Start Your Trial
-              </Button>
-              <div className="flex items-center">
-                <LanguageSelector />
-              </div>
+            <div className="hidden lg:flex items-center space-x-5 ml-auto">
+              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                Blej Tani
+              </button>
+              <LanguageSelector />
             </div>
-
-            {/* Mobile Menu Toggle */}
-            <div className="flex lg:hidden items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
-              >
-                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
+            <div className="flex lg:hidden items-center ml-auto">
+              <button onClick={() => setShowMobileMenu(!showMobileMenu)} className="p-2">
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
             </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="lg:hidden bg-white border-b border-gray-200">
-            <div className="px-4 py-4 space-y-4">
-              {/* Navigation Links */}
-              <Link href="/about" className="block text-lg text-gray-600 hover:text-gray-800 font-bold">About Us</Link>
-              <Link href="/#features" className="block text-lg text-gray-600 hover:text-gray-800 font-bold">Features</Link>
-              <Button 
-                variant="ghost"
-                onClick={() => {
-                  window.location.href = '/subscribe';
-                  setShowMobileMenu(false);
-                }}
-                className="w-full text-left justify-start text-lg text-gray-600 hover:text-gray-800 font-bold"
-              >
-                Pricing
-              </Button>
-              <Button 
-                variant="ghost" 
-                onClick={() => {
-                  window.location.href = '/contact';
-                  setShowMobileMenu(false);
-                }} 
-                className="w-full text-left justify-start text-lg text-gray-600 hover:text-gray-800 font-bold"
-              >
-                Contact Us
-              </Button>
-              
-              {/* Action Buttons */}
-              <div className="pt-4 space-y-2">
-                <Button 
-                  variant="ghost" 
-                  onClick={() => {
-                    window.location.href = "/api/login";
-                    setShowMobileMenu(false);
-                  }} 
-                  className="w-full text-left justify-start text-gray-600 hover:text-gray-800"
-                >
-                  Login
-                </Button>
-                <Button 
-                  variant="outline"
-                  onClick={() => {
-                    window.location.href = '/subscribe';
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
-                >
-                  Buy Now
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = "/trial";
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
-                >
-                  Start Your Trial
-                </Button>
-              </div>
+          <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">Ballina</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">Rreth Nesh</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">Veçoritë</Link>
+            <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">Çmimet</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">Kontakt</Link>
+            <div className="pt-2 flex flex-col gap-2">
+              <button onClick={() => { window.location.href = '/subscribe'; setShowMobileMenu(false); }} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">Blej Tani</button>
+              <LanguageSelector />
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section with Yellow Background */}
-      <div className="pt-32 pb-20 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
-        {/* Floating Sparkles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
-          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Hero Header */}
-          <div className="text-center mb-14 relative">
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black text-black mb-6 fade-in leading-tight tracking-tight">
-              Choose the <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">perfect plan</span> for your business
-            </h1>
-            <p className="text-xl lg:text-2xl text-black font-medium max-w-4xl mx-auto leading-relaxed fade-in" style={{ animationDelay: '0.2s' }}>
-              All plans include our complete business management suite. Only usage limits differ – choose based on your team size and invoice volume.
-            </p>
+      {/* Hero Section */}
+      <div className="pt-28 pb-12 px-6 bg-gradient-to-b from-indigo-50 via-white to-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-6 shadow-sm">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+            Transparent pricing · No hidden fees
           </div>
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-[1.15]">
+            Zgjidhni planin e <span className="text-indigo-600">duhur</span>
+          </h1>
+          <p className="text-lg text-gray-500 max-w-xl mx-auto">
+            Të gjithë planet përfshijnë të gjitha modulet. Ndryshimi është vetëm në numrin e përdoruesve dhe faturave.
+          </p>
         </div>
       </div>
 

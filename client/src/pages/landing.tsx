@@ -225,9 +225,8 @@ export default function Landing() {
             {/* Primary CTA */}
             <button
               onClick={() => window.location.href = "/trial"}
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-2xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-1"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-2xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-1"
             >
-              <span className="text-lg">🚀</span>
               <span className="flex flex-col items-start leading-tight">
                 <span className="text-[11px] font-medium text-indigo-200 uppercase tracking-widest">
                   {sq(currentLanguage, "14 ditë falas", "14 days free")}
@@ -245,7 +244,6 @@ export default function Landing() {
               }}
               className="group inline-flex items-center gap-2.5 px-8 py-4 bg-white hover:bg-gray-50 text-gray-800 font-semibold text-base rounded-2xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm hover:-translate-y-0.5"
             >
-              <span className="text-lg">💰</span>
               {sq(currentLanguage, "Shiko Çmimet", "View Pricing")}
             </button>
           </div>
