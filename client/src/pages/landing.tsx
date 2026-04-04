@@ -696,7 +696,7 @@ export default function Landing() {
               <>Ready to trust your business<br /><span className="text-indigo-400">with us?</span></>
             )}
           </h2>
-          <p className="anim-rise anim-d1 text-gray-400 text-lg mb-10 leading-relaxed">
+          <p className="anim-rise anim-d1 text-gray-400 text-lg leading-relaxed">
             {sq(lang,
               "Bashkohuni me 200+ biznese që tashmë po kursejnë kohë dhe rrisin të ardhurat me Clientlly. 14-ditë provë falas, pa kartë kredie.",
               "Join 200+ businesses already saving time and growing revenue with Clientlly. 14-day free trial, no credit card required."
