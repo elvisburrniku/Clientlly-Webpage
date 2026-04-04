@@ -1,8 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
-import { ArrowRight, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
-import { AppStoreIcon, GooglePlayIcon } from "@/components/ui/animated-icons";
+import { ArrowRight } from "lucide-react";
 
 function sq(lang: string, alb: string, eng: string): string {
   return lang === "sq" ? alb : eng;
@@ -65,46 +64,14 @@ const Footer = () => {
               )}
             </p>
 
-            {/* Mini trial CTA */}
+            {/* Trial CTA */}
             <button
               onClick={() => go("/trial")}
-              className="group inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-all duration-200 text-sm mb-8"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-lg transition-all duration-200 text-sm"
             >
-              <span className="flex flex-col items-start leading-tight">
-                <span className="text-[9px] text-indigo-200 uppercase tracking-widest">
-                  {sq(lang, "Pa kartë krediti", "No credit card")}
-                </span>
-                <span className="text-xs">{sq(lang, "Fillo Provën — Falas", "Start Free Trial")}</span>
-              </span>
-              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+              {sq(lang, "Fillo Provën — Falas", "Start Free Trial")}
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
-
-            {/* App store badges */}
-            <div className="mb-5">
-              <p className="text-[10px] font-semibold text-gray-600 uppercase tracking-widest mb-2.5">
-                {sq(lang, "Shkarkoni Aplikacionin", "Get the App")}
-              </p>
-              <div className="flex flex-col gap-2">
-                <AppStoreIcon />
-                <GooglePlayIcon />
-              </div>
-            </div>
-
-            {/* Socials */}
-            <div className="flex items-center gap-2">
-              {[
-                { icon: Twitter,   href: "https://twitter.com/clientlly",   label: "Twitter" },
-                { icon: Linkedin,  href: "https://linkedin.com/company/clientlly", label: "LinkedIn" },
-                { icon: Instagram, href: "https://instagram.com/clientlly", label: "Instagram" },
-                { icon: Youtube,   href: "https://youtube.com/@clientlly",  label: "YouTube" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 hover:bg-indigo-600 text-gray-400 hover:text-white transition-all duration-200">
-                  <Icon className="h-3.5 w-3.5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* ── Link columns ── */}
