@@ -51,14 +51,14 @@ const SetupMigrationPage = () => {
     { name: "Wave", icon: "🌊", region: "Global" },
     { name: "Zoho Books", icon: "📚", region: "Global" },
     { name: "NetSuite", icon: "🌐", region: "Global" },
-    { name: "Financa 5", icon: "https://isdwebassets.s3.eu-central-1.amazonaws.com/images/1.+Products+Logos/F5_Logo_Circular_128x128.png", region: "Albania", description: "InfoSoft - Leading Albanian ERP" },
-    { name: "Alpha Business", icon: "https://imb.al/wp-content/uploads/2023/12/l-1.png", region: "Albania", description: "IMB - Complete financial system" },
+    { name: "Financa 5", icon: "https://isdwebassets.s3.eu-central-1.amazonaws.com/images/1.+Products+Logos/F5_Logo_Circular_128x128.png", region: "Kosovo", description: "InfoSoft - Leading regional ERP" },
+    { name: "Alpha Business", icon: "https://imb.al/wp-content/uploads/2023/12/l-1.png", region: "Kosovo", description: "IMB - Complete financial system" },
     { name: "ECOVIS", icon: "https://www.ecovis.com/global/wp-content/uploads/2019/05/ecovis-logo.png", region: "North Macedonia", description: "International audit & tax services" },
     { name: "Accace", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAuNSAyMEMxMC41IDEyLjU0IDE2LjU0IDYuNSAyNCA2LjVTMzcuNSAxMi41NCAzNy41IDIwUzMxLjQ2IDMzLjUgMjQgMzMuNVMxMC41IDI3LjQ2IDEwLjUgMjBaIiBmaWxsPSIjMDA3M0M4Ii8+CjwvZz4KPC9zdmc+", region: "North Macedonia", description: "Global cloud accounting technology" },
     { name: "Logo Software", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAuNSAyMEMxMC41IDEyLjU0IDE2LjU0IDYuNSAyNCA2LjVTMzcuNSAxMi41NCAzNy41IDIwUzMxLjQ2IDMzLjUgMjQgMzMuNVMxMC41IDI3LjQ2IDEwLjUgMjBaIiBmaWxsPSIjRkY0QjAwIi8+CjwvZz4KPC9zdmc+", region: "Kosovo", description: "Regional ERP solutions" },
-    { name: "Kontabiliteti Alpha", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAuNSAyMEwxNS41IDEwSDI0TDMwLjUgMjBMMjQgMzBIMTUuNUwxMC41IDIwWiIgZmlsbD0iIzMzN0FDNyIvPgo8L2c+Cjwvc3ZnPg==", region: "Albania", description: "Complete accounting suite" },
+    { name: "Kontabiliteti Alpha", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAuNSAyMEwxNS41IDEwSDI0TDMwLjUgMjBMMjQgMzBIMTUuNUwxMC41IDIwWiIgZmlsbD0iIzMzN0FDNyIvPgo8L2c+Cjwvc3ZnPg==", region: "Kosovo", description: "Complete accounting suite" },
     { name: "InfoSoft Group", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTIwIDIwTDI1IDE1VjI1TDIwIDIwWiIgZmlsbD0iIzAwOEI4QiIvPgo8L2c+Cjwvc3ZnPg==", region: "Kosovo", description: "Regional technology leader" },
-    { name: "RSM Albania", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTE1IDE1SDI1VjI1SDE1VjE1WiIgZmlsbD0iI0M4MTAyRSIvPgo8L2c+Cjwvc3ZnPg==", region: "Albania", description: "Global audit network member" },
+    { name: "RSM Kosovo", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTE1IDE1SDI1VjI1SDE1VjE1WiIgZmlsbD0iI0M4MTAyRSIvPgo8L2c+Cjwvc3ZnPg==", region: "Kosovo", description: "Global audit network member" },
 
     { name: "Custom Systems", icon: "⚙️", region: "Global" }
   ];
@@ -316,7 +316,6 @@ const SetupMigrationPage = () => {
                   <CardContent className="relative p-6 text-center">
                     {/* Country Flag */}
                     <div className="absolute top-2 right-2 text-xl opacity-70">
-                      {platform.region === "Albania" && "🇦🇱"}
                       {platform.region === "Kosovo" && "🇽🇰"}
                       {platform.region === "North Macedonia" && "🇲🇰"}
                     </div>

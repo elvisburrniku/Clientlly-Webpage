@@ -234,7 +234,7 @@ export const translations: { [lang: string]: Translations } = {
     },
     about: {
       heroTitle: 'About BusinessFlow Pro',
-      heroSubtitle: 'Building the future of business management with Albanian innovation and global excellence.',
+      heroSubtitle: 'Building the future of business management with Kosovo innovation and global excellence.',
       statsCustomers: 'Customers Trust Us',
       statsInvoices: 'Invoices Processed', 
       statsCountries: 'Countries Worldwide',

@@ -16,7 +16,7 @@ export default function CaseStudies() {
       logo: "TN", color: "bg-indigo-600",
       company: "Truly Nolen",
       industry: sq(lang, "Shërbime Profesionale & Kontrolli i Dëmtuesve", "Professional Services & Pest Control"),
-      location: "Tiranë, Shqipëri",
+      location: "Prishtinë, Kosovë",
       size: sq(lang, "45 punonjës", "45 employees"),
       metrics: [
         { v: "72%", l: sq(lang, "Kursim kohe administrative", "Administrative time saved"), icon: Clock },

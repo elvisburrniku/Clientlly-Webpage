@@ -232,8 +232,8 @@ export default function DataProtection() {
                 </h2>
                 <p className="text-sm text-gray-600 mb-4">
                   {sq(lang,
-                    "Zyrtari ynë i Mbrojtjes së të Dhënave (DPO) trajton çdo pyetje ose ankesë lidhur me mbrojtjen e të dhënave tuaja. Keni të drejtë të paraqisni ankesë edhe te ADISA (autoriteti shqiptar) ose te autoriteti i vendit tuaj.",
-                    "Our Data Protection Officer (DPO) handles any questions or complaints regarding the protection of your data. You also have the right to lodge a complaint with ADISA (Albanian authority) or your country's authority."
+                    "Zyrtari ynë i Mbrojtjes së të Dhënave (DPO) trajton çdo pyetje ose ankesë lidhur me mbrojtjen e të dhënave tuaja. Keni të drejtë të paraqisni ankesë edhe te AIP (Agjencia për Informim dhe Privatësi e Kosovës) ose te autoriteti i vendit tuaj.",
+                    "Our Data Protection Officer (DPO) handles any questions or complaints regarding the protection of your data. You also have the right to lodge a complaint with the Kosovo Agency for Information and Privacy (AIP) or your country's authority."
                   )}
                 </p>
                 <div className="flex items-center gap-2">

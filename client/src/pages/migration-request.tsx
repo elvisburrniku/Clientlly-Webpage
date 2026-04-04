@@ -136,7 +136,7 @@ const MigrationRequestPage = () => {
     'Simply Accounting',
     'InfoSoft (Kosovo)',
     'FlexAccounts (North Macedonia)',
-    'AlbaBooks (Albania)',
+    'AlbaBooks (Kosovo)',
     'Other'
   ];
 

@@ -18,12 +18,12 @@ export default function TermsOfService() {
       content: sq(lang,
         `Duke u regjistruar ose duke përdorur platformën Clientlly, ju pranoni të gjitha kushtet e shërbimit të listuara në këtë dokument.
 
-Clientlly ofrohet nga Clientlly Sh.p.k., i regjistruar sipas ligjeve të Republikës së Shqipërisë. Nëse nuk pajtoheni me këto kushte, ju lutemi mos përdorni shërbimin.
+Clientlly ofrohet nga Clientlly Sh.p.k., i regjistruar sipas ligjeve të Republikës së Kosovës. Nëse nuk pajtoheni me këto kushte, ju lutemi mos përdorni shërbimin.
 
 Këto kushte mund të ndryshohen. Ju do të njoftoheni 30 ditë përpara çdo ndryshimi thelbësor.`,
         `By registering or using the Clientlly platform, you accept all service terms listed in this document.
 
-Clientlly is provided by Clientlly Sh.p.k., registered under the laws of the Republic of Albania. If you disagree with these terms, please do not use the service.
+Clientlly is provided by Clientlly Sh.p.k., registered under the laws of the Republic of Kosovo. If you disagree with these terms, please do not use the service.
 
 These terms may change. You will be notified 30 days before any material change.`
       ),

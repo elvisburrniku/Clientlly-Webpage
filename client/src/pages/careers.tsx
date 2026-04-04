@@ -223,7 +223,7 @@ export default function Careers() {
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Vendndodhja", "Location")}</label>
-                      <input type="text" placeholder={lang === "sq" ? "Tiranë, Shqipëri" : "City, Country"} value={form.location} onChange={e => set("location", e.target.value)}
+                      <input type="text" placeholder={lang === "sq" ? "Prishtinë, Kosovë" : "City, Country"} value={form.location} onChange={e => set("location", e.target.value)}
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
                   </div>
@@ -364,8 +364,8 @@ export default function Careers() {
               <h2 className="text-2xl font-extrabold text-gray-900 mb-3">{sq(lang, "Kush jemi ne?", "Who are we?")}</h2>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
                 {sq(lang,
-                  "Clientlly është një startup shqiptar që ndërton software të menaxhimit të biznesit për ndërmarrjet e vogla dhe të mesme. Filluat në 2021 me një ide të thjeshtë: bizneset e vogla meritojnë mjete profesionale, pa çmime të çmendura.",
-                  "Clientlly is an Albanian startup building business management software for small and medium enterprises. Started in 2021 with a simple idea: small businesses deserve professional tools, without crazy prices."
+                  "Clientlly është një startup kosovar që ndërton software të menaxhimit të biznesit për ndërmarrjet e vogla dhe të mesme. Filluat në 2021 me një ide të thjeshtë: bizneset e vogla meritojnë mjete profesionale, pa çmime të çmendura.",
+                  "Clientlly is a Kosovo-based startup building business management software for small and medium enterprises. Started in 2021 with a simple idea: small businesses deserve professional tools, without crazy prices."
                 )}
               </p>
               <p className="text-sm text-gray-600 leading-relaxed">
