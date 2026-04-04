@@ -61,12 +61,11 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
   const [loadingStage, setLoadingStage] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState<'card' | 'stripe'>('card');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
-    setLoadingStage(paymentMethod === 'card' ? 'Duke përgatitur pagesën...' : 'Duke u ridirektuar te Stripe...');
+    setLoadingStage('Duke përgatitur pagesën...');
 
     try {
       const response = await fetch('/api/create-account-and-subscription', {
@@ -132,57 +131,23 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
       </div>
 
       <div className="space-y-3">
-        <p className="text-sm font-semibold text-gray-900">Zgjidhni mënyrën e pagesës:</p>
-        <div className="grid grid-cols-2 gap-3">
-          <button type="button" onClick={() => setPaymentMethod('card')}
-            className={`p-4 rounded-xl border-2 text-left transition-all ${
-              paymentMethod === 'card'
-                ? 'border-indigo-600 bg-indigo-50 shadow-sm'
-                : 'border-gray-200 hover:border-gray-300 bg-white'
-            }`}>
-            <CreditCard className={`h-5 w-5 mb-2 ${paymentMethod === 'card' ? 'text-indigo-600' : 'text-gray-400'}`} />
-            <p className={`text-sm font-semibold ${paymentMethod === 'card' ? 'text-indigo-600' : 'text-gray-700'}`}>Kartë Kredie</p>
-            <p className="text-[10px] text-gray-400 mt-0.5">Visa, Mastercard, Amex</p>
-          </button>
-          <button type="button" onClick={() => setPaymentMethod('stripe')}
-            className={`p-4 rounded-xl border-2 text-left transition-all ${
-              paymentMethod === 'stripe'
-                ? 'border-indigo-600 bg-indigo-50 shadow-sm'
-                : 'border-gray-200 hover:border-gray-300 bg-white'
-            }`}>
-            <Shield className={`h-5 w-5 mb-2 ${paymentMethod === 'stripe' ? 'text-indigo-600' : 'text-gray-400'}`} />
-            <p className={`text-sm font-semibold ${paymentMethod === 'stripe' ? 'text-indigo-600' : 'text-gray-700'}`}>Stripe Checkout</p>
-            <p className="text-[10px] text-gray-400 mt-0.5">Pagesë e sigurt Stripe</p>
-          </button>
+        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 space-y-3">
+          <div className="flex items-center gap-2 mb-1">
+            <Shield className="h-4 w-4 text-indigo-600" />
+            <span className="text-sm font-semibold text-gray-900">Pagesë e sigurt përmes Stripe</span>
+          </div>
+          <p className="text-xs text-gray-500">
+            Do të ridirektoheni te faqja e sigurt e Stripe ku mund të paguani me kartë kredie, Apple Pay, ose Google Pay.
+          </p>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <div className="w-8 h-5 bg-blue-700 rounded text-white text-[8px] font-bold flex items-center justify-center">VISA</div>
+              <div className="w-8 h-5 bg-red-500 rounded text-white text-[8px] font-bold flex items-center justify-center">MC</div>
+              <div className="w-8 h-5 bg-blue-500 rounded text-white text-[8px] font-bold flex items-center justify-center">AMEX</div>
+            </div>
+            <span className="text-[10px] text-gray-400">Enkriptim SSL 256-bit</span>
+          </div>
         </div>
-
-        {paymentMethod === 'card' && (
-          <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 space-y-3">
-            <p className="text-xs text-gray-500">
-              Do të ridirektoheni te formulari i sigurt i kartës së kreditit për të përfunduar pagesën.
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5">
-                <div className="w-8 h-5 bg-blue-700 rounded text-white text-[8px] font-bold flex items-center justify-center">VISA</div>
-                <div className="w-8 h-5 bg-red-500 rounded text-white text-[8px] font-bold flex items-center justify-center">MC</div>
-                <div className="w-8 h-5 bg-blue-500 rounded text-white text-[8px] font-bold flex items-center justify-center">AMEX</div>
-              </div>
-              <span className="text-[10px] text-gray-400">Enkriptim SSL 256-bit</span>
-            </div>
-          </div>
-        )}
-
-        {paymentMethod === 'stripe' && (
-          <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 space-y-2">
-            <div className="flex items-center gap-2">
-              <Shield className="h-4 w-4 text-purple-600" />
-              <span className="text-xs font-medium text-purple-700">Stripe Checkout i Sigurt</span>
-            </div>
-            <p className="text-xs text-purple-600">
-              Do të ridirektoheni te faqja e sigurt e Stripe ku mund të paguani me kartë kredie, Apple Pay, ose Google Pay.
-            </p>
-          </div>
-        )}
 
         <Button 
           type="submit" 
@@ -197,8 +162,8 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
             </div>
           ) : (
             <div className="flex items-center space-x-2">
-              {paymentMethod === 'card' ? <CreditCard className="h-4 w-4" /> : <Shield className="h-4 w-4" />}
-              <span>{paymentMethod === 'card' ? 'Paguaj me Kartë' : 'Vazhdo me Stripe'}</span>
+              <CreditCard className="h-4 w-4" />
+              <span>Paguaj Tani</span>
             </div>
           )}
         </Button>
