@@ -157,9 +157,6 @@ export default function CollaborationPage() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-3 ml-auto">
-              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-                {sq(lang, "Blej Tani", "Buy Now")}
-              </Link>
               <LanguageSelector />
             </div>
 
@@ -175,9 +172,7 @@ export default function CollaborationPage() {
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
             <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
-            <Link href="/subscribe" className="block text-center w-full text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg mt-2">
-              {sq(lang, "Blej Tani", "Buy Now")}
-            </Link>
+            <div className="pt-2"><LanguageSelector /></div>
           </div>
         )}
       </nav>

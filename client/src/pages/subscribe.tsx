@@ -639,9 +639,6 @@ export default function Subscribe() {
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Kontakt</Link>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
-                Blej Tani
-              </Link>
               <LanguageSelector />
             </div>
             <div className="flex lg:hidden items-center ml-auto">
@@ -661,7 +658,6 @@ export default function Subscribe() {
             <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">Çmimet</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">Kontakt</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <Link href="/subscribe" onClick={() => setShowMobileMenu(false)} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">Blej Tani</Link>
               <LanguageSelector />
             </div>
           </div>

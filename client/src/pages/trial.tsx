@@ -73,9 +73,6 @@ export default function Trial() {
               <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(lang, "Hyr", "Login")}
               </button>
-              <button onClick={() => go("/subscribe")} className="text-sm font-semibold px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg transition-colors">
-                {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
               <LanguageSelector />
             </div>
 
@@ -90,7 +87,6 @@ export default function Trial() {
             <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features")}</Link>
             <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-1.5 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
             <div className="pt-2 flex gap-2">
-              <button onClick={() => go("/subscribe")} className="flex-1 text-sm font-semibold py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
               <LanguageSelector />
             </div>
           </div>
