@@ -487,11 +487,11 @@ export default function Features() {
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
               <Link href="/features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Veçoritë", "Features")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
+              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <button onClick={() => go("/contact")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</button>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now")}</Link>
+              <button onClick={() => go("/subscribe")} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now")}</button>
               <LanguageSelector />
             </div>
             <button className="lg:hidden p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
@@ -504,11 +504,11 @@ export default function Features() {
             <Link href="/" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
             <Link href="/features" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2 w-full text-left" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Çmimet", "Pricing")}</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
+            <button onClick={() => { setShowMobileMenu(false); go("/subscribe"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <button onClick={() => { setShowMobileMenu(false); go("/contact"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact")}</button>
             <div className="pt-2 flex flex-col gap-2">
-              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</Link>
-              <Link href="/trial" className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</Link>
+              <button onClick={() => { setShowMobileMenu(false); go("/subscribe"); }} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <button onClick={() => { setShowMobileMenu(false); go("/trial"); }} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</button>
               <LanguageSelector />
             </div>
           </div>
@@ -561,9 +561,9 @@ export default function Features() {
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
-            <Link href="/compare-features" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm">
+            <button onClick={() => go("/compare-features")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm">
               {sq(lang, "Krahaso Planet", "Compare Plans")}
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -984,9 +984,9 @@ export default function Features() {
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
             </button>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
+            <button onClick={() => go("/contact")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
               {sq(lang, "Na Kontaktoni", "Contact Us")}
-            </Link>
+            </button>
           </div>
         </div>
       </section>
