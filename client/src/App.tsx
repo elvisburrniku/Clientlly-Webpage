@@ -21,6 +21,20 @@ import FeatureVendors from "@/pages/feature-vendors";
 import FeatureCalendar from "@/pages/feature-calendar";
 import FeatureAttendance from "@/pages/feature-attendance";
 import FeatureHR from "@/pages/feature-hr";
+import FeatureQuotes from "@/pages/feature-quotes";
+import FeatureInvoicingNew from "@/pages/feature-invoicing-new";
+import FeatureExpensesNew from "@/pages/feature-expenses-new";
+import FeatureDebtNew from "@/pages/feature-debt-new";
+import FeatureReportsNew from "@/pages/feature-reports-new";
+import FeatureClientsNew from "@/pages/feature-clients-new";
+import FeatureVendorsNew from "@/pages/feature-vendors-new";
+import FeatureInventoryNew from "@/pages/feature-inventory-new";
+import FeatureCalendarNew from "@/pages/feature-calendar-new";
+import FeatureFleet from "@/pages/feature-fleet";
+import FeatureMaintenance from "@/pages/feature-maintenance";
+import FeatureAttendanceNew from "@/pages/feature-attendance-new";
+import FeaturePayroll from "@/pages/feature-payroll";
+import FeatureLeaves from "@/pages/feature-leaves";
 import About from "@/pages/about";
 import Collaboration from "@/pages/collaboration";
 import Contact from "@/pages/contact";
@@ -85,6 +99,20 @@ function Router() {
           <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/features/attendance" component={FeatureAttendance} />
           <Route path="/features/hr" component={FeatureHR} />
+          <Route path="/features/quotes" component={FeatureQuotes} />
+          <Route path="/features/invoicing-new" component={FeatureInvoicingNew} />
+          <Route path="/features/expenses-new" component={FeatureExpensesNew} />
+          <Route path="/features/debt-new" component={FeatureDebtNew} />
+          <Route path="/features/reports-new" component={FeatureReportsNew} />
+          <Route path="/features/clients-new" component={FeatureClientsNew} />
+          <Route path="/features/vendors-new" component={FeatureVendorsNew} />
+          <Route path="/features/inventory-new" component={FeatureInventoryNew} />
+          <Route path="/features/calendar-new" component={FeatureCalendarNew} />
+          <Route path="/features/fleet" component={FeatureFleet} />
+          <Route path="/features/maintenance" component={FeatureMaintenance} />
+          <Route path="/features/attendance-new" component={FeatureAttendanceNew} />
+          <Route path="/features/payroll" component={FeaturePayroll} />
+          <Route path="/features/leaves" component={FeatureLeaves} />
           <Route path="/about" component={About} />
           <Route path="/collaboration" component={Collaboration} />
           <Route path="/contact" component={Contact} />
@@ -135,6 +163,20 @@ function Router() {
           <Route path="/features/calendar" component={FeatureCalendar} />
           <Route path="/features/attendance" component={FeatureAttendance} />
           <Route path="/features/hr" component={FeatureHR} />
+          <Route path="/features/quotes" component={FeatureQuotes} />
+          <Route path="/features/invoicing-new" component={FeatureInvoicingNew} />
+          <Route path="/features/expenses-new" component={FeatureExpensesNew} />
+          <Route path="/features/debt-new" component={FeatureDebtNew} />
+          <Route path="/features/reports-new" component={FeatureReportsNew} />
+          <Route path="/features/clients-new" component={FeatureClientsNew} />
+          <Route path="/features/vendors-new" component={FeatureVendorsNew} />
+          <Route path="/features/inventory-new" component={FeatureInventoryNew} />
+          <Route path="/features/calendar-new" component={FeatureCalendarNew} />
+          <Route path="/features/fleet" component={FeatureFleet} />
+          <Route path="/features/maintenance" component={FeatureMaintenance} />
+          <Route path="/features/attendance-new" component={FeatureAttendanceNew} />
+          <Route path="/features/payroll" component={FeaturePayroll} />
+          <Route path="/features/leaves" component={FeatureLeaves} />
           <Route path="/about" component={About} />
           <Route path="/collaboration" component={Collaboration} />
           <Route path="/contact" component={Contact} />

@@ -43,7 +43,7 @@ const features = [
       { sq: "Njoftim i menjëhershëm kur klienti e hap ofertën", en: "Instant alert when client opens the quote" },
       { sq: "Konvertim automatik Ofertë → Faturë pas aprovimit", en: "Auto conversion Quote → Invoice after approval" },
     ],
-    href: "/features/invoicing",
+    href: "/features/quotes",
     stat: { value: "3×", label: { sq: "oferta të aprovuara", en: "faster quote approval" } },
   },
   {
@@ -69,7 +69,7 @@ const features = [
       { sq: "Rikujtime automatike kur fatura nuk paguhet", en: "Auto reminders when invoice is unpaid" },
       { sq: "Shabllone të ndryshme me markën tuaj", en: "Multiple templates with your branding" },
     ],
-    href: "/features/invoicing",
+    href: "/features/invoicing-new",
     stat: { value: "40%", label: { sq: "pagesa më shpejt", en: "faster payments" } },
   },
   {
@@ -95,7 +95,7 @@ const features = [
       { sq: "Raporte të gatshme për taksën", en: "Tax-ready expense reports" },
       { sq: "Buxhet, alarme tejkalimi dhe lidhje me flotën", en: "Budget, overspend alerts and fleet link" },
     ],
-    href: "/features/expenses",
+    href: "/features/expenses-new",
     stat: { value: "0", label: { sq: "hyrje manuale mes bizneseve Clientlly", en: "manual entries between Clientlly businesses" } },
   },
   {
@@ -120,7 +120,7 @@ const features = [
       { sq: "Historiku i plotë i transaksioneve", en: "Full transaction history" },
       { sq: "Grafik progresit të shlyrjes", en: "Repayment progress chart" },
     ],
-    href: "/features/debt",
+    href: "/features/debt-new",
     stat: { value: "95%", label: { sq: "më pak gabime", en: "fewer errors" } },
   },
   {
@@ -146,7 +146,7 @@ const features = [
       { sq: "Raporte prezence, flote dhe shitjesh", en: "Attendance, fleet and sales reports" },
       { sq: "Eksport PDF/Excel me klikim", en: "One-click PDF/Excel export" },
     ],
-    href: "/features/reports",
+    href: "/features/reports-new",
     stat: { value: "2×", label: { sq: "vendime më të mira", en: "better decisions" } },
   },
 
@@ -173,7 +173,7 @@ const features = [
       { sq: "Segmentim klientësh sipas vlerës", en: "Client segmentation by value" },
       { sq: "Lidhje direkte me kalendarin e takimeve", en: "Direct link to appointments calendar" },
     ],
-    href: "/features/clients",
+    href: "/features/clients-new",
     stat: { value: "+30%", label: { sq: "mbajtje klientësh", en: "client retention" } },
   },
 
@@ -200,7 +200,7 @@ const features = [
       { sq: "Historiku i blerjieve dhe pagesave", en: "Purchase and payment history" },
       { sq: "Alarme kontratash dhe afatesh", en: "Contract and deadline alerts" },
     ],
-    href: "/features/vendors",
+    href: "/features/vendors-new",
     stat: { value: "20%", label: { sq: "ulje kostosh", en: "cost reduction" } },
   },
   {
@@ -225,7 +225,7 @@ const features = [
       { sq: "Raporte lëvizjesh inventari", en: "Inventory movement reports" },
       { sq: "Integrim me faturimin automatik", en: "Integration with automatic invoicing" },
     ],
-    href: "/features/inventory",
+    href: "/features/inventory-new",
     stat: { value: "35%", label: { sq: "ulje humbje stoku", en: "stock loss reduction" } },
   },
   {
@@ -251,7 +251,7 @@ const features = [
       { sq: "Lidhje me modulin e prezencës dhe shoferëve", en: "Link with attendance and driver modules" },
       { sq: "Pamje javore, mujore dhe ditore", en: "Weekly, monthly and daily views" },
     ],
-    href: "/features/attendance",
+    href: "/features/calendar-new",
     stat: { value: "0", label: { sq: "takime të humbura", en: "missed appointments" } },
   },
 
@@ -279,7 +279,7 @@ const features = [
       { sq: "Historiku i plotë i shpenzimeve për çdo makinë", en: "Full expense history per vehicle" },
       { sq: "Raporte km, karburant dhe kosto/makina", en: "Km, fuel and cost/vehicle reports" },
     ],
-    href: "/features/attendance",
+    href: "/features/fleet",
     stat: { value: "100%", label: { sq: "afate të ndjekura", en: "deadlines tracked" } },
   },
   {
@@ -305,7 +305,7 @@ const features = [
       { sq: "Lidhje direkte me shpenzimet e kompanisë", en: "Direct link to company expenses" },
       { sq: "Raporte kosto mirëmbajtjeje për çdo automjet", en: "Maintenance cost reports per vehicle" },
     ],
-    href: "/features/attendance",
+    href: "/features/maintenance",
     stat: { value: "60%", label: { sq: "ulje dështimesh", en: "fewer breakdowns" } },
   },
 
@@ -333,7 +333,7 @@ const features = [
       { sq: "Raporte të avancuara prezence (ditore/mujore)", en: "Advanced attendance reports (daily/monthly)" },
       { sq: "Eksport automatik për llogaritje page", en: "Automatic export for payroll" },
     ],
-    href: "/features/attendance",
+    href: "/features/attendance-new",
     stat: { value: "100%", label: { sq: "saktësi lokacioni", en: "location accuracy" } },
   },
   {
@@ -359,7 +359,7 @@ const features = [
       { sq: "Llogaritje automatike bazuar në orë prezence", en: "Auto calculation based on attendance hours" },
       { sq: "Raporte pagash dhe eksport payroll", en: "Payroll reports and payroll export" },
     ],
-    href: "/features/hr",
+    href: "/features/payroll",
     stat: { value: "100%", label: { sq: "saktësi llogaritje page", en: "payroll accuracy" } },
   },
   {
@@ -385,7 +385,7 @@ const features = [
       { sq: "Certifikata dixhitale pas kalimit të provimit", en: "Digital certificates after passing the test" },
       { sq: "Historiku i plotë i pushimeve dhe trajnimeve", en: "Full history of leave and training" },
     ],
-    href: "/features/hr",
+    href: "/features/leaves",
     stat: { value: "0", label: { sq: "kërkesa pushimi të humbura", en: "lost leave requests" } },
   },
 ];
