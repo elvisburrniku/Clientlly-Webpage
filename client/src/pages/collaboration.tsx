@@ -121,19 +121,42 @@ export default function CollaborationPage() {
   const testimonials = [
     {
       name: "Artan Shala",
-      role: sq(lang, "Truly Nolen", "Truly Nolen"),
+      role: sq(lang, "Drejtues Operacional, Truly Nolen", "Operations Manager, Truly Nolen"),
       avatar: "AS",
       color: "from-blue-500 to-indigo-600",
-      text: sq(lang, "Propozova një raport të personalizuar të rrjedhës monetare dhe e lanëm të gatshëm brenda 2 javësh. Nuk mund ta besoja — ishte saktësisht çfarë kishim nevojë.", "I suggested a custom cash flow report and they had it ready within 2 weeks. I couldn't believe it — it was exactly what we needed."),
-      stat: sq(lang, "Kurseu 8 orë/javë", "Saves 8 hrs/week"),
+      tag: sq(lang, "Raportim i Personalizuar", "Custom Reporting"),
+      text: sq(lang,
+        "Propozova një raport të personalizuar të rrjedhës monetare — dhe e pashë gati brenda 12 ditësh. Nuk mund ta besoja. Tani e gjeneroj me një klik çdo të hënë dhe i kursej ekipit tim mbi 8 orë pune në javë.",
+        "I proposed a custom cash flow report — and saw it live within 12 days. I couldn't believe it. Now I generate it in one click every Monday, saving my team over 8 hours a week."
+      ),
+      stat: sq(lang, "8 orë/javë të kursyera", "8 hrs/week saved"),
+      statIcon: "⏱️",
     },
     {
       name: "Blerta Krasniqi",
-      role: sq(lang, "CEO, TechStart", "CEO, TechStart"),
+      role: sq(lang, "CEO, TechStart Kosovo", "CEO, TechStart Kosovo"),
       avatar: "BK",
       color: "from-violet-500 to-purple-600",
-      text: sq(lang, "Bashkëpunimi me ekipin e Clientlly ndihet si të kesh departamentin tuaj të teknologjisë — pa kostot e tij. Tre idetë tona janë zbatuar tashmë.", "Collaborating with the Clientlly team feels like having your own tech department — without the costs. Three of our ideas have already been implemented."),
-      stat: sq(lang, "3 veçori të realizuara", "3 features shipped"),
+      tag: sq(lang, "Zhvillim i Veçorive", "Feature Development"),
+      text: sq(lang,
+        "Bashkëpunimi me ekipin e Clientlly ndihet si të kesh departamentin tënd të IT-së — pa pagën mujore të tij. Kemi dërguar 5 ide deri tani dhe 3 janë bërë realitet. Kjo ndodh vetëm me partnerë të vërtetë.",
+        "Collaborating with the Clientlly team feels like having your own IT department — without the monthly payroll. We've submitted 5 ideas and 3 are already live. That only happens with true partners."
+      ),
+      stat: sq(lang, "3 nga 5 ide të realizuara", "3 of 5 ideas shipped"),
+      statIcon: "🚀",
+    },
+    {
+      name: "Mentor Gashi",
+      role: sq(lang, "Pronar, AutoFleet Pro", "Owner, AutoFleet Pro"),
+      avatar: "MG",
+      color: "from-emerald-500 to-teal-600",
+      tag: sq(lang, "Modul i Personalizuar", "Custom Module"),
+      text: sq(lang,
+        "Kemi një biznes flote automjetesh dhe menaxhimi i servisimeve ishte kaos total. Propozova një modul të thjeshtë dhe Clientlly jo vetëm e ndërtoi — por na pyeti çdo javë si po ecte. Ndihemi si pjesë e ekipit të tyre.",
+        "We run a vehicle fleet business and service tracking was total chaos. I proposed a simple module and Clientlly not only built it — they checked in every week on how it was going. We feel like part of their team."
+      ),
+      stat: sq(lang, "Reduktim 60% i gabimeve", "60% fewer errors"),
+      statIcon: "📊",
     },
   ];
 
@@ -305,27 +328,41 @@ export default function CollaborationPage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, si) => (
-                    <Star key={si} className="h-4 w-4 text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-gray-700 leading-relaxed mb-6 text-base italic">"{t.text}"</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-white text-sm font-bold`}>
-                      {t.avatar}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-gray-900 text-sm">{t.name}</div>
-                      <div className="text-xs text-gray-500">{t.role}</div>
-                    </div>
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                {/* Top: tag + stars */}
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-full">
+                    {t.tag}
+                  </span>
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, si) => (
+                      <Star key={si} className="h-3.5 w-3.5 text-amber-400 fill-amber-400" />
+                    ))}
                   </div>
-                  <div className="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-emerald-100">
-                    {t.stat}
+                </div>
+
+                {/* Quote */}
+                <p className="text-gray-700 leading-relaxed text-[0.92rem] italic flex-1 mb-6">
+                  "{t.text}"
+                </p>
+
+                {/* Divider */}
+                <div className="border-t border-gray-100 pt-5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-white text-sm font-bold flex-shrink-0`}>
+                        {t.avatar}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-gray-900 text-sm">{t.name}</div>
+                        <div className="text-xs text-gray-500 mt-0.5">{t.role}</div>
+                      </div>
+                    </div>
+                    <div className="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full border border-emerald-100 text-right leading-snug">
+                      <span className="mr-1">{t.statIcon}</span>{t.stat}
+                    </div>
                   </div>
                 </div>
               </div>
