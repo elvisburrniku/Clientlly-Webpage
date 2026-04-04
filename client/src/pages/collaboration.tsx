@@ -217,11 +217,18 @@ const CollaborationPage = () => {
 
           <div className="anim-rise anim-d4 flex flex-wrap justify-center gap-3 mb-14">
             <button
-              onClick={() => window.location.href = "/trial"}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              onClick={() => window.location.href = "/contact"}
+              className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
             >
-              {sq(lang, "Filloni Bashkëpunimin", "Start Collaborating")}
-              <ArrowRight className="h-4 w-4" />
+              <span className="flex flex-col items-start leading-tight">
+                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">
+                  {sq(lang, "Pa kosto · Për të gjithë abonentët", "Free · For all subscribers")}
+                </span>
+                <span className="text-sm">
+                  {sq(lang, "Dërgoni Idenë Tuaj", "Submit Your Idea")}
+                </span>
+              </span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
             <a href="#process"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-all duration-200 shadow-sm"
