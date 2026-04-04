@@ -12,36 +12,6 @@ function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element):
   return lang === "sq" ? alb : eng;
 }
 
-// Blur rectangles defined as { top, left, width, height } in % of image size
-type BlurZone = { top: number; left: number; width: number; height: number };
-
-function PhoneFrame({
-  src, alt, className = "", style = {}, blurZones = [],
-}: {
-  src: string; alt: string; className?: string; style?: React.CSSProperties; blurZones?: BlurZone[];
-}) {
-  return (
-    <div className={`relative ${className}`} style={style}>
-      <img src={src} alt={alt} className="w-full h-auto block" />
-      {blurZones.map((z, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            top:    `${z.top}%`,
-            left:   `${z.left}%`,
-            width:  `${z.width}%`,
-            height: `${z.height}%`,
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            background: "rgba(10, 17, 38, 0.55)",
-            borderRadius: "6px",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 
 export default function MobileApp() {
   const { currentLanguage: lang } = useLanguage();
@@ -223,27 +193,17 @@ export default function MobileApp() {
               {/* Side phone — Expenses */}
               <div className="hidden sm:block w-36 rounded-[2rem] overflow-hidden border-4 border-gray-800 shadow-2xl mb-4 self-end"
                 style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.25)" }}>
-                <PhoneFrame src={screenExpenses} alt="Expenses screen" blurZones={[
-                  { top: 44, left: 14, width: 62, height: 11 },
-                  { top: 55, left: 14, width: 62, height: 11 },
-                  { top: 67, left: 14, width: 62, height: 11 },
-                ]} />
+                <img src={screenExpenses} alt="Expenses screen" className="w-full h-auto block" />
               </div>
               {/* Centre phone — Invoices */}
               <div className="w-44 rounded-[2.2rem] overflow-hidden border-4 border-gray-800 shadow-2xl z-10"
                 style={{ boxShadow: "0 30px 70px rgba(99,102,241,0.25)" }}>
-                <PhoneFrame src={screenInvoices} alt="Invoices screen" blurZones={[
-                  { top: 33,   left: 14, width: 62, height: 10.5 },
-                  { top: 43.5, left: 14, width: 62, height: 10.5 },
-                  { top: 54,   left: 14, width: 62, height: 10.5 },
-                  { top: 64.5, left: 14, width: 62, height: 10.5 },
-                  { top: 75,   left: 14, width: 62, height: 10.5 },
-                ]} />
+                <img src={screenInvoices} alt="Invoices screen" className="w-full h-auto block" />
               </div>
-              {/* Side phone — Reports (no client names) */}
+              {/* Side phone — Reports */}
               <div className="hidden sm:block w-36 rounded-[2rem] overflow-hidden border-4 border-gray-800 shadow-2xl mb-4 self-end"
                 style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.25)" }}>
-                <PhoneFrame src={screenReports} alt="Reports screen" />
+                <img src={screenReports} alt="Reports screen" className="w-full h-auto block" />
               </div>
             </div>
 
@@ -309,45 +269,15 @@ export default function MobileApp() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              {
-                src: screenInvoices,
-                label:   sq(lang, "Faturat",     "Invoices"),
-                caption: sq(lang, "Menaxhim i plotë i faturave me statusin e pagesës", "Complete invoice management with payment status"),
-                blurZones: [
-                  { top: 33,   left: 14, width: 62, height: 10.5 },
-                  { top: 43.5, left: 14, width: 62, height: 10.5 },
-                  { top: 54,   left: 14, width: 62, height: 10.5 },
-                  { top: 64.5, left: 14, width: 62, height: 10.5 },
-                  { top: 75,   left: 14, width: 62, height: 10.5 },
-                ] as BlurZone[],
-              },
-              {
-                src: screenExpenses,
-                label:   sq(lang, "Shpenzimet", "Expenses"),
-                caption: sq(lang, "Ndjekja e shpenzimeve mujore me krahasim", "Monthly expense tracking with comparison"),
-                blurZones: [
-                  { top: 44, left: 14, width: 62, height: 11 },
-                  { top: 55, left: 14, width: 62, height: 11 },
-                  { top: 67, left: 14, width: 62, height: 11 },
-                ] as BlurZone[],
-              },
-              {
-                src: screenReports,
-                label:   sq(lang, "Raportet",   "Reports"),
-                caption: sq(lang, "Raporte të ardhurash me grafikë interaktiv", "Revenue reports with interactive charts"),
-                blurZones: [] as BlurZone[],
-              },
-              {
-                src: screenDetail,
-                label:   sq(lang, "Detajet",    "Details"),
-                caption: sq(lang, "Detajet e faturës me opsione pagese", "Invoice details with payment options"),
-                blurZones: [] as BlurZone[],
-              },
+              { src: screenInvoices, label: sq(lang, "Faturat",     "Invoices"),  caption: sq(lang, "Menaxhim i plotë i faturave me statusin e pagesës", "Complete invoice management with payment status") },
+              { src: screenExpenses, label: sq(lang, "Shpenzimet",  "Expenses"),  caption: sq(lang, "Ndjekja e shpenzimeve mujore me krahasim", "Monthly expense tracking with comparison") },
+              { src: screenReports,  label: sq(lang, "Raportet",    "Reports"),   caption: sq(lang, "Raporte të ardhurash me grafikë interaktiv", "Revenue reports with interactive charts") },
+              { src: screenDetail,   label: sq(lang, "Detajet",     "Details"),   caption: sq(lang, "Detajet e faturës me opsione pagese", "Invoice details with payment options") },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center">
                 <div className="w-full max-w-[160px] rounded-[1.8rem] overflow-hidden border-[3px] border-gray-800 shadow-xl mx-auto"
                   style={{ boxShadow: "0 20px 50px rgba(0,0,0,0.18)" }}>
-                  <PhoneFrame src={s.src as string} alt={s.label as string} blurZones={s.blurZones} />
+                  <img src={s.src as string} alt={s.label as string} className="w-full h-auto block" />
                 </div>
                 <p className="mt-3 text-xs font-bold text-gray-900 text-center">{s.label}</p>
                 <p className="mt-1 text-[11px] text-gray-400 text-center leading-snug px-1">{s.caption}</p>
