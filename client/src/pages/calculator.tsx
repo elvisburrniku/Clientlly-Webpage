@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from "@/lib/i18n";
 import { Link, useLocation } from 'wouter';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -97,7 +98,12 @@ const plans: Plan[] = [
   }
 ];
 
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+  }
+
 export default function Calculator() {
+  const { currentLanguage: lang } = useLanguage();
   const [, navigate] = useLocation();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
@@ -852,7 +858,7 @@ export default function Calculator() {
                           variant={plan.id === recommendedPlan?.id ? "default" : "outline"}
                           onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                         >
-                          {plan.id === 'basic' ? 'Buy Now' : 'Buy Now'}
+                          {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
                         </Button>
                         {plan.id === 'basic' && (
                           <Button 
@@ -860,9 +866,7 @@ export default function Calculator() {
                             variant="ghost"
                             size="sm"
                             onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
-                          >
-                            Start Your Trial
-                          </Button>
+                          >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
                         )}
                         {plan.id !== 'basic' && (
                           <Button 
@@ -870,9 +874,7 @@ export default function Calculator() {
                             variant="ghost"
                             size="sm"
                             onClick={() => navigate('/subscribe?plan=basic&billing=monthly')}
-                          >
-                            Start Your Trial
-                          </Button>
+                          >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
                         )}
                       </div>
                     </CardContent>

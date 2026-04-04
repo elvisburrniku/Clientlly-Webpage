@@ -6,7 +6,9 @@ import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 
-function sq(lang: string, alb: string, eng: string) { return lang === "sq" ? alb : eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+  }
 
 interface FAQItem { q: string; a: string; }
 
@@ -248,8 +250,8 @@ export default function FAQ() {
             <button onClick={() => go("/contact")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</button>
           </div>
           <div className="hidden lg:flex items-center gap-3">
-            <button onClick={() => go("/subscribe")} className="px-4 py-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now")}</button>
-            <button onClick={() => go("/trial")} className="px-4 py-2 text-sm font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">{sq(lang, "Fillo Provën", "Start Trial")}</button>
+            <button onClick={() => go("/subscribe")} className="px-4 py-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</button>
+            <button onClick={() => go("/trial")} className="px-4 py-2 text-sm font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</button>
           </div>
           <button onClick={() => setShowMobileMenu(!showMobileMenu)} className="lg:hidden p-2 text-gray-600">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -261,8 +263,8 @@ export default function FAQ() {
             <button onClick={() => go("/features")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Veçoritë", "Features")}</button>
             <button onClick={() => go("/contact")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact")}</button>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => go("/subscribe")} className="w-full py-2.5 text-sm font-semibold border border-indigo-600 text-indigo-600 rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
-              <button onClick={() => go("/trial")} className="w-full py-2.5 text-sm font-semibold bg-indigo-600 text-white rounded-lg">{sq(lang, "Fillo Provën", "Start Trial")}</button>
+              <button onClick={() => go("/subscribe")} className="w-full py-2.5 text-sm font-semibold border border-indigo-600 text-indigo-600 rounded-lg">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</button>
+              <button onClick={() => go("/trial")} className="w-full py-2.5 text-sm font-semibold bg-indigo-600 text-white rounded-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</button>
             </div>
           </div>
         )}
@@ -340,7 +342,7 @@ export default function FAQ() {
             </button>
             <button onClick={() => go("/trial")}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
-              {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}
             </button>
           </div>
         </div>

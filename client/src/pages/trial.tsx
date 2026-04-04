@@ -194,7 +194,7 @@ export default function Trial() {
                   {sq(lang, "14 ditë falas", "14 days free")}
                 </p>
                 <h2 className="text-xl font-extrabold text-white leading-tight">
-                  {sq(lang, "Fillo Provën Tani", "Start Your Free Trial")}
+                  {sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}
                 </h2>
                 <p className="text-sm text-indigo-200 mt-1">
                   {sq(lang, "Pa kartë krediti · Pa angazhim", "No credit card · No commitment")}

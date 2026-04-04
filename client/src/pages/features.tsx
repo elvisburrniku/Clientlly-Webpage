@@ -459,6 +459,10 @@ const categoryIcons: Record<Category, JSX.Element> = {
   hr:         <GraduationCap className="h-3.5 w-3.5" />,
 };
 
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+  }
+
 export default function Features() {
   const { currentLanguage } = useTranslation();
   const lang = currentLanguage;
@@ -976,11 +980,11 @@ export default function Features() {
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
             <button onClick={() => go("/trial")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-indigo-700 font-semibold rounded-xl transition-all duration-200 shadow-sm hover:-translate-y-0.5">
-              {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}
               <ArrowRight className="h-4 w-4" />
             </button>
             <button onClick={() => window.location.href = "/subscribe"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
-              {sq(lang, "Blej Tani", "Buy Now")}
+              {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
             </button>
           </div>
         </div>

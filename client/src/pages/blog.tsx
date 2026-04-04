@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,7 +19,12 @@ import {
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+  }
+
 export default function Blog() {
+  const { currentLanguage: lang } = useLanguage();
   const [, setLocation] = useLocation();
   const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -120,8 +126,8 @@ export default function Blog() {
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="text-muted-foreground hover:text-primary transition-all duration-300">Login</Button>
-              <Button onClick={() => go("/subscribe")} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">Buy Now</Button>
-              <Button onClick={() => go("/trial")} className="bg-green-600 text-white hover:bg-green-700 font-medium">Start Your Trial</Button>
+              <Button onClick={() => go("/subscribe")} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+              <Button onClick={() => go("/trial")} className="bg-green-600 text-white hover:bg-green-700 font-medium">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
               <div className="pt-2"><LanguageSelector /></div>
             </div>
 
@@ -306,9 +312,7 @@ export default function Blog() {
             Put these insights into action with BusinessFlow Pro. Start your free trial today and transform your business operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">
-              Start Your Trial
-            </Button>
+            <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
             <Button onClick={() => go("/subscribe")} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">
               View Pricing
             </Button>

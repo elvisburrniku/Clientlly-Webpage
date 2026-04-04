@@ -10,9 +10,9 @@ import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
-  return lang === "sq" ? alb : eng;
-}
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+  }
 
 const BASE = "https://api.clientlly.com/v1";
 
@@ -187,7 +187,7 @@ export default function APIPage() {
               </button>
               <button onClick={() => go("/subscribe")}
                 className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
-                {sq(lang, "Blej Tani", "Buy Now")}
+                {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
               </button>
               <LanguageSelector />
             </div>

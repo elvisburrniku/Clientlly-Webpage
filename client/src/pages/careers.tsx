@@ -10,9 +10,9 @@ import {
   Users, Heart, TrendingUp, Coffee, Rocket, Calendar,
 } from "lucide-react";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
-  return lang === "sq" ? alb : eng;
-}
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+  }
 
 const POSITIONS = [
   { sq: "Zhvillues Full-Stack Senior", en: "Senior Full-Stack Developer" },
@@ -91,7 +91,7 @@ export default function Careers() {
                 className="group inline-flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all duration-200 text-sm">
                 <span className="flex flex-col items-start leading-tight">
                   <span className="text-[9px] text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
-                  <span className="text-xs">{sq(lang, "Fillo Provën", "Start Trial")}</span>
+                  <span className="text-xs">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</span>
                 </span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
@@ -108,7 +108,7 @@ export default function Careers() {
             <Link href="/features" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Veçoritë", "Features")}</Link>
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Rreth Nesh", "About")}</Link>
             <div className="pt-2 flex gap-2">
-              <Link href="/trial" className="flex-1 text-sm font-bold py-2.5 bg-indigo-600 text-white rounded-lg text-center">{sq(lang, "Fillo Provën", "Start Trial")}</Link>
+              <Link href="/trial" className="flex-1 text-sm font-bold py-2.5 bg-indigo-600 text-white rounded-lg text-center">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Link>
               <LanguageSelector />
             </div>
           </div>

@@ -88,14 +88,10 @@ export default function Login() {
               </Button>
               <Link href="/subscribe"
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium rounded-md text-sm inline-block"
-              >
-                Buy Now
-              </Link>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Link>
               <Link href="/trial"
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-md text-sm inline-block"
-              >
-                Start Your Trial
-              </Link>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -121,8 +117,8 @@ export default function Login() {
             <Link href="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Contact Us</Link>
             <div className="pt-2 border-t border-white/20">
               <Button variant="ghost" className="w-full justify-start text-sm mb-2" onClick={handleLogin}>Login</Button>
-              <Link href="/subscribe" className="w-full text-sm mb-2 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">Buy Now</Link>
-              <Link href="/trial" className="w-full text-sm inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">Start Your Trial</Link>
+              <Link href="/subscribe" className="w-full text-sm mb-2 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Link>
+              <Link href="/trial" className="w-full text-sm inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Link>
             </div>
           </div>
         </div>
@@ -222,9 +218,7 @@ export default function Login() {
                   <div className="mt-8 space-y-3 text-center">
                     <div className="text-sm text-muted-foreground">
                       Don't have an account?{" "}
-                      <Link href="/trial" className="text-primary hover:underline font-medium">
-                        Start Your Free Trial
-                      </Link>
+                      <Link href="/trial" className="text-primary hover:underline font-medium">{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}</Link>
                     </div>
                     <div className="text-sm">
                       <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors">
