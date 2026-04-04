@@ -702,18 +702,6 @@ export default function Landing() {
               "Join 200+ businesses already saving time and growing revenue with Clientlly. 14-day free trial, no credit card required."
             )}
           </p>
-          <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
-            <button onClick={() => { window.location.href = '/trial'; }}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
-              {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
-              <ArrowRight className="h-4 w-4" />
-            </button>
-            <button onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-white hover:bg-gray-100 text-gray-900 font-bold rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
-              <CreditCard className="h-4 w-4 text-indigo-600 group-hover:scale-110 transition-transform" />
-              {sq(lang, "Blej Tani", "Buy Now")}
-            </button>
-          </div>
         </div>
       </section>
 
