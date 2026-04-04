@@ -1,5 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Minimize2, Maximize2, Home, HelpCircle, Send, ArrowLeft, Search, ChevronRight, Bot, User, MessageSquare, DollarSign, Users, Calendar, Settings, CreditCard, Shield } from 'lucide-react';
+import {
+  MessageCircle, X, Minimize2, Maximize2, Send, ArrowLeft,
+  Bot, User, ChevronRight,
+  FileText, Receipt, CreditCard, BarChart3, Users, Building2, Package,
+  Clock, Car, Wrench, GraduationCap, CalendarX, Wallet, ClipboardList,
+  CalendarDays, Shield
+} from 'lucide-react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,161 +15,217 @@ interface Message {
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  quickReplies?: string[];
 }
 
-interface HelpTopic {
-  id: string;
-  title: string;
-  description: string;
-  icon: any;
+const moduleInfo: Record<string, { icon: any; reply: string; keywords: string[] }> = {
+  oferta: {
+    icon: ClipboardList,
+    reply: "📋 Moduli i Ofertave ju lejon të krijoni oferta profesionale për klientët tuaj, t'i konvertoni automatikisht në fatura, të gjurmoni statusin e çdo oferte (dërguar, pranuar, refuzuar), dhe të personalizoni template-t sipas brendit tuaj. Dëshironi të dini më shumë?",
+    keywords: ['ofert', 'kuotim', 'quote', 'propozim'],
+  },
+  faturim: {
+    icon: FileText,
+    reply: "🧾 Moduli i Faturimit mundëson krijimin e faturave profesionale me një klik, dërgimin automatik me email, gjurmimin e pagesave, dhe raportim të detajuar. Mbështet formate të ndryshme dhe eksportim në PDF. Mund t'ju ndihmoj me diçka tjetër?",
+    keywords: ['fatur', 'invoice', 'faturim', 'faturë'],
+  },
+  shpenzime: {
+    icon: Receipt,
+    reply: "💰 Moduli i Shpenzimeve ju ndihmon të regjistroni dhe kategorizoni të gjitha shpenzimet e biznesit, të gjurmoni buxhetin, të gjeneroni raporte për tatim, dhe të keni kontroll të plotë mbi financat. Keni pyetje specifike?",
+    keywords: ['shpenzim', 'expense', 'kosto', 'buxhet'],
+  },
+  borxhe: {
+    icon: CreditCard,
+    reply: "💳 Moduli i Borxheve ju ndihmon të gjurmoni borxhet e klientëve dhe furnitorëve, të planifikoni pagesat, të dërgoni njoftime automatike për borxhe të vonuara, dhe të keni pasqyrë të plotë të gjendjes financiare.",
+    keywords: ['borxh', 'debt', 'detyrim', 'vonesë', 'pagesë e vonuar'],
+  },
+  raporte: {
+    icon: BarChart3,
+    reply: "📊 Moduli i Raporteve ofron dashboard me KPI, parashikime financiare, analiza trendi, raporte të personalizuara, dhe eksportim në formate të ndryshme. Mund të gjeneroni raporte ditore, javore, ose mujore.",
+    keywords: ['raport', 'report', 'analiz', 'statistik', 'dashboard', 'kpi'],
+  },
+  kartelaBleres: {
+    icon: Wallet,
+    reply: "👤 Kartelat e Blerësit ju japin pasqyrë 360° për çdo klient — historiku i blerjeve, borxhet, pagesat, kontaktet, dhe shënimet. Gjithçka në një vend për marrëdhënie më të forta me klientët.",
+    keywords: ['kartel', 'buyer card', 'profil klient', 'kartelë'],
+  },
+  klient: {
+    icon: Users,
+    reply: "🤝 Moduli CRM ju ndihmon të menaxhoni marrëdhëniet me klientët, të gjurmoni historikun e komunikimit, të planifikoni ndjekjet, dhe të rrisni kënaqësinë e klientëve me mjete të fuqishme CRM.",
+    keywords: ['klient', 'crm', 'client', 'menaxhim klient'],
+  },
+  furnitor: {
+    icon: Building2,
+    reply: "🏢 Moduli i Furnitorëve ju lejon të menaxhoni furnitorët, porositë e blerjes, kontratat, dhe performancën e tyre. Krahasoni çmimet dhe optimizoni zinxhirin e furnizimit.",
+    keywords: ['furnitor', 'vendor', 'supplier', 'porosi blerje'],
+  },
+  inventar: {
+    icon: Package,
+    reply: "📦 Moduli i Inventarit ofron gjurmim në kohë reale të stokut, njoftime automatike për riporositje, menaxhim magazinash, dhe raporte të detajuara për lëvizjet e produkteve.",
+    keywords: ['inventar', 'stok', 'magazin', 'produkt', 'inventory'],
+  },
+  flote: {
+    icon: Car,
+    reply: "🚗 Moduli i Flotës ju ndihmon të gjurmoni automjetet e kompanisë, konsumin e karburantit, itineraret, siguracionet, dhe shpenzimet e çdo automjeti. Kontroll i plotë i flotës.",
+    keywords: ['flot', 'makina', 'automjet', 'fleet', 'karburant'],
+  },
+  mirembajtje: {
+    icon: Wrench,
+    reply: "🔧 Moduli i Mirëmbajtjes planifikon dhe gjurmon mirëmbajtjen e automjeteve — servise të rregullta, riparime, kosto, dhe historik. Njoftime automatike për servise të planifikuara.",
+    keywords: ['mirëmbajtj', 'servis', 'riparim', 'maintenance'],
+  },
+  prezence: {
+    icon: Clock,
+    reply: "⏰ Moduli i Prezencës gjurmon orët e punës, mungesat, vonesat, dhe orët shtesë. Raporte të detajuara për çdo punonjës dhe integrim me modulin e pagave.",
+    keywords: ['prezenc', 'attendance', 'orar', 'orë pune', 'munges'],
+  },
+  paga: {
+    icon: Wallet,
+    reply: "💵 Moduli i Pagave automatizon llogaritjen e pagave bazuar në prezencë, zbritjet, bonuset, dhe taksat. Gjeneroni fletëpaga profesionale dhe raporte periodike.",
+    keywords: ['pag', 'payroll', 'rrog', 'salary', 'fletëpag'],
+  },
+  pushime: {
+    icon: CalendarX,
+    reply: "🏖️ Moduli i Pushimeve menaxhon kërkesat e pushimeve, lejet mjekësore, ditët e lira, dhe kalendarin e disponueshmërisë. Aprovime automatike dhe gjurmim i balancës.",
+    keywords: ['pushim', 'leje', 'leave', 'ditë e lirë', 'vakancë'],
+  },
+  trajnim: {
+    icon: GraduationCap,
+    reply: "🎓 Moduli i Trajnimeve organizon kurse, certifikime, dhe zhvillim profesional për ekipin. Gjurmoni progresin, planifikoni sesione, dhe vlerësoni efektivitetin.",
+    keywords: ['trajnim', 'training', 'kurs', 'certifikim', 'zhvillim'],
+  },
+  kalendar: {
+    icon: CalendarDays,
+    reply: "📅 Kalendari i Biznesit integron takimet, afatet, detyrat, dhe eventet e ekipit në një vend. Njoftime automatike dhe sinkronizim me kalendarë të tjerë.",
+    keywords: ['kalendar', 'takim', 'calendar', 'orar', 'event', 'afat'],
+  },
+};
+
+const generalResponses: { keywords: string[]; reply: string; quickReplies?: string[] }[] = [
+  {
+    keywords: ['çmim', 'pric', 'kosto', 'plan', 'sa kushton', 'paketë'],
+    reply: "💰 Planet tona janë:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet. Dallimi është vetëm në numrin e përdoruesve dhe faturave.",
+    quickReplies: ["Fillo provën falas", "Cili plan më përshtatet?"],
+  },
+  {
+    keywords: ['prov', 'trial', 'falas', 'test'],
+    reply: "🎉 Po! Ofrojmë provë falas 14-ditore me qasje të plotë në të gjitha 16 modulet. Nuk kërkohet kartë kredie. Thjesht regjistrohuni dhe filloni menjëherë!",
+    quickReplies: ["Çfarë modulesh ka?", "Sa kushton pas provës?"],
+  },
+  {
+    keywords: ['modul', 'veçori', 'feature', 'çfarë ofroni', 'shërbim'],
+    reply: "🚀 Clientlly ofron 16 module të integruara:\n\n📊 Financë: Oferta, Faturim, Shpenzime, Borxhe, Raporte, Kartela Blerësi\n⚙️ Operacione: Klientë CRM, Furnitorë, Inventar\n🚗 Flotë: Automjete, Mirëmbajtje\n👥 Burime Njerëzore: Prezencë, Paga, Pushime, Trajnime, Kalendar\n\nCilin modul dëshironi ta eksploroni?",
+    quickReplies: ["Faturimi", "Inventari", "CRM", "Pagat"],
+  },
+  {
+    keywords: ['kontakt', 'email', 'na shkruani', 'adres'],
+    reply: "📧 Mund të na kontaktoni:\n\n• Email: info@clientlly.com (përgjigje brenda 24h)\n• Zyra: Linda Premium Residence nr 9, Prishtina e re, Kosovë\n• Chat: Jeni duke folur me ne tani! 😊",
+  },
+  {
+    keywords: ['siguri', 'security', 'mbrojtj', 'gdpr', 'privatësi'],
+    reply: "🔒 Të dhënat tuaja janë të mbrojtura me enkriptim të nivelit bankar (256-bit SSL), pëlqim me GDPR, backup automatik ditor, dhe kontroll të plotë mbi qasjen. Siguria është prioriteti ynë nr. 1.",
+  },
+  {
+    keywords: ['migrim', 'transferim', 'import', 'kalim'],
+    reply: "📦 Ekipi ynë bën migrimin e të dhënave FALAS nga platforma juaj aktuale. Mbështesim import nga Excel, CSV, dhe sistemet kryesore. Procesi zgjat zakonisht 1-3 ditë pune.",
+    quickReplies: ["Kërko migrim", "Sa kushton?"],
+  },
+  {
+    keywords: ['mbështetj', 'support', 'ndihm', 'problem'],
+    reply: "🛟 Ekipi ynë i mbështetjes është i gatshëm t'ju ndihmojë! Mund të na kontaktoni përmes:\n\n• Këtij chat-i (përgjigje e menjëhershme)\n• Email: info@clientlly.com\n\nSi mund t'ju ndihmoj?",
+  },
+  {
+    keywords: ['përshëndetj', 'hello', 'hi', 'mirëdita', 'tungjatjeta', 'hej', 'çkemi'],
+    reply: "👋 Mirësevini në Clientlly! Jam asistenti virtual dhe jam këtu t'ju ndihmoj. Mund të pyes për modulet tona, çmimet, ose çdo gjë tjetër. Si mund t'ju ndihmoj sot?",
+    quickReplies: ["Çfarë modulesh ka?", "Sa kushton?", "Fillo provën falas"],
+  },
+  {
+    keywords: ['faleminderit', 'falemnderit', 'thanks', 'rrofsh'],
+    reply: "😊 Ju lutem! Jam gjithmonë këtu nëse keni pyetje të tjera. Ju urojmë sukses me biznesin tuaj!",
+  },
+];
+
+const defaultReply = "Faleminderit për mesazhin tuaj! Jam asistenti virtual i Clientlly. Mund t'ju ndihmoj me informacione rreth moduleve tona (Faturim, CRM, Inventar, Pagat, etj.), çmimeve, ose provës falas. Çfarë dëshironi të dini?";
+const defaultQuickReplies = ["Çfarë modulesh ka?", "Sa kushton?", "Fillo provën falas"];
+
+function findResponse(text: string): { reply: string; quickReplies?: string[] } {
+  const lower = text.toLowerCase();
+  for (const [, info] of Object.entries(moduleInfo)) {
+    if (info.keywords.some(k => lower.includes(k))) {
+      return { reply: info.reply };
+    }
+  }
+  for (const resp of generalResponses) {
+    if (resp.keywords.some(k => lower.includes(k))) {
+      return { reply: resp.reply, quickReplies: resp.quickReplies };
+    }
+  }
+  return { reply: defaultReply, quickReplies: defaultQuickReplies };
 }
+
+const quickTopics = [
+  { label: "💰 Çmimet", msg: "Sa kushtojnë planet?" },
+  { label: "🚀 Modulet", msg: "Çfarë modulesh ofroni?" },
+  { label: "🎉 Prova falas", msg: "Si të filloj provën falas?" },
+  { label: "📧 Kontakti", msg: "Si mund t'ju kontaktoj?" },
+];
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [currentView, setCurrentView] = useState<'menu' | 'chat' | 'search'>('menu');
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [showWelcome, setShowWelcome] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  
-
-
-  const helpTopics: HelpTopic[] = [
-    { id: '1', title: 'Pricing & Plans', description: 'Learn about our subscription options', icon: DollarSign },
-    { id: '2', title: 'Account Setup', description: 'Get help setting up your account', icon: Users },
-    { id: '3', title: 'Features Overview', description: 'Discover all available features', icon: Settings },
-    { id: '4', title: 'Billing Support', description: 'Questions about billing and payments', icon: CreditCard },
-    { id: '5', title: 'Technical Support', description: 'Get help with technical issues', icon: Shield },
-    { id: '6', title: 'Schedule Demo', description: 'Book a personalized demo', icon: Calendar },
-  ];
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isTyping]);
 
-
-
-  const startChat = (initialMessage?: string) => {
-    setCurrentView('chat');
-    if (initialMessage && !messages.find(m => m.text === initialMessage)) {
-      handleSendMessage(initialMessage);
-    }
-  };
-
-  const getAIResponse = async (userMessage: string): Promise<string> => {
-    const responses: { [key: string]: string } = {
-      'pricing': 'Our BusinessFlow Pro plans start at $29/month for Basic, $79/month for Professional, and $159/month for Business. Each plan includes different features to scale with your needs. Would you like me to explain the differences?',
-      'features': 'BusinessFlow Pro includes invoicing, expense tracking, CRM, inventory management, attendance tracking, debt management, and much more. Which specific feature would you like to learn about?',
-      'demo': 'I\'d be happy to help you schedule a demo! You can book a personalized demonstration at your convenience. Would you like me to guide you through the booking process?',
-      'trial': 'Yes! We offer a 14-day free trial with full access to all features. No credit card required to start. Would you like to begin your free trial today?',
-      'support': 'Our support team is available 24/7 to help with any questions. You can reach us through this chat, email, or phone. How can I assist you today?',
-      'security': 'We use bank-level encryption and comply with industry standards to keep your data secure. All data is encrypted in transit and at rest. Would you like more details about our security measures?',
-    };
-
-    const message = userMessage.toLowerCase();
-    for (const [key, response] of Object.entries(responses)) {
-      if (message.includes(key)) {
-        return response;
-      }
-    }
-
-    return 'Thank you for your message! Our team will help you with that. Is there anything specific about BusinessFlow Pro you\'d like to know more about? I can help with pricing, features, demos, or any other questions.';
-  };
-
-  const handleSendMessage = async (messageText?: string) => {
-    const text = messageText || inputValue.trim();
-    if (!text) return;
-
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      text,
-      sender: 'user',
-      timestamp: new Date(),
-    };
-
-    setMessages(prev => [...prev, userMessage]);
-    setInputValue('');
+  const sendBot = (text: string, quickReplies?: string[]) => {
     setIsTyping(true);
-
-    setTimeout(async () => {
-      const aiResponse = await getAIResponse(text);
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: aiResponse,
+    setTimeout(() => {
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        text,
         sender: 'bot',
         timestamp: new Date(),
-      };
-
-      setMessages(prev => [...prev, botMessage]);
+        quickReplies,
+      }]);
       setIsTyping(false);
-    }, 1000 + Math.random() * 1000);
+    }, 600 + Math.random() * 800);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
+  const handleSend = (text?: string) => {
+    const msg = (text || inputValue).trim();
+    if (!msg) return;
+    setShowWelcome(false);
+    setMessages(prev => [...prev, {
+      id: Date.now().toString(),
+      text: msg,
+      sender: 'user',
+      timestamp: new Date(),
+    }]);
+    setInputValue('');
+    const { reply, quickReplies } = findResponse(msg);
+    sendBot(reply, quickReplies);
   };
 
   if (!isOpen) {
     return (
       <div className="fixed bottom-6 right-6 z-50 group">
         <button
-          onClick={() => {
-            setIsOpen(true);
-            setIsClosing(false);
-          }}
-          className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center group relative overflow-hidden hover:scale-105 active:scale-95"
-          onMouseDown={(e) => {
-            const button = e.currentTarget;
-            const rect = button.getBoundingClientRect();
-            const circle = document.createElement('div');
-            const size = Math.max(rect.width, rect.height) * 2;
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            circle.className = 'absolute rounded-full bg-white/30 pointer-events-none';
-            circle.style.cssText = `
-              width: ${size}px;
-              height: ${size}px;
-              left: ${x}px;
-              top: ${y}px;
-              transform: scale(0);
-              transition: transform 0.5s ease-out;
-            `;
-            
-            button.appendChild(circle);
-            requestAnimationFrame(() => {
-              circle.style.transform = 'scale(1)';
-              circle.style.opacity = '0';
-            });
-            setTimeout(() => circle.remove(), 500);
-          }}
+          onClick={() => setIsOpen(true)}
+          className="w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 relative"
         >
-          <div className="flex items-center justify-center">
-            <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-              <MessageCircle className="h-5 w-5 text-white" />
-            </div>
-          </div>
-          
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-            <span className="text-white text-xs font-medium">1</span>
-          </div>
-          
-          <div className="absolute inset-0 rounded-full bg-blue-400 opacity-0 group-hover:opacity-20 group-hover:scale-110 transition-all duration-300"></div>
+          <MessageCircle className="h-6 w-6 text-white" />
+          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+            <span className="text-white text-[10px] font-bold">1</span>
+          </span>
         </button>
-
-        <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 transform group-hover:translate-y-0 translate-y-1 shadow-lg whitespace-nowrap">
-          <div className="text-xs font-medium">Need help?</div>
-          <div className="text-xs text-gray-300">Chat with BusinessFlow Pro</div>
+        <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
+          Keni nevojë për ndihmë?
           <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
         </div>
       </div>
@@ -172,311 +234,139 @@ export default function ChatBot() {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <Card className={`w-80 sm:w-[400px] transition-all duration-300 ease-in-out shadow-2xl border-0 overflow-hidden transform ${
-        isMinimized ? 'h-16 scale-95' : 'h-[600px] scale-100'
-      } ${
-        isClosing 
-          ? 'animate-out slide-out-to-bottom-4 fade-out duration-200' 
-          : isOpen 
-            ? 'animate-in slide-in-from-bottom-4 fade-in duration-300' 
-            : ''
-      }`}>
-        <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4 flex-shrink-0">
-          <div className="flex items-center justify-between min-h-[44px]">
-            <div className="flex items-center space-x-3 flex-1 min-w-0">
-              <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
-                <MessageCircle className="h-5 w-5 text-white" />
+      <Card className={`w-80 sm:w-96 shadow-2xl border-0 overflow-hidden transition-all duration-300 ${isMinimized ? 'h-14' : 'h-[540px]'}`}>
+        <CardHeader className="bg-indigo-600 text-white p-3 flex-shrink-0">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                <Bot className="h-5 w-5 text-white" />
               </div>
-              <div className="flex-1 min-w-0">
-                <h2 className="text-base font-semibold text-white truncate leading-tight">BusinessFlow Pro</h2>
-                <p className="text-sm text-blue-100 truncate leading-tight">Support bot • AI Agent</p>
+              <div>
+                <h2 className="text-sm font-bold text-white leading-tight">Clientlly</h2>
+                <p className="text-[11px] text-indigo-200 leading-tight">Asistent Virtual</p>
               </div>
             </div>
-            <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20 h-7 w-7 sm:h-8 sm:w-8 p-0 transition-colors"
-              >
-                {isMinimized ? <Maximize2 className="h-3 w-3 sm:h-4 sm:w-4" /> : <Minimize2 className="h-3 w-3 sm:h-4 sm:w-4" />}
+            <div className="flex items-center gap-1">
+              <Button variant="ghost" size="sm" onClick={() => setIsMinimized(!isMinimized)} className="text-white hover:bg-white/20 h-7 w-7 p-0">
+                {isMinimized ? <Maximize2 className="h-3.5 w-3.5" /> : <Minimize2 className="h-3.5 w-3.5" />}
               </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  setIsClosing(true);
-                  setTimeout(() => {
-                    setIsOpen(false);
-                    setIsClosing(false);
-                    setCurrentView('menu');
-                    setMessages([]);
-                  }, 200);
-                }}
-                className="text-white hover:bg-white/20 h-7 w-7 sm:h-8 sm:w-8 p-0 transition-colors"
-              >
-                <X className="h-3 w-3 sm:h-4 sm:w-4" />
+              <Button variant="ghost" size="sm" onClick={() => { setIsOpen(false); setMessages([]); setShowWelcome(true); }} className="text-white hover:bg-white/20 h-7 w-7 p-0">
+                <X className="h-3.5 w-3.5" />
               </Button>
             </div>
           </div>
         </CardHeader>
 
         {!isMinimized && (
-          <CardContent className="p-0 flex flex-col h-[556px]">
-            {/* Menu View */}
-            {currentView === 'menu' && (
-              <div className="flex flex-col h-full min-h-0">
-                <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-b border-blue-200">
-                  <h3 className="text-lg font-semibold text-blue-900 mb-2">Hello there.</h3>
-                  <p className="text-blue-700">How can we help?</p>
-                </div>
-
-                <div className="px-3 sm:px-4 py-3 border-b border-blue-200 bg-white">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
-                        <MessageCircle className="h-3 w-3 text-white" />
+          <CardContent className="p-0 flex flex-col h-[486px]">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50 min-h-0">
+              {showWelcome && messages.length === 0 && (
+                <div className="space-y-4">
+                  <div className="bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
+                        <Bot className="h-4 w-4 text-indigo-600" />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm text-gray-700">Recent message</p>
-                        <div className="flex items-center space-x-1">
-                          <div className="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center">
-                            <span className="text-xs text-white">B</span>
-                          </div>
-                          <span className="text-xs text-gray-500 truncate">BusinessFlow Pro • 17m ago</span>
-                        </div>
-                      </div>
+                      <span className="text-sm font-semibold text-gray-800">Clientlly Bot</span>
                     </div>
-                    <ChevronRight className="h-4 w-4 text-gray-400" />
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      👋 Mirësevini! Jam asistenti virtual i Clientlly. Mund t'ju ndihmoj me informacione rreth platformës sonë me 16 module të integruara. Zgjidhni një temë ose shkruani pyetjen tuaj:
+                    </p>
                   </div>
-                </div>
-
-                <button 
-                  onClick={() => startChat()}
-                  className="px-3 sm:px-4 py-4 border-b border-blue-200 bg-white hover:bg-blue-50 transition-colors text-left flex items-center justify-between"
-                >
-                  <div className="flex items-center space-x-3">
-                    <MessageSquare className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-900">Send us a message</span>
-                  </div>
-                  <ChevronRight className="h-4 w-4 text-gray-400" />
-                </button>
-
-                <button 
-                  onClick={() => setCurrentView('search')}
-                  className="px-3 sm:px-4 py-4 border-b border-blue-200 bg-white hover:bg-blue-50 transition-colors text-left flex items-center justify-between"
-                >
-                  <div className="flex items-center space-x-3">
-                    <Search className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm font-medium text-gray-900">Search for help</span>
-                  </div>
-                  <Search className="h-4 w-4 text-gray-400" />
-                </button>
-
-                <div className="flex-1 overflow-y-auto bg-white min-h-0">
-                  {helpTopics.map((topic) => {
-                    const IconComponent = topic.icon;
-                    return (
+                  <div className="grid grid-cols-2 gap-2">
+                    {quickTopics.map(({ label, msg }) => (
                       <button
-                        key={topic.id}
-                        onClick={() => startChat(topic.title)}
-                        className="w-full px-3 sm:px-4 py-3 border-b border-blue-200 bg-white hover:bg-blue-50 transition-colors text-left flex items-center justify-between"
+                        key={msg}
+                        onClick={() => handleSend(msg)}
+                        className="text-left px-3 py-2.5 bg-white hover:bg-indigo-50 border border-gray-200 hover:border-indigo-200 rounded-xl text-xs font-medium text-gray-700 transition-all duration-150"
                       >
-                        <div className="flex items-center space-x-3 flex-1 min-w-0">
-                          <IconComponent className="h-4 w-4 text-blue-600 flex-shrink-0" />
-                          <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-900 truncate">{topic.title}</p>
-                            <p className="text-xs text-gray-600 truncate">{topic.description}</p>
-                          </div>
-                        </div>
-                        <ChevronRight className="h-4 w-4 text-gray-400 flex-shrink-0" />
+                        {label}
                       </button>
-                    );
-                  })}
-                </div>
-
-                <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
-                  <button 
-                    onClick={() => setCurrentView('menu')}
-                    className="flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors bg-blue-100"
-                  >
-                    <Home className="h-6 w-6 mb-1 text-blue-600" />
-                    <span className="text-xs font-medium text-blue-600">Home</span>
-                  </button>
-                  <button 
-                    onClick={() => startChat()}
-                    className="flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors"
-                  >
-                    <MessageCircle className="h-6 w-6 mb-1 text-gray-500" />
-                    <span className="text-xs font-medium text-gray-500">Messages</span>
-                  </button>
-                  <button 
-                    onClick={() => setCurrentView('search')}
-                    className="flex-1 flex flex-col items-center justify-center py-4 hover:bg-blue-100 transition-colors"
-                  >
-                    <HelpCircle className="h-6 w-6 mb-1 text-gray-500" />
-                    <span className="text-xs font-medium text-gray-500">Help</span>
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Search View */}
-            {currentView === 'search' && (
-              <div className="flex flex-col h-full bg-white">
-                <div className="p-3 sm:p-4 border-b border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100">
-                  <div className="flex items-center space-x-2 mb-3">
-                    <button onClick={() => setCurrentView('menu')}>
-                      <ArrowLeft className="h-5 w-5 text-blue-700" />
-                    </button>
-                    <h3 className="text-lg font-semibold text-blue-900">Search for help</h3>
-                  </div>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
-                    <Input
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search help topics..."
-                      className="pl-10 bg-white border-blue-300 focus:border-blue-500 focus:ring-blue-500"
-                    />
+                    ))}
                   </div>
                 </div>
-                <div className="flex-1 p-3 sm:p-4 bg-white">
-                  <p className="text-sm text-gray-600">Type your question or search for help topics.</p>
-                </div>
-                
-                <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
-                  <button 
-                    onClick={() => setCurrentView('menu')}
-                    className="flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors"
-                  >
-                    <Home className="h-6 w-6 mb-1 text-gray-500" />
-                    <span className="text-xs font-medium text-gray-500">Home</span>
-                  </button>
-                  <button 
-                    onClick={() => startChat()}
-                    className="flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors"
-                  >
-                    <MessageCircle className="h-6 w-6 mb-1 text-gray-500" />
-                    <span className="text-xs font-medium text-gray-500">Messages</span>
-                  </button>
-                  <button 
-                    onClick={() => setCurrentView('search')}
-                    className="flex-1 flex flex-col items-center justify-center py-4 hover:bg-blue-100 transition-colors bg-blue-100"
-                  >
-                    <HelpCircle className="h-6 w-6 mb-1 text-blue-600" />
-                    <span className="text-xs font-medium text-blue-600">Help</span>
-                  </button>
-                </div>
-              </div>
-            )}
+              )}
 
-            {/* Chat View */}
-            {currentView === 'chat' && (
-              <div className="flex flex-col h-full">
-                <div className="p-3 sm:p-4 border-b border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100">
-                  <div className="flex items-center space-x-2">
-                    <button onClick={() => setCurrentView('menu')}>
-                      <ArrowLeft className="h-5 w-5 text-blue-700" />
-                    </button>
-                    <h3 className="text-lg font-semibold text-blue-900">Chat Support</h3>
-                  </div>
-                </div>
-
-                <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50 min-h-0">
-                  {messages.map((message) => (
-                    <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`flex items-start space-x-3 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          message.sender === 'user' ? 'bg-blue-600' : 'bg-gradient-to-r from-blue-600 to-purple-600'
-                        }`}>
-                          {message.sender === 'user' ? 
-                            <User className="h-4 w-4 text-white" /> : 
-                            <Bot className="h-4 w-4 text-white" />
-                          }
-                        </div>
-                        <div className={`rounded-2xl p-3 shadow-sm ${
-                          message.sender === 'user' 
-                            ? 'bg-blue-600 text-white' 
-                            : 'bg-white text-gray-900 border border-gray-100'
-                        }`}>
-                          <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.text}</p>
-                          <span className="text-xs opacity-70 mt-2 block">
-                            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                          </span>
-                        </div>
+              {messages.map((message) => (
+                <div key={message.id}>
+                  <div className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    <div className={`flex items-end gap-2 max-w-[85%] ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
+                      <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${
+                        message.sender === 'user' ? 'bg-gray-700' : 'bg-indigo-600'
+                      }`}>
+                        {message.sender === 'user' ?
+                          <User className="h-3.5 w-3.5 text-white" /> :
+                          <Bot className="h-3.5 w-3.5 text-white" />
+                        }
+                      </div>
+                      <div className={`rounded-2xl px-3.5 py-2.5 shadow-sm ${
+                        message.sender === 'user'
+                          ? 'bg-indigo-600 text-white'
+                          : 'bg-white text-gray-800 border border-gray-100'
+                      }`}>
+                        <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.text}</p>
+                        <span className={`text-[10px] mt-1 block ${message.sender === 'user' ? 'text-indigo-200' : 'text-gray-400'}`}>
+                          {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        </span>
                       </div>
                     </div>
-                  ))}
-                  
-                  {isTyping && (
-                    <div className="flex justify-start">
-                      <div className="flex items-start space-x-3 max-w-[80%]">
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-purple-600">
-                          <Bot className="h-4 w-4 text-white" />
-                        </div>
-                        <div className="rounded-2xl p-3 bg-white shadow-sm border border-gray-100">
-                          <div className="flex space-x-1 items-center">
-                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                          </div>
-                        </div>
-                      </div>
+                  </div>
+                  {message.sender === 'bot' && message.quickReplies && (
+                    <div className="flex flex-wrap gap-1.5 mt-2 ml-9">
+                      {message.quickReplies.map((qr) => (
+                        <button
+                          key={qr}
+                          onClick={() => handleSend(qr)}
+                          className="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-medium rounded-full border border-indigo-100 transition-colors"
+                        >
+                          {qr}
+                        </button>
+                      ))}
                     </div>
                   )}
-                  <div ref={messagesEndRef} />
                 </div>
+              ))}
 
-                <div className="p-4 border-t border-blue-200 bg-white">
-                  <div className="flex space-x-3 items-end">
-                    <Input
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      placeholder="Type your message..."
-                      className="flex-1 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500 rounded-xl py-3 px-4"
-                      disabled={isTyping}
-                    />
-                    <Button 
-                      onClick={() => handleSendMessage()}
-                      disabled={!inputValue.trim() || isTyping}
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl h-12 w-12 p-0 flex items-center justify-center"
-                    >
-                      <Send className="h-4 w-4" />
-                    </Button>
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="flex items-end gap-2">
+                    <div className="w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center">
+                      <Bot className="h-3.5 w-3.5 text-white" />
+                    </div>
+                    <div className="bg-white rounded-2xl px-4 py-3 border border-gray-100 shadow-sm">
+                      <div className="flex gap-1">
+                        <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></div>
+                        <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
 
-                <div className="flex border-t border-blue-200 bg-blue-50 mt-auto">
-                  <button 
-                    onClick={() => setCurrentView('menu')}
-                    className="flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors"
-                  >
-                    <Home className="h-6 w-6 mb-1 text-gray-500" />
-                    <span className="text-xs font-medium text-gray-500">Home</span>
-                  </button>
-                  <button 
-                    onClick={() => startChat()}
-                    className="flex-1 flex flex-col items-center justify-center py-4 border-r border-blue-200 hover:bg-blue-100 transition-colors bg-blue-100"
-                  >
-                    <MessageCircle className="h-6 w-6 mb-1 text-blue-600" />
-                    <span className="text-xs font-medium text-blue-600">Messages</span>
-                  </button>
-                  <button 
-                    onClick={() => setCurrentView('search')}
-                    className="flex-1 flex flex-col items-center justify-center py-4 hover:bg-blue-100 transition-colors"
-                  >
-                    <HelpCircle className="h-6 w-6 mb-1 text-gray-500" />
-                    <span className="text-xs font-medium text-gray-500">Help</span>
-                  </button>
-                </div>
+            <div className="p-3 border-t border-gray-200 bg-white">
+              <div className="flex gap-2">
+                <Input
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } }}
+                  placeholder="Shkruani mesazhin tuaj..."
+                  className="flex-1 bg-gray-50 border-gray-200 focus:border-indigo-400 rounded-xl text-sm"
+                  disabled={isTyping}
+                />
+                <Button
+                  onClick={() => handleSend()}
+                  disabled={!inputValue.trim() || isTyping}
+                  className="bg-indigo-600 hover:bg-indigo-700 rounded-xl h-10 w-10 p-0 flex items-center justify-center"
+                >
+                  <Send className="h-4 w-4" />
+                </Button>
               </div>
-            )}
+            </div>
           </CardContent>
         )}
-
-
       </Card>
     </div>
   );
