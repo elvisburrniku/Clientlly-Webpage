@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, X, ArrowLeft, ChartLine } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 interface PlanFeatures {
   [category: string]: {
@@ -22,20 +23,23 @@ interface SubscriptionPlan {
   detailedFeatures: PlanFeatures;
 }
 
-const featureCategories = {
-  invoicing: "Invoicing & Billing",
-  expenses: "Expense Management", 
-  crm: "CRM & Sales",
-  hr: "HR Management",
-  contracts: "Contract Management",
-  analytics: "Analytics & Reporting",
-  support: "Support & Service"
-};
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
 
 export default function Compare() {
   const [location, navigate] = useLocation();
   const [selectedCategory, setSelectedCategory] = useState<string>("invoicing");
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
+  const { currentLanguage: lang } = useLanguage();
+
+  const featureCategories: Record<string, string | JSX.Element> = {
+    invoicing: sq(lang, "Faturimi & Faturimi", "Invoicing & Billing", "Facturación y Cobros", "Rechnungen & Abrechnung", "Фактурирање и наплата"),
+    expenses: sq(lang, "Menaxhimi i Shpenzimeve", "Expense Management", "Gestión de Gastos", "Ausgabenverwaltung", "Управување со трошоци"),
+    crm: sq(lang, "CRM & Shitjet", "CRM & Sales", "CRM y Ventas", "CRM & Vertrieb", "CRM и продажби"),
+    hr: sq(lang, "Menaxhimi i BNJ", "HR Management", "Gestión de RRHH", "Personalverwaltung", "Управување со ЧР"),
+    contracts: sq(lang, "Menaxhimi i Kontratave", "Contract Management", "Gestión de Contratos", "Vertragsverwaltung", "Управување со договори"),
+    analytics: sq(lang, "Analitika & Raportimi", "Analytics & Reporting", "Análisis e Informes", "Analysen & Berichte", "Аналитика и извештаи"),
+    support: sq(lang, "Mbështetja & Shërbimi", "Support & Service", "Soporte y Servicio", "Support & Service", "Поддршка и сервис")
+  };
 
   const { data: plans = [], isLoading } = useQuery<SubscriptionPlan[]>({
     queryKey: ["/api/subscription-plans"],
@@ -57,7 +61,6 @@ export default function Compare() {
     return value !== "❌" && value !== "❌";
   };
 
-  // Get all features for the selected category across all plans
   const getAllFeaturesForCategory = (category: string) => {
     const allFeatures = new Set<string>();
     plans.forEach(plan => {
@@ -72,7 +75,6 @@ export default function Compare() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
       <nav className="bg-white border-b border-border">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex justify-between items-center h-16">
@@ -84,26 +86,32 @@ export default function Compare() {
             </div>
             <Button variant="ghost" onClick={() => navigate("/")}>
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
+              {sq(lang, "Kthehu në Ballë", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад на почетна")}
             </Button>
           </div>
         </div>
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Compare <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Plans & Features</span>
+            {sq(lang, "Krahaso ", "Compare ", "Comparar ", "Vergleiche ", "Спореди ")}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              {sq(lang, "Planet & Veçoritë", "Plans & Features", "Planes y Funciones", "Pläne & Funktionen", "Планови и функции")}
+            </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Detailed feature comparison to help you choose the perfect plan for your business needs.
+            {sq(lang,
+              "Krahasim i detajuar i veçorive për t'ju ndihmuar të zgjidhni planin perfekt për biznesin tuaj.",
+              "Detailed feature comparison to help you choose the perfect plan for your business needs.",
+              "Comparación detallada de funciones para ayudarte a elegir el plan perfecto para tu negocio.",
+              "Detaillierter Funktionsvergleich, um Ihnen bei der Auswahl des perfekten Plans zu helfen.",
+              "Детално споредување на функции за да ви помогне да го изберете совршениот план."
+            )}
           </p>
           
-          {/* Billing Period Toggle */}
           <div className="flex flex-col items-center justify-center mb-8">
             <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
-              {/* Monthly Button */}
               <button
                 onClick={() => setBillingPeriod('monthly')}
                 className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
@@ -112,10 +120,9 @@ export default function Compare() {
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
               >
-                Monthly
+                {sq(lang, "Mujore", "Monthly", "Mensual", "Monatlich", "Месечно")}
               </button>
               
-              {/* Yearly Button */}
               <button
                 onClick={() => setBillingPeriod('yearly')}
                 className={`relative z-10 px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${
@@ -124,10 +131,9 @@ export default function Compare() {
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
               >
-                Yearly
+                {sq(lang, "Vjetore", "Yearly", "Anual", "Jährlich", "Годишно")}
               </button>
               
-              {/* Animated Background */}
               <div
                 className={`absolute top-2 bottom-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full shadow-md transition-all duration-300 ease-in-out ${
                   billingPeriod === 'monthly'
@@ -137,18 +143,16 @@ export default function Compare() {
               />
             </div>
             
-            {/* Save Badge */}
             <div className={`mt-3 transition-all duration-300 ${
               billingPeriod === 'yearly' ? 'opacity-100 transform scale-100' : 'opacity-0 transform scale-75'
             }`}>
               <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
-                🎉 Save 17% with yearly billing
+                {sq(lang, "🎉 Kurseni 17% me faturimin vjetor", "🎉 Save 17% with yearly billing", "🎉 Ahorra 17% con facturación anual", "🎉 Sparen Sie 17% mit jährlicher Abrechnung", "🎉 Заштедете 17% со годишно плаќање")}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Plan Overview Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {plans.map((plan, index) => (
             <Card 
@@ -162,7 +166,7 @@ export default function Compare() {
               {index === 1 && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
                   <Badge className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 text-sm shadow-lg">
-                    ⭐ Most Popular
+                    {sq(lang, "⭐ Më Popullorja", "⭐ Most Popular", "⭐ Más Popular", "⭐ Am Beliebtesten", "⭐ Најпопуларно")}
                   </Badge>
                 </div>
               )}
@@ -171,11 +175,17 @@ export default function Compare() {
                 <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
                 <div className="text-4xl font-bold text-primary mt-4">
                   ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
-                  <span className="text-lg text-muted-foreground font-normal">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
+                  <span className="text-lg text-muted-foreground font-normal">/{sq(lang, "muaj", "month", "mes", "Monat", "месец") as string}</span>
                 </div>
                 {billingPeriod === 'yearly' && (
                   <div className="text-sm text-muted-foreground mt-2">
-                    Billed ${Math.floor(plan.yearlyPrice / 100)} yearly
+                    {sq(lang,
+                      `Faturohet $${Math.floor(plan.yearlyPrice / 100)} vjetore`,
+                      `Billed $${Math.floor(plan.yearlyPrice / 100)} yearly`,
+                      `Facturado $${Math.floor(plan.yearlyPrice / 100)} anualmente`,
+                      `$${Math.floor(plan.yearlyPrice / 100)} jährlich abgerechnet`,
+                      `Наплата $${Math.floor(plan.yearlyPrice / 100)} годишно`
+                    )}
                   </div>
                 )}
                 <p className="text-muted-foreground mt-3 px-2">{plan.description}</p>
@@ -191,7 +201,7 @@ export default function Compare() {
                   ))}
                   {plan.features.length > 3 && (
                     <div className="text-sm text-primary font-medium">
-                      +{plan.features.length - 3} more features
+                      +{plan.features.length - 3} {sq(lang, "veçori të tjera", "more features", "más funciones", "weitere Funktionen", "повеќе функции")}
                     </div>
                   )}
                 </div>
@@ -205,14 +215,13 @@ export default function Compare() {
                   variant={index === 1 ? "default" : "outline"}
                   onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                 >
-                  Choose {plan.name}
+                  {sq(lang, `Zgjidh ${plan.name}`, `Choose ${plan.name}`, `Elegir ${plan.name}`, `${plan.name} wählen`, `Избери ${plan.name}`)}
                 </Button>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Feature Category Tabs */}
         <div className="mb-8">
           <div className="bg-muted/50 p-2 rounded-xl">
             <div className="flex flex-wrap gap-1 justify-center">
@@ -234,11 +243,10 @@ export default function Compare() {
           </div>
         </div>
 
-        {/* Feature Comparison Table */}
         <Card className="overflow-hidden shadow-lg border-2 border-border/50">
           <CardHeader className="bg-gradient-to-r from-primary/5 to-secondary/5 border-b">
             <CardTitle className="text-2xl text-center">
-              {featureCategories[selectedCategory as keyof typeof featureCategories]}
+              {featureCategories[selectedCategory]}
             </CardTitle>
           </CardHeader>
           <CardContent className="p-0">
@@ -247,7 +255,7 @@ export default function Compare() {
                 <thead>
                   <tr className="bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-700">
                     <th className="text-left p-6 font-bold text-lg min-w-[300px] border-r border-border/30">
-                      Feature
+                      {sq(lang, "Veçoria", "Feature", "Función", "Funktion", "Функција")}
                     </th>
                     {plans.map((plan, index) => (
                       <th key={plan.id} className={`text-center p-6 font-bold min-w-[180px] border-r border-border/30 ${
@@ -258,11 +266,11 @@ export default function Compare() {
                           ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
                         </div>
                         <div className="text-sm font-normal text-muted-foreground">
-                          per month
+                          {sq(lang, "në muaj", "per month", "por mes", "pro Monat", "месечно")}
                         </div>
                         {index === 1 && (
                           <Badge className="mt-2 bg-gradient-to-r from-primary to-secondary text-white text-xs">
-                            Most Popular
+                            {sq(lang, "Më Popullorja", "Most Popular", "Más Popular", "Am Beliebtesten", "Најпопуларно")}
                           </Badge>
                         )}
                       </th>
@@ -317,24 +325,31 @@ export default function Compare() {
           </CardContent>
         </Card>
 
-        {/* Call to Action */}
         <div className="text-center mt-12">
-          <h3 className="text-2xl font-bold text-foreground mb-4">Ready to get started?</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-4">
+            {sq(lang, "Gati për të filluar?", "Ready to get started?", "¿Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?")}
+          </h3>
           <p className="text-muted-foreground mb-6">
-            Choose the plan that fits your business and start streamlining your operations today.
+            {sq(lang,
+              "Zgjidhni planin që i përshtatet biznesit tuaj dhe filloni të optimizoni operacionet tuaja sot.",
+              "Choose the plan that fits your business and start streamlining your operations today.",
+              "Elige el plan que se adapte a tu negocio y optimiza tus operaciones hoy.",
+              "Wählen Sie den Plan, der zu Ihrem Unternehmen passt, und optimieren Sie Ihre Abläufe noch heute.",
+              "Изберете го планот што одговара на вашиот бизнис и започнете да ги оптимизирате операциите денес."
+            )}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={() => navigate("/subscribe?plan=professional")}
               className="bg-gradient-to-r from-primary to-secondary"
             >
-              Start with Professional
+              {sq(lang, "Fillo me Professional", "Start with Professional", "Comenzar con Professional", "Mit Professional starten", "Започни со Professional")}
             </Button>
             <Button 
               variant="outline"
               onClick={() => navigate("/#contact")}
             >
-              Contact Sales
+              {sq(lang, "Kontakto Shitjet", "Contact Sales", "Contactar Ventas", "Vertrieb kontaktieren", "Контактирај продажби")}
             </Button>
           </div>
         </div>

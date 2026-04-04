@@ -109,9 +109,7 @@ export default function Calculator() {
   const [selectedCurrency, setSelectedCurrency] = useState('EUR');
   const { locationData, isLoading: locationLoading } = useLocationDetection();
   
-  // Keep EUR as default - don't auto-change currency
   useEffect(() => {
-    // Always use EUR as default, user can change manually if needed
     setSelectedCurrency('EUR');
   }, []);
   const [teamSize, setTeamSize] = useState([5]);
@@ -121,7 +119,6 @@ export default function Calculator() {
   const [recommendedPlan, setRecommendedPlan] = useState<Plan | null>(null);
   const [savings, setSavings] = useState(0);
   
-  // Enhanced calculator states
   const [estimatedRevenue, setEstimatedRevenue] = useState([50000]);
   const [growthRate, setGrowthRate] = useState([20]);
   const [currentCosts, setCurrentCosts] = useState([500]);
@@ -130,7 +127,6 @@ export default function Calculator() {
   const [integrationNeeds, setIntegrationNeeds] = useState([5]);
   const [projectionPeriod, setProjectionPeriod] = useState(12);
 
-  // Enhanced calculation logic with real-time cost estimation
   useEffect(() => {
     const users = teamSize[0];
     const invoices = invoicesPerMonth[0];
@@ -138,10 +134,9 @@ export default function Calculator() {
     const growth = growthRate[0];
     const integrations = integrationNeeds[0];
     
-    let recommended = plans[0]; // Start with basic
+    let recommended = plans[0];
     let score = 0;
     
-    // Advanced scoring algorithm
     if (users > 25 || invoices > 1000 || revenue > 500000) {
       score += 3;
     } else if (users > 10 || invoices > 500 || revenue > 100000) {
@@ -150,23 +145,20 @@ export default function Calculator() {
       score += 1;
     }
     
-    // Industry and compliance factors
     if (industryType === 'healthcare' || industryType === 'finance') score += 1;
     if (complianceNeeds === 'advanced') score += 1;
     if (businessType === 'enterprise') score += 2;
     if (growth > 30) score += 1;
     if (integrations > 10) score += 1;
     
-    // Select plan based on score
     if (score >= 5) {
-      recommended = plans[2]; // Business Plus
+      recommended = plans[2];
     } else if (score >= 2) {
-      recommended = plans[1]; // Professional
+      recommended = plans[1];
     }
     
     setRecommendedPlan(recommended);
     
-    // Enhanced savings calculation
     if (currentPlan !== 'none') {
       const currentPlanData = plans.find(p => p.id === currentPlan);
       if (currentPlanData) {
@@ -180,7 +172,6 @@ export default function Calculator() {
       }
     }
     
-    // Calculate savings from current costs
     if (currentCosts[0] > 0) {
       const annualCurrentCosts = currentCosts[0] * 12;
       const recommendedCost = billingPeriod === 'monthly'
@@ -209,13 +200,12 @@ export default function Calculator() {
     return Math.round((savings / monthlyCost) * 100);
   };
 
-  // New helper functions for enhanced calculator
   const calculateROI = (plan: Plan) => {
     const annualCost = billingPeriod === 'monthly' ? plan.monthlyPrice * 12 : plan.yearlyPrice;
-    const timeSaved = teamSize[0] * 5; // 5 hours per user per month
-    const hourlyCost = 50; // Average hourly cost
+    const timeSaved = teamSize[0] * 5;
+    const hourlyCost = 50;
     const timeSavings = timeSaved * 12 * hourlyCost;
-    const efficiency = invoicesPerMonth[0] * 0.1; // 10 cents per invoice in efficiency
+    const efficiency = invoicesPerMonth[0] * 0.1;
     const efficiencySavings = efficiency * 12 * 100;
     const totalSavings = timeSavings + efficiencySavings;
     const roi = ((totalSavings - (annualCost / 100)) / (annualCost / 100)) * 100;
@@ -236,7 +226,7 @@ export default function Calculator() {
     if (industryType === 'healthcare' || industryType === 'finance') score += 20;
     if (recommendedPlan?.id === 'business') score += 25;
     if (recommendedPlan?.id === 'professional') score += 15;
-    return Math.min(100, score + 25); // Base compliance score
+    return Math.min(100, score + 25);
   };
 
   return (
@@ -276,7 +266,7 @@ export default function Calculator() {
             </Link>
             <Button variant="ghost" onClick={() => navigate("/")}>
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
+              {sq(lang, "Kthehu në Fillim", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад на Почетна")}
             </Button>
           </div>
         </div>
@@ -288,11 +278,11 @@ export default function Calculator() {
           <div className="flex items-center justify-center mb-4">
             <CalculatorIcon className="h-12 w-12 text-primary mr-3" />
             <h1 className="text-4xl font-bold text-foreground">
-              Pricing <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Calculator</span>
+              {sq(lang, "Kalkulatori i ", "Pricing ", "Calculadora de ", "Preis", "Калкулатор за ")}<span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{sq(lang, "Çmimeve", "Calculator", "Precios", "rechner", "Цени")}</span>
             </h1>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Find your perfect plan with our interactive calculator. Get personalized recommendations and see potential savings in real-time.
+            {sq(lang, "Gjeni planin tuaj perfekt me kalkulatorin tonë interaktiv. Merrni rekomandime të personalizuara dhe shikoni kursimet e mundshme në kohë reale.", "Find your perfect plan with our interactive calculator. Get personalized recommendations and see potential savings in real-time.", "Encuentre su plan perfecto con nuestra calculadora interactiva. Obtenga recomendaciones personalizadas y vea ahorros potenciales en tiempo real.", "Finden Sie Ihren perfekten Plan mit unserem interaktiven Rechner. Erhalten Sie personalisierte Empfehlungen und sehen Sie potenzielle Einsparungen in Echtzeit.", "Најдете го вашиот совршен план со нашиот интерактивен калкулатор. Добијте персонализирани препораки и видете потенцијални заштеди во реално време.")}
           </p>
         </div>
 
@@ -303,10 +293,10 @@ export default function Calculator() {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <Zap className="h-5 w-5 mr-2 text-primary" />
-                  Calculate Your Needs
+                  {sq(lang, "Llogaritni Nevojat Tuaja", "Calculate Your Needs", "Calcule sus Necesidades", "Berechnen Sie Ihren Bedarf", "Пресметајте ги Вашите Потреби")}
                 </CardTitle>
                 <CardDescription>
-                  Adjust the settings below to get personalized recommendations
+                  {sq(lang, "Rregulloni cilësimet më poshtë për të marrë rekomandime të personalizuara", "Adjust the settings below to get personalized recommendations", "Ajuste la configuración a continuación para obtener recomendaciones personalizadas", "Passen Sie die Einstellungen unten an, um personalisierte Empfehlungen zu erhalten", "Прилагодете ги поставките подолу за да добиете персонализирани препораки")}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -314,16 +304,16 @@ export default function Calculator() {
                 {(locationData || locationLoading) && (
                   <div>
                     <label className="text-sm font-medium mb-3 block">
-                      Currency
+                      {sq(lang, "Monedha", "Currency", "Moneda", "Währung", "Валута")}
                     </label>
                     <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border">
                       {locationLoading ? (
                         <span className="text-sm text-blue-600 dark:text-blue-400">
-                          Detecting location and currency...
+                          {sq(lang, "Duke zbuluar vendndodhjen dhe monedhën...", "Detecting location and currency...", "Detectando ubicación y moneda...", "Standort und Währung werden erkannt...", "Детектирање на локација и валута...")}
                         </span>
                       ) : (
                         <span className="text-sm text-foreground">
-                          Auto-detected: {locationData?.country} • {selectedCurrency}
+                          {sq(lang, "Zbuluar automatikisht:", "Auto-detected:", "Detectado automáticamente:", "Automatisch erkannt:", "Автоматски детектирано:")} {locationData?.country} • {selectedCurrency}
                         </span>
                       )}
                     </div>
@@ -332,7 +322,7 @@ export default function Calculator() {
 
                 {/* Billing Period Toggle */}
                 <div>
-                  <label className="text-sm font-medium mb-3 block">Billing Period</label>
+                  <label className="text-sm font-medium mb-3 block">{sq(lang, "Periudha e Faturimit", "Billing Period", "Período de Facturación", "Abrechnungszeitraum", "Период на Фактурирање")}</label>
                   <div className="flex flex-col items-center">
                     <div className="relative flex items-center bg-white dark:bg-gray-900 rounded-full p-2 shadow-lg border border-gray-200 dark:border-gray-700">
                       <button
@@ -343,7 +333,7 @@ export default function Calculator() {
                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                         }`}
                       >
-                        Monthly
+                        {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно")}
                       </button>
                       <button
                         onClick={() => setBillingPeriod('yearly')}
@@ -353,7 +343,7 @@ export default function Calculator() {
                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                         }`}
                       >
-                        Yearly
+                        {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно")}
                       </button>
                       <div
                         className={`absolute top-2 bottom-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full shadow-md transition-all duration-300 ease-in-out ${
@@ -366,7 +356,7 @@ export default function Calculator() {
                     {billingPeriod === 'yearly' && (
                       <div className="mt-3 opacity-100 transform scale-100">
                         <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg">
-                          🎉 Save up to 17% with yearly billing
+                          🎉 {sq(lang, "Kurseni deri në 17% me faturimin vjetor", "Save up to 17% with yearly billing", "Ahorre hasta un 17% con facturación anual", "Sparen Sie bis zu 17% bei jährlicher Abrechnung", "Заштедете до 17% со годишно фактурирање")}
                         </div>
                       </div>
                     )}
@@ -376,7 +366,7 @@ export default function Calculator() {
                 {/* Team Size */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">
-                    Team Size: <span className="font-bold text-primary">{teamSize[0]} users</span>
+                    {sq(lang, "Madhësia e Ekipit:", "Team Size:", "Tamaño del Equipo:", "Teamgröße:", "Големина на Тимот:")} <span className="font-bold text-primary">{teamSize[0]} {sq(lang, "përdorues", "users", "usuarios", "Benutzer", "корисници")}</span>
                   </label>
                   <Slider
                     value={teamSize}
@@ -395,7 +385,7 @@ export default function Calculator() {
                 {/* Invoices per Month */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">
-                    Monthly Invoices: <span className="font-bold text-primary">{invoicesPerMonth[0]}</span>
+                    {sq(lang, "Fatura Mujore:", "Monthly Invoices:", "Facturas Mensuales:", "Monatliche Rechnungen:", "Месечни Фактури:")} <span className="font-bold text-primary">{invoicesPerMonth[0]}</span>
                   </label>
                   <Slider
                     value={invoicesPerMonth}
@@ -413,16 +403,16 @@ export default function Calculator() {
 
                 {/* Business Type */}
                 <div>
-                  <label className="text-sm font-medium mb-3 block">Business Type</label>
+                  <label className="text-sm font-medium mb-3 block">{sq(lang, "Lloji i Biznesit", "Business Type", "Tipo de Negocio", "Unternehmenstyp", "Тип на Бизнис")}</label>
                   <Select value={businessType} onValueChange={setBusinessType}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select business type" />
+                      <SelectValue placeholder={sq(lang, "Zgjidhni llojin e biznesit", "Select business type", "Seleccione tipo de negocio", "Unternehmenstyp auswählen", "Изберете тип на бизнис") as string} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="startup">Startup</SelectItem>
-                      <SelectItem value="small-business">Small Business</SelectItem>
-                      <SelectItem value="medium-business">Medium Business</SelectItem>
-                      <SelectItem value="enterprise">Enterprise</SelectItem>
+                      <SelectItem value="startup">{sq(lang, "Startup", "Startup", "Startup", "Startup", "Стартап")}</SelectItem>
+                      <SelectItem value="small-business">{sq(lang, "Biznes i Vogël", "Small Business", "Pequeña Empresa", "Kleines Unternehmen", "Мал Бизнис")}</SelectItem>
+                      <SelectItem value="medium-business">{sq(lang, "Biznes i Mesëm", "Medium Business", "Mediana Empresa", "Mittleres Unternehmen", "Среден Бизнис")}</SelectItem>
+                      <SelectItem value="enterprise">{sq(lang, "Ndërmarrje", "Enterprise", "Empresa Grande", "Großunternehmen", "Претпријатие")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -430,7 +420,7 @@ export default function Calculator() {
                 {/* Estimated Revenue */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">
-                    Annual Revenue: <span className="font-bold text-primary">${estimatedRevenue[0].toLocaleString()}</span>
+                    {sq(lang, "Të Ardhurat Vjetore:", "Annual Revenue:", "Ingresos Anuales:", "Jahresumsatz:", "Годишен Приход:")} <span className="font-bold text-primary">${estimatedRevenue[0].toLocaleString()}</span>
                   </label>
                   <Slider
                     value={estimatedRevenue}
@@ -449,7 +439,7 @@ export default function Calculator() {
                 {/* Growth Rate */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">
-                    Expected Growth: <span className="font-bold text-primary">{growthRate[0]}% annually</span>
+                    {sq(lang, "Rritja e Pritur:", "Expected Growth:", "Crecimiento Esperado:", "Erwartetes Wachstum:", "Очекуван Раст:")} <span className="font-bold text-primary">{growthRate[0]}% {sq(lang, "vjetor", "annually", "anual", "jährlich", "годишно")}</span>
                   </label>
                   <Slider
                     value={growthRate}
@@ -467,21 +457,21 @@ export default function Calculator() {
 
                 {/* Industry Type */}
                 <div>
-                  <label className="text-sm font-medium mb-3 block">Industry</label>
+                  <label className="text-sm font-medium mb-3 block">{sq(lang, "Industria", "Industry", "Industria", "Branche", "Индустрија")}</label>
                   <Select value={industryType} onValueChange={setIndustryType}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select your industry" />
+                      <SelectValue placeholder={sq(lang, "Zgjidhni industrinë tuaj", "Select your industry", "Seleccione su industria", "Wählen Sie Ihre Branche", "Изберете ја вашата индустрија") as string} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="technology">Technology</SelectItem>
-                      <SelectItem value="healthcare">Healthcare</SelectItem>
-                      <SelectItem value="finance">Finance</SelectItem>
-                      <SelectItem value="retail">Retail</SelectItem>
-                      <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                      <SelectItem value="consulting">Consulting</SelectItem>
-                      <SelectItem value="education">Education</SelectItem>
-                      <SelectItem value="nonprofit">Non-profit</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="technology">{sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија")}</SelectItem>
+                      <SelectItem value="healthcare">{sq(lang, "Shëndetësi", "Healthcare", "Salud", "Gesundheitswesen", "Здравство")}</SelectItem>
+                      <SelectItem value="finance">{sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии")}</SelectItem>
+                      <SelectItem value="retail">{sq(lang, "Shitje me Pakicë", "Retail", "Comercio Minorista", "Einzelhandel", "Малопродажба")}</SelectItem>
+                      <SelectItem value="manufacturing">{sq(lang, "Prodhim", "Manufacturing", "Manufactura", "Fertigung", "Производство")}</SelectItem>
+                      <SelectItem value="consulting">{sq(lang, "Konsulencë", "Consulting", "Consultoría", "Beratung", "Консалтинг")}</SelectItem>
+                      <SelectItem value="education">{sq(lang, "Arsim", "Education", "Educación", "Bildung", "Образование")}</SelectItem>
+                      <SelectItem value="nonprofit">{sq(lang, "Jofitimprurëse", "Non-profit", "Sin Fines de Lucro", "Gemeinnützig", "Непрофитна")}</SelectItem>
+                      <SelectItem value="other">{sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -489,7 +479,7 @@ export default function Calculator() {
                 {/* Integration Needs */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">
-                    Required Integrations: <span className="font-bold text-primary">{integrationNeeds[0]}</span>
+                    {sq(lang, "Integrime të Nevojshme:", "Required Integrations:", "Integraciones Requeridas:", "Benötigte Integrationen:", "Потребни Интеграции:")} <span className="font-bold text-primary">{integrationNeeds[0]}</span>
                   </label>
                   <Slider
                     value={integrationNeeds}
@@ -507,15 +497,15 @@ export default function Calculator() {
 
                 {/* Compliance Needs */}
                 <div>
-                  <label className="text-sm font-medium mb-3 block">Compliance Requirements</label>
+                  <label className="text-sm font-medium mb-3 block">{sq(lang, "Kërkesat e Përputhshmërisë", "Compliance Requirements", "Requisitos de Cumplimiento", "Compliance-Anforderungen", "Барања за Усогласеност")}</label>
                   <Select value={complianceNeeds} onValueChange={setComplianceNeeds}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select compliance level" />
+                      <SelectValue placeholder={sq(lang, "Zgjidhni nivelin e përputhshmërisë", "Select compliance level", "Seleccione nivel de cumplimiento", "Compliance-Level auswählen", "Изберете ниво на усогласеност") as string} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="basic">Basic (GDPR)</SelectItem>
-                      <SelectItem value="standard">Standard (SOX, PCI)</SelectItem>
-                      <SelectItem value="advanced">Advanced (HIPAA, SOC2)</SelectItem>
+                      <SelectItem value="basic">{sq(lang, "Bazë (GDPR)", "Basic (GDPR)", "Básico (GDPR)", "Basis (DSGVO)", "Основно (GDPR)")}</SelectItem>
+                      <SelectItem value="standard">{sq(lang, "Standard (SOX, PCI)", "Standard (SOX, PCI)", "Estándar (SOX, PCI)", "Standard (SOX, PCI)", "Стандардно (SOX, PCI)")}</SelectItem>
+                      <SelectItem value="advanced">{sq(lang, "I Avancuar (HIPAA, SOC2)", "Advanced (HIPAA, SOC2)", "Avanzado (HIPAA, SOC2)", "Erweitert (HIPAA, SOC2)", "Напредно (HIPAA, SOC2)")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -523,7 +513,7 @@ export default function Calculator() {
                 {/* Current Costs */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">
-                    Current Monthly Costs: <span className="font-bold text-primary">${currentCosts[0]}</span>
+                    {sq(lang, "Kostot Aktuale Mujore:", "Current Monthly Costs:", "Costos Mensuales Actuales:", "Aktuelle Monatliche Kosten:", "Тековни Месечни Трошоци:")} <span className="font-bold text-primary">${currentCosts[0]}</span>
                   </label>
                   <Slider
                     value={currentCosts}
@@ -541,18 +531,18 @@ export default function Calculator() {
 
                 {/* Current Plan */}
                 <div>
-                  <label className="text-sm font-medium mb-3 block">Current Solution</label>
+                  <label className="text-sm font-medium mb-3 block">{sq(lang, "Zgjidhja Aktuale", "Current Solution", "Solución Actual", "Aktuelle Lösung", "Тековно Решение")}</label>
                   <Select value={currentPlan} onValueChange={setCurrentPlan}>
                     <SelectTrigger>
-                      <SelectValue placeholder="What are you using now?" />
+                      <SelectValue placeholder={sq(lang, "Çfarë po përdorni tani?", "What are you using now?", "¿Qué está usando ahora?", "Was verwenden Sie gerade?", "Што користите сега?") as string} />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="none">No current solution</SelectItem>
+                      <SelectItem value="none">{sq(lang, "Asnjë zgjidhje aktuale", "No current solution", "Sin solución actual", "Keine aktuelle Lösung", "Нема тековно решение")}</SelectItem>
                       <SelectItem value="basic">BusinessFlow Basic</SelectItem>
                       <SelectItem value="professional">BusinessFlow Professional</SelectItem>
                       <SelectItem value="business">BusinessFlow Business Plus</SelectItem>
-                      <SelectItem value="competitor">Competitor Solution</SelectItem>
-                      <SelectItem value="manual">Manual/Spreadsheets</SelectItem>
+                      <SelectItem value="competitor">{sq(lang, "Zgjidhje Konkurrente", "Competitor Solution", "Solución de la Competencia", "Wettbewerberlösung", "Конкурентско Решение")}</SelectItem>
+                      <SelectItem value="manual">{sq(lang, "Manual/Spreadsheets", "Manual/Spreadsheets", "Manual/Hojas de Cálculo", "Manuell/Tabellenkalkulationen", "Рачно/Табеларни Пресметки")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -569,7 +559,7 @@ export default function Calculator() {
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <Target className="h-5 w-5 mr-2 text-primary" />
-                      Recommended Plan
+                      {sq(lang, "Plani i Rekomanduar", "Recommended Plan", "Plan Recomendado", "Empfohlener Plan", "Препорачан План")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -577,12 +567,12 @@ export default function Calculator() {
                       <h3 className="text-2xl font-bold text-primary mb-2">{recommendedPlan.name}</h3>
                       <div className="text-3xl font-bold mb-2">
                         ${formatPrice(billingPeriod === 'monthly' ? recommendedPlan.monthlyPrice : recommendedPlan.yearlyPrice / 12)}
-                        <span className="text-sm text-muted-foreground">/month</span>
+                        <span className="text-sm text-muted-foreground">/{sq(lang, "muaj", "month", "mes", "Monat", "месец")}</span>
                       </div>
                     </div>
                     <Link href="/subscribe">
                       <Button size="lg" className="w-full">
-                        Get Started
+                        {sq(lang, "Fillo Tani", "Get Started", "Comenzar", "Jetzt Starten", "Започни Сега")}
                       </Button>
                     </Link>
                   </CardContent>
@@ -592,26 +582,26 @@ export default function Calculator() {
                   <CardHeader>
                     <CardTitle className="flex items-center text-green-700 dark:text-green-400">
                       <BarChart3 className="h-5 w-5 mr-2" />
-                      ROI Analysis
+                      {sq(lang, "Analiza e ROI", "ROI Analysis", "Análisis de ROI", "ROI-Analyse", "Анализа на ROI")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Expected ROI:</span>
+                        <span className="text-sm">{sq(lang, "ROI e Pritur:", "Expected ROI:", "ROI Esperado:", "Erwarteter ROI:", "Очекуван ROI:")}</span>
                         <span className="text-2xl font-bold text-green-600 dark:text-green-400">
                           {calculateROI(recommendedPlan)}%
                         </span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">Compliance Score:</span>
+                        <span className="text-sm">{sq(lang, "Rezultati i Përputhshmërisë:", "Compliance Score:", "Puntuación de Cumplimiento:", "Compliance-Score:", "Оценка за Усогласеност:")}</span>
                         <div className="flex items-center space-x-2">
                           <Progress value={getComplianceScore()} className="w-20" />
                           <span className="text-sm font-semibold">{getComplianceScore()}%</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-sm">12-month cost:</span>
+                        <span className="text-sm">{sq(lang, "Kosto 12-mujore:", "12-month cost:", "Costo de 12 meses:", "12-Monats-Kosten:", "12-месечен трошок:")}</span>
                         <span className="font-semibold">${getProjectedGrowthCost(recommendedPlan, 12)}</span>
                       </div>
                     </div>
@@ -626,10 +616,10 @@ export default function Calculator() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <PieChart className="h-5 w-5 mr-2 text-primary" />
-                    Feature Suitability Analysis
+                    {sq(lang, "Analiza e Përshtatshmerisë së Veçorive", "Feature Suitability Analysis", "Análisis de Idoneidad de Características", "Funktionseignungsanalyse", "Анализа на Соодветност на Карактеристики")}
                   </CardTitle>
                   <CardDescription>
-                    Based on your requirements: {teamSize[0]} users, {invoicesPerMonth[0]} invoices/month, {industryType} industry
+                    {sq(lang, `Bazuar në kërkesat tuaja: ${teamSize[0]} përdorues, ${invoicesPerMonth[0]} fatura/muaj, industria ${industryType}`, `Based on your requirements: ${teamSize[0]} users, ${invoicesPerMonth[0]} invoices/month, ${industryType} industry`, `Basado en sus requisitos: ${teamSize[0]} usuarios, ${invoicesPerMonth[0]} facturas/mes, industria ${industryType}`, `Basierend auf Ihren Anforderungen: ${teamSize[0]} Benutzer, ${invoicesPerMonth[0]} Rechnungen/Monat, ${industryType} Branche`, `Врз основа на вашите барања: ${teamSize[0]} корисници, ${invoicesPerMonth[0]} фактури/месец, ${industryType} индустрија`)}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -638,7 +628,7 @@ export default function Calculator() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <Users className="h-4 w-4 mr-2 text-primary" />
-                          <span className="text-sm">User Capacity</span>
+                          <span className="text-sm">{sq(lang, "Kapaciteti i Përdoruesve", "User Capacity", "Capacidad de Usuarios", "Benutzerkapazität", "Капацитет на Корисници")}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Progress 
@@ -651,7 +641,7 @@ export default function Calculator() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <FileText className="h-4 w-4 mr-2 text-primary" />
-                          <span className="text-sm">Invoice Volume</span>
+                          <span className="text-sm">{sq(lang, "Vëllimi i Faturave", "Invoice Volume", "Volumen de Facturas", "Rechnungsvolumen", "Обем на Фактури")}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Progress 
@@ -664,7 +654,7 @@ export default function Calculator() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <Globe className="h-4 w-4 mr-2 text-primary" />
-                          <span className="text-sm">Integration Needs</span>
+                          <span className="text-sm">{sq(lang, "Nevojat për Integrim", "Integration Needs", "Necesidades de Integración", "Integrationsbedarf", "Потреби за Интеграција")}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                           <Progress 
@@ -679,28 +669,28 @@ export default function Calculator() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <Shield className="h-4 w-4 mr-2 text-primary" />
-                          <span className="text-sm">Security & Compliance</span>
+                          <span className="text-sm">{sq(lang, "Siguria & Përputhshmëria", "Security & Compliance", "Seguridad y Cumplimiento", "Sicherheit & Compliance", "Безбедност и Усогласеност")}</span>
                         </div>
                         <Badge variant={getComplianceScore() > 70 ? "default" : "secondary"}>
-                          {getComplianceScore() > 70 ? "Excellent" : "Good"}
+                          {getComplianceScore() > 70 ? sq(lang, "Shkëlqyeshëm", "Excellent", "Excelente", "Ausgezeichnet", "Одлично") : sq(lang, "Mirë", "Good", "Bueno", "Gut", "Добро")}
                         </Badge>
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <TrendingUp className="h-4 w-4 mr-2 text-primary" />
-                          <span className="text-sm">Growth Scalability</span>
+                          <span className="text-sm">{sq(lang, "Shkallëzimi i Rritjes", "Growth Scalability", "Escalabilidad de Crecimiento", "Wachstumsskalierbarkeit", "Скалабилност на Раст")}</span>
                         </div>
                         <Badge variant={growthRate[0] > 30 ? "default" : "secondary"}>
-                          {growthRate[0] > 30 ? "High Growth" : "Stable"}
+                          {growthRate[0] > 30 ? sq(lang, "Rritje e Lartë", "High Growth", "Alto Crecimiento", "Hohes Wachstum", "Висок Раст") : sq(lang, "Stabil", "Stable", "Estable", "Stabil", "Стабилен")}
                         </Badge>
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           <Building className="h-4 w-4 mr-2 text-primary" />
-                          <span className="text-sm">Enterprise Ready</span>
+                          <span className="text-sm">{sq(lang, "Gati për Ndërmarrje", "Enterprise Ready", "Listo para Empresa", "Enterprise-fähig", "Подготвено за Претпријатие")}</span>
                         </div>
                         <Badge variant={recommendedPlan.id === 'business' ? "default" : "secondary"}>
-                          {recommendedPlan.id === 'business' ? "Yes" : "Partial"}
+                          {recommendedPlan.id === 'business' ? sq(lang, "Po", "Yes", "Sí", "Ja", "Да") : sq(lang, "Pjesërisht", "Partial", "Parcial", "Teilweise", "Делумно")}
                         </Badge>
                       </div>
                     </div>
@@ -715,22 +705,22 @@ export default function Calculator() {
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <Calendar className="h-5 w-5 mr-2 text-primary" />
-                    Cost Projection Timeline
+                    {sq(lang, "Parashikimi i Kostove në Kohë", "Cost Projection Timeline", "Línea de Tiempo de Proyección de Costos", "Kostenprognose-Zeitachse", "Временска Линија за Проекција на Трошоци")}
                   </CardTitle>
                   <CardDescription>
-                    Your estimated costs over the next 24 months with {growthRate[0]}% annual growth
+                    {sq(lang, `Kostot tuaja të vlerësuara gjatë 24 muajve të ardhshëm me ${growthRate[0]}% rritje vjetore`, `Your estimated costs over the next 24 months with ${growthRate[0]}% annual growth`, `Sus costos estimados durante los próximos 24 meses con ${growthRate[0]}% de crecimiento anual`, `Ihre geschätzten Kosten über die nächsten 24 Monate mit ${growthRate[0]}% jährlichem Wachstum`, `Вашите проценети трошоци во следните 24 месеци со ${growthRate[0]}% годишен раст`)}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {[6, 12, 18, 24].map(months => (
                       <div key={months} className="text-center p-4 bg-muted/50 rounded-lg">
-                        <div className="text-sm text-muted-foreground mb-1">{months} months</div>
+                        <div className="text-sm text-muted-foreground mb-1">{months} {sq(lang, "muaj", "months", "meses", "Monate", "месеци")}</div>
                         <div className="text-xl font-bold text-primary">
                           ${getProjectedGrowthCost(recommendedPlan, months)}
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          ~{Math.round(teamSize[0] * Math.pow(1 + (growthRate[0]/100/12), months))} users
+                          ~{Math.round(teamSize[0] * Math.pow(1 + (growthRate[0]/100/12), months))} {sq(lang, "përdorues", "users", "usuarios", "Benutzer", "корисници")}
                         </div>
                       </div>
                     ))}
@@ -745,7 +735,7 @@ export default function Calculator() {
                 <CardHeader>
                   <CardTitle className="flex items-center text-green-700 dark:text-green-400">
                     <TrendingUp className="h-5 w-5 mr-2" />
-                    Potential Annual Savings
+                    {sq(lang, "Kursimet e Mundshme Vjetore", "Potential Annual Savings", "Ahorros Anuales Potenciales", "Potenzielle Jährliche Einsparungen", "Потенцијални Годишни Заштеди")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -755,21 +745,21 @@ export default function Calculator() {
                         ${Math.round(savings)}
                       </div>
                       <p className="text-green-700 dark:text-green-300">
-                        Annual cost savings
+                        {sq(lang, "Kursime vjetore në kosto", "Annual cost savings", "Ahorro anual de costos", "Jährliche Kosteneinsparungen", "Годишни заштеди на трошоци")}
                       </p>
                     </div>
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span>Time savings (hours):</span>
-                        <span className="font-semibold">{teamSize[0] * 5 * 12}h/year</span>
+                        <span>{sq(lang, "Kursime kohe (orë):", "Time savings (hours):", "Ahorro de tiempo (horas):", "Zeitersparnis (Stunden):", "Заштеда на време (часови):")}</span>
+                        <span className="font-semibold">{teamSize[0] * 5 * 12}h/{sq(lang, "vit", "year", "año", "Jahr", "год")}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span>Process efficiency:</span>
-                        <span className="font-semibold">${Math.round(invoicesPerMonth[0] * 0.1 * 12 * 100)}/year</span>
+                        <span>{sq(lang, "Efikasiteti i procesit:", "Process efficiency:", "Eficiencia del proceso:", "Prozesseffizienz:", "Ефикасност на процес:")}</span>
+                        <span className="font-semibold">${Math.round(invoicesPerMonth[0] * 0.1 * 12 * 100)}/{sq(lang, "vit", "year", "año", "Jahr", "год")}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span>Reduced errors:</span>
-                        <span className="font-semibold">${Math.round(estimatedRevenue[0] * 0.002)}/year</span>
+                        <span>{sq(lang, "Gabime të reduktuara:", "Reduced errors:", "Errores reducidos:", "Reduzierte Fehler:", "Намалени грешки:")}</span>
+                        <span className="font-semibold">${Math.round(estimatedRevenue[0] * 0.002)}/{sq(lang, "vit", "year", "año", "Jahr", "год")}</span>
                       </div>
                     </div>
                   </div>
@@ -779,7 +769,7 @@ export default function Calculator() {
 
             {/* All Plans Comparison */}
             <div>
-              <h3 className="text-2xl font-bold mb-6">Compare All Plans</h3>
+              <h3 className="text-2xl font-bold mb-6">{sq(lang, "Krahasoni të Gjitha Planet", "Compare All Plans", "Comparar Todos los Planes", "Alle Pläne Vergleichen", "Споредете ги Сите Планови")}</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 {plans.map((plan) => (
                   <Card 
@@ -793,14 +783,14 @@ export default function Calculator() {
                     {plan.popular && (
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                         <Badge className="bg-gradient-to-r from-primary to-secondary text-white">
-                          Most Popular
+                          {sq(lang, "Më Popullorja", "Most Popular", "Más Popular", "Beliebteste", "Најпопуларен")}
                         </Badge>
                       </div>
                     )}
                     {plan.id === recommendedPlan?.id && (
                       <div className="absolute -top-3 right-4">
                         <Badge className="bg-green-500 text-white">
-                          Recommended
+                          {sq(lang, "I Rekomanduar", "Recommended", "Recomendado", "Empfohlen", "Препорачано")}
                         </Badge>
                       </div>
                     )}
@@ -816,18 +806,18 @@ export default function Calculator() {
                           ),
                           selectedCurrency
                         )}
-                        <span className="text-sm text-muted-foreground font-normal">/month</span>
+                        <span className="text-sm text-muted-foreground font-normal">/{sq(lang, "muaj", "month", "mes", "Monat", "месец")}</span>
                       </div>
                       {billingPeriod === 'yearly' && (
                         <div className="text-sm text-green-600 dark:text-green-400">
-                          Save {formatCurrency(
+                          {sq(lang, "Kurseni", "Save", "Ahorre", "Sparen Sie", "Заштедете")} {formatCurrency(
                             convertPrice(
                               formatPrice(getYearlySavings(plan)),
                               'USD',
                               selectedCurrency
                             ),
                             selectedCurrency
-                          )} annually
+                          )} {sq(lang, "vjetore", "annually", "anualmente", "jährlich", "годишно")}
                         </div>
                       )}
                     </CardHeader>
@@ -835,19 +825,19 @@ export default function Calculator() {
                     <CardContent className="space-y-3">
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
-                          <span>Users:</span>
+                          <span>{sq(lang, "Përdorues:", "Users:", "Usuarios:", "Benutzer:", "Корисници:")}</span>
                           <span className="font-semibold">{plan.features.users}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span>Invoices/month:</span>
+                          <span>{sq(lang, "Fatura/muaj:", "Invoices/month:", "Facturas/mes:", "Rechnungen/Monat:", "Фактури/месец:")}</span>
                           <span className="font-semibold">{plan.features.invoicesPerMonth}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span>Storage:</span>
+                          <span>{sq(lang, "Hapësirë:", "Storage:", "Almacenamiento:", "Speicher:", "Складирање:")}</span>
                           <span className="font-semibold">{plan.features.storageGB}GB</span>
                         </div>
                         <div className="flex justify-between">
-                          <span>Integrations:</span>
+                          <span>{sq(lang, "Integrime:", "Integrations:", "Integraciones:", "Integrationen:", "Интеграции:")}</span>
                           <span className="font-semibold">{plan.features.integrations}</span>
                         </div>
                       </div>

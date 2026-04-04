@@ -49,6 +49,9 @@ import {
   Cell
 } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { useLanguage } from "@/lib/i18n";
+
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
 
 interface SubscriptionStatus {
   hasSubscription: boolean;
@@ -75,70 +78,67 @@ export default function Dashboard() {
     todayActivities: 0
   });
   const [showConfetti, setShowConfetti] = useState(false);
+  const { currentLanguage: lang } = useLanguage();
 
-  // Sample chart data for business analytics
   const revenueData = [
-    { month: 'Jan', revenue: 45000, expenses: 32000, profit: 13000 },
-    { month: 'Feb', revenue: 52000, expenses: 35000, profit: 17000 },
-    { month: 'Mar', revenue: 48000, expenses: 33000, profit: 15000 },
-    { month: 'Apr', revenue: 61000, expenses: 38000, profit: 23000 },
-    { month: 'May', revenue: 58000, expenses: 40000, profit: 18000 },
-    { month: 'Jun', revenue: 67000, expenses: 42000, profit: 25000 },
+    { month: sq(lang, 'Jan', 'Jan', 'Ene', 'Jan', 'Јан') as string, revenue: 45000, expenses: 32000, profit: 13000 },
+    { month: sq(lang, 'Shk', 'Feb', 'Feb', 'Feb', 'Фев') as string, revenue: 52000, expenses: 35000, profit: 17000 },
+    { month: sq(lang, 'Mar', 'Mar', 'Mar', 'Mär', 'Мар') as string, revenue: 48000, expenses: 33000, profit: 15000 },
+    { month: sq(lang, 'Pri', 'Apr', 'Abr', 'Apr', 'Апр') as string, revenue: 61000, expenses: 38000, profit: 23000 },
+    { month: sq(lang, 'Maj', 'May', 'May', 'Mai', 'Мај') as string, revenue: 58000, expenses: 40000, profit: 18000 },
+    { month: sq(lang, 'Qer', 'Jun', 'Jun', 'Jun', 'Јун') as string, revenue: 67000, expenses: 42000, profit: 25000 },
   ];
 
   const expenseCategories = [
-    { name: 'Operations', value: 35, color: '#8884d8' },
-    { name: 'Marketing', value: 25, color: '#82ca9d' },
-    { name: 'Salaries', value: 30, color: '#ffc658' },
-    { name: 'Other', value: 10, color: '#ff7300' },
+    { name: sq(lang, 'Operacione', 'Operations', 'Operaciones', 'Betrieb', 'Операции') as string, value: 35, color: '#8884d8' },
+    { name: sq(lang, 'Marketing', 'Marketing', 'Marketing', 'Marketing', 'Маркетинг') as string, value: 25, color: '#82ca9d' },
+    { name: sq(lang, 'Paga', 'Salaries', 'Salarios', 'Gehälter', 'Плати') as string, value: 30, color: '#ffc658' },
+    { name: sq(lang, 'Të tjera', 'Other', 'Otros', 'Sonstiges', 'Останато') as string, value: 10, color: '#ff7300' },
   ];
 
   const chartConfig = {
     revenue: {
-      label: "Revenue",
+      label: sq(lang, "Të ardhurat", "Revenue", "Ingresos", "Einnahmen", "Приходи") as string,
       color: "#2563eb",
     },
     expenses: {
-      label: "Expenses", 
+      label: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string,
       color: "#dc2626",
     },
     profit: {
-      label: "Profit",
+      label: sq(lang, "Fitimi", "Profit", "Ganancia", "Gewinn", "Профит") as string,
       color: "#16a34a",
     },
   };
 
-  // Generate personalized stats based on user activity
   useEffect(() => {
     if (!user) return;
     
-    // Simulate personalized stats based on user data
     const userId = (user as any)?.id || 'default';
     const userSeed = userId.toString().split('').reduce((a: number, b: string) => a + b.charCodeAt(0), 0);
     
     setPersonalizedStats({
-      invoices: 180 + (userSeed % 150), // 180-330 range
-      tasks: 25 + (userSeed % 30), // 25-55 range  
-      todayActivities: 8 + (userSeed % 15) // 8-23 range
+      invoices: 180 + (userSeed % 150),
+      tasks: 25 + (userSeed % 30),
+      todayActivities: 8 + (userSeed % 15)
     });
   }, [user]);
 
-  // Enhanced welcome animation sequence
   useEffect(() => {
     if (!user) return;
     
     const sequence = [
-      () => setAnimationStep(1), // Show welcome text with logo animation
-      () => setAnimationStep(2), // Show personalized greeting with typing effect
-      () => setAnimationStep(3), // Show stats animation with counters
-      () => setAnimationStep(4), // Show achievement badges
-      () => setAnimationStep(5), // Show confetti celebration
+      () => setAnimationStep(1),
+      () => setAnimationStep(2),
+      () => setAnimationStep(3),
+      () => setAnimationStep(4),
+      () => setAnimationStep(5),
       () => {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 2000);
       },
-      () => setAnimationStep(6), // Final loading state
-      () => setShowWelcomeAnimation(false) // Complete animation
+      () => setAnimationStep(6),
+      () => setShowWelcomeAnimation(false)
     ];
     
     let timeouts: NodeJS.Timeout[] = [];
@@ -150,46 +150,44 @@ export default function Dashboard() {
     return () => timeouts.forEach(clearTimeout);
   }, [user]);
 
-  // Get time-based greeting
   const getTimeBasedGreeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return "Good morning";
-    if (hour < 17) return "Good afternoon";
-    return "Good evening";
+    if (hour < 12) return sq(lang, "Mirëmëngjes", "Good morning", "Buenos días", "Guten Morgen", "Добро утро") as string;
+    if (hour < 17) return sq(lang, "Mirëdita", "Good afternoon", "Buenas tardes", "Guten Tag", "Добар ден") as string;
+    return sq(lang, "Mirëmbrëmje", "Good evening", "Buenas noches", "Guten Abend", "Добра вечер") as string;
   };
 
-  // Get personalized welcome message based on time and user activity
   const getPersonalizedMessage = () => {
     const hour = new Date().getHours();
     const dayOfWeek = new Date().getDay();
-    const userName = (user as any)?.firstName || 'there';
+    const userName = (user as any)?.firstName || sq(lang, 'atje', 'there', 'ahí', 'da', 'таму') as string;
     
     const morningMessages = [
-      `Ready to start another productive day, ${userName}?`,
-      `Let's make today count!`,
-      `Your business is waiting for you to shine today!`,
-      `Time to turn those morning ideas into reality!`
+      sq(lang, `Gati për të filluar një ditë tjetër produktive, ${userName}?`, `Ready to start another productive day, ${userName}?`, `¿Listo para comenzar otro día productivo, ${userName}?`, `Bereit für einen weiteren produktiven Tag, ${userName}?`, `Подготвени за уште еден продуктивен ден, ${userName}?`) as string,
+      sq(lang, "Le ta bëjmë këtë ditë të rëndësishme!", "Let's make today count!", "¡Hagamos que hoy cuente!", "Machen wir heute den Unterschied!", "Ајде денеска да направиме разлика!") as string,
+      sq(lang, "Biznesi juaj po pret që ju të shkëlqeni sot!", "Your business is waiting for you to shine today!", "¡Tu negocio espera que brilles hoy!", "Ihr Unternehmen wartet darauf, dass Sie heute glänzen!", "Вашиот бизнис чека да блеснете денес!") as string,
+      sq(lang, "Koha për t'i kthyer idetë e mëngjesit në realitet!", "Time to turn those morning ideas into reality!", "¡Hora de convertir esas ideas matutinas en realidad!", "Zeit, Ihre Morgenideen in die Realität umzusetzen!", "Време е утринските идеи да ги претворите во реалност!") as string
     ];
     
     const afternoonMessages = [
-      `Hope your day is going well, ${userName}!`,
-      `Perfect time to review your progress!`,
-      `Let's tackle those afternoon goals!`,
-      `Keep the momentum going strong!`
+      sq(lang, `Shpresoj që dita juaj po shkon mirë, ${userName}!`, `Hope your day is going well, ${userName}!`, `¡Espero que tu día vaya bien, ${userName}!`, `Hoffentlich läuft Ihr Tag gut, ${userName}!`, `Се надевам дека денот ви оди добро, ${userName}!`) as string,
+      sq(lang, "Koha perfekte për të rishikuar progresin tuaj!", "Perfect time to review your progress!", "¡Momento perfecto para revisar tu progreso!", "Der perfekte Zeitpunkt, um Ihren Fortschritt zu überprüfen!", "Совршено време да го прегледате напредокот!") as string,
+      sq(lang, "Le t'i trajtojmë qëllimet e pasdites!", "Let's tackle those afternoon goals!", "¡Vamos a abordar esos objetivos de la tarde!", "Packen wir die Nachmittagsziele an!", "Ајде да ги решиме попладневните цели!") as string,
+      sq(lang, "Vazhdoni impulsin fort!", "Keep the momentum going strong!", "¡Mantén el impulso fuerte!", "Halten Sie den Schwung aufrecht!", "Продолжете со силен замав!") as string
     ];
     
     const eveningMessages = [
-      `Wrapping up another successful day, ${userName}?`,
-      `Time to review today's achievements!`,
-      `Let's finish strong today!`,
-      `Planning for tomorrow starts now!`
+      sq(lang, `Duke përfunduar një ditë tjetër të suksesshme, ${userName}?`, `Wrapping up another successful day, ${userName}?`, `¿Terminando otro día exitoso, ${userName}?`, `Einen weiteren erfolgreichen Tag abrunden, ${userName}?`, `Завршувате уште еден успешен ден, ${userName}?`) as string,
+      sq(lang, "Koha për të rishikuar arritjet e sotme!", "Time to review today's achievements!", "¡Hora de revisar los logros de hoy!", "Zeit, die heutigen Errungenschaften zu überprüfen!", "Време е да ги прегледате денешните достигнувања!") as string,
+      sq(lang, "Le ta përfundojmë fort sot!", "Let's finish strong today!", "¡Terminemos fuerte hoy!", "Lassen Sie uns heute stark abschließen!", "Ајде да завршиме силно денес!") as string,
+      sq(lang, "Planifikimi për nesër fillon tani!", "Planning for tomorrow starts now!", "¡La planificación para mañana comienza ahora!", "Die Planung für morgen beginnt jetzt!", "Планирањето за утре почнува сега!") as string
     ];
     
     const weekendMessages = [
-      `Working hard even on weekends? You're dedicated, ${userName}!`,
-      `Weekend hustle mode activated!`,
-      `Your dedication is inspiring!`,
-      `Success doesn't take weekends off!`
+      sq(lang, `Duke punuar fort edhe në fundjavë? Je i përkushtuar, ${userName}!`, `Working hard even on weekends? You're dedicated, ${userName}!`, `¿Trabajando duro incluso los fines de semana? Eres dedicado, ${userName}!`, `Arbeiten Sie auch am Wochenende hart? Sie sind engagiert, ${userName}!`, `Работите напорно и за викенд? Посветени сте, ${userName}!`) as string,
+      sq(lang, "Mënyra e punës së fundjavës e aktivizuar!", "Weekend hustle mode activated!", "¡Modo trabajo de fin de semana activado!", "Wochenend-Arbeitsmodus aktiviert!", "Режим на викенд работа активиран!") as string,
+      sq(lang, "Përkushtimi juaj është frymëzues!", "Your dedication is inspiring!", "¡Tu dedicación es inspiradora!", "Ihr Engagement ist inspirierend!", "Вашата посветеност е инспиративна!") as string,
+      sq(lang, "Suksesi nuk merr pushime fundjavë!", "Success doesn't take weekends off!", "¡El éxito no descansa los fines de semana!", "Erfolg macht kein Wochenende!", "Успехот не зема викенд!") as string
     ];
     
     if (dayOfWeek === 0 || dayOfWeek === 6) {
@@ -205,42 +203,38 @@ export default function Dashboard() {
     }
   };
 
-  // Get achievement badges based on user stats
   const getAchievementBadges = () => {
     const badges = [];
     
     if (personalizedStats.invoices > 250) {
-      badges.push({ icon: "💰", title: "Invoice Master", desc: "250+ invoices created" });
+      badges.push({ icon: "💰", title: sq(lang, "Master Faturash", "Invoice Master", "Maestro de Facturas", "Rechnungsmeister", "Мајстор на фактури") as string, desc: sq(lang, "250+ fatura të krijuara", "250+ invoices created", "250+ facturas creadas", "250+ Rechnungen erstellt", "250+ креирани фактури") as string });
     }
     
     if (personalizedStats.tasks > 40) {
-      badges.push({ icon: "⚡", title: "Task Champion", desc: "Productivity expert" });
+      badges.push({ icon: "⚡", title: sq(lang, "Kampion Detyrash", "Task Champion", "Campeón de Tareas", "Aufgaben-Champion", "Шампион на задачи") as string, desc: sq(lang, "Ekspert produktiviteti", "Productivity expert", "Experto en productividad", "Produktivitätsexperte", "Експерт за продуктивност") as string });
     }
     
     if (personalizedStats.todayActivities > 15) {
-      badges.push({ icon: "🔥", title: "Daily Dynamo", desc: "High activity today" });
+      badges.push({ icon: "🔥", title: sq(lang, "Dinamik Ditor", "Daily Dynamo", "Dinamo Diario", "Tages-Dynamo", "Дневно динамо") as string, desc: sq(lang, "Aktivitet i lartë sot", "High activity today", "Alta actividad hoy", "Hohe Aktivität heute", "Висока активност денес") as string });
     }
     
-    // Always include at least one motivational badge
     if (badges.length === 0) {
-      badges.push({ icon: "🌟", title: "Rising Star", desc: "Building your empire" });
+      badges.push({ icon: "🌟", title: sq(lang, "Yll në Ngritje", "Rising Star", "Estrella en Ascenso", "Aufsteigender Stern", "Ѕвезда во подем") as string, desc: sq(lang, "Duke ndërtuar perandorinë tuaj", "Building your empire", "Construyendo tu imperio", "Bauen Sie Ihr Imperium auf", "Градете го вашето царство") as string });
     }
     
     return badges;
   };
 
-  // Fetch subscription status
   const { data: subscriptionStatus, isLoading: isLoadingSubscription } = useQuery<SubscriptionStatus>({
     queryKey: ["/api/subscription/status"],
     retry: false,
   });
 
-  // Redirect to home if not authenticated
   useEffect(() => {
     if (!isLoading && !user) {
       toast({
-        title: "Unauthorized",
-        description: "You are logged out. Logging in again...",
+        title: sq(lang, "I paautorizuar", "Unauthorized", "No autorizado", "Nicht autorisiert", "Неовластено") as string,
+        description: sq(lang, "Jeni çkyçur. Duke u kyçur përsëri...", "You are logged out. Logging in again...", "Has cerrado sesión. Iniciando sesión de nuevo...", "Sie sind abgemeldet. Erneute Anmeldung...", "Одјавени сте. Повторно најавување...") as string,
         variant: "destructive",
       });
       setTimeout(() => {
@@ -254,8 +248,13 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900/50 flex items-center justify-center">
         <FeatureLoader 
-          feature="Dashboard" 
-          steps={["Loading user data", "Setting up workspace", "Preparing widgets", "Ready to go!"]}
+          feature={sq(lang, "Paneli", "Dashboard", "Panel", "Dashboard", "Табла") as string}
+          steps={[
+            sq(lang, "Duke ngarkuar të dhënat e përdoruesit", "Loading user data", "Cargando datos del usuario", "Benutzerdaten laden", "Вчитување кориснички податоци") as string,
+            sq(lang, "Duke vendosur hapësirën e punës", "Setting up workspace", "Configurando espacio de trabajo", "Arbeitsbereich einrichten", "Поставување работен простор") as string,
+            sq(lang, "Duke përgatitur widgets", "Preparing widgets", "Preparando widgets", "Widgets vorbereiten", "Подготвување виџети") as string,
+            sq(lang, "Gati!", "Ready to go!", "¡Listo!", "Bereit!", "Подготвено!") as string
+          ]}
         />
       </div>
     );
@@ -268,23 +267,22 @@ export default function Dashboard() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'active':
-        return <Badge className="bg-green-100 text-green-800"><CheckCircle className="h-3 w-3 mr-1" />Active</Badge>;
+        return <Badge className="bg-green-100 text-green-800"><CheckCircle className="h-3 w-3 mr-1" />{sq(lang, "Aktiv", "Active", "Activo", "Aktiv", "Активно")}</Badge>;
       case 'past_due':
-        return <Badge variant="destructive"><AlertCircle className="h-3 w-3 mr-1" />Past Due</Badge>;
+        return <Badge variant="destructive"><AlertCircle className="h-3 w-3 mr-1" />{sq(lang, "Me vonesë", "Past Due", "Vencido", "Überfällig", "Задоцнето")}</Badge>;
       case 'canceled':
-        return <Badge variant="secondary">Canceled</Badge>;
+        return <Badge variant="secondary">{sq(lang, "Anuluar", "Canceled", "Cancelado", "Storniert", "Откажано")}</Badge>;
       default:
-        return <Badge variant="outline">Unknown</Badge>;
+        return <Badge variant="outline">{sq(lang, "I panjohur", "Unknown", "Desconocido", "Unbekannt", "Непознато")}</Badge>;
     }
   };
 
   const formatPlanName = (plan: string) => {
-    return plan?.charAt(0).toUpperCase() + plan?.slice(1) + " Plan" || "No Plan";
+    return plan?.charAt(0).toUpperCase() + plan?.slice(1) + ` ${sq(lang, "Plani", "Plan", "Plan", "Plan", "План")}` || sq(lang, "Pa Plan", "No Plan", "Sin Plan", "Kein Plan", "Без план") as string;
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -292,7 +290,6 @@ export default function Dashboard() {
 
       </div>
 
-      {/* Navigation */}
       <nav className="glass-effect border-b border-white/20 relative z-10">
         <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
           <div className="flex justify-between items-center h-16">
@@ -325,16 +322,17 @@ export default function Dashboard() {
                   </div>
                 )}
                 <span className="text-sm font-medium text-foreground">
-                  {(user as any)?.firstName || (user as any)?.email || 'User'}
+                  {(user as any)?.firstName || (user as any)?.email || sq(lang, 'Përdorues', 'User', 'Usuario', 'Benutzer', 'Корисник')}
                 </span>
               </div>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" title={sq(lang, "Cilësimet", "Settings", "Configuración", "Einstellungen", "Поставки") as string}>
                 <Settings className="h-4 w-4" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon"
                 onClick={() => window.location.href = "/api/logout"}
+                title={sq(lang, "Dil", "Logout", "Cerrar sesión", "Abmelden", "Одјави се") as string}
               >
                 <LogOut className="h-4 w-4" />
               </Button>
@@ -344,10 +342,8 @@ export default function Dashboard() {
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
-        {/* Enhanced Welcome Animation Overlay */}
         {showWelcomeAnimation && (
           <div className="fixed inset-0 bg-gradient-to-br from-blue-50/95 via-purple-50/95 to-orange-50/95 dark:from-gray-900/95 dark:via-purple-900/95 dark:to-orange-900/95 z-50 flex items-center justify-center backdrop-blur-sm">
-            {/* Confetti Animation */}
             {showConfetti && (
               <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 {Array.from({ length: 50 }).map((_, i) => (
@@ -366,7 +362,6 @@ export default function Dashboard() {
             )}
             
             <div className="text-center space-y-8 max-w-3xl px-8">
-              {/* Step 1: Welcome Text with Logo Animation */}
               <div className={`transition-all duration-1000 ${animationStep >= 1 ? 'opacity-100 transform translate-y-0 scale-100' : 'opacity-0 transform translate-y-8 scale-95'}`}>
                 <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30 mb-6 hover:scale-105 transition-transform duration-300">
                   <img 
@@ -375,16 +370,15 @@ export default function Dashboard() {
                     className="w-8 h-6 object-contain mr-3 animate-pulse"
                   />
                   <Sparkles className="h-5 w-5 text-blue-600 mr-2 animate-spin" />
-                  <span className="text-blue-700 dark:text-blue-300 font-medium text-lg">Welcome to BusinessFlow Pro</span>
+                  <span className="text-blue-700 dark:text-blue-300 font-medium text-lg">{sq(lang, "Mirë se vini në BusinessFlow Pro", "Welcome to BusinessFlow Pro", "Bienvenido a BusinessFlow Pro", "Willkommen bei BusinessFlow Pro", "Добредојде во BusinessFlow Pro")}</span>
                 </div>
               </div>
 
-              {/* Step 2: Personalized Greeting with Typing Effect */}
               <div className={`transition-all duration-1000 delay-300 ${animationStep >= 2 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-professional-fade">
                   <span className="text-foreground block mb-3">{getTimeBasedGreeting()},</span>
                   <span className="animate-subtle-gradient">
-                    {(user as any)?.firstName || 'there'}!
+                    {(user as any)?.firstName || sq(lang, 'atje', 'there', 'ahí', 'da', 'таму')}!
                   </span>
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground font-medium">
@@ -392,28 +386,26 @@ export default function Dashboard() {
                 </p>
               </div>
 
-              {/* Step 3: Animated Stats with Counters */}
               <div className={`transition-all duration-1000 delay-600 ${animationStep >= 3 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
                 <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
                   <div className="text-center p-6 bg-white/60 dark:bg-gray-800/60 rounded-3xl backdrop-blur-md border border-white/30 hover:scale-110 transition-all duration-500 shadow-xl">
                     <TrendingUp className="h-10 w-10 mx-auto mb-3 text-green-600 animate-bounce" />
                     <div className="text-3xl font-bold text-foreground animate-pulse">{personalizedStats.invoices}</div>
-                    <div className="text-sm text-muted-foreground font-medium">Invoices Created</div>
+                    <div className="text-sm text-muted-foreground font-medium">{sq(lang, "Fatura të Krijuara", "Invoices Created", "Facturas Creadas", "Rechnungen Erstellt", "Креирани фактури")}</div>
                   </div>
                   <div className="text-center p-6 bg-white/60 dark:bg-gray-800/60 rounded-3xl backdrop-blur-md border border-white/30 hover:scale-110 transition-all duration-500 delay-150 shadow-xl">
                     <Calendar className="h-10 w-10 mx-auto mb-3 text-blue-600 animate-bounce" />
                     <div className="text-3xl font-bold text-foreground animate-pulse">{personalizedStats.tasks}</div>
-                    <div className="text-sm text-muted-foreground font-medium">Active Tasks</div>
+                    <div className="text-sm text-muted-foreground font-medium">{sq(lang, "Detyra Aktive", "Active Tasks", "Tareas Activas", "Aktive Aufgaben", "Активни задачи")}</div>
                   </div>
                   <div className="text-center p-6 bg-white/60 dark:bg-gray-800/60 rounded-3xl backdrop-blur-md border border-white/30 hover:scale-110 transition-all duration-500 delay-300 shadow-xl">
                     <Clock className="h-10 w-10 mx-auto mb-3 text-purple-600 animate-bounce" />
                     <div className="text-3xl font-bold text-foreground animate-pulse">{personalizedStats.todayActivities}</div>
-                    <div className="text-sm text-muted-foreground font-medium">Today's Activities</div>
+                    <div className="text-sm text-muted-foreground font-medium">{sq(lang, "Aktivitetet e Sotme", "Today's Activities", "Actividades de Hoy", "Heutige Aktivitäten", "Денешни активности")}</div>
                   </div>
                 </div>
               </div>
 
-              {/* Step 4: Achievement Badges */}
               <div className={`transition-all duration-1000 delay-900 ${animationStep >= 4 ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
                 <div className="flex justify-center space-x-4 flex-wrap gap-3">
                   {getAchievementBadges().map((badge, index) => (
@@ -432,23 +424,20 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              {/* Step 5: Enhanced Loading indicator */}
               <div className={`transition-all duration-1000 delay-1200 ${animationStep >= 6 ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="flex items-center justify-center space-x-3 mb-4">
                   <div className="w-3 h-3 bg-blue-600 rounded-full animate-bounce"></div>
                   <div className="w-3 h-3 bg-purple-600 rounded-full animate-bounce delay-150"></div>
                   <div className="w-3 h-3 bg-orange-600 rounded-full animate-bounce delay-300"></div>
                 </div>
-                <p className="text-lg text-muted-foreground font-medium animate-pulse">Preparing your personalized dashboard...</p>
+                <p className="text-lg text-muted-foreground font-medium animate-pulse">{sq(lang, "Duke përgatitur panelin tuaj të personalizuar...", "Preparing your personalized dashboard...", "Preparando tu panel personalizado...", "Ihr personalisiertes Dashboard wird vorbereitet...", "Подготвување на вашата персонализирана табла...")}</p>
               </div>
             </div>
           </div>
         )}
 
-        {/* Enhanced Welcome Section */}
         <div className={`mb-8 transition-all duration-1000 ${!showWelcomeAnimation ? 'slide-in-bottom' : 'opacity-0'}`}>
           <Card className="glass-effect border-primary/20 p-8 relative overflow-hidden">
-            {/* Background decoration */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 rounded-full blur-2xl"></div>
             
@@ -456,14 +445,13 @@ export default function Dashboard() {
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-4">
                   <h1 className="text-4xl font-bold gradient-text fade-in">
-                    {getTimeBasedGreeting()}, {(user as any)?.firstName || 'there'}!
+                    {getTimeBasedGreeting()}, {(user as any)?.firstName || sq(lang, 'atje', 'there', 'ahí', 'da', 'таму')}!
                   </h1>
                   <div className="animate-bounce">
                     <Sparkles className="h-8 w-8 text-yellow-500 animate-pulse" />
                   </div>
                 </div>
                 
-                {/* Achievement badges mini display */}
                 <div className="hidden md:flex space-x-2">
                   {getAchievementBadges().slice(0, 2).map((badge, index) => (
                     <div 
@@ -481,45 +469,43 @@ export default function Dashboard() {
                 {getPersonalizedMessage()}
               </p>
               
-              {/* Enhanced stats row */}
               <div className="grid grid-cols-3 md:grid-cols-6 gap-4 fade-in stagger-2">
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-green-700 dark:text-green-300 text-sm font-medium">System Online</span>
+                  <span className="text-green-700 dark:text-green-300 text-sm font-medium">{sq(lang, "Sistemi Online", "System Online", "Sistema en Línea", "System Online", "Систем онлајн")}</span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                   <span className="text-blue-700 dark:text-blue-300 text-sm font-medium">
-                    {subscriptionStatus?.hasSubscription ? `${subscriptionStatus.subscriptionPlan} Plan` : 'Free Plan'}
+                    {subscriptionStatus?.hasSubscription ? `${subscriptionStatus.subscriptionPlan} ${sq(lang, "Plani", "Plan", "Plan", "Plan", "План")}` : sq(lang, "Plani Falas", "Free Plan", "Plan Gratis", "Kostenloser Plan", "Бесплатен план")}
                   </span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-                  <span className="text-purple-700 dark:text-purple-300 text-sm font-medium">Data Synced</span>
+                  <span className="text-purple-700 dark:text-purple-300 text-sm font-medium">{sq(lang, "Të dhënat e sinkronizuara", "Data Synced", "Datos Sincronizados", "Daten synchronisiert", "Податоци синхронизирани")}</span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <TrendingUp className="w-4 h-4 text-green-500" />
-                  <span className="text-green-700 dark:text-green-300 text-sm font-medium">{personalizedStats.invoices} Invoices</span>
+                  <span className="text-green-700 dark:text-green-300 text-sm font-medium">{personalizedStats.invoices} {sq(lang, "Fatura", "Invoices", "Facturas", "Rechnungen", "Фактури")}</span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <Calendar className="w-4 h-4 text-blue-500" />
-                  <span className="text-blue-700 dark:text-blue-300 text-sm font-medium">{personalizedStats.tasks} Tasks</span>
+                  <span className="text-blue-700 dark:text-blue-300 text-sm font-medium">{personalizedStats.tasks} {sq(lang, "Detyra", "Tasks", "Tareas", "Aufgaben", "Задачи")}</span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <Clock className="w-4 h-4 text-purple-500" />
-                  <span className="text-purple-700 dark:text-purple-300 text-sm font-medium">{personalizedStats.todayActivities} Today</span>
+                  <span className="text-purple-700 dark:text-purple-300 text-sm font-medium">{personalizedStats.todayActivities} {sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес")}</span>
                 </div>
               </div>
             </div>
           </Card>
         </div>
 
-        {/* Subscription Status */}
         <Card className="mb-8 glass-effect border-primary/20 hover-lift scale-in">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <CreditCard className="h-5 w-5 text-primary" />
-              <span>Subscription Status</span>
+              <span>{sq(lang, "Statusi i Abonimit", "Subscription Status", "Estado de Suscripción", "Abonnementstatus", "Статус на претплата")}</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -532,37 +518,35 @@ export default function Dashboard() {
                   </div>
                   {subscriptionStatus.subscriptionDetails && (
                     <p className="text-sm text-muted-foreground">
-                      Next billing: {new Date(subscriptionStatus.subscriptionDetails.currentPeriodEnd * 1000).toLocaleDateString()}
+                      {sq(lang, "Faturimi i ardhshëm:", "Next billing:", "Próxima facturación:", "Nächste Abrechnung:", "Следна наплата:")} {new Date(subscriptionStatus.subscriptionDetails.currentPeriodEnd * 1000).toLocaleDateString()}
                     </p>
                   )}
                 </div>
-                <Button variant="outline" className="glow-border">Manage Subscription</Button>
+                <Button variant="outline" className="glow-border">{sq(lang, "Menaxho Abonimin", "Manage Subscription", "Gestionar Suscripción", "Abonnement verwalten", "Управувај претплата")}</Button>
               </div>
             ) : (
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium text-foreground">No active subscription</p>
-                  <p className="text-sm text-muted-foreground">Subscribe to unlock all features</p>
+                  <p className="font-medium text-foreground">{sq(lang, "Nuk ka abonim aktiv", "No active subscription", "Sin suscripción activa", "Kein aktives Abonnement", "Нема активна претплата")}</p>
+                  <p className="text-sm text-muted-foreground">{sq(lang, "Abonohuni për të zhbllokuar të gjitha veçoritë", "Subscribe to unlock all features", "Suscríbete para desbloquear todas las funciones", "Abonnieren Sie, um alle Funktionen freizuschalten", "Претплатете се за да ги отклучите сите функции")}</p>
                 </div>
                 <Button 
                   onClick={() => go("/subscribe")}
                   className="bg-gradient-to-r from-primary to-secondary pulse-glow"
                 >
-                  Subscribe Now
+                  {sq(lang, "Abonohu Tani", "Subscribe Now", "Suscríbete Ahora", "Jetzt Abonnieren", "Претплати се сега")}
                 </Button>
               </div>
             )}
           </CardContent>
         </Card>
 
-        {/* Business Analytics Charts */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {/* Revenue Trend Chart */}
           <Card className="glass-effect border-primary/20 hover-lift">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <TrendingUp className="h-5 w-5 text-primary" />
-                <span>Revenue Analytics</span>
+                <span>{sq(lang, "Analitika e të Ardhurave", "Revenue Analytics", "Análisis de Ingresos", "Einnahmenanalyse", "Аналитика на приходи")}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -595,12 +579,11 @@ export default function Dashboard() {
             </CardContent>
           </Card>
 
-          {/* Expense Categories Pie Chart */}
           <Card className="glass-effect border-primary/20 hover-lift">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <PieChart className="h-5 w-5 text-primary" />
-                <span>Expense Breakdown</span>
+                <span>{sq(lang, "Zbërthimi i Shpenzimeve", "Expense Breakdown", "Desglose de Gastos", "Aufschlüsselung der Ausgaben", "Распределба на трошоци")}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -633,12 +616,11 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Monthly Performance Bar Chart */}
         <Card className="glass-effect border-primary/20 hover-lift mb-8">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2">
               <BarChart3 className="h-5 w-5 text-primary" />
-              <span>Monthly Performance</span>
+              <span>{sq(lang, "Performanca Mujore", "Monthly Performance", "Rendimiento Mensual", "Monatliche Leistung", "Месечна перформанса")}</span>
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -649,62 +631,61 @@ export default function Dashboard() {
                   <XAxis dataKey="month" />
                   <YAxis />
                   <ChartTooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="revenue" fill="#2563eb" name="Revenue" />
-                  <Bar dataKey="expenses" fill="#dc2626" name="Expenses" />
-                  <Bar dataKey="profit" fill="#16a34a" name="Profit" />
+                  <Bar dataKey="revenue" fill="#2563eb" name={sq(lang, "Të ardhurat", "Revenue", "Ingresos", "Einnahmen", "Приходи") as string} />
+                  <Bar dataKey="expenses" fill="#dc2626" name={sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string} />
+                  <Bar dataKey="profit" fill="#16a34a" name={sq(lang, "Fitimi", "Profit", "Ganancia", "Gewinn", "Профит") as string} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
           </CardContent>
         </Card>
 
-        {/* Business Modules */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {[
             { 
               icon: FileText, 
-              title: "Invoices", 
-              description: "Manage your invoicing workflow",
+              title: sq(lang, "Faturat", "Invoices", "Facturas", "Rechnungen", "Фактури") as string,
+              description: sq(lang, "Menaxhoni rrjedhën tuaj të faturimit", "Manage your invoicing workflow", "Gestiona tu flujo de facturación", "Verwalten Sie Ihren Rechnungsworkflow", "Управувајте со вашиот тек на фактурирање") as string,
               count: "247",
               color: "from-blue-500 to-blue-600",
               delay: "delay-100"
             },
             { 
               icon: Receipt, 
-              title: "Expenses", 
-              description: "Track business expenses",
+              title: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string,
+              description: sq(lang, "Gjurmoni shpenzimet e biznesit", "Track business expenses", "Registra gastos del negocio", "Geschäftsausgaben verfolgen", "Следете деловни трошоци") as string,
               count: "89",
               color: "from-green-500 to-green-600",
               delay: "delay-200"
             },
             { 
               icon: Users, 
-              title: "Clients", 
-              description: "Customer relationship management",
+              title: sq(lang, "Klientët", "Clients", "Clientes", "Kunden", "Клиенти") as string,
+              description: sq(lang, "Menaxhimi i marrëdhënieve me klientët", "Customer relationship management", "Gestión de relaciones con clientes", "Kundenbeziehungsmanagement", "Управување со односи со клиенти") as string,
               count: "156",
               color: "from-purple-500 to-purple-600",
               delay: "delay-300"
             },
             { 
               icon: Bus, 
-              title: "HR", 
-              description: "Human resources management",
+              title: sq(lang, "BNJ", "HR", "RRHH", "Personal", "ЧР") as string,
+              description: sq(lang, "Menaxhimi i burimeve njerëzore", "Human resources management", "Gestión de recursos humanos", "Personalverwaltung", "Управување со човечки ресурси") as string,
               count: "23",
               color: "from-orange-500 to-orange-600",
               delay: "delay-400"
             },
             { 
               icon: File, 
-              title: "Contracts", 
-              description: "Business contract management",
+              title: sq(lang, "Kontratat", "Contracts", "Contratos", "Verträge", "Договори") as string,
+              description: sq(lang, "Menaxhimi i kontratave të biznesit", "Business contract management", "Gestión de contratos empresariales", "Geschäftsvertragsverwaltung", "Управување со деловни договори") as string,
               count: "34",
               color: "from-red-500 to-red-600",
               delay: "delay-500"
             },
             { 
               icon: Handshake, 
-              title: "Offers", 
-              description: "Create and send proposals",
+              title: sq(lang, "Ofertat", "Offers", "Ofertas", "Angebote", "Понуди") as string,
+              description: sq(lang, "Krijoni dhe dërgoni propozime", "Create and send proposals", "Crea y envía propuestas", "Angebote erstellen und senden", "Креирајте и испратете предлози") as string,
               count: "12",
               color: "from-indigo-500 to-indigo-600",
               delay: "delay-600"
@@ -732,7 +713,6 @@ export default function Dashboard() {
                   {module.description}
                 </p>
                 
-                {/* Animated progress indicator */}
                 <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="w-full bg-muted/30 rounded-full h-1">
                     <div 
@@ -740,14 +720,13 @@ export default function Dashboard() {
                       style={{ width: '0%' }}
                     ></div>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1">Click to explore</p>
+                  <p className="text-xs text-muted-foreground mt-1">{sq(lang, "Kliko për të eksploruar", "Click to explore", "Haz clic para explorar", "Klicken zum Erkunden", "Кликнете за истражување")}</p>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* AI Dashboard Link */}
         <div className="mb-8">
           <Link href="/ai-dashboard">
             <Card className="border-purple-200 bg-gradient-to-r from-purple-50 to-blue-50 hover:shadow-lg transition-all duration-200 cursor-pointer group">
@@ -759,15 +738,15 @@ export default function Dashboard() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                        AI-Powered Business Intelligence
+                        {sq(lang, "Inteligjenca Biznesore me AI", "AI-Powered Business Intelligence", "Inteligencia de Negocios con IA", "KI-gestützte Business Intelligence", "Деловна интелигенција со ВИ")}
                       </h3>
                       <p className="text-gray-600">
-                        Discover smart insights, voice commands, and automation
+                        {sq(lang, "Zbuloni njohuri të zgjuara, komanda zanore dhe automatizim", "Discover smart insights, voice commands, and automation", "Descubre perspectivas inteligentes, comandos de voz y automatización", "Entdecken Sie intelligente Einblicke, Sprachbefehle und Automatisierung", "Откријте паметни увиди, гласовни команди и автоматизација")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-purple-600 group-hover:translate-x-2 transition-transform">
-                    <span className="text-sm font-medium">Explore AI Features</span>
+                    <span className="text-sm font-medium">{sq(lang, "Eksploro Veçoritë AI", "Explore AI Features", "Explorar Funciones IA", "KI-Funktionen erkunden", "Истражи ВИ функции")}</span>
                     <ChevronRight className="h-5 w-5" />
                   </div>
                 </div>
@@ -776,12 +755,11 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        {/* Quick Stats */}
         <div className="grid md:grid-cols-4 gap-6">
           <Card className="glass-effect border-green-200/20 hover-lift scale-in stagger-1 group">
             <CardContent className="p-6">
               <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">$24,750</div>
-              <p className="text-sm text-muted-foreground">Monthly Revenue</p>
+              <p className="text-sm text-muted-foreground">{sq(lang, "Të ardhurat Mujore", "Monthly Revenue", "Ingresos Mensuales", "Monatliche Einnahmen", "Месечни приходи")}</p>
               <div className="w-full bg-green-200 rounded-full h-2 mt-2">
                 <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full w-4/5"></div>
               </div>
@@ -790,7 +768,7 @@ export default function Dashboard() {
           <Card className="glass-effect border-blue-200/20 hover-lift scale-in stagger-2 group">
             <CardContent className="p-6">
               <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">1,234</div>
-              <p className="text-sm text-muted-foreground">Total Invoices</p>
+              <p className="text-sm text-muted-foreground">{sq(lang, "Faturat Totale", "Total Invoices", "Facturas Totales", "Gesamte Rechnungen", "Вкупно фактури")}</p>
               <div className="w-full bg-blue-200 rounded-full h-2 mt-2">
                 <div className="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full w-3/4"></div>
               </div>
@@ -799,7 +777,7 @@ export default function Dashboard() {
           <Card className="glass-effect border-purple-200/20 hover-lift scale-in stagger-3 group">
             <CardContent className="p-6">
               <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">98.5%</div>
-              <p className="text-sm text-muted-foreground">Collection Rate</p>
+              <p className="text-sm text-muted-foreground">{sq(lang, "Shkalla e Mbledhjes", "Collection Rate", "Tasa de Cobro", "Inkassoquote", "Стапка на наплата")}</p>
               <div className="w-full bg-purple-200 rounded-full h-2 mt-2">
                 <div className="bg-gradient-to-r from-purple-400 to-purple-600 h-2 rounded-full w-full"></div>
               </div>
@@ -808,7 +786,7 @@ export default function Dashboard() {
           <Card className="glass-effect border-orange-200/20 hover-lift scale-in stagger-4 group">
             <CardContent className="p-6">
               <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">156</div>
-              <p className="text-sm text-muted-foreground">Active Clients</p>
+              <p className="text-sm text-muted-foreground">{sq(lang, "Klientë Aktivë", "Active Clients", "Clientes Activos", "Aktive Kunden", "Активни клиенти")}</p>
               <div className="w-full bg-orange-200 rounded-full h-2 mt-2">
                 <div className="bg-gradient-to-r from-orange-400 to-orange-600 h-2 rounded-full w-3/5"></div>
               </div>
@@ -817,10 +795,8 @@ export default function Dashboard() {
         </div>
       </div>
       
-      {/* Chat Bot */}
       <ChatBot />
       
-      {/* Accessibility Controls */}
       <AccessibilityControls />
     </div>
   );

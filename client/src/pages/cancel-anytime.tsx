@@ -25,50 +25,66 @@ const CancelAnytimePage = () => {
   const cancelFeatures = [
     {
       icon: <Calendar className="w-8 h-8" />,
-      title: "No Long-Term Contracts",
-      description: "Month-to-month billing means you're never locked into a lengthy commitment.",
-      benefits: ["Cancel at any time", "No early termination fees", "Flexible billing cycles"]
+      title: sq(lang, "Pa Kontrata Afatgjata", "No Long-Term Contracts", "Sin Contratos a Largo Plazo", "Keine Langzeitverträge", "Без Долгорочни Договори"),
+      description: sq(lang, "Faturimi mujor do të thotë se nuk jeni kurrë të bllokuar në një angazhim të gjatë.", "Month-to-month billing means you're never locked into a lengthy commitment.", "La facturación mensual significa que nunca está atado a un compromiso largo.", "Monatliche Abrechnung bedeutet, dass Sie nie an eine langfristige Verpflichtung gebunden sind.", "Месечно фактурирање значи дека никогаш не сте заклучени во долгорочна обврска."),
+      benefits: [
+        sq(lang, "Anuloni në çdo kohë", "Cancel at any time", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете во секое време") as string,
+        sq(lang, "Pa tarifa ndërprerje të hershme", "No early termination fees", "Sin tarifas por terminación anticipada", "Keine vorzeitigen Kündigungsgebühren", "Без такси за рано прекинување") as string,
+        sq(lang, "Cikle faturimi fleksibël", "Flexible billing cycles", "Ciclos de facturación flexibles", "Flexible Abrechnungszyklen", "Флексибилни циклуси на фактурирање") as string
+      ]
     },
     {
       icon: <CreditCard className="w-8 h-8" />,
-      title: "Simple Cancellation Process",
-      description: "Cancel your subscription with just a few clicks - no phone calls or complex procedures required.",
-      benefits: ["Self-service cancellation", "Instant processing", "No hidden requirements"]
+      title: sq(lang, "Proces i Thjeshtë Anulimi", "Simple Cancellation Process", "Proceso de Cancelación Simple", "Einfacher Kündigungsprozess", "Едноставен Процес на Откажување"),
+      description: sq(lang, "Anuloni abonimin tuaj me vetëm disa klikime - pa nevoja për thirrje telefonike ose procedura komplekse.", "Cancel your subscription with just a few clicks - no phone calls or complex procedures required.", "Cancele su suscripción con solo unos clics - sin llamadas telefónicas ni procedimientos complejos.", "Kündigen Sie Ihr Abonnement mit nur wenigen Klicks - keine Telefonanrufe oder komplexe Verfahren erforderlich.", "Откажете ја вашата претплата со само неколку кликови - без телефонски повици или сложени процедури."),
+      benefits: [
+        sq(lang, "Anulim vetë-shërbim", "Self-service cancellation", "Cancelación de autoservicio", "Selbstbedienungskündigung", "Самопослужно откажување") as string,
+        sq(lang, "Përpunim i menjëhershëm", "Instant processing", "Procesamiento instantáneo", "Sofortige Verarbeitung", "Моментална обработка") as string,
+        sq(lang, "Pa kërkesa të fshehura", "No hidden requirements", "Sin requisitos ocultos", "Keine versteckten Anforderungen", "Без скриени барања") as string
+      ]
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Data Export & Backup",
-      description: "Download all your business data before canceling to ensure you never lose important information.",
-      benefits: ["Complete data export", "Multiple file formats", "30-day grace period"]
+      title: sq(lang, "Eksport & Kopje Rezervë të Dhënash", "Data Export & Backup", "Exportación y Respaldo de Datos", "Datenexport & Backup", "Извоз и Резервна Копија на Податоци"),
+      description: sq(lang, "Shkarkoni të gjitha të dhënat e biznesit tuaj para se të anuloni për të siguruar që nuk humbisni informacion të rëndësishëm.", "Download all your business data before canceling to ensure you never lose important information.", "Descargue todos los datos de su negocio antes de cancelar para asegurarse de nunca perder información importante.", "Laden Sie alle Ihre Geschäftsdaten vor der Kündigung herunter, um sicherzustellen, dass Sie keine wichtigen Informationen verlieren.", "Преземете ги сите ваши деловни податоци пред откажување за да се осигурате дека никогаш нема да изгубите важни информации."),
+      benefits: [
+        sq(lang, "Eksport i plotë i të dhënave", "Complete data export", "Exportación completa de datos", "Vollständiger Datenexport", "Целосен извоз на податоци") as string,
+        sq(lang, "Formate të shumta skedarësh", "Multiple file formats", "Múltiples formatos de archivo", "Mehrere Dateiformate", "Повеќе формати на датотеки") as string,
+        sq(lang, "Periudhë pritjeje 30-ditore", "30-day grace period", "Período de gracia de 30 días", "30-Tage-Gnadenfrist", "30-дневен грејс период") as string
+      ]
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Reactivation Anytime",
-      description: "Changed your mind? Reactivate your account and restore all your data instantly.",
-      benefits: ["One-click reactivation", "Data restoration", "Same account settings"]
+      title: sq(lang, "Riaktivizim në Çdo Kohë", "Reactivation Anytime", "Reactivación en Cualquier Momento", "Reaktivierung Jederzeit", "Реактивирање во Секое Време"),
+      description: sq(lang, "Ndërruat mendje? Riaktivizoni llogarinë tuaj dhe riktheni të gjitha të dhënat tuaja menjëherë.", "Changed your mind? Reactivate your account and restore all your data instantly.", "¿Cambió de opinión? Reactive su cuenta y restaure todos sus datos al instante.", "Meinung geändert? Reaktivieren Sie Ihr Konto und stellen Sie alle Ihre Daten sofort wieder her.", "Ги променивте мислите? Реактивирајте ја вашата сметка и вратете ги сите ваши податоци веднаш."),
+      benefits: [
+        sq(lang, "Riaktivizim me një klikim", "One-click reactivation", "Reactivación con un clic", "Ein-Klick-Reaktivierung", "Реактивирање со еден клик") as string,
+        sq(lang, "Rikthim i të dhënave", "Data restoration", "Restauración de datos", "Datenwiederherstellung", "Враќање на податоци") as string,
+        sq(lang, "Të njëjtat cilësime llogarie", "Same account settings", "Misma configuración de cuenta", "Gleiche Kontoeinstellungen", "Исти поставки на сметка") as string
+      ]
     }
   ];
 
   const steps = [
     {
       step: "1",
-      title: "Access Account Settings",
-      description: "Log into your dashboard and navigate to Account Settings > Billing."
+      title: sq(lang, "Aksesoni Cilësimet e Llogarisë", "Access Account Settings", "Acceder a Configuración de Cuenta", "Kontoeinstellungen Aufrufen", "Пристапете до Поставки на Сметка"),
+      description: sq(lang, "Hyni në panelin tuaj dhe navigoni te Cilësimet e Llogarisë > Faturimi.", "Log into your dashboard and navigate to Account Settings > Billing.", "Inicie sesión en su panel y navegue a Configuración de Cuenta > Facturación.", "Melden Sie sich in Ihrem Dashboard an und navigieren Sie zu Kontoeinstellungen > Abrechnung.", "Најавете се во вашата контролна табла и одете до Поставки на Сметка > Фактурирање.")
     },
     {
       step: "2", 
-      title: "Click Cancel Subscription",
-      description: "Find the 'Cancel Subscription' button and click it to start the process."
+      title: sq(lang, "Klikoni Anulo Abonimin", "Click Cancel Subscription", "Hacer Clic en Cancelar Suscripción", "Klicken Sie auf Abonnement Kündigen", "Кликнете Откажи Претплата"),
+      description: sq(lang, "Gjeni butonin 'Anulo Abonimin' dhe klikoni për të filluar procesin.", "Find the 'Cancel Subscription' button and click it to start the process.", "Encuentre el botón 'Cancelar Suscripción' y haga clic para iniciar el proceso.", "Finden Sie die Schaltfläche 'Abonnement kündigen' und klicken Sie darauf, um den Vorgang zu starten.", "Најдете го копчето 'Откажи Претплата' и кликнете за да го започнете процесот.")
     },
     {
       step: "3",
-      title: "Export Your Data",
-      description: "Download all your business data in your preferred format before confirming."
+      title: sq(lang, "Eksportoni të Dhënat Tuaja", "Export Your Data", "Exporte Sus Datos", "Exportieren Sie Ihre Daten", "Извезете ги Вашите Податоци"),
+      description: sq(lang, "Shkarkoni të gjitha të dhënat e biznesit tuaj në formatin e preferuar para se të konfirmoni.", "Download all your business data in your preferred format before confirming.", "Descargue todos los datos de su negocio en su formato preferido antes de confirmar.", "Laden Sie alle Ihre Geschäftsdaten in Ihrem bevorzugten Format herunter, bevor Sie bestätigen.", "Преземете ги сите ваши деловни податоци во вашиот претпочитан формат пред потврдување.")
     },
     {
       step: "4",
-      title: "Confirm Cancellation",
-      description: "Review the cancellation details and confirm to complete the process."
+      title: sq(lang, "Konfirmoni Anulimin", "Confirm Cancellation", "Confirmar Cancelación", "Kündigung Bestätigen", "Потврдете Откажување"),
+      description: sq(lang, "Rishikoni detajet e anulimit dhe konfirmoni për të përfunduar procesin.", "Review the cancellation details and confirm to complete the process.", "Revise los detalles de cancelación y confirme para completar el proceso.", "Überprüfen Sie die Kündigungsdetails und bestätigen Sie, um den Vorgang abzuschließen.", "Прегледајте ги деталите за откажување и потврдете за да го завршите процесот.")
     }
   ];
 
@@ -92,16 +108,16 @@ const CancelAnytimePage = () => {
             {/* Center - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
               <Button variant="ghost" onClick={() => go("/about")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                About Us
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                Features
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                Pricing
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                Contact Us
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
               </Button>
             </div>
 
@@ -112,7 +128,7 @@ const CancelAnytimePage = () => {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                Login
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
               </Button>
               <Button 
                 variant="outline"
@@ -142,19 +158,19 @@ const CancelAnytimePage = () => {
           <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-6 py-4 space-y-4">
               <Button variant="ghost" onClick={() => go("/about")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                About Us
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                Features
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                Pricing
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                Contact Us
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
               </Button>
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="w-full justify-start text-gray-600 dark:text-gray-300">
-                Login
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
               </Button>
               <Button onClick={() => go("/subscribe")} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
               <Button onClick={() => go("/trial")} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
@@ -179,19 +195,19 @@ const CancelAnytimePage = () => {
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
               <AlertCircle className="w-4 h-4 mr-2 text-gray-700" />
-              Try Risk-Free Today
+              {sq(lang, "Provoni Pa Rrezik Sot", "Try Risk-Free Today", "Pruebe Sin Riesgo Hoy", "Heute Risikofrei Testen", "Пробајте Без Ризик Денес")}
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                Try <span className="animate-subtle-gradient">Risk-Free</span>
+                {sq(lang, "Provoni", "Try", "Pruebe", "Testen Sie", "Пробајте")} <span className="animate-subtle-gradient">{sq(lang, "Pa Rrezik", "Risk-Free", "Sin Riesgo", "Risikofrei", "Без Ризик")}</span>
               </span>
               <br />
-              <span className="text-gray-900 drop-shadow-lg">Today</span>
+              <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес")}</span>
             </h1>
             
             <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
-              Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.
+              {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.")}
             </p>
 
 
@@ -204,10 +220,10 @@ const CancelAnytimePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
-              True <span className="animate-subtle-gradient">Flexibility</span>
+              {sq(lang, "Fleksibilitet i", "True", "Verdadera", "Echte", "Вистинска")} <span className="animate-subtle-gradient">{sq(lang, "Vërtetë", "Flexibility", "Flexibilidad", "Flexibilität", "Флексибилност")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our cancellation policy is designed with your business needs in mind. No surprises, no complications.
+              {sq(lang, "Politika jonë e anulimit është dizajnuar me nevojat e biznesit tuaj në mendje. Pa surpriza, pa komplikime.", "Our cancellation policy is designed with your business needs in mind. No surprises, no complications.", "Nuestra política de cancelación está diseñada pensando en las necesidades de su negocio. Sin sorpresas, sin complicaciones.", "Unsere Kündigungsrichtlinie ist auf Ihre Geschäftsanforderungen zugeschnitten. Keine Überraschungen, keine Komplikationen.", "Нашата политика за откажување е дизајнирана со потребите на вашиот бизнис на ум. Без изненадувања, без компликации.")}
             </p>
           </div>
 
@@ -242,10 +258,10 @@ const CancelAnytimePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              How to <span className="animate-gradient-x bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">Cancel</span>
+              {sq(lang, "Si të", "How to", "Cómo", "Wie man", "Како да")} <span className="animate-gradient-x bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Anuloni", "Cancel", "Cancelar", "Kündigen", "Откажете")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Canceling your subscription is simple and straightforward. Follow these easy steps.
+              {sq(lang, "Anulimi i abonimit tuaj është i thjeshtë dhe i drejtpërdrejtë. Ndiqni këto hapa të lehtë.", "Canceling your subscription is simple and straightforward. Follow these easy steps.", "Cancelar su suscripción es simple y directo. Siga estos sencillos pasos.", "Die Kündigung Ihres Abonnements ist einfach und unkompliziert. Befolgen Sie diese einfachen Schritte.", "Откажувањето на вашата претплата е едноставно и директно. Следете ги овие лесни чекори.")}
             </p>
           </div>
 
@@ -279,11 +295,10 @@ const CancelAnytimePage = () => {
 
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
-            Try Risk-Free <span className="text-gray-900 drop-shadow-lg">Today</span>
+            {sq(lang, "Provoni Pa Rrezik", "Try Risk-Free", "Pruebe Sin Riesgo", "Risikofrei Testen", "Пробајте Без Ризик")} <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес")}</span>
           </h2>
           <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
-            Start your free trial knowing you can cancel anytime without any complications. 
-            Experience the full power of BusinessFlow Pro with complete peace of mind.
+            {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.")}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -293,7 +308,7 @@ const CancelAnytimePage = () => {
               className="px-8 py-4 bg-gray-900 text-white hover:bg-gray-800 rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
             >
               <Star className="w-5 h-5 mr-2" />
-              Start Free Trial
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба")}
             </Button>
             <Button 
               size="lg"
@@ -301,7 +316,7 @@ const CancelAnytimePage = () => {
               onClick={() => go("/subscribe")}
               className="px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
             >
-              View Pricing Plans
+              {sq(lang, "Shiko Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Ansehen", "Погледни Ценовни Планови")}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>

@@ -35,75 +35,75 @@ const SuccessStories = () => {
   const stories = [
     {
       company: "TechFlow Solutions",
-      industry: "Technology Consulting",
-      size: "45 employees",
+      industry: sq(lang, "Konsulencë Teknologjike", "Technology Consulting", "Consultoría Tecnológica", "Technologieberatung", "Технолошко Консултирање"),
+      size: sq(lang, "45 punonjës", "45 employees", "45 empleados", "45 Mitarbeiter", "45 вработени"),
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
       logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=80&h=80&fit=crop",
-      challenge: "Manual invoice processing was taking 40+ hours per month, causing cash flow delays and client frustration.",
-      solution: "Implemented automated invoicing, expense tracking, and client management system with payment reminders.",
+      challenge: sq(lang, "Përpunimi manual i faturave po merrte 40+ orë në muaj, duke shkaktuar vonesa në rrjedhën e parave dhe zhgënjim te klientët.", "Manual invoice processing was taking 40+ hours per month, causing cash flow delays and client frustration.", "El procesamiento manual de facturas tomaba más de 40 horas al mes, causando retrasos en el flujo de caja y frustración del cliente.", "Die manuelle Rechnungsbearbeitung dauerte über 40 Stunden pro Monat und verursachte Cashflow-Verzögerungen und Kundenfrust.", "Рачната обработка на фактури одземаше 40+ часа месечно, предизвикувајќи доцнења во готовинскиот тек и фрустрација кај клиентите."),
+      solution: sq(lang, "Zbatoi faturim të automatizuar, gjurmim shpenzimesh dhe sistem menaxhimi klientësh me kujtesa pagesash.", "Implemented automated invoicing, expense tracking, and client management system with payment reminders.", "Implementó facturación automatizada, seguimiento de gastos y sistema de gestión de clientes con recordatorios de pago.", "Implementierte automatisierte Rechnungsstellung, Ausgabenverfolgung und Kundenmanagementsystem mit Zahlungserinnerungen.", "Имплементираше автоматизирано фактурирање, следење на трошоци и систем за управување со клиенти со потсетници за плаќање."),
       results: [
-        { metric: "Invoice Processing Time", before: "40 hours/month", after: "4 hours/month", improvement: "90% reduction" },
-        { metric: "Payment Collection", before: "45 days average", after: "18 days average", improvement: "60% faster" },
-        { metric: "Client Satisfaction", before: "3.2/5 stars", after: "4.8/5 stars", improvement: "50% increase" }
+        { metric: sq(lang, "Koha e Përpunimit të Faturave", "Invoice Processing Time", "Tiempo de Procesamiento de Facturas", "Rechnungsbearbeitungszeit", "Време на Обработка на Фактури"), before: sq(lang, "40 orë/muaj", "40 hours/month", "40 horas/mes", "40 Stunden/Monat", "40 часа/месец"), after: sq(lang, "4 orë/muaj", "4 hours/month", "4 horas/mes", "4 Stunden/Monat", "4 часа/месец"), improvement: sq(lang, "90% reduktim", "90% reduction", "90% reducción", "90% Reduzierung", "90% намалување") },
+        { metric: sq(lang, "Arkëtimi i Pagesave", "Payment Collection", "Cobro de Pagos", "Zahlungseinzug", "Наплата на Плаќања"), before: sq(lang, "45 ditë mesatare", "45 days average", "45 días promedio", "45 Tage Durchschnitt", "45 дена просек"), after: sq(lang, "18 ditë mesatare", "18 days average", "18 días promedio", "18 Tage Durchschnitt", "18 дена просек"), improvement: sq(lang, "60% më shpejt", "60% faster", "60% más rápido", "60% schneller", "60% побрзо") },
+        { metric: sq(lang, "Kënaqësia e Klientëve", "Client Satisfaction", "Satisfacción del Cliente", "Kundenzufriedenheit", "Задоволство на Клиенти"), before: "3.2/5", after: "4.8/5", improvement: sq(lang, "50% rritje", "50% increase", "50% aumento", "50% Steigerung", "50% зголемување") }
       ],
-      testimonial: "Clientlly transformed our entire billing process. We've recovered 27 hours per month that we now invest in client delivery and business growth.",
+      testimonial: sq(lang, "Clientlly transformoi të gjithë procesin tonë të faturimit. Kemi rikuperuar 27 orë në muaj që tani i investojmë në dorëzimin e klientëve dhe rritjen e biznesit.", "Clientlly transformed our entire billing process. We've recovered 27 hours per month that we now invest in client delivery and business growth.", "Clientlly transformó todo nuestro proceso de facturación. Hemos recuperado 27 horas al mes que ahora invertimos en entrega al cliente y crecimiento empresarial.", "Clientlly hat unseren gesamten Abrechnungsprozess transformiert. Wir haben 27 Stunden pro Monat zurückgewonnen, die wir jetzt in Kundenlieferung und Geschäftswachstum investieren.", "Clientlly го трансформираше целиот наш процес на фактурирање. Вративме 27 часа месечно кои сега ги инвестираме во испорака до клиенти и деловен раст."),
       person: "Sarah Chen",
-      position: "CEO & Founder",
-      timeframe: "6 months"
+      position: sq(lang, "CEO & Themeluese", "CEO & Founder", "CEO y Fundadora", "CEO & Gründerin", "CEO и Основач"),
+      timeframe: sq(lang, "6 muaj", "6 months", "6 meses", "6 Monate", "6 месеци")
     },
     {
       company: "Green Valley Manufacturing",
-      industry: "Sustainable Manufacturing",
-      size: "120 employees",
+      industry: sq(lang, "Prodhim i Qëndrueshëm", "Sustainable Manufacturing", "Manufactura Sostenible", "Nachhaltige Fertigung", "Одржливо Производство"),
+      size: sq(lang, "120 punonjës", "120 employees", "120 empleados", "120 Mitarbeiter", "120 вработени"),
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
       logo: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=80&h=80&fit=crop",
-      challenge: "Inventory management chaos leading to €85,000 in annual stockout losses and supplier payment delays.",
-      solution: "Deployed comprehensive inventory tracking, vendor management, and automated purchasing workflows.",
+      challenge: sq(lang, "Kaos në menaxhimin e inventarit duke çuar në €85,000 humbje vjetore nga mungesa e stokut dhe vonesa në pagesat e furnitorëve.", "Inventory management chaos leading to €85,000 in annual stockout losses and supplier payment delays.", "Caos en la gestión de inventario que generaba €85,000 en pérdidas anuales por desabastecimiento y retrasos en pagos a proveedores.", "Chaos in der Bestandsverwaltung, das zu €85.000 jährlichen Verlusten durch Fehlbestände und Verzögerungen bei Lieferantenzahlungen führte.", "Хаос во управувањето со инвентар што доведе до €85.000 годишни загуби од недостиг на залихи и доцнења во плаќања на добавувачи."),
+      solution: sq(lang, "Vendosi gjurmim gjithëpërfshirës të inventarit, menaxhim furnitorësh dhe rrjedha pune automatike blerjesh.", "Deployed comprehensive inventory tracking, vendor management, and automated purchasing workflows.", "Implementó seguimiento integral de inventario, gestión de proveedores y flujos de trabajo de compras automatizados.", "Umfassendes Bestandstracking, Lieferantenmanagement und automatisierte Einkaufsworkflows eingeführt.", "Имплементираше сеопфатно следење на инвентар, управување со добавувачи и автоматизирани работни текови за набавка."),
       results: [
-        { metric: "Stockout Incidents", before: "24 per month", after: "2 per month", improvement: "92% reduction" },
-        { metric: "Inventory Carrying Costs", before: "€180,000/year", after: "€120,000/year", improvement: "33% savings" },
-        { metric: "Supplier Payment Accuracy", before: "78% on-time", after: "99% on-time", improvement: "27% improvement" }
+        { metric: sq(lang, "Incidentet e Mungesës së Stokut", "Stockout Incidents", "Incidentes de Desabastecimiento", "Fehlbestandsvorfälle", "Инциденти со Недостиг"), before: sq(lang, "24 në muaj", "24 per month", "24 por mes", "24 pro Monat", "24 месечно"), after: sq(lang, "2 në muaj", "2 per month", "2 por mes", "2 pro Monat", "2 месечно"), improvement: sq(lang, "92% reduktim", "92% reduction", "92% reducción", "92% Reduzierung", "92% намалување") },
+        { metric: sq(lang, "Kostot e Mbajtjes së Inventarit", "Inventory Carrying Costs", "Costos de Inventario", "Bestandshaltungskosten", "Трошоци за Инвентар"), before: "€180,000", after: "€120,000", improvement: sq(lang, "33% kursim", "33% savings", "33% ahorro", "33% Einsparung", "33% заштеда") },
+        { metric: sq(lang, "Saktësia e Pagesave të Furnitorëve", "Supplier Payment Accuracy", "Precisión de Pagos a Proveedores", "Genauigkeit der Lieferantenzahlungen", "Точност на Плаќања на Добавувачи"), before: sq(lang, "78% në kohë", "78% on-time", "78% a tiempo", "78% pünktlich", "78% навреме"), after: sq(lang, "99% në kohë", "99% on-time", "99% a tiempo", "99% pünktlich", "99% навреме"), improvement: sq(lang, "27% përmirësim", "27% improvement", "27% mejora", "27% Verbesserung", "27% подобрување") }
       ],
-      testimonial: "The ROI was immediate. We saved €85,000 in the first year alone and our supplier relationships have never been stronger.",
+      testimonial: sq(lang, "Kthimi i investimit ishte i menjëhershëm. Kursuam €85,000 vetëm në vitin e parë dhe marrëdhëniet tona me furnitorët nuk kanë qenë kurrë më të forta.", "The ROI was immediate. We saved €85,000 in the first year alone and our supplier relationships have never been stronger.", "El ROI fue inmediato. Ahorramos €85,000 solo en el primer año y nuestras relaciones con proveedores nunca han sido más fuertes.", "Der ROI war sofort spürbar. Wir haben allein im ersten Jahr €85.000 gespart und unsere Lieferantenbeziehungen waren noch nie so stark.", "ROI беше моментален. Заштедивме €85.000 само во првата година, а нашите односи со добавувачите никогаш не биле посилни."),
       person: "Marcus Weber",
-      position: "Operations Director",
-      timeframe: "12 months"
+      position: sq(lang, "Drejtor i Operacioneve", "Operations Director", "Director de Operaciones", "Betriebsleiter", "Директор на Операции"),
+      timeframe: sq(lang, "12 muaj", "12 months", "12 meses", "12 Monate", "12 месеци")
     },
     {
       company: "Creative Studios Europe",
-      industry: "Digital Marketing Agency",
-      size: "28 employees",
+      industry: sq(lang, "Agjenci Marketingu Digjital", "Digital Marketing Agency", "Agencia de Marketing Digital", "Digitale Marketingagentur", "Дигитална Маркетинг Агенција"),
+      size: sq(lang, "28 punonjës", "28 employees", "28 empleados", "28 Mitarbeiter", "28 вработени"),
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop",
       logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=80&h=80&fit=crop",
-      challenge: "Project profitability was unclear, leading to underpriced contracts and 15% profit margins.",
-      solution: "Implemented time tracking, project costing, and client profitability analysis with automated reporting.",
+      challenge: sq(lang, "Përfitueshmëria e projekteve ishte e paqartë, duke çuar në kontrata me çmime të ulëta dhe marzhe fitimi 15%.", "Project profitability was unclear, leading to underpriced contracts and 15% profit margins.", "La rentabilidad de los proyectos era poco clara, lo que llevaba a contratos subvalorados y márgenes de ganancia del 15%.", "Die Projektrentabilität war unklar, was zu unterbewerteten Verträgen und 15% Gewinnmargen führte.", "Профитабилноста на проектите беше нејасна, што доведе до потценети договори и профитни маржи од 15%."),
+      solution: sq(lang, "Zbatoi gjurmimin e kohës, llogaritjen e kostove të projekteve dhe analizën e përfitueshmërisë së klientëve me raportim të automatizuar.", "Implemented time tracking, project costing, and client profitability analysis with automated reporting.", "Implementó seguimiento de tiempo, costeo de proyectos y análisis de rentabilidad de clientes con informes automatizados.", "Implementierte Zeiterfassung, Projektkostenrechnung und Kundenrentabilitätsanalyse mit automatisierten Berichten.", "Имплементираше следење на време, пресметка на проектни трошоци и анализа на профитабилност на клиенти со автоматизирано известување."),
       results: [
-        { metric: "Profit Margins", before: "15% average", after: "32% average", improvement: "113% increase" },
-        { metric: "Project Delivery Time", before: "20% over deadline", after: "95% on-time", improvement: "400% improvement" },
-        { metric: "Client Retention", before: "68%", after: "89%", improvement: "31% increase" }
+        { metric: sq(lang, "Marzhet e Fitimit", "Profit Margins", "Márgenes de Ganancia", "Gewinnmargen", "Профитни Маржи"), before: sq(lang, "15% mesatare", "15% average", "15% promedio", "15% Durchschnitt", "15% просек"), after: sq(lang, "32% mesatare", "32% average", "32% promedio", "32% Durchschnitt", "32% просек"), improvement: sq(lang, "113% rritje", "113% increase", "113% aumento", "113% Steigerung", "113% зголемување") },
+        { metric: sq(lang, "Koha e Dorëzimit të Projektit", "Project Delivery Time", "Tiempo de Entrega del Proyecto", "Projektlieferzeit", "Време на Испорака на Проект"), before: sq(lang, "20% me vonesë", "20% over deadline", "20% fuera de plazo", "20% über Frist", "20% по рок"), after: sq(lang, "95% në kohë", "95% on-time", "95% a tiempo", "95% pünktlich", "95% навреме"), improvement: sq(lang, "400% përmirësim", "400% improvement", "400% mejora", "400% Verbesserung", "400% подобрување") },
+        { metric: sq(lang, "Mbajtja e Klientëve", "Client Retention", "Retención de Clientes", "Kundenbindung", "Задржување на Клиенти"), before: "68%", after: "89%", improvement: sq(lang, "31% rritje", "31% increase", "31% aumento", "31% Steigerung", "31% зголемување") }
       ],
-      testimonial: "We finally understand which clients and projects are actually profitable. Our business has doubled in size with better margins.",
+      testimonial: sq(lang, "Më në fund e kuptojmë se cilët klientë dhe projekte janë realisht fitimprurëse. Biznesi ynë është dyfishuar në madhësi me marzhe më të mira.", "We finally understand which clients and projects are actually profitable. Our business has doubled in size with better margins.", "Finalmente entendemos qué clientes y proyectos son realmente rentables. Nuestro negocio se ha duplicado en tamaño con mejores márgenes.", "Wir verstehen endlich, welche Kunden und Projekte tatsächlich profitabel sind. Unser Geschäft hat sich mit besseren Margen verdoppelt.", "Конечно разбираме кои клиенти и проекти се всушност профитабилни. Нашиот бизнис се удвои во големина со подобри маржи."),
       person: "Elena Rodriguez",
-      position: "Creative Director",
-      timeframe: "8 months"
+      position: sq(lang, "Drejtoreshë Kreative", "Creative Director", "Directora Creativa", "Kreativdirektorin", "Креативен Директор"),
+      timeframe: sq(lang, "8 muaj", "8 months", "8 meses", "8 Monate", "8 месеци")
     },
     {
       company: "Alpine Logistics Group",
-      industry: "Transportation & Logistics",
-      size: "180 employees",
+      industry: sq(lang, "Transport dhe Logjistikë", "Transportation & Logistics", "Transporte y Logística", "Transport & Logistik", "Транспорт и Логистика"),
+      size: sq(lang, "180 punonjës", "180 employees", "180 empleados", "180 Mitarbeiter", "180 вработени"),
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop",
       logo: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=80&h=80&fit=crop",
-      challenge: "Manual expense reporting was costing 60 hours per week and creating compliance issues with tax authorities.",
-      solution: "Rolled out mobile expense tracking, automated receipt scanning, and real-time expense approval workflows.",
+      challenge: sq(lang, "Raportimi manual i shpenzimeve po kushtonte 60 orë në javë dhe po krijonte probleme përputhshmërie me autoritetet tatimore.", "Manual expense reporting was costing 60 hours per week and creating compliance issues with tax authorities.", "Los informes manuales de gastos costaban 60 horas semanales y creaban problemas de cumplimiento con las autoridades fiscales.", "Die manuelle Spesenabrechnung kostete 60 Stunden pro Woche und verursachte Compliance-Probleme mit den Steuerbehörden.", "Рачното известување за трошоци чинеше 60 часа неделно и создаваше проблеми со усогласеност со даночните органи."),
+      solution: sq(lang, "Vendosi gjurmim mobil të shpenzimeve, skanim automatik faturash dhe rrjedha pune miratimi shpenzimesh në kohë reale.", "Rolled out mobile expense tracking, automated receipt scanning, and real-time expense approval workflows.", "Implementó seguimiento móvil de gastos, escaneo automático de recibos y flujos de trabajo de aprobación de gastos en tiempo real.", "Führte mobile Spesenerfassung, automatisiertes Belegscannen und Echtzeit-Spesengenehmigungsworkflows ein.", "Имплементираше мобилно следење на трошоци, автоматско скенирање на сметки и работни текови за одобрување на трошоци во реално време."),
       results: [
-        { metric: "Expense Processing Time", before: "60 hours/week", after: "8 hours/week", improvement: "87% reduction" },
-        { metric: "Compliance Accuracy", before: "73%", after: "98%", improvement: "34% improvement" },
-        { metric: "Employee Satisfaction", before: "2.8/5", after: "4.6/5", improvement: "64% increase" }
+        { metric: sq(lang, "Koha e Përpunimit të Shpenzimeve", "Expense Processing Time", "Tiempo de Procesamiento de Gastos", "Spesenbearbeitungszeit", "Време за Обработка на Трошоци"), before: sq(lang, "60 orë/javë", "60 hours/week", "60 horas/semana", "60 Stunden/Woche", "60 часа/недела"), after: sq(lang, "8 orë/javë", "8 hours/week", "8 horas/semana", "8 Stunden/Woche", "8 часа/недела"), improvement: sq(lang, "87% reduktim", "87% reduction", "87% reducción", "87% Reduzierung", "87% намалување") },
+        { metric: sq(lang, "Saktësia e Përputhshmërisë", "Compliance Accuracy", "Precisión de Cumplimiento", "Compliance-Genauigkeit", "Точност на Усогласеност"), before: "73%", after: "98%", improvement: sq(lang, "34% përmirësim", "34% improvement", "34% mejora", "34% Verbesserung", "34% подобрување") },
+        { metric: sq(lang, "Kënaqësia e Punonjësve", "Employee Satisfaction", "Satisfacción de Empleados", "Mitarbeiterzufriedenheit", "Задоволство на Вработени"), before: "2.8/5", after: "4.6/5", improvement: sq(lang, "64% rritje", "64% increase", "64% aumento", "64% Steigerung", "64% зголемување") }
       ],
-      testimonial: "Our drivers love the mobile app, and our accounting team finally has time to focus on strategic financial planning instead of data entry.",
+      testimonial: sq(lang, "Drejtuesit tanë e duan aplikacionin mobil, dhe ekipi ynë i kontabilitetit më në fund ka kohë të fokusohet në planifikim financiar strategjik në vend të futjes së të dhënave.", "Our drivers love the mobile app, and our accounting team finally has time to focus on strategic financial planning instead of data entry.", "Nuestros conductores adoran la aplicación móvil, y nuestro equipo de contabilidad finalmente tiene tiempo para enfocarse en la planificación financiera estratégica en lugar de la entrada de datos.", "Unsere Fahrer lieben die mobile App, und unser Buchhaltungsteam hat endlich Zeit, sich auf die strategische Finanzplanung statt auf die Dateneingabe zu konzentrieren.", "Нашите возачи ја сакаат мобилната апликација, а нашиот тим за сметководство конечно има време да се фокусира на стратешко финансиско планирање наместо на внесување податоци."),
       person: "Hans Mueller",
       position: "CFO",
-      timeframe: "4 months"
+      timeframe: sq(lang, "4 muaj", "4 months", "4 meses", "4 Monate", "4 месеци")
     }
   ];
 
@@ -136,16 +136,16 @@ const SuccessStories = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                About Us
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
               </Link>
               <button onClick={() => handleNavigation('/#features')} className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                Features
+                {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}
               </button>
               <Link href="/subscribe" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                Pricing
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
               </Link>
               <Link href="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                Contact Us
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
               </Link>
               
               <div className="flex items-center space-x-4">
@@ -181,16 +181,16 @@ const SuccessStories = () => {
             <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200/20 dark:border-gray-700/20">
               <div className="px-4 pt-2 pb-4 space-y-2">
                 <Link href="/about" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  About Us
+                  {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
                 </Link>
                 <button onClick={() => handleNavigation('/#features')} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium text-left w-full">
-                  Features
+                  {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}
                 </button>
                 <Link href="/subscribe" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  Pricing
+                  {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
                 </Link>
                 <Link href="/contact" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  Contact Us
+                  {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
                 </Link>
                 <div className="pt-4 space-y-2">
                   <Button 
@@ -214,7 +214,6 @@ const SuccessStories = () => {
       {/* Hero Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          {/* Floating sparkles */}
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
@@ -232,14 +231,13 @@ const SuccessStories = () => {
         <div className="max-w-4xl mx-auto text-center">
           <Badge className="mb-6 bg-white/20 text-black border-white/30 text-lg px-6 py-2">
             <Award className="w-5 h-5 mr-2" />
-            Real Results
+            {sq(lang, "Rezultate Reale", "Real Results", "Resultados Reales", "Echte Ergebnisse", "Реални Резултати")}
           </Badge>
           <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-professional-fade">
-            Customer <span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Success Stories</span>
+            {sq(lang, "Historitë e", "Customer ", "Historias de ", "Kunden", "Приказни за ")}<span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Suksesit të Klientëve", "Success Stories", "Éxito de Clientes", "Erfolgsgeschichten", "Успех на Клиенти")}</span>
           </h1>
           <p className="text-xl text-black/80 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Discover how businesses across Europe are transforming their operations, 
-            increasing profitability, and achieving sustainable growth with our comprehensive management platform.
+            {sq(lang, "Zbuloni se si bizneset në mbarë Evropën po transformojnë operacionet e tyre, rritin përfitueshmërinë dhe arrijnë rritje të qëndrueshme me platformën tonë gjithëpërfshirëse të menaxhimit.", "Discover how businesses across Europe are transforming their operations, increasing profitability, and achieving sustainable growth with our comprehensive management platform.", "Descubra cómo las empresas en toda Europa están transformando sus operaciones, aumentando la rentabilidad y logrando un crecimiento sostenible con nuestra plataforma integral de gestión.", "Entdecken Sie, wie Unternehmen in ganz Europa ihre Abläufe transformieren, die Rentabilität steigern und nachhaltiges Wachstum mit unserer umfassenden Management-Plattform erzielen.", "Откријте како бизнисите низ Европа ги трансформираат своите операции, ја зголемуваат профитабилноста и постигнуваат одржлив раст со нашата сеопфатна платформа за управување.")}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -248,7 +246,7 @@ const SuccessStories = () => {
               onClick={() => go("/trial")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              Start Your Success Story
+              {sq(lang, "Fillo Historinë Tënde të Suksesit", "Start Your Success Story", "Comienza Tu Historia de Éxito", "Starten Sie Ihre Erfolgsgeschichte", "Започнете Ја Вашата Приказна за Успех")}
             </Button>
             <Button 
               size="lg"
@@ -256,7 +254,7 @@ const SuccessStories = () => {
               onClick={() => go("/subscribe")}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
-              See Pricing
+              {sq(lang, "Shiko Çmimet", "See Pricing", "Ver Precios", "Preise Ansehen", "Видете Цени")}
             </Button>
           </div>
         </div>
@@ -267,11 +265,10 @@ const SuccessStories = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-gray-900 dark:text-white mb-6 animate-professional-fade">
-              Transforming <span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Businesses</span> Across Europe
+              {sq(lang, "Transformimi i", "Transforming ", "Transformando ", "Transformation von ", "Трансформација на ")}<span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Bizneseve në Mbarë Evropën", "Businesses Across Europe", "Negocios en Toda Europa", "Unternehmen in Ganz Europa", "Бизниси низ Европа")}</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              From startups to established enterprises, see how our platform delivers measurable results 
-              and drives sustainable business growth.
+              {sq(lang, "Nga startup-et te ndërmarrjet e konsoliduara, shikoni si platforma jonë jep rezultate të matshme dhe nxit rritje të qëndrueshme të biznesit.", "From startups to established enterprises, see how our platform delivers measurable results and drives sustainable business growth.", "Desde startups hasta empresas establecidas, vea cómo nuestra plataforma ofrece resultados medibles e impulsa el crecimiento empresarial sostenible.", "Von Startups bis zu etablierten Unternehmen – sehen Sie, wie unsere Plattform messbare Ergebnisse liefert und nachhaltiges Geschäftswachstum fördert.", "Од стартапи до воспоставени претпријатија, видете како нашата платформа дава мерливи резултати и поттикнува одржлив деловен раст.")}
             </p>
           </div>
 
@@ -321,12 +318,12 @@ const SuccessStories = () => {
 
                   <div className="space-y-4">
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Challenge</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{sq(lang, "Sfida", "Challenge", "Desafío", "Herausforderung", "Предизвик")}</h4>
                       <p className="text-gray-600 dark:text-gray-300">{story.challenge}</p>
                     </div>
                     
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Solution</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{sq(lang, "Zgjidhja", "Solution", "Solución", "Lösung", "Решение")}</h4>
                       <p className="text-gray-600 dark:text-gray-300">{story.solution}</p>
                     </div>
                   </div>
@@ -336,8 +333,8 @@ const SuccessStories = () => {
                       <Card key={resultIndex} className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-blue-200/50 dark:border-blue-700/50">
                         <CardContent className="p-4 text-center">
                           <h5 className="font-semibold text-gray-900 dark:text-white text-sm mb-1">{result.metric}</h5>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Before: {result.before}</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">After: {result.after}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{sq(lang, "Para", "Before", "Antes", "Vorher", "Пред")}: {result.before}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{sq(lang, "Pas", "After", "Después", "Nachher", "После")}: {result.after}</p>
                           <Badge className="bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400 text-xs">
                             {result.improvement}
                           </Badge>
@@ -375,7 +372,6 @@ const SuccessStories = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          {/* Floating sparkles */}
           {[...Array(15)].map((_, i) => (
             <div
               key={i}
@@ -392,11 +388,10 @@ const SuccessStories = () => {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 animate-professional-fade">
-            Ready to Write Your <span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Success Story</span>?
+            {sq(lang, "Gati të Shkruani Historinë Tuaj të", "Ready to Write Your ", "¿Listo para Escribir Su Historia de ", "Bereit, Ihre ", "Подготвени да ја Напишете Вашата ")}<span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Suksesit?", "Success Story?", "Éxito?", "Erfolgsgeschichte zu Schreiben?", "Приказна за Успех?")}</span>
           </h2>
           <p className="text-xl text-black/80 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Join thousands of businesses that have transformed their operations and accelerated growth. 
-            Start your 14-day free trial today and experience the difference.
+            {sq(lang, "Bashkohuni me mijëra biznese që kanë transformuar operacionet e tyre dhe kanë përshpejtuar rritjen. Filloni provën tuaj falas 14-ditore sot dhe përjetoni ndryshimin.", "Join thousands of businesses that have transformed their operations and accelerated growth. Start your 14-day free trial today and experience the difference.", "Únase a miles de empresas que han transformado sus operaciones y acelerado su crecimiento. Comience su prueba gratuita de 14 días hoy y experimente la diferencia.", "Schließen Sie sich Tausenden von Unternehmen an, die ihre Abläufe transformiert und das Wachstum beschleunigt haben. Starten Sie noch heute Ihre 14-tägige kostenlose Testversion und erleben Sie den Unterschied.", "Придружете се на илјадници бизниси кои ги трансформирале своите операции и го забрзале растот. Започнете ја вашата 14-дневна бесплатна проба денес и доживејте ја разликата.")}
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -404,24 +399,24 @@ const SuccessStories = () => {
               <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white mb-4 mx-auto">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-black mb-2">14-Day Free Trial</h3>
-              <p className="text-black/70 text-sm">Full access to all features with no credit card required</p>
+              <h3 className="text-lg font-bold text-black mb-2">{sq(lang, "Provë Falas 14-Ditore", "14-Day Free Trial", "Prueba Gratis de 14 Días", "14-Tage Kostenlose Testversion", "14-Дневна Бесплатна Проба")}</h3>
+              <p className="text-black/70 text-sm">{sq(lang, "Akses i plotë në të gjitha veçoritë pa kartë krediti", "Full access to all features with no credit card required", "Acceso completo a todas las funciones sin tarjeta de crédito", "Vollzugriff auf alle Funktionen ohne Kreditkarte", "Целосен пристап до сите функции без кредитна картичка")}</p>
             </div>
             
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
               <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white mb-4 mx-auto">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-black mb-2">Expert Onboarding</h3>
-              <p className="text-black/70 text-sm">Personal setup assistance and best practice guidance</p>
+              <h3 className="text-lg font-bold text-black mb-2">{sq(lang, "Hyrje me Ekspert", "Expert Onboarding", "Incorporación Experta", "Experten-Onboarding", "Стручно Вклучување")}</h3>
+              <p className="text-black/70 text-sm">{sq(lang, "Asistencë personale për vendosjen dhe udhëzime për praktikat më të mira", "Personal setup assistance and best practice guidance", "Asistencia personal de configuración y orientación de mejores prácticas", "Persönliche Einrichtungshilfe und Best-Practice-Anleitung", "Лична помош за поставување и водство за најдобри практики")}</p>
             </div>
             
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
               <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white mb-4 mx-auto">
                 <Zap className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-black mb-2">Instant Results</h3>
-              <p className="text-black/70 text-sm">See improvements in efficiency within the first week</p>
+              <h3 className="text-lg font-bold text-black mb-2">{sq(lang, "Rezultate të Menjëhershme", "Instant Results", "Resultados Instantáneos", "Sofortige Ergebnisse", "Моментални Резултати")}</h3>
+              <p className="text-black/70 text-sm">{sq(lang, "Shikoni përmirësime në efikasitet brenda javës së parë", "See improvements in efficiency within the first week", "Vea mejoras en la eficiencia dentro de la primera semana", "Sehen Sie Effizienzverbesserungen innerhalb der ersten Woche", "Видете подобрувања во ефикасноста во првата недела")}</p>
             </div>
           </div>
           
@@ -438,7 +433,7 @@ const SuccessStories = () => {
               onClick={() => go("/contact")}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
-              Schedule a Demo
+              {sq(lang, "Planifiko një Demo", "Schedule a Demo", "Programar una Demo", "Demo Vereinbaren", "Закажете Демо")}
             </Button>
           </div>
         </div>
