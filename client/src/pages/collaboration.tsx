@@ -183,29 +183,25 @@ export default function CollaborationPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-20">
+      <section className="pt-16 bg-gradient-to-br from-indigo-700 via-indigo-600 to-violet-600 overflow-hidden relative">
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-16 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-16 w-56 h-56 bg-orange-300 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-16 w-56 h-56 bg-violet-300 rounded-full blur-3xl"></div>
         </div>
-        <div className="absolute top-8 right-14 w-3 h-3 bg-white rounded-full animate-bounce opacity-60"></div>
-        <div className="absolute top-20 left-24 w-2 h-2 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.4s"}}></div>
-        <div className="absolute bottom-12 left-1/3 w-2 h-2 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay:"0.7s"}}></div>
-        <div className="absolute top-1/2 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.2s"}}></div>
 
         <div className="max-w-6xl mx-auto px-6 py-20 relative">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-black/10 backdrop-blur-sm border border-black/10 rounded-full px-4 py-2 mb-6">
-              <Sparkles className="h-4 w-4 text-black" />
-              <span className="text-sm font-semibold text-black">{sq(lang, "Ekskluzive për Abonentët", "Exclusive for Subscribers")}</span>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+              <Sparkles className="h-4 w-4 text-white" />
+              <span className="text-sm font-semibold text-white">{sq(lang, "Ekskluzive për Abonentët", "Exclusive for Subscribers")}</span>
             </div>
-            <h1 className="text-5xl lg:text-6xl font-extrabold text-black mb-6 leading-tight tracking-tight">
+            <h1 className="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
               {sq(lang,
-                <>Le të Rritemi <span className="text-white">Bashkë</span></>,
-                <>Let's Grow <span className="text-white">Together</span></>
+                <>Le të Rritemi <span className="text-amber-300">Bashkë</span></>,
+                <>Let's Grow <span className="text-amber-300">Together</span></>
               )}
             </h1>
-            <p className="text-xl text-black/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
               {sq(lang,
                 "Ju sugjeroni — ne ndërtojmë. Çdo veçori e personalizuar zhvillohet falas nga ekipi ynë profesional, drejtpërdrejt në platformën tuaj.",
                 "You suggest — we build. Every custom feature is developed free by our professional team, directly in your platform."
@@ -214,14 +210,14 @@ export default function CollaborationPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={() => window.location.href = '/subscribe'}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all hover:scale-105 shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg"
               >
                 {sq(lang, "Fillo Tani — Falas", "Start Now — Free")}
                 <ArrowRight className="h-4 w-4" />
               </button>
               <button
                 onClick={() => document.getElementById('si-funksionon')?.scrollIntoView({behavior:'smooth'})}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/30 backdrop-blur-sm text-black font-semibold rounded-xl hover:bg-white/50 transition-all border border-black/10"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
               >
                 {sq(lang, "Si Funksionon?", "How It Works?")}
                 <ChevronRight className="h-4 w-4" />
@@ -236,8 +232,8 @@ export default function CollaborationPage() {
                 { value: "1-3 jav", label: sq(lang, "Dërgim", "Delivery") },
               ].map(({ value, label }) => (
                 <div key={value} className="text-center">
-                  <div className="text-2xl font-extrabold text-black">{value}</div>
-                  <div className="text-xs text-black/70 font-medium mt-0.5">{label}</div>
+                  <div className="text-2xl font-extrabold text-white">{value}</div>
+                  <div className="text-xs text-white/60 font-medium mt-0.5">{label}</div>
                 </div>
               ))}
             </div>
@@ -360,20 +356,21 @@ export default function CollaborationPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-6 lg:px-8 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
-        <div className="absolute top-6 right-12 w-3 h-3 bg-white rounded-full animate-bounce opacity-60"></div>
-        <div className="absolute top-14 left-20 w-2 h-2 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.3s"}}></div>
-        <div className="absolute bottom-8 left-1/3 w-2 h-2 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay:"0.6s"}}></div>
+      <section className="py-24 px-6 lg:px-8 bg-gradient-to-br from-indigo-700 via-indigo-600 to-violet-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-violet-300 rounded-full blur-3xl"></div>
+        </div>
 
         <div className="max-w-3xl mx-auto text-center relative">
-          <div className="inline-flex items-center gap-2 bg-black/10 rounded-full px-4 py-2 mb-6">
-            <Sparkles className="h-4 w-4 text-black" />
-            <span className="text-sm font-semibold text-black">{sq(lang, "I disponueshëm në Pro & Enterprise", "Available in Pro & Enterprise")}</span>
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-6">
+            <Sparkles className="h-4 w-4 text-white" />
+            <span className="text-sm font-semibold text-white">{sq(lang, "I disponueshëm në Pro & Enterprise", "Available in Pro & Enterprise")}</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-black mb-4 tracking-tight">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
             {sq(lang, "Gati të ndërtojmë bashkë?", "Ready to build together?")}
           </h2>
-          <p className="text-lg text-black/80 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-white/75 mb-8 max-w-xl mx-auto">
             {sq(lang,
               "Zgjidhni planin Professional ose Enterprise dhe filloni të dërgoni idetë tuaja sot. Ekipi ynë është gati.",
               "Choose the Professional or Enterprise plan and start submitting your ideas today. Our team is ready."
@@ -382,12 +379,12 @@ export default function CollaborationPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => window.location.href = '/subscribe'}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg"
             >
               {sq(lang, "Shiko Planet", "View Plans")}
               <ArrowRight className="h-4 w-4" />
             </button>
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/30 backdrop-blur-sm text-black font-semibold rounded-xl hover:bg-white/50 transition-all border border-black/10">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20">
               {sq(lang, "Na Kontaktoni", "Contact Us")}
             </Link>
           </div>
