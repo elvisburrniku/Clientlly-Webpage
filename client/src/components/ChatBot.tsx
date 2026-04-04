@@ -265,17 +265,43 @@ export default function ChatBot() {
   const [isTyping, setIsTyping] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inactivityTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const resetChat = () => {
+    setIsOpen(false);
+    setMessages([]);
+    setShowWelcome(true);
+    if (inactivityTimer.current) clearTimeout(inactivityTimer.current);
+  };
+
+  const startInactivityTimer = () => {
+    if (inactivityTimer.current) clearTimeout(inactivityTimer.current);
+    inactivityTimer.current = setTimeout(() => {
+      if (messages.length > 0) {
+        setMessages(prev => [...prev, {
+          id: Date.now().toString(),
+          text: "⏳ Duket se nuk keni pyetje të tjera. Biseda do të mbyllet automatikisht. Nëse keni nevojë për ndihmë, na kontaktoni përsëri! 👋",
+          sender: 'bot',
+          timestamp: new Date(),
+        }]);
+        setTimeout(() => resetChat(), 4000);
+      }
+    }, 60000);
+  };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
 
+  useEffect(() => {
+    if (isOpen && messages.length > 0 && !isTyping) {
+      startInactivityTimer();
+    }
+    return () => { if (inactivityTimer.current) clearTimeout(inactivityTimer.current); };
+  }, [messages, isOpen, isTyping]);
+
   const closeChat = () => {
-    setTimeout(() => {
-      setIsOpen(false);
-      setMessages([]);
-      setShowWelcome(true);
-    }, 3000);
+    setTimeout(() => resetChat(), 3000);
   };
 
   const sendBot = (text: string, quickReplies?: string[], autoClose?: boolean) => {
