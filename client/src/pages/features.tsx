@@ -15,7 +15,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 const sq = (lang: string, albanian: string | JSX.Element, english: string | JSX.Element) =>
   lang === 'sq' ? albanian : english;
 
-const CATEGORIES = ["all", "finance", "operations", "hr", "fleet"] as const;
+const CATEGORIES = ["all", "finance", "operations", "fleet", "hr"] as const;
 type Category = typeof CATEGORIES[number];
 
 const features = [
@@ -447,16 +447,16 @@ const categoryLabels: Record<Category, { sq: string; en: string }> = {
   all:        { sq: "Të gjitha",  en: "All" },
   finance:    { sq: "Financë",    en: "Finance" },
   operations: { sq: "Operacione", en: "Operations" },
-  hr:         { sq: "HR & Ekipi", en: "HR & Team" },
   fleet:      { sq: "Flotë Makinash", en: "Fleet" },
+  hr:         { sq: "Burimet Njerëzore", en: "Human Resources" },
 };
 
 const categoryIcons: Record<Category, JSX.Element> = {
   all:        <span>✦</span>,
   finance:    <span>€</span>,
   operations: <Package className="h-3.5 w-3.5" />,
-  hr:         <GraduationCap className="h-3.5 w-3.5" />,
   fleet:      <Car className="h-3.5 w-3.5" />,
+  hr:         <GraduationCap className="h-3.5 w-3.5" />,
 };
 
 export default function Features() {
