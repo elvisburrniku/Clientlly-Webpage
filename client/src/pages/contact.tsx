@@ -343,9 +343,8 @@ export default function Contact() {
               <div className="space-y-1">
                 {[
                   { icon: BookOpen, label: sq(lang, "Dokumentacioni", "Documentation"), href: "/api" },
-                  { icon: Zap, label: sq(lang, "Pyetje të shpeshta", "FAQ"), href: "/features" },
+                  { icon: Zap, label: sq(lang, "Pyetje të shpeshta", "FAQ"), href: "/faq" },
                   { icon: Users, label: sq(lang, "Rreth ekipit tonë", "About our team"), href: "/about" },
-                  { icon: Star, label: sq(lang, "Histori suksesi", "Success stories"), href: "/success-stories" },
                 ].map(({ icon: Icon, label, href }, i) => (
                   <Link key={i} href={href}
                     className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white hover:shadow-sm transition-all group">
