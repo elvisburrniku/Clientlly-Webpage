@@ -92,7 +92,7 @@ export default function Landing() {
   const testimonials = [
     {
       name: "Artan Shala",
-      role: sq(lang, "Pronar, Truly Nolen", "Owner, Truly Nolen"),
+      role: sq(lang, "Truly Nolen", "Truly Nolen"),
       avatar: "AS",
       color: "from-blue-500 to-indigo-600",
       text: sq(lang, "Clientlly na kurseu mbi 12 orë në javë. Faturimi dhe gjurmimi i shpenzimeve janë bërë shumë të thjeshta.", "Clientlly saved us over 12 hours a week. Invoicing and expense tracking became so simple."),
@@ -513,21 +513,24 @@ export default function Landing() {
       </section>
 
       {/* ── COMMUNITY ── */}
-      <section className="py-24 px-6 lg:px-8 bg-indigo-600 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-10">
+      <section className="py-24 px-6 lg:px-8 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden relative">
+        <div className="absolute inset-0 opacity-20">
           <div className="absolute top-8 left-12 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-8 right-12 w-48 h-48 bg-indigo-300 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-8 right-12 w-48 h-48 bg-orange-300 rounded-full blur-3xl"></div>
         </div>
+        <div className="absolute top-6 right-10 w-3 h-3 bg-white rounded-full animate-bounce opacity-60"></div>
+        <div className="absolute top-16 left-20 w-2 h-2 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.3s"}}></div>
+        <div className="absolute bottom-10 left-1/3 w-2 h-2 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay:"0.6s"}}></div>
         <div className="max-w-5xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="anim-fade text-indigo-200 text-sm font-semibold uppercase tracking-widest mb-4">
+              <p className="anim-fade text-amber-900 text-sm font-semibold uppercase tracking-widest mb-4">
                 {sq(lang, "Bashkëpunim", "Collaboration")}
               </p>
-              <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+              <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-black mb-6 leading-tight">
                 {sq(lang, "Le të rritemi bashkë", "Let's grow together")}
               </h2>
-              <p className="anim-rise anim-d1 text-indigo-200 leading-relaxed mb-8">
+              <p className="anim-rise anim-d1 text-amber-900 leading-relaxed mb-8">
                 {sq(lang,
                   "Platforma jonë ndërtohet bashkë me ju. Sugjerojini idetë tuaja dhe ekipi ynë i zhvillimit do t'i realizojë — falas. Suksesi juaj është prioriteti ynë.",
                   "Our platform is built together with you. Share your ideas and our development team will implement them — at no extra cost. Your success is our priority."
@@ -535,7 +538,7 @@ export default function Landing() {
               </p>
               <button
                 onClick={() => window.location.href = "/collaboration"}
-                className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors shadow-sm"
+                className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-colors shadow-sm"
               >
                 {sq(lang, "Mëso Bashkëpunimin", "Explore Collaboration")}
                 <ArrowRight className="h-4 w-4" />
@@ -548,10 +551,10 @@ export default function Landing() {
                 { icon: Globe, title: sq(lang, "Mbështetje Ekspertësh", "Expert Support"), desc: sq(lang, "Qasje direkte te ekipi ynë", "Direct access to our expert team") },
                 { icon: TrendingUp, title: sq(lang, "Rritje e Përbashkët", "Shared Growth"), desc: sq(lang, "Ne rritemi kur rriteni edhe ju", "We grow when you grow") },
               ].map(({ icon: Icon, title, desc }, i) => (
-                <div key={String(title)} className={`anim-scale anim-d${i + 1} p-5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/15 transition-colors`}>
-                  <Icon className="h-5 w-5 text-indigo-200 mb-3" />
-                  <h4 className="text-white font-semibold text-sm mb-1">{title}</h4>
-                  <p className="text-indigo-200 text-xs leading-relaxed">{desc}</p>
+                <div key={String(title)} className={`anim-scale anim-d${i + 1} p-5 bg-white/40 backdrop-blur-sm rounded-xl border border-white/60 hover:bg-white/50 transition-colors`}>
+                  <Icon className="h-5 w-5 text-amber-900 mb-3" />
+                  <h4 className="text-black font-semibold text-sm mb-1">{title}</h4>
+                  <p className="text-amber-900 text-xs leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>
@@ -629,11 +632,11 @@ export default function Landing() {
                         const dash = feature.indexOf("—");
                         const desc = dash !== -1 ? feature.slice(dash) : "";
                         return (
-                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border ${isPopular ? 'bg-white/10 border-white/20' : 'bg-indigo-50 border-indigo-100'}`}>
-                            <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-white' : 'text-indigo-500'}`}>✦</span>
+                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border ${isPopular ? 'bg-amber-400/20 border-amber-300/40' : 'bg-amber-50 border-amber-200'}`}>
+                            <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
                             <span className="text-sm">
-                              <span className={`font-bold ${isPopular ? 'text-white' : 'text-indigo-700'}`}>Le të Rritemi Bashkë</span>
-                              <span className={`${isPopular ? 'text-indigo-200' : 'text-indigo-500'}`}> {desc}</span>
+                              <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
+                              <span className={`${isPopular ? 'text-amber-300' : 'text-amber-600'}`}> {desc}</span>
                             </span>
                           </li>
                         );
