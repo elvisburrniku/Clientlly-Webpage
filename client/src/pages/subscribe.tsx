@@ -442,7 +442,7 @@ export default function Subscribe() {
                 </div>
 
                 <ul className="space-y-2.5 mb-7">
-                  {plan.features.slice(0, 6).map((feature, fi) => {
+                  {plan.features.map((feature, fi) => {
                     const clean = feature.replace(/\*\*/g, '');
                     return (
                       <li key={fi} className="flex items-start gap-2.5">
