@@ -104,13 +104,18 @@ const moduleInfo: Record<string, { icon: any; reply: string; keywords: string[] 
 const generalResponses: { keywords: string[]; reply: string; quickReplies?: string[] }[] = [
   {
     keywords: ['çmim', 'pric', 'kosto', 'plan', 'sa kushton', 'paketë', 'tarif'],
-    reply: "💰 Planet tona janë:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet. Dallimi është vetëm në numrin e përdoruesve dhe faturave. Çmimet vjetore kanë 20% zbritje!",
-    quickReplies: ["Fillo provën falas", "Cili plan më përshtatet?", "A ka zbritje?"],
+    reply: "💰 Planet tona janë:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet e njëjta. Dallimi kryesor është në numrin e përdoruesve dhe në programin \"Le të rritemi bashkë\":\n\n🤝 Starter — mbështetje standarde\n🚀 Professional — zhvillim i personalizuar falas sipas nevojave tuaja\n⭐ Enterprise — zhvillim prioritar me ekip të dedikuar\n\nÇmimet vjetore kanë 20% zbritje!",
+    quickReplies: ["Çfarë është 'Le të rritemi bashkë'?", "Cili plan më përshtatet?", "A ka zbritje?"],
   },
   {
     keywords: ['cili plan', 'më përshtatet', 'rekomand', 'sugjer'],
-    reply: "🎯 Ja si të zgjidhni planin e duhur:\n\n• Starter (€25/muaj) — Ideal për biznese të vogla me 1-3 punonjës dhe deri në 200 fatura/muaj.\n• Professional (€35/muaj) — Për biznese në rritje me 4-10 punonjës dhe deri në 500 fatura/muaj.\n• Enterprise (€50/muaj) — Për kompani më të mëdha me deri në 50 përdorues dhe fatura pa limit.\n\nTë gjithë kanë të njëjtat 16 module. Nëse nuk jeni të sigurt, filloni me provën falas 14-ditore!",
-    quickReplies: ["Fillo provën falas", "Sa kushton vjetori?"],
+    reply: "🎯 Ja si të zgjidhni planin e duhur:\n\n• Starter (€25/muaj) — Ideal për biznese të vogla me 1-3 punonjës. Përfshin të 16 modulet dhe mbështetje standarde.\n\n• Professional (€35/muaj) — Për biznese në rritje me 4-10 punonjës. Përfshin zhvillim të personalizuar FALAS përmes programit \"Le të rritemi bashkë\" — na tregoni çfarë ju nevojitet dhe ne e ndërtojmë për ju!\n\n• Enterprise (€50/muaj) — Për kompani më të mëdha me deri 50 përdorues. Përfshin zhvillim PRIORITAR me ekip të dedikuar dhe fatura pa limit.\n\nNëse nuk jeni të sigurt, filloni me provën falas 14-ditore!",
+    quickReplies: ["Fillo provën falas", "Sa kushton vjetori?", "Çfarë është 'Le të rritemi bashkë'?"],
+  },
+  {
+    keywords: ['rritemi bashkë', 'rritemi', 'zhvillim personal', 'zhvillim falas', 'custom', 'personalizuar', 'kërkes'],
+    reply: "🤝 \"Le të rritemi bashkë\" është programi ynë unik:\n\nIdeja është e thjeshtë — biznesi juaj ka nevoja specifike, dhe ne i zhvillojmë ato FALAS si pjesë e planit tuaj!\n\n📋 Si funksionon:\n1. Ju na tregoni çfarë funksioni ju nevojitet\n2. Ekipi ynë e analizon dhe planifikon zhvillimin\n3. Ne e ndërtojmë dhe integrojmë në platformë\n4. Ju përfitoni pa kosto shtesë!\n\n⚡ Dallimet sipas planit:\n• Starter — mbështetje standarde (pa zhvillim custom)\n• Professional — zhvillim i personalizuar falas, implementim sipas radhës\n• Enterprise — zhvillim PRIORITAR me ekip të dedikuar, implementim i shpejtë\n\nKy program na dallon nga të gjithë konkurrentët — ne rritemi bashkë me ju!",
+    quickReplies: ["Sa kushton Professional?", "Fillo provën falas"],
   },
   {
     keywords: ['zbritj', 'ulje', 'discount', 'ofertë speciale', 'promocion'],
@@ -181,8 +186,8 @@ const generalResponses: { keywords: string[]; reply: string; quickReplies?: stri
   },
   {
     keywords: ['sa përdorues', 'shtoj përdorues', 'limit', 'përdorues shtesë'],
-    reply: "👥 Limitet e përdoruesve sipas planit:\n\n• Starter: Deri në 3 përdorues\n• Professional: Deri në 10 përdorues\n• Enterprise: Deri në 50 përdorues (€1 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha 16 modulet. Mund të vendosni role dhe leje specifike për secilin.",
-    quickReplies: ["Ndrysho planin", "Sa kushton Enterprise?"],
+    reply: "👥 Limitet e përdoruesve sipas planit:\n\n• Starter: Deri në 3 përdorues\n• Professional: Deri në 10 përdorues\n• Enterprise: Deri në 50 përdorues (€1 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha 16 modulet. Mund të vendosni role dhe leje specifike për secilin.\n\nPërveç përdoruesve, plani Professional dhe Enterprise përfshijnë edhe programin \"Le të rritemi bashkë\" — zhvillim të personalizuar sipas nevojave tuaja!",
+    quickReplies: ["Çfarë është 'Le të rritemi bashkë'?", "Ndrysho planin"],
   },
   {
     keywords: ['gjuhë', 'language', 'shqip', 'anglisht', 'maqedonisht'],
