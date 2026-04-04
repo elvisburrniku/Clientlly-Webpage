@@ -431,8 +431,8 @@ export default function Calculator() {
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                    <span>$10K</span>
-                    <span>$2M+</span>
+                    <span>€10K</span>
+                    <span>€2M+</span>
                   </div>
                 </div>
 
@@ -524,8 +524,8 @@ export default function Calculator() {
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                    <span>$0</span>
-                    <span>$5000+</span>
+                    <span>€0</span>
+                    <span>€5000+</span>
                   </div>
                 </div>
 

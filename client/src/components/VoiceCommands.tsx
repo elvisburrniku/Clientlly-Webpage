@@ -164,7 +164,7 @@ export function VoiceCommands() {
   };
 
   const exampleCommands = [
-    "Create invoice for John Smith, $500",
+    "Create invoice for John Smith, €500",
     "Show me this month's expenses",
     "Add new client Microsoft",
     "Schedule meeting for tomorrow 3 PM",

@@ -758,7 +758,7 @@ export default function Dashboard() {
         <div className="grid md:grid-cols-4 gap-6">
           <Card className="glass-effect border-green-200/20 hover-lift scale-in stagger-1 group">
             <CardContent className="p-6">
-              <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">$24,750</div>
+              <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">€24,750</div>
               <p className="text-sm text-muted-foreground">{sq(lang, "Të ardhurat Mujore", "Monthly Revenue", "Ingresos Mensuales", "Monatliche Einnahmen", "Месечни приходи")}</p>
               <div className="w-full bg-green-200 rounded-full h-2 mt-2">
                 <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full w-4/5"></div>

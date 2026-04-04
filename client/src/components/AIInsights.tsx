@@ -225,13 +225,13 @@ export function AIInsights() {
                     {/* Mock prediction data display */}
                     {prediction.predictionType === 'cash_flow' && (
                       <div className="space-y-1">
-                        <p className="text-green-600 font-medium">Projected: +$12,450</p>
+                        <p className="text-green-600 font-medium">Projected: +€12,450</p>
                         <p className="text-xs text-gray-500">Based on current trends</p>
                       </div>
                     )}
                     {prediction.predictionType === 'revenue' && (
                       <div className="space-y-1">
-                        <p className="text-blue-600 font-medium">Expected: $28,900</p>
+                        <p className="text-blue-600 font-medium">Expected: €28,900</p>
                         <p className="text-xs text-gray-500">15% growth anticipated</p>
                       </div>
                     )}

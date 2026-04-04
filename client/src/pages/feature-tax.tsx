@@ -159,19 +159,19 @@ export default function FeatureTax() {
                   </div>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-orange-600">$12,450</div>
+                      <div className="text-2xl font-bold text-orange-600">€12,450</div>
                       <div className="text-sm text-muted-foreground">{sq(lang, "Zbritje Totale", "Total Deductions", "Deducciones Totales", "Gesamtabzüge", "Вкупни одбитоци")}</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">$3,280</div>
+                      <div className="text-2xl font-bold text-green-600">€3,280</div>
                       <div className="text-sm text-muted-foreground">{sq(lang, "Kursime Taksash", "Tax Savings", "Ahorros Fiscales", "Steuerersparnisse", "Даночни заштеди")}</div>
                     </div>
                   </div>
                   <div className="space-y-2">
                     {[
-                      { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци") as string, amount: "$2,450", rate: "50%" },
-                      { category: sq(lang, "Furnizime Zyre", "Office Supplies", "Suministros de Oficina", "Bürobedarf", "Канцелариски материјали") as string, amount: "$1,890", rate: "100%" },
-                      { category: sq(lang, "Udhëtime", "Travel", "Viajes", "Reisen", "Патувања") as string, amount: "$3,120", rate: "100%" }
+                      { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци") as string, amount: "€2,450", rate: "50%" },
+                      { category: sq(lang, "Furnizime Zyre", "Office Supplies", "Suministros de Oficina", "Bürobedarf", "Канцелариски материјали") as string, amount: "€1,890", rate: "100%" },
+                      { category: sq(lang, "Udhëtime", "Travel", "Viajes", "Reisen", "Патувања") as string, amount: "€3,120", rate: "100%" }
                     ].map((item, index) => (
                       <div key={index} className="flex justify-between items-center p-2 bg-white/50 rounded">
                         <span className="text-sm">{item.category}</span>
@@ -190,7 +190,7 @@ export default function FeatureTax() {
                     <div className="text-sm text-muted-foreground">{sq(lang, "Auto-kategorizuar", "Auto-categorized", "Auto-categorizado", "Auto-kategorisiert", "Авто-категоризирано")}</div>
                   </Card>
                   <Card className="p-4 text-center">
-                    <div className="text-xl font-bold text-blue-600">$0</div>
+                    <div className="text-xl font-bold text-blue-600">€0</div>
                     <div className="text-sm text-muted-foreground">{sq(lang, "Gjoba të shmangura", "Penalties avoided", "Multas evitadas", "Strafen vermieden", "Избегнати казни")}</div>
                   </Card>
                 </div>
@@ -332,19 +332,19 @@ export default function FeatureTax() {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span className="text-muted-foreground">{sq(lang, "Të Ardhura Bruto", "Gross Income", "Ingresos Brutos", "Bruttoeinkommen", "Бруто приход")}</span>
-                        <span className="font-bold text-2xl">$156,000</span>
+                        <span className="font-bold text-2xl">€156,000</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-muted-foreground">{sq(lang, "Zbritje Totale", "Total Deductions", "Deducciones Totales", "Gesamtabzüge", "Вкупни одбитоци")}</span>
-                        <span className="font-bold text-green-600">-$28,450</span>
+                        <span className="font-bold text-green-600">-€28,450</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-muted-foreground">{sq(lang, "Të Ardhura të Tatueshme", "Taxable Income", "Ingresos Gravables", "Zu versteuerndes Einkommen", "Оданочлив приход")}</span>
-                        <span className="font-bold">$127,550</span>
+                        <span className="font-bold">€127,550</span>
                       </div>
                       <div className="border-t pt-4 flex justify-between items-center">
                         <span className="text-lg font-bold">{sq(lang, "Taksa e Vlerësuar", "Estimated Tax Owed", "Impuesto Estimado Adeudado", "Geschätzte Steuerschuld", "Проценет должен данок")}</span>
-                        <span className="text-2xl font-bold text-orange-600">$22,560</span>
+                        <span className="text-2xl font-bold text-orange-600">€22,560</span>
                       </div>
                     </div>
                   </Card>
@@ -352,10 +352,10 @@ export default function FeatureTax() {
                     <h4 className="text-lg font-semibold mb-4">{sq(lang, "Pagesat Tremujore", "Quarterly Payments", "Pagos Trimestrales", "Quartalszahlungen", "Квартални плаќања")}</h4>
                     <div className="space-y-3">
                       {[
-                        { quarter: sq(lang, "T1 2024", "Q1 2024", "T1 2024", "Q1 2024", "Q1 2024") as string, amount: "$5,640", status: "paid", date: sq(lang, "15 Pri", "Apr 15", "15 Abr", "15. Apr", "15 Апр") as string },
-                        { quarter: sq(lang, "T2 2024", "Q2 2024", "T2 2024", "Q2 2024", "Q2 2024") as string, amount: "$5,640", status: "paid", date: sq(lang, "15 Qer", "Jun 15", "15 Jun", "15. Jun", "15 Јун") as string },
-                        { quarter: sq(lang, "T3 2024", "Q3 2024", "T3 2024", "Q3 2024", "Q3 2024") as string, amount: "$5,640", status: "paid", date: sq(lang, "15 Shta", "Sep 15", "15 Sep", "15. Sep", "15 Сеп") as string },
-                        { quarter: sq(lang, "T4 2024", "Q4 2024", "T4 2024", "Q4 2024", "Q4 2024") as string, amount: "$5,640", status: "upcoming", date: sq(lang, "15 Jan", "Jan 15", "15 Ene", "15. Jan", "15 Јан") as string }
+                        { quarter: sq(lang, "T1 2024", "Q1 2024", "T1 2024", "Q1 2024", "Q1 2024") as string, amount: "€5,640", status: "paid", date: sq(lang, "15 Pri", "Apr 15", "15 Abr", "15. Apr", "15 Апр") as string },
+                        { quarter: sq(lang, "T2 2024", "Q2 2024", "T2 2024", "Q2 2024", "Q2 2024") as string, amount: "€5,640", status: "paid", date: sq(lang, "15 Qer", "Jun 15", "15 Jun", "15. Jun", "15 Јун") as string },
+                        { quarter: sq(lang, "T3 2024", "Q3 2024", "T3 2024", "Q3 2024", "Q3 2024") as string, amount: "€5,640", status: "paid", date: sq(lang, "15 Shta", "Sep 15", "15 Sep", "15. Sep", "15 Сеп") as string },
+                        { quarter: sq(lang, "T4 2024", "Q4 2024", "T4 2024", "Q4 2024", "Q4 2024") as string, amount: "€5,640", status: "upcoming", date: sq(lang, "15 Jan", "Jan 15", "15 Ene", "15. Jan", "15 Јан") as string }
                       ].map((payment, index) => (
                         <div key={index} className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
                           <div className="flex items-center space-x-3">
@@ -411,10 +411,10 @@ export default function FeatureTax() {
                     <h4 className="text-lg font-semibold mb-4">{sq(lang, "Gjurmuesi i Zbritjeve", "Deduction Tracker", "Rastreador de Deducciones", "Abzugsverfolgung", "Следач на одбитоци")}</h4>
                     <div className="space-y-4">
                       {[
-                        { category: sq(lang, "Zyra e Shtëpisë", "Home Office", "Oficina en Casa", "Homeoffice", "Домашна канцеларија") as string, current: "$4,200", potential: "$5,400", status: "opportunity" },
-                        { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци") as string, current: "$2,450", potential: "$2,450", status: "maximized" },
-                        { category: sq(lang, "Automjet", "Vehicle", "Vehículo", "Fahrzeug", "Возило") as string, current: "$3,200", potential: "$4,100", status: "opportunity" },
-                        { category: sq(lang, "Edukim", "Education", "Educación", "Bildung", "Образование") as string, current: "$800", potential: "$1,200", status: "opportunity" }
+                        { category: sq(lang, "Zyra e Shtëpisë", "Home Office", "Oficina en Casa", "Homeoffice", "Домашна канцеларија") as string, current: "€4,200", potential: "€5,400", status: "opportunity" },
+                        { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци") as string, current: "€2,450", potential: "€2,450", status: "maximized" },
+                        { category: sq(lang, "Automjet", "Vehicle", "Vehículo", "Fahrzeug", "Возило") as string, current: "€3,200", potential: "€4,100", status: "opportunity" },
+                        { category: sq(lang, "Edukim", "Education", "Educación", "Bildung", "Образование") as string, current: "€800", potential: "€1,200", status: "opportunity" }
                       ].map((item, index) => (
                         <div key={index} className="space-y-2">
                           <div className="flex justify-between items-center">
