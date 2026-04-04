@@ -5,14 +5,15 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import {
   Mail, Phone, MapPin, Clock, Send, MessageSquare,
-  ArrowRight, CheckCircle, Menu, X, Headphones, Globe,
+  ArrowRight, CheckCircle, Menu, X, Headphones,
+  Star, Zap, Users, BookOpen, ExternalLink,
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string, eng: string) {
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
   return lang === "sq" ? alb : eng;
 }
 
@@ -35,8 +36,8 @@ export default function Contact() {
     },
     onError: () => {
       toast({
-        title: sq(lang, "Gabim", "Error"),
-        description: sq(lang, "Diçka shkoi keq. Provoni përsëri.", "Something went wrong. Please try again."),
+        title: sq(lang, "Gabim", "Error") as string,
+        description: sq(lang, "Diçka shkoi keq. Provoni përsëri.", "Something went wrong. Please try again.") as string,
         variant: "destructive",
       });
     },
@@ -49,33 +50,6 @@ export default function Contact() {
     e.preventDefault();
     contactMutation.mutate(form);
   };
-
-  const infoCards = [
-    {
-      icon: Mail,
-      color: "bg-indigo-50 text-indigo-600",
-      title: sq(lang, "Email", "Email"),
-      lines: ["info@clientlly.com", "support@clientlly.com"],
-    },
-    {
-      icon: Phone,
-      color: "bg-emerald-50 text-emerald-600",
-      title: sq(lang, "Telefon", "Phone"),
-      lines: ["+383 44 000 000", sq(lang, "E hënë – E premte, 8:00–17:00", "Mon – Fri, 8:00–17:00")],
-    },
-    {
-      icon: MapPin,
-      color: "bg-rose-50 text-rose-600",
-      title: sq(lang, "Adresa", "Address"),
-      lines: [sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo"), "Rruga UCK, Nr. 12"],
-    },
-    {
-      icon: Clock,
-      color: "bg-amber-50 text-amber-600",
-      title: sq(lang, "Orari", "Hours"),
-      lines: [sq(lang, "E hënë – E premte", "Mon – Fri"), "08:00 – 17:00"],
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -125,216 +99,335 @@ export default function Contact() {
       </nav>
 
       {/* ── HERO ── */}
-      <section className="pt-28 pb-16 px-6 bg-gradient-to-b from-indigo-50 via-white to-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-6 shadow-sm">
-            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            {sq(lang, "Jemi këtu për ju", "We're here for you")}
-          </div>
-          <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-[1.15]">
-            {sq(lang, <>Na kontaktoni —<br /><span className="text-indigo-600">është e thjeshtë</span></>, <>Get in touch —<br /><span className="text-indigo-600">it's simple</span></>)}
-          </h1>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            {sq(lang,
-              "Ekipi ynë është gati t'ju ndihmojë. Dërgoni mesazh dhe do t'ju kthejmë brenda 24 orëve.",
-              "Our team is ready to help you. Send a message and we'll get back to you within 24 hours."
-            )}
-          </p>
-        </div>
-      </section>
-
-      {/* ── INFO CARDS ── */}
-      <section className="pb-12 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {infoCards.map(({ icon: Icon, color, title, lines }) => (
-            <div key={title} className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition-shadow duration-300">
-              <div className={`inline-flex p-2.5 rounded-xl ${color} mb-3`}>
-                <Icon className="h-5 w-5" />
-              </div>
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{title}</p>
-              {lines.map((l, i) => (
-                <p key={i} className={`text-sm ${i === 0 ? "font-semibold text-gray-900" : "text-gray-500"}`}>{l}</p>
-              ))}
+      <section className="pt-24 pb-0 bg-gradient-to-b from-indigo-50/80 via-white to-white">
+        <div className="max-w-5xl mx-auto px-6 pt-10 pb-12">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
+              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+              {sq(lang, "Ekipi ynë është online", "Our team is online")}
             </div>
-          ))}
+            <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
+              {sq(lang,
+                <><span className="text-indigo-600">Na kontaktoni</span> — jemi këtu<br />për çdo pyetje</>,
+                <><span className="text-indigo-600">Contact us</span> — we're here<br />for every question</>
+              )}
+            </h1>
+            <p className="text-lg text-gray-500">
+              {sq(lang,
+                "Dërgoni një mesazh ose na telefononi drejtpërdrejt. Do t'ju kthejmë brenda 24 orëve.",
+                "Send a message or call us directly. We'll get back to you within 24 hours."
+              )}
+            </p>
+          </div>
+
+          {/* Stats row */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+            {[
+              { label: sq(lang, "Kohë Përgjigje", "Response Time"), value: "< 24h", sub: sq(lang, "mesatare", "average"), color: "text-indigo-600", bg: "bg-indigo-50" },
+              { label: sq(lang, "Kënaqësi", "Satisfaction"), value: "98%", sub: sq(lang, "nga klientët", "from clients"), color: "text-emerald-600", bg: "bg-emerald-50" },
+              { label: sq(lang, "Disponueshëm", "Available"), value: "24/7", sub: sq(lang, "për abonimi", "for subscribers"), color: "text-violet-600", bg: "bg-violet-50" },
+            ].map(({ label, value, sub, color, bg }, i) => (
+              <div key={i} className={`${bg} rounded-2xl p-5 text-center`}>
+                <p className={`text-2xl font-extrabold ${color}`}>{value}</p>
+                <p className="text-xs font-semibold text-gray-700 mt-0.5">{label}</p>
+                <p className="text-[10px] text-gray-400 mt-0.5">{sub}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── MAIN CONTENT: Form + Support ── */}
-      <section className="pb-20 px-6">
+      {/* ── MAIN BODY ── */}
+      <section className="px-6 pb-20">
         <div className="max-w-5xl mx-auto grid lg:grid-cols-5 gap-8">
 
-          {/* Form (3/5) */}
+          {/* ── FORM (3/5) ── */}
           <div className="lg:col-span-3">
-            <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
-              {submitted ? (
-                <div className="flex flex-col items-center justify-center text-center py-16 gap-4">
-                  <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center">
-                    <CheckCircle className="h-8 w-8 text-emerald-500" />
+            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+              {/* Card header */}
+              <div className="bg-gradient-to-br from-indigo-50 to-white px-8 py-6 border-b border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-md shadow-indigo-200">
+                    <Send className="h-5 w-5 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {sq(lang, "Mesazhi u dërgua!", "Message sent!")}
-                  </h3>
-                  <p className="text-gray-500 max-w-sm">
-                    {sq(lang, "Faleminderit! Do t'ju kontaktojmë brenda 24 orëve.", "Thank you! We'll contact you within 24 hours.")}
-                  </p>
-                  <button onClick={() => setSubmitted(false)}
-                    className="mt-2 text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors">
-                    {sq(lang, "Dërgoni mesazh tjetër", "Send another message")}
-                  </button>
+                  <div>
+                    <h2 className="text-lg font-extrabold text-gray-900">
+                      {sq(lang, "Dërgoni një mesazh", "Send us a message")}
+                    </h2>
+                    <p className="text-xs text-gray-400 mt-0.5">
+                      {sq(lang, "Plotësoni formularin — do t'ju kthejmë shpejt", "Fill the form — we'll reply quickly")}
+                    </p>
+                  </div>
                 </div>
-              ) : (
-                <>
-                  <h2 className="text-xl font-bold text-gray-900 mb-1">
-                    {sq(lang, "Dërgoni një mesazh", "Send a message")}
-                  </h2>
-                  <p className="text-sm text-gray-500 mb-6">
-                    {sq(lang, "Plotësoni formularin dhe do t'ju kthejmë sa më shpejt.", "Fill the form and we'll get back to you as soon as possible.")}
-                  </p>
+              </div>
+
+              <div className="px-8 py-7">
+                {submitted ? (
+                  <div className="flex flex-col items-center justify-center text-center py-14 gap-4">
+                    <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center shadow-inner">
+                      <CheckCircle className="h-8 w-8 text-emerald-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {sq(lang, "Mesazhi u dërgua!", "Message sent!")}
+                      </h3>
+                      <p className="text-sm text-gray-500 mt-2 max-w-xs mx-auto">
+                        {sq(lang,
+                          "Faleminderit! Ekipi ynë do t'ju kontaktojë brenda 24 orëve.",
+                          "Thank you! Our team will contact you within 24 hours."
+                        )}
+                      </p>
+                    </div>
+                    <button onClick={() => setSubmitted(false)}
+                      className="mt-1 text-sm font-semibold text-indigo-600 hover:text-indigo-800 inline-flex items-center gap-1 transition-colors">
+                      {sq(lang, "Dërgoni mesazh tjetër", "Send another message")}
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                ) : (
                   <form onSubmit={submit} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    {/* Name row */}
+                    <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
-                          {sq(lang, "Emri", "First Name")} *
+                        <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
+                          {sq(lang, "Emri", "First name")} *
                         </label>
                         <input name="firstName" value={form.firstName} onChange={handle} required
-                          placeholder={sq(lang, "Emri juaj", "Your first name")}
-                          className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:border-gray-300 transition-colors" />
+                          placeholder={sq(lang, "Emri juaj", "Your first name") as string}
+                          className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
-                          {sq(lang, "Mbiemri", "Last Name")} *
+                        <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
+                          {sq(lang, "Mbiemri", "Last name")} *
                         </label>
                         <input name="lastName" value={form.lastName} onChange={handle} required
-                          placeholder={sq(lang, "Mbiemri juaj", "Your last name")}
-                          className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:border-gray-300 transition-colors" />
+                          placeholder={sq(lang, "Mbiemri juaj", "Your last name") as string}
+                          className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+
+                    {/* Email + Company */}
+                    <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
-                          {sq(lang, "Email", "Email")} *
+                        <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
+                          Email *
                         </label>
                         <input name="email" type="email" value={form.email} onChange={handle} required
                           placeholder="emri@kompania.com"
-                          className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:border-gray-300 transition-colors" />
+                          className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
+                        <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
                           {sq(lang, "Kompania", "Company")}
                         </label>
                         <input name="company" value={form.company} onChange={handle}
-                          placeholder={sq(lang, "Emri i kompanisë", "Company name")}
-                          className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:border-gray-300 transition-colors" />
+                          placeholder={sq(lang, "Emri i kompanisë", "Company name") as string}
+                          className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                     </div>
+
+                    {/* Subject */}
                     <div>
-                      <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
+                      <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
                         {sq(lang, "Tema", "Subject")} *
                       </label>
                       <select name="subject" value={form.subject} onChange={handle} required
-                        className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:border-gray-300 transition-colors text-gray-700">
-                        <option value="">{sq(lang, "Zgjidhni temën", "Choose subject")}</option>
-                        <option value="demo">{sq(lang, "Kërko demo", "Request a demo")}</option>
+                        className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors text-gray-700">
+                        <option value="">{sq(lang, "Zgjidhni temën", "Choose a subject")}</option>
+                        <option value="demo">{sq(lang, "Kërkoj demo falas", "Request a free demo")}</option>
                         <option value="pricing">{sq(lang, "Informacion mbi çmimet", "Pricing information")}</option>
                         <option value="support">{sq(lang, "Mbështetje teknike", "Technical support")}</option>
                         <option value="billing">{sq(lang, "Faturim dhe pagesa", "Billing & payments")}</option>
-                        <option value="partnership">{sq(lang, "Partneritet", "Partnership")}</option>
+                        <option value="partnership">{sq(lang, "Partneritet biznesi", "Business partnership")}</option>
+                        <option value="migration">{sq(lang, "Migrim të dhënash", "Data migration")}</option>
                         <option value="other">{sq(lang, "Tjetër", "Other")}</option>
                       </select>
                     </div>
+
+                    {/* Message */}
                     <div>
-                      <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
+                      <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
                         {sq(lang, "Mesazhi", "Message")} *
                       </label>
                       <textarea name="message" value={form.message} onChange={handle} required rows={5}
-                        placeholder={sq(lang, "Shkruani mesazhin tuaj këtu...", "Write your message here...")}
-                        className="w-full px-4 py-2.5 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:border-gray-300 transition-colors resize-none" />
+                        placeholder={sq(lang, "Shkruani mesazhin tuaj këtu... Sa më shumë detaje, aq më mirë mund t'ju ndihmojmë.", "Write your message here... The more details, the better we can help you.") as string}
+                        className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors resize-none placeholder:text-gray-400" />
                     </div>
+
+                    {/* GDPR note */}
+                    <p className="text-[11px] text-gray-400">
+                      {sq(lang,
+                        "Të dhënat tuaja janë të sigurta. Nuk do t'i ndajmë me palë të treta. Shikoni ",
+                        "Your data is safe. We won't share it with third parties. See our "
+                      )}
+                      <Link href="/privacy-policy" className="text-indigo-500 hover:text-indigo-700 underline underline-offset-2">
+                        {sq(lang, "politikën e privatësisë", "privacy policy")}
+                      </Link>.
+                    </p>
+
+                    {/* Submit */}
                     <button type="submit" disabled={contactMutation.isPending}
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md disabled:opacity-60">
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed">
                       {contactMutation.isPending ? (
-                        <>{sq(lang, "Duke dërguar...", "Sending...")}</>
+                        <span className="flex items-center gap-2">
+                          <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin"></span>
+                          {sq(lang, "Duke dërguar...", "Sending...")}
+                        </span>
                       ) : (
-                        <>{sq(lang, "Dërgo Mesazhin", "Send Message")}<Send className="h-4 w-4" /></>
+                        <>
+                          {sq(lang, "Dërgo Mesazhin", "Send Message")}
+                          <Send className="h-4 w-4" />
+                        </>
                       )}
                     </button>
                   </form>
-                </>
-              )}
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Right sidebar (2/5) */}
+          {/* ── RIGHT SIDEBAR (2/5) ── */}
           <div className="lg:col-span-2 space-y-4">
 
-            {/* Why contact us */}
+            {/* Contact channels */}
             <div className="bg-indigo-600 text-white rounded-2xl p-6">
-              <h3 className="font-bold text-lg mb-3">
-                {sq(lang, "Pse të na kontaktoni?", "Why contact us?")}
+              <h3 className="font-extrabold text-base mb-4">
+                {sq(lang, "Mënyra të kontaktimit", "Ways to reach us")}
               </h3>
-              <ul className="space-y-2.5 text-sm text-indigo-100">
+              <div className="space-y-4">
+                {[
+                  { icon: Mail, label: "Email", value: "info@clientlly.com", sub: sq(lang, "Përgjigje brenda 24h", "Reply within 24h") },
+                  { icon: Phone, label: sq(lang, "Telefon", "Phone"), value: "+383 44 000 000", sub: sq(lang, "E hënë–Premte, 8–17h", "Mon–Fri, 8am–5pm") },
+                  { icon: MapPin, label: sq(lang, "Zyra", "Office"), value: sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo"), sub: "Rruga UCK, Nr. 12" },
+                ].map(({ icon: Icon, label, value, sub }, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-indigo-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon className="h-4 w-4 text-indigo-100" />
+                    </div>
+                    <div>
+                      <p className="text-[11px] text-indigo-300 uppercase tracking-widest font-semibold">{label}</p>
+                      <p className="text-sm font-semibold text-white">{value}</p>
+                      <p className="text-[11px] text-indigo-300">{sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Why contact us */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <h3 className="font-extrabold text-sm text-gray-900 mb-3">
+                {sq(lang, "Mund t'ju ndihmojmë me:", "We can help you with:")}
+              </h3>
+              <ul className="space-y-2">
                 {[
                   sq(lang, "Demo falas i platformës", "Free platform demo"),
-                  sq(lang, "Ndihmë me konfigurimin fillestar", "Help with initial setup"),
+                  sq(lang, "Konfigurimi fillestar i sistemit", "Initial system configuration"),
                   sq(lang, "Çmime dhe plane të personalizuara", "Custom pricing & plans"),
-                  sq(lang, "Integrime me sisteme ekzistuese", "Integration with existing systems"),
+                  sq(lang, "Integrim me sisteme ekzistuese", "Integration with existing systems"),
                   sq(lang, "Trajnim për ekipin tuaj", "Training for your team"),
+                  sq(lang, "Migrim i të dhënave tuaja", "Migration of your data"),
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-indigo-300 flex-shrink-0 mt-0.5" />
-                    <span>{item}</span>
+                    <CheckCircle className="h-3.5 w-3.5 text-indigo-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-gray-600">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Live chat */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="p-2.5 bg-emerald-50 rounded-xl">
-                  <MessageSquare className="h-5 w-5 text-emerald-600" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">
-                    {sq(lang, "Chat i drejtpërdrejtë", "Live Chat")}
-                  </h4>
-                  <p className="text-sm text-gray-500">
-                    {sq(lang, "Bisedoni me ekipin tonë në kohë reale gjatë orarit të punës.", "Chat with our team in real time during business hours.")}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-emerald-600">
-                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    {sq(lang, "Online tani", "Online now")}
-                  </span>
-                </div>
+            {/* Quick links */}
+            <div className="bg-gray-50 rounded-2xl p-5">
+              <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest mb-3">
+                {sq(lang, "Burime të shpejta", "Quick resources")}
+              </p>
+              <div className="space-y-1">
+                {[
+                  { icon: BookOpen, label: sq(lang, "Dokumentacioni", "Documentation"), href: "/api" },
+                  { icon: Zap, label: sq(lang, "Pyetje të shpeshta", "FAQ"), href: "/features" },
+                  { icon: Users, label: sq(lang, "Rreth ekipit tonë", "About our team"), href: "/about" },
+                  { icon: Star, label: sq(lang, "Histori suksesi", "Success stories"), href: "/success-stories" },
+                ].map(({ icon: Icon, label, href }, i) => (
+                  <Link key={i} href={href}
+                    className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white hover:shadow-sm transition-all group">
+                    <div className="flex items-center gap-2.5">
+                      <Icon className="h-4 w-4 text-gray-400 group-hover:text-indigo-500 transition-colors" />
+                      <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">{label}</span>
+                    </div>
+                    <ExternalLink className="h-3 w-3 text-gray-300 group-hover:text-indigo-400 transition-colors" />
+                  </Link>
+                ))}
               </div>
             </div>
 
-            {/* Support */}
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-start gap-4">
-                <div className="p-2.5 bg-indigo-50 rounded-xl">
-                  <Headphones className="h-5 w-5 text-indigo-600" />
+            {/* Live chat indicator */}
+            <div className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-emerald-200 transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                    <MessageSquare className="h-5 w-5 text-emerald-600" />
+                  </div>
+                  <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">
-                    {sq(lang, "Mbështetje 24/7", "24/7 Support")}
-                  </h4>
-                  <p className="text-sm text-gray-500">
-                    {sq(lang, "Klientët tanë të abonuar kanë qasje në mbështetje çdo orë.", "Our subscribed clients have access to support around the clock.")}
-                  </p>
-                  <button onClick={() => window.location.href = "/expert-support"}
-                    className="mt-2 text-xs font-semibold text-indigo-600 hover:text-indigo-800 inline-flex items-center gap-1 transition-colors">
-                    {sq(lang, "Mëso më shumë", "Learn more")} <ArrowRight className="h-3 w-3" />
-                  </button>
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-gray-900">{sq(lang, "Chat i drejtpërdrejtë", "Live Chat")}</p>
+                  <p className="text-xs text-emerald-600 font-medium">{sq(lang, "Online tani · Përgjigje < 5 min", "Online now · Reply < 5 min")}</p>
                 </div>
+                <ArrowRight className="h-4 w-4 text-gray-300" />
               </div>
             </div>
 
-            {/* Response time */}
-            <div className="bg-gray-50 rounded-2xl p-5 text-center">
-              <p className="text-2xl font-extrabold text-gray-900">&lt; 24h</p>
-              <p className="text-sm text-gray-500 mt-0.5">{sq(lang, "Koha mesatare e përgjigjes", "Average response time")}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── OFFICE MAP SECTION ── */}
+      <section className="px-6 pb-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Map placeholder */}
+              <div className="bg-indigo-900/5 h-56 lg:h-64 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.07)_1px,transparent_1px)] bg-[size:32px_32px]" />
+                <div className="relative z-10 text-center">
+                  <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-indigo-200">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <p className="text-sm font-bold text-gray-900">{sq(lang, "Zyra jonë kryesore", "Our main office")}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">Prishtinë, Kosovë</p>
+                </div>
+              </div>
+              {/* Office info */}
+              <div className="p-7 lg:p-8">
+                <h3 className="text-lg font-extrabold text-gray-900 mb-1">
+                  {sq(lang, "Na vizitoni personalisht", "Visit us in person")}
+                </h3>
+                <p className="text-sm text-gray-500 mb-5">
+                  {sq(lang,
+                    "Zyra jonë është e hapur gjatë ditëve të punës. Mirëpresim vizita të planifikuara paraprakisht.",
+                    "Our office is open on working days. We welcome pre-scheduled visits."
+                  )}
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { icon: MapPin, text: sq(lang, "Rruga UCK, Nr. 12, Prishtinë 10000", "UCK Street, No. 12, Pristina 10000") },
+                    { icon: Clock, text: sq(lang, "E hënë – E premte: 08:00 – 17:00", "Monday – Friday: 8:00 AM – 5:00 PM") },
+                    { icon: Phone, text: "+383 44 000 000" },
+                    { icon: Mail, text: "info@clientlly.com" },
+                  ].map(({ icon: Icon, text }, i) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <Icon className="h-4 w-4 text-indigo-500 flex-shrink-0" />
+                      <span className="text-sm text-gray-600">{text}</span>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  onClick={() => window.open("https://maps.google.com/?q=Prishtine,Kosovo", "_blank")}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors">
+                  {sq(lang, "Hap në Google Maps", "Open in Google Maps")}
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
