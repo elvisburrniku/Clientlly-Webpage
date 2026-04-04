@@ -159,9 +159,6 @@ export default function Landing() {
             </div>
 
             <div className="hidden md:flex items-center space-x-5 flex-shrink-0 relative z-[60]">
-              <button onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
-                {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
               <LanguageSelector />
             </div>
 
@@ -179,7 +176,6 @@ export default function Landing() {
             <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</a>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg w-full">{sq(lang, "Blej Tani", "Buy Now")}</button>
               <button onClick={() => { window.location.href = '/trial'; }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial")}</button>
               <LanguageSelector />
             </div>
@@ -225,10 +221,10 @@ export default function Landing() {
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
                 <button
-                  onClick={() => { const el = document.getElementById('pricing-section'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }}
+                  onClick={() => { window.location.href = '/subscribe'; }}
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm"
                 >
-                  {sq(lang, "Shiko Çmimet", "View Pricing")}
+                  {sq(lang, "Blej Tani", "Buy Now")}
                 </button>
               </div>
 
@@ -710,7 +706,7 @@ export default function Landing() {
             </button>
             <button onClick={() => go('/subscribe')}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all">
-              {sq(lang, "Shiko Çmimet", "View Pricing")}
+              {sq(lang, "Blej Tani", "Buy Now")}
             </button>
           </div>
         </div>
