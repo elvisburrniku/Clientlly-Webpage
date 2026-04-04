@@ -92,7 +92,7 @@ const plans: Plan[] = [
       storageGB: 999999,
       integrations: 999999,
       support: '24/7 Phone Support',
-      advancedFeatures: ['€1 per additional user after 50', 'White Label', 'Advanced Analytics', 'Custom Workflows', 'Dedicated Manager']
+      advancedFeatures: ['€2 per additional user after 50', 'White Label', 'Advanced Analytics', 'Custom Workflows', 'Dedicated Manager']
     }
   }
 ];

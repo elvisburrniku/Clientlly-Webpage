@@ -186,7 +186,7 @@ const generalResponses: { keywords: string[]; reply: string; quickReplies?: stri
   },
   {
     keywords: ['sa përdorues', 'shtoj përdorues', 'limit', 'përdorues shtesë'],
-    reply: "👥 Limitet e përdoruesve sipas planit:\n\n• Starter: Deri në 3 përdorues\n• Professional: Deri në 10 përdorues\n• Enterprise: Deri në 50 përdorues (€1 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha 16 modulet. Mund të vendosni role dhe leje specifike për secilin.\n\nPërveç përdoruesve, plani Professional dhe Enterprise përfshijnë edhe programin \"Le të rritemi bashkë\" — zhvillim të personalizuar sipas nevojave tuaja!",
+    reply: "👥 Limitet e përdoruesve sipas planit:\n\n• Starter: Deri në 3 përdorues\n• Professional: Deri në 10 përdorues\n• Enterprise: Deri në 50 përdorues (€2 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha 16 modulet. Mund të vendosni role dhe leje specifike për secilin.\n\nPërveç përdoruesve, plani Professional dhe Enterprise përfshijnë edhe programin \"Le të rritemi bashkë\" — zhvillim të personalizuar sipas nevojave tuaja!",
     quickReplies: ["Çfarë është 'Le të rritemi bashkë'?", "Ndrysho planin"],
   },
   {
@@ -224,7 +224,7 @@ const generalResponses: { keywords: string[]; reply: string; quickReplies?: stri
   },
   {
     keywords: ['përdorues shtesë', 'shtoj njerëz', 'rrit ekipin'],
-    reply: "➕ Shtimi i përdoruesve është i lehtë:\n\n• Starter: deri 3 përdorues\n• Professional: deri 10 përdorues\n• Enterprise: deri 50 përdorues + €1/përdorues shtesë\n\nÇdo përdorues i ri shtohet menjëherë. Mund të vendosni role të ndryshme: admin, menaxher, punonjës, vetëm-lexim.",
+    reply: "➕ Shtimi i përdoruesve është i lehtë:\n\n• Starter: deri 3 përdorues\n• Professional: deri 10 përdorues\n• Enterprise: deri 50 përdorues + €2/përdorues shtesë\n\nÇdo përdorues i ri shtohet menjëherë. Mund të vendosni role të ndryshme: admin, menaxher, punonjës, vetëm-lexim.",
   },
   {
     keywords: ['valut', 'moned', 'euro', 'dollar', 'lek'],

@@ -27,7 +27,7 @@ const SUBSCRIPTION_PLANS = {
     },
     description: "",
     features: [
-      "**1 përdorues**",
+      "**Deri në 3 përdorues**",
       "Fatura të Pakufizuara",
       "Ofertat",
       "Gjurmim Shpenzimesh",
@@ -109,7 +109,7 @@ const SUBSCRIPTION_PLANS = {
     },
     description: "",
     features: [
-      "**Deri në 5 përdorues**",
+      "**Deri në 10 përdorues**",
       "Fatura të Pakufizuara",
       "Ofertat",
       "Gjurmim Shpenzimesh",
@@ -193,7 +193,7 @@ const SUBSCRIPTION_PLANS = {
     },
     description: "",
     features: [
-      "**Deri në 20 përdorues**",
+      "**Deri në 50 përdorues** (€2/përdorues shtesë)",
       "Fatura të Pakufizuara",
       "Ofertat",
       "Gjurmim Shpenzimesh",

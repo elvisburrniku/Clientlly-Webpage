@@ -222,8 +222,8 @@ export default function FAQ() {
         {
           q: sq(lang, "Sa përdorues mund të shtoj?", "How many users can I add?"),
           a: sq(lang,
-            "Varet nga plani juaj:\n\n• Starter: deri në 3 përdorues\n• Professional: deri në 10 përdorues\n• Enterprise: deri në 50 përdorues (€1 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha modulet. Mund të vendosni role dhe leje specifike për secilin.",
-            "Depends on your plan:\n\n• Starter: up to 3 users\n• Professional: up to 10 users\n• Enterprise: up to 50 users (€1 per additional user)\n\nEvery user has access to all modules. You can set specific roles and permissions for each."
+            "Varet nga plani juaj:\n\n• Starter: deri në 3 përdorues\n• Professional: deri në 10 përdorues\n• Enterprise: deri në 50 përdorues (€2 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha modulet. Mund të vendosni role dhe leje specifike për secilin.",
+            "Depends on your plan:\n\n• Starter: up to 3 users\n• Professional: up to 10 users\n• Enterprise: up to 50 users (€2 per additional user)\n\nEvery user has access to all modules. You can set specific roles and permissions for each."
           ),
         },
       ],
