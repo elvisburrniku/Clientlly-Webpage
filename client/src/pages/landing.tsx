@@ -75,7 +75,7 @@ const moduleCategories = (lang: string) => [
 export default function Landing() {
   const { currentLanguage: lang } = useTranslation();
   const [, setLocation] = useLocation();
-  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
+  const go = (path: string) => { window.location.href = path; };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [expandedCat, setExpandedCat] = useState<number | null>(null);
