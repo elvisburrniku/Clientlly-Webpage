@@ -476,20 +476,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Contact form endpoint
+  // Contact form endpoint — sends email to info@clientlly.com via SendGrid
   app.post('/api/contact', async (req, res) => {
     try {
       const contactData = req.body;
-      
-      // Here you would typically save to database and/or send notification email
-      console.log('Contact form submission received:', contactData);
-      
-      // Log contact details for demo purposes
       console.log(`Contact from: ${contactData.firstName} ${contactData.lastName} (${contactData.email})`);
-      console.log(`Company: ${contactData.company}`);
-      console.log(`Subject: ${contactData.subject}`);
-      console.log(`Message: ${contactData.message}`);
-      
+
+      const { sendContactEmail } = await import('./sendgrid');
+      const sent = await sendContactEmail(contactData);
+
+      if (!sent) {
+        console.warn('Email delivery failed, but form submission accepted');
+      }
+
       res.json({ 
         success: true, 
         message: 'Contact message sent successfully' 
