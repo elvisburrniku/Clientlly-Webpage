@@ -528,8 +528,8 @@ export default function Features() {
           </h1>
           <p className="anim-rise anim-d2 text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
             {sq(lang,
-              "Nga faturimi dhe oferta tek menaxhimi i flotës dhe prezenca GPS — Clientlly zëvendëson çdo aplikacion tjetër që biznesi juaj po përdor sot.",
-              "From invoicing and quotes to fleet management and GPS attendance — Clientlly replaces every other app your business uses today."
+              "Nga faturimi, oferta dhe shpenzimet, tek menaxhimi i flotës dhe prezenca GPS — Clientlly zëvendëson çdo aplikacion tjetër që biznesi juaj po përdor sot.",
+              "From invoicing, quotes and expenses, to fleet management and GPS attendance — Clientlly replaces every other app your business uses today."
             )}
           </p>
 
