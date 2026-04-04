@@ -165,6 +165,11 @@ const generalResponses: { keywords: string[]; reply: string; quickReplies?: stri
     reply: "😊 Ju lutem! Jam gjithmonë këtu nëse keni pyetje të tjera. Ju urojmë sukses me biznesin tuaj! 🚀",
   },
   {
+    keywords: ['mirupafshim', 'lamtumirë', 'bye', 'goodbye', 'mbyll', 'mjaft', 'nuk kam', 'asgjë tjetër', 'jo faleminderit', 'ska', 'nuk dua', 'ishte kaq', 'kaq ishte', 'ok faleminderit'],
+    reply: "👋 Faleminderit që na kontaktuat! Nëse keni pyetje në të ardhmen, jam gjithmonë këtu. Ju urojmë ditë të mbarë! Biseda do të mbyllet automatikisht...",
+    quickReplies: [],
+  },
+  {
     keywords: ['anullo', 'cancel', 'ndalo', 'largo', 'fshij llogarinë'],
     reply: "🔄 Anulimi është i thjeshtë dhe pa penalitete:\n\n• Mund të anuloni në çdo moment nga llogaria juaj\n• Nuk ka kontratë afatgjate — paguani vetëm sa përdorni\n• Të dhënat tuaja eksportohen para anulimit\n• Pas anulimit, keni 30 ditë për të shkarkuar të dhënat\n• Nëse ndërroni mendje, rifilloni ku e latë\n\nA keni ndonjë shqetësim që mund ta zgjidhim?",
     quickReplies: ["Fol me ekipin", "Ndrysho planin"],
@@ -265,7 +270,15 @@ export default function ChatBot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
 
-  const sendBot = (text: string, quickReplies?: string[]) => {
+  const closeChat = () => {
+    setTimeout(() => {
+      setIsOpen(false);
+      setMessages([]);
+      setShowWelcome(true);
+    }, 3000);
+  };
+
+  const sendBot = (text: string, quickReplies?: string[], autoClose?: boolean) => {
     setIsTyping(true);
     setTimeout(() => {
       setMessages(prev => [...prev, {
@@ -276,8 +289,11 @@ export default function ChatBot() {
         quickReplies,
       }]);
       setIsTyping(false);
+      if (autoClose) closeChat();
     }, 600 + Math.random() * 800);
   };
+
+  const goodbyeKeywords = ['mirupafshim', 'lamtumirë', 'bye', 'goodbye', 'mbyll', 'mjaft', 'nuk kam', 'asgjë tjetër', 'jo faleminderit', 'nuk dua', 'ishte kaq', 'kaq ishte', 'ok faleminderit'];
 
   const handleSend = (text?: string) => {
     const msg = (text || inputValue).trim();
@@ -291,7 +307,8 @@ export default function ChatBot() {
     }]);
     setInputValue('');
     const { reply, quickReplies } = findResponse(msg);
-    sendBot(reply, quickReplies);
+    const shouldClose = goodbyeKeywords.some(k => msg.toLowerCase().includes(k));
+    sendBot(reply, quickReplies, shouldClose);
   };
 
   if (!isOpen) {
@@ -299,12 +316,9 @@ export default function ChatBot() {
       <div className="fixed bottom-6 right-6 z-50 group">
         <button
           onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 relative"
+          className="w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-700 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
         >
           <MessageCircle className="h-6 w-6 text-white" />
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-            <span className="text-white text-[10px] font-bold">1</span>
-          </span>
         </button>
         <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg">
           Keni nevojë për ndihmë?
