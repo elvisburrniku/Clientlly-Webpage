@@ -12,8 +12,8 @@ import {
   Lock, ChevronRight,
 } from "lucide-react";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
-  return lang === "sq" ? alb : eng;
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
 }
 
 export default function Trial() {
@@ -109,13 +109,19 @@ export default function Trial() {
               <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4">
                 {sq(lang,
                   <>Provoni <span className="text-indigo-600">Clientlly</span><br />14 ditë pa asnjë kosto</>,
-                  <>Try <span className="text-indigo-600">Clientlly</span><br />14 days at no cost</>
+                  <>Try <span className="text-indigo-600">Clientlly</span><br />14 days at no cost</>,
+                  <>Pruebe <span className="text-indigo-600">Clientlly</span><br />14 días sin ningún costo</>,
+                  <>Testen Sie <span className="text-indigo-600">Clientlly</span><br />14 Tage ohne Kosten</>,
+                  <>Пробајте <span className="text-indigo-600">Clientlly</span><br />14 дена без никакви трошоци</>
                 )}
               </h1>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
                 {sq(lang,
                   "Qasje e plotë në të gjitha 16 modulet — pa kartë krediti, pa angazhim. Nëse nuk e doni, anuloni me 1 klikim.",
-                  "Full access to all 16 modules — no credit card, no commitment. If you don't love it, cancel with 1 click."
+                  "Full access to all 16 modules — no credit card, no commitment. If you don't love it, cancel with 1 click.",
+                  "Acceso completo a los 16 módulos — sin tarjeta de crédito, sin compromiso. Si no le gusta, cancele con 1 clic.",
+                  "Vollständiger Zugang zu allen 16 Modulen — keine Kreditkarte, kein Engagement. Wenn Sie es nicht mögen, kündigen Sie mit 1 Klick.",
+                  "Целосен пристап до сите 16 модули — без кредитна картичка, без обврска. Ако не го сакате, откажете со 1 клик."
                 )}
               </p>
 

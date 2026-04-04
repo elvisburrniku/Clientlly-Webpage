@@ -1,8 +1,20 @@
-# BusinessFlow Pro - Full-Stack Business Management Platform
+# Clientlly - Full-Stack Business Management Platform
 
 ## Overview
 
-BusinessFlow Pro is a comprehensive business management SaaS application designed for small to medium-sized businesses. It offers a full-stack solution with features such as professional invoicing, smart expense tracking, debt management, client and vendor management, HR management, and detailed insights and reports. The platform aims to streamline business operations, boost efficiency, and drive growth through a modern, user-friendly interface and robust backend capabilities. Key capabilities include multi-language support (English, Albanian, Macedonian), seamless Stripe payment integration, and a focus on data privacy and security. The business vision is to provide an all-in-one platform that empowers businesses to manage their finances, teams, and operations effectively, fostering collaborative growth and increasing market potential.
+Clientlly is a comprehensive business management SaaS application designed for small to medium-sized businesses in Kosovo and the region. It offers a full-stack solution with 16 integrated modules including professional invoicing, smart expense tracking, debt management, client and vendor management, HR management, and detailed insights and reports. The platform provides full 5-language support: Albanian (sq 🇦🇱), English (en 🇬🇧), Spanish (es 🇪🇸), German (de 🇩🇪), Macedonian (mk 🇲🇰). Uses Euro (€) currency by default. Company registered in Kosovo.
+
+## Translation System (5-Language Infrastructure)
+
+- **i18n.ts**: Core infrastructure — `T5` type, `t(lang, T5)` function, `useLanguage()` hook, `SUPPORTED_LANGUAGES` array (sq/en/es/de/mk)
+- **translations.ts**: Central namespace objects: `C` (common), `LANDING`, `SUBSCRIBE`, `COMPARE`, `ABOUT`, `CONTACT`, `COLLAB`, `TRIAL`, `LOGIN`, `FEATURES_PAGE`, `FEAT`, `CHAT`, `PLAN_F`
+- **Footer.tsx**: Fully migrated to `t(lang, C.xxx)` pattern — all 5 languages
+- **landing.tsx**: Fully translated — all sections in 5 languages including hero, nav, features, stats, testimonials, pricing, community, CTA
+- **All secondary pages**: Have 5-language `sq()` helper function with English fallback for ES/DE/MK strings not yet translated:
+  - about.tsx, contact.tsx, trial.tsx, collaboration.tsx — hero titles translated in 5 languages
+  - compare-features.tsx — hero title and plan comparison translated
+  - subscribe.tsx — step titles in 5 languages, has `lang` variable and `sq()` helper
+  - login.tsx — hero title in 5 languages, has `lang` variable and `sq()` helper
 
 ## User Preferences
 

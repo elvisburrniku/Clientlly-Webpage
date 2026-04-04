@@ -21,10 +21,16 @@ import {
   Award
 } from "lucide-react";
 import Footer from "../components/Footer";
+import { useLanguage } from "@/lib/i18n";
+
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+}
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const { currentLanguage: lang } = useLanguage();
 
   const handleLogin = () => {
     setIsLoading(true);
@@ -138,10 +144,22 @@ export default function Login() {
             <LogIn className="h-10 w-10 text-white" />
           </div>
           <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-professional-fade">
-            Welcome Back to <span className="animate-subtle-gradient">BusinessFlow Pro</span>
+            {sq(lang,
+              <>Mirë se Keni Ardhur te <span className="text-indigo-700">Clientlly</span></>,
+              <>Welcome Back to <span className="text-indigo-700">Clientlly</span></>,
+              <>Bienvenido de Nuevo a <span className="text-indigo-700">Clientlly</span></>,
+              <>Willkommen zurück bei <span className="text-indigo-700">Clientlly</span></>,
+              <>Добредојдовте назад во <span className="text-indigo-700">Clientlly</span></>
+            )}
           </h1>
           <p className="text-xl text-black/80 max-w-3xl mx-auto mb-8">
-            Continue managing your business operations with our comprehensive platform trusted by thousands of businesses worldwide.
+            {sq(lang,
+              "Vazhdoni menaxhimin e biznesit tuaj me platformën tonë të plotë.",
+              "Continue managing your business operations with our comprehensive platform.",
+              "Continúe gestionando sus operaciones comerciales con nuestra plataforma completa.",
+              "Verwalten Sie Ihre Geschäftsabläufe weiter mit unserer umfassenden Plattform.",
+              "Продолжете со управувањето со вашите деловни операции со нашата сеопфатна платформа."
+            )}
           </p>
         </div>
       </div>

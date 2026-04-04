@@ -17,11 +17,16 @@ import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Bu
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useLanguage } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
 import Footer from "@/components/Footer";
 import clientllyLogo from '@assets/CLIENTLLY_ICON_1753793353861.png';
+
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+}
 
 
 if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
@@ -50,7 +55,6 @@ interface UserData {
 }
 
 const stepIcons = [Home, User, Users, CreditCard];
-const stepTitles = ["Choose the perfect plan for your business", "Create Account", "Team & Add-ons", "Review & Pay"];
 
 const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: { 
   userData: UserData; 
@@ -200,6 +204,13 @@ export default function Subscribe() {
   const [location, setLocation] = useLocation();
   const [currentStep, setCurrentStep] = useState(0);
   const { t } = useTranslation();
+  const { currentLanguage: lang } = useLanguage();
+  const stepTitles = [
+    sq(lang, "Zgjidhni planin e përsosur", "Choose the perfect plan", "Elija el plan perfecto", "Wählen Sie den perfekten Plan", "Изберете го совршениот план"),
+    sq(lang, "Krijo Llogari", "Create Account", "Crear Cuenta", "Konto erstellen", "Создади Сметка"),
+    sq(lang, "Ekipi & Shtesa", "Team & Add-ons", "Equipo y Complementos", "Team & Erweiterungen", "Тим & Додатоци"),
+    sq(lang, "Rishiko & Paguaj", "Review & Pay", "Revisar y Pagar", "Überprüfen & Bezahlen", "Прегледај & Плати"),
+  ];
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [showMobileMenu, setShowMobileMenu] = useState(false);

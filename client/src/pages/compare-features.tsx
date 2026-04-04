@@ -9,8 +9,8 @@ import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
-  return lang === "sq" ? alb : eng;
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
 }
 
 const PLANS = [
@@ -202,7 +202,10 @@ export default function CompareFeatures() {
           <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-3 leading-tight">
             {sq(lang,
               <>Krahaso <span className="text-indigo-600">Planet</span></>,
-              <>Compare <span className="text-indigo-600">Plans</span></>
+              <>Compare <span className="text-indigo-600">Plans</span></>,
+              <>Comparar <span className="text-indigo-600">Planes</span></>,
+              <>Pläne <span className="text-indigo-600">Vergleichen</span></>,
+              <>Споредете <span className="text-indigo-600">Планови</span></>
             )}
           </h1>
         </div>

@@ -10,8 +10,9 @@ import Footer from "@/components/Footer";
 import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useTranslation } from "@/hooks/useTranslation";
 
-const sq = (lang: string, albanian: string | JSX.Element, english: string | JSX.Element) =>
-  lang === 'sq' ? albanian : english;
+function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+  switch(lang) { case 'sq': return albanian; case 'es': return es ?? english; case 'de': return de ?? english; case 'mk': return mk ?? english; default: return english; }
+}
 
 export default function CollaborationPage() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -216,13 +217,19 @@ export default function CollaborationPage() {
             <h1 className="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
               {sq(lang,
                 <>Le të Rritemi <span className="text-amber-300">Bashkë</span></>,
-                <>Let's Grow <span className="text-amber-300">Together</span></>
+                <>Let's Grow <span className="text-amber-300">Together</span></>,
+                <>Crezcamos <span className="text-amber-300">Juntos</span></>,
+                <>Lass uns <span className="text-amber-300">Gemeinsam</span> wachsen</>,
+                <>Да Растеме <span className="text-amber-300">Заедно</span></>
               )}
             </h1>
             <p className="text-xl text-white/80 leading-relaxed mb-8 max-w-2xl mx-auto">
               {sq(lang,
                 "Ju sugjeroni — ne ndërtojmë. Çdo veçori e personalizuar zhvillohet falas nga ekipi ynë profesional, drejtpërdrejt në platformën tuaj.",
-                "You suggest — we build. Every custom feature is developed free by our professional team, directly in your platform."
+                "You suggest — we build. Every custom feature is developed free by our professional team, directly in your platform.",
+                "Usted sugiere — nosotros construimos. Cada función personalizada es desarrollada gratis por nuestro equipo profesional, directamente en su plataforma.",
+                "Sie schlagen vor — wir bauen. Jedes individuelle Feature wird kostenlos von unserem professionellen Team entwickelt, direkt in Ihrer Plattform.",
+                "Вие предлагате — ние градиме. Секоја прилагодена функција се развива бесплатно од нашиот професионален тим, директно во вашата платформа."
               )}
             </p>
 

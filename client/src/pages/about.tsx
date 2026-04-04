@@ -10,8 +10,9 @@ import Footer from "@/components/Footer";
 import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useTranslation } from "@/hooks/useTranslation";
 
-const sq = (lang: string, albanian: string | JSX.Element, english: string | JSX.Element) =>
-  lang === 'sq' ? albanian : english;
+function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+  switch(lang) { case 'sq': return albanian; case 'es': return es ?? english; case 'de': return de ?? english; case 'mk': return mk ?? english; default: return english; }
+}
 
 const AboutPage = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -170,13 +171,19 @@ const AboutPage = () => {
           <h1 className="anim-rise anim-d1 text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight mb-6">
             {sq(lang,
               <>Njerëzit pas<br /><span className="text-indigo-600">Clientlly</span></>,
-              <>The people behind<br /><span className="text-indigo-600">Clientlly</span></>
+              <>The people behind<br /><span className="text-indigo-600">Clientlly</span></>,
+              <>Las personas detrás de<br /><span className="text-indigo-600">Clientlly</span></>,
+              <>Die Menschen hinter<br /><span className="text-indigo-600">Clientlly</span></>,
+              <>Луѓето зад<br /><span className="text-indigo-600">Clientlly</span></>
             )}
           </h1>
           <p className="anim-rise anim-d2 text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-10">
             {sq(lang,
               "Jemi një ekip i vogël me ambicie të mëdha. Misionimi ynë është i thjeshtë: t'i bëjmë bizneset tuaja të funksionojnë pa stres, me teknologji të thjeshtë dhe mbështetje njerëzore.",
-              "We're a small team with big ambitions. Our mission is simple: to make your businesses run stress-free, with simple technology and human support."
+              "We're a small team with big ambitions. Our mission is simple: to make your businesses run stress-free, with simple technology and human support.",
+              "Somos un equipo pequeño con grandes ambiciones. Nuestra misión es simple: hacer que sus negocios funcionen sin estrés, con tecnología simple y soporte humano.",
+              "Wir sind ein kleines Team mit großen Ambitionen. Unsere Mission ist einfach: Ihre Unternehmen stressfrei laufen zu lassen, mit einfacher Technologie und menschlichem Support.",
+              "Сме мал тим со големи амбиции. Нашата мисија е едноставна: да ги направиме вашите бизниси да работат без стрес, со едноставна технологија и човечка поддршка."
             )}
           </p>
         </div>

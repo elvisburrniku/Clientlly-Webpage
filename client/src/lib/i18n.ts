@@ -179,9 +179,17 @@ export function useLanguage() {
   };
 }
 
-// Translation function
+// ─── 5-language translation helper ───────────────────────────────────────────
+export type T5 = { sq: string; en: string; es: string; de: string; mk: string };
+
+/** Returns the text for the current language, falling back to English. */
+export function t(lang: string, obj: T5): string {
+  return (obj as Record<string, string>)[lang] ?? obj.en;
+}
+
+// Legacy 2-arg helper kept for backward compatibility
 export function translate(
-  key: string, 
+  key: string,
   translations: { [lang: string]: Translations },
   language: string = 'en',
   fallbackLanguage: string = 'en'
@@ -191,25 +199,15 @@ export function translate(
       return current && typeof current === 'object' ? current[key] : current;
     }, obj as any) as string;
   };
-
-  // Try current language
   const currentLangTranslations = translations[language];
   if (currentLangTranslations) {
     const value = getNestedValue(currentLangTranslations, key);
-    if (value && typeof value === 'string') {
-      return value;
-    }
+    if (value && typeof value === 'string') return value;
   }
-
-  // Fallback to fallback language
   const fallbackTranslations = translations[fallbackLanguage];
   if (fallbackTranslations) {
     const value = getNestedValue(fallbackTranslations, key);
-    if (value && typeof value === 'string') {
-      return value;
-    }
+    if (value && typeof value === 'string') return value;
   }
-
-  // Return key if no translation found
   return key;
 }

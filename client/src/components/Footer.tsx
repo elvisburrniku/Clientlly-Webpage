@@ -1,10 +1,7 @@
 import { Link } from "wouter";
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage, t } from "@/lib/i18n";
+import { C } from "@/lib/translations";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
-
-function sq(lang: string, alb: string, eng: string): string {
-  return lang === "sq" ? alb : eng;
-}
 
 const AppleSVG = () => (
   <svg className="w-5 h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -40,30 +37,30 @@ const Footer = () => {
 
   const cols = [
     {
-      heading: sq(lang, "Produkti", "Product"),
+      heading: t(lang, C.footer_product),
       links: [
-        { label: sq(lang, "Veçoritë",    "Features"),      href: "/features" },
-        { label: sq(lang, "Çmimet",       "Pricing"),       href: "/subscribe" },
-        { label: sq(lang, "Integrimi",    "Integrations"),  href: "/integrations" },
-        { label: sq(lang, "Bashkëpunim", "Collaboration"), href: "/collaboration" },
-        { label: "API",                                      href: "/api" },
+        { label: t(lang, C.nav_features),       href: "/features" },
+        { label: t(lang, C.nav_pricing),         href: "/subscribe" },
+        { label: t(lang, C.footer_integration),  href: "/integrations" },
+        { label: t(lang, C.footer_collab),        href: "/collaboration" },
+        { label: "API",                            href: "/api" },
       ],
     },
     {
-      heading: sq(lang, "Kompania", "Company"),
+      heading: t(lang, C.footer_company),
       links: [
-        { label: sq(lang, "Rreth Nesh", "About Us"),     href: "/about" },
-        { label: sq(lang, "Karriera",   "Careers"),      href: "/careers" },
-        { label: sq(lang, "Kontakti",   "Contact"),      href: "/contact" },
-        { label: sq(lang, "Studimet",   "Case Studies"), href: "/case-studies" },
+        { label: t(lang, C.footer_about),    href: "/about" },
+        { label: t(lang, C.footer_careers),  href: "/careers" },
+        { label: t(lang, C.footer_contact),  href: "/contact" },
+        { label: t(lang, C.footer_cases),    href: "/case-studies" },
       ],
     },
     {
-      heading: sq(lang, "Ligjore", "Legal"),
+      heading: t(lang, C.footer_legal),
       links: [
-        { label: sq(lang, "Privatësia",           "Privacy Policy"),   href: "/privacy-policy" },
-        { label: sq(lang, "Kushtet e Shërbimit",  "Terms of Service"), href: "/terms-of-service" },
-        { label: sq(lang, "Mbrojtja e të Dhënave","Data Protection"),  href: "/data-protection" },
+        { label: t(lang, C.footer_privacy), href: "/privacy-policy" },
+        { label: t(lang, C.footer_terms),   href: "/terms-of-service" },
+        { label: t(lang, C.footer_data),    href: "/data-protection" },
       ],
     },
   ];
@@ -82,10 +79,7 @@ const Footer = () => {
               <span className="text-base font-bold text-white">Clientlly</span>
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed max-w-[210px]">
-              {sq(lang,
-                "Software i menaxhimit të biznesit për NVM-të. 16 module, një çmim.",
-                "Business management software for SMEs. 16 modules, one price."
-              )}
+              {t(lang, C.footer_tagline)}
             </p>
           </div>
 
@@ -146,7 +140,6 @@ const Footer = () => {
             <a href="https://instagram.com/clientlly" target="_blank" rel="noopener noreferrer"
               aria-label="Instagram"
               className="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-900 border border-gray-800 hover:border-pink-500 text-gray-400 hover:text-white transition-all duration-200"
-              style={{ "--tw-hover-bg": "linear-gradient(135deg, #833AB4, #C13584, #FD1D1D)" } as React.CSSProperties}
               onMouseEnter={e => (e.currentTarget.style.background = "linear-gradient(135deg, #833AB4, #C13584, #FD1D1D)")}
               onMouseLeave={e => (e.currentTarget.style.background = "")}>
               <InstagramSVG />
@@ -159,18 +152,18 @@ const Footer = () => {
       <div className="border-t border-gray-800">
         <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-xs text-gray-600">
-            © {new Date().getFullYear()} Clientlly.{" "}
-            {sq(lang, "Të gjitha të drejtat e rezervuara.", "All rights reserved.")}
+            © {new Date().getFullYear()} Clientlly. {t(lang, C.footer_rights)}
+            {" — "}{t(lang, C.footer_kosova)}
           </p>
           <div className="flex items-center gap-5">
             <Link href="/privacy-policy" onClick={() => window.scrollTo({ top: 0 })} className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
-              {sq(lang, "Privatësia", "Privacy")}
+              {t(lang, C.footer_privacy)}
             </Link>
             <Link href="/terms-of-service" onClick={() => window.scrollTo({ top: 0 })} className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
-              {sq(lang, "Kushtet", "Terms")}
+              {t(lang, C.footer_terms)}
             </Link>
             <Link href="/help-center" onClick={() => window.scrollTo({ top: 0 })} className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
-              {sq(lang, "Ndihmë", "Help")}
+              {t(lang, { sq: "Ndihmë", en: "Help", es: "Ayuda", de: "Hilfe", mk: "Помош" })}
             </Link>
           </div>
         </div>

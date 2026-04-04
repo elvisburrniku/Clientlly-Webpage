@@ -14,8 +14,8 @@ import ChatBot from "@/components/ChatBot";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
-  return lang === "sq" ? alb : eng;
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
+  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
 }
 
 export default function Contact() {
@@ -106,13 +106,19 @@ export default function Contact() {
             <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
               {sq(lang,
                 <><span className="text-indigo-600">Na kontaktoni</span> — jemi këtu<br />për çdo pyetje</>,
-                <><span className="text-indigo-600">Contact us</span> — we're here<br />for every question</>
+                <><span className="text-indigo-600">Contact us</span> — we're here<br />for every question</>,
+                <><span className="text-indigo-600">Contáctenos</span> — estamos aquí<br />para cada pregunta</>,
+                <><span className="text-indigo-600">Kontaktieren Sie uns</span> — wir sind hier<br />für jede Frage</>,
+                <><span className="text-indigo-600">Контактирајте нè</span> — тука сме<br />за секое прашање</>
               )}
             </h1>
             <p className="text-lg text-gray-500">
               {sq(lang,
                 "Dërgoni një mesazh ose na telefononi drejtpërdrejt. Do t'ju kthejmë brenda 24 orëve.",
-                "Send a message or call us directly. We'll get back to you within 24 hours."
+                "Send a message or call us directly. We'll get back to you within 24 hours.",
+                "Envíe un mensaje o llámenos directamente. Le responderemos en 24 horas.",
+                "Senden Sie eine Nachricht oder rufen Sie uns direkt an. Wir melden uns innerhalb von 24 Stunden.",
+                "Испратете порака или нè јавете директно. Ќе ви одговориме во рок од 24 часа."
               )}
             </p>
           </div>
