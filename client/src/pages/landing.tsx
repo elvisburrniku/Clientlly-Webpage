@@ -221,9 +221,10 @@ export default function Landing() {
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
                 <button
-                  onClick={() => { window.location.href = '/subscribe'; }}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm"
+                  onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
+                  className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl border border-gray-700 transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm"
                 >
+                  <CreditCard className="h-4 w-4 text-indigo-400 group-hover:scale-110 transition-transform" />
                   {sq(lang, "Blej Tani", "Buy Now")}
                 </button>
               </div>
@@ -654,10 +655,12 @@ export default function Landing() {
                     })}
                   </ul>
                   <div className="space-y-2">
-                    <Link href={`/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
-                      className={`block w-full py-3 rounded-xl font-semibold text-sm text-center transition-all hover:opacity-90 hover:-translate-y-0.5 ${isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'}`}>
+                    <button
+                      onClick={() => { window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`; }}
+                      className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm text-center transition-all hover:opacity-90 hover:-translate-y-0.5 shadow-md ${isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'}`}>
+                      <CreditCard className="h-3.5 w-3.5" />
                       {sq(lang, "Blej Tani", "Buy Now")}
-                    </Link>
+                    </button>
                     <Link href="/trial"
                       className={`block w-full py-2.5 rounded-xl font-medium text-sm text-center transition-all border ${isPopular ? 'border-indigo-400 text-indigo-100 hover:bg-white/10' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
                       {sq(lang, "Fillo Provën", "Start Trial")}
@@ -704,8 +707,9 @@ export default function Landing() {
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
             </button>
-            <button onClick={() => go('/subscribe')}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all">
+            <button onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
+              className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-white hover:bg-gray-100 text-gray-900 font-bold rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
+              <CreditCard className="h-4 w-4 text-indigo-600 group-hover:scale-110 transition-transform" />
               {sq(lang, "Blej Tani", "Buy Now")}
             </button>
           </div>
