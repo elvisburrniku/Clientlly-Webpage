@@ -181,9 +181,6 @@ export default function CompareFeatures() {
                 </span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
               </button>
-              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2.5 bg-gray-900 hover:bg-gray-700 text-white rounded-xl transition-colors">
-                {sq(lang, "Blej Tani", "Buy Now")}
-              </Link>
               <LanguageSelector />
             </div>
 
@@ -200,7 +197,6 @@ export default function CompareFeatures() {
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
               <Link href="/trial" className="block text-center text-sm font-bold px-4 py-3 bg-indigo-600 text-white rounded-xl">{sq(lang, "Fillo Provën Tani — 14 Ditë Falas", "Start Free Trial — 14 Days Free")}</Link>
-              <Link href="/subscribe" className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-xl">{sq(lang, "Blej Tani", "Buy Now")}</Link>
               <LanguageSelector />
             </div>
           </div>

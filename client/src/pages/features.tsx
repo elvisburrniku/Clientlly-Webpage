@@ -491,7 +491,6 @@ export default function Features() {
               <button onClick={() => go("/contact")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</button>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => go("/subscribe")} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now")}</button>
               <LanguageSelector />
             </div>
             <button className="lg:hidden p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
@@ -507,7 +506,6 @@ export default function Features() {
             <button onClick={() => { setShowMobileMenu(false); go("/subscribe"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
             <button onClick={() => { setShowMobileMenu(false); go("/contact"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact")}</button>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => { setShowMobileMenu(false); go("/subscribe"); }} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
               <button onClick={() => { setShowMobileMenu(false); go("/trial"); }} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</button>
               <LanguageSelector />
             </div>
