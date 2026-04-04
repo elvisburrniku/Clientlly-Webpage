@@ -340,7 +340,7 @@
   --accent-foreground: hsl(0, 0%, 0%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 5%, 64.9%);
+  --ring: transparent;
   --radius: 0.75rem;
   --dark: hsl(240, 10%, 3.9%);
 }
@@ -364,7 +364,7 @@
   --accent-foreground: hsl(0, 0%, 0%);
   --destructive: hsl(0, 62.8%, 30.6%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(240, 3.7%, 15.9%);
+  --ring: transparent;
 }
 
 @layer base {
@@ -480,7 +480,7 @@
   --accent-foreground: hsl(240, 100%, 15%);
   --destructive: hsl(60, 100%, 90%);
   --destructive-foreground: hsl(240, 100%, 15%);
-  --ring: hsl(60, 100%, 90%);
+  --ring: transparent;
 }
 
 .accessibility-high-contrast-blue * {
