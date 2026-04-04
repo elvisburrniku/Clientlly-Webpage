@@ -381,58 +381,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ── OFFICE MAP SECTION ── */}
-      <section className="px-6 pb-16">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Map placeholder */}
-              <div className="bg-indigo-900/5 h-56 lg:h-64 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(99,102,241,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(99,102,241,0.07)_1px,transparent_1px)] bg-[size:32px_32px]" />
-                <div className="relative z-10 text-center">
-                  <div className="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg shadow-indigo-200">
-                    <MapPin className="h-6 w-6 text-white" />
-                  </div>
-                  <p className="text-sm font-bold text-gray-900">{sq(lang, "Zyra jonë kryesore", "Our main office")}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">Prishtinë, Kosovë</p>
-                </div>
-              </div>
-              {/* Office info */}
-              <div className="p-7 lg:p-8">
-                <h3 className="text-lg font-extrabold text-gray-900 mb-1">
-                  {sq(lang, "Na vizitoni personalisht", "Visit us in person")}
-                </h3>
-                <p className="text-sm text-gray-500 mb-5">
-                  {sq(lang,
-                    "Zyra jonë është e hapur gjatë ditëve të punës. Mirëpresim vizita të planifikuara paraprakisht.",
-                    "Our office is open on working days. We welcome pre-scheduled visits."
-                  )}
-                </p>
-                <div className="space-y-3">
-                  {[
-                    { icon: MapPin, text: sq(lang, "Rruga UCK, Nr. 12, Prishtinë 10000", "UCK Street, No. 12, Pristina 10000") },
-                    { icon: Clock, text: sq(lang, "E hënë – E premte: 08:00 – 17:00", "Monday – Friday: 8:00 AM – 5:00 PM") },
-                    { icon: Phone, text: "+383 44 000 000" },
-                    { icon: Mail, text: "info@clientlly.com" },
-                  ].map(({ icon: Icon, text }, i) => (
-                    <div key={i} className="flex items-center gap-2.5">
-                      <Icon className="h-4 w-4 text-indigo-500 flex-shrink-0" />
-                      <span className="text-sm text-gray-600">{text}</span>
-                    </div>
-                  ))}
-                </div>
-                <button
-                  onClick={() => window.open("https://maps.google.com/?q=Prishtine,Kosovo", "_blank")}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors">
-                  {sq(lang, "Hap në Google Maps", "Open in Google Maps")}
-                  <ExternalLink className="h-3.5 w-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
