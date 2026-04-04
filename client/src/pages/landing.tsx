@@ -220,13 +220,6 @@ export default function Landing() {
                   </span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
-                <button
-                  onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
-                  className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl border border-gray-700 transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm"
-                >
-                  <CreditCard className="h-4 w-4 text-indigo-400 group-hover:scale-110 transition-transform" />
-                  {sq(lang, "Blej Tani", "Buy Now")}
-                </button>
               </div>
 
               <div className="anim-fade anim-d3 flex flex-wrap gap-4 text-xs text-gray-400">
