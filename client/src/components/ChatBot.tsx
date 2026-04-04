@@ -103,45 +103,127 @@ const moduleInfo: Record<string, { icon: any; reply: string; keywords: string[] 
 
 const generalResponses: { keywords: string[]; reply: string; quickReplies?: string[] }[] = [
   {
-    keywords: ['çmim', 'pric', 'kosto', 'plan', 'sa kushton', 'paketë'],
-    reply: "💰 Planet tona janë:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet. Dallimi është vetëm në numrin e përdoruesve dhe faturave.",
-    quickReplies: ["Fillo provën falas", "Cili plan më përshtatet?"],
+    keywords: ['çmim', 'pric', 'kosto', 'plan', 'sa kushton', 'paketë', 'tarif'],
+    reply: "💰 Planet tona janë:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet. Dallimi është vetëm në numrin e përdoruesve dhe faturave. Çmimet vjetore kanë 20% zbritje!",
+    quickReplies: ["Fillo provën falas", "Cili plan më përshtatet?", "A ka zbritje?"],
+  },
+  {
+    keywords: ['cili plan', 'më përshtatet', 'rekomand', 'sugjer'],
+    reply: "🎯 Ja si të zgjidhni planin e duhur:\n\n• Starter (€25/muaj) — Ideal për biznese të vogla me 1-3 punonjës dhe deri në 200 fatura/muaj.\n• Professional (€35/muaj) — Për biznese në rritje me 4-10 punonjës dhe deri në 500 fatura/muaj.\n• Enterprise (€50/muaj) — Për kompani më të mëdha me deri në 50 përdorues dhe fatura pa limit.\n\nTë gjithë kanë të njëjtat 16 module. Nëse nuk jeni të sigurt, filloni me provën falas 14-ditore!",
+    quickReplies: ["Fillo provën falas", "Sa kushton vjetori?"],
+  },
+  {
+    keywords: ['zbritj', 'ulje', 'discount', 'ofertë speciale', 'promocion'],
+    reply: "🏷️ Po! Ofrojmë zbritje 20% për pagesa vjetore:\n\n• Starter: €25/muaj → €21.25/muaj (vjetor)\n• Professional: €35/muaj → €29.75/muaj (vjetor)\n• Enterprise: €50/muaj → €42.50/muaj (vjetor)\n\nGjithashtu, migrimi i të dhënave është plotësisht FALAS për të gjithë klientët e rinj!",
+    quickReplies: ["Blej tani", "Fillo provën falas"],
+  },
+  {
+    keywords: ['vjetor', 'annual', 'yearly'],
+    reply: "📅 Me pagesë vjetore kurseni 20%:\n\n• Starter: €255/vit (në vend të €300)\n• Professional: €357/vit (në vend të €420)\n• Enterprise: €510/vit (në vend të €600)\n\nPagesa vjetore kyçet për 12 muaj me çmim të ulur. Mund të filloni me provë falas para se të vendosni!",
+    quickReplies: ["Fillo provën falas", "Blej tani"],
   },
   {
     keywords: ['prov', 'trial', 'falas', 'test'],
-    reply: "🎉 Po! Ofrojmë provë falas 14-ditore me qasje të plotë në të gjitha 16 modulet. Nuk kërkohet kartë kredie. Thjesht regjistrohuni dhe filloni menjëherë!",
+    reply: "🎉 Prova falas 14-ditore përfshin:\n\n✅ Qasje të plotë në të 16 modulet\n✅ Nuk kërkohet kartë kredie\n✅ Të dhënat tuaja ruhen pas provës\n✅ Mbështetje e plotë gjatë provës\n✅ Anulim në çdo moment pa asnjë detyrim\n\nThjesht regjistrohuni dhe filloni menjëherë! Pas 14 ditëve zgjidhni planin që ju përshtatet.",
     quickReplies: ["Çfarë modulesh ka?", "Sa kushton pas provës?"],
   },
   {
-    keywords: ['modul', 'veçori', 'feature', 'çfarë ofroni', 'shërbim'],
-    reply: "🚀 Clientlly ofron 16 module të integruara:\n\n📊 Financë: Oferta, Faturim, Shpenzime, Borxhe, Raporte, Kartela Blerësi\n⚙️ Operacione: Klientë CRM, Furnitorë, Inventar\n🚗 Flotë: Automjete, Mirëmbajtje\n👥 Burime Njerëzore: Prezencë, Paga, Pushime, Trajnime, Kalendar\n\nCilin modul dëshironi ta eksploroni?",
-    quickReplies: ["Faturimi", "Inventari", "CRM", "Pagat"],
+    keywords: ['modul', 'veçori', 'feature', 'çfarë ofroni', 'shërbim', 'funksion'],
+    reply: "🚀 Clientlly ofron 16 module të integruara:\n\n📊 Financë: Oferta, Faturim, Shpenzime, Borxhe, Raporte, Kartela Blerësi\n⚙️ Operacione: Klientë CRM, Furnitorë, Inventar\n🚗 Flotë: Automjete, Mirëmbajtje\n👥 Burime Njerëzore: Prezencë, Paga, Pushime, Trajnime, Kalendar\n\nÇdo modul integrohet me të tjerët — p.sh. prezenca llogarit automatikisht pagat, faturat gjurmojnë borxhet, etj.",
+    quickReplies: ["Faturimi", "Inventari", "CRM", "Pagat", "Flota"],
   },
   {
-    keywords: ['kontakt', 'email', 'na shkruani', 'adres'],
-    reply: "📧 Mund të na kontaktoni:\n\n• Email: info@clientlly.com (përgjigje brenda 24h)\n• Zyra: Linda Premium Residence nr 9, Prishtina e re, Kosovë\n• Chat: Jeni duke folur me ne tani! 😊",
+    keywords: ['kontakt', 'email', 'na shkruani', 'adres', 'ku jeni'],
+    reply: "📧 Mund të na kontaktoni:\n\n• Email: info@clientlly.com (përgjigje brenda 24h)\n• Zyra: Linda Premium Residence nr 9, Prishtina e re, Kosovë\n• Chat: Jeni duke folur me ne tani! 😊\n\nOrari i punës: E hënë – E premte, 08:00 – 17:00",
   },
   {
-    keywords: ['siguri', 'security', 'mbrojtj', 'gdpr', 'privatësi'],
-    reply: "🔒 Të dhënat tuaja janë të mbrojtura me enkriptim të nivelit bankar (256-bit SSL), pëlqim me GDPR, backup automatik ditor, dhe kontroll të plotë mbi qasjen. Siguria është prioriteti ynë nr. 1.",
+    keywords: ['siguri', 'security', 'mbrojtj', 'gdpr', 'privatësi', 'enkript'],
+    reply: "🔒 Siguria e të dhënave tuaja:\n\n• Enkriptim 256-bit SSL në transit dhe në ruajtje\n• Përputhshmëri e plotë me GDPR\n• Backup automatik ditor i të gjitha të dhënave\n• Kontroll i plotë mbi qasjen me role dhe leje\n• Server të sigurt në Europë\n• Autentikim me dy faktorë (2FA)\n• Auditim i çdo veprimi në sistem\n\nSiguria është prioriteti ynë nr. 1!",
+    quickReplies: ["Ku ruhen të dhënat?", "A jeni GDPR compliant?"],
   },
   {
-    keywords: ['migrim', 'transferim', 'import', 'kalim'],
-    reply: "📦 Ekipi ynë bën migrimin e të dhënave FALAS nga platforma juaj aktuale. Mbështesim import nga Excel, CSV, dhe sistemet kryesore. Procesi zgjat zakonisht 1-3 ditë pune.",
-    quickReplies: ["Kërko migrim", "Sa kushton?"],
+    keywords: ['migrim', 'transferim', 'import', 'kalim', 'excel', 'csv'],
+    reply: "📦 Migrimi i të dhënave është FALAS:\n\n• Ekipi ynë bën transferimin komplet nga sistemi juaj aktual\n• Mbështesim import nga Excel, CSV, PDF, dhe sistemet kryesore\n• Procesi zgjat zakonisht 1-3 ditë pune\n• Verifikimi i të dhënave para se të shkoni live\n• Zero humbje të dhënash — gjithçka transferohet\n• Trajnim falas pas migrimit\n\nDëshironi të kërkoni migrim?",
+    quickReplies: ["Kërko migrim", "Çfarë formatesh mbështetni?"],
   },
   {
-    keywords: ['mbështetj', 'support', 'ndihm', 'problem'],
-    reply: "🛟 Ekipi ynë i mbështetjes është i gatshëm t'ju ndihmojë! Mund të na kontaktoni përmes:\n\n• Këtij chat-i (përgjigje e menjëhershme)\n• Email: info@clientlly.com\n\nSi mund t'ju ndihmoj?",
+    keywords: ['format', 'eksport', 'pdf', 'raport'],
+    reply: "📄 Clientlly mbështet formate të ndryshme:\n\n• Eksportim: PDF, Excel (XLSX), CSV\n• Import: Excel, CSV, JSON\n• Fatura në PDF profesionale me logon tuaj\n• Raporte të personalizuara në çdo format\n• Dërgim automatik me email në PDF\n\nÇfarë tjetër dëshironi të dini?",
+    quickReplies: ["Si funksionon faturimi?", "Raporte të detajuara"],
   },
   {
-    keywords: ['përshëndetj', 'hello', 'hi', 'mirëdita', 'tungjatjeta', 'hej', 'çkemi'],
-    reply: "👋 Mirësevini në Clientlly! Jam asistenti virtual dhe jam këtu t'ju ndihmoj. Mund të pyes për modulet tona, çmimet, ose çdo gjë tjetër. Si mund t'ju ndihmoj sot?",
+    keywords: ['mbështetj', 'support', 'ndihm', 'problem', 'nuk funksionon'],
+    reply: "🛟 Jemi këtu për ju! Mbështetja jonë përfshin:\n\n• Chat i drejtpërdrejtë (po flisni tani!)\n• Email: info@clientlly.com (përgjigje brenda 24h)\n• Baza e njohurive me udhëzues video\n• Trajnim falas për ekipin tuaj\n• Asistencë në konfigurim fillestar\n\nSi mund t'ju ndihmoj?",
+  },
+  {
+    keywords: ['përshëndetj', 'hello', 'hi', 'mirëdita', 'tungjatjeta', 'hej', 'çkemi', 'tung'],
+    reply: "👋 Mirësevini në Clientlly! Jam asistenti virtual dhe jam këtu t'ju ndihmoj. Mund të pyesni për:\n\n• 16 modulet tona të integruara\n• Çmimet dhe planet\n• Provën falas 14-ditore\n• Migrimin e të dhënave\n• Sigurinë dhe privatësinë\n\nSi mund t'ju ndihmoj sot?",
     quickReplies: ["Çfarë modulesh ka?", "Sa kushton?", "Fillo provën falas"],
   },
   {
-    keywords: ['faleminderit', 'falemnderit', 'thanks', 'rrofsh'],
-    reply: "😊 Ju lutem! Jam gjithmonë këtu nëse keni pyetje të tjera. Ju urojmë sukses me biznesin tuaj!",
+    keywords: ['faleminderit', 'falemnderit', 'thanks', 'rrofsh', 'flm'],
+    reply: "😊 Ju lutem! Jam gjithmonë këtu nëse keni pyetje të tjera. Ju urojmë sukses me biznesin tuaj! 🚀",
+  },
+  {
+    keywords: ['anullo', 'cancel', 'ndalo', 'largo', 'fshij llogarinë'],
+    reply: "🔄 Anulimi është i thjeshtë dhe pa penalitete:\n\n• Mund të anuloni në çdo moment nga llogaria juaj\n• Nuk ka kontratë afatgjate — paguani vetëm sa përdorni\n• Të dhënat tuaja eksportohen para anulimit\n• Pas anulimit, keni 30 ditë për të shkarkuar të dhënat\n• Nëse ndërroni mendje, rifilloni ku e latë\n\nA keni ndonjë shqetësim që mund ta zgjidhim?",
+    quickReplies: ["Fol me ekipin", "Ndrysho planin"],
+  },
+  {
+    keywords: ['ndrysho plan', 'upgrade', 'downgrade', 'rit plan', 'ul plan'],
+    reply: "🔄 Ndryshimi i planit është i lehtë:\n\n• Mund të rrisni ose ulni planin në çdo moment\n• Ndryshimi aplikohet menjëherë\n• Pagesa rregullohet automatikisht pro-rata\n• Nuk humbni asnjë të dhënë gjatë ndryshimit\n• Të 16 modulet mbeten të njëjta — ndryshon vetëm numri i përdoruesve/faturave",
+    quickReplies: ["Shiko planet", "Sa kushton?"],
+  },
+  {
+    keywords: ['sa përdorues', 'shtoj përdorues', 'limit', 'përdorues shtesë'],
+    reply: "👥 Limitet e përdoruesve sipas planit:\n\n• Starter: Deri në 3 përdorues\n• Professional: Deri në 10 përdorues\n• Enterprise: Deri në 50 përdorues (€1 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha 16 modulet. Mund të vendosni role dhe leje specifike për secilin.",
+    quickReplies: ["Ndrysho planin", "Sa kushton Enterprise?"],
+  },
+  {
+    keywords: ['gjuhë', 'language', 'shqip', 'anglisht', 'maqedonisht'],
+    reply: "🌍 Clientlly mbështet shumë gjuhë:\n\n• Shqip (gjuha kryesore)\n• Anglisht\n• Maqedonisht\n\nNdërfaqja, faturat, dhe raportet mund të gjenerohen në secilën gjuhë. Mund ta ndryshoni gjuhën në çdo moment nga cilësimet.",
+    quickReplies: ["Si ta ndrysho gjuhën?", "Çfarë modulesh ka?"],
+  },
+  {
+    keywords: ['celular', 'mobile', 'telefon', 'app', 'aplikacion'],
+    reply: "📱 Clientlly funksionon nga çdo pajisje:\n\n• Dizajn plotësisht responsive — punon në kompjuter, tablet, dhe celular\n• Qasje përmes shfletuesit — nuk kërkohet instalim\n• Të gjitha 16 modulet funksionojnë në celular\n• Krijoni fatura, regjistroni shpenzime, dhe menaxhoni ekipin nga kudo!",
+  },
+  {
+    keywords: ['integrim', 'lidhj', 'api', 'connect', 'software tjetër'],
+    reply: "🔗 Clientlly integrohet lehtë:\n\n• API e hapur për zhvillues\n• Eksportim/import nga Excel dhe CSV\n• Dërgim automatik i faturave me email\n• Integrim me sisteme bankare për pagesa\n• Webhook-e për automatizime\n\nDëshironi dokumentacionin teknik?",
+    quickReplies: ["Dokumentacioni API", "Si funksionon eksportimi?"],
+  },
+  {
+    keywords: ['demo', 'demonstrim', 'prezantim', 'shfaq'],
+    reply: "🖥️ Me kënaqësi organizojmë një demo të personalizuar:\n\n• Prezantim online 30-45 minuta\n• Shfaqim të moduleve që ju interesojnë\n• Përgjigje për pyetjet tuaja specifike\n• Pa asnjë detyrim blerje\n\nDërgoni email në info@clientlly.com me orarin tuaj të preferuar, ose filloni provën falas 14-ditore menjëherë!",
+    quickReplies: ["Fillo provën falas", "Dërgo email"],
+  },
+  {
+    keywords: ['kush jeni', 'rreth', 'kompani', 'clientlly', 'histori'],
+    reply: "🏢 Clientlly është platformë e menaxhimit të biznesit e ndërtuar nga ekipi ynë në Prishtinë, Kosovë.\n\n• Themeluar për të ndihmuar bizneset e rajonit\n• 16 module të integruara në një platformë\n• Mbështetje në shqip, anglisht, dhe maqedonisht\n• Ekip i dedikuar zhvillimi dhe mbështetjeje\n• Fokus në thjeshtësi dhe efikasitet\n\nMisioni ynë: Ta bëjmë menaxhimin e biznesit të thjeshtë për të gjithë!",
+    quickReplies: ["Çfarë modulesh ka?", "Ku ndodhet zyra?"],
+  },
+  {
+    keywords: ['backup', 'kopj', 'ruajtj', 'humbj të dhëna'],
+    reply: "💾 Të dhënat tuaja janë të sigurta:\n\n• Backup automatik çdo ditë\n• Ruajtja në server të sigurt në Europë\n• Rikuperim i shpejtë në rast nevoje\n• Eksportim i plotë i të dhënave në çdo moment\n• 30 ditë ruajtje pas anulimit të llogarisë\n\nNuk do të humbni asnjë të dhënë kurrë!",
+  },
+  {
+    keywords: ['trajnim ekip', 'si ta përdor', 'udhëzues', 'tutorial', 'mësoj'],
+    reply: "🎓 Ofrojmë trajnim të plotë:\n\n• Konfigurim fillestar falas nga ekipi ynë\n• Udhëzues video për çdo modul\n• Dokumentacion i detajuar në shqip\n• Sesione trajnimi online për ekipin tuaj\n• Mbështetje e vazhdueshme pas trajnimit\n\nEkipi juaj do të jetë gati për përdorim brenda 1-2 ditëve!",
+    quickReplies: ["Fillo provën falas", "Kërko trajnim"],
+  },
+  {
+    keywords: ['përdorues shtesë', 'shtoj njerëz', 'rrit ekipin'],
+    reply: "➕ Shtimi i përdoruesve është i lehtë:\n\n• Starter: deri 3 përdorues\n• Professional: deri 10 përdorues\n• Enterprise: deri 50 përdorues + €1/përdorues shtesë\n\nÇdo përdorues i ri shtohet menjëherë. Mund të vendosni role të ndryshme: admin, menaxher, punonjës, vetëm-lexim.",
+  },
+  {
+    keywords: ['valut', 'moned', 'euro', 'dollar', 'lek'],
+    reply: "💶 Clientlly mbështet shumë valuta:\n\n• Euro (€) — valuta kryesore\n• Gjithashtu mbështet USD, GBP, CHF, ALL, MKD\n• Konvertim automatik i çmimeve\n• Faturat mund të krijohen në çdo valutë\n• Raportet shfaqen në valutën tuaj të preferuar",
+  },
+  {
+    keywords: ['tatim', 'taks', 'tvsh', 'tax', 'fiskale'],
+    reply: "🧾 Menaxhimi i tatimeve:\n\n• Llogaritje automatike e TVSH-së në fatura\n• Kategorizim i shpenzimeve sipas zbritjeve tatimore\n• Raporte të gatshme për deklarata fiskale\n• Eksportim i të dhënave për kontabilistin tuaj\n• Mbështetje për norma tatimore të ndryshme vendore",
+    quickReplies: ["Si funksionon faturimi?", "Raporte financiare"],
   },
 ];
 
