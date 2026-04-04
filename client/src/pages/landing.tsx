@@ -513,24 +513,17 @@ export default function Landing() {
       </section>
 
       {/* ── COMMUNITY ── */}
-      <section className="py-24 px-6 lg:px-8 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden relative">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-8 left-12 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-8 right-12 w-48 h-48 bg-orange-300 rounded-full blur-3xl"></div>
-        </div>
-        <div className="absolute top-6 right-10 w-3 h-3 bg-white rounded-full animate-bounce opacity-60"></div>
-        <div className="absolute top-16 left-20 w-2 h-2 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.3s"}}></div>
-        <div className="absolute bottom-10 left-1/3 w-2 h-2 bg-white rounded-full animate-bounce opacity-50" style={{animationDelay:"0.6s"}}></div>
+      <section className="py-24 px-6 lg:px-8 bg-gray-50 overflow-hidden relative">
         <div className="max-w-5xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="anim-fade text-amber-900 text-sm font-semibold uppercase tracking-widest mb-4">
+              <p className="anim-fade text-indigo-600 text-sm font-semibold uppercase tracking-widest mb-4">
                 {sq(lang, "Bashkëpunim", "Collaboration")}
               </p>
-              <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-black mb-6 leading-tight">
+              <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                 {sq(lang, "Le të rritemi bashkë", "Let's grow together")}
               </h2>
-              <p className="anim-rise anim-d1 text-amber-900 leading-relaxed mb-8">
+              <p className="anim-rise anim-d1 text-gray-500 leading-relaxed mb-8">
                 {sq(lang,
                   "Platforma jonë ndërtohet bashkë me ju. Sugjerojini idetë tuaja dhe ekipi ynë i zhvillimit do t'i realizojë — falas. Suksesi juaj është prioriteti ynë.",
                   "Our platform is built together with you. Share your ideas and our development team will implement them — at no extra cost. Your success is our priority."
@@ -538,7 +531,7 @@ export default function Landing() {
               </p>
               <button
                 onClick={() => window.location.href = "/collaboration"}
-                className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-colors shadow-sm"
+                className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm"
               >
                 {sq(lang, "Mëso Bashkëpunimin", "Explore Collaboration")}
                 <ArrowRight className="h-4 w-4" />
@@ -551,10 +544,10 @@ export default function Landing() {
                 { icon: Globe, title: sq(lang, "Mbështetje Ekspertësh", "Expert Support"), desc: sq(lang, "Qasje direkte te ekipi ynë", "Direct access to our expert team") },
                 { icon: TrendingUp, title: sq(lang, "Rritje e Përbashkët", "Shared Growth"), desc: sq(lang, "Ne rritemi kur rriteni edhe ju", "We grow when you grow") },
               ].map(({ icon: Icon, title, desc }, i) => (
-                <div key={String(title)} className={`anim-scale anim-d${i + 1} p-5 bg-white/40 backdrop-blur-sm rounded-xl border border-white/60 hover:bg-white/50 transition-colors`}>
-                  <Icon className="h-5 w-5 text-amber-900 mb-3" />
-                  <h4 className="text-black font-semibold text-sm mb-1">{title}</h4>
-                  <p className="text-amber-900 text-xs leading-relaxed">{desc}</p>
+                <div key={String(title)} className={`anim-scale anim-d${i + 1} p-5 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow`}>
+                  <Icon className="h-5 w-5 text-indigo-500 mb-3" />
+                  <h4 className="text-gray-900 font-semibold text-sm mb-1">{title}</h4>
+                  <p className="text-gray-500 text-xs leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>
