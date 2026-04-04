@@ -116,13 +116,12 @@ const Footer = () => {
               <ul className="space-y-2.5">
                 {col.links.map(link => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={() => window.scrollTo({ top: 0 })}
+                    <button
+                      onClick={() => go(link.href)}
                       className="text-sm text-gray-400 hover:text-white transition-colors duration-150 text-left w-full block"
                     >
                       {link.label}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>

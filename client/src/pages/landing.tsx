@@ -152,7 +152,7 @@ export default function Landing() {
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="text-sm font-semibold text-indigo-600">{sq(lang, "Ballina", "Home")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
+              <button onClick={() => go('/about')} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</button>
               <a href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</a>
               <a href="#pricing-section" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</a>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
@@ -174,7 +174,7 @@ export default function Landing() {
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
             <Link href="/" className="block text-sm font-semibold text-indigo-600 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
+            <button onClick={() => go('/about')} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Rreth Nesh", "About")}</button>
             <a href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</a>
             <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</a>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact")}</Link>
@@ -531,13 +531,13 @@ export default function Landing() {
                   "Our platform is built together with you. Share your ideas and our development team will implement them — at no extra cost. Your success is our priority."
                 )}
               </p>
-              <Link
-                href="/collaboration"
+              <button
+                onClick={() => go('/collaboration')}
                 className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm"
               >
                 {sq(lang, "Mëso Bashkëpunimin", "Explore Collaboration")}
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
