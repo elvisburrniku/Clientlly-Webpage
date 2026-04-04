@@ -198,12 +198,6 @@ export default function Landing() {
       <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-slate-50 via-indigo-50/30 to-white overflow-hidden">
         <div className="max-w-5xl mx-auto text-center">
 
-          {/* Badge */}
-          <div className="anim-fade inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-8 shadow-sm">
-            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            {sq(currentLanguage, "Besuar nga 200+ biznese në Ballkan", "Trusted by 200+ businesses across the Balkans")}
-          </div>
-
           {/* Headline */}
           <h1 className="anim-rise anim-d1 text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-6">
             {sq(currentLanguage,
@@ -227,18 +221,31 @@ export default function Landing() {
           </p>
 
           {/* CTAs */}
-          <div className="anim-rise anim-d4 flex flex-wrap justify-center gap-3 mb-14">
+          <div className="anim-rise anim-d4 flex flex-wrap justify-center gap-4 mb-14">
+            {/* Primary CTA */}
             <button
               onClick={() => window.location.href = "/trial"}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base rounded-2xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-1"
             >
-              {sq(currentLanguage, "Fillo Provën 14-Ditore — Falas", "Start 14-Day Free Trial")}
-              <ArrowRight className="h-4 w-4" />
+              <span className="text-lg">🚀</span>
+              <span className="flex flex-col items-start leading-tight">
+                <span className="text-[11px] font-medium text-indigo-200 uppercase tracking-widest">
+                  {sq(currentLanguage, "14 ditë falas", "14 days free")}
+                </span>
+                <span>{sq(currentLanguage, "Fillo Provën Tani", "Start Free Trial")}</span>
+              </span>
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-0.5 transition-transform" />
             </button>
+
+            {/* Secondary CTA */}
             <button
-              onClick={() => window.location.href = "#pricing-section"}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-all duration-200 shadow-sm"
+              onClick={() => {
+                const el = document.getElementById('pricing-section');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group inline-flex items-center gap-2.5 px-8 py-4 bg-white hover:bg-gray-50 text-gray-800 font-semibold text-base rounded-2xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm hover:-translate-y-0.5"
             >
+              <span className="text-lg">💰</span>
               {sq(currentLanguage, "Shiko Çmimet", "View Pricing")}
             </button>
           </div>
