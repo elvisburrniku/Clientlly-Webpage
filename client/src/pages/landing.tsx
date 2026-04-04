@@ -159,9 +159,9 @@ export default function Landing() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => go('/subscribe')} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+              <a href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors inline-block">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
+              </a>
               <LanguageSelector />
             </div>
 
@@ -179,8 +179,8 @@ export default function Landing() {
             <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</a>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => { setShowMobileMenu(false); go('/subscribe'); }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg w-full">{sq(lang, "Blej Tani", "Buy Now")}</button>
-              <button onClick={() => { setShowMobileMenu(false); go('/trial'); }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial")}</button>
+              <a href="/subscribe" className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg w-full">{sq(lang, "Blej Tani", "Buy Now")}</a>
+              <a href="/trial" className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial")}</a>
               <LanguageSelector />
             </div>
           </div>
@@ -658,14 +658,14 @@ export default function Landing() {
                     })}
                   </ul>
                   <div className="space-y-2">
-                    <button onClick={() => go(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
-                      className={`w-full py-3 rounded-xl font-semibold text-sm transition-all hover:opacity-90 hover:-translate-y-0.5 ${isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'}`}>
+                    <a href={`/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
+                      className={`block w-full py-3 rounded-xl font-semibold text-sm text-center transition-all hover:opacity-90 hover:-translate-y-0.5 ${isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'}`}>
                       {sq(lang, "Blej Tani", "Buy Now")}
-                    </button>
-                    <button onClick={() => go("/trial")}
-                      className={`w-full py-2.5 rounded-xl font-medium text-sm transition-all border ${isPopular ? 'border-indigo-400 text-indigo-100 hover:bg-white/10' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
+                    </a>
+                    <a href="/trial"
+                      className={`block w-full py-2.5 rounded-xl font-medium text-sm text-center transition-all border ${isPopular ? 'border-indigo-400 text-indigo-100 hover:bg-white/10' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
                       {sq(lang, "Fillo Provën", "Start Trial")}
-                    </button>
+                    </a>
                   </div>
                 </div>
               );
