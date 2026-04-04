@@ -579,7 +579,7 @@ export default function Landing() {
               <button onClick={() => setBillingPeriod('yearly')}
                 className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all flex items-center gap-2 ${billingPeriod === 'yearly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}>
                 {sq(lang, "Vjetor", "Yearly")}
-                <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-20%</span>
+                <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-15%</span>
               </button>
             </div>
           </div>
@@ -602,12 +602,22 @@ export default function Landing() {
                   )}
                   <div className="mb-6">
                     <h3 className={`text-lg font-bold mb-1 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+                    {billingPeriod === 'yearly' && (
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <span className={`text-sm line-through ${isPopular ? 'text-indigo-300' : 'text-gray-400'}`}>€{(plan.monthlyPrice / 100).toFixed(0)}</span>
+                        <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-15%</span>
+                      </div>
+                    )}
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>€{(price / 100).toFixed(0)}</span>
+                      <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                        €{billingPeriod === 'yearly' ? (plan.yearlyPrice / 12 / 100).toFixed(2) : (plan.monthlyPrice / 100).toFixed(0)}
+                      </span>
                       <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo")}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
-                      <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>{sq(lang, "Faturuar vjetor", "Billed annually")}</p>
+                      <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>
+                        {sq(lang, `Faturuar vjetor · €${(plan.yearlyPrice / 100).toFixed(0)}/vit`, `Billed annually · €${(plan.yearlyPrice / 100).toFixed(0)}/yr`)}
+                      </p>
                     )}
                   </div>
                   <ul className="space-y-2.5 mb-7">

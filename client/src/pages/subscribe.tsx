@@ -382,7 +382,7 @@ export default function Subscribe() {
             }`}
           >
             Vjetor
-            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-20%</span>
+            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-15%</span>
           </button>
         </div>
       </div>
@@ -432,12 +432,20 @@ export default function Subscribe() {
 
                 <div className="mb-6">
                   <h3 className={`text-lg font-bold mb-2 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+                  {billingPeriod === 'yearly' && (
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <span className={`text-sm line-through ${isPopular ? 'text-indigo-300' : 'text-gray-400'}`}>€{(plan.monthlyPrice / 100).toFixed(0)}</span>
+                      <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-15%</span>
+                    </div>
+                  )}
                   <div className="flex items-baseline gap-1">
                     <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>{displayPrice}</span>
                     <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/muaj</span>
                   </div>
                   {billingPeriod === 'yearly' && (
-                    <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>Faturuar vjetor</p>
+                    <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>
+                      Faturuar vjetor · €{(plan.yearlyPrice / 100).toFixed(0)}/vit
+                    </p>
                   )}
                 </div>
 
