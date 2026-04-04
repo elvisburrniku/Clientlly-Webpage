@@ -632,11 +632,12 @@ export default function Landing() {
                         const dash = feature.indexOf("—");
                         const desc = dash !== -1 ? feature.slice(dash) : "";
                         return (
-                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border ${isPopular ? 'bg-amber-400/20 border-amber-300/40' : 'bg-amber-50 border-amber-200'}`}>
+                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => window.location.href = '/collaboration'}>
                             <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
-                            <span className="text-sm">
+                            <span className="text-sm flex-1">
                               <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
                               <span className={`${isPopular ? 'text-amber-300' : 'text-amber-600'}`}> {desc}</span>
+                              <span className={`ml-1 text-xs underline ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>→ Detajet</span>
                             </span>
                           </li>
                         );
