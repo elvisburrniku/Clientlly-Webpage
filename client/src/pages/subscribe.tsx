@@ -264,10 +264,8 @@ export default function Subscribe() {
     
     if (planFromUrl) {
       setSelectedPlan(planFromUrl);
-      // Always start at step 0 so users can see and confirm their plan selection
-      setCurrentStep(0);
+      setCurrentStep(1);
     } else {
-      // If no plan selected, start at step 0 for plan selection
       setCurrentStep(0);
     }
     if (billingFromUrl) {
@@ -280,12 +278,14 @@ export default function Subscribe() {
   const nextStep = () => {
     if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const prevStep = () => {
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -388,7 +388,7 @@ export default function Subscribe() {
             return (
               <div
                 key={plan.id}
-                onClick={() => setSelectedPlan(plan.id)}
+                onClick={() => { setSelectedPlan(plan.id); setTimeout(() => { setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 300); }}
                 className={`relative p-7 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
                   isSelected
                     ? isPopular
@@ -460,7 +460,7 @@ export default function Subscribe() {
                 </ul>
 
                 <button
-                  onClick={(e) => { e.stopPropagation(); setSelectedPlan(plan.id); }}
+                  onClick={(e) => { e.stopPropagation(); setSelectedPlan(plan.id); setTimeout(() => { setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 300); }}
                   className={`w-full py-3 rounded-xl font-semibold text-sm transition-all ${
                     isSelected
                       ? isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'
