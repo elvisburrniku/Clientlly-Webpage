@@ -70,9 +70,6 @@ export default function Trial() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 ml-auto">
-              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                {sq(lang, "Hyr", "Login")}
-              </button>
               <LanguageSelector />
             </div>
 
