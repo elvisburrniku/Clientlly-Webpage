@@ -145,23 +145,6 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
                   </button>
                 </div>
 
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                  <h4 className="text-sm font-bold text-gray-900 mb-3">
-                    {sq(lang, "Ky modul përfshin", "This module includes")}
-                  </h4>
-                  <ul className="space-y-2">
-                    {data.benefits.slice(0, 4).map((b, i) => (
-                      <li key={i} className="flex items-center gap-2 text-xs text-gray-600">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0"></span>
-                        {sq(lang, b.sq, b.en)}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/features" className="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 mt-4 hover:text-indigo-700">
-                    <ArrowLeft className="h-3.5 w-3.5" />
-                    {sq(lang, "Të gjitha modulet", "All modules")}
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
