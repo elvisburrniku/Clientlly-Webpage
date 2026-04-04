@@ -84,7 +84,7 @@ export default function Landing() {
 
   const stats = [
     { value: "200+", label: sq(lang, "Biznese", "Businesses") },
-    { value: "15", label: sq(lang, "Module", "Modules") },
+    { value: "16", label: sq(lang, "Module", "Modules") },
     { value: "5", label: sq(lang, "Vende", "Countries") },
     { value: "99.9%", label: sq(lang, "Uptime", "Uptime") },
   ];
@@ -124,7 +124,7 @@ export default function Landing() {
       n: "02",
       icon: Package,
       title: sq(lang, "Të Gjitha Modulet të Përfshira", "All Modules Included"),
-      desc: sq(lang, "Të gjitha 15 modulet aktivizohen automatikisht me planin tuaj. Shtoni ekipin dhe nisni menjëherë.", "All 15 modules are automatically activated with your plan. Add your team and get started right away."),
+      desc: sq(lang, "Të gjitha 16 modulet aktivizohen automatikisht me planin tuaj. Shtoni ekipin dhe nisni menjëherë.", "All 16 modules are automatically activated with your plan. Add your team and get started right away."),
     },
     {
       n: "03",
@@ -206,8 +206,8 @@ export default function Landing() {
 
               <p className="anim-rise anim-d1 text-lg text-gray-500 leading-relaxed max-w-md">
                 {sq(lang,
-                  "15 module të integruara — faturim, shpenzime, inventar, HR, flotë dhe shumë më tepër. E gjitha në një platformë të vetme.",
-                  "15 integrated modules — invoicing, expenses, inventory, HR, fleet and more. All in a single platform."
+                  "16 module të integruara — faturim, shpenzime, inventar, HR, flotë dhe shumë më tepër. E gjitha në një platformë të vetme.",
+                  "16 integrated modules — invoicing, expenses, inventory, HR, fleet and more. All in a single platform."
                 )}
               </p>
 
@@ -324,7 +324,7 @@ export default function Landing() {
                 <div className="w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center">
                   <Check className="h-3 w-3 text-emerald-600" />
                 </div>
-                <span className="text-[11px] font-semibold text-gray-700">{sq(lang, "15 module aktive", "15 active modules")}</span>
+                <span className="text-[11px] font-semibold text-gray-700">{sq(lang, "16 module aktive", "16 active modules")}</span>
               </div>
             </div>
           </div>
@@ -386,11 +386,11 @@ export default function Landing() {
               {sq(lang, "Platforma", "Platform")}
             </p>
             <h2 id="features-title" className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-              {sq(lang, <>15 module — <span className="text-indigo-600">gjithçka e integruar</span></>, <>15 modules — <span className="text-indigo-600">everything integrated</span></>)}
+              {sq(lang, <>16 module — <span className="text-indigo-600">gjithçka e integruar</span></>, <>16 modules — <span className="text-indigo-600">everything integrated</span></>)}
             </h2>
             <p className="anim-rise anim-d1 text-lg text-gray-500 max-w-xl mx-auto">
               {sq(lang,
-                "Ndaloni së paguri për 5 aplikacione të ndryshme. Me Clientlly, 15 module komunikon me njëra-tjetrën.",
+                "Ndaloni së paguri për 5 aplikacione të ndryshme. Me Clientlly, 16 module komunikon me njëra-tjetrën.",
                 "Stop paying for 5 different apps. With Clientlly, everything talks to each other."
               )}
             </p>
@@ -665,8 +665,8 @@ export default function Landing() {
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-400">
               {sq(lang,
-                "Të gjithë planet përfshijnë 15 modulet dhe mbështetjen 24/7. Ndryshoni planin kur të dëshironi.",
-                "All plans include all 15 modules and 24/7 support. Change plans whenever you want."
+                "Të gjithë planet përfshijnë 16 modulet dhe mbështetjen 24/7. Ndryshoni planin kur të dëshironi.",
+                "All plans include all 16 modules and 24/7 support. Change plans whenever you want."
               )}
             </p>
           </div>
