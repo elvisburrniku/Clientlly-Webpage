@@ -17,8 +17,8 @@ const PLANS = [
   {
     id: "starter",
     name: { sq: "Starter", en: "Starter" },
-    price: 20,
-    yearlyPrice: 16,
+    price: 25,
+    yearlyPrice: 21.25,
     users: { sq: "deri 3 përdorues", en: "up to 3 users" },
     invoices: { sq: "200 fatura / muaj", en: "200 invoices / month" },
     color: "border-gray-200",
@@ -30,7 +30,7 @@ const PLANS = [
     id: "professional",
     name: { sq: "Professional", en: "Professional" },
     price: 35,
-    yearlyPrice: 28,
+    yearlyPrice: 29.75,
     users: { sq: "deri 10 përdorues", en: "up to 10 users" },
     invoices: { sq: "500 fatura / muaj", en: "500 invoices / month" },
     color: "border-indigo-500 ring-2 ring-indigo-500/20",
@@ -42,7 +42,7 @@ const PLANS = [
     id: "enterprise",
     name: { sq: "Enterprise", en: "Enterprise" },
     price: 50,
-    yearlyPrice: 40,
+    yearlyPrice: 42.50,
     users: { sq: "deri 50 përdorues", en: "up to 50 users" },
     invoices: { sq: "Pa limit fatura", en: "Unlimited invoices" },
     color: "border-gray-200",
@@ -260,7 +260,7 @@ export default function CompareFeatures() {
                 )}
                 <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{sq(lang, plan.name.sq, plan.name.en)}</p>
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span className="text-3xl font-extrabold text-gray-900">€{billing === "monthly" ? plan.price : plan.yearlyPrice}</span>
+                  <span className="text-3xl font-extrabold text-gray-900">€{(billing === "monthly" ? plan.price : plan.yearlyPrice).toFixed(2)}</span>
                   <span className="text-sm text-gray-400">/mo</span>
                 </div>
                 {billing === "yearly" && (
