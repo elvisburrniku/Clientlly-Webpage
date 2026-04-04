@@ -19,8 +19,8 @@ const SUBSCRIPTION_PLANS = {
   basic: {
     id: "basic", 
     name: "Starter",
-    monthlyPrice: 2000, // €20.00 in cents
-    yearlyPrice: 19200, // €192.00 in cents (20% discount: €20.00 * 12 * 0.8)
+    monthlyPrice: 2500, // €25.00 in cents
+    yearlyPrice: 25500, // €255.00 in cents (15% discount: €25.00 * 12 * 0.85)
     stripePriceId: {
       monthly: process.env.STRIPE_BASIC_MONTHLY_PRICE_ID || "price_basic_monthly",
       yearly: process.env.STRIPE_BASIC_YEARLY_PRICE_ID || "price_basic_yearly"
@@ -38,7 +38,6 @@ const SUBSCRIPTION_PLANS = {
       "Inventory Management",
       "Attendance (GPS)",
       "HR Management",
-      "Contract management & e-signatures",
       "Bank-level security & data protection",
       "24/7 customer support",
       "Mobile app access",
@@ -100,14 +99,14 @@ const SUBSCRIPTION_PLANS = {
     id: "professional",
     name: "Professional", 
     monthlyPrice: 3500, // €35.00 in cents
-    yearlyPrice: 33600, // €336.00 in cents (20% discount: €35.00 * 12 * 0.8)
+    yearlyPrice: 35700, // €357.00 in cents (15% discount: €35.00 * 12 * 0.85)
     stripePriceId: {
       monthly: process.env.STRIPE_PROFESSIONAL_MONTHLY_PRICE_ID || "price_professional_monthly",
       yearly: process.env.STRIPE_PROFESSIONAL_YEARLY_PRICE_ID || "price_professional_yearly"
     },
     description: "",
     features: [
-      "**Up to 10 users**",
+      "**Up to 5 users**",
       "Unlimited Invoices",
       "Professional Invoicing",
       "Expense Tracking",
@@ -118,7 +117,7 @@ const SUBSCRIPTION_PLANS = {
       "Inventory Management",
       "Attendance (GPS)",
       "HR Management",
-      "Contract management & e-signatures",
+      "**Let's Grow Together** — Free custom feature development",
       "Bank-level security & data protection",
       "24/7 customer support",
       "Mobile app access",
@@ -181,14 +180,15 @@ const SUBSCRIPTION_PLANS = {
     id: "business",
     name: "Enterprise",
     monthlyPrice: 5000, // €50.00 in cents
-    yearlyPrice: 48000, // €480.00 in cents (20% discount: €50.00 * 12 * 0.8)
+    yearlyPrice: 51000, // €510.00 in cents (15% discount: €50.00 * 12 * 0.85)
     stripePriceId: {
       monthly: process.env.STRIPE_BUSINESS_MONTHLY_PRICE_ID || "price_business_monthly",
       yearly: process.env.STRIPE_BUSINESS_YEARLY_PRICE_ID || "price_business_yearly"
     },
     description: "",
     features: [
-      "**Up to 50 users**",
+      "**Up to 20 users**",
+      "**+€2 per additional user after 20**",
       "Unlimited Invoices",
       "Professional Invoicing",
       "Expense Tracking",
@@ -199,7 +199,7 @@ const SUBSCRIPTION_PLANS = {
       "Inventory Management",
       "Attendance (GPS)",
       "HR Management",
-      "Contract management & e-signatures",
+      "**Let's Grow Together** — Priority custom development",
       "Bank-level security & data protection",
       "24/7 customer support",
       "Mobile app access",
