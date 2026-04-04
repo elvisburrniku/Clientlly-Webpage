@@ -1,512 +1,261 @@
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Check, ArrowRight, Shield, Lock, Eye, Server, Globe, Award, Star, Menu, X, KeyRound, FileCheck, Database, Users, FileText, Clock, AlertTriangle } from 'lucide-react';
-import { Link } from 'wouter';
-import { LanguageSelector } from '@/components/LanguageSelector';
+import { ArrowLeft, Shield, Lock, Server, Globe, Award, KeyRound, FileCheck, Database, Users, Clock, AlertTriangle, CheckCircle, Mail } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
+import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import Footer from "@/components/Footer";
 
-const DataProtectionPage = () => {
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
+  return lang === "sq" ? alb : eng;
+}
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+export default function DataProtection() {
+  const { currentLanguage: lang } = useLanguage();
 
-  const dataProtectionPrinciples = [
-    {
-      icon: <Lock className="w-8 h-8" />,
-      title: "Data Ownership",
-      description: "Your data belongs to you. We never sell, rent, or share your personal or business information with third parties.",
-      details: ["Complete data ownership rights", "No data monetization", "Clear data usage policies"]
-    },
-    {
-      icon: <Eye className="w-8 h-8" />,
-      title: "Transparency",
-      description: "We're completely transparent about what data we collect, how we use it, and who has access to it.",
-      details: ["Clear data collection notices", "Regular privacy policy updates", "Open communication channels"]
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "User Control",
-      description: "You have full control over your data with easy-to-use privacy settings and data management tools.",
-      details: ["Granular privacy controls", "Easy data export", "Simple deletion process"]
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Legal Compliance",
-      description: "We comply with all major privacy regulations including GDPR, CCPA, and other regional privacy laws.",
-      details: ["GDPR Article 25 compliance", "Privacy by design", "Regular compliance audits"]
-    }
+  const certifications = [
+    { icon: Shield, label: "GDPR Compliant", desc: sq(lang,"Plotësisht në përputhje me rregulloren europiane","Fully compliant with European regulation") },
+    { icon: Lock, label: "ISO 27001", desc: sq(lang,"Serverë të certifikuar ndërkombëtarisht","Internationally certified servers") },
+    { icon: Award, label: "PCI DSS Level 1", desc: sq(lang,"Standardi më i lartë i sigurisë së pagesave","Highest payment security standard") },
+    { icon: Server, label: "SOC 2 Type II", desc: sq(lang,"Auditim i pavarur i kontrollit të sigurisë","Independent security control audit") },
   ];
 
-  const privacyRights = [
+  const measures = [
     {
-      icon: <FileText className="w-6 h-6" />,
-      title: "Right to Access",
-      description: "Request a copy of all personal data we hold about you in a portable format."
+      icon: KeyRound,
+      title: sq(lang,"Enkriptim nga fundi në fund","End-to-end encryption"),
+      content: sq(lang,
+        "Të gjitha të dhënat tuaja enkriptohen me AES-256 gjatë ruajtjes dhe me TLS 1.3 gjatë transferimit. Asnjë punonjës i Clientlly nuk mund të lexojë të dhënat tuaja të biznesit — çelësat e enkriptimit janë unike për çdo llogari.",
+        "All your data is encrypted with AES-256 at rest and TLS 1.3 in transit. No Clientlly employee can read your business data — encryption keys are unique to each account."
+      ),
     },
     {
-      icon: <Eye className="w-6 h-6" />,
-      title: "Right to Rectification",
-      description: "Correct any inaccurate or incomplete personal data we process about you."
+      icon: Server,
+      title: sq(lang,"Infrastrukturë e sigurt në BE","Secure EU infrastructure"),
+      content: sq(lang,
+        "Serverët tanë ndodhen ekskluzivisht në Gjermani (Hetzner Cloud — Frankfurt), brenda juridiksionit të Bashkimit Europian. Nuk transferojmë asnjë të dhënë jashtë BE. Serverët kanë certifikare ISO 27001 dhe janë fizikisht të siguruar.",
+        "Our servers are located exclusively in Germany (Hetzner Cloud — Frankfurt), within EU jurisdiction. We do not transfer any data outside the EU. Servers are ISO 27001 certified and physically secured."
+      ),
     },
     {
-      icon: <X className="w-6 h-6" />,
-      title: "Right to Erasure",
-      description: "Request deletion of your personal data when it's no longer needed for business purposes."
+      icon: FileCheck,
+      title: sq(lang,"Backup automatik ditor","Automatic daily backups"),
+      content: sq(lang,
+        "Të dhënat tuaja kopjohen automatikisht çdo 24 orë dhe ruhen të enkriptuara në 3 lokacione të ndryshme. Mund të restaurohet çdo pikë ruajtjeje nga 30 ditët e fundit. Backup-et janë të testuar javore.",
+        "Your data is automatically backed up every 24 hours and stored encrypted in 3 different locations. Any save point from the last 30 days can be restored. Backups are weekly tested."
+      ),
     },
     {
-      icon: <Database className="w-6 h-6" />,
-      title: "Right to Portability",
-      description: "Transfer your data to another service provider in a machine-readable format."
+      icon: Users,
+      title: sq(lang,"Kontrolli i aksesit me role","Role-based access control"),
+      content: sq(lang,
+        "Ju kontrolloni plotësisht kush ka akses dhe çfarë mund të bëjë. Sistemin e roleve (admin, kontabilist, menaxher, operator) ju lejon të caktoni leje specifike për çdo anëtar të ekipit.",
+        "You have full control over who has access and what they can do. The role system (admin, accountant, manager, operator) lets you assign specific permissions to each team member."
+      ),
     },
     {
-      icon: <AlertTriangle className="w-6 h-6" />,
-      title: "Right to Object",
-      description: "Object to the processing of your personal data for specific purposes."
+      icon: AlertTriangle,
+      title: sq(lang,"Monitorim dhe detektim 24/7","24/7 monitoring and detection"),
+      content: sq(lang,
+        "Sistemet tona monitorojnë aktivitetin e llogarive 24/7 dhe lajmërojnë automatikisht për sjellje të dyshimta: hyrje nga vendndodhje të reja, shumë tentativa të dështuara, ose eksporte të mëdha të të dhënave.",
+        "Our systems monitor account activity 24/7 and automatically alert for suspicious behaviour: logins from new locations, many failed attempts, or large data exports."
+      ),
     },
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Right to Restrict",
-      description: "Request restriction of processing your personal data in certain circumstances."
-    }
+      icon: Globe,
+      title: sq(lang,"Përputhshmëri GDPR","GDPR compliance"),
+      content: sq(lang,
+        "Si operatorë të të dhënave sipas GDPR, plotësojmë të gjitha detyrimet: regjistri i aktiviteteve të përpunimit (ROPA), vlerësimet e ndikimit (DPIA) për funksione të reja, kontrata me nënprocesuesit, dhe raportimi i shkeljeve brenda 72 orësh.",
+        "As data controllers under GDPR, we fulfil all obligations: records of processing activities (ROPA), impact assessments (DPIA) for new features, contracts with sub-processors, and breach reporting within 72 hours."
+      ),
+    },
   ];
 
-  const dataCategories = [
-    {
-      category: "Account Information",
-      description: "Basic account details needed for service provision",
-      examples: ["Name, email address", "Company information", "Billing address", "Payment methods"],
-      retention: "Retained for the duration of your account plus 7 years for legal compliance"
-    },
-    {
-      category: "Business Data",
-      description: "Information you create and store in our platform",
-      examples: ["Invoices and receipts", "Client information", "Financial records", "Business reports"],
-      retention: "Retained as long as you maintain your account, with backup retention for 90 days after deletion"
-    },
-    {
-      category: "Usage Analytics",
-      description: "Anonymous data about how you use our platform",
-      examples: ["Feature usage statistics", "Performance metrics", "Error logs", "Session data"],
-      retention: "Aggregated data retained for up to 24 months for service improvement"
-    },
-    {
-      category: "Support Communications",
-      description: "Records of your interactions with our support team",
-      examples: ["Support tickets", "Chat logs", "Email correspondence", "Phone call records"],
-      retention: "Retained for 3 years to maintain support history and improve service quality"
-    }
+  const rights = [
+    { icon: CheckCircle, title: sq(lang,"Akses i plotë","Full access"), desc: sq(lang,"Kërkoni eksport të të gjitha të dhënave tuaja","Request export of all your data") },
+    { icon: FileCheck,   title: sq(lang,"Korrigjim i menjëhershëm","Immediate correction"), desc: sq(lang,"Ndreqni çdo të dhënë të pasaktë","Correct any inaccurate data") },
+    { icon: AlertTriangle,title: sq(lang,"Fshirje e garantuar","Guaranteed erasure"), desc: sq(lang,"Fshini llogarinë dhe të dhënat brenda 90 ditësh","Delete account and data within 90 days") },
+    { icon: Database,    title: sq(lang,"Portabilitet i plotë","Full portability"), desc: sq(lang,"Merrni të dhënat në CSV, Excel ose JSON","Get data in CSV, Excel or JSON") },
+    { icon: Lock,        title: sq(lang,"Kufizim i përpunimit","Processing restriction"), desc: sq(lang,"Ngrini objeksione për çdo lloj përpunimi","Raise objections to any type of processing") },
+    { icon: Clock,       title: sq(lang,"Përgjigje 72-orëshe","72-hour response"), desc: sq(lang,"Çdo kërkesë ligjore trajtohet brenda 72 orësh","Every legal request handled within 72 hours") },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      {/* Navigation */}
-      <nav className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-4 group cursor-pointer">
-              <img 
-                src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-                alt="Clientlly" 
-                className="h-8 w-10 object-contain"
-              />
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Clientlly
-              </span>
-            </Link>
+    <div className="min-h-screen bg-white">
 
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">About Us</Link>
-              <Link href="/#features" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Features</Link>
-              <Link href="/subscribe" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Pricing</Link>
-              <Link href="/contact" className="text-gray-600 dark:text-gray-300 hover:text-foreground text-lg font-bold transition-colors">Contact Us</Link>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-4">
-              <LanguageSelector />
-              <Link href="/login">
-                <Button variant="outline" className="border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium">Login</Button>
-              </Link>
-              <Link href="/subscribe">
-                <Button className="bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>Buy Now</Button>
-              </Link>
-              <Button 
-                onClick={() => window.location.href = "/trial"}
-                className="bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                Start Your Trial
-              </Button>
-            </div>
-
-            <button 
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="md:hidden p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-foreground hover:bg-gray-100 dark:hover:bg-gray-800"
-            >
-              {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      {/* Nav */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative flex items-center h-16">
+            <button onClick={() => window.location.href="/"} className="flex items-center gap-2">
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-base font-bold text-gray-900">Clientlly</span>
+            </button>
+            <button onClick={() => window.history.back()}
+              className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
+              <ArrowLeft className="h-4 w-4" />{sq(lang,"Kthehu","Back")}
             </button>
           </div>
         </div>
-
-        {showMobileMenu && (
-          <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link href="/about" className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-foreground hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">About Us</Link>
-              <Link href="/#features" className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-foreground hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">Features</Link>
-              <Link href="/subscribe" className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-foreground hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">Pricing</Link>
-              <Link href="/contact" className="block px-3 py-2 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-foreground hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">Contact Us</Link>
-              <div className="px-3 py-2 space-y-2">
-                <Button 
-                  onClick={() => {
-                    window.location.href = "/subscribe";
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
-                >
-                  Buy Now
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = "/trial";
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
-                >
-                  Start Your Trial
-                </Button>
-                <div className="pt-2">
-                  <LanguageSelector />
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        {/* Full-width yellow background */}
-        <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-20 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400">
-          {/* Floating sparkles */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/60 rounded-full animate-pulse"></div>
-            <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-            <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
-            <div className="absolute bottom-1/3 right-1/2 w-1 h-1 bg-white/60 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
-            <div className="absolute top-3/4 left-1/2 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '2.5s'}}></div>
+      {/* Hero */}
+      <section className="py-14 px-6 lg:px-8 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full mb-5">
+            <Shield className="h-3.5 w-3.5 text-indigo-600" />
+            <span className="text-xs font-semibold text-indigo-700">{sq(lang,"Mbrojtja e të Dhënave","Data Protection")}</span>
           </div>
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-green-500 rounded-3xl mb-8 shadow-2xl">
-                <Shield className="w-10 h-10 text-white" />
-              </div>
-              <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-professional-fade">
-                Data Protection & <span className="animate-subtle-gradient">Privacy</span>
-              </h1>
-              <p className="text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
-                Your trust is our foundation. Learn how we protect your business data with enterprise-grade security, transparent policies, and complete user control.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Data Protection Principles */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
-              Our Privacy <span className="animate-subtle-gradient">Principles</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Built on transparency, user control, and legal compliance
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
-            {dataProtectionPrinciples.map((principle, index) => (
-              <Card key={index} className="group relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-blue-400/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-green-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <CardContent className="relative p-8">
-                  <div className="flex items-center space-x-4 mb-6">
-                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {principle.icon}
-                    </div>
-                    <h3 className="text-2xl font-black text-foreground">{principle.title}</h3>
-                  </div>
-                  
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{principle.description}</p>
-                  
-                  <ul className="space-y-2">
-                    {principle.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-center space-x-2">
-                        <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Your Privacy Rights */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-blue-50/30 to-green-50/20 dark:from-gray-900/50 dark:via-blue-950/20 dark:to-green-950/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight">
-              Your Privacy <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Rights</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Under GDPR and other privacy regulations, you have comprehensive rights over your personal data
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {privacyRights.map((right, index) => (
-              <Card key={index} className="group relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:border-green-400/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl text-white shadow-md">
-                      {right.icon}
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground">{right.title}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{right.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-
-        </div>
-      </section>
-
-      {/* Data Encryption & Security */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight">
-              How Your Data is <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Protected</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Military-grade encryption and enterprise security measures protecting your business data
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
-            <Card className="group relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-red-400/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 to-orange-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <CardContent className="relative p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <KeyRound className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-black text-foreground">End-to-End Encryption</h3>
-                </div>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">Your data is encrypted with AES-256 encryption at rest and TLS 1.3 in transit, ensuring complete protection from unauthorized access.</p>
-                
-                <ul className="space-y-3">
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>AES-256 encryption</strong> for all stored data</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>TLS 1.3 encryption</strong> for all data transfers</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>Zero-knowledge architecture</strong> - we can't see your data</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>Hardware Security Modules (HSM)</strong> for key management</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="group relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-blue-400/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <CardContent className="relative p-8">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Server className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-black text-foreground">Secure Infrastructure</h3>
-                </div>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed">Your data is stored in SOC 2 Type II certified data centers with enterprise-grade physical and network security.</p>
-                
-                <ul className="space-y-3">
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>SOC 2 Type II</strong> certified data centers</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>24/7 physical security</strong> and monitoring</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>Redundant backups</strong> across multiple geographic regions</span>
-                  </li>
-                  <li className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span className="text-sm text-muted-foreground"><strong>Network intrusion detection</strong> and prevention systems</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-1 rounded-2xl shadow-xl">
-            <CardContent className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-              <div className="text-center">
-                <div className="flex items-center justify-center w-20 h-20 bg-white/20 rounded-3xl mb-6 mx-auto">
-                  <Award className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Industry Certifications</h3>
-                <p className="text-white/90 mb-6 max-w-2xl mx-auto">We maintain the highest security standards with regular third-party audits and compliance certifications.</p>
-                
-                <div className="grid md:grid-cols-4 gap-6 text-center">
-                  <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">ISO 27001</h4>
-                    <p className="text-sm text-white/80">Information Security Management</p>
-                  </div>
-                  <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">SOC 2 Type II</h4>
-                    <p className="text-sm text-white/80">Security & Availability</p>
-                  </div>
-                  <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">GDPR</h4>
-                    <p className="text-sm text-white/80">Privacy Compliance</p>
-                  </div>
-                  <div className="bg-white/10 rounded-xl p-4">
-                    <h4 className="font-bold text-lg mb-2">PCI DSS</h4>
-                    <p className="text-sm text-white/80">Payment Security</p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Data Categories */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-purple-50/30 to-blue-50/20 dark:from-gray-900/50 dark:via-purple-950/20 dark:to-blue-950/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight">
-              What Data We <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Collect</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Complete transparency about the information we collect and how long we keep it
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {dataCategories.map((category, index) => (
-              <Card key={index} className="group relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 hover:border-purple-400/50 hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="grid lg:grid-cols-3 gap-6">
-                    <div className="lg:col-span-1">
-                      <h3 className="text-2xl font-black text-foreground mb-3">{category.category}</h3>
-                      <p className="text-muted-foreground">{category.description}</p>
-                    </div>
-                    
-                    <div className="lg:col-span-1">
-                      <h4 className="text-lg font-bold text-foreground mb-3">Examples Include:</h4>
-                      <ul className="space-y-2">
-                        {category.examples.map((example, exampleIndex) => (
-                          <li key={exampleIndex} className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                            <span className="text-sm text-muted-foreground">{example}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="lg:col-span-1">
-                      <h4 className="text-lg font-bold text-foreground mb-3">Data Retention:</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{category.retention}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 relative overflow-hidden">
-        {/* Floating elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/20 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
-          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
-          <div className="absolute bottom-1/4 left-1/3 w-4 h-4 bg-white/15 rounded-full animate-bounce" style={{animationDelay: '2s', animationDuration: '3.5s'}}></div>
-          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/25 rounded-full animate-bounce" style={{animationDelay: '0.5s', animationDuration: '4.5s'}}></div>
-          <div className="absolute bottom-1/3 right-1/2 w-2 h-2 bg-white/20 rounded-full animate-bounce" style={{animationDelay: '1.5s', animationDuration: '3s'}}></div>
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          {/* Animated title with standardized animations */}
-          <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight animate-professional-fade">
-            Ready to Trust Your <span className="animate-subtle-gradient">Business Data</span> with Us?
-          </h2>
-
-          <p className="text-xl mb-8 opacity-90 animate-fade-in" style={{animationDelay: '1.6s'}}>
-            Experience enterprise-grade data protection with complete transparency and user control.
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
+            {sq(lang,
+              <>Të dhënat tuaja janë<br /><span className="text-indigo-600">gjithmonë të sigurta</span></>,
+              <>Your data is<br /><span className="text-indigo-600">always secure</span></>
+            )}
+          </h1>
+          <p className="text-gray-500 max-w-2xl mb-8">
+            {sq(lang,
+              "Clientlly zbaton masat më të larta të sigurisë për të mbrojtur të dhënat tuaja të biznesit. GDPR i plotë, serverë në BE, enkriptim i nivelit bankar.",
+              "Clientlly implements the highest security measures to protect your business data. Full GDPR, EU servers, bank-level encryption."
+            )}
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '2s'}}>
-            <Button 
-              onClick={() => {
-                window.location.href = "/subscribe";
-                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
-              }}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-2xl transform hover:scale-110 transition-all duration-500 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-              style={{outline: 'none', boxShadow: 'none'}}
-            >
-              💼 Buy Now
-            </Button>
-            <Button 
-              onClick={() => window.location.href = "/trial"}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-10 py-4 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-500 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-              style={{outline: 'none', boxShadow: 'none'}}
-            >
-              🚀 Start Your Trial
-            </Button>
-          </div>
 
-          {/* Trust indicators with staggered animations */}
-          <div className="flex flex-wrap justify-center items-center gap-8 mt-12 text-sm opacity-80">
-            <div className="flex items-center space-x-2 animate-fade-in" style={{animationDelay: '2.5s'}}>
-              <Shield className="h-4 w-4" />
-              <span>Enterprise Security</span>
-            </div>
-            <div className="flex items-center space-x-2 animate-fade-in" style={{animationDelay: '2.7s'}}>
-              <Lock className="h-4 w-4" />
-              <span>GDPR Compliant</span>
-            </div>
-            <div className="flex items-center space-x-2 animate-fade-in" style={{animationDelay: '2.9s'}}>
-              <Award className="h-4 w-4" />
-              <span>SOC 2 Certified</span>
+          {/* Certifications */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {certifications.map((c,i) => {
+              const Icon = c.icon;
+              return (
+                <div key={i} className="p-4 rounded-xl border border-gray-200 flex flex-col items-start gap-2">
+                  <Icon className="h-5 w-5 text-indigo-600" />
+                  <p className="text-sm font-bold text-gray-900">{c.label}</p>
+                  <p className="text-xs text-gray-400 leading-snug">{c.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Security measures */}
+      <section className="py-14 px-6 lg:px-8 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
+            {sq(lang,"Masat teknike të sigurisë","Technical security measures")}
+          </h2>
+          <p className="text-gray-400 text-sm mb-10">
+            {sq(lang,"Si mbrojmë të dhënat tuaja çdo sekondë të çdo dite","How we protect your data every second of every day")}
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {measures.map((m,i) => {
+              const Icon = m.icon;
+              return (
+                <div key={i} className="p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 transition-colors">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-5 w-5 text-indigo-600" />
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-base">{m.title}</h3>
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed">{m.content}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Your rights */}
+      <section className="py-14 px-6 lg:px-8 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
+            {sq(lang,"Të drejtat tuaja sipas GDPR","Your rights under GDPR")}
+          </h2>
+          <p className="text-gray-400 text-sm mb-10">
+            {sq(lang,"Si qytetar i BE, keni të drejta të plota mbi të dhënat tuaja","As an EU citizen, you have full rights over your data")}
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {rights.map((r,i) => {
+              const Icon = r.icon;
+              return (
+                <div key={i} className="p-5 rounded-2xl border border-gray-100 flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                    <Icon className="h-4 w-4 text-emerald-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-gray-900 mb-0.5">{r.title}</p>
+                    <p className="text-xs text-gray-400 leading-snug">{r.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Incident response */}
+      <section className="py-14 px-6 lg:px-8 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
+            {sq(lang,"Plani i reagimit ndaj incidenteve","Incident response plan")}
+          </h2>
+          <p className="text-gray-500 text-sm mb-8">
+            {sq(lang,"Çfarë ndodh nëse zbulohet një shkelje e sigurisë","What happens if a security breach is detected")}
+          </p>
+          <div className="flex flex-col gap-0">
+            {[
+              { time: sq(lang,"0–1 orë","0–1 hour"),  label: sq(lang,"Detektim dhe izolim","Detection and isolation"), desc: sq(lang,"Sistemi automatik bllokoi aksesin dhe lajmëron ekipin e sigurisë","Automatic system blocks access and alerts security team") },
+              { time: sq(lang,"1–24 orë","1–24 hours"),label: sq(lang,"Analizë dhe vlerësim","Analysis and assessment"), desc: sq(lang,"Ekipi teknik vlerëson shtrirjen dhe natyrën e incidentit","Technical team assesses the scope and nature of the incident") },
+              { time: sq(lang,"24–72 orë","24–72 hours"),label: sq(lang,"Njoftim i autoriteteve","Notification of authorities"), desc: sq(lang,"Raportohet te autoriteti mbikëqyrës (ADISA/DPA) si kërkon GDPR","Reported to supervisory authority (ADISA/DPA) as GDPR requires") },
+              { time: sq(lang,"72 orë+","72 hours+"),   label: sq(lang,"Njoftim i përdoruesve","User notification"), desc: sq(lang,"Ju njoftoheni drejtpërdrejt nëse të dhënat tuaja janë prekur","You are directly notified if your data was affected") },
+            ].map((step,i,arr) => (
+              <div key={i} className="flex gap-5">
+                <div className="flex flex-col items-center">
+                  <div className="w-8 h-8 rounded-full bg-indigo-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">{i+1}</div>
+                  {i < arr.length-1 && <div className="w-px flex-1 bg-indigo-100 my-1" />}
+                </div>
+                <div className="pb-8 pt-1">
+                  <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">{step.time}</span>
+                  <p className="text-base font-bold text-gray-900 mt-2 mb-1">{step.label}</p>
+                  <p className="text-sm text-gray-500">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact DPO */}
+      <section className="py-14 px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="p-8 rounded-2xl border border-indigo-100 bg-indigo-50">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-xl font-extrabold text-gray-900 mb-2">
+                  {sq(lang,"Kontaktoni DPO-n tonë","Contact our DPO")}
+                </h2>
+                <p className="text-sm text-gray-600 mb-4">
+                  {sq(lang,
+                    "Zyrtari ynë i Mbrojtjes së të Dhënave (DPO) trajton çdo pyetje ose ankesë lidhur me mbrojtjen e të dhënave tuaja. Keni të drejtë të paraqisni ankesë edhe te ADISA (autoriteti shqiptar) ose te autoriteti i vendit tuaj.",
+                    "Our Data Protection Officer (DPO) handles any questions or complaints regarding the protection of your data. You also have the right to lodge a complaint with ADISA (Albanian authority) or your country's authority."
+                  )}
+                </p>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-indigo-600" />
+                  <span className="text-sm font-semibold text-indigo-700">dpo@clientlly.com</span>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <button onClick={() => window.location.href="/contact"}
+                  className="w-full py-3 px-5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all text-sm">
+                  {sq(lang,"Kontakto DPO","Contact DPO")}
+                </button>
+                <button onClick={() => window.location.href="/privacy-policy"}
+                  className="w-full py-3 px-5 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-200 transition-all text-sm">
+                  {sq(lang,"Lexo Politikën e Privatësisë","Read Privacy Policy")}
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
-};
-
-export default DataProtectionPage;
+}
