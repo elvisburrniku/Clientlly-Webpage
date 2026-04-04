@@ -463,10 +463,15 @@ export default function Integrations() {
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <button onClick={() => window.location.href = "/trial"}
-              className="inline-flex items-center gap-2 px-7 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5">
-              {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
-              <ArrowRight className="h-4 w-4" />
+            <button
+              onClick={() => window.location.href = "/trial"}
+              className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <span className="flex flex-col items-start leading-tight">
+                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
+                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
+              </span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
             <button onClick={() => window.location.href = "/contact"}
               className="inline-flex items-center gap-2 px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">

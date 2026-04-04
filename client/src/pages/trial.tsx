@@ -1,674 +1,428 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
-import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import { useLanguage } from "@/lib/i18n";
 import {
-  ArrowLeft,
-  Zap,
-  Clock,
-  CheckCircle,
-  Star,
-  CreditCard,
-  Shield,
-  Users,
-  TrendingUp,
-  Calendar,
-  FileText,
-  BarChart3,
-  Sparkles,
-  Menu,
-  X,
-  Rocket,
-  Target,
-  Award,
-  Globe,
-  Headphones,
-  ArrowRight,
-  Play,
-  Gift,
-  Database,
-  Lock,
-  Smartphone,
-  Receipt,
-  Building2,
-  Mail,
-  DollarSign
+  ArrowRight, Menu, X, Check, Shield, Zap, Star,
+  Users, FileText, BarChart3, Clock, Car, Package,
+  Lock, ChevronRight,
 } from "lucide-react";
 
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
+  return lang === "sq" ? alb : eng;
+}
+
 export default function Trial() {
+  const { currentLanguage } = useLanguage();
+  const lang = currentLanguage;
   const { toast } = useToast();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [trialForm, setTrialForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    company: "",
-    phone: ""
-  });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", company: "", phone: "" });
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  // Trial signup mutation
   const trialMutation = useMutation({
-    mutationFn: async (data: typeof trialForm) => {
-      // Redirect to subscription page with trial parameters
-      window.location.href = `/subscribe?plan=basic&billing=monthly&trial=true&email=${encodeURIComponent(data.email)}&name=${encodeURIComponent(data.firstName + ' ' + data.lastName)}&company=${encodeURIComponent(data.company)}`;
+    mutationFn: async (data: typeof form) => {
+      window.location.href = `/subscribe?plan=basic&billing=monthly&trial=true&email=${encodeURIComponent(data.email)}&name=${encodeURIComponent(data.firstName + " " + data.lastName)}&company=${encodeURIComponent(data.company)}`;
     },
-    onError: (error: any) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to start trial. Please try again.",
-        variant: "destructive",
-      });
+    onError: () => {
+      toast({ title: "Gabim", description: "Ju lutem provoni sërish.", variant: "destructive" });
     },
   });
 
-  const handleTrialSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    trialMutation.mutate(trialForm);
+    trialMutation.mutate(form);
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950 relative overflow-hidden">
-      {/* Clean Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/50 dark:via-gray-900/30 dark:to-gray-900/50"></div>
-      </div>
+  const MODULES = [
+    { icon: FileText, label: sq(lang, "Faturim & Oferta Elektronike", "Invoicing & Digital Quotes") },
+    { icon: BarChart3, label: sq(lang, "Raporte & Analitikë", "Reports & Analytics") },
+    { icon: Users,    label: sq(lang, "CRM & Menaxhim Klientësh", "CRM & Client Management") },
+    { icon: Clock,    label: sq(lang, "Prezencë GPS & HR", "GPS Attendance & HR") },
+    { icon: Car,      label: sq(lang, "Motorpool / Menaxhim Flotë", "Motorpool / Fleet Management") },
+    { icon: Package,  label: sq(lang, "Inventar & Furnitorë", "Inventory & Vendors") },
+  ];
 
-      {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-b border-white/20 dark:border-gray-700/20 shadow-lg">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
-          <div className="flex items-center justify-between h-20">
-            {/* Left Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300">
-              <img 
-                src={logoPath}
-                alt="BusinessFlow Pro" 
-                className="w-10 h-8 object-contain"
-              />
-              <span className="text-lg font-bold text-gray-800 dark:text-white">BusinessFlow Pro</span>
+  return (
+    <div className="min-h-screen bg-white">
+
+      {/* ── NAV ── */}
+      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative flex items-center h-16">
+            <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            {/* Center Section - Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">About Us</Link>
-              <Link href="/#features" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">Features</Link>
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
-                className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
-              >
-                Pricing
-              </Button>
-              <Button 
-                variant="ghost" 
-                onClick={() => window.location.href = '/contact'} 
-                className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
-              >
-                Contact Us
-              </Button>
+            <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/compare-features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Krahaso Planet", "Compare Plans")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact")}</Link>
             </div>
 
-            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
-            <div className="hidden lg:flex items-center space-x-3">
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = "/api/login"}
-                className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
-              >
-                Login
-              </Button>
-              <Button 
-                onClick={() => window.location.href = '/subscribe'}
-                className="px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                Buy Now
-              </Button>
-              <Button 
-                onClick={() => window.location.href = "/trial"}
-                className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                Start Your Trial
-              </Button>
-              <div className="flex items-center">
-                <LanguageSelector />
-              </div>
+            <div className="hidden lg:flex items-center space-x-4 ml-auto">
+              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(lang, "Hyr", "Login")}
+              </button>
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg transition-colors">
+                {sq(lang, "Blej Tani", "Buy Now")}
+              </button>
+              <LanguageSelector />
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="flex lg:hidden items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="scale-in"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
-              >
-                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
+            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+        </div>
+        {showMobileMenu && (
+          <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features")}</Link>
+            <button onClick={() => window.location.href = "/subscribe"} className="block text-sm font-medium text-gray-700 py-1.5 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <div className="pt-2 flex gap-2">
+              <button onClick={() => window.location.href = "/subscribe"} className="flex-1 text-sm font-semibold py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <LanguageSelector />
             </div>
           </div>
-
-          {/* Mobile Menu */}
-          {showMobileMenu && (
-            <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
-              <div className="px-4 py-4 space-y-4">
-                {/* Navigation Links */}
-                <Link href="/about" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">About Us</Link>
-                <Link href="/#features" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">Features</Link>
-                <Button 
-                  variant="ghost"
-                  onClick={() => {
-                    window.location.href = '/subscribe';
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full text-left justify-start text-lg text-muted-foreground hover:text-primary font-bold"
-                >
-                  Pricing
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  onClick={() => {
-                    window.location.href = '/contact';
-                    setShowMobileMenu(false);
-                  }} 
-                  className="w-full text-left justify-start text-lg text-muted-foreground hover:text-primary font-bold"
-                >
-                  Contact Us
-                </Button>
-                
-                {/* Action Buttons */}
-                <div className="pt-4 space-y-2">
-                  <Button 
-                    variant="ghost" 
-                    onClick={() => {
-                      window.location.href = "/api/login";
-                      setShowMobileMenu(false);
-                    }} 
-                    className="w-full text-left justify-start text-muted-foreground hover:text-primary"
-                  >
-                    Login
-                  </Button>
-                  <Button 
-                    onClick={() => {
-                      window.location.href = '/subscribe';
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                    style={{outline: 'none', boxShadow: 'none'}}
-                  >
-                    Buy Now
-                  </Button>
-                  <Button 
-                    onClick={() => {
-                      window.location.href = "/trial";
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                    style={{outline: 'none', boxShadow: 'none'}}
-                  >
-                    Start Your Trial
-                  </Button>
-                  <div className="px-3">
-                    <LanguageSelector />
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </nav>
 
-      {/* Hero Section */}
-      <div className="pt-32 pb-20 px-4 relative">
-        <div className="max-w-7xl mx-auto">
-          {/* Hero Header */}
-          <div className="text-center mb-20 relative">
-            {/* Animated Badge */}
-            <div className={`inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500/20 via-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-full text-lg font-bold text-emerald-700 dark:text-emerald-300 mb-8 shadow-xl transform transition-all duration-1000 ${isVisible ? 'animate-bounce' : 'opacity-0'}`}>
-              <Gift className="w-6 h-6 mr-3 animate-pulse" />
-              🎉 14-Day Free Trial - No Credit Card Required
-              <Sparkles className="w-6 h-6 ml-3 animate-spin" />
-            </div>
-            
-            {/* Main Title */}
-            <h1 className={`text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight animate-professional-fade`}>
-              Start your{' '}
-              <span className="animate-subtle-gradient">
-                free trial
-              </span>
-              <br />
-              <span className="text-5xl lg:text-6xl xl:text-7xl text-gray-700 dark:text-gray-300">
-                in 60 seconds
-              </span>
-            </h1>
-            
-            {/* Subtitle */}
-            <p className={`text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12 transform transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              Experience the full power of BusinessFlow Pro completely free for 14 days. 
-              <br className="hidden lg:block" />
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">No credit card, no commitments, no risk.</span>
-            </p>
+      {/* ── HERO + FORM ── */}
+      <section className="pt-16 min-h-screen bg-gradient-to-br from-indigo-50/80 via-white to-white">
+        <div className="max-w-5xl mx-auto px-6 pt-14 pb-20">
 
-            {/* Enhanced Trust Indicators */}
-            <div className={`flex flex-wrap justify-center items-center gap-8 transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-emerald-200/50 dark:border-emerald-700/50">
-                <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
-                  <CheckCircle className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="font-bold text-gray-900 dark:text-white">No Credit Card</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Required</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-xl text-white transform hover:scale-105 transition-transform duration-300">
-                <Clock className="h-6 w-6 text-white" />
-                <div className="text-left">
-                  <div className="font-bold text-white">14 Days Free</div>
-                  <div className="text-sm text-white opacity-90">Full Access</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-200/50 dark:border-purple-700/50">
-                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="font-bold text-gray-900 dark:text-white">100% Secure</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">& Private</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-3 px-6 py-3 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg border border-orange-200/50 dark:border-orange-700/50">
-                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
-                  <Rocket className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="font-bold text-gray-900 dark:text-white">Instant Setup</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">60 Seconds</div>
-                </div>
-              </div>
+          {/* Top badge */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 border border-indigo-100 rounded-full text-sm font-semibold text-indigo-700">
+              <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
+              {sq(lang, "14 Ditë Falas · Pa Kartë Krediti · Qasje e Plotë", "14 Days Free · No Credit Card · Full Access")}
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-20 items-start">
-            {/* Left Side - Enhanced Trial Form */}
-            <Card className={`relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 delay-800 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-              {/* Form Header with Yellow Background */}
-              <div className="relative w-full px-4 py-12 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden rounded-t-3xl">
-                {/* Decorative Elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                  {/* Floating sparkle elements */}
-                  <div className="absolute top-4 left-8 w-3 h-3 bg-white/40 rounded-full animate-bounce delay-0"></div>
-                  <div className="absolute bottom-4 right-12 w-4 h-4 bg-white/50 rounded-full animate-bounce delay-1000"></div>
-                  <div className="absolute top-6 right-16 w-2 h-2 bg-white/30 rounded-full animate-bounce delay-2000"></div>
-                </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
 
-                <div className="relative z-10 text-center">
-                  <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                    <Rocket className="h-10 w-10 text-white" />
+            {/* ── LEFT: Value prop ── */}
+            <div className="lg:pt-2">
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4">
+                {sq(lang,
+                  <>Provoni <span className="text-indigo-600">Clientlly</span><br />14 ditë pa asnjë kosto</>,
+                  <>Try <span className="text-indigo-600">Clientlly</span><br />14 days at no cost</>
+                )}
+              </h1>
+              <p className="text-base text-gray-500 leading-relaxed mb-7">
+                {sq(lang,
+                  "Qasje e plotë në të gjitha 14 modulet — pa kartë krediti, pa angazhim. Nëse nuk e doni, anuloni me 1 klikim.",
+                  "Full access to all 14 modules — no credit card, no commitment. If you don't love it, cancel with 1 click."
+                )}
+              </p>
+
+              {/* Trust badges */}
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                {[
+                  { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card"), sub: sq(lang, "Asnjë ngarkesë e befasishme", "No surprise charges") },
+                  { icon: Zap,    label: sq(lang, "Aktivizim i menjëhershëm", "Instant activation"), sub: sq(lang, "Gati brenda 60 sekondave", "Ready in 60 seconds") },
+                  { icon: Check,  label: sq(lang, "Anulo kur dëshironi", "Cancel anytime"), sub: sq(lang, "Pa penalizim, asnjëherë", "No penalty, ever") },
+                  { icon: Star,   label: sq(lang, "Qasje e plotë", "Full access"), sub: sq(lang, "Të gjitha 14 modulet", "All 14 modules") },
+                ].map(({ icon: Icon, label, sub }, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3.5 bg-white border border-gray-200 rounded-xl shadow-sm">
+                    <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-4 w-4 text-indigo-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-900">{label}</p>
+                      <p className="text-[11px] text-gray-400">{sub}</p>
+                    </div>
                   </div>
-                  <h2 className="text-4xl font-black text-black mb-3 tracking-tight animate-professional-fade">Ready to <span className="animate-subtle-gradient">Launch</span>?</h2>
-                  <p className="text-lg text-black">Your business transformation starts with these 5 simple fields.</p>
+                ))}
+              </div>
+
+              {/* Modules list */}
+              <div className="mb-6">
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
+                  {sq(lang, "Çfarë përfshihet", "What's included")}
+                </p>
+                <div className="space-y-2">
+                  {MODULES.map(({ icon: Icon, label }, i) => (
+                    <div key={i} className="flex items-center gap-2.5 text-sm text-gray-700">
+                      <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                        <Check className="h-3 w-3 text-indigo-600" />
+                      </div>
+                      {label}
+                    </div>
+                  ))}
+                  <div className="flex items-center gap-2.5 text-sm text-indigo-600 font-medium mt-1">
+                    <ChevronRight className="h-4 w-4" />
+                    <Link href="/features">{sq(lang, "Shiko të gjitha 14 modulet →", "See all 14 modules →")}</Link>
+                  </div>
                 </div>
               </div>
 
-              <CardContent className="p-8 pt-0">
-                {/* Progress Indicator */}
-                <div className="mb-8">
-                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    <span>Complete your details</span>
-                    <span className="font-bold">Step 1 of 2</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-emerald-500 to-blue-500 h-2 rounded-full w-1/2 transition-all duration-500"></div>
-                  </div>
+              {/* Social proof */}
+              <div className="flex items-center gap-3 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+                <div className="flex -space-x-2">
+                  {["AB", "EK", "LS", "DK"].map((ini, i) => (
+                    <div key={i} className="w-8 h-8 rounded-full bg-indigo-600 border-2 border-white flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0">
+                      {ini}
+                    </div>
+                  ))}
                 </div>
-
-                <form onSubmit={handleTrialSubmit} className="space-y-8">
-                  {/* Enhanced Name Fields */}
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <Label htmlFor="firstName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-                        <Users className="h-5 w-5 mr-2 text-emerald-500" />
-                        First Name
-                      </Label>
-                      <Input
-                        id="firstName"
-                        type="text"
-                        placeholder="John"
-                        value={trialForm.firstName}
-                        onChange={(e) => setTrialForm({ ...trialForm, firstName: e.target.value })}
-                        required
-                        className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 focus:ring-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400"
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="lastName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-                        <Users className="h-5 w-5 mr-2 text-blue-500" />
-                        Last Name
-                      </Label>
-                      <Input
-                        id="lastName"
-                        type="text"
-                        placeholder="Doe"
-                        value={trialForm.lastName}
-                        onChange={(e) => setTrialForm({ ...trialForm, lastName: e.target.value })}
-                        required
-                        className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-blue-400"
-                      />
-                    </div>
+                <div>
+                  <div className="flex gap-0.5 mb-0.5">
+                    {[1,2,3,4,5].map(i => <Star key={i} className="h-3 w-3 text-amber-400 fill-amber-400" />)}
                   </div>
-
-                  {/* Enhanced Email Field */}
-                  <div className="space-y-3">
-                    <Label htmlFor="email" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-                      <Mail className="h-5 w-5 mr-2 text-purple-500" />
-                      Business Email
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@company.com"
-                      value={trialForm.email}
-                      onChange={(e) => setTrialForm({ ...trialForm, email: e.target.value })}
-                      required
-                      className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-purple-500 focus:ring-purple-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-purple-400"
-                    />
-                  </div>
-
-                  {/* Enhanced Company Field */}
-                  <div className="space-y-3">
-                    <Label htmlFor="company" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-                      <Building2 className="h-5 w-5 mr-2 text-orange-500" />
-                      Company Name
-                    </Label>
-                    <Input
-                      id="company"
-                      type="text"
-                      placeholder="Your Company Inc."
-                      value={trialForm.company}
-                      onChange={(e) => setTrialForm({ ...trialForm, company: e.target.value })}
-                      required
-                      className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-orange-500 focus:ring-orange-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-400"
-                    />
-                  </div>
-
-                  {/* Enhanced Phone Field */}
-                  <div className="space-y-3">
-                    <Label htmlFor="phone" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-                      <Smartphone className="h-5 w-5 mr-2 text-indigo-500" />
-                      Phone Number <span className="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">(Optional)</span>
-                    </Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="+1 (555) 123-4567"
-                      value={trialForm.phone}
-                      onChange={(e) => setTrialForm({ ...trialForm, phone: e.target.value })}
-                      className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400"
-                    />
-                  </div>
-
-                  {/* Enhanced Submit Button */}
-                  <div className="pt-4">
-                    <Button 
-                      type="submit" 
-                      className="w-full h-16 text-xl font-bold bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 hover:from-emerald-700 hover:via-blue-700 hover:to-purple-700 text-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] relative overflow-hidden group"
-                      disabled={trialMutation.isPending}
-                    >
-                      {/* Button Background Animation */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                      
-                      <div className="relative flex items-center justify-center">
-                        {trialMutation.isPending ? (
-                          <>
-                            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
-                            Setting up your trial...
-                          </>
-                        ) : (
-                          <>
-                            <Rocket className="h-6 w-6 mr-3 group-hover:animate-bounce text-white" />
-                            <span className="text-white">Start My Free Trial Now</span>
-                            <Sparkles className="h-6 w-6 ml-3 group-hover:animate-spin text-white" />
-                          </>
-                        )}
-                      </div>
-                    </Button>
-
-                    {/* Enhanced Legal Text */}
-                    <p className="text-sm text-gray-500 dark:text-gray-400 text-center leading-relaxed mt-6 bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50 dark:border-gray-700/50">
-                      <Lock className="h-4 w-4 inline mr-2 text-emerald-500" />
-                      By starting your trial, you agree to our <span className="font-bold text-emerald-600 dark:text-emerald-400">Terms of Service</span> and <span className="font-bold text-emerald-600 dark:text-emerald-400">Privacy Policy</span>. 
-                      <br />
-                      Your trial will automatically convert to a paid plan after 14 days unless cancelled. No surprises, no hidden fees.
-                    </p>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Right Side - Enhanced Features Showcase */}
-            <div className={`space-y-8 transform transition-all duration-1000 delay-1000 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-              {/* Enhanced Trial Overview */}
-              <Card className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-blue-50 to-purple-50 dark:from-emerald-950/30 dark:via-blue-950/30 dark:to-purple-950/30 border-2 border-emerald-200/50 dark:border-emerald-700/50 shadow-2xl rounded-3xl">
-                {/* Background Animation */}
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 animate-pulse"></div>
-                
-                <CardContent className="p-10 relative">
-                  <div className="text-center">
-                    <div className="relative mb-6">
-                      <div className="w-24 h-24 bg-gradient-to-br from-emerald-500 via-blue-500 to-purple-500 rounded-3xl flex items-center justify-center mx-auto shadow-2xl transform rotate-6 hover:rotate-0 transition-transform duration-500">
-                        <Gift className="h-12 w-12 text-white animate-bounce" />
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center animate-spin-slow">
-                        <Sparkles className="h-4 w-4 text-white" />
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-4 tracking-tight">
-                      14-Day Premium Access
-                    </h3>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                      Experience <span className="font-bold text-emerald-600 dark:text-emerald-400">every single feature</span> of BusinessFlow Pro with absolutely no limitations.
-                    </p>
-                    
-                    <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl p-6 text-white shadow-xl">
-                      <div className="flex items-center justify-center space-x-2 mb-2">
-                        <DollarSign className="h-6 w-6 text-white" />
-                        <span className="text-2xl font-black text-white">$79 Value</span>
-                      </div>
-                      <p className="text-white font-medium">Completely FREE for 14 days</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Enhanced Features List */}
-              <div className="space-y-6">
-                <div className="text-center">
-                  <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-2 tracking-tight">
-                    Everything Included
-                  </h3>
-                  <p className="text-lg text-gray-600 dark:text-gray-300">
-                    Access all premium features from day one
+                  <p className="text-xs text-gray-500">
+                    {sq(lang, "200+ biznese tashmë e përdorin Clientlly", "200+ businesses already use Clientlly")}
                   </p>
                 </div>
-                
-                <div className="grid gap-4">
-                  {/* Feature Item 1 */}
-                  <Card className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-blue-200/50 dark:border-blue-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                          <FileText className="h-7 w-7 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900 dark:text-white">Professional Invoicing</h4>
-                          <p className="text-gray-600 dark:text-gray-300">Unlimited invoices with custom branding</p>
-                        </div>
-                        <CheckCircle className="h-6 w-6 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                    </CardContent>
-                  </Card>
+              </div>
+            </div>
 
-                  {/* Feature Item 2 */}
-                  <Card className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-emerald-200/50 dark:border-emerald-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                          <Receipt className="h-7 w-7 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900 dark:text-white">Smart Expense Tracking</h4>
-                          <p className="text-gray-600 dark:text-gray-300">AI-powered receipt scanning & categorization</p>
-                        </div>
-                        <CheckCircle className="h-6 w-6 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                    </CardContent>
-                  </Card>
+            {/* ── RIGHT: Form card ── */}
+            <div className="bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
+              {/* Card header */}
+              <div className="bg-indigo-600 px-7 py-6">
+                <p className="text-[10px] font-semibold text-indigo-200 uppercase tracking-widest mb-1">
+                  {sq(lang, "14 ditë falas", "14 days free")}
+                </p>
+                <h2 className="text-xl font-extrabold text-white leading-tight">
+                  {sq(lang, "Fillo Provën Tani", "Start Your Free Trial")}
+                </h2>
+                <p className="text-sm text-indigo-200 mt-1">
+                  {sq(lang, "Pa kartë krediti · Pa angazhim", "No credit card · No commitment")}
+                </p>
+              </div>
 
-                  {/* Feature Item 3 */}
-                  <Card className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-purple-200/50 dark:border-purple-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                          <Users className="h-7 w-7 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900 dark:text-white">Advanced CRM</h4>
-                          <p className="text-gray-600 dark:text-gray-300">Complete client & vendor management</p>
-                        </div>
-                        <CheckCircle className="h-6 w-6 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Feature Item 4 */}
-                  <Card className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-orange-200/50 dark:border-orange-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                          <BarChart3 className="h-7 w-7 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900 dark:text-white">Business Intelligence</h4>
-                          <p className="text-gray-600 dark:text-gray-300">Real-time analytics & custom reports</p>
-                        </div>
-                        <CheckCircle className="h-6 w-6 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Feature Item 5 */}
-                  <Card className="group bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-indigo-200/50 dark:border-indigo-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] rounded-2xl overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-                          <Calendar className="h-7 w-7 text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-xl font-bold text-gray-900 dark:text-white">AI-Powered Calendar</h4>
-                          <p className="text-gray-600 dark:text-gray-300">Smart scheduling & team coordination</p>
-                        </div>
-                        <CheckCircle className="h-6 w-6 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                    </CardContent>
-                  </Card>
+              {/* Form body */}
+              <form onSubmit={handleSubmit} className="px-7 py-6 space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      {sq(lang, "Emri *", "First name *")}
+                    </label>
+                    <input
+                      type="text"
+                      placeholder={lang === "sq" ? "Alban" : "John"}
+                      value={form.firstName}
+                      onChange={e => setForm({ ...form, firstName: e.target.value })}
+                      required
+                      className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                      {sq(lang, "Mbiemri *", "Last name *")}
+                    </label>
+                    <input
+                      type="text"
+                      placeholder={lang === "sq" ? "Gunga" : "Doe"}
+                      value={form.lastName}
+                      onChange={e => setForm({ ...form, lastName: e.target.value })}
+                      required
+                      className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                    />
+                  </div>
                 </div>
-              </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    {sq(lang, "Email i biznesit *", "Business email *")}
+                  </label>
+                  <input
+                    type="email"
+                    placeholder={lang === "sq" ? "alban@kompania.al" : "john@company.com"}
+                    value={form.email}
+                    onChange={e => setForm({ ...form, email: e.target.value })}
+                    required
+                    className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    {sq(lang, "Emri i kompanisë *", "Company name *")}
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={lang === "sq" ? "Kompania Juaj Sh.p.k." : "Your Company Ltd."}
+                    value={form.company}
+                    onChange={e => setForm({ ...form, company: e.target.value })}
+                    required
+                    className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                    {sq(lang, "Numri i telefonit (opsional)", "Phone number (optional)")}
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder={lang === "sq" ? "+355 69 xxx xxxx" : "+1 (555) 123-4567"}
+                    value={form.phone}
+                    onChange={e => setForm({ ...form, phone: e.target.value })}
+                    className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                  />
+                </div>
+
+                {/* Submit button */}
+                <button
+                  type="submit"
+                  disabled={trialMutation.isPending}
+                  className="group w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md mt-1"
+                >
+                  {trialMutation.isPending ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      {sq(lang, "Po konfigurohet...", "Setting up...")}
+                    </>
+                  ) : (
+                    <>
+                      <span className="flex flex-col items-start leading-tight">
+                        <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">
+                          {sq(lang, "14 ditë falas · pa kartë krediti", "14 days free · no credit card")}
+                        </span>
+                        <span className="text-sm font-bold">{sq(lang, "Fillo Provën Tani", "Start Free Trial Now")}</span>
+                      </span>
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+                    </>
+                  )}
+                </button>
+
+                {/* Legal note */}
+                <p className="text-[11px] text-gray-400 text-center leading-relaxed pt-1">
+                  <Lock className="h-3 w-3 inline mr-1" />
+                  {sq(lang,
+                    <>Duke filluar provën, pranoni <a href="/terms-of-service" className="underline hover:text-gray-600">Kushtet e Shërbimit</a> dhe <a href="/privacy-policy" className="underline hover:text-gray-600">Politikën e Privatësisë</a>. Prova konvertohet automatikisht pas 14 ditësh nëse nuk anulohet.</>,
+                    <>By starting your trial, you agree to our <a href="/terms-of-service" className="underline hover:text-gray-600">Terms of Service</a> and <a href="/privacy-policy" className="underline hover:text-gray-600">Privacy Policy</a>. Trial converts automatically after 14 days unless cancelled.</>
+                  )}
+                </p>
+              </form>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* VIP Support Experience - Full Width Section */}
-      <div className="w-full bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 py-20 px-4 relative overflow-hidden">
-        {/* Floating Sparkles */}
-        <div className="absolute top-8 left-8 w-3 h-3 bg-white/40 rounded-full animate-bounce"></div>
-        <div className="absolute top-16 right-16 w-2 h-2 bg-white/50 rounded-full animate-bounce delay-300"></div>
-        <div className="absolute bottom-12 left-16 w-2 h-2 bg-white/30 rounded-full animate-bounce delay-500"></div>
-        <div className="absolute bottom-8 right-8 w-3 h-3 bg-white/60 rounded-full animate-bounce delay-700"></div>
-        <div className="absolute top-1/2 left-1/4 w-1.5 h-1.5 bg-white/35 rounded-full animate-bounce delay-200"></div>
-        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/45 rounded-full animate-bounce delay-600"></div>
-        
-        <div className="max-w-6xl mx-auto text-center relative">
-          {/* 5-Star Rating */}
-          <div className="flex justify-center mb-6">
-            <div className="flex space-x-2">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-8 w-8 fill-yellow-600 text-yellow-600 animate-bounce" style={{ animationDelay: `${i * 0.1}s` }} />
-              ))}
-            </div>
+      {/* ── WHAT HAPPENS NEXT ── */}
+      <section className="py-14 px-6 border-t border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
+              {sq(lang, "Çfarë ndodh pas regjistrimit?", "What happens after sign up?")}
+            </h2>
+            <p className="text-sm text-gray-500">
+              {sq(lang, "Tre hapa të thjeshtë — gati brenda 60 sekondave", "Three simple steps — ready in 60 seconds")}
+            </p>
           </div>
-          
-          <h3 className="text-4xl lg:text-5xl font-black text-black mb-6 tracking-tight">
-            VIP Support Experience
-          </h3>
-          <p className="text-xl lg:text-2xl text-black mb-12 leading-relaxed max-w-4xl mx-auto">
-            Get <span className="font-bold text-black">personal onboarding</span> and dedicated support throughout your entire trial.
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              {
+                step: "01",
+                title: sq(lang, "Plotësoni formularin", "Fill in the form"),
+                desc: sq(lang, "Emri, email dhe emri i kompanisë — vetëm 30 sekonda.", "Name, email and company name — only 30 seconds."),
+                color: "bg-indigo-600",
+              },
+              {
+                step: "02",
+                title: sq(lang, "Konfirmoni emailin", "Confirm your email"),
+                desc: sq(lang, "Merrni email konfirmimi dhe klikoni lidhjen brenda 2 minutash.", "Receive confirmation email and click the link within 2 minutes."),
+                color: "bg-emerald-600",
+              },
+              {
+                step: "03",
+                title: sq(lang, "Filloni të punoni", "Start working"),
+                desc: sq(lang, "Dashbordi juaj është gati. Krijoni faturën e parë menjëherë.", "Your dashboard is ready. Create your first invoice immediately."),
+                color: "bg-violet-600",
+              },
+            ].map(({ step, title, desc, color }, i) => (
+              <div key={i} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <div className={`inline-flex items-center justify-center w-9 h-9 rounded-xl ${color} text-white text-xs font-extrabold mb-4 shadow-sm`}>
+                  {step}
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-12 px-6 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-xl font-extrabold text-gray-900 mb-6 text-center">
+            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions")}
+          </h2>
+          {[
+            {
+              q: { sq: "A duhet kartelë krediti për të filluar provën?", en: "Do I need a credit card to start the trial?" },
+              a: { sq: "Jo aspak. Nuk kërkojmë asnjë të dhënë pagese derisa të vendosni vetë të kaloni në plan të paguar.", en: "Not at all. We don't ask for any payment details until you choose to upgrade to a paid plan." },
+            },
+            {
+              q: { sq: "Çfarë ndodh pas 14 ditëve?", en: "What happens after 14 days?" },
+              a: { sq: "Do t'ju njoftojmë me email 3 ditë para fundit të provës. Nëse nuk zgjidhni plan, llogaria freezes — nuk humbet asgjë.", en: "We'll notify you by email 3 days before the trial ends. If you don't choose a plan, the account freezes — nothing is lost." },
+            },
+            {
+              q: { sq: "A mund të anuloj në çdo kohë?", en: "Can I cancel at any time?" },
+              a: { sq: "Po, me një klikim. Pa telefonate, pa email-e, pa penalizim. Thjeshta.", en: "Yes, with one click. No phone calls, no emails, no penalty. Simple." },
+            },
+            {
+              q: { sq: "A janë të gjitha veçoritë të disponueshme gjatë provës?", en: "Are all features available during the trial?" },
+              a: { sq: "Po, qasje e plotë në të gjitha 14 modulet — Faturim, HR, GPS Prezencë, Motorpool, CRM, dhe shumë të tjera.", en: "Yes, full access to all 14 modules — Invoicing, HR, GPS Attendance, Motorpool, CRM, and much more." },
+            },
+          ].map(({ q, a }, i) => (
+            <details key={i} className="group mb-2 bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <summary className="flex items-center justify-between px-5 py-4 cursor-pointer select-none">
+                <span className="text-sm font-semibold text-gray-900">{sq(lang, q.sq, q.en)}</span>
+                <span className="h-4 w-4 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-3 text-lg leading-none">⌄</span>
+              </summary>
+              <div className="px-5 pb-4">
+                <p className="text-sm text-gray-500 leading-relaxed">{sq(lang, a.sq, a.en)}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* ── DARK CTA ── */}
+      <section className="py-14 px-6 bg-gray-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-extrabold text-white mb-3 leading-tight">
+            {sq(lang,
+              <>Gati për t'u nisur?<br /><span className="text-indigo-400">14 ditë falas</span>, pa asnjë rrezik.</>,
+              <>Ready to get started?<br /><span className="text-indigo-400">14 days free</span>, zero risk.</>
+            )}
+          </h2>
+          <p className="text-gray-400 text-sm mb-7">
+            {sq(lang,
+              "Plotësoni formularin lartë ose filloni drejtpërdrejt me planin tuaj.",
+              "Fill in the form above or go directly to choose your plan."
+            )}
           </p>
-          
-          {/* Support Channels */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <p className="text-lg font-bold text-black mb-2">Live Chat</p>
-              <p className="text-black">Instant Help</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-                <Mail className="h-8 w-8 text-white" />
-              </div>
-              <p className="text-lg font-bold text-black mb-2">Email Support</p>
-              <p className="text-black">24h Response</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-                <Headphones className="h-8 w-8 text-white" />
-              </div>
-              <p className="text-lg font-bold text-black mb-2">Phone Support</p>
-              <p className="text-black">Direct Line</p>
-            </div>
-          </div>
-
-          {/* Guarantee Badge */}
-          <div className="bg-gradient-to-r from-emerald-500 to-blue-500 rounded-3xl p-6 text-white shadow-2xl max-w-md mx-auto">
-            <div className="flex items-center justify-center space-x-3 mb-2">
-              <Award className="h-6 w-6 text-white" />
-              <span className="text-xl font-bold text-white">Success Guarantee</span>
-            </div>
-            <p className="text-white">We'll help you succeed or your money back</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            >
+              <span className="flex flex-col items-start leading-tight">
+                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
+                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
+              </span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+            <button onClick={() => window.location.href = "/subscribe"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-sm">
+              {sq(lang, "Shiko Çmimet", "View Pricing")}
+            </button>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Continue with the rest of the page */}
-      <div className="px-4 relative">
-        <div className="max-w-7xl mx-auto">
-
-
-        </div>
-      </div>
-
-      {/* Footer */}
       <Footer />
     </div>
   );
