@@ -4,7 +4,8 @@ import {
   FileText, Receipt, CreditCard, BarChart3, Users, Building2, Package, Clock,
   ArrowRight, Menu, X, CheckCircle, Star, Zap, Shield, TrendingUp,
   ChevronRight, Globe, Headphones, Car, CalendarDays, ClipboardList,
-  MapPin, Wrench, Mail, PenLine, Eye, Send, Bell, Smartphone
+  MapPin, Wrench, Mail, PenLine, Eye, Send, Bell, Smartphone,
+  Wallet, GraduationCap, Award, CalendarX
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
@@ -335,6 +336,58 @@ const features = [
     href: "/features/attendance",
     stat: { value: "100%", label: { sq: "saktësi lokacioni", en: "location accuracy" } },
   },
+  {
+    id: "payroll",
+    icon: Wallet,
+    gradient: "from-violet-600 to-purple-700",
+    lightText: "text-violet-600",
+    border: "border-violet-100",
+    dotColor: "bg-violet-500",
+    category: "hr" as Category,
+    tag: { sq: "HR & Ekipi", en: "HR & Team" },
+    title: { sq: "Paga & Kompensimi", en: "Payroll & Compensation" },
+    tagline: { sq: "Çdo mënyrë pagese — e automatizuar plotësisht", en: "Every pay method — fully automated" },
+    desc: {
+      sq: "Konfiguroni pagën për çdo punonjës sipas mënyrës që i përshtatet rolit të tij — pagë fikse, komision, kombinim, ose bonus performancë. Llogaritja bëhet automatikisht bazuar në orët e prezencës.",
+      en: "Configure pay for each employee according to their role — fixed salary, commission, combination, or performance bonus. Calculation is done automatically based on attendance hours."
+    },
+    benefits: [
+      { sq: "Pagë fikse mujore ose javore", en: "Fixed monthly or weekly salary" },
+      { sq: "Komision me përqindje të shitjeve", en: "Commission as a percentage of sales" },
+      { sq: "Pagë fikse + përqindje (hibride)", en: "Fixed salary + percentage (hybrid)" },
+      { sq: "Bonus performancë dhe stimuj të personalizuar", en: "Performance bonuses and custom incentives" },
+      { sq: "Llogaritje automatike bazuar në orë prezence", en: "Auto calculation based on attendance hours" },
+      { sq: "Raporte pagash dhe eksport payroll", en: "Payroll reports and payroll export" },
+    ],
+    href: "/features/hr",
+    stat: { value: "100%", label: { sq: "saktësi llogaritje page", en: "payroll accuracy" } },
+  },
+  {
+    id: "leaves",
+    icon: CalendarX,
+    gradient: "from-pink-500 to-rose-600",
+    lightText: "text-pink-600",
+    border: "border-pink-100",
+    dotColor: "bg-pink-500",
+    category: "hr" as Category,
+    tag: { sq: "HR & Ekipi", en: "HR & Team" },
+    title: { sq: "Pushimet & Trajnimi", en: "Leave Management & Training" },
+    tagline: { sq: "Pushime, certifikata dhe testim — gjithçka i organizuar", en: "Leave, certificates and testing — all organised" },
+    desc: {
+      sq: "Menaxhoni të gjitha llojet e pushimeve, kërkesat dhe balancin e ditëve të mbetura. Platformës i integruar sistemi i trajnimit me kuize, testime dhe certifikata dixhitale për çdo punonjës.",
+      en: "Manage all types of leave, requests and remaining day balances. The platform has an integrated training system with quizzes, tests and digital certificates for each employee."
+    },
+    benefits: [
+      { sq: "Të gjitha llojet: vjetore, sëmundje, lindje, pa pagesë", en: "All types: annual, sick, maternity, unpaid" },
+      { sq: "Kërkesë pushimi nga telefoni — aprovim direkt", en: "Leave request from phone — direct approval" },
+      { sq: "Ditët e mbetura, dieta e pushimit dhe afati i skadimit", en: "Remaining days, leave allowance and expiry date" },
+      { sq: "Kuize dhe testime për punonjës", en: "Quizzes and tests for employees" },
+      { sq: "Certifikata dixhitale pas kalimit të provimit", en: "Digital certificates after passing the test" },
+      { sq: "Historiku i plotë i pushimeve dhe trajnimeve", en: "Full history of leave and training" },
+    ],
+    href: "/features/hr",
+    stat: { value: "0", label: { sq: "kërkesa pushimi të humbura", en: "lost leave requests" } },
+  },
 ];
 
 const categoryLabels: Record<Category, { sq: string; en: string }> = {
@@ -351,7 +404,7 @@ const categoryIcons: Record<Category, JSX.Element> = {
   finance:    <span>€</span>,
   clients:    <Users className="h-3.5 w-3.5" />,
   operations: <Package className="h-3.5 w-3.5" />,
-  hr:         <MapPin className="h-3.5 w-3.5" />,
+  hr:         <GraduationCap className="h-3.5 w-3.5" />,
   fleet:      <Car className="h-3.5 w-3.5" />,
 };
 
@@ -415,7 +468,7 @@ export default function Features() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="anim-fade inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-8 shadow-sm">
             <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            {sq(lang, "12 module të integruara plotësisht", "12 fully integrated modules")}
+            {sq(lang, "14 module të integruara plotësisht", "14 fully integrated modules")}
           </div>
           <h1 className="anim-rise anim-d1 text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight mb-5 leading-[1.1]">
             {sq(lang,
@@ -433,7 +486,7 @@ export default function Features() {
           {/* Quick stats */}
           <div className="anim-rise anim-d3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-lg mx-auto mb-10">
             {[
-              { v: "12", l: sq(lang, "Module", "Modules") },
+              { v: "14", l: sq(lang, "Module", "Modules") },
               { v: "€0", l: sq(lang, "Setup", "Setup") },
               { v: "14", l: sq(lang, "Ditë Falas", "Days Free") },
               { v: "200+", l: sq(lang, "Biznese", "Businesses") },
@@ -861,8 +914,8 @@ export default function Features() {
         <div className="max-w-3xl mx-auto text-center relative">
           <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
             {sq(lang,
-              <>Provoni të 12 modulet<br />falas për 14 ditë</>,
-              <>Try all 12 modules<br />free for 14 days</>
+              <>Provoni të 14 modulet<br />falas për 14 ditë</>,
+              <>Try all 14 modules<br />free for 14 days</>
             )}
           </h2>
           <p className="anim-rise anim-d1 text-indigo-200 text-lg mb-10">
