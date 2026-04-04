@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import {
   ArrowRight, Lightbulb, Code, Rocket, CheckCircle, Users,
   Zap, TrendingUp, Globe, Menu, X, Star,
-  Clock, Shield, Gift, Sparkles, ChevronRight
+  Clock, Shield, Gift, Sparkles, ChevronRight, CreditCard
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
@@ -361,16 +361,23 @@ export default function CollaborationPage() {
             )}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/subscribe"
+            <button
+              onClick={() => { window.location.href = '/trial'; }}
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg"
             >
-              {sq(lang, "Shiko Planet", "View Plans")}
+              <span className="flex flex-col items-start leading-tight">
+                <span className="text-[10px] font-medium text-indigo-400 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
+                <span>{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
+              </span>
               <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20">
-              {sq(lang, "Na Kontaktoni", "Contact Us")}
-            </Link>
+            </button>
+            <button
+              onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
+            >
+              <CreditCard className="h-4 w-4" />
+              {sq(lang, "Blej Tani", "Buy Now")}
+            </button>
           </div>
         </div>
       </section>
