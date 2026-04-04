@@ -158,10 +158,10 @@ export default function Landing() {
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-5 flex-shrink-0">
-              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors inline-block">
+            <div className="hidden lg:flex items-center space-x-5 flex-shrink-0 relative z-[60]">
+              <button onClick={() => { window.location.href = '/subscribe'; }} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </Link>
+              </button>
               <LanguageSelector />
             </div>
 
