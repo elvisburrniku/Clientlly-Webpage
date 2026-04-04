@@ -117,6 +117,9 @@ const AboutPage = () => {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(lang, "Ballina", "Home")}
+              </Link>
               <Link href="/about" className="text-sm font-semibold text-indigo-600">
                 {sq(lang, "Rreth Nesh", "About")}
               </Link>
@@ -152,6 +155,7 @@ const AboutPage = () => {
 
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/about" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
             <Link href="/#features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
             <button onClick={() => window.location.href = '/subscribe'} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>

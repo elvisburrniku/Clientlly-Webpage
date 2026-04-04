@@ -145,6 +145,9 @@ export default function Landing() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-8">
+              <Link href="/" className="text-sm font-medium text-indigo-600 font-semibold transition-colors">
+                {sq(currentLanguage, "Ballina", "Home")}
+              </Link>
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(currentLanguage, "Rreth Nesh", "About")}
               </Link>
@@ -180,6 +183,7 @@ export default function Landing() {
 
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+            <Link href="/" className="block text-sm font-semibold text-indigo-600 py-2" onClick={() => setShowMobileMenu(false)}>{sq(currentLanguage, "Ballina", "Home")}</Link>
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(currentLanguage, "Rreth Nesh", "About")}</Link>
             <a href="#features" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(currentLanguage, "Veçoritë", "Features")}</a>
             <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(currentLanguage, "Çmimet", "Pricing")}</a>
