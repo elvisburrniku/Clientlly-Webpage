@@ -549,16 +549,6 @@ export default function Features() {
           </div>
 
           <div className="anim-rise anim-d4 flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => go("/trial")}
-              className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <span className="flex flex-col items-start leading-tight">
-                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
-                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
-              </span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
             <button onClick={() => go("/compare-features")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm">
               {sq(lang, "Krahaso Planet", "Compare Plans")}
             </button>
@@ -982,8 +972,8 @@ export default function Features() {
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
             </button>
-            <button onClick={() => go("/contact")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
-              {sq(lang, "Na Kontaktoni", "Contact Us")}
+            <button onClick={() => window.location.href = "/subscribe"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
+              {sq(lang, "Blej Tani", "Buy Now")}
             </button>
           </div>
         </div>
