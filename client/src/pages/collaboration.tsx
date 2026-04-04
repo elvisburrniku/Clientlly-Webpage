@@ -360,13 +360,20 @@ export default function CollaborationPage() {
               "Choose the Professional or Enterprise plan and start submitting your ideas today. Our team is ready."
             )}
           </p>
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-indigo-700 font-bold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg text-sm"
             >
               <CreditCard className="h-4 w-4" />
               {sq(lang, "Bli Plan Pro / Enterprise", "Get Pro or Enterprise")}
+            </button>
+            <button
+              onClick={() => { window.location.href = '/subscribe'; }}
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/30 text-sm"
+            >
+              {sq(lang, "Shiko Planet", "View Plans")}
+              <ArrowRight className="h-4 w-4" />
             </button>
           </div>
         </div>
