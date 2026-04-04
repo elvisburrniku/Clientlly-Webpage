@@ -208,7 +208,7 @@ export default function Landing() {
 
               <p className="anim-rise anim-d1 text-lg text-gray-500 leading-relaxed max-w-md">
                 {sq(lang,
-                  "16 module të integruara — faturim, shpenzime, inventar, Burimet Njerëzore, flotë dhe shumë më tepër. E gjitha në një platformë të vetme.",
+                  "16 module të integruara — faturim, shpenzime, inventar, burimet njerëzore, flotë dhe shumë më tepër. E gjitha në një platformë të vetme.",
                   "16 integrated modules — invoicing, expenses, inventory, HR, fleet and more. All in a single platform."
                 )}
               </p>
