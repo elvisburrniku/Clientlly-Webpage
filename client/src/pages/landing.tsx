@@ -91,22 +91,22 @@ export default function Landing() {
 
   const testimonials = [
     {
-      name: "Artan Hoxha",
-      role: sq(lang, "Pronar, Hoxha & Partners", "Owner, Hoxha & Partners"),
-      avatar: "AH",
+      name: "Artan Shala",
+      role: sq(lang, "Pronar, Truly Nolen", "Owner, Truly Nolen"),
+      avatar: "AS",
       color: "from-blue-500 to-indigo-600",
       text: sq(lang, "Clientlly na kurseu mbi 12 orë në javë. Faturimi dhe gjurmimi i shpenzimeve janë bërë shumë të thjeshta.", "Clientlly saved us over 12 hours a week. Invoicing and expense tracking became so simple."),
     },
     {
       name: "Blerta Krasniqi",
-      role: sq(lang, "CEO, TechStart Kosovo", "CEO, TechStart Kosovo"),
+      role: sq(lang, "CEO, TechStart", "CEO, TechStart"),
       avatar: "BK",
       color: "from-violet-500 to-purple-600",
       text: sq(lang, "Platforma më e mirë për biznese të vogla. Çdo gjë që nevojitet — në një vend, me mbështetje të jashtëzakonshme.", "The best platform for small businesses. Everything needed — in one place, with outstanding support."),
     },
     {
       name: "Mikel Doda",
-      role: sq(lang, "Drejtor Financiar, Doda Group", "Finance Director, Doda Group"),
+      role: sq(lang, "Drejtor Financiar, Scentlinqpro", "Finance Director, Scentlinqpro"),
       avatar: "MD",
       color: "from-emerald-500 to-teal-600",
       text: sq(lang, "Raportet janë fantastike. Tani e di saktësisht si po shkon biznesi çdo ditë — pa asnjë spreadsheet.", "The reports are fantastic. Now I know exactly how the business is doing every day — no spreadsheets."),
@@ -292,9 +292,9 @@ export default function Landing() {
                   <div className="space-y-2">
                     <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">{sq(lang, "Faturat e fundit", "Recent Invoices")}</p>
                     {[
-                      { client: "TechStart Kosovo", amount: "€2,400", status: sq(lang, "Paguar", "Paid"), dot: "bg-emerald-500" },
-                      { client: "Hoxha & Partners", amount: "€1,850", status: sq(lang, "Pritur", "Pending"), dot: "bg-amber-500" },
-                      { client: "Doda Group", amount: "€3,200", status: sq(lang, "Paguar", "Paid"), dot: "bg-emerald-500" },
+                      { client: "TechStart", amount: "€2,400", status: sq(lang, "Paguar", "Paid"), dot: "bg-emerald-500" },
+                      { client: "Truly Nolen", amount: "€1,850", status: sq(lang, "Pritur", "Pending"), dot: "bg-amber-500" },
+                      { client: "Scentlinqpro", amount: "€3,200", status: sq(lang, "Paguar", "Paid"), dot: "bg-emerald-500" },
                     ].map(({ client, amount, status, dot }) => (
                       <div key={client} className="flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-gray-50 transition-colors">
                         <div className="flex items-center gap-2">
