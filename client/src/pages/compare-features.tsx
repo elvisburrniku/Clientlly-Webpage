@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import {
   Check, Minus, Menu, X, ArrowRight, Zap, Users, FileText, Shield,
-  Star, ChevronDown, ChevronUp, Info,
+  Star, ChevronDown, ChevronUp, Info, CreditCard,
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
@@ -441,12 +441,13 @@ export default function CompareFeatures() {
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
-            <Link
-              href="/subscribe"
+            <button
+              onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200 text-sm"
             >
-              {sq(lang, "Shiko Çmimet", "View Pricing")}
-            </Link>
+              <CreditCard className="h-4 w-4" />
+              {sq(lang, "Blej Tani", "Buy Now")}
+            </button>
           </div>
           <div className="flex flex-wrap justify-center gap-5 mt-6">
             {[
