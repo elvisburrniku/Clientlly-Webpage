@@ -12,56 +12,56 @@ export default function CaseStudies() {
 
   const studies = [
     {
-      logo: "HA", color: "bg-indigo-600",
-      company: "Hoxha & Asociatët",
-      industry: sq(lang, "Shërbime Ligjore", "Legal Services"),
+      logo: "TN", color: "bg-indigo-600",
+      company: "Truly Nolen",
+      industry: sq(lang, "Shërbime Profesionale & Kontrolli i Dëmtuesve", "Professional Services & Pest Control"),
       location: "Tiranë, Shqipëri",
-      size: sq(lang, "12 punonjës", "12 employees"),
+      size: sq(lang, "45 punonjës", "45 employees"),
       metrics: [
-        { v: "68%", l: sq(lang, "Kursim kohe", "Time saved"), icon: Clock },
-        { v: "€38K", l: sq(lang, "Arkëtuar brenda 30 ditësh", "Collected within 30 days"), icon: TrendingUp },
-        { v: "3×", l: sq(lang, "Shpejtësi fakturimi", "Invoicing speed"), icon: FileText },
+        { v: "72%", l: sq(lang, "Kursim kohe administrative", "Administrative time saved"), icon: Clock },
+        { v: "€95K", l: sq(lang, "Arkëtuar brenda 30 ditësh", "Collected within 30 days"), icon: TrendingUp },
+        { v: "4×", l: sq(lang, "Shpejtësi fakturimi", "Invoicing speed"), icon: FileText },
       ],
-      modules: [sq(lang,"Faturim","Invoicing"), sq(lang,"Klientë","Clients"), sq(lang,"Raporte","Reports")],
+      modules: [sq(lang,"Faturim","Invoicing"), sq(lang,"Klientë","Clients"), sq(lang,"Raporte","Reports"), sq(lang,"Shpenzime","Expenses")],
       challenge: sq(lang,
-        "Para Clientlly, ekipi i Hoxha & Asociatëve menaxhonte faturat manualmente në Excel. Klientët vononin pagesat sepse nuk merrnin njoftime automatike, dhe avokatët humbisnin orë të tëra duke kontrolluar statusin e çdo pagese.",
-        "Before Clientlly, Hoxha & Associates managed invoices manually in Excel. Clients delayed payments with no automatic reminders, and lawyers spent hours tracking each payment's status."
+        "Truly Nolen menaxhonte qindra kontrata shërbimi dhe fatura mujore për klientë biznesi e rezidencial. Procesi manual në Excel shkaktonte gabime dhe vonesa — shumë klientë nuk merrnin faturën në kohë dhe ekipi humbisnin orë duke ndjekur pagesat.",
+        "Truly Nolen managed hundreds of service contracts and monthly invoices for business and residential clients. The manual Excel process caused errors and delays — many clients didn't receive invoices on time and the team wasted hours chasing payments."
       ),
       solution: sq(lang,
-        "Me Clientlly, firma automatizoi të gjithë procesin e faturimit. Klientët marrin fatura PDF automatike, njoftime 3 ditë para afatit dhe email follow-up për pagesat e vonuara. Avokatët shohin dashboard-in financiar çdo mëngjes.",
-        "With Clientlly, the firm automated its entire invoicing workflow. Clients receive automatic PDF invoices, reminders 3 days before the due date, and follow-up emails for late payments. Lawyers see a financial dashboard every morning."
+        "Me Clientlly, Truly Nolen automatizoi faturimin e kontratave periodike. Klientët marrin fatura automatike me PDF profesional, njoftime 5 ditë para afatit dhe link pagese online. Menaxheri financiar monitoron statusin e çdo kontrate nga dashbordi.",
+        "With Clientlly, Truly Nolen automated periodic contract invoicing. Clients receive automatic invoices with professional PDF, reminders 5 days before the due date and an online payment link. The financial manager monitors every contract's status from the dashboard."
       ),
       quote: sq(lang,
-        "Clientlly na kurseu mbi 15 orë në javë. Tani fokusohemi te klientët, jo te administratimi.",
-        "Clientlly saved us over 15 hours per week. Now we focus on clients, not administration."
+        "Clientlly na ndihmoi të kalojmë nga Excel kaotik në sistem profesional brenda ditësh. Pagesat kanë ardhur 3 herë më shpejt.",
+        "Clientlly helped us go from chaotic Excel to a professional system within days. Payments have come in 3x faster."
       ),
-      author: "Artan Hoxha", role: sq(lang, "Drejtor Ekzekutiv", "Executive Director"),
+      author: "Erjon Malaj", role: sq(lang, "Drejtor Operacionesh", "Operations Director"),
     },
     {
-      logo: "TN", color: "bg-violet-600",
-      company: "TechNova Solutions",
-      industry: sq(lang, "Teknologji Informacioni", "Information Technology"),
+      logo: "SL", color: "bg-violet-600",
+      company: "Scentlinqpro",
+      industry: sq(lang, "Produkte & Tregti Online", "Products & E-commerce"),
       location: "Prishtinë, Kosovë",
-      size: sq(lang, "28 punonjës", "28 employees"),
+      size: sq(lang, "18 punonjës", "18 employees"),
       metrics: [
-        { v: "94%", l: sq(lang, "Fatura të paguara në kohë", "Invoices paid on time"), icon: CheckCircle },
-        { v: "€120K", l: sq(lang, "Xhiro vjetore e menaxhuar", "Annual revenue managed"), icon: BarChart3 },
-        { v: "40%", l: sq(lang, "Rritje produktiviteti", "Productivity increase"), icon: TrendingUp },
+        { v: "98%", l: sq(lang, "Fatura të paguara në kohë", "Invoices paid on time"), icon: CheckCircle },
+        { v: "€180K", l: sq(lang, "Xhiro vjetore e menaxhuar", "Annual revenue managed"), icon: BarChart3 },
+        { v: "55%", l: sq(lang, "Ulje e kohës së administrimit", "Reduction in admin time"), icon: TrendingUp },
       ],
-      modules: [sq(lang,"Faturim","Invoicing"), sq(lang,"Shpenzime","Expenses"), sq(lang,"Raporte","Reports"), sq(lang,"Klientë","Clients")],
+      modules: [sq(lang,"Faturim","Invoicing"), sq(lang,"Shpenzime","Expenses"), sq(lang,"Inventar","Inventory"), sq(lang,"Klientë","Clients")],
       challenge: sq(lang,
-        "TechNova kishte nevojë për një sistem që menaxhonte si projektet ashtu edhe faturimin e klientëve ndërkombëtarë. Shpenzimet e projekteve ishin të pa-gjurmuara dhe kjo shkaktonte humbje marzhi të rëndësishme në fund të çdo projekti.",
-        "TechNova needed a system managing both projects and international client billing. Project expenses were untracked, causing significant margin losses at the end of each project."
+        "Scentlinqpro, distributor i parfumeve premium, kishte vështirësi në gjurmimin e stokut, faturimin e shpërndarësve dhe menaxhimin e shpenzimeve të importit. Tre sisteme të ndryshme krijonte konfuzion dhe të dhëna jo të sinkronizuara.",
+        "Scentlinqpro, a premium fragrance distributor, struggled with tracking stock, invoicing distributors and managing import expenses. Three separate systems created confusion and unsynchronised data."
       ),
       solution: sq(lang,
-        "Duke integruar modulin e shpenzimeve dhe faturimit, TechNova tani gjurmon çdo kosto projekti në kohë reale. Klientët ndërkombëtarë paguajnë online dhe ekipi sheh marzhet menjëherë. Raportet mujore gjenerojmë automatikisht.",
-        "By integrating expense and invoicing modules, TechNova now tracks every project cost in real time. International clients pay online and the team sees margins immediately. Monthly reports are generated automatically."
+        "Clientlly bashkoi inventarin, faturimin dhe shpenzimet në një platformë. Tani Scentlinqpro gjurmon çdo shishe në stok, gjeneron fatura për shpërndarësit automatikisht dhe sheh marzhin real të çdo produkti. Eksporti i raporteve bëhet me një klik.",
+        "Clientlly unified inventory, invoicing and expenses in one platform. Now Scentlinqpro tracks every bottle in stock, automatically generates invoices for distributors and sees the real margin of each product. Report export happens with one click."
       ),
       quote: sq(lang,
-        "Raporte mujore që dikur zinin 2 ditë tani gjenerojmë me një klik. Jemi rritur 40% pa shtuar staf administrativ.",
-        "Monthly reports that used to take 2 days are now generated with one click. We've grown 40% without adding administrative staff."
+        "Tani e dimë saktësisht sa fitojmë nga çdo produkt. Clientlly na dha kontroll të plotë të biznesit.",
+        "Now we know exactly how much we make from every product. Clientlly gave us complete business control."
       ),
-      author: "Mirlinda Berisha", role: sq(lang, "Drejtoreshë Financiare", "Chief Financial Officer"),
+      author: "Drita Krasniqi", role: sq(lang, "Pronare & CEO", "Owner & CEO"),
     },
     {
       logo: "ME", color: "bg-emerald-600",
