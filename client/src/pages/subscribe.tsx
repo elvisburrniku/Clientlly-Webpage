@@ -83,8 +83,13 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
       const data = await response.json();
 
       if (data.checkoutUrl) {
-        setLoadingStage('Duke u ridirektuar te pagesa e sigurt...');
-        setTimeout(() => { window.location.href = data.checkoutUrl; }, 800);
+        setLoadingStage('Duke hapur faqen e pagesës...');
+        setTimeout(() => {
+          window.open(data.checkoutUrl, '_blank');
+          setIsProcessing(false);
+          setLoadingStage('');
+          toast({ title: "Faqja e pagesës u hap", description: "Përfundoni pagesën në dritaren e re të Stripe." });
+        }, 600);
       } else {
         throw new Error('Failed to create checkout session');
       }
