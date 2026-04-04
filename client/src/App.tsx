@@ -64,11 +64,17 @@ const CaseStudies = lazy(() => import("@/pages/case-studies"));
 const BestPractices = lazy(() => import("@/pages/best-practices"));
 const FAQ = lazy(() => import("@/pages/faq"));
 
+const getLoadingText = () => {
+  try {
+    const lang = localStorage.getItem('clientlly-language') || 'sq';
+    switch(lang) { case 'en': return 'Loading...'; case 'es': return 'Cargando...'; case 'de': return 'Wird geladen...'; case 'mk': return 'Се вчитува...'; default: return 'Duke ngarkuar...'; }
+  } catch { return 'Duke ngarkuar...'; }
+};
 const PageLoader = () => (
   <div className="min-h-screen w-full flex items-center justify-center bg-white">
     <div className="flex flex-col items-center gap-3">
       <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" style={{borderWidth: '3px'}} />
-      <p className="text-sm text-gray-500 font-medium">Duke ngarkuar...</p>
+      <p className="text-sm text-gray-500 font-medium">{getLoadingText()}</p>
     </div>
   </div>
 );
@@ -82,7 +88,7 @@ function Router() {
         {isLoading ? (
           <Route>
             <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900/50">
-              <BrandLoader size="lg" message="Welcome to BusinessFlow Pro" />
+              <BrandLoader size="lg" message={getLoadingText()} />
             </div>
           </Route>
         ) : !isAuthenticated ? (

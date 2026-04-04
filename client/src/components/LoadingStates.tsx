@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Clock, CheckCircle, Users, FileText, BarChart3, Building2 } from 'lucide-react';
+import { useLanguage } from '@/lib/i18n';
 
-// Main brand loading spinner with floating elements
-export function BrandLoader({ size = "md", message = "Loading..." }: { size?: "sm" | "md" | "lg", message?: string }) {
+const getTips = (lang: string) => {
+  switch(lang) {
+    case 'en': return ["Organizing your business data...", "Preparing your dashboard...", "Setting up your workspace...", "Almost ready to go!"];
+    case 'es': return ["Organizando sus datos comerciales...", "Preparando su panel...", "Configurando su espacio de trabajo...", "Casi listo!"];
+    case 'de': return ["Ihre Geschäftsdaten werden organisiert...", "Ihr Dashboard wird vorbereitet...", "Ihr Arbeitsbereich wird eingerichtet...", "Fast fertig!"];
+    case 'mk': return ["Ги организираме вашите деловни податоци...", "Го подготвуваме вашиот панел...", "Го поставуваме вашиот работен простор...", "Речиси е готово!"];
+    default: return ["Duke organizuar të dhënat e biznesit...", "Duke përgatitur panelin tuaj...", "Duke vendosur hapësirën e punës...", "Pothuajse gati!"];
+  }
+};
+
+export function BrandLoader({ size = "md", message = "Duke ngarkuar..." }: { size?: "sm" | "md" | "lg", message?: string }) {
   const [currentTip, setCurrentTip] = useState(0);
-  
-  const tips = [
-    "Organizing your business data...",
-    "Preparing your dashboard...",
-    "Setting up your workspace...",
-    "Almost ready to go!",
-  ];
+  let lang = 'sq';
+  try { lang = localStorage.getItem('clientlly-language') || 'sq'; } catch {}
+  const tips = getTips(lang);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -129,7 +135,7 @@ export function FeatureLoader({ feature, steps }: { feature: string, steps: stri
         <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl animate-pulse flex items-center justify-center">
           <div className="w-8 h-8 bg-white rounded-lg"></div>
         </div>
-        <h3 className="text-lg font-semibold text-foreground">Loading {feature}</h3>
+        <h3 className="text-lg font-semibold text-foreground">{feature}</h3>
       </div>
 
       {/* Progress steps */}
