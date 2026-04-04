@@ -388,10 +388,7 @@ export default function Subscribe() {
             return (
               <div
                 key={plan.id}
-                onClick={() => { console.log('Plan clicked:', plan.id); setSelectedPlan(plan.id); setTimeout(() => { setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 400); }}
-                role="button"
-                tabIndex={0}
-                className={`relative p-7 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:-translate-y-1 select-none ${
+                className={`relative p-7 rounded-2xl border-2 transition-all duration-300 ${
                   isSelected
                     ? isPopular
                       ? 'border-indigo-500 bg-indigo-600 shadow-xl shadow-indigo-100'
@@ -462,11 +459,12 @@ export default function Subscribe() {
                 </ul>
 
                 <button
-                  onClick={(e) => { e.stopPropagation(); setSelectedPlan(plan.id); setTimeout(() => { setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 300); }}
-                  className={`w-full py-3 rounded-xl font-semibold text-sm transition-all ${
+                  type="button"
+                  onClick={() => { setSelectedPlan(plan.id); setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
                     isSelected
-                      ? isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'
-                      : isPopular ? 'bg-white/20 text-white border border-white/30 hover:bg-white/30' : 'bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100'
+                      ? isPopular ? 'bg-white text-indigo-700 shadow-md' : 'bg-indigo-600 text-white shadow-md'
+                      : isPopular ? 'bg-white text-indigo-700 hover:shadow-md' : 'bg-indigo-600 text-white hover:shadow-md'
                   }`}
                 >
                   {isSelected ? <><Check className="inline h-4 w-4 mr-1.5" />Zgjedhur</> : 'Zgjidhni Planin'}

@@ -159,9 +159,9 @@ export default function Landing() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+              <button onClick={() => go('/subscribe')} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </Link>
+              </button>
               <LanguageSelector />
             </div>
 
@@ -179,8 +179,8 @@ export default function Landing() {
             <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</a>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <Link href="/subscribe" className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</Link>
-              <Link href="/trial" className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</Link>
+              <button onClick={() => { setShowMobileMenu(false); go('/subscribe'); }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg w-full">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <button onClick={() => { setShowMobileMenu(false); go('/trial'); }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial")}</button>
               <LanguageSelector />
             </div>
           </div>
