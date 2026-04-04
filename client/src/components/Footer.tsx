@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { ArrowRight, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
+import { AppStoreIcon, GooglePlayIcon } from "@/components/ui/animated-icons";
 
 function sq(lang: string, alb: string, eng: string): string {
   return lang === "sq" ? alb : eng;
@@ -75,8 +76,19 @@ const Footer = () => {
               <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
+            {/* App store badges */}
+            <div className="mb-5">
+              <p className="text-[10px] font-semibold text-gray-600 uppercase tracking-widest mb-2.5">
+                {sq(lang, "Shkarkoni Aplikacionin", "Get the App")}
+              </p>
+              <div className="flex flex-col gap-2">
+                <AppStoreIcon />
+                <GooglePlayIcon />
+              </div>
+            </div>
+
             {/* Socials */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               {[
                 { icon: Twitter,   href: "https://twitter.com/clientlly",   label: "Twitter" },
                 { icon: Linkedin,  href: "https://linkedin.com/company/clientlly", label: "LinkedIn" },

@@ -1,494 +1,365 @@
-import { ArrowLeft, Smartphone, Shield, Zap, Globe, Download, Star, CheckCircle, Camera, Users, BarChart3, Calendar, FileText, CreditCard, MessageSquare, Settings } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowLeft, Star, CheckCircle, Smartphone, Wifi, Bell, Shield, BarChart3, FileText, Users, Zap, Camera, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
+import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import { AppStoreIcon, GooglePlayIcon } from "@/components/ui/animated-icons";
+import Footer from "@/components/Footer";
+
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
+  return lang === "sq" ? alb : eng;
+}
 
 export default function MobileApp() {
-  const screenshots = [
+  const { currentLanguage: lang } = useLanguage();
+
+  const features = [
     {
-      title: "Dashboard",
-      description: "Complete business overview at your fingertips",
-      bgColor: "from-blue-500 to-purple-600"
+      icon: FileText,
+      color: "bg-indigo-100 text-indigo-600",
+      title: sq(lang, "Fatura Profesionale", "Professional Invoicing"),
+      desc:  sq(lang, "Krijo dhe dërgo fatura direkt nga telefoni. Klienti paguan me një klik.", "Create and send invoices from your phone. Clients pay with one click."),
     },
     {
-      title: "Invoicing",
-      description: "Create and send professional invoices instantly",
-      bgColor: "from-green-500 to-emerald-600"
+      icon: Camera,
+      color: "bg-violet-100 text-violet-600",
+      title: sq(lang, "Skanim Faturash", "Receipt Scanner"),
+      desc:  sq(lang, "Fotografo faturën dhe shpenzimet regjistrohen automatikisht.", "Photograph a receipt and expenses are recorded automatically."),
     },
     {
-      title: "Expenses",
-      description: "Track expenses with AI-powered receipt scanning",
-      bgColor: "from-orange-500 to-red-600"
+      icon: BarChart3,
+      color: "bg-blue-100 text-blue-600",
+      title: sq(lang, "Raporte në Kohë Reale", "Real-Time Reports"),
+      desc:  sq(lang, "Shih performancën e biznesit tënd kudo dhe kurdo.", "See your business performance anywhere, anytime."),
     },
     {
-      title: "Analytics",
-      description: "Real-time insights and business reports",
-      bgColor: "from-purple-500 to-pink-600"
+      icon: Users,
+      color: "bg-emerald-100 text-emerald-600",
+      title: sq(lang, "Menaxhim Klientësh", "Client Management"),
+      desc:  sq(lang, "360° profil për çdo klient, historiku i plotë i komunikimit.", "360° profile for each client, full communication history."),
     },
     {
-      title: "Clients",
-      description: "Manage client relationships and communications",
-      bgColor: "from-teal-500 to-cyan-600"
-    }
+      icon: Wifi,
+      color: "bg-amber-100 text-amber-600",
+      title: sq(lang, "Punon Offline", "Works Offline"),
+      desc:  sq(lang, "Nuk ka internet? Nuk ka problem. Të dhënat sinkronizohen kur lidhesh.", "No internet? No problem. Data syncs when you reconnect."),
+    },
+    {
+      icon: Bell,
+      color: "bg-rose-100 text-rose-600",
+      title: sq(lang, "Njoftimet e Zgjuara", "Smart Notifications"),
+      desc:  sq(lang, "Merr njoftime për pagesat e vonuara, takimet dhe detyrat e rëndësishme.", "Get notified for overdue payments, meetings and important tasks."),
+    },
+    {
+      icon: Shield,
+      color: "bg-slate-100 text-slate-600",
+      title: sq(lang, "Siguri Bankare", "Bank-Level Security"),
+      desc:  sq(lang, "Enkriptim 256-bit SSL. Të dhënat tuaja janë gjithmonë të sigurta.", "256-bit SSL encryption. Your data is always safe."),
+    },
+    {
+      icon: Zap,
+      color: "bg-yellow-100 text-yellow-600",
+      title: sq(lang, "Shpejtë dhe i Lehtë", "Fast & Lightweight"),
+      desc:  sq(lang, "Aplikacion nën 80MB, i shpejtë edhe me lidhje 3G.", "App under 80MB, fast even on 3G connections."),
+    },
   ];
 
   const reviews = [
     {
-      name: "Sarah Johnson",
-      company: "Johnson Consulting",
-      rating: 5,
-      text: "This app has completely transformed how I manage my business. The mobile interface is incredibly intuitive and I can handle everything on the go.",
-      avatar: "SJ"
+      name: "Artan Hoxha",
+      company: "Hoxha Consulting",
+      avatar: "AH",
+      text: sq(lang,
+        "Menaxhoj të gjithë biznesin tim nga telefoni. Faturat, klientët, raportet — gjithçka në një vend.",
+        "I manage my entire business from my phone. Invoices, clients, reports — everything in one place."
+      ),
     },
     {
-      name: "Mike Rodriguez",
-      company: "Rodriguez Marketing",
-      rating: 5,
-      text: "Best business management app I've ever used. The offline mode is a game-changer when I'm traveling. Highly recommend!",
-      avatar: "MR"
+      name: "Mirela Krasniqi",
+      company: "MK Design Studio",
+      avatar: "MK",
+      text: sq(lang,
+        "Funksioni i skanimit të faturave më kursen 3+ orë në javë. Aplikacioni është i shpejtë dhe elegant.",
+        "The receipt scanning feature saves me 3+ hours per week. The app is fast and elegant."
+      ),
     },
     {
-      name: "Emily Chen",
-      company: "Chen Design Studio",
-      rating: 5,
-      text: "The receipt scanning feature alone has saved me hours each week. The app is fast, reliable, and beautifully designed.",
-      avatar: "EC"
+      name: "Besnik Rama",
+      company: "Rama Architects",
+      avatar: "BR",
+      text: sq(lang,
+        "Sinkronizimi midis telefonit dhe kompjuterit është perfekt. Filloj punën në terren dhe mbaroj në zyrë.",
+        "Sync between phone and computer is perfect. I start work in the field and finish at the office."
+      ),
     },
-    {
-      name: "David Miller",
-      company: "Miller & Associates",
-      rating: 5,
-      text: "Seamless integration between mobile and desktop. I can start work on my phone and finish on my computer without missing a beat.",
-      avatar: "DM"
-    }
   ];
 
-  const appInfo = {
-    name: "BusinessFlow Pro",
-    developer: "BusinessFlow Technologies",
-    category: "Business",
-    size: "89.2 MB",
-    version: "3.2.1",
-    updated: "January 2025",
-    compatibility: "iOS 14.0+ / Android 8.0+",
-    languages: "English, Spanish, French, German, Italian",
-    rating: 4.9,
-    totalRatings: "12.4K",
-    downloads: "50K+"
-  };
+  const screens = [
+    { label: sq(lang, "Paneli Kryesor", "Dashboard"),       color: "from-indigo-500 to-indigo-700",  icon: BarChart3 },
+    { label: sq(lang, "Fatura",         "Invoices"),         color: "from-violet-500 to-violet-700",  icon: FileText },
+    { label: sq(lang, "Shpenzime",      "Expenses"),         color: "from-emerald-500 to-emerald-700",icon: Camera },
+    { label: sq(lang, "Klientët",       "Clients"),          color: "from-blue-500 to-blue-700",      icon: Users },
+    { label: sq(lang, "Raportet",       "Reports"),          color: "from-rose-500 to-rose-600",      icon: BarChart3 },
+  ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* App Store Style Header */}
-      <div className="bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 text-black relative overflow-hidden">
-        {/* Floating Sparkles */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white rounded-full opacity-70 animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
-        <div className="max-w-6xl mx-auto px-4 py-6">
-          <div className="flex items-center gap-4 mb-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => window.location.href = "/"}
-              className="text-black hover:bg-black/20 px-2 sm:px-3"
-            >
-              <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-              <span className="text-sm sm:text-base">Back</span>
-            </Button>
-            <span className="text-sm opacity-80">Apps / Business</span>
-          </div>
-          
-          {/* App Header Info */}
-          <div className="flex flex-col md:flex-row gap-6 items-start">
-            {/* App Icon */}
-            <div className="w-32 h-32 bg-white rounded-3xl shadow-2xl flex items-center justify-center flex-shrink-0">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                <BarChart3 className="w-12 h-12 text-white" />
-              </div>
-            </div>
-            
-            {/* App Info */}
-            <div className="flex-1">
-              <h1 className="text-4xl md:text-5xl font-black mb-2">{appInfo.name}</h1>
-              <p className="text-xl text-black mb-4">Complete Business Management Suite</p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-orange-600 text-orange-600" />
-                    ))}
-                  </div>
-                  <span className="font-bold">{appInfo.rating}</span>
-                  <span className="text-black opacity-70">({appInfo.totalRatings} ratings)</span>
-                </div>
-                <div className="text-black opacity-70">
-                  {appInfo.downloads} downloads • {appInfo.category}
-                </div>
-              </div>
-              
-              {/* Download Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                {/* App Store Button - iOS Style */}
-                <Button 
-                  className="bg-black text-white hover:bg-gray-800 font-bold py-3 px-8 rounded-xl shadow-lg flex items-center gap-3"
-                  onClick={() => {
-                    alert('Download started! BusinessFlow Pro will be installed shortly.');
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-white rounded-lg flex items-center justify-center">
-                      <span className="text-black text-xs font-bold">A</span>
-                    </div>
-                    <div className="text-left">
-                      <div className="text-xs opacity-80">Download on the</div>
-                      <div className="text-sm font-bold">App Store</div>
-                    </div>
-                  </div>
-                </Button>
-                
-                {/* Google Play Button - Android Style */}
-                <Button 
-                  className="bg-green-600 text-white hover:bg-green-700 font-bold py-3 px-8 rounded-xl shadow-lg flex items-center gap-3"
-                  onClick={() => {
-                    alert('Download started! BusinessFlow Pro will be installed shortly.');
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-gradient-to-br from-blue-400 via-green-400 to-yellow-400 rounded-md flex items-center justify-center">
-                      <span className="text-white text-xs">▶</span>
-                    </div>
-                    <div className="text-left">
-                      <div className="text-xs opacity-80">GET IT ON</div>
-                      <div className="text-sm font-bold">Google Play</div>
-                    </div>
-                  </div>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Screenshots Section */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-800">Screenshots</h2>
-            <Button variant="ghost" className="text-blue-600 hover:text-blue-700">
-              View All
-            </Button>
-          </div>
-          
-          <div className="flex gap-4 overflow-x-auto pb-4">
-            {screenshots.map((screenshot, index) => (
-              <div key={index} className="flex-shrink-0 w-64">
-                <div className="relative mx-auto w-40 h-[280px] bg-gray-800 rounded-[2rem] p-1 shadow-xl">
-                  <div className={`w-full h-full bg-gradient-to-br ${screenshot.bgColor} rounded-[1.75rem] overflow-hidden relative`}>
-                    {/* Phone Screen Content */}
-                    <div className="h-full p-4 flex flex-col text-white">
-                      <div className="text-center mb-4">
-                        <div className="w-8 h-8 bg-white/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                          {index === 0 && <BarChart3 className="w-5 h-5" />}
-                          {index === 1 && <FileText className="w-5 h-5" />}
-                          {index === 2 && <Camera className="w-5 h-5" />}
-                          {index === 3 && <BarChart3 className="w-5 h-5" />}
-                          {index === 4 && <Users className="w-5 h-5" />}
-                        </div>
-                        <h3 className="font-bold text-sm">{screenshot.title}</h3>
-                      </div>
-                      
-                      <div className="space-y-2 flex-1">
-                        <div className="bg-white/20 rounded-lg p-2">
-                          <div className="h-2 bg-white/40 rounded mb-1"></div>
-                          <div className="h-2 bg-white/40 rounded w-3/4"></div>
-                        </div>
-                        <div className="bg-white/20 rounded-lg p-2">
-                          <div className="h-2 bg-white/40 rounded mb-1"></div>
-                          <div className="h-2 bg-white/40 rounded w-1/2"></div>
-                        </div>
-                        <div className="bg-white/20 rounded-lg p-2">
-                          <div className="h-2 bg-white/40 rounded mb-1"></div>
-                          <div className="h-2 bg-white/40 rounded w-2/3"></div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Phone Details */}
-                    <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-black/20 rounded-full"></div>
-                  </div>
-                </div>
-                <div className="mt-3 text-center">
-                  <h4 className="font-semibold text-gray-800 text-sm">{screenshot.title}</h4>
-                  <p className="text-xs text-gray-600 mt-1">{screenshot.description}</p>
-                </div>
-              </div>
-            ))}
+      {/* ── Nav ── */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative flex items-center h-16">
+            <button onClick={() => window.location.href = "/"}
+              className="flex items-center gap-2 flex-shrink-0">
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-base font-bold text-gray-900">Clientlly</span>
+            </button>
+            <button onClick={() => window.history.back()}
+              className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
+              <ArrowLeft className="h-4 w-4" />
+              {sq(lang, "Kthehu", "Back")}
+            </button>
           </div>
         </div>
-      </section>
+      </nav>
 
-      {/* App Description */}
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Description */}
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-black mb-4">About this app</h2>
-              <div className="max-w-none">
-                <p className="mb-4 text-black">
-                  <strong>BusinessFlow Pro</strong> is the complete business management solution designed for modern entrepreneurs and small business owners. Transform your smartphone into a powerful business command center with our comprehensive mobile app.
-                </p>
-                <p className="mb-4 text-black">
-                  Whether you're tracking expenses on the go, creating invoices for clients, or analyzing your business performance, BusinessFlow Pro puts everything you need right at your fingertips. With advanced features like AI-powered receipt scanning, real-time analytics, and seamless team collaboration, managing your business has never been easier.
-                </p>
-                <p className="mb-6 text-black">
-                  Join thousands of successful business owners who trust BusinessFlow Pro to streamline their operations and accelerate their growth.
-                </p>
-                
-                <h3 className="text-lg font-bold text-black mb-3">Key Features:</h3>
-                <ul className="space-y-2 mb-6">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">Complete dashboard with real-time business metrics</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">Professional invoice creation and management</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">AI-powered expense tracking with receipt scanning</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">Advanced client relationship management</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">Comprehensive financial reports and analytics</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">Team collaboration and communication tools</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">Offline mode with automatic sync</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-black">Bank-level security with biometric authentication</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            {/* App Information */}
-            <div className="lg:col-span-1">
-              <div className="bg-gray-50 rounded-2xl p-6 sticky top-4">
-                <h3 className="text-lg font-bold text-black mb-4">Information</h3>
-                <div className="space-y-4 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-black">Developer</span>
-                    <span className="font-medium text-black">{appInfo.developer}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-black">Category</span>
-                    <span className="font-medium text-black">{appInfo.category}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-black">Size</span>
-                    <span className="font-medium text-black">{appInfo.size}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-black">Version</span>
-                    <span className="font-medium text-black">{appInfo.version}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-black">Updated</span>
-                    <span className="font-medium text-black">{appInfo.updated}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-black">Compatibility</span>
-                    <span className="font-medium text-right text-black">{appInfo.compatibility}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-black">Languages</span>
-                    <span className="font-medium text-right text-black">{appInfo.languages}</span>
-                  </div>
-                </div>
-                
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="font-bold text-black mb-2">Developer</h4>
-                  <p className="text-sm text-black mb-3">{appInfo.developer}</p>
-                  <Button variant="outline" className="w-full">
-                    View More Apps
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── Hero ── */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-      {/* Reviews Section */}
-      <section className="py-12 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-black">Ratings and Reviews</h2>
-            <Button variant="ghost" className="text-blue-600 hover:text-blue-700">
-              See All Reviews
-            </Button>
-          </div>
-          
-          {/* Rating Summary */}
-          <div className="flex flex-col md:flex-row gap-8 mb-8">
-            <div className="md:w-1/3">
-              <div className="text-center">
-                <div className="text-6xl font-black text-gray-800 mb-2">{appInfo.rating}</div>
-                <div className="flex justify-center gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+            {/* Left */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full mb-6">
+                <Smartphone className="h-3.5 w-3.5 text-indigo-600" />
+                <span className="text-xs font-semibold text-indigo-700">
+                  {sq(lang, "Aplikacioni Mobil", "Mobile App")}
+                </span>
+              </div>
+
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+                {sq(lang,
+                  <>Biznesi juaj në<br /><span className="text-indigo-600">çdo xhep</span></>,
+                  <>Your business in<br /><span className="text-indigo-600">every pocket</span></>
+                )}
+              </h1>
+
+              <p className="text-lg text-gray-500 leading-relaxed mb-8">
+                {sq(lang,
+                  "Aplikacioni Clientlly për iOS dhe Android ju lejon të menaxhoni fatura, shpenzime, klientë dhe raporte — kudo dhe kurdo.",
+                  "The Clientlly app for iOS and Android lets you manage invoices, expenses, clients and reports — anywhere, anytime."
+                )}
+              </p>
+
+              {/* Rating row */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-1">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <div className="text-gray-600">{appInfo.totalRatings} ratings</div>
+                <span className="text-sm font-semibold text-gray-900">4.9</span>
+                <span className="text-sm text-gray-400">
+                  {sq(lang, "nga 12,000+ vlerësime", "from 12,000+ ratings")}
+                </span>
               </div>
-            </div>
-            
-            <div className="md:w-2/3">
-              <div className="space-y-2">
-                {[5, 4, 3, 2, 1].map((rating) => (
-                  <div key={rating} className="flex items-center gap-2">
-                    <span className="text-sm text-gray-600 w-8">{rating}★</span>
-                    <div className="flex-1 bg-gray-200 rounded-full h-2">
-                      <div 
-                        className="bg-yellow-400 h-2 rounded-full" 
-                        style={{ width: rating === 5 ? '85%' : rating === 4 ? '12%' : '3%' }}
-                      ></div>
-                    </div>
-                    <span className="text-sm text-gray-600 w-12">
-                      {rating === 5 ? '10.5K' : rating === 4 ? '1.5K' : '400'}
-                    </span>
-                  </div>
+
+              {/* Store buttons */}
+              <div className="flex flex-wrap gap-3 mb-6">
+                <AppStoreIcon />
+                <GooglePlayIcon />
+              </div>
+
+              {/* Trust chips */}
+              <div className="flex flex-wrap gap-3">
+                {[
+                  sq(lang, "Falas të shkarkosh", "Free to download"),
+                  sq(lang, "iOS 14+ / Android 8+", "iOS 14+ / Android 8+"),
+                  sq(lang, "Pa reklamat", "Ad-free"),
+                ].map((t, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-500 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-full">
+                    <CheckCircle className="h-3 w-3 text-emerald-500" />
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
-          </div>
-          
-          {/* Individual Reviews */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {reviews.map((review, index) => (
-              <Card key={index} className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                    {review.avatar}
+
+            {/* Right — phone mockups row */}
+            <div className="relative flex justify-center items-end gap-4">
+              {screens.slice(0, 3).map((s, i) => {
+                const Icon = s.icon;
+                const heights = ["h-56", "h-72", "h-56"];
+                return (
+                  <div key={i}
+                    className={`${heights[i]} w-32 rounded-3xl bg-gradient-to-b ${s.color} p-4 flex flex-col justify-between shadow-xl`}>
+                    <div className="flex justify-between items-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-white/50" />
+                      <div className="w-8 h-1 rounded-full bg-white/30" />
+                    </div>
+                    <div>
+                      <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center mb-2">
+                        <Icon className="h-4 w-4 text-white" />
+                      </div>
+                      <p className="text-[10px] font-bold text-white leading-tight">{s.label}</p>
+                      <div className="mt-2 space-y-1">
+                        <div className="h-1.5 rounded-full bg-white/20 w-full" />
+                        <div className="h-1.5 rounded-full bg-white/20 w-3/4" />
+                        <div className="h-1.5 rounded-full bg-white/20 w-1/2" />
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h4 className="font-bold text-gray-800">{review.name}</h4>
-                      <span className="text-sm text-gray-500">•</span>
-                      <span className="text-sm text-gray-500">{review.company}</span>
+                );
+              })}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── App Info bar ── */}
+      <section className="border-y border-gray-100 bg-gray-50 py-6 px-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
+          {[
+            { label: sq(lang, "Versioni", "Version"),       value: "3.2.1" },
+            { label: sq(lang, "Madhësia", "Size"),          value: "78 MB" },
+            { label: sq(lang, "Përditësuar", "Updated"),    value: sq(lang, "Janar 2025", "Jan 2025") },
+            { label: sq(lang, "Kategoria", "Category"),     value: sq(lang, "Biznes", "Business") },
+          ].map((item, i) => (
+            <div key={i} className="text-center">
+              <p className="text-xs text-gray-400 mb-0.5">{item.label}</p>
+              <p className="text-sm font-semibold text-gray-900">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Features grid ── */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-3">
+              {sq(lang, "Çfarë mund të bëni me aplikacionin", "What you can do with the app")}
+            </h2>
+            <p className="text-gray-400 text-base">
+              {sq(lang, "8 module kyçe — gjithçka e nevojshme në një aplikacion.", "8 key modules — everything you need in one app.")}
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {features.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <div key={i} className="p-5 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:shadow-sm transition-all duration-200 group">
+                  <div className={`w-10 h-10 rounded-xl ${f.color} flex items-center justify-center mb-4`}>
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-gray-900 mb-1.5">{f.title}</h3>
+                  <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Screenshots strip ── */}
+      <section className="py-16 px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">
+            {sq(lang, "Shikim i Brendshëm", "A Glimpse Inside")}
+          </h2>
+          <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide justify-center flex-wrap">
+            {screens.map((s, i) => {
+              const Icon = s.icon;
+              return (
+                <div key={i} className={`flex-shrink-0 w-36 h-60 rounded-3xl bg-gradient-to-b ${s.color} p-5 flex flex-col justify-between shadow-lg`}>
+                  <div>
+                    <div className="w-8 h-1 rounded-full bg-white/30 mx-auto mb-3" />
+                    <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center mb-3">
+                      <Icon className="h-5 w-5 text-white" />
                     </div>
-                    <div className="flex gap-1 mb-3">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 leading-relaxed">{review.text}</p>
+                    <p className="text-xs font-bold text-white">{s.label}</p>
+                  </div>
+                  <div className="space-y-1.5">
+                    <div className="h-2 bg-white/20 rounded-full" />
+                    <div className="h-2 bg-white/20 rounded-full w-3/4" />
+                    <div className="h-2 bg-white/20 rounded-full w-1/2" />
                   </div>
                 </div>
-              </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Reviews ── */}
+      <section className="py-20 px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="flex justify-center items-center gap-1 mb-3">
+              {[1,2,3,4,5].map(i => (
+                <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <h2 className="text-3xl font-extrabold text-gray-900 mb-2">4.9 / 5</h2>
+            <p className="text-gray-400 text-sm">
+              {sq(lang, "Vlerësuar nga 12,000+ përdorues", "Rated by 12,000+ users")}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {reviews.map((r, i) => (
+              <div key={i} className="p-6 rounded-2xl border border-gray-100 hover:border-indigo-100 hover:shadow-sm transition-all duration-200">
+                <div className="flex items-center gap-1 mb-4">
+                  {[1,2,3,4,5].map(s => (
+                    <Star key={s} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed mb-5">"{r.text}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">
+                    {r.avatar}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900">{r.name}</p>
+                    <p className="text-xs text-gray-400">{r.company}</p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
-      
-      {/* Download CTA Footer */}
-      <section className="py-16 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 text-black relative overflow-hidden">
-        {/* Floating Sparkles */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-white rounded-full opacity-70 animate-bounce"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
-              }}
-            />
-          ))}
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="w-24 h-24 bg-white rounded-3xl shadow-2xl flex items-center justify-center mx-auto mb-8">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-              <BarChart3 className="w-10 h-10 text-white" />
-            </div>
-          </div>
-          
-          <h2 className="text-4xl font-black mb-4">Ready to Transform Your Business?</h2>
-          <p className="text-xl text-black mb-8 leading-relaxed">
-            Join thousands of successful entrepreneurs using BusinessFlow Pro to streamline operations and accelerate growth.
+
+      {/* ── CTA ── */}
+      <section className="py-20 px-6 lg:px-8 bg-gray-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <Smartphone className="h-10 w-10 text-indigo-400 mx-auto mb-5" />
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4">
+            {sq(lang,
+              <>Shkarkoni Clientlly<br /><span className="text-indigo-400">sot falas</span></>,
+              <>Download Clientlly<br /><span className="text-indigo-400">free today</span></>
+            )}
+          </h2>
+          <p className="text-gray-400 mb-8">
+            {sq(lang,
+              "iOS dhe Android. Pa pagesë fillestare. Sinkronizohet me llogarinë tuaj Clientlly.",
+              "iOS and Android. No upfront cost. Syncs with your Clientlly account."
+            )}
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {/* App Store Download Button */}
-            <Button 
-              className="bg-black text-white hover:bg-gray-800 font-bold py-4 px-8 text-lg rounded-xl shadow-lg flex items-center gap-3"
-              onClick={() => {
-                alert('Download started! BusinessFlow Pro will be installed shortly.');
-              }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-black text-sm font-bold">A</span>
-                </div>
-                <div className="text-left">
-                  <div className="text-xs opacity-80">Download on the</div>
-                  <div className="text-base font-bold">App Store</div>
-                </div>
-              </div>
-            </Button>
-            
-            {/* Google Play Download Button */}
-            <Button 
-              className="bg-green-600 text-white hover:bg-green-700 font-bold py-4 px-8 text-lg rounded-xl shadow-lg flex items-center gap-3"
-              onClick={() => {
-                alert('Download started! BusinessFlow Pro will be installed shortly.');
-              }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-400 via-green-400 to-yellow-400 rounded-md flex items-center justify-center">
-                  <span className="text-white text-sm">▶</span>
-                </div>
-                <div className="text-left">
-                  <div className="text-xs opacity-80">GET IT ON</div>
-                  <div className="text-base font-bold">Google Play</div>
-                </div>
-              </div>
-            </Button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <AppStoreIcon />
+            <GooglePlayIcon />
           </div>
-          
-          <div className="mt-8 text-black opacity-70 text-sm">
-            14-day free trial • No credit card required • Cancel anytime
-          </div>
+          <p className="text-xs text-gray-600 mt-5">
+            {sq(lang,
+              "Ju nevojitet llogari Clientlly. Provë 14-ditore falas e disponueshme.",
+              "Requires a Clientlly account. 14-day free trial available."
+            )}
+          </p>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
