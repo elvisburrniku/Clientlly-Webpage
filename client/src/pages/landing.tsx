@@ -4,71 +4,18 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import ChatBot from "@/components/ChatBot";
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  FileText, 
-  Receipt, 
-  Users, 
-  Bus, 
-  File, 
-  Handshake,
-  Check,
-  ChartLine,
-  ChevronDown,
-  Star,
-  Shield,
-  Globe,
-  Headphones,
-  Menu,
-  X,
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Banknote,
-  Calculator,
-  Package,
-  Camera,
-  Smartphone,
-  BarChart3,
-  DollarSign,
-  CreditCard,
-  RefreshCw,
-  ExternalLink,
-  Building2,
-  Calendar,
-  CheckCircle,
-  Database,
-  Lock,
-  HeadphonesIcon,
-  Download,
-  Play,
-  Lightbulb,
-  Zap,
-  TrendingUp,
-  Sparkles,
-  Heart,
-  ArrowRight,
-  Gift,
-  Code
+  FileText, Receipt, Users, CreditCard, BarChart3, Building2, Package,
+  Clock, Check, Shield, ChevronDown, Menu, X, ArrowRight, Star,
+  TrendingUp, Headphones, ExternalLink, Zap, Globe, CheckCircle
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import { formatCurrency, convertPrice } from "@/components/currency-selector";
-import { useLocationDetection } from "@/hooks/useLocationDetection";
-
-import { SocialLinks } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
 import clientllyLogo from '@assets/CLIENTLLY_ICON_1753793353861.png';
-
 
 interface SubscriptionPlan {
   id: string;
@@ -78,1286 +25,513 @@ interface SubscriptionPlan {
   features: string[];
 }
 
+const sq = (lang: string, albanian: string, english: string) =>
+  lang === 'sq' ? albanian : english;
+
 export default function Landing() {
   const { toast } = useToast();
   const { t, currentLanguage } = useTranslation();
-
-
-
-  const [showDemoModal, setShowDemoModal] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
-  const [selectedCurrency, setSelectedCurrency] = useState('EUR');
-  const { locationData, isLoading: locationLoading } = useLocationDetection();
-  
-  // Keep EUR as default - don't auto-change currency
-  useEffect(() => {
-    // Always use EUR as default, user can change manually if needed
-    setSelectedCurrency('EUR');
-  }, []);
-  const [demoForm, setDemoForm] = useState({
-    fullName: "",
-    email: "",
-    companyName: "",
-    companySize: "",
-    message: ""
-  });
 
-  const [contactForm, setContactForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    company: "",
-    subject: "",
-    message: ""
-  });
-
-  // Fetch subscription plans
   const { data: plans = [] } = useQuery<SubscriptionPlan[]>({
     queryKey: ["/api/subscription-plans"],
   });
 
-  // Demo request mutation
-  const demoRequestMutation = useMutation({
-    mutationFn: async (data: typeof demoForm) => {
-      await apiRequest("POST", "/api/demo-request", data);
+  const features = [
+    {
+      icon: FileText,
+      color: "from-blue-500 to-blue-600",
+      accent: "blue",
+      title: sq(currentLanguage, "Faturim Profesional", "Professional Invoicing"),
+      desc: sq(currentLanguage, "Fatura të personalizuara & ndjekje pagesash", "Custom invoices & payment tracking"),
+      href: "/features/invoicing",
     },
-    onSuccess: () => {
-      toast({
-        title: "Demo Request Submitted!",
-        description: "We'll contact you within 24 hours to schedule your demo.",
-      });
-      setShowDemoModal(false);
-      setDemoForm({ fullName: "", email: "", companyName: "", companySize: "", message: "" });
+    {
+      icon: Receipt,
+      color: "from-emerald-500 to-emerald-600",
+      accent: "emerald",
+      title: sq(currentLanguage, "Gjurmim i Shpenzimeve", "Smart Expense Tracking"),
+      desc: sq(currentLanguage, "Shpenzime të organizuara për kohën e taksave", "Organized expenses for tax time"),
+      href: "/features/expenses",
     },
-    onError: (error) => {
-      toast({
-        title: "Error",
-        description: "Failed to submit demo request. Please try again.",
-        variant: "destructive",
-      });
-    }
-  });
-
-  const handleDemoSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    demoRequestMutation.mutate(demoForm);
-  };
-
-  // Contact form mutation
-  const contactMutation = useMutation({
-    mutationFn: async (data: typeof contactForm) => {
-      return apiRequest("POST", "/api/contact", data);
+    {
+      icon: CreditCard,
+      color: "from-rose-500 to-rose-600",
+      accent: "rose",
+      title: sq(currentLanguage, "Menaxhim Borxhesh", "Debt Management"),
+      desc: sq(currentLanguage, "Gjurmo borxhet & planifiko pagesat", "Track debts & payment scheduling"),
+      href: "/features/debt",
     },
-    onSuccess: () => {
-      toast({
-        title: "Message Sent!",
-        description: "We've received your message and will get back to you within 24 hours.",
-      });
-      setContactForm({
-        firstName: "",
-        lastName: "",
-        email: "",
-        company: "",
-        subject: "",
-        message: ""
-      });
+    {
+      icon: BarChart3,
+      color: "from-violet-500 to-violet-600",
+      accent: "violet",
+      title: sq(currentLanguage, "Raporte & Analitikë", "Insights & Reports"),
+      desc: sq(currentLanguage, "Analitikë biznesi & planifikim cash flow", "Business analytics & cash flow planning"),
+      href: "/features/reports",
     },
-    onError: (error: any) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
+    {
+      icon: Users,
+      color: "from-indigo-500 to-indigo-600",
+      accent: "indigo",
+      title: sq(currentLanguage, "Menaxhim Klientësh", "Client Management"),
+      desc: sq(currentLanguage, "Profilet, projektet & gjurmimi i komunikimit", "Profiles, projects & communication tracking"),
+      href: "/features/clients",
     },
-  });
+    {
+      icon: Building2,
+      color: "from-amber-500 to-amber-600",
+      accent: "amber",
+      title: sq(currentLanguage, "Menaxhim Furnitorësh", "Vendor Management"),
+      desc: sq(currentLanguage, "Furnitorët, porositë & analitika e performancës", "Suppliers, orders & performance analytics"),
+      href: "/features/vendors",
+    },
+    {
+      icon: Package,
+      color: "from-teal-500 to-teal-600",
+      accent: "teal",
+      title: sq(currentLanguage, "Menaxhim Inventari", "Inventory Management"),
+      desc: sq(currentLanguage, "Gjurmim stoku & menaxhim magazinash", "Stock tracking & warehouse management"),
+      href: "/features/inventory",
+    },
+    {
+      icon: Clock,
+      color: "from-orange-500 to-orange-600",
+      accent: "orange",
+      title: sq(currentLanguage, "Prezencë e Zgjuar", "Smart Attendance"),
+      desc: sq(currentLanguage, "Gjurmim GPS, analitikë ekipi", "GPS tracking, team analytics"),
+      href: "/features/attendance",
+    },
+  ];
 
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    contactMutation.mutate(contactForm);
-  };
+  const stats = [
+    { value: "200+", label: sq(currentLanguage, "Klientë na Besojnë", "Clients Trust Us") },
+    { value: "12K+", label: sq(currentLanguage, "Fatura të Përpunuara", "Invoices Processed") },
+    { value: "5", label: sq(currentLanguage, "Vende në Mbarë Botën", "Countries Worldwide") },
+    { value: "99.9%", label: sq(currentLanguage, "Besueshmëria e Kohës së Punës", "Uptime Reliability") },
+  ];
 
-
+  const benefits = [
+    {
+      icon: TrendingUp,
+      color: "bg-blue-50 text-blue-600",
+      title: sq(currentLanguage, "Kurseni 15+ Orë në Javë", "Save 15+ Hours Weekly"),
+      desc: sq(currentLanguage, "Automatizoni detyrat e përsëritura dhe fokusohuni në rritjen e biznesit tuaj", "Automate repetitive tasks and focus on growing your business"),
+    },
+    {
+      icon: Zap,
+      color: "bg-emerald-50 text-emerald-600",
+      title: sq(currentLanguage, "Rritni të Ardhurat me 30%", "Grow Revenue by 30%"),
+      desc: sq(currentLanguage, "Bizneset që përdorin Clientlly raportojnë rritje mesatare të të ardhurave prej 30%", "Businesses using Clientlly report an average 30% revenue increase"),
+    },
+    {
+      icon: Shield,
+      color: "bg-violet-50 text-violet-600",
+      title: sq(currentLanguage, "Eliminoni 95% të Gabimeve", "Eliminate 95% of Errors"),
+      desc: sq(currentLanguage, "Automatizimi i llogaritjeve redukton gabimet njerëzore pothuajse plotësisht", "Calculation automation reduces human errors nearly completely"),
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50/30 to-orange-50/30 dark:from-gray-900 dark:via-purple-900/20 dark:to-orange-900/20 relative overflow-hidden">
-      {/* Background Grid Pattern - From hero through features section */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none -z-10" style={{ height: '150vh' }}>
-        {/* Grid pattern that starts from hero and fades out at the end of features section */}
-        <div className="absolute inset-0 opacity-100"
-             style={{
-               backgroundImage: 'linear-gradient(to right, rgba(128,128,128,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.15) 1px, transparent 1px)',
-               backgroundSize: '24px 24px',
-               maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0) 100%)',
-               WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0) 100%)'
-             }}></div>
-      </div>
+    <div className="min-h-screen bg-white">
 
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border-b border-white/20 dark:border-gray-700/20">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
+      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Left Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
-              <div className="relative">
-                <img 
-                  src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
-                  style={{ 
-                    filter: 'none',
-                    background: 'transparent'
-                  }}
-                  onError={(e) => {
-                    console.error('Logo failed to load:', e);
-                    e.currentTarget.style.border = '2px solid red';
-                  }}
-                  onLoad={() => console.log('Logo loaded successfully')}
-                />
-              </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
+            <Link href="/" className="flex items-center space-x-2.5">
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-lg font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{t('landing.nav.aboutUs', 'About Us')}</Link>
-              <a href="#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{t('landing.nav.features', 'Features')}</a>
-              <a href="#pricing-section" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{t('landing.nav.pricing', 'Pricing')}</a>
-
-              <Button 
-                variant="ghost" 
-                onClick={() => window.location.href = '/contact'} 
-                className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 font-bold"
-              >
-                {t('landing.nav.contactUs', 'Contact Us')}
-              </Button>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(currentLanguage, "Rreth Nesh", "About Us")}
+              </Link>
+              <a href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(currentLanguage, "Veçoritë", "Features")}
+              </a>
+              <a href="#pricing-section" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(currentLanguage, "Çmimet", "Pricing")}
+              </a>
+              <button onClick={() => window.location.href = '/contact'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(currentLanguage, "Kontakt", "Contact")}
+              </button>
             </div>
 
-            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
-            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = "/api/login"}
-                className="text-muted-foreground hover:text-primary transition-all duration-300"
-              >
-                {t('landing.nav.login', 'Login')}
-              </Button>
-              <Button 
+            <div className="hidden lg:flex items-center space-x-3">
+              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2">
+                {sq(currentLanguage, "Hyr", "Login")}
+              </button>
+              <button
                 onClick={() => window.location.href = '/subscribe'}
-                className="px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
+                className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
-                {t('landing.nav.buyNow', 'Buy Now')}
-              </Button>
-              <Button 
+                {sq(currentLanguage, "Blej Tani", "Buy Now")}
+              </button>
+              <button
                 onClick={() => window.location.href = "/trial"}
-                className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
+                className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
               >
-                {t('landing.nav.startTrial', 'Start Your Trial')}
-              </Button>
-
+                {sq(currentLanguage, "Provo Falas", "Free Trial")}
+              </button>
               <LanguageSelector />
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="flex lg:hidden items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="scale-in"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
-              >
-                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
-            </div>
+            <button className="lg:hidden p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="lg:hidden backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 border-b border-white/20 dark:border-gray-700/20 slide-in-bottom">
-            <div className="px-4 py-4 space-y-4">
-              {/* Navigation Links */}
-              <Link href="/about" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">About Us</Link>
-              <a href="#features" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">Features</a>
-              <a 
-                href="#pricing-section" 
-                onClick={() => setShowMobileMenu(false)}
-                className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold"
-              >
-                Pricing
-              </a>
-
-              <Button 
-                variant="ghost" 
-                onClick={() => {
-                  window.location.href = '/contact';
-                  setShowMobileMenu(false);
-                }} 
-                className="w-full text-left justify-start text-lg text-muted-foreground hover:text-primary font-bold"
-              >
-                Contact Us
-              </Button>
-              
-              {/* Action Buttons */}
-              <div className="pt-4 space-y-2">
-                <Button 
-                  variant="ghost" 
-                  onClick={() => {
-                    window.location.href = "/api/login";
-                    setShowMobileMenu(false);
-                  }} 
-                  className="w-full text-left justify-start text-muted-foreground hover:text-primary"
-                >
-                  Login
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = '/subscribe';
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                  style={{outline: 'none', boxShadow: 'none'}}
-                >
-                  Buy Now
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = "/trial";
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                  style={{outline: 'none', boxShadow: 'none'}}
-                >
-                  Start Your Trial
-                </Button>
-                <div className="pt-2">
-                  <LanguageSelector />
-                </div>
-              </div>
+          <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(currentLanguage, "Rreth Nesh", "About Us")}</Link>
+            <a href="#features" className="block text-sm font-medium text-gray-700 py-2">{sq(currentLanguage, "Veçoritë", "Features")}</a>
+            <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(currentLanguage, "Çmimet", "Pricing")}</a>
+            <button onClick={() => window.location.href = '/contact'} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(currentLanguage, "Kontakt", "Contact")}</button>
+            <div className="pt-2 flex flex-col gap-2">
+              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 py-2">{sq(currentLanguage, "Hyr", "Login")}</button>
+              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(currentLanguage, "Blej Tani", "Buy Now")}</button>
+              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(currentLanguage, "Provo Falas", "Free Trial")}</button>
+              <LanguageSelector />
             </div>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section id="business-overview" className="hero-section relative pb-32 overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '64px' }}>
-        {/* Background Elements */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
-          {/* Grid Pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="text-center space-y-16">
-            
-            {/* Hero Content */}
-            <div className="space-y-8 relative z-10 max-w-7xl mx-auto">
-              <h1 className="font-black leading-relaxed tracking-tight fade-in" style={{lineHeight: '1.2'}}>
-                {/* Show original English animation only for English, translated text for other languages */}
-                {currentLanguage === 'en' ? (
-                  <>
-                    <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl font-black">
-                      Everything you need
-                    </span>
-                    <span className="block leading-relaxed text-6xl lg:text-7xl xl:text-8xl font-black" style={{paddingBottom: '0.2em'}}>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>t</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>o</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>r</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>n</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block', paddingBottom: '0.3em', marginBottom: '0.1em'}}>y</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>o</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>r</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>&nbsp;</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>b</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>u</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>i</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>n</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>e</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
-                      <span className="letter-animation gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent" style={{display: 'inline-block'}}>s</span>
-                    </span>
-                  </>
-                ) : (
-                  <span className="text-foreground block mb-1 leading-tight text-6xl lg:text-7xl xl:text-8xl font-black gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
-                    {t('landing.features.title', 'Everything you need to run your business')}
-                  </span>
-                )}
-              </h1>
-              
-              <div className="max-w-5xl mx-auto">
-                <div className="text-2xl lg:text-3xl text-muted-foreground leading-tight fade-in stagger-1 tracking-tight">
-                  <div className="space-y-1 max-w-4xl mx-auto">
-                    {currentLanguage === 'en' ? (
-                      <>
-                        <p className="text-center">
-                          Empower your <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">small business</span> to compete with enterprise-level efficiency. Our comprehensive <span className="font-black bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">accounting software</span> streamlines operations, boosts productivity, and accelerates growth
-                        </p>
-                        <p className="text-center">
-                          while simplifying your financial management.
-                        </p>
-                      </>
-                    ) : (
-                      <p className="text-center">
-                        {t('landing.description', 'Empower your small business to compete with enterprise-level efficiency. Our comprehensive accounting software streamlines operations, boosts productivity, and accelerates growth while simplifying your financial management.')}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-
-            
-            {/* Action Buttons - Outside Yellow Background */}
-            <div className="space-y-8">
-              <div className="max-w-5xl mx-auto space-y-8">
-                
-                <div className="flex flex-wrap justify-center items-center gap-6 mt-6 fade-in stagger-3">
-
-                  <button 
-                    onClick={() => window.location.href = "/trial"}
-                    className="flex items-center space-x-3 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white font-bold text-base transition-all duration-300 cursor-pointer focus:outline-none focus:ring-0 focus:border-none active:outline-none shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{outline: 'none', boxShadow: 'none'}}
-                  >
-                    <Clock className="h-5 w-5" />
-                    <span>{t('landing.benefits.freeTrial', '14-day free trial')}</span>
-                  </button>
-
-                  <button 
-                    onClick={() => window.location.href = "/cancel-anytime"}
-                    className="flex items-center space-x-3 px-6 py-3 bg-gray-600 hover:bg-gray-700 rounded-lg text-white font-bold text-base transition-all duration-300 cursor-pointer focus:outline-none focus:ring-0 focus:border-none active:outline-none shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{outline: 'none', boxShadow: 'none'}}
-                  >
-                    <Check className="h-5 w-5" />
-                    <span>{t('landing.benefits.cancelAnytime', 'Cancel anytime')}</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-
-
-            {/* Trust Indicators - Enhanced Visibility */}
-            <div className="flex flex-wrap justify-center items-center gap-6 text-base text-muted-foreground fade-in stagger-5 pt-8">
-              <button 
-                onClick={() => window.location.href = "/data-protection"}
-                className="flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/20 dark:bg-gray-800/40 backdrop-blur-sm border-2 border-gray-300/50 dark:border-white/20 hover:border-green-400/70 hover:bg-green-50/30 dark:hover:bg-green-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-md hover:shadow-lg focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-green-600 dark:group-hover:text-green-400">Data protection & privacy</span>
-                <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-green-500 opacity-70 group-hover:opacity-100 transition-all duration-300" />
-              </button>
-              <button 
-                onClick={() => window.location.href = "/setup-migration"}
-                className="flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/20 dark:bg-gray-800/40 backdrop-blur-sm border-2 border-gray-300/50 dark:border-white/20 hover:border-blue-400/70 hover:bg-blue-50/30 dark:hover:bg-blue-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-md hover:shadow-lg focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                <Check className="h-5 w-5 text-blue-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400">Free setup & migration</span>
-                <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-blue-500 opacity-70 group-hover:opacity-100 transition-all duration-300" />
-              </button>
-              <button 
-                onClick={() => window.location.href = "/expert-support"}
-                className="flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/20 dark:bg-gray-800/40 backdrop-blur-sm border-2 border-gray-300/50 dark:border-white/20 hover:border-purple-400/70 hover:bg-purple-50/30 dark:hover:bg-purple-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-md hover:shadow-lg focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                <Check className="h-5 w-5 text-purple-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-purple-600 dark:group-hover:text-purple-400">24/7 expert support</span>
-                <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-purple-500 opacity-70 group-hover:opacity-100 transition-all duration-300" />
-              </button>
-              <button 
-                onClick={() => window.location.href = "/bank-security"}
-                className="flex items-center space-x-2 px-5 py-3 rounded-xl bg-white/20 dark:bg-gray-800/40 backdrop-blur-sm border-2 border-gray-300/50 dark:border-white/20 hover:border-orange-400/70 hover:bg-orange-50/30 dark:hover:bg-orange-900/30 hover:scale-105 transition-all duration-300 cursor-pointer group shadow-md hover:shadow-lg focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                <Shield className="h-5 w-5 text-orange-500 group-hover:animate-pulse" />
-                <span className="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-orange-600 dark:group-hover:text-orange-400">Bank-level security</span>
-                <ExternalLink className="h-3 w-3 text-gray-500 group-hover:text-orange-500 opacity-70 group-hover:opacity-100 transition-all duration-300" />
-              </button>
-            </div>
+      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-indigo-50/60 via-white to-white">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-8">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+            {sq(currentLanguage, "I besuar nga mbi 200 biznese", "Trusted by 200+ businesses worldwide")}
           </div>
 
+          <h1 className="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight mb-6">
+            {sq(currentLanguage,
+              <>Gjithçka që <span className="text-indigo-600">nevojitet</span><br />për biznesin tuaj</>,
+              <>Everything you need<br />to <span className="text-indigo-600">run your business</span></>
+            )}
+          </h1>
 
-        </div>
-      </section>
+          <p className="text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
+            {sq(currentLanguage,
+              "Fuqizoni biznesin tuaj me softuer llogaritie gjithëpërfshirëse. Thjeshtoni operacionet, rrisni produktivitetin dhe nxitni rritjen.",
+              "Empower your business with all-in-one accounting software. Streamline operations, boost productivity, and accelerate growth."
+            )}
+          </p>
 
-      {/* Features Section */}
-      <section id="features" className="relative py-16 px-4 -mt-12 features-section overflow-hidden">
-        {/* Floating Background Elements */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-10 left-5 opacity-4 animate-pulse">
-            <Sparkles className="h-6 w-6 text-blue-400" />
-          </div>
-          <div className="absolute top-32 right-10 opacity-3 animate-pulse delay-1000">
-            <Zap className="h-8 w-8 text-purple-400" />
-          </div>
-          <div className="absolute bottom-20 left-20 opacity-5 animate-pulse delay-2000">
-            <Sparkles className="h-10 w-10 text-green-400" />
-          </div>
-          <div className="absolute top-1/2 right-1/3 opacity-4 animate-pulse delay-3000">
-            <Heart className="h-7 w-7 text-pink-400" />
-          </div>
-          
-
-        </div>
-        
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 id="features-title" className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-2 tracking-tight leading-tight">
-              {currentLanguage === 'en' ? (
-                <>
-                  <span className="text-foreground">The features you need.</span> <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">All in one place</span>
-                </>
-              ) : (
-                <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{t('landing.features.sectionsTitle', 'The features you need. All in one place')}</span>
-              )}
-            </h2>
-            <p className="text-2xl font-black text-muted-foreground mb-8 fade-in stagger-1">
-              {t('landing.features.noMoreJuggling', 'No more juggling multiple tools.')}
-            </p>
-            <p className="text-xl font-black text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-2 tracking-tight">
-              {t('landing.features.platformDescription', 'Everything your business needs in one powerful platform.')}
-            </p>
-          </div>
-
-          {/* Compact Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 features-grid">
-            
-            {/* 1. Professional Invoicing */}
-            <div className="group relative fade-in stagger-1">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <FileText className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.invoicingTitle', 'Professional Invoicing')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.invoicingDesc', 'Custom invoices & payment tracking')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/invoicing"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  {t('landing.features.learnMore', 'Learn more')} →
-                </a>
-              </div>
-            </div>
-
-            {/* 2. Smart Expense Tracking */}
-            <div className="group relative fade-in stagger-2">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-green-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Receipt className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.expensesTitle', 'Smart Expense Tracking')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.expensesDesc', 'Organized expenses for tax time')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/expenses"
-                  className="inline-flex items-center text-green-600 hover:text-green-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-
-            {/* 3. Debt Management */}
-            <div className="group relative fade-in stagger-3">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-red-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <CreditCard className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.debtTitle', 'Debt Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.debtDesc', 'Track debts & payment scheduling')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/debt"
-                  className="inline-flex items-center text-red-600 hover:text-red-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-
-            {/* 4. Insights & Reports */}
-            <div className="group relative fade-in stagger-4">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <BarChart3 className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.reportsTitle', 'Insights & Reports')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.reportsDesc', 'Business analytics & cash flow planning')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/reports"
-                  className="inline-flex items-center text-cyan-600 hover:text-cyan-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-
-            {/* 5. Client Management */}
-            <div className="group relative fade-in stagger-5">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.clientsTitle', 'Client Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.clientsDesc', 'Profiles, projects & communication tracking')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/clients"
-                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-
-            {/* 6. Vendor Management */}
-            <div className="group relative fade-in stagger-6">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-amber-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Building2 className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.vendorsTitle', 'Vendor Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.vendorsDesc', 'Supplier tracking & purchase orders')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/vendors"
-                  className="inline-flex items-center text-amber-600 hover:text-amber-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-
-            {/* 7. Inventory Management */}
-            <div className="group relative fade-in stagger-7">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-violet-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Package className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.inventoryTitle', 'Inventory Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.inventoryDesc', 'Real-time inventory & order tracking')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/inventory"
-                  className="inline-flex items-center text-violet-600 hover:text-violet-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-
-            {/* 8. Attendance */}
-            <div className="group relative fade-in stagger-8">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Clock className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.attendanceTitle', 'Smart Attendance')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.attendanceDesc', 'GPS tracking & workforce management')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/attendance"
-                  className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-
-            {/* 10. HR Management */}
-            <div className="group relative fade-in stagger-10">
-              <div className="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-xl p-6 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-black text-foreground">{t('landing.features.hrTitle', 'HR Management')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('landing.features.hrDesc', 'Employee tracking, payroll & performance management')}</p>
-                  </div>
-                </div>
-                <a 
-                  href="/features/hr"
-                  className="inline-flex items-center text-emerald-600 hover:text-emerald-800 font-black text-sm group-hover:translate-x-1 transition-all duration-300"
-                >
-                  Learn more →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Compare Features Section */}
-          <div className="text-center mt-16 fade-in stagger-11">
-            <button 
-              onClick={(e) => {
-                window.location.href = "/compare-features";
-              }}
-              className="relative overflow-hidden group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-pink-600 px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          <div className="flex flex-wrap justify-center gap-3 mb-14">
+            <button
+              onClick={() => window.location.href = "/trial"}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md"
             >
-              {/* Content */}
-              <div className="relative z-10 flex items-center text-white">
-                <span className="mr-2 text-white font-black">{currentLanguage === 'sq' ? 'Krahasoni veçoritë e planeve' : 'Compare plan features'}</span>
-                <ChevronDown className="h-5 w-5 text-white group-hover:rotate-180 transition-transform duration-300 ease-out" />
-              </div>
-              
-              {/* Animated background on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-xl"></div>
+              {sq(currentLanguage, "Fillo Provën 14-Ditore", "Start 14-Day Free Trial")}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => window.location.href = "/subscribe"}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-all duration-200 shadow-sm"
+            >
+              {sq(currentLanguage, "Shiko Çmimet", "View Pricing")}
             </button>
           </div>
-        </div>
-      </section>
 
-      {/* Trust & Success Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        {/* Floating Background Elements */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-16 left-12 opacity-3 animate-pulse delay-500">
-            <Sparkles className="h-5 w-5 text-blue-300" />
-          </div>
-          <div className="absolute top-48 right-24 opacity-4 animate-pulse delay-1500">
-            <Heart className="h-6 w-6 text-purple-300" />
-          </div>
-          <div className="absolute bottom-32 left-1/3 opacity-5 animate-pulse delay-2500">
-            <Zap className="h-7 w-7 text-green-300" />
-          </div>
-          <div className="absolute top-1/3 right-10 opacity-3 animate-pulse delay-3500">
-            <Sparkles className="h-8 w-8 text-pink-300" />
-          </div>
-          
-          {/* Floating particles around icons */}
-          <div className="absolute top-20 left-20 opacity-6 animate-float-slow" style={{animationDelay: '0.5s'}}>
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
-          </div>
-          <div className="absolute bottom-20 right-20 opacity-8 animate-float-slow" style={{animationDelay: '2.5s'}}>
-            <div className="w-3 h-3 bg-purple-400 rounded-full animate-ping"></div>
-          </div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-
-            
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              {currentLanguage === 'sq' ? 
-                <>I besuar nga <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">biznese në mbarë botën</span></> :
-                <>Trusted by <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">businesses worldwide</span></>
-              }
-            </h2>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed fade-in stagger-1 tracking-tight">
-              {currentLanguage === 'sq' ? 
-                'Bashkohuni me mijëra kompani që kanë thjeshtuar operacionet e tyre dhe kanë përshpejtuar rritjen me BusinessFlow Pro.' :
-                'Join thousands of companies that have streamlined their operations and accelerated their growth with BusinessFlow Pro.'
-              }
-            </p>
-          </div>
-
-          {/* Trust Indicators Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            
-            {/* Active Users */}
-            <div className="text-center group fade-in stagger-1">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Users className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">200</div>
-              <p className="text-muted-foreground">
-                {currentLanguage === 'sq' ? 'Klientë na Besojnë' : 'Customers Trust Us'}
-              </p>
-            </div>
-
-            {/* Invoices Processed */}
-            <div className="text-center group fade-in stagger-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <FileText className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">12,000</div>
-              <p className="text-muted-foreground">
-                {currentLanguage === 'sq' ? 'Fatura të Përpunuara' : 'Invoices Processed'}
-              </p>
-            </div>
-
-            {/* Countries */}
-            <div className="text-center group fade-in stagger-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Globe className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">5</div>
-              <p className="text-muted-foreground">
-                {currentLanguage === 'sq' ? 'Vende në Mbarë Botën' : 'Countries Worldwide'}
-              </p>
-            </div>
-
-            {/* Uptime Reliability */}
-            <div className="text-center group fade-in stagger-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">99.9%</div>
-              <p className="text-muted-foreground">
-                {currentLanguage === 'sq' ? 'Besueshmëria e Kohës së Punës' : 'Uptime Reliability'}
-              </p>
-            </div>
-          </div>
-
-          {/* Benefits Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            {/* Save Time */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-1">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Clock className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">
-                {currentLanguage === 'sq' ? 'Kurseni 15+ Orë në Javë' : 'Save 15+ Hours Weekly'}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {currentLanguage === 'sq' ? 
-                  'Automatizoni detyrat e përsëritura dhe thjeshtoni rrjedhën e punës. Përdoruesit tanë raportojnë kursim mesatarisht 15 orë në javë në punën administrative.' :
-                  'Automate repetitive tasks and streamline your workflow. Our users report saving an average of 15 hours per week on administrative work.'
-                }
-              </p>
-            </div>
-
-            {/* Increase Revenue */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-2">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <TrendingUp className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">
-                {currentLanguage === 'sq' ? 'Rritni të Ardhurat me 30%' : 'Boost Revenue by 30%'}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {currentLanguage === 'sq' ? 
-                  'Menaxhimi më i mirë i klientëve dhe faturimi më i shpejtë çojnë në përmirësim të rrjedhës së parave. Shihni rritje të matshme në performancën e biznesit tuaj.' :
-                  'Better client management and faster invoicing lead to improved cash flow. See measurable growth in your business performance.'
-                }
-              </p>
-            </div>
-
-            {/* Reduce Errors */}
-            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200/50 dark:border-white/10 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 fade-in stagger-3">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Shield className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-black text-foreground mb-4">
-                {currentLanguage === 'sq' ? 'Eliminoni 95% të Gabimeve' : 'Eliminate 95% of Errors'}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {currentLanguage === 'sq' ? 
-                  'Kalkulimet e automatizuara dhe validimi i integruar sigurojnë saktësi në të gjitha operacionet e biznesit dhe regjistrat financiarë.' :
-                  'Automated calculations and built-in validation ensure accuracy across all your business operations and financial records.'
-                }
-              </p>
-            </div>
-          </div>
-
-
-        </div>
-      </section>
-
-      {/* Growing Together Section - HoneyBook Style */}
-      <section className="relative w-full min-h-screen bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 dark:from-amber-600 dark:via-yellow-600 dark:to-orange-600 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
-            <div className="w-full h-full bg-white rounded-full opacity-75"></div>
-          </div>
-          
-          {/* Floating Icons */}
-          <div className="absolute top-1/4 left-10 animate-pulse">
-            <Sparkles className="h-8 w-8 text-white opacity-30" />
-          </div>
-          <div className="absolute top-1/3 right-16 animate-pulse delay-1000">
-            <Zap className="h-6 w-6 text-white opacity-40" />
-          </div>
-          <div className="absolute bottom-1/4 left-1/3 animate-pulse delay-2000">
-            <Sparkles className="h-10 w-10 text-white opacity-25" />
-          </div>
-        </div>
-        
-        <div className="relative z-10 h-full flex items-center">
-          <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-              {/* Left Side - Content */}
-              <div className="space-y-8 lg:space-y-12">
-                {/* Main Heading */}
-                <div className="space-y-6">
-                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black dark:text-black leading-tight mb-4 tracking-tight animate-professional-fade">
-                    {currentLanguage === 'sq' ? 
-                      <>Le të <span className="animate-subtle-gradient">rritemi</span> së bashku</> :
-                      <>Let's <span className="animate-subtle-gradient">grow</span> together</>
-                    }
-                  </h2>
-                  
-                  <div className="space-y-4">
-                    <p className="text-xl lg:text-2xl text-black dark:text-black leading-relaxed">
-                      {currentLanguage === 'sq' ? 
-                        'Çdo veçori që zhvillojmë bazuar në reagimet e klientëve përfiton të gjithë komunitetin e BusinessFlow Pro.' :
-                        'Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.'
-                      }
-                    </p>
-                    <p className="text-lg lg:text-xl text-black dark:text-black leading-relaxed">
-                      {currentLanguage === 'sq' ? 
-                        'Kur ju keni sukses, të gjithë kemi sukses – duke krijuar një ekosistem të fuqishëm përmirësimi të vazhdueshëm dhe rritje të përbashkët.' :
-                        'When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.'
-                      }
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Feature Highlights */}
-                <div className="space-y-6">
-                  {/* Your Ideas */}
-                  <div className="group">
-                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">
-                      {currentLanguage === 'sq' ? 'Idetë Tuaja' : 'Your Ideas'}
-                    </h4>
-                    <p className="text-lg text-black dark:text-black">
-                      {currentLanguage === 'sq' ? 'Ndani vizionin tuaj dhe ne do ta bëjmë realitet' : 'Share your vision and we\'ll make it reality'}
-                    </p>
-                  </div>
-                  
-                  {/* Fast Development */}
-                  <div className="group">
-                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">
-                      {currentLanguage === 'sq' ? 'Zhvillim i Shpejtë' : 'Fast Development'}
-                    </h4>
-                    <p className="text-lg text-black dark:text-black">
-                      {currentLanguage === 'sq' ? 'Idetë bëhen veçori në kohë rekord' : 'Ideas become features in record time'}
-                    </p>
-                  </div>
-                  
-                  {/* Mutual Growth */}
-                  <div className="group">
-                    <h4 className="text-2xl font-bold text-black dark:text-black mb-2">
-                      {currentLanguage === 'sq' ? 'Rritje e Përbashkët' : 'Mutual Growth'}
-                    </h4>
-                    <p className="text-lg text-black dark:text-black">
-                      {currentLanguage === 'sq' ? 'Ne kemi sukses kur ju keni sukses' : 'We succeed when you succeed'}
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Call to Action */}
-                <div className="pt-4">
-                  <Button 
-                    onClick={() => window.location.href = '/collaboration'}
-                    className="group px-8 py-4 bg-black hover:bg-gray-800 dark:bg-black dark:hover:bg-gray-800 text-white dark:text-white border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                  >
-                    <span className="flex items-center">
-                      {currentLanguage === 'sq' ? 'Mësoni Më Shumë' : 'Learn More'}
-                    </span>
-                  </Button>
-
-                </div>
-              </div>
-              
-              {/* Right Side - Premium Community Card */}
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative group perspective-1000">
-                  {/* Main Card */}
-                  <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl hover:shadow-amber-500/20">
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div className="relative space-y-8">
-                      {/* Header with Animated Icon */}
-                      <div className="text-center">
-                        <div className="relative mb-6">
-                          <div className="w-20 h-20 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                            <Users className="w-10 h-10 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                          </div>
-
-                        </div>
-                        
-                        <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 transform transition-all duration-500 hover:scale-105 hover:text-orange-600">
-                          {currentLanguage === 'sq' ? 'Komuniteti i Parë' : 'Community First'}
-                        </h3>
-                        <p className="text-lg text-gray-700 dark:text-gray-800 leading-relaxed font-medium">
-                          {currentLanguage === 'sq' ? 
-                            'Suksesi juaj drejton zhvillimin tonë. Çdo veçori që ndërtojmë forcon të gjithë komunitetin tonë.' :
-                            'Your success drives our development. Every feature we build strengthens our entire community.'
-                          }
-                        </p>
-                      </div>
-                      
-                      {/* Enhanced Benefits Grid */}
-                      <div className="space-y-5">
-                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                            <Code className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">
-                              {currentLanguage === 'sq' ? 'Zhvillim i Përshtatur Falas' : 'Free Custom Development'}
-                            </h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">
-                              {currentLanguage === 'sq' ? 'Ekipi i dedikuar ndërton idetë tuaja pa kosto shtesë' : 'Dedicated team builds your ideas at no extra cost'}
-                            </p>
-                          </div>
-                        </div>
-                        
-                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
-                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                            <Headphones className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">
-                              {currentLanguage === 'sq' ? 'Mbështetje Ekspertësh' : 'Expert Team Support'}
-                            </h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">
-                              {currentLanguage === 'sq' ? 'Qasje e drejtpërdrejtë te ekspertët tanë të zhvillimit' : 'Direct access to our development experts'}
-                            </p>
-                          </div>
-                        </div>
-                        
-                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
-                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                            <TrendingUp className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">
-                              {currentLanguage === 'sq' ? 'Rritje e Përbashkët' : 'Shared Growth'}
-                            </h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">
-                              {currentLanguage === 'sq' ? 'Harta e veçorive e drejtuar nga komuniteti' : 'Community-driven feature roadmap'}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-
-                    </div>
-                  </div>
-                  
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* Pricing Section */}
-      <section id="pricing-section" className="relative py-20 px-4 pricing-section overflow-hidden">
-        {/* Full Width and Height Clientlly Logo Background */}
-        <div className="absolute inset-0 flex items-center justify-center -z-20">
-          <img 
-            src={clientllyLogo} 
-            alt="Clientlly Background" 
-            className="w-full h-full object-contain opacity-30"
-          />
-        </div>
-        
-        {/* Floating Background Elements for Pricing */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-20 left-10 opacity-4 animate-pulse delay-500">
-            <Sparkles className="h-5 w-5 text-blue-400" />
-          </div>
-          <div className="absolute top-60 right-20 opacity-3 animate-pulse delay-1500">
-            <Heart className="h-6 w-6 text-purple-400" />
-          </div>
-          <div className="absolute bottom-40 left-1/4 opacity-5 animate-pulse delay-2500">
-            <Zap className="h-7 w-7 text-green-400" />
-          </div>
-          <div className="absolute top-1/3 right-1/3 opacity-4 animate-pulse delay-3500">
-            <Sparkles className="h-8 w-8 text-pink-400" />
-          </div>
-          
-
-        </div>
-        
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-
-            
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-6 fade-in stagger-1 leading-tight tracking-tight animate-slide-up">
-              {currentLanguage === 'sq' ? 'Zgjidhni planin e përsosur për biznesin tuaj' : 'Choose the perfect plan for your business'}
-            </h2>
-            
-
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pricing-grid">
-            {plans.map((plan, index) => (
-              <Card 
-                key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} ${
-                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
-                }`}
-              >
-                {index === 1 && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
-                    <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
-                      {currentLanguage === 'sq' ? 'Më i Popullarizuari' : 'Most Popular'}
-                    </Badge>
-                  </div>
-                )}
-                
-                <CardContent className="p-8">
-                  <div className="text-center mb-8">
-                    <h3 className="text-3xl font-black text-foreground mb-4 tracking-tight">{plan.name}</h3>
-                    
-                    {/* Individual Plan Billing Toggle */}
-                    <div className="mb-6">
-                      <div className="relative flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-full max-w-xs mx-auto">
-                        <button
-                          onClick={() => setBillingPeriod('monthly')}
-                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
-                            billingPeriod === 'monthly'
-                              ? 'text-white'
-                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                          }`}
-                        >
-                          {currentLanguage === 'sq' ? 'Mujor' : 'Monthly'}
-                        </button>
-                        <button
-                          onClick={() => setBillingPeriod('yearly')}
-                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
-                            billingPeriod === 'yearly'
-                              ? 'text-white'
-                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                          }`}
-                        >
-                          {currentLanguage === 'sq' ? 'Vjetor' : 'Yearly'}
-                        </button>
-                        <div
-                          className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
-                            billingPeriod === 'monthly'
-                              ? 'left-1 w-[calc(50%-4px)]'
-                              : 'right-1 w-[calc(50%-4px)]'
-                          }`}
-                        />
-                      </div>
-                      {billingPeriod === 'yearly' && (
-                        <div className="mt-2">
-                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 20%</span>
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="text-4xl font-bold gradient-text mb-1">
-                      {selectedCurrency === 'EUR' ? (
-                        // Use actual API pricing data for EUR
-                        `€${((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100).toFixed(2)}`
-                      ) : (
-                        formatCurrency(
-                          convertPrice(
-                            (billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100,
-                            'USD',
-                            selectedCurrency
-                          ),
-                          selectedCurrency
-                        )
-                      )}
-                      <span className="text-lg text-muted-foreground">/{currentLanguage === 'sq' ? 'muaj' : 'month'}</span>
-                    </div>
-                    {billingPeriod === 'yearly' && (
-                      <div className="text-sm text-muted-foreground mb-2">
-                        Billed {selectedCurrency === 'EUR' ? (
-                          `€${(plan.yearlyPrice / 100).toFixed(2)}`
-                        ) : (
-                          formatCurrency(
-                            convertPrice(plan.yearlyPrice / 100, 'USD', selectedCurrency),
-                            selectedCurrency
-                          )
-                        )} yearly
-                      </div>
-                    )}
-
-                  </div>
-                  
-                  <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, featureIndex) => {
-                      // Parse markdown bold text **text** and render as bold
-                      const parts = feature.split(/(\*\*.*?\*\*)/g);
-                      return (
-                        <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
-                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          <span className="text-muted-foreground">
-                            {parts.map((part, partIndex) => {
-                              if (part.startsWith('**') && part.endsWith('**')) {
-                                const content = part.slice(2, -2);
-                                const isUsageLimit = content.includes('users') || content.includes('invoices') || content.includes('€');
-                                return (
-                                  <strong 
-                                    key={partIndex} 
-                                    className={`font-bold ${
-                                      isUsageLimit 
-                                        ? 'text-blue-600 dark:text-blue-400 animate-pulse bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 px-2 py-1 rounded-lg border border-blue-200 dark:border-blue-700/30' 
-                                        : 'text-orange-600 dark:text-orange-400'
-                                    }`}
-                                  >
-                                    {content}
-                                  </strong>
-                                );
-                              }
-                              return part;
-                            })}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  
-                  <div className="space-y-3">
-                    <Button 
-                      className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium py-2 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                      style={{outline: 'none', boxShadow: 'none'}}
-                      onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
-                    >
-                      {currentLanguage === 'sq' ? 'Blej Tani' : 'Buy Now'}
-                    </Button>
-                    {plan.id === 'basic' && (
-                      <Button 
-                        size="sm"
-                        className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                        style={{outline: 'none', boxShadow: 'none'}}
-                        onClick={() => window.location.href = `/trial?plan=${plan.id}&billing=${billingPeriod}`}
-                      >
-                        {currentLanguage === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
-                      </Button>
-                    )}
-                    {plan.id !== 'basic' && (
-                      <Button 
-                        size="sm"
-                        className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                        style={{outline: 'none', boxShadow: 'none'}}
-                        onClick={() => window.location.href = "/trial"}
-                      >
-                        {currentLanguage === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+          {/* Trust badges */}
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+            {[
+              { icon: Shield, label: sq(currentLanguage, "Mbrojtje e të dhënave", "Data protection"), href: "/data-protection" },
+              { icon: Check, label: sq(currentLanguage, "Konfigurim falas", "Free setup & migration"), href: "/setup-migration" },
+              { icon: Headphones, label: sq(currentLanguage, "Mbështetje 24/7", "24/7 expert support"), href: "/expert-support" },
+              { icon: Shield, label: sq(currentLanguage, "Siguri bankare", "Bank-level security"), href: "/bank-security" },
+            ].map(({ icon: Icon, label, href }) => (
+              <button key={label} onClick={() => window.location.href = href}
+                className="flex items-center gap-1.5 hover:text-indigo-600 transition-colors group">
+                <Icon className="h-4 w-4 text-gray-400 group-hover:text-indigo-500" />
+                <span className="font-medium">{label}</span>
+              </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ready to Trust Your Business CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-
-        </div>
-        
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg animate-professional-fade">
-            {currentLanguage === 'sq' ? 'Gati të Besoni Biznesin Tuaj tek Ne?' : 'Ready to Trust Your Business with Us?'}
-          </h2>
-          <p className="text-xl text-black/80 mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
-            {currentLanguage === 'sq' ? 
-              'Bashkohuni me mijëra biznese që kanë thjeshtuar operacionet e tyre me BusinessFlow Pro. Përjetoni sigurinë e nivelit të ndërmarrjeve, mbështetjen e ekspertëve dhe migrimin pa probleme - të gjitha të mbështetura nga garancia jonë e suksesit.' :
-              'Join thousands of businesses who have streamlined their operations with BusinessFlow Pro. Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.'
-            }
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg"
-              onClick={() => window.location.href = "/trial"}
-              className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              {currentLanguage === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => window.location.href = "/subscribe"}
-              className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
-            >
-              {currentLanguage === 'sq' ? 'Blej Tani' : 'Buy Now'}
-            </Button>
+      {/* Stats */}
+      <section className="py-16 px-6 lg:px-8 border-y border-gray-100 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map(({ value, label }) => (
+              <div key={label} className="text-center">
+                <div className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-1">{value}</div>
+                <div className="text-sm text-gray-500 font-medium">{label}</div>
+              </div>
+            ))}
           </div>
-
-
         </div>
       </section>
 
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Demo Modal */}
-      <Dialog open={showDemoModal} onOpenChange={() => setShowDemoModal(false)}>
-        <DialogContent className="max-w-2xl">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Request a Demo
-            </DialogTitle>
-          </DialogHeader>
-          <div className="p-6">
-            <p className="text-muted-foreground mb-6">
-              See BusinessFlow Pro in action. Schedule a personalized demo with our team.
+      {/* Features Section */}
+      <section id="features" className="py-24 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">
+              {sq(currentLanguage, "Veçoritë", "Features")}
             </p>
-            <Button 
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl"
-              onClick={() => setShowDemoModal(false)}
-            >
-              Contact Sales Team
-            </Button>
+            <h2 id="features-title" className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+              {sq(currentLanguage, "Veçoritë që ju nevojiten.", "The features you need.")}
+              <span className="text-indigo-600"> {sq(currentLanguage, "Gjithçka në një vend", "All in one place")}</span>
+            </h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              {sq(currentLanguage, "Nuk ka nevojë të manipuloni shumë mjete. Gjithçka që nevojitet biznesi juaj në një platformë.", "No more juggling multiple tools. Everything your business needs in one powerful platform.")}
+            </p>
           </div>
-        </DialogContent>
-      </Dialog>
-      
 
-      
-      {/* Chat Bot */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {features.map(({ icon: Icon, color, accent, title, desc, href }) => (
+              <a
+                key={href}
+                href={href}
+                className="group relative p-6 bg-white border border-gray-100 rounded-2xl hover:border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${color} mb-4`}>
+                  <Icon className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-1.5 text-sm leading-snug">{title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed mb-4">{desc}</p>
+                <span className="text-xs font-semibold text-indigo-600 group-hover:gap-1.5 flex items-center gap-1 transition-all">
+                  {sq(currentLanguage, "Mëso më shumë", "Learn more")} <ArrowRight className="h-3 w-3" />
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <button
+              onClick={() => window.location.href = "/compare-features"}
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+            >
+              {sq(currentLanguage, "Krahasoni veçoritë e planeve", "Compare plan features")}
+              <ChevronDown className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-24 px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">
+              {sq(currentLanguage, "Përfitimet", "Benefits")}
+            </p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
+              {sq(currentLanguage, "Pse bizneset zgjedhin Clientlly", "Why businesses choose Clientlly")}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {benefits.map(({ icon: Icon, color, title, desc }) => (
+              <div key={title} className="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                <div className={`inline-flex p-3 rounded-xl ${color} bg-opacity-10 mb-5`}>
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Let's grow together */}
+      <section className="py-24 px-6 lg:px-8 bg-indigo-600">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-indigo-200 text-sm font-semibold uppercase tracking-wider mb-4">
+                {sq(currentLanguage, "Komuniteti", "Community")}
+              </p>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+                {sq(currentLanguage, "Le të rritemi bashkë", "Let's grow together")}
+              </h2>
+              <p className="text-indigo-200 text-lg leading-relaxed mb-8">
+                {sq(currentLanguage,
+                  "Bashkohuni me komunitetin tonë të bizneseve në rritje. Ne zhvillojmë veçori bazuar në sugjerimet tuaja dhe ofrojmë mbështetje dedikuar.",
+                  "Join our community of growing businesses. We build features based on your suggestions and offer dedicated support."
+                )}
+              </p>
+              <button
+                onClick={() => window.location.href = "/collaboration"}
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors shadow-sm"
+              >
+                {sq(currentLanguage, "Mëso Më Shumë", "Learn More")}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Zap, title: sq(currentLanguage, "Zhvillim i Shpejtë", "Rapid Development"), desc: sq(currentLanguage, "Idetë tuaja bëhen realitet brenda javësh", "Your ideas become reality within weeks") },
+                { icon: Users, title: sq(currentLanguage, "Komunitet i Parë", "Community First"), desc: sq(currentLanguage, "Platforma e ndërtuar mbi sugjerimet tuaja", "Platform built on your suggestions") },
+                { icon: Globe, title: sq(currentLanguage, "Mbështetje Ekspertësh", "Expert Support"), desc: sq(currentLanguage, "Qasje direkte te ekipi ynë i ekspertëve", "Direct access to our expert team") },
+                { icon: TrendingUp, title: sq(currentLanguage, "Rritje e Përbashkët", "Shared Growth"), desc: sq(currentLanguage, "Ne rritemi kur rriteni edhe ju", "We grow when you grow") },
+              ].map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="p-5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                  <Icon className="h-5 w-5 text-indigo-200 mb-3" />
+                  <h4 className="text-white font-semibold text-sm mb-1">{title}</h4>
+                  <p className="text-indigo-200 text-xs leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing-section" className="py-24 px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">
+              {sq(currentLanguage, "Çmimet", "Pricing")}
+            </p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+              {sq(currentLanguage, "Zgjidhni planin e duhur", "Choose the right plan")}
+            </h2>
+            <p className="text-lg text-gray-500 max-w-xl mx-auto">
+              {sq(currentLanguage, "Plane të thjeshta, transparente. Pa surpriza.", "Simple, transparent pricing. No surprises.")}
+            </p>
+
+            {/* Billing Toggle */}
+            <div className="inline-flex items-center gap-1 mt-8 p-1 bg-gray-100 rounded-lg">
+              <button
+                onClick={() => setBillingPeriod('monthly')}
+                className={`px-4 py-2 text-sm font-semibold rounded-md transition-all ${billingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                {sq(currentLanguage, "Mujor", "Monthly")}
+              </button>
+              <button
+                onClick={() => setBillingPeriod('yearly')}
+                className={`px-4 py-2 text-sm font-semibold rounded-md transition-all flex items-center gap-2 ${billingPeriod === 'yearly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                {sq(currentLanguage, "Vjetor", "Yearly")}
+                <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">-20%</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {plans.map((plan, index) => {
+              const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
+              const isPopular = index === 1;
+              return (
+                <div
+                  key={plan.id}
+                  className={`relative p-8 rounded-2xl border transition-all duration-300 ${
+                    isPopular
+                      ? 'border-indigo-500 bg-indigo-600 shadow-xl shadow-indigo-100'
+                      : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md'
+                  }`}
+                >
+                  {isPopular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="inline-flex items-center px-3 py-1 bg-amber-400 text-amber-900 text-xs font-bold rounded-full">
+                        {sq(currentLanguage, "Më i Popullarizuari", "Most Popular")}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="mb-6">
+                    <h3 className={`text-xl font-bold mb-1 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+                    <div className="flex items-baseline gap-1">
+                      <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>
+                        €{price}
+                      </span>
+                      <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>
+                        /{sq(currentLanguage, "muaj", "mo")}
+                      </span>
+                    </div>
+                    {billingPeriod === 'yearly' && (
+                      <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>
+                        {sq(currentLanguage, "Faturuar vjetor", "Billed annually")}
+                      </p>
+                    )}
+                  </div>
+
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.slice(0, 6).map((feature, fi) => {
+                      const clean = feature.replace(/\*\*/g, '');
+                      return (
+                        <li key={fi} className="flex items-start gap-2">
+                          <CheckCircle className={`h-4 w-4 mt-0.5 flex-shrink-0 ${isPopular ? 'text-indigo-300' : 'text-indigo-500'}`} />
+                          <span className={`text-sm ${isPopular ? 'text-indigo-100' : 'text-gray-600'}`}>{clean}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  <div className="space-y-2">
+                    <button
+                      onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
+                      className={`w-full py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 ${
+                        isPopular
+                          ? 'bg-white text-indigo-700 hover:bg-indigo-50'
+                          : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                      }`}
+                    >
+                      {sq(currentLanguage, "Blej Tani", "Buy Now")}
+                    </button>
+                    <button
+                      onClick={() => window.location.href = "/trial"}
+                      className={`w-full py-2.5 px-4 rounded-xl font-medium text-sm transition-all duration-200 border ${
+                        isPopular
+                          ? 'border-indigo-400 text-indigo-100 hover:bg-indigo-500'
+                          : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
+                      }`}
+                    >
+                      {sq(currentLanguage, "Fillo Provën", "Start Trial")}
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 px-6 lg:px-8 bg-gray-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+            {sq(currentLanguage,
+              <>Gati të besoni <span className="text-indigo-400">biznesin tuaj</span> tek ne?</>,
+              <>Ready to trust <span className="text-indigo-400">your business</span> with us?</>
+            )}
+          </h2>
+          <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+            {sq(currentLanguage,
+              "Bashkohuni me qindra biznese që kanë thjeshtuar operacionet e tyre me Clientlly. Garanci suksesi, mbështetje ekspertësh.",
+              "Join hundreds of businesses who have streamlined their operations with Clientlly. Success guarantee, expert support."
+            )}
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button
+              onClick={() => window.location.href = "/trial"}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-colors shadow-sm"
+            >
+              {sq(currentLanguage, "Fillo Provën Tënde", "Start Your Trial")}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => window.location.href = "/subscribe"}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-colors"
+            >
+              {sq(currentLanguage, "Blej Tani", "Buy Now")}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
       <ChatBot />
-      
-
     </div>
   );
 }
