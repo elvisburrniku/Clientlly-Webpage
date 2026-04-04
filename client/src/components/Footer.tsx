@@ -1,4 +1,4 @@
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
 import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 
@@ -36,9 +36,7 @@ const InstagramSVG = () => (
 const Footer = () => {
   const { currentLanguage } = useLanguage();
   const lang = currentLanguage;
-  const [, setLocation] = useLocation();
-
-  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
+  const go = (path: string) => { window.location.href = path; window.scrollTo({ top: 0 }); };
 
   const cols = [
     {

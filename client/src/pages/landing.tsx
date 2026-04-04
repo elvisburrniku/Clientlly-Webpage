@@ -529,7 +529,7 @@ export default function Landing() {
                 )}
               </p>
               <button
-                onClick={() => go('/collaboration')}
+                onClick={() => { window.location.href = '/collaboration'; }}
                 className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm"
               >
                 {sq(lang, "Mëso Bashkëpunimin", "Explore Collaboration")}
@@ -635,7 +635,7 @@ export default function Landing() {
                         const dash = feature.indexOf("—");
                         const desc = dash !== -1 ? feature.slice(dash) : "";
                         return (
-                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => go('/collaboration')}>
+                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => { window.location.href = '/collaboration'; }}>
                             <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
                             <span className="text-sm flex-1">
                               <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
