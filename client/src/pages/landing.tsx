@@ -150,15 +150,15 @@ export default function Landing() {
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
+            <div className="hidden lg:flex items-center space-x-7 flex-1 justify-center">
               <Link href="/" className="text-sm font-semibold text-indigo-600">{sq(lang, "Ballina", "Home")}</Link>
-              <button onClick={() => go('/about')} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</button>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
               <a href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</a>
               <a href="#pricing-section" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</a>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-5 ml-auto">
+            <div className="hidden lg:flex items-center space-x-5 flex-shrink-0">
               <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors inline-block">
                 {sq(lang, "Blej Tani", "Buy Now")}
               </Link>
