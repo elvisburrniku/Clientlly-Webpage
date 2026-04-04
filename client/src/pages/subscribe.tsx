@@ -388,8 +388,10 @@ export default function Subscribe() {
             return (
               <div
                 key={plan.id}
-                onClick={() => { setSelectedPlan(plan.id); setTimeout(() => { setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 300); }}
-                className={`relative p-7 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                onClick={() => { console.log('Plan clicked:', plan.id); setSelectedPlan(plan.id); setTimeout(() => { setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 400); }}
+                role="button"
+                tabIndex={0}
+                className={`relative p-7 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:-translate-y-1 select-none ${
                   isSelected
                     ? isPopular
                       ? 'border-indigo-500 bg-indigo-600 shadow-xl shadow-indigo-100'
@@ -439,7 +441,7 @@ export default function Subscribe() {
                       const dash = feature.indexOf("—");
                       const desc = dash !== -1 ? feature.slice(dash) : "";
                       return (
-                        <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => { setLocation('/collaboration'); window.scrollTo({top:0}); }}>
+                        <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={(e) => { e.stopPropagation(); setLocation('/collaboration'); window.scrollTo({top:0}); }}>
                           <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
                           <span className="text-sm flex-1">
                             <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
