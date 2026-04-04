@@ -551,8 +551,8 @@ export default function Features() {
           </div>
 
           <div className="anim-rise anim-d4 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/trial"
+            <button
+              onClick={() => go("/trial")}
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
@@ -560,7 +560,7 @@ export default function Features() {
                 <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+            </button>
             <Link href="/compare-features" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm">
               {sq(lang, "Krahaso Planet", "Compare Plans")}
             </Link>
@@ -980,10 +980,10 @@ export default function Features() {
             {sq(lang, "Pa kartë kredie. Pa angazhim. Qasje e plotë.", "No credit card. No commitment. Full access.")}
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
-            <Link href="/trial" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-indigo-700 font-semibold rounded-xl transition-all duration-200 shadow-sm hover:-translate-y-0.5">
+            <button onClick={() => go("/trial")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-indigo-700 font-semibold rounded-xl transition-all duration-200 shadow-sm hover:-translate-y-0.5">
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </button>
             <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
               {sq(lang, "Na Kontaktoni", "Contact Us")}
             </Link>
