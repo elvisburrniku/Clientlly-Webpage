@@ -37,8 +37,8 @@ export default function Contact() {
     },
     onError: () => {
       toast({
-        title: sq(lang, "Gabim", "Error") as string,
-        description: sq(lang, "Diçka shkoi keq. Provoni përsëri.", "Something went wrong. Please try again.") as string,
+        title: sq(lang, "Gabim", "Error", "Error", "Fehler", "Грешка") as string,
+        description: sq(lang, "Diçka shkoi keq. Provoni përsëri.", "Something went wrong. Please try again.", "Algo salió mal. Inténtelo de nuevo.", "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.", "Нешто тргна наопаку. Обидете се повторно.") as string,
         variant: "destructive",
       });
     },
@@ -65,11 +65,11 @@ export default function Contact() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
-              <Link href="/contact" className="text-sm font-semibold text-indigo-600">{sq(lang, "Kontakt", "Contact")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
+              <Link href="/contact" className="text-sm font-semibold text-indigo-600">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
@@ -83,11 +83,11 @@ export default function Contact() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</Link>
-            <Link href="/contact" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
+            <Link href="/contact" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             <div className="pt-2 flex flex-col gap-2">
               <LanguageSelector />
             </div>
@@ -101,7 +101,7 @@ export default function Contact() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
               <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-              {sq(lang, "Ekipi ynë është online", "Our team is online")}
+              {sq(lang, "Ekipi ynë është online", "Our team is online", "Nuestro equipo está en línea", "Unser Team ist online", "Нашиот тим е онлајн")}
             </div>
             <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
               {sq(lang,
@@ -126,9 +126,9 @@ export default function Contact() {
           {/* Stats row */}
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             {[
-              { label: sq(lang, "Kohë Përgjigje", "Response Time"), value: "< 24h", sub: sq(lang, "mesatare", "average"), color: "text-indigo-600", bg: "bg-indigo-50" },
-              { label: sq(lang, "Kënaqësi", "Satisfaction"), value: "98%", sub: sq(lang, "nga klientët", "from clients"), color: "text-emerald-600", bg: "bg-emerald-50" },
-              { label: sq(lang, "Disponueshëm", "Available"), value: "24/7", sub: sq(lang, "për abonimi", "for subscribers"), color: "text-violet-600", bg: "bg-violet-50" },
+              { label: sq(lang, "Kohë Përgjigje", "Response Time", "Tiempo de respuesta", "Antwortzeit", "Време на одговор"), value: "< 24h", sub: sq(lang, "mesatare", "average", "promedio", "Durchschnitt", "просечно"), color: "text-indigo-600", bg: "bg-indigo-50" },
+              { label: sq(lang, "Kënaqësi", "Satisfaction", "Satisfacción", "Zufriedenheit", "Задоволство"), value: "98%", sub: sq(lang, "nga klientët", "from clients", "de los clientes", "von Kunden", "од клиентите"), color: "text-emerald-600", bg: "bg-emerald-50" },
+              { label: sq(lang, "Disponueshëm", "Available", "Disponible", "Verfügbar", "Достапно"), value: "24/7", sub: sq(lang, "për abonimi", "for subscribers", "para suscriptores", "für Abonnenten", "за претплатници"), color: "text-violet-600", bg: "bg-violet-50" },
             ].map(({ label, value, sub, color, bg }, i) => (
               <div key={i} className={`${bg} rounded-2xl p-5 text-center`}>
                 <p className={`text-2xl font-extrabold ${color}`}>{value}</p>
@@ -155,10 +155,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <h2 className="text-lg font-extrabold text-gray-900">
-                      {sq(lang, "Dërgoni një mesazh", "Send us a message")}
+                      {sq(lang, "Dërgoni një mesazh", "Send us a message", "Envíenos un mensaje", "Senden Sie uns eine Nachricht", "Испратете ни порака")}
                     </h2>
                     <p className="text-xs text-gray-400 mt-0.5">
-                      {sq(lang, "Plotësoni formularin — do t'ju kthejmë shpejt", "Fill the form — we'll reply quickly")}
+                      {sq(lang, "Plotësoni formularin — do t'ju kthejmë shpejt", "Fill the form — we'll reply quickly", "Complete el formulario — le responderemos rápidamente", "Füllen Sie das Formular aus — wir antworten schnell", "Пополнете го формуларот — ќе одговориме брзо")}
                     </p>
                   </div>
                 </div>
@@ -172,18 +172,21 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        {sq(lang, "Mesazhi u dërgua!", "Message sent!")}
+                        {sq(lang, "Mesazhi u dërgua!", "Message sent!", "¡Mensaje enviado!", "Nachricht gesendet!", "Пораката е испратена!")}
                       </h3>
                       <p className="text-sm text-gray-500 mt-2 max-w-xs mx-auto">
                         {sq(lang,
                           "Faleminderit! Ekipi ynë do t'ju kontaktojë brenda 24 orëve.",
-                          "Thank you! Our team will contact you within 24 hours."
+                          "Thank you! Our team will contact you within 24 hours.",
+                          "¡Gracias! Nuestro equipo se pondrá en contacto con usted dentro de 24 horas.",
+                          "Vielen Dank! Unser Team wird Sie innerhalb von 24 Stunden kontaktieren.",
+                          "Ви благодариме! Нашиот тим ќе ве контактира во рок од 24 часа."
                         )}
                       </p>
                     </div>
                     <button onClick={() => setSubmitted(false)}
                       className="mt-1 text-sm font-semibold text-indigo-600 hover:text-indigo-800 inline-flex items-center gap-1 transition-colors">
-                      {sq(lang, "Dërgoni mesazh tjetër", "Send another message")}
+                      {sq(lang, "Dërgoni mesazh tjetër", "Send another message", "Enviar otro mensaje", "Weitere Nachricht senden", "Испратете друга порака")}
                       <ArrowRight className="h-3.5 w-3.5" />
                     </button>
                   </div>
@@ -193,18 +196,18 @@ export default function Contact() {
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                          {sq(lang, "Emri", "First name")} *
+                          {sq(lang, "Emri", "First name", "Nombre", "Vorname", "Име")} *
                         </label>
                         <input name="firstName" value={form.firstName} onChange={handle} required
-                          placeholder={sq(lang, "Emri juaj", "Your first name") as string}
+                          placeholder={sq(lang, "Emri juaj", "Your first name", "Su nombre", "Ihr Vorname", "Вашето име") as string}
                           className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                       <div>
                         <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                          {sq(lang, "Mbiemri", "Last name")} *
+                          {sq(lang, "Mbiemri", "Last name", "Apellido", "Nachname", "Презиме")} *
                         </label>
                         <input name="lastName" value={form.lastName} onChange={handle} required
-                          placeholder={sq(lang, "Mbiemri juaj", "Your last name") as string}
+                          placeholder={sq(lang, "Mbiemri juaj", "Your last name", "Su apellido", "Ihr Nachname", "Вашето презиме") as string}
                           className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                     </div>
@@ -221,10 +224,10 @@ export default function Contact() {
                       </div>
                       <div>
                         <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                          {sq(lang, "Kompania", "Company")}
+                          {sq(lang, "Kompania", "Company", "Empresa", "Unternehmen", "Компанија")}
                         </label>
                         <input name="company" value={form.company} onChange={handle}
-                          placeholder={sq(lang, "Emri i kompanisë", "Company name") as string}
+                          placeholder={sq(lang, "Emri i kompanisë", "Company name", "Nombre de la empresa", "Firmenname", "Име на компанијата") as string}
                           className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                     </div>
@@ -232,28 +235,28 @@ export default function Contact() {
                     {/* Subject */}
                     <div>
                       <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                        {sq(lang, "Tema", "Subject")} *
+                        {sq(lang, "Tema", "Subject", "Asunto", "Betreff", "Тема")} *
                       </label>
                       <select name="subject" value={form.subject} onChange={handle} required
                         className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors text-gray-700">
-                        <option value="">{sq(lang, "Zgjidhni temën", "Choose a subject")}</option>
-                        <option value="demo">{sq(lang, "Kërkoj demo falas", "Request a free demo")}</option>
-                        <option value="pricing">{sq(lang, "Informacion mbi çmimet", "Pricing information")}</option>
-                        <option value="support">{sq(lang, "Mbështetje teknike", "Technical support")}</option>
-                        <option value="billing">{sq(lang, "Faturim dhe pagesa", "Billing & payments")}</option>
-                        <option value="partnership">{sq(lang, "Partneritet biznesi", "Business partnership")}</option>
-                        <option value="migration">{sq(lang, "Migrim të dhënash", "Data migration")}</option>
-                        <option value="other">{sq(lang, "Tjetër", "Other")}</option>
+                        <option value="">{sq(lang, "Zgjidhni temën", "Choose a subject", "Elija un asunto", "Wählen Sie ein Thema", "Изберете тема")}</option>
+                        <option value="demo">{sq(lang, "Kërkoj demo falas", "Request a free demo", "Solicitar una demo gratuita", "Kostenlose Demo anfordern", "Побарајте бесплатна демо")}</option>
+                        <option value="pricing">{sq(lang, "Informacion mbi çmimet", "Pricing information", "Información de precios", "Preisinformationen", "Информации за цени")}</option>
+                        <option value="support">{sq(lang, "Mbështetje teknike", "Technical support", "Soporte técnico", "Technischer Support", "Техничка поддршка")}</option>
+                        <option value="billing">{sq(lang, "Faturim dhe pagesa", "Billing & payments", "Facturación y pagos", "Abrechnung & Zahlungen", "Фактурирање и плаќања")}</option>
+                        <option value="partnership">{sq(lang, "Partneritet biznesi", "Business partnership", "Asociación comercial", "Geschäftspartnerschaft", "Деловно партнерство")}</option>
+                        <option value="migration">{sq(lang, "Migrim të dhënash", "Data migration", "Migración de datos", "Datenmigration", "Миграција на податоци")}</option>
+                        <option value="other">{sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго")}</option>
                       </select>
                     </div>
 
                     {/* Message */}
                     <div>
                       <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                        {sq(lang, "Mesazhi", "Message")} *
+                        {sq(lang, "Mesazhi", "Message", "Mensaje", "Nachricht", "Порака")} *
                       </label>
                       <textarea name="message" value={form.message} onChange={handle} required rows={5}
-                        placeholder={sq(lang, "Shkruani mesazhin tuaj këtu... Sa më shumë detaje, aq më mirë mund t'ju ndihmojmë.", "Write your message here... The more details, the better we can help you.") as string}
+                        placeholder={sq(lang, "Shkruani mesazhin tuaj këtu... Sa më shumë detaje, aq më mirë mund t'ju ndihmojmë.", "Write your message here... The more details, the better we can help you.", "Escriba su mensaje aquí... Cuantos más detalles, mejor podremos ayudarle.", "Schreiben Sie Ihre Nachricht hier... Je mehr Details, desto besser können wir Ihnen helfen.", "Напишете ја вашата порака тука... Колку повеќе детали, толку подобро можеме да ви помогнеме.") as string}
                         className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors resize-none placeholder:text-gray-400" />
                     </div>
 
@@ -261,10 +264,13 @@ export default function Contact() {
                     <p className="text-[11px] text-gray-400">
                       {sq(lang,
                         "Të dhënat tuaja janë të sigurta. Nuk do t'i ndajmë me palë të treta. Shikoni ",
-                        "Your data is safe. We won't share it with third parties. See our "
+                        "Your data is safe. We won't share it with third parties. See our ",
+                        "Sus datos están seguros. No los compartiremos con terceros. Vea nuestra ",
+                        "Ihre Daten sind sicher. Wir geben sie nicht an Dritte weiter. Siehe unsere ",
+                        "Вашите податоци се безбедни. Нема да ги споделиме со трети страни. Погледнете ја нашата "
                       )}
                       <Link href="/privacy-policy" className="text-indigo-500 hover:text-indigo-700 underline underline-offset-2">
-                        {sq(lang, "politikën e privatësisë", "privacy policy")}
+                        {sq(lang, "politikën e privatësisë", "privacy policy", "política de privacidad", "Datenschutzrichtlinie", "политика за приватност")}
                       </Link>.
                     </p>
 
@@ -274,11 +280,11 @@ export default function Contact() {
                       {contactMutation.isPending ? (
                         <span className="flex items-center gap-2">
                           <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin"></span>
-                          {sq(lang, "Duke dërguar...", "Sending...")}
+                          {sq(lang, "Duke dërguar...", "Sending...", "Enviando...", "Wird gesendet...", "Се испраќа...")}
                         </span>
                       ) : (
                         <>
-                          {sq(lang, "Dërgo Mesazhin", "Send Message")}
+                          {sq(lang, "Dërgo Mesazhin", "Send Message", "Enviar mensaje", "Nachricht senden", "Испрати порака")}
                           <Send className="h-4 w-4" />
                         </>
                       )}
@@ -295,12 +301,12 @@ export default function Contact() {
             {/* Contact channels */}
             <div className="bg-indigo-600 text-white rounded-2xl p-6">
               <h3 className="font-extrabold text-base mb-4">
-                {sq(lang, "Mënyra të kontaktimit", "Ways to reach us")}
+                {sq(lang, "Mënyra të kontaktimit", "Ways to reach us", "Formas de contactarnos", "Wege uns zu erreichen", "Начини да нè контактирате")}
               </h3>
               <div className="space-y-4">
                 {[
-                  { icon: Mail, label: "Email", value: "info@clientlly.com", sub: sq(lang, "Përgjigje brenda 24h", "Reply within 24h") },
-                  { icon: MapPin, label: sq(lang, "Zyra", "Office"), value: sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo"), sub: "Linda Premium Residence nr 9, Prishtina e re" },
+                  { icon: Mail, label: "Email", value: "info@clientlly.com", sub: sq(lang, "Përgjigje brenda 24h", "Reply within 24h", "Respuesta en 24h", "Antwort innerhalb von 24h", "Одговор во рок од 24ч") },
+                  { icon: MapPin, label: sq(lang, "Zyra", "Office", "Oficina", "Büro", "Канцеларија"), value: sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo", "Pristina, Kosovo", "Pristina, Kosovo", "Приштина, Косово"), sub: "Linda Premium Residence nr 9, Prishtina e re" },
                 ].map(({ icon: Icon, label, value, sub }, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-indigo-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -319,16 +325,16 @@ export default function Contact() {
             {/* Why contact us */}
             <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
               <h3 className="font-extrabold text-sm text-gray-900 mb-3">
-                {sq(lang, "Mund t'ju ndihmojmë me:", "We can help you with:")}
+                {sq(lang, "Mund t'ju ndihmojmë me:", "We can help you with:", "Podemos ayudarle con:", "Wir können Ihnen helfen mit:", "Можеме да ви помогнеме со:")}
               </h3>
               <ul className="space-y-2">
                 {[
-                  sq(lang, "Demo falas i platformës", "Free platform demo"),
-                  sq(lang, "Konfigurimi fillestar i sistemit", "Initial system configuration"),
-                  sq(lang, "Çmime dhe plane të personalizuara", "Custom pricing & plans"),
-                  sq(lang, "Integrim me sisteme ekzistuese", "Integration with existing systems"),
-                  sq(lang, "Trajnim për ekipin tuaj", "Training for your team"),
-                  sq(lang, "Migrim i të dhënave tuaja", "Migration of your data"),
+                  sq(lang, "Demo falas i platformës", "Free platform demo", "Demo gratuita de la plataforma", "Kostenlose Plattform-Demo", "Бесплатна демо на платформата"),
+                  sq(lang, "Konfigurimi fillestar i sistemit", "Initial system configuration", "Configuración inicial del sistema", "Ersteinrichtung des Systems", "Почетна конфигурација на системот"),
+                  sq(lang, "Çmime dhe plane të personalizuara", "Custom pricing & plans", "Precios y planes personalizados", "Individuelle Preise & Pläne", "Прилагодени цени и планови"),
+                  sq(lang, "Integrim me sisteme ekzistuese", "Integration with existing systems", "Integración con sistemas existentes", "Integration mit bestehenden Systemen", "Интеграција со постоечки системи"),
+                  sq(lang, "Trajnim për ekipin tuaj", "Training for your team", "Capacitación para su equipo", "Schulung für Ihr Team", "Обука за вашиот тим"),
+                  sq(lang, "Migrim i të dhënave tuaja", "Migration of your data", "Migración de sus datos", "Migration Ihrer Daten", "Миграција на вашите податоци"),
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <CheckCircle className="h-3.5 w-3.5 text-indigo-500 flex-shrink-0 mt-0.5" />
@@ -341,13 +347,13 @@ export default function Contact() {
             {/* Quick links */}
             <div className="bg-gray-50 rounded-2xl p-5">
               <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-widest mb-3">
-                {sq(lang, "Burime të shpejta", "Quick resources")}
+                {sq(lang, "Burime të shpejta", "Quick resources", "Recursos rápidos", "Schnelle Ressourcen", "Брзи ресурси")}
               </p>
               <div className="space-y-1">
                 {[
-                  { icon: BookOpen, label: sq(lang, "Dokumentacioni", "Documentation"), href: "/api" },
-                  { icon: Zap, label: sq(lang, "Pyetje të shpeshta", "FAQ"), href: "/faq" },
-                  { icon: Users, label: sq(lang, "Rreth ekipit tonë", "About our team"), href: "/about" },
+                  { icon: BookOpen, label: sq(lang, "Dokumentacioni", "Documentation", "Documentación", "Dokumentation", "Документација"), href: "/api" },
+                  { icon: Zap, label: sq(lang, "Pyetje të shpeshta", "FAQ", "Preguntas frecuentes", "Häufige Fragen", "Често поставувани прашања"), href: "/faq" },
+                  { icon: Users, label: sq(lang, "Rreth ekipit tonë", "About our team", "Sobre nuestro equipo", "Über unser Team", "За нашиот тим"), href: "/about" },
                 ].map(({ icon: Icon, label, href }, i) => (
                   <Link key={i} href={href}
                     className="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-white hover:shadow-sm transition-all group">

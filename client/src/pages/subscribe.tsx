@@ -424,7 +424,7 @@ export default function Subscribe() {
                   {billingPeriod === 'yearly' && (
                     <div className={`text-xs mt-1 space-y-0.5`}>
                       <p className={isPopular ? 'text-indigo-200' : 'text-gray-400'}>
-                        {sq(lang, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/vit → €${(plan.yearlyPrice / 100).toFixed(0)}/vit`, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/yr → €${(plan.yearlyPrice / 100).toFixed(0)}/yr`)}
+                        {sq(lang, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/vit → €${(plan.yearlyPrice / 100).toFixed(0)}/vit`, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/yr → €${(plan.yearlyPrice / 100).toFixed(0)}/yr`, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/año → €${(plan.yearlyPrice / 100).toFixed(0)}/año`, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/Jahr → €${(plan.yearlyPrice / 100).toFixed(0)}/Jahr`, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/год → €${(plan.yearlyPrice / 100).toFixed(0)}/год`)}
                       </p>
                       <p className="text-emerald-500 font-semibold">
                         {sq(lang, `Kurseni €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/vit`, `Save €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/yr`, `Ahorre €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/año`, `Sparen Sie €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/Jahr`, `Заштедете €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/год.`)}

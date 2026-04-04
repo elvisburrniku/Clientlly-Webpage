@@ -163,11 +163,11 @@ export default function CompareFeatures() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
-              <Link href="/compare-features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Krahaso Planet", "Compare Plans")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
+              <Link href="/compare-features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Krahaso Planet", "Compare Plans", "Comparar Planes", "Pläne Vergleichen", "Споредете Планови")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
@@ -181,10 +181,10 @@ export default function CompareFeatures() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing")}</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             <div className="pt-2 flex flex-col gap-2">
               <LanguageSelector />
             </div>
@@ -197,7 +197,7 @@ export default function CompareFeatures() {
         <div className="max-w-5xl mx-auto px-6 pt-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5">
             <Star className="h-3.5 w-3.5" />
-            {sq(lang, "Të gjitha planet, të gjitha veçoritë", "All plans, all features")}
+            {sq(lang, "Të gjitha planet, të gjitha veçoritë", "All plans, all features", "Todos los planes, todas las funciones", "Alle Pläne, alle Funktionen", "Сите планови, сите функции")}
           </div>
           <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-3 leading-tight">
             {sq(lang,
@@ -218,15 +218,15 @@ export default function CompareFeatures() {
           <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-sm mb-4">
             <div className="bg-indigo-600 px-6 py-5">
               <h2 className="text-xl font-extrabold text-white mb-0.5">
-                {sq(lang, "Krahasim i plotë i veçorive", "Full Feature Comparison")}
+                {sq(lang, "Krahasim i plotë i veçorive", "Full Feature Comparison", "Comparación completa de funciones", "Vollständiger Funktionsvergleich", "Целосна споредба на функции")}
               </h2>
               <p className="text-indigo-200 text-sm">
-                {sq(lang, "Shihni çfarë përfshin secili plan në detaje", "See exactly what each plan includes in detail")}
+                {sq(lang, "Shihni çfarë përfshin secili plan në detaje", "See exactly what each plan includes in detail", "Vea exactamente qué incluye cada plan en detalle", "Sehen Sie genau, was jeder Plan im Detail enthält", "Видете точно што вклучува секој план во детали")}
               </p>
             </div>
             <div className="hidden md:grid grid-cols-12 items-center px-5 py-3 bg-gray-50 border-t border-gray-200">
               <div className="col-span-6 text-xs font-semibold text-gray-400 uppercase tracking-widest">
-                {sq(lang, "Veçoria", "Feature")}
+                {sq(lang, "Veçoria", "Feature", "Función", "Funktion", "Функција")}
               </div>
               {PLANS.map(plan => (
                 <div key={plan.id} className={`col-span-2 text-center text-xs font-bold uppercase tracking-widest ${plan.highlight ? "text-indigo-600" : "text-gray-500"}`}>
@@ -285,8 +285,8 @@ export default function CompareFeatures() {
 
           {/* Legend */}
           <div className="flex flex-wrap gap-4 justify-center mt-5 text-xs text-gray-400">
-            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-indigo-600" /> {sq(lang, "I përfshirë", "Included")}</span>
-            <span className="flex items-center gap-1.5"><Minus className="h-3.5 w-3.5 text-gray-300" /> {sq(lang, "Nuk është i disponueshëm", "Not available")}</span>
+            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-indigo-600" /> {sq(lang, "I përfshirë", "Included", "Incluido", "Enthalten", "Вклучено")}</span>
+            <span className="flex items-center gap-1.5"><Minus className="h-3.5 w-3.5 text-gray-300" /> {sq(lang, "Nuk është i disponueshëm", "Not available", "No disponible", "Nicht verfügbar", "Не е достапно")}</span>
           </div>
         </div>
       </section>
@@ -295,33 +295,57 @@ export default function CompareFeatures() {
       <section className="py-12 px-6 bg-gray-50 border-t border-gray-100">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-xl font-extrabold text-gray-900 mb-6 text-center">
-            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions")}
+            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufig Gestellte Fragen", "Често Поставувани Прашања")}
           </h2>
           {[
             {
               q: { sq: "A mund të ndërroj planin më vonë?", en: "Can I switch plans later?" },
               a: { sq: "Po, mund të ndërroni planin në çdo kohë. Ndryshimi ndodh menjëherë dhe çmimi rregullohet automatikisht proporcionalisht.", en: "Yes, you can switch plans at any time. The change happens immediately and the price adjusts automatically on a prorated basis." },
+              qEs: "¿Puedo cambiar de plan más tarde?",
+              aEs: "Sí, puede cambiar de plan en cualquier momento. El cambio se realiza de inmediato y el precio se ajusta automáticamente de forma proporcional.",
+              qDe: "Kann ich den Plan später wechseln?",
+              aDe: "Ja, Sie können den Plan jederzeit wechseln. Die Änderung erfolgt sofort und der Preis wird automatisch anteilig angepasst.",
+              qMk: "Може ли да го сменам планот подоцна?",
+              aMk: "Да, можете да го смените планот во секое време. Промената се случува веднаш и цената се прилагодува автоматски пропорционално.",
             },
             {
               q: { sq: "A përfshihen të gjitha veçoritë në planin Starter?", en: "Are all features included in the Starter plan?" },
               a: { sq: "Po! Çdo plan përfshin të gjitha 16 modulet e Clientlly. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.", en: "Yes! Every plan includes all 16 Clientlly modules. Differences are only in user count and invoice volume." },
+              qEs: "¿Todas las funciones están incluidas en el plan Starter?",
+              aEs: "¡Sí! Cada plan incluye los 16 módulos de Clientlly. Las diferencias son solo en el número de usuarios y el volumen de facturas.",
+              qDe: "Sind alle Funktionen im Starter-Plan enthalten?",
+              aDe: "Ja! Jeder Plan enthält alle 16 Clientlly-Module. Unterschiede bestehen nur in der Benutzeranzahl und dem Rechnungsvolumen.",
+              qMk: "Дали сите функции се вклучени во Starter планот?",
+              aMk: "Да! Секој план ги вклучува сите 16 модули на Clientlly. Разликите се само во бројот на корисници и обемот на фактури.",
             },
             {
               q: { sq: "Çfarë ndodh pas 14 ditëve të provës falas?", en: "What happens after the 14-day free trial?" },
               a: { sq: "Pasi të mbarojë prova juaj, ju do t'ju kërkohet të zgjidhni një plan. Nuk kemi të dhëna të kartës tuaj të kreditit derisa të vendosni vetë.", en: "After your trial ends, you'll be asked to choose a plan. We don't have your credit card details until you decide." },
+              qEs: "¿Qué sucede después de la prueba gratuita de 14 días?",
+              aEs: "Después de que termine su prueba, se le pedirá que elija un plan. No tenemos los datos de su tarjeta de crédito hasta que usted decida.",
+              qDe: "Was passiert nach der 14-tägigen kostenlosen Testphase?",
+              aDe: "Nach Ablauf Ihrer Testphase werden Sie aufgefordert, einen Plan zu wählen. Wir haben Ihre Kreditkartendaten erst, wenn Sie sich entscheiden.",
+              qMk: "Што се случува по 14-дневниот бесплатен пробен период?",
+              aMk: "Откако ќе заврши пробниот период, ќе ви биде побарано да изберете план. Немаме податоци за вашата кредитна картичка додека не одлучите.",
             },
             {
               q: { sq: "A mund të anuloj abonimi në çdo kohë?", en: "Can I cancel my subscription at any time?" },
               a: { sq: "Po, mund të anuloni abonimi tuaj në çdo kohë pa asnjë penalizim. Do të keni qasje deri në fund të periudhës për të cilën keni paguar.", en: "Yes, you can cancel your subscription at any time with no penalty. You'll have access until the end of the period you've paid for." },
+              qEs: "¿Puedo cancelar mi suscripción en cualquier momento?",
+              aEs: "Sí, puede cancelar su suscripción en cualquier momento sin penalización. Tendrá acceso hasta el final del período por el que ha pagado.",
+              qDe: "Kann ich mein Abonnement jederzeit kündigen?",
+              aDe: "Ja, Sie können Ihr Abonnement jederzeit ohne Strafe kündigen. Sie haben bis zum Ende des bezahlten Zeitraums Zugang.",
+              qMk: "Може ли да ја откажам претплатата во секое време?",
+              aMk: "Да, можете да ја откажете претплатата во секое време без казна. Ќе имате пристап до крајот на периодот за кој сте платиле.",
             },
-          ].map(({ q, a }, i) => (
+          ].map(({ q, a, qEs, aEs, qDe, aDe, qMk, aMk }, i) => (
             <details key={i} className="group mb-2 bg-white rounded-xl border border-gray-200 overflow-hidden">
               <summary className="flex items-center justify-between px-5 py-4 cursor-pointer select-none">
-                <span className="text-sm font-semibold text-gray-900">{sq(lang, q.sq, q.en)}</span>
+                <span className="text-sm font-semibold text-gray-900">{sq(lang, q.sq, q.en, qEs, qDe, qMk)}</span>
                 <ChevronDown className="h-4 w-4 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-3" />
               </summary>
               <div className="px-5 pb-4">
-                <p className="text-sm text-gray-500 leading-relaxed">{sq(lang, a.sq, a.en)}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{sq(lang, a.sq, a.en, aEs, aDe, aMk)}</p>
               </div>
             </details>
           ))}
@@ -341,13 +365,19 @@ export default function CompareFeatures() {
           <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
             {sq(lang,
               <>Gati të filloni? <span className="text-indigo-400">14 ditë falas</span>, pa kartë krediti.</>,
-              <>Ready to start? <span className="text-indigo-400">14 days free</span>, no credit card.</>
+              <>Ready to start? <span className="text-indigo-400">14 days free</span>, no credit card.</>,
+              <>¿Listo para empezar? <span className="text-indigo-400">14 días gratis</span>, sin tarjeta de crédito.</>,
+              <>Bereit loszulegen? <span className="text-indigo-400">14 Tage kostenlos</span>, keine Kreditkarte.</>,
+              <>Подготвени да започнете? <span className="text-indigo-400">14 дена бесплатно</span>, без кредитна картичка.</>
             )}
           </h2>
           <p className="text-gray-400 text-sm mb-8 max-w-lg mx-auto">
             {sq(lang,
               "Filloni provën tuaj falas sot dhe zbuloni pse 200+ biznese zgjodhën Clientlly.",
-              "Start your free trial today and discover why 200+ businesses chose Clientlly."
+              "Start your free trial today and discover why 200+ businesses chose Clientlly.",
+              "Comience su prueba gratuita hoy y descubra por qué más de 200 empresas eligieron Clientlly.",
+              "Starten Sie noch heute Ihre kostenlose Testversion und entdecken Sie, warum über 200 Unternehmen Clientlly gewählt haben.",
+              "Започнете го вашиот бесплатен пробен период денес и откријте зошто повеќе од 200 бизниси го избраа Clientlly."
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
@@ -356,8 +386,8 @@ export default function CompareFeatures() {
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
-                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
-                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
+                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
+                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
@@ -371,9 +401,9 @@ export default function CompareFeatures() {
           </div>
           <div className="flex flex-wrap justify-center gap-5 mt-6">
             {[
-              { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card") },
-              { icon: Check, label: sq(lang, "Anulo kur dëshironi", "Cancel anytime") },
-              { icon: Zap, label: sq(lang, "Qasje e menjëhershme", "Instant access") },
+              { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка") },
+              { icon: Check, label: sq(lang, "Anulo kur dëshironi", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете кога сакате") },
+              { icon: Zap, label: sq(lang, "Qasje e menjëhershme", "Instant access", "Acceso instantáneo", "Sofortiger Zugang", "Моментален пристап") },
             ].map(({ icon: Icon, label }, i) => (
               <span key={i} className="flex items-center gap-1.5 text-xs text-gray-500">
                 <Icon className="h-3.5 w-3.5 text-gray-500" />

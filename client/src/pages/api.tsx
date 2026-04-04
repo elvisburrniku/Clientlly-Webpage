@@ -173,17 +173,17 @@ export default function APIPage() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
-              <Link href="/integrations" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Integrime", "Integrations")}</Link>
-              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
+              <Link href="/integrations" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Integrime", "Integrations", "Integraciones", "Integrationen", "Интеграции")}</Link>
+              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
               <Link href="/api" className="text-sm font-semibold text-indigo-600">API</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <button onClick={() => go("/trial")}
                 className="text-sm font-semibold px-4 py-2 text-indigo-600 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors">
-                {sq(lang, "Merr API Key", "Get API Key")}
+                {sq(lang, "Merr API Key", "Get API Key", "Obtener clave API", "API-Schlüssel erhalten", "Добијте API клуч")}
               </button>
               <button onClick={() => go("/subscribe")}
                 className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
@@ -199,12 +199,12 @@ export default function APIPage() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
-            <Link href="/integrations" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Integrime", "Integrations")}</Link>
-            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
+            <Link href="/integrations" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Integrime", "Integrations", "Integraciones", "Integrationen", "Интеграции")}</Link>
+            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => go("/trial")} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Merr API Key", "Get API Key")}</button>
+              <button onClick={() => go("/trial")} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Merr API Key", "Get API Key", "Obtener clave API", "API-Schlüssel erhalten", "Добијте API клуч")}</button>
               <LanguageSelector />
             </div>
           </div>
@@ -219,18 +219,24 @@ export default function APIPage() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 border border-white/10 rounded-full text-xs font-semibold text-indigo-300 mb-5">
                 <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
-                {sq(lang, "REST API v1 · Stabil", "REST API v1 · Stable")}
+                {sq(lang, "REST API v1 · Stabil", "REST API v1 · Stable", "REST API v1 · Estable", "REST API v1 · Stabil", "REST API v1 · Стабилна")}
               </div>
               <h1 className="text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
                 {sq(lang,
                   <>API Dokumentacioni<br /><span className="text-indigo-400">Developer Portal</span></>,
-                  <>API Documentation<br /><span className="text-indigo-400">Developer Portal</span></>
+                  <>API Documentation<br /><span className="text-indigo-400">Developer Portal</span></>,
+                  <>Documentación API<br /><span className="text-indigo-400">Portal de Desarrolladores</span></>,
+                  <>API-Dokumentation<br /><span className="text-indigo-400">Entwicklerportal</span></>,
+                  <>API Документација<br /><span className="text-indigo-400">Портал за програмери</span></>
                 )}
               </h1>
               <p className="text-gray-400 text-base leading-relaxed mb-8">
                 {sq(lang,
                   "Integroni Clientlly me aplikacionet tuaja duke përdorur API-n tonë RESTful. I dokumentuar plotësisht, i sigurt dhe i gatshëm për prodhim.",
-                  "Integrate Clientlly with your applications using our RESTful API. Fully documented, secure and production-ready."
+                  "Integrate Clientlly with your applications using our RESTful API. Fully documented, secure and production-ready.",
+                  "Integre Clientlly con sus aplicaciones usando nuestra API RESTful. Completamente documentada, segura y lista para producción.",
+                  "Integrieren Sie Clientlly mit Ihren Anwendungen über unsere RESTful-API. Vollständig dokumentiert, sicher und produktionsbereit.",
+                  "Интегрирајте го Clientlly со вашите апликации користејќи ја нашата RESTful API. Целосно документирана, безбедна и подготвена за продукција."
                 )}
               </p>
               <div className="flex flex-wrap gap-3">
@@ -244,10 +250,10 @@ export default function APIPage() {
                   </div>
                   <span className="flex flex-col items-start leading-tight">
                     <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">
-                      {sq(lang, "Pa kartë krediti · 14 ditë falas", "No credit card · 14 days free")}
+                      {sq(lang, "Pa kartë krediti · 14 ditë falas", "No credit card · 14 days free", "Sin tarjeta de crédito · 14 días gratis", "Keine Kreditkarte · 14 Tage kostenlos", "Без кредитна картичка · 14 дена бесплатно")}
                     </span>
                     <span className="text-sm font-bold">
-                      {sq(lang, "Merr API Key Falas", "Get Free API Key")}
+                      {sq(lang, "Merr API Key Falas", "Get Free API Key", "Obtener clave API gratis", "Kostenlosen API-Schlüssel erhalten", "Добијте бесплатен API клуч")}
                     </span>
                   </span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
@@ -264,10 +270,10 @@ export default function APIPage() {
                   </div>
                   <span className="flex flex-col items-start leading-tight">
                     <span className="text-[10px] font-medium text-gray-500 uppercase tracking-widest">
-                      {sq(lang, "14 endpoints · JSON REST", "14 endpoints · JSON REST")}
+                      {sq(lang, "14 endpoints · JSON REST", "14 endpoints · JSON REST", "14 endpoints · JSON REST", "14 Endpoints · JSON REST", "14 endpoints · JSON REST")}
                     </span>
                     <span className="text-sm font-bold">
-                      {sq(lang, "Shiko Dokumentacionin", "View Documentation")}
+                      {sq(lang, "Shiko Dokumentacionin", "View Documentation", "Ver Documentación", "Dokumentation ansehen", "Погледнете документација")}
                     </span>
                   </span>
                   <Terminal className="h-4 w-4 text-gray-400 group-hover:text-gray-300 transition-colors flex-shrink-0" />
@@ -277,8 +283,8 @@ export default function APIPage() {
               {/* Stats */}
               <div className="flex gap-5 mt-8 pt-7 border-t border-white/10">
                 {[
-                  { value: "99.9%", label: sq(lang, "Disponueshmëri", "Uptime") },
-                  { value: "< 100ms", label: sq(lang, "Latencë", "Latency") },
+                  { value: "99.9%", label: sq(lang, "Disponueshmëri", "Uptime", "Disponibilidad", "Verfügbarkeit", "Достапност") },
+                  { value: "< 100ms", label: sq(lang, "Latencë", "Latency", "Latencia", "Latenz", "Латенција") },
                   { value: "REST", label: "API Style" },
                 ].map(({ value, label }, i) => (
                   <div key={i}>
@@ -337,36 +343,45 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
-              {sq(lang, "Fillo brenda 5 minutave", "Up and running in 5 minutes")}
+              {sq(lang, "Fillo brenda 5 minutave", "Up and running in 5 minutes", "Funcionando en 5 minutos", "In 5 Minuten einsatzbereit", "Работи за 5 минути")}
             </h2>
             <p className="text-sm text-gray-500">
-              {sq(lang, "Tre hapa të thjeshtë deri tek integrimi i parë", "Three simple steps to your first integration")}
+              {sq(lang, "Tre hapa të thjeshtë deri tek integrimi i parë", "Three simple steps to your first integration", "Tres pasos simples para su primera integración", "Drei einfache Schritte zu Ihrer ersten Integration", "Три едноставни чекори до вашата прва интеграција")}
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
               {
                 step: "01", icon: Key, color: "bg-indigo-600",
-                title: sq(lang, "Merr API Key", "Get Your API Key"),
+                title: sq(lang, "Merr API Key", "Get Your API Key", "Obtenga su clave API", "Holen Sie sich Ihren API-Schlüssel", "Добијте го вашиот API клуч"),
                 desc: sq(lang,
                   "Hapni llogarinë tuaj Clientlly, shkoni te Cilësimet → Qasja API, dhe gjeneroni çelësin tuaj unik.",
-                  "Open your Clientlly account, go to Settings → API Access, and generate your unique key."
+                  "Open your Clientlly account, go to Settings → API Access, and generate your unique key.",
+                  "Abra su cuenta Clientlly, vaya a Configuración → Acceso API y genere su clave única.",
+                  "Öffnen Sie Ihr Clientlly-Konto, gehen Sie zu Einstellungen → API-Zugang und generieren Sie Ihren einzigartigen Schlüssel.",
+                  "Отворете ја вашата Clientlly сметка, одете во Поставки → API Пристап и генерирајте го вашиот уникатен клуч."
                 ),
               },
               {
                 step: "02", icon: Terminal, color: "bg-emerald-600",
-                title: sq(lang, "Bëni thirrjen e parë", "Make Your First Call"),
+                title: sq(lang, "Bëni thirrjen e parë", "Make Your First Call", "Haga su primera llamada", "Machen Sie Ihren ersten Aufruf", "Направете го вашиот прв повик"),
                 desc: sq(lang,
                   "Kopjoni shembullin e kodit nga seksioni më poshtë dhe ekzekutojeni. Duhet të merrni përgjigje brenda milisekondave.",
-                  "Copy the code example from the section below and run it. You should get a response within milliseconds."
+                  "Copy the code example from the section below and run it. You should get a response within milliseconds.",
+                  "Copie el ejemplo de código de la sección a continuación y ejecútelo. Debería obtener una respuesta en milisegundos.",
+                  "Kopieren Sie das Codebeispiel aus dem Abschnitt unten und führen Sie es aus. Sie sollten innerhalb von Millisekunden eine Antwort erhalten.",
+                  "Копирајте го примерот на код од секцијата подолу и извршете го. Треба да добиете одговор во милисекунди."
                 ),
               },
               {
                 step: "03", icon: Webhook, color: "bg-violet-600",
-                title: sq(lang, "Konfiguroni Webhooks", "Configure Webhooks"),
+                title: sq(lang, "Konfiguroni Webhooks", "Configure Webhooks", "Configurar Webhooks", "Webhooks konfigurieren", "Конфигурирајте Webhooks"),
                 desc: sq(lang,
                   "Regjistroni URL-in tuaj të webhook për të marrë njoftime në kohë reale kur ndodhin ngjarje në platformë.",
-                  "Register your webhook URL to receive real-time notifications when events occur on the platform."
+                  "Register your webhook URL to receive real-time notifications when events occur on the platform.",
+                  "Registre su URL de webhook para recibir notificaciones en tiempo real cuando ocurran eventos en la plataforma.",
+                  "Registrieren Sie Ihre Webhook-URL, um Echtzeit-Benachrichtigungen zu erhalten, wenn Ereignisse auf der Plattform auftreten.",
+                  "Регистрирајте ја вашата webhook URL за да примате известувања во реално време кога се случуваат настани на платформата."
                 ),
               },
             ].map(({ step, icon: Icon, color, title, desc }, i) => (
@@ -390,10 +405,10 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
         <div className="max-w-5xl mx-auto">
           <div className="mb-8">
             <h2 className="text-2xl font-extrabold text-white mb-1">
-              {sq(lang, "Shembuj kodi", "Code Examples")}
+              {sq(lang, "Shembuj kodi", "Code Examples", "Ejemplos de código", "Codebeispiele", "Примери на код")}
             </h2>
             <p className="text-sm text-gray-500">
-              {sq(lang, "Zgjidhni gjuhën dhe shembullin që dëshironi", "Choose your language and example")}
+              {sq(lang, "Zgjidhni gjuhën dhe shembullin që dëshironi", "Choose your language and example", "Elija su idioma y ejemplo", "Wählen Sie Ihre Sprache und Ihr Beispiel", "Изберете го вашиот јазик и пример")}
             </p>
           </div>
 
@@ -403,7 +418,7 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
               {/* Language */}
               <div>
                 <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">
-                  {sq(lang, "Gjuha", "Language")}
+                  {sq(lang, "Gjuha", "Language", "Idioma", "Sprache", "Јазик")}
                 </p>
                 {(["javascript", "python", "curl"] as Lang[]).map(l => (
                   <button key={l} onClick={() => { setCodeLang(l); if (l === "curl" && codeSnippet !== "invoice") setCodeSnippet("invoice"); }}
@@ -418,7 +433,7 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
               {/* Snippet */}
               <div>
                 <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">
-                  {sq(lang, "Shembull", "Example")}
+                  {sq(lang, "Shembull", "Example", "Ejemplo", "Beispiel", "Пример")}
                 </p>
                 {(["auth", "invoice", "webhook"] as Snippet[]).map(s => {
                   const disabled = codeLang === "curl" && s !== "invoice";
@@ -430,8 +445,8 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
                         codeSnippet === s ? "bg-white/10 text-white" : "text-gray-400 hover:text-white hover:bg-white/5"
                       }`}>
                       <ChevronRight className={`h-3.5 w-3.5 ${codeSnippet === s && !disabled ? "opacity-100" : "opacity-0"}`} />
-                      {s === "auth" ? sq(lang, "Autentifikim", "Authentication") :
-                       s === "invoice" ? sq(lang, "Krijo Faturë", "Create Invoice") :
+                      {s === "auth" ? sq(lang, "Autentifikim", "Authentication", "Autenticación", "Authentifizierung", "Автентикација") :
+                       s === "invoice" ? sq(lang, "Krijo Faturë", "Create Invoice", "Crear Factura", "Rechnung erstellen", "Креирај фактура") :
                        "Webhooks"}
                     </button>
                   );
@@ -455,7 +470,7 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
                   </div>
                   <button onClick={() => copy(activeCode, "main")}
                     className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors px-2 py-1 rounded-lg hover:bg-white/5">
-                    {copiedId === "main" ? <><Check className="h-3.5 w-3.5 text-emerald-400" /> {sq(lang, "Kopjuar!", "Copied!")}</> : <><Copy className="h-3.5 w-3.5" /> {sq(lang, "Kopjo", "Copy")}</>}
+                    {copiedId === "main" ? <><Check className="h-3.5 w-3.5 text-emerald-400" /> {sq(lang, "Kopjuar!", "Copied!", "¡Copiado!", "Kopiert!", "Копирано!")}</> : <><Copy className="h-3.5 w-3.5" /> {sq(lang, "Kopjo", "Copy", "Copiar", "Kopieren", "Копирај")}</>}
                   </button>
                 </div>
                 <pre className="p-5 text-xs font-mono text-gray-300 leading-relaxed overflow-x-auto min-h-[280px]">
@@ -473,10 +488,10 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-extrabold text-gray-900 mb-1">
-                {sq(lang, "Endpoints e disponueshme", "Available Endpoints")}
+                {sq(lang, "Endpoints e disponueshme", "Available Endpoints", "Endpoints disponibles", "Verfügbare Endpoints", "Достапни Endpoints")}
               </h2>
               <p className="text-sm text-gray-500">
-                {sq(lang, "Base URL: ", "Base URL: ")}<code className="text-indigo-600 text-xs bg-indigo-50 px-2 py-0.5 rounded">{BASE}</code>
+                {sq(lang, "Base URL: ", "Base URL: ", "URL Base: ", "Basis-URL: ", "Основна URL: ")}<code className="text-indigo-600 text-xs bg-indigo-50 px-2 py-0.5 rounded">{BASE}</code>
               </p>
             </div>
             <span className="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1.5 rounded-full">
@@ -487,9 +502,9 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
           <div className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
             {/* Header */}
             <div className="grid grid-cols-12 bg-gray-50 border-b border-gray-200 px-5 py-2.5">
-              <div className="col-span-2 text-[11px] font-semibold text-gray-400 uppercase tracking-widest">{sq(lang, "Metoda", "Method")}</div>
-              <div className="col-span-4 text-[11px] font-semibold text-gray-400 uppercase tracking-widest">{sq(lang, "Rruga", "Path")}</div>
-              <div className="col-span-5 text-[11px] font-semibold text-gray-400 uppercase tracking-widest">{sq(lang, "Përshkrimi", "Description")}</div>
+              <div className="col-span-2 text-[11px] font-semibold text-gray-400 uppercase tracking-widest">{sq(lang, "Metoda", "Method", "Método", "Methode", "Метод")}</div>
+              <div className="col-span-4 text-[11px] font-semibold text-gray-400 uppercase tracking-widest">{sq(lang, "Rruga", "Path", "Ruta", "Pfad", "Патека")}</div>
+              <div className="col-span-5 text-[11px] font-semibold text-gray-400 uppercase tracking-widest">{sq(lang, "Përshkrimi", "Description", "Descripción", "Beschreibung", "Опис")}</div>
               <div className="col-span-1 text-[11px] font-semibold text-gray-400 uppercase tracking-widest">Auth</div>
             </div>
             {endpoints.map(({ method, path, desc, descEn }, i) => (
@@ -511,7 +526,7 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
           </div>
 
           <p className="text-xs text-gray-400 mt-3 text-center">
-            {sq(lang, "Të gjithë endpoints kërkojnë autentifikim me API Key.", "All endpoints require API Key authentication.")}
+            {sq(lang, "Të gjithë endpoints kërkojnë autentifikim me API Key.", "All endpoints require API Key authentication.", "Todos los endpoints requieren autenticación con clave API.", "Alle Endpoints erfordern API-Schlüssel-Authentifizierung.", "Сите endpoints бараат автентикација со API клуч.")}
           </p>
         </div>
       </section>
@@ -521,41 +536,53 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
-              {sq(lang, "Ndërtuara për zhvillues", "Built for developers")}
+              {sq(lang, "Ndërtuara për zhvillues", "Built for developers", "Construido para desarrolladores", "Für Entwickler gebaut", "Изградено за програмери")}
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
               {
                 icon: Zap, color: "bg-indigo-600",
-                title: sq(lang, "Sync në Kohë Reale", "Real-time Sync"),
+                title: sq(lang, "Sync në Kohë Reale", "Real-time Sync", "Sincronización en Tiempo Real", "Echtzeit-Synchronisation", "Синхронизација во реално време"),
                 desc: sq(lang,
                   "Të gjitha të dhënat sinkronizohen menjëherë. Nuk ka nevojë për polling — përdorni webhooks.",
-                  "All data syncs instantly. No need for polling — use webhooks for real-time events."
+                  "All data syncs instantly. No need for polling — use webhooks for real-time events.",
+                  "Todos los datos se sincronizan instantáneamente. Sin necesidad de polling — use webhooks para eventos en tiempo real.",
+                  "Alle Daten werden sofort synchronisiert. Kein Polling nötig — verwenden Sie Webhooks für Echtzeit-Ereignisse.",
+                  "Сите податоци се синхронизираат моментално. Нема потреба од polling — користете webhooks за настани во реално време."
                 ),
               },
               {
                 icon: Shield, color: "bg-emerald-600",
-                title: sq(lang, "Siguri e Nivelit Enterprise", "Enterprise-grade Security"),
+                title: sq(lang, "Siguri e Nivelit Enterprise", "Enterprise-grade Security", "Seguridad de nivel empresarial", "Sicherheit auf Unternehmensniveau", "Безбедност на ниво на претпријатие"),
                 desc: sq(lang,
                   "OAuth 2.0, kriptim TLS 1.3, kuotë kërkesash dhe audit log i plotë.",
-                  "OAuth 2.0, TLS 1.3 encryption, rate limiting and full audit logging included."
+                  "OAuth 2.0, TLS 1.3 encryption, rate limiting and full audit logging included.",
+                  "OAuth 2.0, encriptación TLS 1.3, limitación de velocidad y registro de auditoría completo incluido.",
+                  "OAuth 2.0, TLS 1.3-Verschlüsselung, Rate-Limiting und vollständige Audit-Protokollierung inklusive.",
+                  "OAuth 2.0, TLS 1.3 енкрипција, ограничување на барања и целосно ревизорско логирање вклучено."
                 ),
               },
               {
                 icon: Globe, color: "bg-violet-600",
-                title: sq(lang, "Infrastrukturë Globale", "Global Infrastructure"),
+                title: sq(lang, "Infrastrukturë Globale", "Global Infrastructure", "Infraestructura Global", "Globale Infrastruktur", "Глобална инфраструктура"),
                 desc: sq(lang,
                   "99.9% disponueshmëri e garantuar. API e disponueshme nga çdo vend me latencë ultra-të ulët.",
-                  "99.9% guaranteed uptime. API available from anywhere with ultra-low latency."
+                  "99.9% guaranteed uptime. API available from anywhere with ultra-low latency.",
+                  "99.9% de tiempo de actividad garantizado. API disponible desde cualquier lugar con latencia ultrarrápida.",
+                  "99,9% garantierte Verfügbarkeit. API überall verfügbar mit ultraniedrigerer Latenz.",
+                  "99.9% гарантирана достапност. API достапна од секаде со ултра-ниска латенција."
                 ),
               },
               {
                 icon: RefreshCw, color: "bg-amber-600",
-                title: sq(lang, "Versionim i Qëndrueshëm", "Stable Versioning"),
+                title: sq(lang, "Versionim i Qëndrueshëm", "Stable Versioning", "Versionado Estable", "Stabile Versionierung", "Стабилно верзионирање"),
                 desc: sq(lang,
                   "API v1 është e qëndrueshme dhe nuk do të ndryshojë pa njoftim paraprak me 6 muaj.",
-                  "API v1 is stable and won't change without 6 months advance notice."
+                  "API v1 is stable and won't change without 6 months advance notice.",
+                  "API v1 es estable y no cambiará sin un aviso previo de 6 meses.",
+                  "API v1 ist stabil und wird sich ohne 6 Monate Vorankündigung nicht ändern.",
+                  "API v1 е стабилна и нема да се промени без претходно известување од 6 месеци."
                 ),
               },
               {
@@ -563,15 +590,21 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
                 title: "Webhooks",
                 desc: sq(lang,
                   "Merrni njoftime instantanee kur ndodhin ngjarje: pagesa, fatura të reja, klientë të rinj.",
-                  "Receive instant notifications when events occur: payments, new invoices, new clients."
+                  "Receive instant notifications when events occur: payments, new invoices, new clients.",
+                  "Reciba notificaciones instantáneas cuando ocurran eventos: pagos, nuevas facturas, nuevos clientes.",
+                  "Erhalten Sie sofortige Benachrichtigungen bei Ereignissen: Zahlungen, neue Rechnungen, neue Kunden.",
+                  "Примајте моментални известувања кога се случуваат настани: плаќања, нови фактури, нови клиенти."
                 ),
               },
               {
                 icon: Code, color: "bg-teal-600",
-                title: sq(lang, "SDK i Gatshëm", "Ready-made SDK"),
+                title: sq(lang, "SDK i Gatshëm", "Ready-made SDK", "SDK listo para usar", "Fertiges SDK", "Готово SDK"),
                 desc: sq(lang,
                   "SDK-të zyrtare për JavaScript dhe Python. Komunitet aktiv dhe dokumentacion i plotë.",
-                  "Official SDKs for JavaScript and Python. Active community and full documentation."
+                  "Official SDKs for JavaScript and Python. Active community and full documentation.",
+                  "SDKs oficiales para JavaScript y Python. Comunidad activa y documentación completa.",
+                  "Offizielle SDKs für JavaScript und Python. Aktive Community und vollständige Dokumentation.",
+                  "Официјални SDK за JavaScript и Python. Активна заедница и целосна документација."
                 ),
               },
             ].map(({ icon: Icon, color, title, desc }, i) => (
@@ -597,12 +630,15 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
                 Webhooks
               </div>
               <h2 className="text-2xl font-extrabold text-gray-900 mb-3">
-                {sq(lang, "Ngjarje në kohë reale", "Real-time event notifications")}
+                {sq(lang, "Ngjarje në kohë reale", "Real-time event notifications", "Notificaciones de eventos en tiempo real", "Echtzeit-Ereignisbenachrichtigungen", "Известувања за настани во реално време")}
               </h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-5">
                 {sq(lang,
                   "Regjistroni URL-in tuaj dhe Clientlly do t'ju dërgojë njoftime automatike kur ndodhin ngjarje të rëndësishme.",
-                  "Register your URL and Clientlly will automatically send notifications when important events occur."
+                  "Register your URL and Clientlly will automatically send notifications when important events occur.",
+                  "Registre su URL y Clientlly enviará notificaciones automáticas cuando ocurran eventos importantes.",
+                  "Registrieren Sie Ihre URL und Clientlly sendet automatisch Benachrichtigungen, wenn wichtige Ereignisse auftreten.",
+                  "Регистрирајте ја вашата URL и Clientlly автоматски ќе испраќа известувања кога ќе се случат важни настани."
                 )}
               </p>
               <div className="space-y-2">
@@ -650,28 +686,34 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
           <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
             {sq(lang,
               <>Gati të ndërtoni me <span className="text-indigo-400">API-n tonë</span>?</>,
-              <>Ready to build with <span className="text-indigo-400">our API</span>?</>
+              <>Ready to build with <span className="text-indigo-400">our API</span>?</>,
+              <>¿Listo para construir con <span className="text-indigo-400">nuestra API</span>?</>,
+              <>Bereit, mit <span className="text-indigo-400">unserer API</span> zu bauen?</>,
+              <>Подготвени да градите со <span className="text-indigo-400">нашата API</span>?</>
             )}
           </h2>
           <p className="text-gray-400 mb-8">
             {sq(lang,
               "Çelësi API është i përfshirë në çdo plan — Starter, Professional dhe Enterprise. Filloni provën falas sot.",
-              "The API key is included in every plan — Starter, Professional and Enterprise. Start your free trial today."
+              "The API key is included in every plan — Starter, Professional and Enterprise. Start your free trial today.",
+              "La clave API está incluida en cada plan — Starter, Professional y Enterprise. Comience su prueba gratuita hoy.",
+              "Der API-Schlüssel ist in jedem Plan enthalten — Starter, Professional und Enterprise. Starten Sie noch heute Ihre kostenlose Testversion.",
+              "API клучот е вклучен во секој план — Starter, Professional и Enterprise. Започнете ја вашата бесплатна проба денес."
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button onClick={() => go("/trial")}
               className="inline-flex items-center gap-2 px-7 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5">
               <Key className="h-4 w-4" />
-              {sq(lang, "Merr API Key Falas", "Get Free API Key")}
+              {sq(lang, "Merr API Key Falas", "Get Free API Key", "Obtener clave API gratis", "Kostenlosen API-Schlüssel erhalten", "Добијте бесплатен API клуч")}
             </button>
             <button onClick={() => go("/contact")}
               className="inline-flex items-center gap-2 px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
-              {sq(lang, "Na Kontaktoni", "Contact Us")}
+              {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie uns", "Контактирајте нè")}
             </button>
           </div>
           <p className="text-xs text-gray-600 mt-5">
-            {sq(lang, "Pa kartë kredie · 14 ditë provë falas · Anulo kur dëshironi", "No credit card · 14-day free trial · Cancel anytime")}
+            {sq(lang, "Pa kartë kredie · 14 ditë provë falas · Anulo kur dëshironi", "No credit card · 14-day free trial · Cancel anytime", "Sin tarjeta de crédito · Prueba gratuita de 14 días · Cancele cuando quiera", "Keine Kreditkarte · 14-tägige kostenlose Testversion · Jederzeit kündbar", "Без кредитна картичка · 14-дневна бесплатна проба · Откажете кога сакате")}
           </p>
         </div>
       </section>
