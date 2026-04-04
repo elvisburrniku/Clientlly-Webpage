@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock, Gift, Heart, Zap } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Building, Building2, Loader2, Headphones, Menu, X, Sparkles, Mail, Lock, Globe, Clock, Gift, Heart, Zap, CheckCircle } from "lucide-react";
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -328,35 +328,33 @@ export default function Subscribe() {
   };
 
   const renderStepIndicator = () => (
-    <div className="flex items-center justify-center space-x-4 mb-12 fade-in-up" style={{ animationDelay: '0.2s' }}>
+    <div className="flex items-center justify-center gap-2 mb-10">
       {stepTitles.map((title, index) => {
         const Icon = stepIcons[index];
         const isActive = index === currentStep;
         const isCompleted = index < currentStep;
-        
         return (
           <div key={index} className="flex items-center">
-            <div className={`flex items-center space-x-3 transition-all duration-500 ${
-              isActive ? 'text-primary scale-110' : isCompleted ? 'text-green-600' : 'text-muted-foreground'
-            }`}>
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-500 relative overflow-hidden ${
-                isActive ? 'border-primary bg-gradient-to-br from-primary/20 to-secondary/20 shadow-lg shadow-primary/25 animate-pulse' : 
-                isCompleted ? 'border-green-600 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30' : 'border-muted glass-effect'
+            <div className="flex items-center gap-2.5">
+              <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all duration-300 flex-shrink-0 ${
+                isActive
+                  ? 'border-indigo-600 bg-indigo-600 text-white shadow-md shadow-indigo-200'
+                  : isCompleted
+                  ? 'border-emerald-500 bg-emerald-500 text-white'
+                  : 'border-gray-200 bg-white text-gray-400'
               }`}>
-                {isCompleted ? (
-                  <Check className="h-6 w-6 animate-scale-in" />
-                ) : (
-                  <Icon className={`h-6 w-6 ${isActive ? 'animate-bounce-gentle' : ''}`} />
-                )}
-                {isActive && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 animate-shimmer" />
-                )}
+                {isCompleted
+                  ? <Check className="h-4 w-4" />
+                  : <Icon className="h-4 w-4" />
+                }
               </div>
-              <span className="hidden sm:block font-semibold text-sm transition-all duration-300 hover:scale-105">{title}</span>
+              <span className={`hidden sm:block text-xs font-semibold transition-colors ${
+                isActive ? 'text-indigo-600' : isCompleted ? 'text-emerald-600' : 'text-gray-400'
+              }`}>{title}</span>
             </div>
             {index < stepTitles.length - 1 && (
-              <div className={`w-12 h-1 mx-4 rounded-full transition-all duration-700 ${
-                isCompleted ? 'bg-gradient-to-r from-green-600 to-green-500 animate-expand-width' : 'bg-muted/50'
+              <div className={`w-10 h-0.5 mx-3 rounded-full transition-all duration-500 ${
+                isCompleted ? 'bg-emerald-400' : 'bg-gray-200'
               }`} />
             )}
           </div>
@@ -366,471 +364,260 @@ export default function Subscribe() {
   );
 
   const renderPlanSelection = () => (
-    <div className="max-w-7xl mx-auto fade-in-up" style={{ animationDelay: '0.3s' }}>
-      <div className="text-center mb-16">
-        <div className="flex justify-center mb-12">
-          <div className="glass-effect border border-white/20 rounded-2xl p-2 backdrop-blur-xl">
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setBillingPeriod('monthly')}
-                className={`px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300 ${
-                  billingPeriod === 'monthly' 
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg scale-105' 
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white hover:bg-white/50'
-                }`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setBillingPeriod('yearly')}
-                className={`px-8 py-3 rounded-xl text-sm font-bold transition-all duration-300 relative ${
-                  billingPeriod === 'yearly' 
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg scale-105' 
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white hover:bg-white/50'
-                }`}
-              >
-                Yearly
-                <Badge className="ml-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold">Save 20%</Badge>
-              </button>
-            </div>
-          </div>
+    <div className="max-w-5xl mx-auto">
+      <div className="flex justify-center mb-10">
+        <div className="inline-flex items-center gap-1 p-1 bg-gray-100 rounded-xl">
+          <button
+            onClick={() => setBillingPeriod('monthly')}
+            className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all ${
+              billingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            Mujor
+          </button>
+          <button
+            onClick={() => setBillingPeriod('yearly')}
+            className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all flex items-center gap-2 ${
+              billingPeriod === 'yearly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
+            }`}
+          >
+            Vjetor
+            <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-20%</span>
+          </button>
         </div>
       </div>
-      
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto pricing-grid">
+
+      <div className="grid md:grid-cols-3 gap-5">
         {plansLoading ? (
-          // Skeleton loading states
           Array.from({ length: 3 }).map((_, index) => (
-            <Card key={index} className={`animate-pulse ${index === 1 ? 'border-primary/30' : ''}`}>
-              <CardContent className="p-6">
-                {index === 1 && (
-                  <div className="h-6 bg-gradient-to-r from-primary/20 to-secondary/20 rounded mb-4 w-24"></div>
-                )}
-                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded mb-2"></div>
-                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-4 w-32"></div>
-                <div className="space-y-2 mb-6">
-                  {Array.from({ length: 4 }).map((_, i) => (
-                    <div key={i} className="flex items-center space-x-2">
-                      <div className="h-4 w-4 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
-                      <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded flex-1"></div>
-                    </div>
-                  ))}
-                </div>
-                <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
-              </CardContent>
-            </Card>
+            <div key={index} className="animate-pulse rounded-2xl border border-gray-200 p-7">
+              <div className="h-5 bg-gray-100 rounded mb-3 w-24"></div>
+              <div className="h-10 bg-gray-100 rounded mb-6 w-32"></div>
+              <div className="space-y-3">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className="flex gap-2"><div className="h-4 w-4 bg-gray-100 rounded-full flex-shrink-0"></div><div className="h-4 bg-gray-100 rounded flex-1"></div></div>
+                ))}
+              </div>
+            </div>
           ))
         ) : (
           plans?.map((plan, index) => {
-            const price = billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
             const isSelected = selectedPlan === plan.id;
-            
+            const isPopular = index === 1;
+            const displayPrice = selectedCurrency === 'EUR'
+              ? `€${((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100).toFixed(2)}`
+              : formatCurrency(convertPrice((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100, 'USD', selectedCurrency), selectedCurrency);
+
             return (
-              <Card 
-                key={plan.id} 
-                className={`relative hover-lift transition-all duration-500 scale-in stagger-${index + 1} cursor-pointer ${
-                  index === 1 ? 'border-2 border-primary shadow-2xl glass-effect' : 'border border-border/50'
-                } ${isSelected ? 'ring-2 ring-blue-400 border-blue-400' : ''}`}
+              <div
+                key={plan.id}
                 onClick={() => setSelectedPlan(plan.id)}
+                className={`relative p-7 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                  isSelected
+                    ? isPopular
+                      ? 'border-indigo-500 bg-indigo-600 shadow-xl shadow-indigo-100'
+                      : 'border-indigo-400 bg-white shadow-lg shadow-indigo-50'
+                    : isPopular
+                    ? 'border-indigo-300 bg-indigo-600 shadow-lg'
+                    : 'border-gray-200 bg-white hover:border-indigo-200'
+                }`}
               >
-                {index === 1 && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
-                    <Badge className="bg-blue-600 text-white px-3 py-1 text-xs font-medium">
-                      Most Popular
-                    </Badge>
+                {isPopular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="inline-flex items-center px-3 py-1 bg-amber-400 text-amber-900 text-xs font-bold rounded-full shadow-sm">
+                      ⭐ Më i Popullarizuari
+                    </span>
                   </div>
                 )}
-                
-                <CardContent className="p-8">
-                  <div className="text-center mb-8">
-                    <h3 className="text-3xl font-black text-foreground mb-4 tracking-tight">{plan.name}</h3>
-                    
-                    {/* Individual Plan Billing Toggle */}
-                    <div className="mb-6">
-                      <div className="relative flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 w-full max-w-xs mx-auto">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setBillingPeriod('monthly');
-                          }}
-                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
-                            billingPeriod === 'monthly'
-                              ? 'text-white'
-                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                          }`}
-                        >
-                          Monthly
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setBillingPeriod('yearly');
-                          }}
-                          className={`relative z-10 flex-1 py-2 text-xs font-semibold rounded-md transition-all duration-300 ${
-                            billingPeriod === 'yearly'
-                              ? 'text-white'
-                              : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
-                          }`}
-                        >
-                          Yearly
-                        </button>
-                        <div
-                          className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-md shadow-sm transition-all duration-300 ${
-                            billingPeriod === 'monthly'
-                              ? 'left-1 w-[calc(50%-4px)]'
-                              : 'right-1 w-[calc(50%-4px)]'
-                          }`}
-                        />
-                      </div>
-                      {billingPeriod === 'yearly' && (
-                        <div className="mt-2">
-                          <span className="text-xs text-green-600 dark:text-green-400 font-medium">Save 20%</span>
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="text-4xl font-bold gradient-text mb-1">
-                      {selectedCurrency === 'EUR' ? (
-                        // Use actual API pricing data
-                        `€${((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100).toFixed(2)}`
-                      ) : (
-                        formatCurrency(
-                          convertPrice(
-                            (billingPeriod === 'monthly' ? price : price / 12) / 100,
-                            'USD',
-                            selectedCurrency
-                          ),
-                          selectedCurrency
-                        )
-                      )}
-                      <span className="text-lg text-muted-foreground">/{billingPeriod === 'monthly' ? 'month' : 'month'}</span>
-                    </div>
-                    {billingPeriod === 'yearly' && (
-                      <div className="text-sm text-muted-foreground mb-2">
-                        Billed {selectedCurrency === 'EUR' ? (
-                          `€${(plan.yearlyPrice / 100).toFixed(2)}`
-                        ) : (
-                          formatCurrency(
-                            convertPrice(price / 100, 'USD', selectedCurrency),
-                            selectedCurrency
-                          )
-                        )} yearly
-                      </div>
-                    )}
 
+                <div className="mb-6">
+                  <h3 className={`text-lg font-bold mb-2 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+                  <div className="flex items-baseline gap-1">
+                    <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>{displayPrice}</span>
+                    <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/muaj</span>
                   </div>
-                  
-                  <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, featureIndex) => {
-                      // Parse markdown bold text **text** and render as bold
-                      const parts = feature.split(/(\*\*.*?\*\*)/g);
-                      return (
-                        <li key={featureIndex} className="flex items-center space-x-3 fade-in" style={{animationDelay: `${(featureIndex + 1) * 0.1}s`}}>
-                          <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          <span className="text-muted-foreground">
-                            {parts.map((part, partIndex) => {
-                              if (part.startsWith('**') && part.endsWith('**')) {
-                                const content = part.slice(2, -2);
-                                const isUsageLimit = content.includes('users') || content.includes('invoices') || content.includes('€');
-                                return (
-                                  <strong 
-                                    key={partIndex} 
-                                    className={`font-bold ${
-                                      isUsageLimit 
-                                        ? 'text-blue-600 dark:text-blue-400 animate-pulse bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 px-2 py-1 rounded-lg border border-blue-200 dark:border-blue-700/30' 
-                                        : 'text-orange-600 dark:text-orange-400'
-                                    }`}
-                                  >
-                                    {content}
-                                  </strong>
-                                );
-                              }
-                              return part;
-                            })}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  
-                  <div className="space-y-3">
-                    <Button 
-                      className={`w-full font-medium py-2 ${
-                        isSelected 
-                          ? 'bg-green-600 text-white hover:bg-green-700' 
-                          : 'bg-blue-600 text-white hover:bg-blue-700'
-                      }`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedPlan(plan.id);
-                      }}
-                    >
-                      {isSelected ? (
-                        <>
-                          <Check className="w-4 h-4 mr-2" />
-                          Selected
-                        </>
-                      ) : (
-                        'Select Plan'
-                      )}
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  {billingPeriod === 'yearly' && (
+                    <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>Faturuar vjetor</p>
+                  )}
+                </div>
+
+                <ul className="space-y-2.5 mb-7">
+                  {plan.features.slice(0, 6).map((feature, fi) => {
+                    const clean = feature.replace(/\*\*/g, '');
+                    return (
+                      <li key={fi} className="flex items-start gap-2.5">
+                        <CheckCircle className={`h-4 w-4 mt-0.5 flex-shrink-0 ${isPopular ? 'text-indigo-300' : 'text-indigo-500'}`} />
+                        <span className={`text-sm ${isPopular ? 'text-indigo-100' : 'text-gray-600'}`}>{clean}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                <button
+                  onClick={(e) => { e.stopPropagation(); setSelectedPlan(plan.id); }}
+                  className={`w-full py-3 rounded-xl font-semibold text-sm transition-all ${
+                    isSelected
+                      ? isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'
+                      : isPopular ? 'bg-white/20 text-white border border-white/30 hover:bg-white/30' : 'bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100'
+                  }`}
+                >
+                  {isSelected ? <><Check className="inline h-4 w-4 mr-1.5" />Zgjedhur</> : 'Zgjidhni Planin'}
+                </button>
+              </div>
             );
           })
         )}
       </div>
+      <p className="text-center text-xs text-gray-400 mt-6">
+        Të gjithë planet përfshijnë 14 modulet · Ndryshoni planin kur të dëshironi
+      </p>
     </div>
   );
 
   const renderAccountCreation = () => (
-    <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
-      {/* Form Header with Yellow Gradient Background */}
-      <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-12 rounded-t-3xl relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Floating sparkle elements */}
-          <div className="absolute top-2 left-4 w-3 h-3 animate-ping delay-0">
-            <Sparkles className="w-3 h-3 text-amber-600/30" />
-          </div>
-          <div className="absolute bottom-2 right-6 w-4 h-4 animate-ping delay-1000">
-            <Sparkles className="w-4 h-4 text-orange-600/40" />
-          </div>
-          <div className="absolute top-4 right-8 w-2 h-2 animate-ping delay-2000">
-            <Sparkles className="w-2 h-2 text-yellow-600/30" />
+    <div className="max-w-lg mx-auto">
+      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div className="bg-gradient-to-br from-indigo-50 to-white px-8 pt-8 pb-6 border-b border-gray-100">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center shadow-md shadow-indigo-200">
+              <Users className="h-6 w-6 text-white" />
+            </div>
+            <div>
+              <h2 className="text-xl font-extrabold text-gray-900">Krijoni Llogarinë</h2>
+              <p className="text-sm text-gray-500 mt-0.5">Konfiguroni llogarinë tuaj Clientlly</p>
+            </div>
           </div>
         </div>
-        
-        <div className="relative z-10 text-center mb-8">
-          <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-            <Users className="h-10 w-10 text-white" />
+        <div className="px-8 py-7 space-y-5">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-1.5">
+              <Label htmlFor="firstName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Emri</Label>
+              <Input id="firstName" value={userData.firstName} onChange={(e) => setUserData({...userData, firstName: e.target.value})} placeholder="Artan" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="lastName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Mbiemri</Label>
+              <Input id="lastName" value={userData.lastName} onChange={(e) => setUserData({...userData, lastName: e.target.value})} placeholder="Hoxha" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            </div>
           </div>
-          <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Create Your Account</h2>
-          <p className="text-lg text-gray-800 dark:text-gray-200">Set up your BusinessFlow Pro account to get started</p>
-        </div>
-      </div>
-      <CardContent className="p-8 pt-0 space-y-8">
-        <div className="grid grid-cols-2 gap-6">
-          <div className="space-y-3">
-            <Label htmlFor="firstName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-              <Users className="h-5 w-5 mr-2 text-emerald-500" />
-              First Name
+          <div className="space-y-1.5">
+            <Label htmlFor="email" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Email</Label>
+            <Input id="email" type="email" value={userData.email} onChange={(e) => setUserData({...userData, email: e.target.value})} placeholder="artan@kompania.com" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="password" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Fjalëkalimi</Label>
+            <Input id="password" type="password" value={userData.password} onChange={(e) => setUserData({...userData, password: e.target.value})} placeholder="Minimum 8 karaktere" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="confirmPassword" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Konfirmo Fjalëkalimin</Label>
+            <Input id="confirmPassword" type="password" value={userData.confirmPassword} onChange={(e) => setUserData({...userData, confirmPassword: e.target.value})} placeholder="Konfirmo fjalëkalimin" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            {userData.password && userData.confirmPassword && userData.password !== userData.confirmPassword && (
+              <p className="text-xs text-red-600 flex items-center gap-1"><X className="h-3 w-3" /> Fjalëkalimet nuk përputhen</p>
+            )}
+          </div>
+          <div className="flex items-start gap-2.5 pt-1">
+            <Checkbox id="terms" checked={userData.agreeToTerms} onCheckedChange={(checked) => setUserData({...userData, agreeToTerms: checked as boolean})} className="mt-0.5" />
+            <Label htmlFor="terms" className="text-xs text-gray-500 leading-relaxed">
+              Pranoj <a href="/terms-of-service" target="_blank" className="text-indigo-600 hover:underline">Kushtet e Shërbimit</a> dhe <a href="/privacy-policy" target="_blank" className="text-indigo-600 hover:underline">Politikën e Privatësisë</a>
             </Label>
-            <Input
-              id="firstName"
-              value={userData.firstName}
-              onChange={(e) => setUserData({...userData, firstName: e.target.value})}
-              placeholder="John"
-              required
-              className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 focus:ring-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400"
-            />
           </div>
-          <div className="space-y-3">
-            <Label htmlFor="lastName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-              <Users className="h-5 w-5 mr-2 text-blue-500" />
-              Last Name
-            </Label>
-            <Input
-              id="lastName"
-              value={userData.lastName}
-              onChange={(e) => setUserData({...userData, lastName: e.target.value})}
-              placeholder="Doe"
-              required
-              className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-blue-400"
-            />
-          </div>
-        </div>
-
-        <div className="space-y-3">
-          <Label htmlFor="email" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-            <Mail className="h-5 w-5 mr-2 text-purple-500" />
-            Email Address
-          </Label>
-          <Input
-            id="email"
-            type="email"
-            value={userData.email}
-            onChange={(e) => setUserData({...userData, email: e.target.value})}
-            placeholder="john@company.com"
-            required
-            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-purple-500 focus:ring-purple-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-purple-400"
-          />
-        </div>
-
-        <div className="space-y-3">
-          <Label htmlFor="password" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-            <Lock className="h-5 w-5 mr-2 text-orange-500" />
-            Password
-          </Label>
-          <Input
-            id="password"
-            type="password"
-            value={userData.password}
-            onChange={(e) => setUserData({...userData, password: e.target.value})}
-            placeholder="Minimum 8 characters"
-            required
-            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-orange-500 focus:ring-orange-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-400"
-          />
-        </div>
-
-        <div className="space-y-3">
-          <Label htmlFor="confirmPassword" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-            <Shield className="h-5 w-5 mr-2 text-green-500" />
-            Confirm Password
-          </Label>
-          <Input
-            id="confirmPassword"
-            type="password"
-            value={userData.confirmPassword}
-            onChange={(e) => setUserData({...userData, confirmPassword: e.target.value})}
-            placeholder="Confirm your password"
-            required
-            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-green-500 focus:ring-green-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-green-400"
-          />
-          {userData.password && userData.confirmPassword && userData.password !== userData.confirmPassword && (
-            <p className="text-sm text-red-600 mt-2 flex items-center">
-              <X className="h-4 w-4 mr-1" />
-              Passwords do not match
-            </p>
-          )}
-        </div>
-
-        <div className="flex items-center space-x-2">
-          <Checkbox
-            id="terms"
-            checked={userData.agreeToTerms}
-            onCheckedChange={(checked) => setUserData({...userData, agreeToTerms: checked as boolean})}
-          />
-          <Label htmlFor="terms" className="text-sm">
-            I agree to the{" "}
-            <a href="/terms-of-service" target="_blank" className="text-primary hover:underline">Terms of Service</a>
-            {" "}and{" "}
-            <a href="/privacy-policy" target="_blank" className="text-primary hover:underline">Privacy Policy</a>
-          </Label>
-        </div>
-
-        <div className="text-center pt-4">
-          <p className="text-sm text-muted-foreground">
-            Already have an account?{" "}
-            <a href="/api/login" className="text-primary hover:underline">
-              Log In
-            </a>
+          <p className="text-xs text-gray-400 text-center">
+            Keni tashmë llogari? <a href="/api/login" className="text-indigo-600 hover:underline font-semibold">Hyni</a>
           </p>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 
   const renderTeamSetup = () => (
-    <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
-      {/* Form Header with Gradient */}
-      <div className="bg-gradient-to-r from-orange-500 via-purple-500 to-blue-500 p-1 rounded-t-3xl">
-        <div className="bg-white dark:bg-gray-900 rounded-t-[calc(1.5rem-1px)] p-8">
-          <div className="text-center mb-8">
-            <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-              <Building2 className="h-10 w-10 text-white" />
+    <div className="max-w-lg mx-auto">
+      <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div className="bg-gradient-to-br from-violet-50 to-white px-8 pt-8 pb-6 border-b border-gray-100">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-violet-600 flex items-center justify-center shadow-md shadow-violet-200">
+              <Building2 className="h-6 w-6 text-white" />
             </div>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Company Details</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">Tell us about your business to customize your experience</p>
+            <div>
+              <h2 className="text-xl font-extrabold text-gray-900">Detajet e Kompanisë</h2>
+              <p className="text-sm text-gray-500 mt-0.5">Tregoni pak rreth biznesit tuaj</p>
+            </div>
+          </div>
+        </div>
+        <div className="px-8 py-7 space-y-5">
+          <div className="space-y-1.5">
+            <Label htmlFor="companyName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Emri i Kompanisë</Label>
+            <Input id="companyName" value={userData.companyName} onChange={(e) => setUserData({...userData, companyName: e.target.value})} placeholder="Kompania Juaj Sh.p.k." required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="companySize" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Madhësia e Kompanisë</Label>
+            <Select value={userData.companySize} onValueChange={(value) => setUserData({...userData, companySize: value})}>
+              <SelectTrigger className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 text-sm">
+                <SelectValue placeholder="Zgjidhni madhësinë" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1-5">1-5 punonjës</SelectItem>
+                <SelectItem value="6-20">6-20 punonjës</SelectItem>
+                <SelectItem value="21-50">21-50 punonjës</SelectItem>
+                <SelectItem value="51-200">51-200 punonjës</SelectItem>
+                <SelectItem value="200+">200+ punonjës</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="industry" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Industria</Label>
+            <Select value={userData.industry} onValueChange={(value) => setUserData({...userData, industry: value})}>
+              <SelectTrigger className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 text-sm">
+                <SelectValue placeholder="Zgjidhni industrinë" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="technology">Teknologji</SelectItem>
+                <SelectItem value="consulting">Konsulencë</SelectItem>
+                <SelectItem value="finance">Financë & Kontabilitet</SelectItem>
+                <SelectItem value="healthcare">Shëndetësi</SelectItem>
+                <SelectItem value="education">Arsim</SelectItem>
+                <SelectItem value="retail">Shitje me pakicë</SelectItem>
+                <SelectItem value="manufacturing">Prodhim</SelectItem>
+                <SelectItem value="real-estate">Pasuri të paluajtshme</SelectItem>
+                <SelectItem value="legal">Shërbime Ligjore</SelectItem>
+                <SelectItem value="other">Tjetër</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="p-4 bg-indigo-50 rounded-xl border border-indigo-100">
+            <p className="text-xs font-semibold text-indigo-800 mb-1">Pas konfigurimit</p>
+            <p className="text-xs text-indigo-600 leading-relaxed">Do të mund të ftoni anëtarë të ekipit, të personalizoni hapësirën tuaj dhe të filloni menjëherë.</p>
           </div>
         </div>
       </div>
-      <CardContent className="p-8 pt-0 space-y-8">
-        <div className="space-y-3">
-          <Label htmlFor="companyName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-            <Building2 className="h-5 w-5 mr-2 text-orange-500" />
-            Company Name
-          </Label>
-          <Input
-            id="companyName"
-            value={userData.companyName}
-            onChange={(e) => setUserData({...userData, companyName: e.target.value})}
-            placeholder="Your Company Inc."
-            required
-            className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-orange-500 focus:ring-orange-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-400"
-          />
-        </div>
-
-        <div className="space-y-3">
-          <Label htmlFor="companySize" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-            <Users className="h-5 w-5 mr-2 text-blue-500" />
-            Company Size
-          </Label>
-          <Select value={userData.companySize} onValueChange={(value) => setUserData({...userData, companySize: value})}>
-            <SelectTrigger className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-blue-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-blue-400">
-              <SelectValue placeholder="Select company size" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="1-5">1-5 employees</SelectItem>
-              <SelectItem value="6-20">6-20 employees</SelectItem>
-              <SelectItem value="21-50">21-50 employees</SelectItem>
-              <SelectItem value="51-200">51-200 employees</SelectItem>
-              <SelectItem value="200+">200+ employees</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-3">
-          <Label htmlFor="industry" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-            <Globe className="h-5 w-5 mr-2 text-emerald-500" />
-            Industry
-          </Label>
-          <Select value={userData.industry} onValueChange={(value) => setUserData({...userData, industry: value})}>
-            <SelectTrigger className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400">
-              <SelectValue placeholder="Select your industry" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="technology">Technology</SelectItem>
-              <SelectItem value="consulting">Consulting</SelectItem>
-              <SelectItem value="finance">Finance & Accounting</SelectItem>
-              <SelectItem value="healthcare">Healthcare</SelectItem>
-              <SelectItem value="education">Education</SelectItem>
-              <SelectItem value="retail">Retail & E-commerce</SelectItem>
-              <SelectItem value="manufacturing">Manufacturing</SelectItem>
-              <SelectItem value="real-estate">Real Estate</SelectItem>
-              <SelectItem value="legal">Legal Services</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="p-6 glass-effect border border-white/20 rounded-2xl backdrop-blur-xl">
-          <h4 className="font-bold text-gray-800 dark:text-white mb-3 text-lg">What's Next?</h4>
-          <p className="text-gray-600 dark:text-gray-300">
-            After setup, you'll be able to invite team members, customize your workspace, and start managing your business operations.
-          </p>
-        </div>
-      </CardContent>
-    </Card>
+    </div>
   );
 
   const renderReviewAndPay = () => {
     if (!selectedPlanData) return null;
 
     return (
-      <Card className="max-w-lg mx-auto relative overflow-hidden bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/30 dark:border-gray-700/30 shadow-2xl rounded-3xl transform transition-all duration-1000 fade-in-up">
-        {/* Form Header with Gradient */}
-        <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 p-1 rounded-t-3xl">
-          <div className="bg-white dark:bg-gray-900 rounded-t-[calc(1.5rem-1px)] p-8">
-            <div className="text-center mb-8">
-              <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <CreditCard className="h-10 w-10 text-white" />
+      <div className="max-w-lg mx-auto">
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+          <div className="bg-gradient-to-br from-emerald-50 to-white px-8 pt-8 pb-6 border-b border-gray-100">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center shadow-md shadow-emerald-200">
+                <CreditCard className="h-6 w-6 text-white" />
               </div>
-              <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-3 tracking-tight">Review & Complete</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300">Review your order and complete your subscription</p>
+              <div>
+                <h2 className="text-xl font-extrabold text-gray-900">Rishiko & Paguaj</h2>
+                <p className="text-sm text-gray-500 mt-0.5">Konfirmoni porosinë dhe finalizoni abonimin</p>
+              </div>
             </div>
           </div>
+          <div className="px-4 pb-6">
+            <CheckoutForm
+              userData={userData}
+              plan={selectedPlanData}
+              billingPeriod={billingPeriod}
+              selectedCurrency={selectedCurrency}
+            />
+          </div>
         </div>
-        <CardContent>
-          <CheckoutForm 
-            userData={userData} 
-            plan={selectedPlanData} 
-            billingPeriod={billingPeriod}
-            selectedCurrency={selectedCurrency}
-          />
-        </CardContent>
-      </Card>
+      </div>
     );
   };
 
@@ -898,74 +685,72 @@ export default function Subscribe() {
       </nav>
 
       {/* Hero Section */}
-      <div className="pt-28 pb-12 px-6 bg-gradient-to-b from-indigo-50 via-white to-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-6 shadow-sm">
-            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            Transparent pricing · No hidden fees
+      <div className="pt-28 pb-14 px-6 bg-gradient-to-b from-indigo-50/80 via-white to-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
+              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+              Çmim transparent · Pa kosto të fshehura
+            </div>
+            <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
+              Zgjidhni planin e <span className="text-indigo-600">duhur</span>
+            </h1>
+            <p className="text-lg text-gray-500">
+              Të gjithë 14 modulet — në çdo plan. Ndryshimi është vetëm në numrin e përdoruesve.
+            </p>
           </div>
-          <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-[1.15]">
-            Zgjidhni planin e <span className="text-indigo-600">duhur</span>
-          </h1>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">
-            Të gjithë planet përfshijnë të gjitha modulet. Ndryshimi është vetëm në numrin e përdoruesve dhe faturave.
-          </p>
+          {/* Trust row */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            {[
+              { icon: Shield, label: "Mbrojtje e të dhënave", sub: "GDPR & SSL" },
+              { icon: CheckCircle, label: "Pa kartë kredie", sub: "14 ditë provë" },
+              { icon: Headphones, label: "Mbështetje 24/7", sub: "Ekip real" },
+              { icon: ArrowLeft, label: "Anuloni kur doni", sub: "Pa detyrime" },
+            ].map(({ icon: Icon, label, sub }, i) => (
+              <div key={i} className="flex items-center gap-2.5 p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                  <Icon className="h-4 w-4 text-indigo-600" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-gray-800 leading-snug">{label}</p>
+                  <p className="text-[10px] text-gray-400">{sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Pricing Section - Matching Landing Page Structure */}
-      <section className="relative py-20 px-4 pricing-section overflow-hidden">
-
-        
-        {/* Floating Background Elements for Pricing */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-20 left-10 opacity-4 animate-pulse delay-500">
-            <Sparkles className="h-5 w-5 text-blue-400" />
+      {/* Main Form Section */}
+      <section className="py-12 px-4 bg-gray-50/50 min-h-screen">
+        <div className="max-w-5xl mx-auto">
+          <div id="pricing-section" className="mb-8">
+            {renderStepIndicator()}
           </div>
-          <div className="absolute top-60 right-20 opacity-3 animate-pulse delay-1500">
-            <Heart className="h-6 w-6 text-purple-400" />
+          <div className="mb-8">
+            {renderCurrentStep()}
           </div>
-          <div className="absolute bottom-40 left-1/4 opacity-5 animate-pulse delay-2500">
-            <Zap className="h-7 w-7 text-green-400" />
+          <div className="flex justify-center gap-3 mb-16">
+            {currentStep > 0 && (
+              <button
+                onClick={prevStep}
+                className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-gray-600 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Kthehu
+              </button>
+            )}
+            {currentStep < 3 && (
+              <button
+                onClick={nextStep}
+                disabled={!canProceedToNext()}
+                className="inline-flex items-center gap-2 px-7 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              >
+                Vazhdo
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            )}
           </div>
-          <div className="absolute top-1/3 right-1/3 opacity-4 animate-pulse delay-3500">
-            <Sparkles className="h-8 w-8 text-pink-400" />
-          </div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto">
-
-        <div id="pricing-section">
-          {renderStepIndicator()}
-        </div>
-        
-        <div className="mb-8">
-          {renderCurrentStep()}
-        </div>
-
-        <div className="flex justify-center space-x-6 fade-in-up mb-16" style={{ animationDelay: '0.8s' }}>
-          {currentStep > 0 && (
-            <Button 
-              variant="outline" 
-              onClick={prevStep}
-              className="flex items-center space-x-2 px-8 py-3 glass-effect border-white/30 text-gray-700 dark:text-gray-300 hover:border-gray-400 hover:bg-white/50 font-bold backdrop-blur-xl"
-            >
-              <ArrowLeft className="h-5 w-5" />
-              <span>Back</span>
-            </Button>
-          )}
-          
-          {currentStep < 3 && (
-            <Button 
-              onClick={nextStep}
-              disabled={!canProceedToNext()}
-              className="flex items-center space-x-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 font-bold disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:scale-105 transition-all duration-300"
-            >
-              <span>Continue</span>
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          )}
-        </div>
         </div>
       </section>
       
