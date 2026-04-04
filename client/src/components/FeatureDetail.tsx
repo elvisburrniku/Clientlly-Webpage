@@ -138,7 +138,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
                     {sq(lang, "Të gjitha modulet të aktivizuara menjëherë. Pa kartë kredie.", "All modules activated instantly. No credit card.")}
                   </p>
                   <button
-                    onClick={() => go('/subscribe')}
+                    onClick={() => { window.location.href = '/subscribe'; }}
                     className="w-full py-3 bg-white text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 transition-colors text-sm"
                   >
                     {sq(lang, "Shiko Planet", "View Plans")}
@@ -219,7 +219,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
-              onClick={() => go('/subscribe')}
+              onClick={() => { window.location.href = '/subscribe'; }}
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all hover:scale-105 shadow-lg"
             >
               {sq(lang, "Shiko Planet", "View Plans")}
