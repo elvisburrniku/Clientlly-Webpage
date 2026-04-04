@@ -473,6 +473,11 @@ export default function Features() {
     ? features
     : features.filter(f => f.category === activeCategory);
 
+  const categoryOrder: Category[] = ["finance", "clients", "operations", "fleet", "hr"];
+  const grouped = categoryOrder
+    .map(cat => ({ cat, items: features.filter(f => f.category === cat) }))
+    .filter(g => g.items.length > 0);
+
   return (
     <div className="min-h-screen bg-white">
 
@@ -840,54 +845,111 @@ export default function Features() {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {filtered.map(({ icon: Icon, gradient, lightText, border, dotColor, tag, title, tagline, desc, benefits, href, stat }, i) => (
-              <div
-                key={i}
-                className={`anim-scale anim-d${Math.min(i + 1, 8)} group bg-white border ${border} rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
-              >
-                {/* Header */}
-                <div className={`p-6 bg-gradient-to-br ${gradient} relative overflow-hidden`}>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                  <div className="flex items-start justify-between relative z-10">
-                    <div>
-                      <span className="inline-flex items-center px-2.5 py-1 bg-white/20 text-white text-xs font-semibold rounded-full mb-3">
-                        {lang === 'sq' ? tag.sq : tag.en}
+          {activeCategory === "all" ? (
+            <div className="space-y-14">
+              {grouped.map(({ cat, items }) => (
+                <div key={cat}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-100 rounded-full">
+                      {categoryIcons[cat]}
+                      <span className="text-sm font-bold text-gray-900">
+                        {lang === 'sq' ? categoryLabels[cat].sq : categoryLabels[cat].en}
                       </span>
-                      <h3 className="text-xl font-extrabold text-white mb-1">
-                        {lang === 'sq' ? title.sq : title.en}
-                      </h3>
-                      <p className="text-white/80 text-sm">{lang === 'sq' ? tagline.sq : tagline.en}</p>
                     </div>
-                    <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-white" />
-                    </div>
+                    <div className="flex-1 h-px bg-gray-100"></div>
+                    <span className="text-xs text-gray-400 font-medium">{items.length} {sq(lang, "module", "modules")}</span>
                   </div>
-                  <div className="relative z-10 mt-4 inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
-                    <TrendingUp className="h-3.5 w-3.5 text-white" />
-                    <span className="text-white text-xs font-bold">{stat.value} {lang === 'sq' ? stat.label.sq : stat.label.en}</span>
-                  </div>
-                </div>
-
-                {/* Body */}
-                <div className="p-6">
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{lang === 'sq' ? desc.sq : desc.en}</p>
-                  <ul className="space-y-2 mb-6">
-                    {benefits.map((b, bi) => (
-                      <li key={bi} className="flex items-center gap-2.5">
-                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}`}></span>
-                        <span className="text-xs text-gray-600">{lang === 'sq' ? b.sq : b.en}</span>
-                      </li>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {items.map(({ icon: Icon, gradient, lightText, border, dotColor, tag, title, tagline, desc, benefits, href, stat }, i) => (
+                      <div
+                        key={i}
+                        className={`anim-scale anim-d${Math.min(i + 1, 8)} group bg-white border ${border} rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
+                      >
+                        <div className={`p-6 bg-gradient-to-br ${gradient} relative overflow-hidden`}>
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                          <div className="flex items-start justify-between relative z-10">
+                            <div>
+                              <span className="inline-flex items-center px-2.5 py-1 bg-white/20 text-white text-xs font-semibold rounded-full mb-3">
+                                {lang === 'sq' ? tag.sq : tag.en}
+                              </span>
+                              <h3 className="text-xl font-extrabold text-white mb-1">{lang === 'sq' ? title.sq : title.en}</h3>
+                              <p className="text-white/80 text-sm">{lang === 'sq' ? tagline.sq : tagline.en}</p>
+                            </div>
+                            <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                              <Icon className="h-6 w-6 text-white" />
+                            </div>
+                          </div>
+                          <div className="relative z-10 mt-4 inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
+                            <TrendingUp className="h-3.5 w-3.5 text-white" />
+                            <span className="text-white text-xs font-bold">{stat.value} {lang === 'sq' ? stat.label.sq : stat.label.en}</span>
+                          </div>
+                        </div>
+                        <div className="p-6">
+                          <p className="text-gray-500 text-sm leading-relaxed mb-5">{lang === 'sq' ? desc.sq : desc.en}</p>
+                          <ul className="space-y-2 mb-6">
+                            {benefits.map((b, bi) => (
+                              <li key={bi} className="flex items-center gap-2.5">
+                                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}`}></span>
+                                <span className="text-xs text-gray-600">{lang === 'sq' ? b.sq : b.en}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          <button onClick={() => go(href)} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
+                            {sq(lang, "Shiko detajet e plota", "See full details")}
+                            <ChevronRight className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </div>
                     ))}
-                  </ul>
-                  <button onClick={() => go(href)} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
-                    {sq(lang, "Shiko detajet e plota", "See full details")}
-                    <ChevronRight className="h-4 w-4" />
-                  </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {filtered.map(({ icon: Icon, gradient, lightText, border, dotColor, tag, title, tagline, desc, benefits, href, stat }, i) => (
+                <div
+                  key={i}
+                  className={`anim-scale anim-d${Math.min(i + 1, 8)} group bg-white border ${border} rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
+                >
+                  <div className={`p-6 bg-gradient-to-br ${gradient} relative overflow-hidden`}>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="flex items-start justify-between relative z-10">
+                      <div>
+                        <span className="inline-flex items-center px-2.5 py-1 bg-white/20 text-white text-xs font-semibold rounded-full mb-3">
+                          {lang === 'sq' ? tag.sq : tag.en}
+                        </span>
+                        <h3 className="text-xl font-extrabold text-white mb-1">{lang === 'sq' ? title.sq : title.en}</h3>
+                        <p className="text-white/80 text-sm">{lang === 'sq' ? tagline.sq : tagline.en}</p>
+                      </div>
+                      <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                    </div>
+                    <div className="relative z-10 mt-4 inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
+                      <TrendingUp className="h-3.5 w-3.5 text-white" />
+                      <span className="text-white text-xs font-bold">{stat.value} {lang === 'sq' ? stat.label.sq : stat.label.en}</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <p className="text-gray-500 text-sm leading-relaxed mb-5">{lang === 'sq' ? desc.sq : desc.en}</p>
+                    <ul className="space-y-2 mb-6">
+                      {benefits.map((b, bi) => (
+                        <li key={bi} className="flex items-center gap-2.5">
+                          <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}`}></span>
+                          <span className="text-xs text-gray-600">{lang === 'sq' ? b.sq : b.en}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <button onClick={() => go(href)} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
+                      {sq(lang, "Shiko detajet e plota", "See full details")}
+                      <ChevronRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
