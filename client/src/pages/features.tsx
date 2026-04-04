@@ -804,16 +804,17 @@ export default function Features() {
       </section>
 
       {/* ── MODULES GRID ── */}
-      <section className="py-16 px-6 lg:px-8 bg-gray-50/50">
+      <section className="py-20 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Modulet", "Modules")}
-            </p>
+          <div className="text-center mb-12">
+            <div className="anim-fade inline-flex items-center gap-2 px-3.5 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-6">
+              <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+              {sq(lang, "16 module të integruara", "16 integrated modules")}
+            </div>
             <h2 className="anim-rise anim-d1 text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang, "Eksploroni çdo modul", "Explore every module")}
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">
+            <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
               {sq(lang,
                 "Klikoni një kategori për të parë modulet sipas fushës tuaj të interesit.",
                 "Click a category to filter modules by your area of interest."
@@ -828,8 +829,8 @@ export default function Features() {
                   onClick={() => setActiveCategory(cat)}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                     activeCategory === cat
-                      ? "bg-indigo-600 text-white shadow-sm"
-                      : "bg-white text-gray-600 border border-gray-200 hover:border-indigo-200 hover:text-indigo-600"
+                      ? "bg-indigo-600 text-white shadow-md shadow-indigo-200"
+                      : "bg-white text-gray-600 border border-gray-200 hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50/50"
                   }`}
                 >
                   {categoryIcons[cat]}
@@ -840,52 +841,54 @@ export default function Features() {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filtered.map(({ icon: Icon, gradient, lightText, border, dotColor, tag, title, tagline, desc, benefits, href, stat }, i) => (
-              <div
+              <Link
                 key={i}
-                className={`anim-scale anim-d${Math.min(i + 1, 8)} group bg-white border ${border} rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
+                href={href}
+                className={`anim-scale anim-d${Math.min(i + 1, 8)} group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-indigo-200 hover:shadow-xl hover:shadow-indigo-100/40 hover:-translate-y-1 transition-all duration-300`}
               >
-                {/* Header */}
-                <div className={`p-6 bg-gradient-to-br ${gradient} relative overflow-hidden`}>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                  <div className="flex items-start justify-between relative z-10">
-                    <div>
-                      <span className="inline-flex items-center px-2.5 py-1 bg-white/20 text-white text-xs font-semibold rounded-full mb-3">
+                {/* Compact top bar */}
+                <div className="flex items-center gap-4 p-5 pb-0">
+                  <div className={`flex-shrink-0 w-11 h-11 bg-gradient-to-br ${gradient} rounded-xl flex items-center justify-center shadow-sm`}>
+                    <Icon className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className={`text-[10px] font-bold uppercase tracking-wider ${lightText}`}>
                         {lang === 'sq' ? tag.sq : tag.en}
                       </span>
-                      <h3 className="text-xl font-extrabold text-white mb-1">
-                        {lang === 'sq' ? title.sq : title.en}
-                      </h3>
-                      <p className="text-white/80 text-sm">{lang === 'sq' ? tagline.sq : tagline.en}</p>
+                      <span className="text-gray-300">·</span>
+                      <span className="text-[10px] font-semibold text-gray-400">
+                        {stat.value} {lang === 'sq' ? stat.label.sq : stat.label.en}
+                      </span>
                     </div>
-                    <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-white" />
-                    </div>
+                    <h3 className="text-lg font-extrabold text-gray-900 truncate">
+                      {lang === 'sq' ? title.sq : title.en}
+                    </h3>
                   </div>
-                  <div className="relative z-10 mt-4 inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5">
-                    <TrendingUp className="h-3.5 w-3.5 text-white" />
-                    <span className="text-white text-xs font-bold">{stat.value} {lang === 'sq' ? stat.label.sq : stat.label.en}</span>
-                  </div>
+                  <ChevronRight className="h-5 w-5 text-gray-300 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all flex-shrink-0" />
                 </div>
 
                 {/* Body */}
-                <div className="p-6">
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{lang === 'sq' ? desc.sq : desc.en}</p>
-                  <ul className="space-y-2 mb-6">
-                    {benefits.map((b, bi) => (
-                      <li key={bi} className="flex items-center gap-2.5">
-                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${dotColor}`}></span>
-                        <span className="text-xs text-gray-600">{lang === 'sq' ? b.sq : b.en}</span>
-                      </li>
+                <div className="p-5 pt-3">
+                  <p className="text-gray-400 text-xs mb-3">{lang === 'sq' ? tagline.sq : tagline.en}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{lang === 'sq' ? desc.sq : desc.en}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {benefits.slice(0, 3).map((b, bi) => (
+                      <span key={bi} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-50 border border-gray-100 rounded-lg text-[11px] text-gray-600">
+                        <span className={`w-1 h-1 rounded-full flex-shrink-0 ${dotColor}`}></span>
+                        {lang === 'sq' ? b.sq : b.en}
+                      </span>
                     ))}
-                  </ul>
-                  <Link href={href} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
-                    {sq(lang, "Shiko detajet e plota", "See full details")}
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
+                    {benefits.length > 3 && (
+                      <span className="inline-flex items-center px-2.5 py-1 bg-indigo-50 border border-indigo-100 rounded-lg text-[11px] text-indigo-600 font-semibold">
+                        +{benefits.length - 3} {sq(lang, "më shumë", "more")}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
