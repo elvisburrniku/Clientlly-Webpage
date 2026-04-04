@@ -228,13 +228,14 @@ export default function Subscribe() {
   }, []);
 
   useEffect(() => {
-    const params = new URLSearchParams(location.split('?')[1] || '');
+    const params = new URLSearchParams(window.location.search);
     const planFromUrl = params.get('plan');
     const billingFromUrl = params.get('billing') as 'monthly' | 'yearly';
     
     if (planFromUrl) {
       setSelectedPlan(planFromUrl);
       setCurrentStep(1);
+      window.scrollTo({ top: 0 });
     } else {
       setCurrentStep(0);
     }
