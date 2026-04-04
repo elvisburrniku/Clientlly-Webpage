@@ -56,7 +56,7 @@ const CancelAnytimePage = () => {
     {
       icon: <Users className="w-8 h-8" />,
       title: sq(lang, "Riaktivizim në Çdo Kohë", "Reactivation Anytime", "Reactivación en Cualquier Momento", "Reaktivierung Jederzeit", "Реактивирање во Секое Време"),
-      description: sq(lang, "Ndërruat mendje? Riaktivizoni llogarinë tuaj dhe riktheni të gjitha të dhënat tuaja menjëherë.", "Changed your mind? Reactivate your account and restore all your data instantly.", "¿Cambió de opinión? Reactive su cuenta y restaure todos sus datos al instante.", "Meinung geändert? Reaktivieren Sie Ihr Konto und stellen Sie alle Ihre Daten sofort wieder her.", "Ги променивте мислите? Реактивирајте ја вашата сметка и вратете ги сите ваши податоци веднаш."),
+      description: sq(lang, "Ndërruat mendje? Riaktivizoni llogarinë tuaj dhe riktheni të gjitha të dhënat tuaja menjëherë.", "Changed your mind? Reactivate your account and restore all your data instantly.", "Cambió de opinión? Reactive su cuenta y restaure todos sus datos al instante.", "Meinung geändert? Reaktivieren Sie Ihr Konto und stellen Sie alle Ihre Daten sofort wieder her.", "Ги променивте мислите? Реактивирајте ја вашата сметка и вратете ги сите ваши податоци веднаш."),
       benefits: [
         sq(lang, "Riaktivizim me një klikim", "One-click reactivation", "Reactivación con un clic", "Ein-Klick-Reaktivierung", "Реактивирање со еден клик") as string,
         sq(lang, "Rikthim i të dhënave", "Data restoration", "Restauración de datos", "Datenwiederherstellung", "Враќање на податоци") as string,

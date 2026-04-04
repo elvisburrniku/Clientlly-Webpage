@@ -50,7 +50,7 @@ export default function FAQ() {
       category: "general",
       items: [
         {
-          q: sq(lang, "Çfarë është Clientlly?", "What is Clientlly?", "¿Qué es Clientlly?", "Was ist Clientlly?", "Што е Clientlly?") as string,
+          q: sq(lang, "Çfarë është Clientlly?", "What is Clientlly?", "Qué es Clientlly?", "Was ist Clientlly?", "Што е Clientlly?") as string,
           a: sq(lang,
             "Clientlly është platformë e plotë për menaxhimin e biznesit me 16 module të integruara — faturim, shpenzime, inventar, burimet njerëzore, flotë makinash dhe shumë më tepër. E gjitha në një platformë të vetme, pa nevojë për aplikacione të ndryshme.",
             "Clientlly is a complete business management platform with 16 integrated modules — invoicing, expenses, inventory, HR, fleet management and much more. Everything in a single platform, no need for separate applications.",
@@ -60,7 +60,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "Për kë është Clientlly?", "Who is Clientlly for?", "¿Para quién es Clientlly?", "Für wen ist Clientlly?", "За кого е Clientlly?") as string,
+          q: sq(lang, "Për kë është Clientlly?", "Who is Clientlly for?", "Para quién es Clientlly?", "Für wen ist Clientlly?", "За кого е Clientlly?") as string,
           a: sq(lang,
             "Clientlly është dizajnuar për biznese të vogla dhe të mesme që duan të menaxhojnë gjithçka në një vend. Pavarësisht nëse keni 1 ose 50 punonjës, platforma përshtatet me nevojat tuaja.",
             "Clientlly is designed for small and medium businesses that want to manage everything in one place. Whether you have 1 or 50 employees, the platform adapts to your needs.",
@@ -70,7 +70,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A duhet të instaloj diçka?", "Do I need to install anything?", "¿Necesito instalar algo?", "Muss ich etwas installieren?", "Дали треба да инсталирам нешто?") as string,
+          q: sq(lang, "A duhet të instaloj diçka?", "Do I need to install anything?", "Necesito instalar algo?", "Muss ich etwas installieren?", "Дали треба да инсталирам нешто?") as string,
           a: sq(lang,
             "Jo! Clientlly funksionon 100% në cloud. Mjafton një shfletues interneti — qasuni nga kompjuteri, tableti, ose telefoni juaj. Nuk ka instalim, nuk ka përditësime manuale.",
             "No! Clientlly works 100% in the cloud. You just need a web browser — access from your computer, tablet, or phone. No installation, no manual updates.",
@@ -80,7 +80,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "Në cilat gjuhë ofrohet Clientlly?", "What languages is Clientlly available in?", "¿En qué idiomas está disponible Clientlly?", "In welchen Sprachen ist Clientlly verfügbar?", "На кои јазици е достапен Clientlly?") as string,
+          q: sq(lang, "Në cilat gjuhë ofrohet Clientlly?", "What languages is Clientlly available in?", "En qué idiomas está disponible Clientlly?", "In welchen Sprachen ist Clientlly verfügbar?", "На кои јазици е достапен Clientlly?") as string,
           a: sq(lang,
             "Clientlly ofrohet në Shqip, Anglisht, Maqedonisht, Spanjisht dhe Gjermanisht. Ndërfaqja, faturat, dhe raportet mund të gjenerohen në secilën gjuhë.",
             "Clientlly is available in Albanian, English, Macedonian, Spanish and German. The interface, invoices, and reports can be generated in each language.",
@@ -95,7 +95,7 @@ export default function FAQ() {
       category: "pricing",
       items: [
         {
-          q: sq(lang, "Cilat janë planet e çmimeve?", "What are the pricing plans?", "¿Cuáles son los planes de precios?", "Welche Preispläne gibt es?", "Кои се плановите за цени?") as string,
+          q: sq(lang, "Cilat janë planet e çmimeve?", "What are the pricing plans?", "Cuáles son los planes de precios?", "Welche Preispläne gibt es?", "Кои се плановите за цени?") as string,
           a: sq(lang,
             "Ofrojmë 3 plane:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet e njëjta. Dallimi kryesor është në numrin e përdoruesve dhe në programin \"Le të rritemi bashkë\" — zhvillim i personalizuar sipas nevojave tuaja. Me pagesë vjetore kurseni 15%.",
             "We offer 3 plans:\n\n• Starter — €25/mo (3 users, 200 invoices)\n• Professional — €35/mo (10 users, 500 invoices)\n• Enterprise — €50/mo (50 users, unlimited invoices)\n\nAll plans include the same 16 modules. The key difference is in the number of users and the \"Let's Grow Together\" program — custom development based on your needs. Save 15% with annual billing.",
@@ -105,7 +105,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "Cili është dallimi mes planeve?", "What's the difference between plans?", "¿Cuál es la diferencia entre los planes?", "Was ist der Unterschied zwischen den Plänen?", "Која е разликата помеѓу плановите?") as string,
+          q: sq(lang, "Cili është dallimi mes planeve?", "What's the difference between plans?", "Cuál es la diferencia entre los planes?", "Was ist der Unterschied zwischen den Plänen?", "Која е разликата помеѓу плановите?") as string,
           a: sq(lang,
             "Të 16 modulet janë të njëjta në çdo plan. Dallimi kryesor është në programin \"Le të rritemi bashkë\":\n\n🤝 Starter — mbështetje standarde\n🚀 Professional — zhvillim i personalizuar FALAS: na tregoni çfarë ju nevojitet dhe ne e ndërtojmë për ju!\n⭐ Enterprise — zhvillim PRIORITAR me ekip të dedikuar dhe implementim të shpejtë\n\nKy program na dallon nga konkurrentët — platforma rritet bashkë me biznesin tuaj.",
             "All 16 modules are the same in every plan. The key difference is in the \"Let's Grow Together\" program:\n\n🤝 Starter — standard support\n🚀 Professional — FREE custom development: tell us what you need and we build it for you!\n⭐ Enterprise — PRIORITY development with a dedicated team and fast implementation\n\nThis program sets us apart from competitors — the platform grows together with your business.",
@@ -115,7 +115,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "Çfarë është programi 'Le të rritemi bashkë'?", "What is the 'Let's Grow Together' program?", "¿Qué es el programa 'Crezcamos Juntos'?", "Was ist das Programm 'Gemeinsam Wachsen'?", "Што е програмата 'Да растеме заедно'?") as string,
+          q: sq(lang, "Çfarë është programi 'Le të rritemi bashkë'?", "What is the 'Let's Grow Together' program?", "Qué es el programa 'Crezcamos Juntos'?", "Was ist das Programm 'Gemeinsam Wachsen'?", "Што е програмата 'Да растеме заедно'?") as string,
           a: sq(lang,
             "Ky program është avantazhi ynë unik! Biznesi juaj ka nevoja specifike — ne i zhvillojmë FALAS si pjesë e planit tuaj.\n\nSi funksionon:\n1. Na tregoni çfarë funksioni ju nevojitet\n2. Ekipi ynë e analizon dhe planifikon\n3. Ne e ndërtojmë dhe integrojmë në platformë\n4. Ju përfitoni pa kosto shtesë!\n\nMe planin Professional merrni zhvillim falas, ndërsa me Enterprise merrni zhvillim prioritar me ekip të dedikuar.",
             "This program is our unique advantage! Your business has specific needs — we develop them FREE as part of your plan.\n\nHow it works:\n1. Tell us what feature you need\n2. Our team analyzes and plans it\n3. We build and integrate it into the platform\n4. You benefit at no extra cost!\n\nWith Professional you get free development, while Enterprise gets priority development with a dedicated team.",
@@ -125,7 +125,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "Sa kursej me pagesë vjetore?", "How much do I save with annual billing?", "¿Cuánto ahorro con la facturación anual?", "Wie viel spare ich bei jährlicher Abrechnung?", "Колку заштедувам со годишна наплата?") as string,
+          q: sq(lang, "Sa kursej me pagesë vjetore?", "How much do I save with annual billing?", "Cuánto ahorro con la facturación anual?", "Wie viel spare ich bei jährlicher Abrechnung?", "Колку заштедувам со годишна наплата?") as string,
           a: sq(lang,
             "Me pagesë vjetore kurseni 15%:\n\n• Starter: €300/vit pa zbritje → €255/vit (kurseni €45)\n• Professional: €420/vit pa zbritje → €357/vit (kurseni €63)\n• Enterprise: €600/vit pa zbritje → €510/vit (kurseni €90)",
             "With annual billing you save 15%:\n\n• Starter: €300/yr regular → €255/yr (save €45)\n• Professional: €420/yr regular → €357/yr (save €63)\n• Enterprise: €600/yr regular → €510/yr (save €90)",
@@ -135,7 +135,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A ka provë falas?", "Is there a free trial?", "¿Hay una prueba gratuita?", "Gibt es eine kostenlose Testversion?", "Дали има бесплатен пробен период?") as string,
+          q: sq(lang, "A ka provë falas?", "Is there a free trial?", "Hay una prueba gratuita?", "Gibt es eine kostenlose Testversion?", "Дали има бесплатен пробен период?") as string,
           a: sq(lang,
             "Po! Ofrojmë provë falas 14-ditore me qasje të plotë në të 16 modulet. Nuk kërkohet kartë kredie. Pas provës, zgjidhni planin që ju përshtatet — ose thjesht mos vazhdoni, pa asnjë detyrim.",
             "Yes! We offer a 14-day free trial with full access to all 16 modules. No credit card required. After the trial, choose the plan that fits you — or simply don't continue, no obligation.",
@@ -150,7 +150,7 @@ export default function FAQ() {
       category: "features",
       items: [
         {
-          q: sq(lang, "Cilat module përfshin Clientlly?", "What modules does Clientlly include?", "¿Qué módulos incluye Clientlly?", "Welche Module enthält Clientlly?", "Кои модули ги вклучува Clientlly?") as string,
+          q: sq(lang, "Cilat module përfshin Clientlly?", "What modules does Clientlly include?", "Qué módulos incluye Clientlly?", "Welche Module enthält Clientlly?", "Кои модули ги вклучува Clientlly?") as string,
           a: sq(lang,
             "Clientlly ka 16 module të integruara:\n\n💰 Financë: Faturim Profesional, Shpenzime, Menaxhim Borxhi, Raporte & Analiza, Oferta, Pagat\n📋 Operacione: Menaxhim Klientësh (CRM), Furnitorë, Inventar\n🚗 Flotë Makinash: Menaxhim Automjetesh, Mirëmbajtje Flote\n👥 Burimet Njerëzore: Punonjësit, Prezenca, Trajnim & Kuize, Menaxhim Dokumentesh, Kalendar",
             "Clientlly has 16 integrated modules:\n\n💰 Finance: Invoicing, Expenses, Debt Management, Reports & Analytics, Quotes, Payroll\n📋 Operations: CRM, Vendors, Inventory\n🚗 Fleet: Vehicle Management, Fleet Maintenance\n👥 HR: Employees, Attendance, Training & Quizzes, Document Management, Calendar",
@@ -160,7 +160,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A mund të krijoj fatura në shumë gjuhë?", "Can I create invoices in multiple languages?", "¿Puedo crear facturas en varios idiomas?", "Kann ich Rechnungen in mehreren Sprachen erstellen?", "Дали можам да креирам фактури на повеќе јазици?") as string,
+          q: sq(lang, "A mund të krijoj fatura në shumë gjuhë?", "Can I create invoices in multiple languages?", "Puedo crear facturas en varios idiomas?", "Kann ich Rechnungen in mehreren Sprachen erstellen?", "Дали можам да креирам фактури на повеќе јазици?") as string,
           a: sq(lang,
             "Po! Faturat mund të krijohen në Shqip, Anglisht, Maqedonisht, Spanjisht ose Gjermanisht. Mund të vendosni gjuhë të ndryshme për klientë të ndryshëm — ideale për biznese që punojnë me klientë ndërkombëtarë.",
             "Yes! Invoices can be created in Albanian, English, Macedonian, Spanish or German. You can set different languages for different clients — ideal for businesses working with international clients.",
@@ -170,7 +170,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A ka aplikacion mobil?", "Is there a mobile app?", "¿Hay una aplicación móvil?", "Gibt es eine mobile App?", "Дали има мобилна апликација?") as string,
+          q: sq(lang, "A ka aplikacion mobil?", "Is there a mobile app?", "Hay una aplicación móvil?", "Gibt es eine mobile App?", "Дали има мобилна апликација?") as string,
           a: sq(lang,
             "Clientlly funksionon plotësisht në shfletuesin e telefonit tuaj me dizajn responsive. Gjithashtu ofrojmë aplikacion mobil për iOS dhe Android me të gjitha funksionet kryesore.",
             "Clientlly works fully in your phone's browser with a responsive design. We also offer a mobile app for iOS and Android with all key features.",
@@ -180,7 +180,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "Si funksionon menaxhimi i flotës së makinave?", "How does fleet management work?", "¿Cómo funciona la gestión de flotas?", "Wie funktioniert die Fuhrparkverwaltung?", "Како функционира управувањето со флота?") as string,
+          q: sq(lang, "Si funksionon menaxhimi i flotës së makinave?", "How does fleet management work?", "Cómo funciona la gestión de flotas?", "Wie funktioniert die Fuhrparkverwaltung?", "Како функционира управувањето со флота?") as string,
           a: sq(lang,
             "Moduli i flotës ju lejon të menaxhoni të gjitha automjetet e biznesit: regjistrimi, sigurimi, mirëmbajtja, karburanti, dhe shpenzimet. Merrni njoftime automatike për skadimet dhe planifikoni serviset.",
             "The fleet module lets you manage all business vehicles: registration, insurance, maintenance, fuel, and expenses. Get automatic notifications for expirations and schedule services.",
@@ -195,7 +195,7 @@ export default function FAQ() {
       category: "security",
       items: [
         {
-          q: sq(lang, "A janë të sigurta të dhënat e mia?", "Is my data secure?", "¿Están seguros mis datos?", "Sind meine Daten sicher?", "Дали моите податоци се безбедни?") as string,
+          q: sq(lang, "A janë të sigurta të dhënat e mia?", "Is my data secure?", "Están seguros mis datos?", "Sind meine Daten sicher?", "Дали моите податоци се безбедни?") as string,
           a: sq(lang,
             "Absolutisht! Përdorim enkriptim SSL 256-bit për të gjitha komunikimet. Të dhënat tuaja ruhen në servera të sigurt me backup të rregullt. Jemi plotësisht në përputhje me GDPR.",
             "Absolutely! We use 256-bit SSL encryption for all communications. Your data is stored on secure servers with regular backups. We are fully GDPR compliant.",
@@ -205,7 +205,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A bëni backup të të dhënave?", "Do you backup data?", "¿Hacen copias de seguridad de los datos?", "Führen Sie Datensicherungen durch?", "Дали правите резервни копии на податоците?") as string,
+          q: sq(lang, "A bëni backup të të dhënave?", "Do you backup data?", "Hacen copias de seguridad de los datos?", "Führen Sie Datensicherungen durch?", "Дали правите резервни копии на податоците?") as string,
           a: sq(lang,
             "Po! Backup automatik bëhet çdo ditë. Në rast emergjence, mund të rikthejmë të dhënat tuaja brenda 24 orëve. Asnjë e dhënë nuk humbet.",
             "Yes! Automatic backups are made daily. In case of emergency, we can restore your data within 24 hours. No data is ever lost.",
@@ -215,7 +215,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A mund t'i eksportoj të dhënat e mia?", "Can I export my data?", "¿Puedo exportar mis datos?", "Kann ich meine Daten exportieren?", "Дали можам да ги извезам моите податоци?") as string,
+          q: sq(lang, "A mund t'i eksportoj të dhënat e mia?", "Can I export my data?", "Puedo exportar mis datos?", "Kann ich meine Daten exportieren?", "Дали можам да ги извезам моите податоци?") as string,
           a: sq(lang,
             "Po! Mund të eksportoni të gjitha të dhënat tuaja në format Excel ose PDF në çdo moment. Faturat, raportet, listat e klientëve — gjithçka mund të shkarkohet.",
             "Yes! You can export all your data in Excel or PDF format at any time. Invoices, reports, client lists — everything can be downloaded.",
@@ -230,7 +230,7 @@ export default function FAQ() {
       category: "support",
       items: [
         {
-          q: sq(lang, "Si mund të kontaktoj mbështetjen?", "How can I contact support?", "¿Cómo puedo contactar al soporte?", "Wie kann ich den Support kontaktieren?", "Како можам да контактирам со поддршката?") as string,
+          q: sq(lang, "Si mund të kontaktoj mbështetjen?", "How can I contact support?", "Cómo puedo contactar al soporte?", "Wie kann ich den Support kontaktieren?", "Како можам да контактирам со поддршката?") as string,
           a: sq(lang,
             "Na kontaktoni përmes:\n\n📧 Email: info@clientlly.com\n💬 Chat-i live në platformë (24/7)\n\nEkipi ynë i mbështetjes përgjigjet brenda 2 orëve gjatë ditëve të punës.",
             "Contact us through:\n\n📧 Email: info@clientlly.com\n💬 Live chat on the platform (24/7)\n\nOur support team responds within 2 hours during business days.",
@@ -240,7 +240,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A ofroni trajnim për përdorimin e platformës?", "Do you offer platform training?", "¿Ofrecen capacitación para la plataforma?", "Bieten Sie Plattformschulungen an?", "Дали нудите обука за платформата?") as string,
+          q: sq(lang, "A ofroni trajnim për përdorimin e platformës?", "Do you offer platform training?", "Ofrecen capacitación para la plataforma?", "Bieten Sie Plattformschulungen an?", "Дали нудите обука за платформата?") as string,
           a: sq(lang,
             "Po! Ofrojmë:\n\n• Video-udhëzues hap pas hapi për çdo modul\n• Dokumentacion të plotë në shqip\n• Sesione trajnimi live me ekipin tonë (për planet Professional dhe Enterprise)\n• Chat bot i integruar për ndihmë të menjëhershme",
             "Yes! We offer:\n\n• Step-by-step video tutorials for each module\n• Complete documentation in Albanian\n• Live training sessions with our team (for Professional and Enterprise plans)\n• Integrated chatbot for immediate help",
@@ -250,7 +250,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A është migrimi i të dhënave falas?", "Is data migration free?", "¿Es gratuita la migración de datos?", "Ist die Datenmigration kostenlos?", "Дали миграцијата на податоци е бесплатна?") as string,
+          q: sq(lang, "A është migrimi i të dhënave falas?", "Is data migration free?", "Es gratuita la migración de datos?", "Ist die Datenmigration kostenlos?", "Дали миграцијата на податоци е бесплатна?") as string,
           a: sq(lang,
             "Po! Migrimi nga platforma juaj aktuale te Clientlly është plotësisht FALAS. Ekipi ynë ju ndihmon të transferoni të gjitha të dhënat — klientë, fatura, produkte — pa humbur asgjë.",
             "Yes! Migration from your current platform to Clientlly is completely FREE. Our team helps you transfer all data — clients, invoices, products — without losing anything.",
@@ -265,7 +265,7 @@ export default function FAQ() {
       category: "account",
       items: [
         {
-          q: sq(lang, "A mund ta anuloj abonimin në çdo kohë?", "Can I cancel my subscription anytime?", "¿Puedo cancelar mi suscripción en cualquier momento?", "Kann ich mein Abonnement jederzeit kündigen?", "Може ли да ја откажам претплатата во секое време?") as string,
+          q: sq(lang, "A mund ta anuloj abonimin në çdo kohë?", "Can I cancel my subscription anytime?", "Puedo cancelar mi suscripción en cualquier momento?", "Kann ich mein Abonnement jederzeit kündigen?", "Може ли да ја откажам претплатата во секое време?") as string,
           a: sq(lang,
             "Po! Mund ta anuloni abonimin në çdo moment pa penalitete dhe pa pyetje. Të dhënat tuaja ruhen për 30 ditë pas anulimit në rast se ndërroni mendje.",
             "Yes! You can cancel your subscription at any time without penalties and no questions asked. Your data is kept for 30 days after cancellation in case you change your mind.",
@@ -275,7 +275,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A mund të ndryshoj planin gjatë abonimit?", "Can I change plans during my subscription?", "¿Puedo cambiar de plan durante mi suscripción?", "Kann ich den Plan während meines Abonnements ändern?", "Може ли да го сменам планот за време на претплатата?") as string,
+          q: sq(lang, "A mund të ndryshoj planin gjatë abonimit?", "Can I change plans during my subscription?", "Puedo cambiar de plan durante mi suscripción?", "Kann ich den Plan während meines Abonnements ändern?", "Може ли да го сменам планот за време на претплатата?") as string,
           a: sq(lang,
             "Po! Mund të rrisni ose ulni planin në çdo moment. Ndryshimi aplikohet menjëherë dhe pagesa rregullohet automatikisht. Nuk humbni asnjë të dhënë gjatë ndryshimit.",
             "Yes! You can upgrade or downgrade your plan at any time. The change applies immediately and billing adjusts automatically. You don't lose any data during the switch.",
@@ -285,7 +285,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "Sa përdorues mund të shtoj?", "How many users can I add?", "¿Cuántos usuarios puedo agregar?", "Wie viele Benutzer kann ich hinzufügen?", "Колку корисници можам да додадам?") as string,
+          q: sq(lang, "Sa përdorues mund të shtoj?", "How many users can I add?", "Cuántos usuarios puedo agregar?", "Wie viele Benutzer kann ich hinzufügen?", "Колку корисници можам да додадам?") as string,
           a: sq(lang,
             "Varet nga plani juaj:\n\n• Starter: deri në 3 përdorues\n• Professional: deri në 10 përdorues\n• Enterprise: deri në 50 përdorues (€2 për përdorues shtesë)\n\nÇdo përdorues ka qasje në të gjitha modulet. Mund të vendosni role dhe leje specifike për secilin.",
             "Depends on your plan:\n\n• Starter: up to 3 users\n• Professional: up to 10 users\n• Enterprise: up to 50 users (€2 per additional user)\n\nEvery user has access to all modules. You can set specific roles and permissions for each.",
@@ -349,7 +349,7 @@ export default function FAQ() {
             {sq(lang,
               "Gjeni përgjigjet për pyetjet më të zakonshme rreth Clientlly. Nuk gjeni çfarë kërkoni? Na kontaktoni drejtpërdrejt.",
               "Find answers to the most common questions about Clientlly. Can't find what you're looking for? Contact us directly.",
-              "Encuentre respuestas a las preguntas más comunes sobre Clientlly. ¿No encuentra lo que busca? Contáctenos directamente.",
+              "Encuentre respuestas a las preguntas más comunes sobre Clientlly. No encuentra lo que busca? Contáctenos directamente.",
               "Finden Sie Antworten auf die häufigsten Fragen zu Clientlly. Sie finden nicht, was Sie suchen? Kontaktieren Sie uns direkt.",
               "Најдете одговори на најчестите прашања за Clientlly. Не наоѓате тоа што го барате? Контактирајте нè директно."
             )}
@@ -395,7 +395,7 @@ export default function FAQ() {
       <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-extrabold text-gray-900 mb-3">
-            {sq(lang, "Nuk gjeni përgjigjen?", "Can't find your answer?", "¿No encuentra su respuesta?", "Können Sie Ihre Antwort nicht finden?", "Не го наоѓате одговорот?")}
+            {sq(lang, "Nuk gjeni përgjigjen?", "Can't find your answer?", "No encuentra su respuesta?", "Können Sie Ihre Antwort nicht finden?", "Не го наоѓате одговорот?")}
           </h2>
           <p className="text-gray-500 mb-6">
             {sq(lang,

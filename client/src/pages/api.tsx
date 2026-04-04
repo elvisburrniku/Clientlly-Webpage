@@ -687,7 +687,7 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
             {sq(lang,
               <>Gati të ndërtoni me <span className="text-indigo-400">API-n tonë</span>?</>,
               <>Ready to build with <span className="text-indigo-400">our API</span>?</>,
-              <>¿Listo para construir con <span className="text-indigo-400">nuestra API</span>?</>,
+              <>Listo para construir con <span className="text-indigo-400">nuestra API</span>?</>,
               <>Bereit, mit <span className="text-indigo-400">unserer API</span> zu bauen?</>,
               <>Подготвени да градите со <span className="text-indigo-400">нашата API</span>?</>
             )}

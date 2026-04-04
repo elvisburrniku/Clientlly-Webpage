@@ -297,7 +297,7 @@ export default function Careers() {
               <>
                 <div className="mb-8">
                   <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{sq(lang, "Dërgoni CV-në tuaj", "Send your resume", "Envíe su CV", "Senden Sie Ihren Lebenslauf", "Испратете го вашето CV")}</h2>
-                  <p className="text-sm text-gray-500">{sq(lang, "S'ka pozitë aktive? Lëreni CV-në dhe do t'ju kontaktojmë kur kemi hapësira.", "No open position? Leave your resume and we'll reach out when we have openings.", "¿No hay puesto abierto? Deje su CV y nos pondremos en contacto cuando tengamos vacantes.", "Keine offene Stelle? Hinterlassen Sie Ihren Lebenslauf und wir melden uns, wenn wir offene Stellen haben.", "Нема отворена позиција? Оставете го вашето CV и ќе ве контактираме кога ќе имаме отворени позиции.")}</p>
+                  <p className="text-sm text-gray-500">{sq(lang, "S'ka pozitë aktive? Lëreni CV-në dhe do t'ju kontaktojmë kur kemi hapësira.", "No open position? Leave your resume and we'll reach out when we have openings.", "No hay puesto abierto? Deje su CV y nos pondremos en contacto cuando tengamos vacantes.", "Keine offene Stelle? Hinterlassen Sie Ihren Lebenslauf und wir melden uns, wenn wir offene Stellen haben.", "Нема отворена позиција? Оставете го вашето CV и ќе ве контактираме кога ќе имаме отворени позиции.")}</p>
                 </div>
 
                 <div className="space-y-4">
@@ -324,7 +324,7 @@ export default function Careers() {
                     <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Disponueshmëria", "Availability", "Disponibilidad", "Verfügbarkeit", "Достапност")}</label>
                     <select value={form.availability} onChange={e => set("availability", e.target.value)}
                       className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
-                      <option value="">{sq(lang, "Kur mund të filloni?", "When can you start?", "¿Cuándo puede empezar?", "Wann können Sie beginnen?", "Кога можете да почнете?")}</option>
+                      <option value="">{sq(lang, "Kur mund të filloni?", "When can you start?", "Cuándo puede empezar?", "Wann können Sie beginnen?", "Кога можете да почнете?")}</option>
                       <option value="immediately">{sq(lang, "Menjëherë", "Immediately", "Inmediatamente", "Sofort", "Веднаш")}</option>
                       <option value="2weeks">{sq(lang, "2 javë njoftim", "2 weeks notice", "2 semanas de aviso", "2 Wochen Kündigungsfrist", "2 недели известување")}</option>
                       <option value="1month">{sq(lang, "1 muaj njoftim", "1 month notice", "1 mes de aviso", "1 Monat Kündigungsfrist", "1 месец известување")}</option>
@@ -367,7 +367,7 @@ export default function Careers() {
 
             {/* Mission */}
             <div className="max-w-2xl mb-14">
-              <h2 className="text-2xl font-extrabold text-gray-900 mb-3">{sq(lang, "Kush jemi ne?", "Who are we?", "¿Quiénes somos?", "Wer sind wir?", "Кои сме ние?")}</h2>
+              <h2 className="text-2xl font-extrabold text-gray-900 mb-3">{sq(lang, "Kush jemi ne?", "Who are we?", "Quiénes somos?", "Wer sind wir?", "Кои сме ние?")}</h2>
               <p className="text-sm text-gray-600 leading-relaxed mb-4">
                 {sq(lang,
                   "Clientlly është një startup kosovar që ndërton software të menaxhimit të biznesit për ndërmarrjet e vogla dhe të mesme. Filluat në 2021 me një ide të thjeshtë: bizneset e vogla meritojnë mjete profesionale, pa çmime të çmendura.",
@@ -421,7 +421,7 @@ export default function Careers() {
 
             {/* CTA */}
             <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-8 text-center">
-              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{sq(lang, "Gati të bashkoheni?", "Ready to join?", "¿Listo para unirse?", "Bereit beizutreten?", "Подготвени да се придружите?")}</h3>
+              <h3 className="text-lg font-extrabold text-gray-900 mb-2">{sq(lang, "Gati të bashkoheni?", "Ready to join?", "Listo para unirse?", "Bereit beizutreten?", "Подготвени да се придружите?")}</h3>
               <p className="text-sm text-gray-500 mb-5">
                 {sq(lang,
                   "Mos prisni hapësirë perfekte — nëse besoni në atë që ndërtojmë, dërgoni aplikim.",

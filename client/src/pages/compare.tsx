@@ -327,7 +327,7 @@ export default function Compare() {
 
         <div className="text-center mt-12">
           <h3 className="text-2xl font-bold text-foreground mb-4">
-            {sq(lang, "Gati për të filluar?", "Ready to get started?", "¿Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?")}
+            {sq(lang, "Gati për të filluar?", "Ready to get started?", "Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?")}
           </h3>
           <p className="text-muted-foreground mb-6">
             {sq(lang,

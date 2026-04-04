@@ -53,7 +53,7 @@ export default function Success() {
           
           <CardContent className="space-y-6">
             <div className="bg-white rounded-lg p-6 border border-green-200">
-              <h3 className="font-semibold text-green-800 mb-4">{sq(lang, "Çfarë ndodh tani?", "What happens next?", "¿Qué pasa después?", "Was passiert als Nächstes?", "Што следува понатаму?")}</h3>
+              <h3 className="font-semibold text-green-800 mb-4">{sq(lang, "Çfarë ndodh tani?", "What happens next?", "Qué pasa después?", "Was passiert als Nächstes?", "Што следува понатаму?")}</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 slide-in-left stagger-1">
@@ -121,7 +121,7 @@ export default function Success() {
             
             <div className="text-center pt-4 border-t">
               <p className="text-sm text-muted-foreground mb-2">
-                {sq(lang, "Keni nevojë për ndihmë për të filluar?", "Need help getting started?", "¿Necesitas ayuda para empezar?", "Brauchen Sie Hilfe beim Einstieg?", "Ви треба помош за почеток?")}
+                {sq(lang, "Keni nevojë për ndihmë për të filluar?", "Need help getting started?", "Necesitas ayuda para empezar?", "Brauchen Sie Hilfe beim Einstieg?", "Ви треба помош за почеток?")}
               </p>
               <div className="flex flex-col sm:flex-row gap-2 justify-center">
                 <Button variant="link" size="sm">

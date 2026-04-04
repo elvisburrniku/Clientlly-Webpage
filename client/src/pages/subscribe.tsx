@@ -540,7 +540,7 @@ export default function Subscribe() {
             </Label>
           </div>
           <p className="text-xs text-gray-400 text-center">
-            {sq(lang, "Keni tashmë llogari?", "Already have an account?", "¿Ya tiene una cuenta?", "Bereits ein Konto?", "Веќе имате сметка?")} <a href="/api/login" className="text-indigo-600 hover:underline font-semibold">{sq(lang, "Hyni", "Log in", "Iniciar sesión", "Anmelden", "Најавете се")}</a>
+            {sq(lang, "Keni tashmë llogari?", "Already have an account?", "Ya tiene una cuenta?", "Bereits ein Konto?", "Веќе имате сметка?")} <a href="/api/login" className="text-indigo-600 hover:underline font-semibold">{sq(lang, "Hyni", "Log in", "Iniciar sesión", "Anmelden", "Најавете се")}</a>
           </p>
         </div>
       </div>

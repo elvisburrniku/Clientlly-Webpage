@@ -325,7 +325,7 @@ export default function Webinars() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            {sq(lang, "Gati të Mësoni Më Shumë?", "Ready to Learn More?", "¿Listo para Aprender Más?", "Bereit Mehr zu Erfahren?", "Подготвени да Научите Повеќе?")}
+            {sq(lang, "Gati të Mësoni Më Shumë?", "Ready to Learn More?", "Listo para Aprender Más?", "Bereit Mehr zu Erfahren?", "Подготвени да Научите Повеќе?")}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Bashkohuni në webinarin tonë të ardhshëm dhe zbuloni si të maksimizoni potencialin e biznesit tuaj me udhëzim ekspert dhe pyetje-përgjigje live.", "Join our next webinar and discover how to maximize your business potential with expert guidance and live Q&A.", "Únase a nuestro próximo webinar y descubra cómo maximizar el potencial de su negocio con orientación experta y preguntas y respuestas en vivo.", "Nehmen Sie an unserem nächsten Webinar teil und entdecken Sie, wie Sie Ihr Geschäftspotenzial mit Expertenberatung und Live-Q&A maximieren können.", "Придружете се на нашиот следен вебинар и откријте како да го максимизирате потенцијалот на вашиот бизнис со експертско водство и Q&A во живо.")}

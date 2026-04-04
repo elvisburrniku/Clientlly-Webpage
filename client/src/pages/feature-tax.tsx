@@ -538,7 +538,7 @@ export default function FeatureTax() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8 fade-in">
             <h2 className="text-4xl font-bold text-foreground">
-              {sq(lang, "Gati për të thjeshtuar taksat tuaja?", "Ready to simplify your taxes?", "¿Listo para simplificar sus impuestos?", "Bereit, Ihre Steuern zu vereinfachen?", "Подготвени да ги поедноставите вашите даноци?")}
+              {sq(lang, "Gati për të thjeshtuar taksat tuaja?", "Ready to simplify your taxes?", "Listo para simplificar sus impuestos?", "Bereit, Ihre Steuern zu vereinfachen?", "Подготвени да ги поедноставите вашите даноци?")}
             </h2>
             <p className="text-xl text-muted-foreground">
               {sq(lang, "Bashkohuni me mijëra biznese që përdorin menaxhimin tonë tatimor për të qëndruar në pajtueshmëri dhe maksimizuar zbritjet", "Join thousands of businesses using our tax management to stay compliant and maximize deductions", "Únase a miles de empresas que usan nuestra gestión fiscal para mantenerse conformes y maximizar deducciones", "Schließen Sie sich Tausenden von Unternehmen an, die unsere Steuerverwaltung nutzen, um konform zu bleiben und Abzüge zu maximieren", "Придружете се на илјадници бизниси кои го користат нашето даночно управување за да останат усогласени и да ги максимизираат одбитоците")}

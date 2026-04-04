@@ -88,7 +88,7 @@ export const LANDING = {
   grow_your_ideas: { sq: "Idetë Tuaja", en: "Your Ideas", es: "Sus Ideas", de: "Ihre Ideen", mk: "Вашите Идеи" } as T5,
   grow_free_dev:   { sq: "Zhvillim i Personalizuar Falas", en: "Free Custom Development", es: "Desarrollo personalizado gratuito", de: "Kostenlose benutzerdefinierte Entwicklung", mk: "Бесплатен Прилагоден Развој" } as T5,
   grow_shared:     { sq: "Rritje e Përbashkët", en: "Shared Growth", es: "Crecimiento Compartido", de: "Gemeinsames Wachstum", mk: "Заеднички Раст" } as T5,
-  cta_title:       { sq: "Gati të Besoni Biznesin Tuaj tek Ne?", en: "Ready to Trust Your Business With Us?", es: "¿Listo para confiar su negocio con nosotros?", de: "Bereit, Ihr Unternehmen uns anzuvertrauen?", mk: "Готови да го доверите вашиот бизнис на нас?" } as T5,
+  cta_title:       { sq: "Gati të Besoni Biznesin Tuaj tek Ne?", en: "Ready to Trust Your Business With Us?", es: "Listo para confiar su negocio con nosotros?", de: "Bereit, Ihr Unternehmen uns anzuvertrauen?", mk: "Готови да го доверите вашиот бизнис на нас?" } as T5,
   cta_sub:         { sq: "Bashkohuni me bizneset që kanë transformuar operacionet e tyre me Clientlly.", en: "Join businesses that have transformed their operations with Clientlly.", es: "Únase a las empresas que han transformado sus operaciones con Clientlly.", de: "Schließen Sie sich Unternehmen an, die ihre Abläufe mit Clientlly transformiert haben.", mk: "Придружете им се на бизнисите кои ги трансформираа своите операции со Clientlly." } as T5,
   ben_time:        { sq: "Kurseni 15+ Orë në Javë", en: "Save 15+ Hours Per Week", es: "Ahorre más de 15 horas por semana", de: "Sparen Sie 15+ Stunden pro Woche", mk: "Заштедете 15+ Часа неделно" } as T5,
   ben_revenue:     { sq: "Rritni të Ardhurat me 30%", en: "Grow Revenue by 30%", es: "Aumente los ingresos un 30%", de: "Steigern Sie den Umsatz um 30%", mk: "Зголемете Приходи за 30%" } as T5,
@@ -126,9 +126,9 @@ export const COMPARE = {
   hero_title:      { sq: "Krahasoni Planet", en: "Compare Plans", es: "Comparar Planes", de: "Pläne Vergleichen", mk: "Споредете Планови" } as T5,
   hero_sub:        { sq: "Të gjitha planet përfshijnë të gjitha 16 modulet. Ndryshon vetëm numri i përdoruesve dhe faturave.", en: "All plans include all 16 modules. Only the number of users and invoices differs.", es: "Todos los planes incluyen los 16 módulos. Solo difiere el número de usuarios y facturas.", de: "Alle Pläne beinhalten alle 16 Module. Nur die Anzahl der Benutzer und Rechnungen unterscheidet sich.", mk: "Сите планови вклучуваат сите 16 модули. Се разликува само бројот на корисници и фактури." } as T5,
   table_feature:   { sq: "Veçoria", en: "Feature", es: "Característica", de: "Funktion", mk: "Функција" } as T5,
-  why_one:         { sq: "Pse të gjitha planet kanë të njëjtat veçori?", en: "Why do all plans have the same features?", es: "¿Por qué todos los planes tienen las mismas características?", de: "Warum haben alle Pläne dieselben Funktionen?", mk: "Зошто сите планови имаат исти функции?" } as T5,
+  why_one:         { sq: "Pse të gjitha planet kanë të njëjtat veçori?", en: "Why do all plans have the same features?", es: "Por qué todos los planes tienen las mismas características?", de: "Warum haben alle Pläne dieselben Funktionen?", mk: "Зошто сите планови имаат исти функции?" } as T5,
   why_one_sub:     { sq: "Besojmë se çdo biznes, pavarësisht nga madhësia, meriton akses të plotë në të gjitha mjetet.", en: "We believe every business, regardless of size, deserves full access to all tools.", es: "Creemos que cada empresa, independientemente de su tamaño, merece acceso completo a todas las herramientas.", de: "Wir glauben, dass jedes Unternehmen, unabhängig von der Größe, vollen Zugang zu allen Tools verdient.", mk: "Веруваме дека секој бизнис, без оглед на големината, заслужува целосен пристап до сите алатки." } as T5,
-  cta_title:       { sq: "Gati të filloni?", en: "Ready to get started?", es: "¿Listo para comenzar?", de: "Bereit loszulegen?", mk: "Готови да започнете?" } as T5,
+  cta_title:       { sq: "Gati të filloni?", en: "Ready to get started?", es: "Listo para comenzar?", de: "Bereit loszulegen?", mk: "Готови да започнете?" } as T5,
 };
 
 // ─── ABOUT ───────────────────────────────────────────────────────────────────
@@ -141,7 +141,7 @@ export const ABOUT = {
   team_title:      { sq: "Takoni Ekipin", en: "Meet the Team", es: "Conoce al Equipo", de: "Lernen Sie das Team kennen", mk: "Запознајте го Тимот" } as T5,
   team_sub:        { sq: "Inovatorët e pasionuar që drejtojnë suksesin e Clientlly", en: "The passionate innovators driving Clientlly's success", es: "Los innovadores apasionados que impulsan el éxito de Clientlly", de: "Die leidenschaftlichen Innovatoren, die Clientllys Erfolg vorantreiben", mk: "Страствените иноватори кои го движат успехот на Clientlly" } as T5,
   grow_title:      { sq: "Le të rritemi së bashku", en: "Let's grow together", es: "Crezcamos juntos", de: "Lasst uns gemeinsam wachsen", mk: "Да растеме заедно" } as T5,
-  cta_title:       { sq: "Gati të Besoni Biznesin Tuaj tek Ne?", en: "Ready to Trust Your Business With Us?", es: "¿Listo para confiar su negocio con nosotros?", de: "Bereit, Ihr Unternehmen uns anzuvertrauen?", mk: "Готови да го доверите вашиот бизнис на нас?" } as T5,
+  cta_title:       { sq: "Gati të Besoni Biznesin Tuaj tek Ne?", en: "Ready to Trust Your Business With Us?", es: "Listo para confiar su negocio con nosotros?", de: "Bereit, Ihr Unternehmen uns anzuvertrauen?", mk: "Готови да го доверите вашиот бизнис на нас?" } as T5,
   values_title:    { sq: "Vlerat Tona", en: "Our Values", es: "Nuestros Valores", de: "Unsere Werte", mk: "Нашите Вредности" } as T5,
 };
 
@@ -174,7 +174,7 @@ export const COLLAB = {
   success_title:   { sq: "Histori Suksesi", en: "Success Stories", es: "Historias de Éxito", de: "Erfolgsgeschichten", mk: "Успешни Приказни" } as T5,
   success_sub:     { sq: "Bizneset flasin", en: "Businesses speak", es: "Las empresas hablan", de: "Unternehmen sprechen", mk: "Бизнисите зборуваат" } as T5,
   avail_pro:       { sq: "I disponueshëm në Pro & Enterprise", en: "Available in Pro & Enterprise", es: "Disponible en Pro y Enterprise", de: "Verfügbar in Pro & Enterprise", mk: "Достапно во Pro & Enterprise" } as T5,
-  cta_title:       { sq: "Gati të ndërtojmë bashkë?", en: "Ready to build together?", es: "¿Listos para construir juntos?", de: "Bereit gemeinsam zu bauen?", mk: "Готови да градиме заедно?" } as T5,
+  cta_title:       { sq: "Gati të ndërtojmë bashkë?", en: "Ready to build together?", es: "Listos para construir juntos?", de: "Bereit gemeinsam zu bauen?", mk: "Готови да градиме заедно?" } as T5,
   cta_sub:         { sq: "Zgjidhni planin Professional ose Enterprise dhe filloni të dërgoni idetë tuaja sot.", en: "Choose the Professional or Enterprise plan and start submitting your ideas today.", es: "Elija el plan Professional o Enterprise y comience a enviar sus ideas hoy.", de: "Wählen Sie den Professional- oder Enterprise-Plan und beginnen Sie noch heute, Ihre Ideen einzureichen.", mk: "Изберете Professional или Enterprise план и започнете да ги испраќате вашите идеи денес." } as T5,
 };
 
@@ -182,7 +182,7 @@ export const COLLAB = {
 export const TRIAL = {
   hero_badge:      { sq: "14 Ditë Falas • Akses i Plotë", en: "14 Days Free • Full Access", es: "14 Días Gratis • Acceso Completo", de: "14 Tage kostenlos • Voller Zugang", mk: "14 Дена Бесплатно • Целосен Пристап" } as T5,
   hero_title:      { sq: "Filloni Provën Tuaj Falas", en: "Start Your Free Trial", es: "Comience su Prueba Gratuita", de: "Starten Sie Ihre kostenlose Testversion", mk: "Започнете ја Вашата Бесплатна Проба" } as T5,
-  form_title:      { sq: "Gati të Filloni?", en: "Ready to Launch?", es: "¿Listo para Comenzar?", de: "Bereit zum Starten?", mk: "Готови да Започнете?" } as T5,
+  form_title:      { sq: "Gati të Filloni?", en: "Ready to Launch?", es: "Listo para Comenzar?", de: "Bereit zum Starten?", mk: "Готови да Започнете?" } as T5,
   form_sub:        { sq: "Konfiguroni llogarinë tuaj provë falas sot", en: "Set up your free trial account today", es: "Configure su cuenta de prueba gratuita hoy", de: "Richten Sie noch heute Ihr kostenloses Testkonto ein", mk: "Поставете ја вашата бесплатна пробна сметка денес" } as T5,
   start_btn:       { sq: "Filloni Provën Time Falas Tani", en: "Start My Free Trial Now", es: "Comenzar Mi Prueba Gratuita Ahora", de: "Meine kostenlose Testversion Jetzt Starten", mk: "Започни ја Мојата Бесплатна Проба Сега" } as T5,
   vip_title:       { sq: "Përvojë VIP e Mbështetjes", en: "VIP Support Experience", es: "Experiencia de Soporte VIP", de: "VIP-Support-Erfahrung", mk: "VIP Искуство за Поддршка" } as T5,
@@ -194,9 +194,9 @@ export const LOGIN = {
   hero_title:      { sq: "Mirë se Vini Përsëri", en: "Welcome Back", es: "Bienvenido de Nuevo", de: "Willkommen Zurück", mk: "Добредојде Повторно" } as T5,
   hero_sub:        { sq: "Identifikohuni për të aksesuar faqen tuaj të biznesit", en: "Sign in to access your business dashboard", es: "Inicie sesión para acceder al panel de su negocio", de: "Melden Sie sich an, um auf Ihr Unternehmens-Dashboard zuzugreifen", mk: "Пријавете се за да го достапите вашиот деловен панел" } as T5,
   sign_in:         { sq: "Hyr", en: "Sign In", es: "Iniciar Sesión", de: "Anmelden", mk: "Најави Се" } as T5,
-  no_account:      { sq: "Nuk keni llogari?", en: "Don't have an account?", es: "¿No tiene una cuenta?", de: "Kein Konto?", mk: "Немате сметка?" } as T5,
-  forgot:          { sq: "Keni harruar fjalëkalimin?", en: "Forgot password?", es: "¿Olvidó su contraseña?", de: "Passwort vergessen?", mk: "Сте ја заборавиле лозинката?" } as T5,
-  new_to:          { sq: "I ri në Clientlly?", en: "New to Clientlly?", es: "¿Nuevo en Clientlly?", de: "Neu bei Clientlly?", mk: "Нов во Clientlly?" } as T5,
+  no_account:      { sq: "Nuk keni llogari?", en: "Don't have an account?", es: "No tiene una cuenta?", de: "Kein Konto?", mk: "Немате сметка?" } as T5,
+  forgot:          { sq: "Keni harruar fjalëkalimin?", en: "Forgot password?", es: "Olvidó su contraseña?", de: "Passwort vergessen?", mk: "Сте ја заборавиле лозинката?" } as T5,
+  new_to:          { sq: "I ri në Clientlly?", en: "New to Clientlly?", es: "Nuevo en Clientlly?", de: "Neu bei Clientlly?", mk: "Нов во Clientlly?" } as T5,
 };
 
 // ─── FEATURES PAGE ───────────────────────────────────────────────────────────
@@ -205,7 +205,7 @@ export const FEATURES_PAGE = {
   hero_sub:        { sq: "Nga oferta, faturimi dhe shpenzimet, tek mirëmbajtja, menaxhimi i flotës dhe burimet njerëzore — Clientlly zëvendëson çdo aplikacion tjetër.", en: "From quotes, invoicing and expenses, to maintenance, fleet management and HR — Clientlly replaces every other app.", es: "Desde presupuestos, facturación y gastos, hasta mantenimiento, gestión de flotas y RRHH — Clientlly reemplaza todas las demás aplicaciones.", de: "Von Angeboten, Rechnungen und Ausgaben bis hin zu Wartung, Flottenmanagement und HR — Clientlly ersetzt alle anderen Apps.", mk: "Од понуди, фактурирање и трошоци, до одржување, управување со флота и ЧР — Clientlly ги заменува сите други апликации." } as T5,
   modules_title:   { sq: "16 Module të Integruara", en: "16 Integrated Modules", es: "16 Módulos Integrados", de: "16 Integrierte Module", mk: "16 Интегрирани Модули" } as T5,
   explore:         { sq: "Eksploro", en: "Explore", es: "Explorar", de: "Erkunden", mk: "Истражи" } as T5,
-  contact_cta:     { sq: "Keni pyetje? Na kontaktoni.", en: "Have questions? Contact us.", es: "¿Tiene preguntas? Contáctenos.", de: "Haben Sie Fragen? Kontaktieren Sie uns.", mk: "Имате прашања? Контактирајте нè." } as T5,
+  contact_cta:     { sq: "Keni pyetje? Na kontaktoni.", en: "Have questions? Contact us.", es: "Tiene preguntas? Contáctenos.", de: "Haben Sie Fragen? Kontaktieren Sie uns.", mk: "Имате прашања? Контактирајте нè." } as T5,
 };
 
 // ─── SHARED FEATURE DETAIL PAGES ─────────────────────────────────────────────
@@ -215,7 +215,7 @@ export const FEAT = {
   features_tab:    { sq: "Veçoritë", en: "Features", es: "Características", de: "Funktionen", mk: "Функции" } as T5,
   demo:            { sq: "Demo", en: "Demo", es: "Demo", de: "Demo", mk: "Демо" } as T5,
   what_say:        { sq: "Çfarë thonë klientët tanë", en: "What our clients say", es: "Lo que dicen nuestros clientes", de: "Was unsere Kunden sagen", mk: "Што велат нашите клиенти" } as T5,
-  ready:           { sq: "Gati të filloni?", en: "Ready to get started?", es: "¿Listo para comenzar?", de: "Bereit loszulegen?", mk: "Готови да започнете?" } as T5,
+  ready:           { sq: "Gati të filloni?", en: "Ready to get started?", es: "Listo para comenzar?", de: "Bereit loszulegen?", mk: "Готови да започнете?" } as T5,
   trust_title:     { sq: "Pse bizneset na besojnë", en: "Why businesses trust us", es: "Por qué las empresas confían en nosotros", de: "Warum Unternehmen uns vertrauen", mk: "Зошто бизнисите нè доверуваат" } as T5,
   // Feature names
   invoicing:       { sq: "Faturim Profesional", en: "Professional Invoicing", es: "Facturación Profesional", de: "Professionelle Rechnungsstellung", mk: "Професионално Фактурирање" } as T5,
@@ -242,7 +242,7 @@ export const CHAT = {
   title:           { sq: "Mbështetja Clientlly", en: "Clientlly Support", es: "Soporte Clientlly", de: "Clientlly Support", mk: "Clientlly Поддршка" } as T5,
   subtitle:        { sq: "Bot AI • Online", en: "AI Bot • Online", es: "Bot IA • En Línea", de: "KI-Bot • Online", mk: "AI Бот • Онлајн" } as T5,
   placeholder:     { sq: "Shkruani pyetjen tuaj...", en: "Type your question...", es: "Escriba su pregunta...", de: "Schreiben Sie Ihre Frage...", mk: "Напишете го вашето прашање..." } as T5,
-  greeting:        { sq: "Mirë se vini! Jam asistenti i Clientlly. Si mund t'ju ndihmoj sot?", en: "Welcome! I'm the Clientlly assistant. How can I help you today?", es: "¡Bienvenido! Soy el asistente de Clientlly. ¿En qué puedo ayudarle hoy?", de: "Willkommen! Ich bin der Clientlly-Assistent. Wie kann ich Ihnen heute helfen?", mk: "Добредојдовте! Јас сум Clientlly асистентот. Како можам да ви помогнам денес?" } as T5,
+  greeting:        { sq: "Mirë se vini! Jam asistenti i Clientlly. Si mund t'ju ndihmoj sot?", en: "Welcome! I'm the Clientlly assistant. How can I help you today?", es: "¡Bienvenido! Soy el asistente de Clientlly. En qué puedo ayudarle hoy?", de: "Willkommen! Ich bin der Clientlly-Assistent. Wie kann ich Ihnen heute helfen?", mk: "Добредојдовте! Јас сум Clientlly асистентот. Како можам да ви помогнам денес?" } as T5,
   quick_pricing:   { sq: "Çmimet", en: "Pricing", es: "Precios", de: "Preise", mk: "Цени" } as T5,
   quick_features:  { sq: "Veçoritë", en: "Features", es: "Características", de: "Funktionen", mk: "Функции" } as T5,
   quick_trial:     { sq: "Prova Falas", en: "Free Trial", es: "Prueba Gratuita", de: "Kostenlose Testversion", mk: "Бесплатна Проба" } as T5,
@@ -252,7 +252,7 @@ export const CHAT = {
   resp_features:   { sq: "Clientlly përfshin 16 module: Faturim, Shpenzime, Borxhe, Raporte, Klientë, Furnitorë, Inventar, Prezencë GPS, HR, Kalendar, Flotë, Mirëmbajtje, Oferta, Pagat, Leje dhe Trajnim.", en: "Clientlly includes 16 modules: Invoicing, Expenses, Debt, Reports, Clients, Vendors, Inventory, GPS Attendance, HR, Calendar, Fleet, Maintenance, Quotes, Payroll, Leaves and Training.", es: "Clientlly incluye 16 módulos: Facturación, Gastos, Deudas, Informes, Clientes, Proveedores, Inventario, Asistencia GPS, RRHH, Calendario, Flotas, Mantenimiento, Presupuestos, Nómina, Permisos y Formación.", de: "Clientlly umfasst 16 Module: Rechnungen, Ausgaben, Schulden, Berichte, Kunden, Lieferanten, Inventar, GPS-Anwesenheit, HR, Kalender, Flotte, Wartung, Angebote, Gehaltsabrechnung, Urlaub und Training.", mk: "Clientlly вклучува 16 модули: Фактурирање, Трошоци, Долгови, Извештаи, Клиенти, Добавувачи, Залихи, GPS Присуство, ЧР, Календар, Флота, Одржување, Понуди, Плати, Отсуства и Обука." } as T5,
   resp_trial:      { sq: "Filloni provën 14-ditore falas! Asnjë kartë krediti nuk kërkohet. Vizitoni faqen e provës tonë.", en: "Start your 14-day free trial! No credit card required. Visit our trial page.", es: "¡Comience su prueba gratuita de 14 días! Sin tarjeta de crédito. Visite nuestra página de prueba.", de: "Starten Sie Ihre 14-tägige kostenlose Testversion! Keine Kreditkarte erforderlich. Besuchen Sie unsere Testseite.", mk: "Започнете ја вашата 14-дневна бесплатна проба! Не е потребна кредитна картичка. Посетете ја нашата страница за проба." } as T5,
   resp_support:    { sq: "Ekipi ynë i mbështetjes është i disponueshëm 24/7. Na kontaktoni në info@clientlly.com ose vizitoni faqen e kontaktit.", en: "Our support team is available 24/7. Contact us at info@clientlly.com or visit our contact page.", es: "Nuestro equipo de soporte está disponible 24/7. Contáctenos en info@clientlly.com o visite nuestra página de contacto.", de: "Unser Support-Team ist 24/7 verfügbar. Kontaktieren Sie uns unter info@clientlly.com oder besuchen Sie unsere Kontaktseite.", mk: "Нашиот тим за поддршка е достапен 24/7. Контактирајте нè на info@clientlly.com или посетете ја нашата страница за контакт." } as T5,
-  resp_default:    { sq: "Faleminderit për mesazhin tuaj! Ekipi ynë do t'ju ndihmojë shpejt. A keni pyetje specifike rreth çmimeve, veçorive ose mbështetjes?", en: "Thank you for your message! Our team will help you shortly. Do you have a specific question about pricing, features or support?", es: "¡Gracias por su mensaje! Nuestro equipo le ayudará pronto. ¿Tiene alguna pregunta específica sobre precios, funciones o soporte?", de: "Danke für Ihre Nachricht! Unser Team hilft Ihnen in Kürze. Haben Sie eine spezifische Frage zu Preisen, Funktionen oder Support?", mk: "Ви благодариме за вашата порака! Нашиот тим ќе ви помогне наскоро. Дали имате конкретно прашање за цените, функциите или поддршката?" } as T5,
+  resp_default:    { sq: "Faleminderit për mesazhin tuaj! Ekipi ynë do t'ju ndihmojë shpejt. A keni pyetje specifike rreth çmimeve, veçorive ose mbështetjes?", en: "Thank you for your message! Our team will help you shortly. Do you have a specific question about pricing, features or support?", es: "¡Gracias por su mensaje! Nuestro equipo le ayudará pronto. Tiene alguna pregunta específica sobre precios, funciones o soporte?", de: "Danke für Ihre Nachricht! Unser Team hilft Ihnen in Kürze. Haben Sie eine spezifische Frage zu Preisen, Funktionen oder Support?", mk: "Ви благодариме за вашата порака! Нашиот тим ќе ви помогне наскоро. Дали имате конкретно прашање за цените, функциите или поддршката?" } as T5,
 };
 
 // ─── PLAN FEATURES (client-side translations of server plan strings) ──────────

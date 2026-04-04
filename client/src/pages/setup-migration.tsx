@@ -367,7 +367,7 @@ const SetupMigrationPage = () => {
       {/* Trust Indicators */}
       <section className="py-12 px-4 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-xl font-bold text-foreground mb-8">{sq(lang, "Pse të Zgjidhni BusinessFlow Pro?", "Why Choose BusinessFlow Pro?", "¿Por Qué Elegir BusinessFlow Pro?", "Warum BusinessFlow Pro Wählen?", "Зошто да Изберете BusinessFlow Pro?")}</h3>
+          <h3 className="text-xl font-bold text-foreground mb-8">{sq(lang, "Pse të Zgjidhni BusinessFlow Pro?", "Why Choose BusinessFlow Pro?", "Por Qué Elegir BusinessFlow Pro?", "Warum BusinessFlow Pro Wählen?", "Зошто да Изберете BusinessFlow Pro?")}</h3>
           
           <div className="flex flex-wrap justify-center items-center gap-8 text-base text-muted-foreground">
             <button 
@@ -439,7 +439,7 @@ const SetupMigrationPage = () => {
           <div className="text-6xl mb-8">⚙️</div>
           <h2 className="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">{sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи")}</h2>
           <p className="text-xl text-gray-800 dark:text-gray-200 mb-8 max-w-3xl mx-auto">
-            {sq(lang, "Keni një platformë unike? Ekspertët tanë të migrimit mund të trajtojnë çdo sistem ose format baze të dhënash.", "Have a unique platform? Our migration experts can handle any custom system or database format.", "¿Tiene una plataforma única? Nuestros expertos en migración pueden manejar cualquier sistema personalizado o formato de base de datos.", "Haben Sie eine einzigartige Plattform? Unsere Migrationsexperten können jedes benutzerdefinierte System oder Datenbankformat handhaben.", "Имате уникатна платформа? Нашите експерти за миграција можат да се справат со кој било прилагоден систем или формат на база на податоци.")}
+            {sq(lang, "Keni një platformë unike? Ekspertët tanë të migrimit mund të trajtojnë çdo sistem ose format baze të dhënash.", "Have a unique platform? Our migration experts can handle any custom system or database format.", "Tiene una plataforma única? Nuestros expertos en migración pueden manejar cualquier sistema personalizado o formato de base de datos.", "Haben Sie eine einzigartige Plattform? Unsere Migrationsexperten können jedes benutzerdefinierte System oder Datenbankformat handhaben.", "Имате уникатна платформа? Нашите експерти за миграција можат да се справат со кој било прилагоден систем или формат на база на податоци.")}
           </p>
           <div className="inline-flex items-center space-x-2 bg-white/20 dark:bg-black/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
             <Zap className="w-5 h-5 text-gray-900 dark:text-white" />
@@ -492,7 +492,7 @@ const SetupMigrationPage = () => {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
-            <span className="animate-text-wave">{sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "¿Listo para Comenzar?", "Bereit Loszulegen?", "Подготвени да Започнете?")}</span>
+            <span className="animate-text-wave">{sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Comenzar?", "Bereit Loszulegen?", "Подготвени да Започнете?")}</span>
           </h2>
           <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
             {sq(lang, "Bashkohuni me mijëra biznese që kanë migruar me sukses në BusinessFlow Pro. Ekipi ynë ekspert është gati t'ju ndihmojë të bëni kalimin pa probleme.", "Join thousands of businesses who have successfully migrated to BusinessFlow Pro. Our expert team is ready to help you make the switch seamlessly.", "Únase a miles de empresas que han migrado exitosamente a BusinessFlow Pro. Nuestro equipo de expertos está listo para ayudarlo a hacer el cambio sin problemas.", "Schließen Sie sich Tausenden von Unternehmen an, die erfolgreich zu BusinessFlow Pro migriert haben. Unser Experten-Team steht bereit, um Ihnen den nahtlosen Umstieg zu ermöglichen.", "Придружете се на илјадници бизниси кои успешно мигрираа на BusinessFlow Pro. Нашиот експертски тим е подготвен да ви помогне да го направите преминот беспрекорно.")}

@@ -799,7 +799,7 @@ export default function Landing() {
             {sq(lang,
               <>Gati të besoni biznesin tuaj<br /><span className="text-indigo-400">tek ne?</span></>,
               <>Ready to trust your business<br /><span className="text-indigo-400">with us?</span></>,
-              <>¿Listo para confiar su negocio<br /><span className="text-indigo-400">con nosotros?</span></>,
+              <>Listo para confiar su negocio<br /><span className="text-indigo-400">con nosotros?</span></>,
               <>Bereit, Ihr Unternehmen<br /><span className="text-indigo-400">uns anzuvertrauen?</span></>,
               <>Готови да ни го довери вашиот<br /><span className="text-indigo-400">бизнис?</span></>
             )}

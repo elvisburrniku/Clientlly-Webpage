@@ -316,7 +316,7 @@ export default function Blog() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "¿Listo para Empezar?", "Bereit Loszulegen?", "Подготвени да Започнете?")}
+            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Empezar?", "Bereit Loszulegen?", "Подготвени да Започнете?")}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Vendosni këto njohuri në veprim me BusinessFlow Pro. Filloni provën tuaj falas sot dhe transformoni operacionet e biznesit tuaj.", "Put these insights into action with BusinessFlow Pro. Start your free trial today and transform your business operations.", "Ponga estas ideas en acción con BusinessFlow Pro. Comience su prueba gratuita hoy y transforme las operaciones de su negocio.", "Setzen Sie diese Erkenntnisse mit BusinessFlow Pro in die Tat um. Starten Sie noch heute Ihre kostenlose Testversion und transformieren Sie Ihre Geschäftsabläufe.", "Ставете ги овие увиди во акција со BusinessFlow Pro. Започнете ја вашата бесплатна проба денес и трансформирајте ги вашите деловни операции.")}

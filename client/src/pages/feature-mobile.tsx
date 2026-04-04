@@ -253,7 +253,7 @@ export default function FeatureMobile() {
         {/* Benefits Section */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-3xl p-12 mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">{sq(lang, "Pse të Zgjidhni Aplikacionin Tonë Celular?", "Why Choose Our Mobile App?", "¿Por Qué Elegir Nuestra Aplicación Móvil?", "Warum Unsere Mobile App Wählen?", "Зошто да ја изберете нашата мобилна апликација?")}</h2>
+            <h2 className="text-3xl font-bold mb-4">{sq(lang, "Pse të Zgjidhni Aplikacionin Tonë Celular?", "Why Choose Our Mobile App?", "Por Qué Elegir Nuestra Aplicación Móvil?", "Warum Unsere Mobile App Wählen?", "Зошто да ја изберете нашата мобилна апликација?")}</h2>
             <p className="text-xl text-muted-foreground">{sq(lang, "Përjetoni lirinë e menaxhimit të biznesit tuaj nga kudo", "Experience the freedom of managing your business from anywhere", "Experimente la libertad de gestionar su negocio desde cualquier lugar", "Erleben Sie die Freiheit, Ihr Unternehmen von überall zu verwalten", "Доживејте ја слободата на управување со вашиот бизнис од секаде")}</p>
           </div>
           

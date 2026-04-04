@@ -349,7 +349,7 @@ const AboutPage = () => {
             {sq(lang,
               <>Gati të <span className="text-indigo-400">filloni</span>?</>,
               <>Ready to <span className="text-indigo-400">get started</span>?</>,
-              <>¿Listo para <span className="text-indigo-400">comenzar</span>?</>,
+              <>Listo para <span className="text-indigo-400">comenzar</span>?</>,
               <>Bereit <span className="text-indigo-400">loszulegen</span>?</>,
               <>Подготвени да <span className="text-indigo-400">започнете</span>?</>
             )}

@@ -218,7 +218,7 @@ export default function HelpCenter() {
               {sq(lang, "Qendra e Ndihmës", "Help Center", "Centro de Ayuda", "Hilfezentrum", "Центар за Помош")}
             </Badge>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 fade-in leading-tight tracking-tight">
-              {sq(lang, "Si mund t'ju", "How can we ", "¿Cómo podemos ", "Wie können wir Ihnen ", "Како можеме да ви ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "ndihmojmë?", "help?", "ayudar?", "helfen?", "помогнеме?")}</span>
+              {sq(lang, "Si mund t'ju", "How can we ", "Cómo podemos ", "Wie können wir Ihnen ", "Како можеме да ви ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "ndihmojmë?", "help?", "ayudar?", "helfen?", "помогнеме?")}</span>
             </h1>
             <p className="text-xl lg:text-2xl text-black font-medium max-w-4xl mx-auto leading-relaxed mb-8">
               {sq(lang, "Gjeni përgjigje, mësoni veçoritë dhe përfitoni maksimumin nga BusinessFlow Pro", "Find answers, learn features, and get the most out of BusinessFlow Pro", "Encuentre respuestas, aprenda funciones y aproveche al máximo BusinessFlow Pro", "Finden Sie Antworten, lernen Sie Funktionen kennen und holen Sie das Beste aus BusinessFlow Pro heraus", "Најдете одговори, научете ги функциите и извлечете го максимумот од BusinessFlow Pro")}
@@ -343,7 +343,7 @@ export default function HelpCenter() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            {sq(lang, "Ende Keni Nevojë për Ndihmë?", "Still Need Help?", "¿Aún Necesita Ayuda?", "Brauchen Sie Noch Hilfe?", "Сè Уште Ви Треба Помош?")}
+            {sq(lang, "Ende Keni Nevojë për Ndihmë?", "Still Need Help?", "Aún Necesita Ayuda?", "Brauchen Sie Noch Hilfe?", "Сè Уште Ви Треба Помош?")}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Ekipi ynë i mbështetjes është këtu për t'ju ndihmuar. Na kontaktoni për asistencë të personalizuar me llogarinë tuaj.", "Our support team is here to help. Get in touch for personalized assistance with your account.", "Nuestro equipo de soporte está aquí para ayudar. Póngase en contacto para asistencia personalizada con su cuenta.", "Unser Support-Team ist hier, um zu helfen. Kontaktieren Sie uns für persönliche Unterstützung bei Ihrem Konto.", "Нашиот тим за поддршка е тука да ви помогне. Контактирајте нè за персонализирана помош со вашата сметка.")}

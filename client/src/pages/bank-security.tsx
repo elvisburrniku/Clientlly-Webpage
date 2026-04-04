@@ -381,7 +381,7 @@ const BankSecurityPage = () => {
                   onClick={() => go("/contact")}
                   className="border-2 border-gray-300 hover:border-blue-500 px-8 py-4 text-lg font-bold transition-all duration-300"
                 >
-                  {sq(lang, "Pyetje për Sigurinë?", "Security Questions?", "¿Preguntas de Seguridad?", "Sicherheitsfragen?", "Прашања за Безбедност?")}
+                  {sq(lang, "Pyetje për Sigurinë?", "Security Questions?", "Preguntas de Seguridad?", "Sicherheitsfragen?", "Прашања за Безбедност?")}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </div>

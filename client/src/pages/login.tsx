@@ -217,7 +217,7 @@ export default function Login() {
                   {/* Navigation Links */}
                   <div className="mt-8 space-y-3 text-center">
                     <div className="text-sm text-muted-foreground">
-                      {sq(lang, "Nuk keni llogari?", "Don't have an account?", "¿No tiene una cuenta?", "Haben Sie kein Konto?", "Немате сметка?")}{" "}
+                      {sq(lang, "Nuk keni llogari?", "Don't have an account?", "No tiene una cuenta?", "Haben Sie kein Konto?", "Немате сметка?")}{" "}
                       <Link href="/trial" className="text-primary hover:underline font-medium">{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}</Link>
                     </div>
                     <div className="text-sm">
@@ -341,7 +341,7 @@ export default function Login() {
 
         <div className="max-w-4xl mx-auto text-center px-6 sm:px-8 lg:px-12 relative z-10">
           <h3 className="text-3xl font-bold text-black mb-6">
-            {sq(lang, "I ri në BusinessFlow Pro?", "New to BusinessFlow Pro?", "¿Nuevo en BusinessFlow Pro?", "Neu bei BusinessFlow Pro?", "Нов во BusinessFlow Pro?")}
+            {sq(lang, "I ri në BusinessFlow Pro?", "New to BusinessFlow Pro?", "Nuevo en BusinessFlow Pro?", "Neu bei BusinessFlow Pro?", "Нов во BusinessFlow Pro?")}
           </h3>
           <p className="text-lg text-black mb-8">
             {sq(lang, "Bashkohuni me mijëra biznese që kanë transformuar operacionet e tyre me platformën tonë gjithëpërfshirëse.", "Join thousands of businesses that have transformed their operations with our comprehensive platform.", "Únase a miles de empresas que han transformado sus operaciones con nuestra plataforma integral.", "Schließen Sie sich Tausenden von Unternehmen an, die ihre Abläufe mit unserer umfassenden Plattform transformiert haben.", "Придружете се на илјадници бизниси кои ги трансформираа своите операции со нашата сеопфатна платформа.")}

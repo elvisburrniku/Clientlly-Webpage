@@ -451,7 +451,7 @@ const MigrationRequestPage = () => {
               <div className="space-y-3">
                 <Label htmlFor="contactType" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
                   <MessageSquare className="h-5 w-5 mr-2 text-indigo-500" />
-                  {sq(lang, "Si mund t'ju ndihmojmë?", "What can we help you with?", "¿En qué podemos ayudarle?", "Wie können wir Ihnen helfen?", "Како можеме да ви помогнеме?")}
+                  {sq(lang, "Si mund t'ju ndihmojmë?", "What can we help you with?", "En qué podemos ayudarle?", "Wie können wir Ihnen helfen?", "Како можеме да ви помогнеме?")}
                 </Label>
                 <Select value={formData.contactType} onValueChange={(value) => handleInputChange('contactType', value)}>
                   <SelectTrigger className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-indigo-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-indigo-400">
@@ -587,7 +587,7 @@ const MigrationRequestPage = () => {
                 </Label>
                 <Select value={formData.urgency} onValueChange={(value) => handleInputChange('urgency', value)}>
                   <SelectTrigger className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-orange-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-400">
-                    <SelectValue placeholder={sq(lang, "Kur ju nevojitet të përfundojë migrimi?", "When do you need the migration completed?", "¿Cuándo necesita que se complete la migración?", "Wann muss die Migration abgeschlossen sein?", "Кога треба да се заврши миграцијата?") as string} />
+                    <SelectValue placeholder={sq(lang, "Kur ju nevojitet të përfundojë migrimi?", "When do you need the migration completed?", "Cuándo necesita que se complete la migración?", "Wann muss die Migration abgeschlossen sein?", "Кога треба да се заврши миграцијата?") as string} />
                   </SelectTrigger>
                   <SelectContent>
                     {urgencyOptions.map((option) => (
@@ -611,7 +611,7 @@ const MigrationRequestPage = () => {
                       : formData.contactType === 'Consultation First'
                       ? sq(lang, "Na tregoni për situatën tuaj aktuale dhe çfarë dëshironi të diskutoni në konsultim...", "Tell us about your current situation and what you'd like to discuss in the consultation...", "Cuéntenos sobre su situación actual y qué le gustaría discutir en la consulta...", "Erzählen Sie uns von Ihrer aktuellen Situation und was Sie in der Beratung besprechen möchten...", "Кажете ни за вашата тековна ситуација и што сакате да дискутирате на консултацијата...") as string
                       : formData.contactType === 'Technical Questions Only'
-                      ? sq(lang, "Çfarë pyetjesh teknike specifike keni për platformën tonë ose procesin e migrimit?", "What specific technical questions do you have about our platform or migration process?", "¿Qué preguntas técnicas específicas tiene sobre nuestra plataforma o proceso de migración?", "Welche spezifischen technischen Fragen haben Sie zu unserer Plattform oder dem Migrationsprozess?", "Какви специфични технички прашања имате за нашата платформа или процесот на миграција?") as string
+                      ? sq(lang, "Çfarë pyetjesh teknike specifike keni për platformën tonë ose procesin e migrimit?", "What specific technical questions do you have about our platform or migration process?", "Qué preguntas técnicas específicas tiene sobre nuestra plataforma o proceso de migración?", "Welche spezifischen technischen Fragen haben Sie zu unserer Plattform oder dem Migrationsprozess?", "Какви специфични технички прашања имате за нашата платформа или процесот на миграција?") as string
                       : sq(lang, "Na tregoni si mund t'ju ndihmojmë...", "Tell us how we can help you...", "Cuéntenos cómo podemos ayudarle...", "Erzählen Sie uns, wie wir Ihnen helfen können...", "Кажете ни како можеме да ви помогнеме...") as string
                   }
                   className="min-h-32 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 focus:ring-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400"

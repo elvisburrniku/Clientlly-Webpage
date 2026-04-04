@@ -46,7 +46,7 @@ export default function MobileApp() {
       icon: Wifi,
       color: "bg-amber-100 text-amber-600",
       title: sq(lang, "Punon Offline", "Works Offline", "Funciona Sin Conexión", "Funktioniert Offline", "Работи офлајн"),
-      desc:  sq(lang, "Nuk ka internet? Nuk ka problem. Të dhënat sinkronizohen kur lidhesh.", "No internet? No problem. Data syncs when you reconnect.", "¿Sin internet? No hay problema. Los datos se sincronizan al reconectarse.", "Kein Internet? Kein Problem. Daten werden synchronisiert, wenn Sie sich wieder verbinden.", "Нема интернет? Нема проблем. Податоците се синхронизираат кога ќе се поврзете."),
+      desc:  sq(lang, "Nuk ka internet? Nuk ka problem. Të dhënat sinkronizohen kur lidhesh.", "No internet? No problem. Data syncs when you reconnect.", "Sin internet? No hay problema. Los datos se sincronizan al reconectarse.", "Kein Internet? Kein Problem. Daten werden synchronisiert, wenn Sie sich wieder verbinden.", "Нема интернет? Нема проблем. Податоците се синхронизираат кога ќе се поврзете."),
     },
     {
       icon: Bell,

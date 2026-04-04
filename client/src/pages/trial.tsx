@@ -319,7 +319,7 @@ export default function Trial() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
-              {sq(lang, "Çfarë ndodh pas regjistrimit?", "What happens after sign up?", "¿Qué sucede después de registrarse?", "Was passiert nach der Anmeldung?", "Што се случува по регистрацијата?")}
+              {sq(lang, "Çfarë ndodh pas regjistrimit?", "What happens after sign up?", "Qué sucede después de registrarse?", "Was passiert nach der Anmeldung?", "Што се случува по регистрацијата?")}
             </h2>
             <p className="text-sm text-gray-500">
               {sq(lang, "Tre hapa të thjeshtë — gati brenda 60 sekondave", "Three simple steps — ready in 60 seconds", "Tres pasos simples — listo en 60 segundos", "Drei einfache Schritte — bereit in 60 Sekunden", "Три едноставни чекори — подготвено за 60 секунди")}
@@ -366,19 +366,19 @@ export default function Trial() {
           </h2>
           {[
             {
-              q: { sq: "A duhet kartelë krediti për të filluar provën?", en: "Do I need a credit card to start the trial?", es: "¿Necesito una tarjeta de crédito para iniciar la prueba?", de: "Brauche ich eine Kreditkarte, um die Testversion zu starten?", mk: "Дали ми треба кредитна картичка за да ја започнам пробата?" },
+              q: { sq: "A duhet kartelë krediti për të filluar provën?", en: "Do I need a credit card to start the trial?", es: "Necesito una tarjeta de crédito para iniciar la prueba?", de: "Brauche ich eine Kreditkarte, um die Testversion zu starten?", mk: "Дали ми треба кредитна картичка за да ја започнам пробата?" },
               a: { sq: "Jo aspak. Nuk kërkojmë asnjë të dhënë pagese derisa të vendosni vetë të kaloni në plan të paguar.", en: "Not at all. We don't ask for any payment details until you choose to upgrade to a paid plan.", es: "En absoluto. No solicitamos datos de pago hasta que decida cambiar a un plan de pago.", de: "Überhaupt nicht. Wir verlangen keine Zahlungsdaten, bis Sie sich für ein kostenpflichtiges Abonnement entscheiden.", mk: "Воопшто не. Не бараме никакви податоци за плаќање додека не одлучите да преминете на платен план." },
             },
             {
-              q: { sq: "Çfarë ndodh pas 14 ditëve?", en: "What happens after 14 days?", es: "¿Qué sucede después de 14 días?", de: "Was passiert nach 14 Tagen?", mk: "Што се случува по 14 дена?" },
+              q: { sq: "Çfarë ndodh pas 14 ditëve?", en: "What happens after 14 days?", es: "Qué sucede después de 14 días?", de: "Was passiert nach 14 Tagen?", mk: "Што се случува по 14 дена?" },
               a: { sq: "Do t'ju njoftojmë me email 3 ditë para fundit të provës. Nëse nuk zgjidhni plan, llogaria freezes — nuk humbet asgjë.", en: "We'll notify you by email 3 days before the trial ends. If you don't choose a plan, the account freezes — nothing is lost.", es: "Le notificaremos por correo electrónico 3 días antes de que termine la prueba. Si no elige un plan, la cuenta se congela — nada se pierde.", de: "Wir benachrichtigen Sie per E-Mail 3 Tage vor Ende der Testversion. Wenn Sie keinen Plan wählen, wird das Konto eingefroren — nichts geht verloren.", mk: "Ќе ве известиме по е-пошта 3 дена пред завршувањето на пробата. Ако не изберете план, сметката се замрзнува — ништо не се губи." },
             },
             {
-              q: { sq: "A mund të anuloj në çdo kohë?", en: "Can I cancel at any time?", es: "¿Puedo cancelar en cualquier momento?", de: "Kann ich jederzeit kündigen?", mk: "Дали можам да откажам во секое време?" },
+              q: { sq: "A mund të anuloj në çdo kohë?", en: "Can I cancel at any time?", es: "Puedo cancelar en cualquier momento?", de: "Kann ich jederzeit kündigen?", mk: "Дали можам да откажам во секое време?" },
               a: { sq: "Po, me një klikim. Pa telefonate, pa email-e, pa penalizim. Thjeshta.", en: "Yes, with one click. No phone calls, no emails, no penalty. Simple.", es: "Sí, con un solo clic. Sin llamadas telefónicas, sin correos electrónicos, sin penalización. Simple.", de: "Ja, mit einem Klick. Keine Telefonanrufe, keine E-Mails, keine Strafe. Einfach.", mk: "Да, со еден клик. Без телефонски повици, без е-пошта, без казна. Едноставно." },
             },
             {
-              q: { sq: "A janë të gjitha veçoritë të disponueshme gjatë provës?", en: "Are all features available during the trial?", es: "¿Están disponibles todas las características durante la prueba?", de: "Sind alle Funktionen während der Testversion verfügbar?", mk: "Дали сите карактеристики се достапни за време на пробата?" },
+              q: { sq: "A janë të gjitha veçoritë të disponueshme gjatë provës?", en: "Are all features available during the trial?", es: "Están disponibles todas las características durante la prueba?", de: "Sind alle Funktionen während der Testversion verfügbar?", mk: "Дали сите карактеристики се достапни за време на пробата?" },
               a: { sq: "Po, qasje e plotë në të gjitha 16 modulet — Faturim, HR, GPS Prezencë, Motorpool, CRM, dhe shumë të tjera.", en: "Yes, full access to all 16 modules — Invoicing, HR, GPS Attendance, Motorpool, CRM, and much more.", es: "Sí, acceso completo a los 16 módulos — Facturación, RRHH, Asistencia GPS, Motorpool, CRM y mucho más.", de: "Ja, voller Zugang zu allen 16 Modulen — Rechnungsstellung, HR, GPS-Anwesenheit, Motorpool, CRM und vieles mehr.", mk: "Да, целосен пристап до сите 16 модули — Фактурирање, HR, GPS присуство, Моторпул, CRM и многу повеќе." },
             },
           ].map(({ q, a }, i) => (
@@ -402,7 +402,7 @@ export default function Trial() {
             {sq(lang,
               <>Gati për t'u nisur?<br /><span className="text-indigo-400">14 ditë falas</span>, pa asnjë rrezik.</>,
               <>Ready to get started?<br /><span className="text-indigo-400">14 days free</span>, zero risk.</>,
-              <>¿Listo para comenzar?<br /><span className="text-indigo-400">14 días gratis</span>, sin riesgo.</>,
+              <>Listo para comenzar?<br /><span className="text-indigo-400">14 días gratis</span>, sin riesgo.</>,
               <>Bereit loszulegen?<br /><span className="text-indigo-400">14 Tage kostenlos</span>, ohne Risiko.</>,
               <>Подготвени да започнете?<br /><span className="text-indigo-400">14 дена бесплатно</span>, без ризик.</>
             )}

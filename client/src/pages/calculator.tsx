@@ -534,7 +534,7 @@ export default function Calculator() {
                   <label className="text-sm font-medium mb-3 block">{sq(lang, "Zgjidhja Aktuale", "Current Solution", "Solución Actual", "Aktuelle Lösung", "Тековно Решение")}</label>
                   <Select value={currentPlan} onValueChange={setCurrentPlan}>
                     <SelectTrigger>
-                      <SelectValue placeholder={sq(lang, "Çfarë po përdorni tani?", "What are you using now?", "¿Qué está usando ahora?", "Was verwenden Sie gerade?", "Што користите сега?") as string} />
+                      <SelectValue placeholder={sq(lang, "Çfarë po përdorni tani?", "What are you using now?", "Qué está usando ahora?", "Was verwenden Sie gerade?", "Што користите сега?") as string} />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="none">{sq(lang, "Asnjë zgjidhje aktuale", "No current solution", "Sin solución actual", "Keine aktuelle Lösung", "Нема тековно решение")}</SelectItem>

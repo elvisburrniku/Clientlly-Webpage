@@ -435,7 +435,7 @@ export default function Tutorials() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "¿Listo para Comenzar?", "Bereit Anzufangen?", "Подготвени да Започнете?")}
+            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Comenzar?", "Bereit Anzufangen?", "Подготвени да Започнете?")}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Filloni udhëtimin tuaj të mësimit sot dhe bëhuni ekspert i BusinessFlow Pro në asnjë kohë.", "Start your learning journey today and become a BusinessFlow Pro expert in no time.", "Comience su viaje de aprendizaje hoy y conviértase en un experto de BusinessFlow Pro en poco tiempo.", "Starten Sie noch heute Ihre Lernreise und werden Sie im Handumdrehen ein BusinessFlow Pro-Experte.", "Започнете го вашето патување за учење денес и станете експерт за BusinessFlow Pro за кратко време.")}

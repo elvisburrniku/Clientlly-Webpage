@@ -299,7 +299,7 @@ export default function Community() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            {sq(lang, "Gati për t'u Lidhur?", "Ready to Connect?", "¿Listo para Conectarse?", "Bereit sich zu Verbinden?", "Подготвени да се Поврзете?")}
+            {sq(lang, "Gati për t'u Lidhur?", "Ready to Connect?", "Listo para Conectarse?", "Bereit sich zu Verbinden?", "Подготвени да се Поврзете?")}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Bashkohuni me mijëra pronarë biznesi që po rriten së bashku. Filloni biseda, ndani njohuri dhe ndërtoni rrjetin tuaj.", "Join thousands of business owners who are growing together. Start conversations, share insights, and build your network.", "Únase a miles de propietarios de negocios que están creciendo juntos. Inicie conversaciones, comparta ideas y construya su red.", "Schließen Sie sich Tausenden von Geschäftsinhabern an, die gemeinsam wachsen. Beginnen Sie Gespräche, teilen Sie Erkenntnisse und bauen Sie Ihr Netzwerk auf.", "Придружете се на илјадници сопственици на бизниси кои растат заедно. Започнете разговори, споделете увиди и градете ја вашата мрежа.")}

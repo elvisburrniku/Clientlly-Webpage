@@ -267,7 +267,7 @@ export default function CollaborationPage() {
               {sq(lang, "Procesi", "Process", "Proceso", "Prozess", "Процес")}
             </p>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-              {sq(lang, "Si funksionon?", "How does it work?", "¿Cómo funciona?", "Wie funktioniert es?", "Како функционира?")}
+              {sq(lang, "Si funksionon?", "How does it work?", "Cómo funciona?", "Wie funktioniert es?", "Како функционира?")}
             </h2>
             <p className="text-lg text-gray-500 max-w-xl mx-auto">
               {sq(lang, "Katër hapa të thjeshtë — nga ideja deri te veçoria e gatshme në platformën tuaj.", "Four simple steps — from idea to finished feature in your platform.", "Cuatro pasos simples — desde la idea hasta la función terminada en su plataforma.", "Vier einfache Schritte — von der Idee zum fertigen Feature in Ihrer Plattform.", "Четири едноставни чекори — од идеја до готова функција во вашата платформа.")}
@@ -314,7 +314,7 @@ export default function CollaborationPage() {
               {sq(lang, "Përfitimet", "Benefits", "Beneficios", "Vorteile", "Придобивки")}
             </p>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-              {sq(lang, "Pse bashkëpunimi funksionon?", "Why does collaboration work?", "¿Por qué funciona la colaboración?", "Warum funktioniert Zusammenarbeit?", "Зошто соработката функционира?")}
+              {sq(lang, "Pse bashkëpunimi funksionon?", "Why does collaboration work?", "Por qué funciona la colaboración?", "Warum funktioniert Zusammenarbeit?", "Зошто соработката функционира?")}
             </h2>
           </div>
 
@@ -400,7 +400,7 @@ export default function CollaborationPage() {
             <span className="text-sm font-semibold text-white">{sq(lang, "I disponueshëm në Pro & Enterprise", "Available in Pro & Enterprise", "Disponible en Pro y Enterprise", "Verfügbar in Pro & Enterprise", "Достапно во Pro и Enterprise")}</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">
-            {sq(lang, "Gati të ndërtojmë bashkë?", "Ready to build together?", "¿Listos para construir juntos?", "Bereit, gemeinsam zu bauen?", "Подготвени да градиме заедно?")}
+            {sq(lang, "Gati të ndërtojmë bashkë?", "Ready to build together?", "Listos para construir juntos?", "Bereit, gemeinsam zu bauen?", "Подготвени да градиме заедно?")}
           </h2>
           <p className="text-lg text-white/75 mb-8 max-w-xl mx-auto">
             {sq(lang,

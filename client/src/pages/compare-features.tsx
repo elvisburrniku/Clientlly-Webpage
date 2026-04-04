@@ -304,7 +304,7 @@ export default function CompareFeatures() {
             {
               q: { sq: "A mund të ndërroj planin më vonë?", en: "Can I switch plans later?" },
               a: { sq: "Po, mund të ndërroni planin në çdo kohë. Ndryshimi ndodh menjëherë dhe çmimi rregullohet automatikisht proporcionalisht.", en: "Yes, you can switch plans at any time. The change happens immediately and the price adjusts automatically on a prorated basis." },
-              qEs: "¿Puedo cambiar de plan más tarde?",
+              qEs: "Puedo cambiar de plan más tarde?",
               aEs: "Sí, puede cambiar de plan en cualquier momento. El cambio se realiza de inmediato y el precio se ajusta automáticamente de forma proporcional.",
               qDe: "Kann ich den Plan später wechseln?",
               aDe: "Ja, Sie können den Plan jederzeit wechseln. Die Änderung erfolgt sofort und der Preis wird automatisch anteilig angepasst.",
@@ -314,7 +314,7 @@ export default function CompareFeatures() {
             {
               q: { sq: "A përfshihen të gjitha veçoritë në planin Starter?", en: "Are all features included in the Starter plan?" },
               a: { sq: "Po! Çdo plan përfshin të gjitha 16 modulet e Clientlly. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.", en: "Yes! Every plan includes all 16 Clientlly modules. Differences are only in user count and invoice volume." },
-              qEs: "¿Todas las funciones están incluidas en el plan Starter?",
+              qEs: "Todas las funciones están incluidas en el plan Starter?",
               aEs: "¡Sí! Cada plan incluye los 16 módulos de Clientlly. Las diferencias son solo en el número de usuarios y el volumen de facturas.",
               qDe: "Sind alle Funktionen im Starter-Plan enthalten?",
               aDe: "Ja! Jeder Plan enthält alle 16 Clientlly-Module. Unterschiede bestehen nur in der Benutzeranzahl und dem Rechnungsvolumen.",
@@ -324,7 +324,7 @@ export default function CompareFeatures() {
             {
               q: { sq: "Çfarë ndodh pas 14 ditëve të provës falas?", en: "What happens after the 14-day free trial?" },
               a: { sq: "Pasi të mbarojë prova juaj, ju do t'ju kërkohet të zgjidhni një plan. Nuk kemi të dhëna të kartës tuaj të kreditit derisa të vendosni vetë.", en: "After your trial ends, you'll be asked to choose a plan. We don't have your credit card details until you decide." },
-              qEs: "¿Qué sucede después de la prueba gratuita de 14 días?",
+              qEs: "Qué sucede después de la prueba gratuita de 14 días?",
               aEs: "Después de que termine su prueba, se le pedirá que elija un plan. No tenemos los datos de su tarjeta de crédito hasta que usted decida.",
               qDe: "Was passiert nach der 14-tägigen kostenlosen Testphase?",
               aDe: "Nach Ablauf Ihrer Testphase werden Sie aufgefordert, einen Plan zu wählen. Wir haben Ihre Kreditkartendaten erst, wenn Sie sich entscheiden.",
@@ -334,7 +334,7 @@ export default function CompareFeatures() {
             {
               q: { sq: "A mund të anuloj abonimi në çdo kohë?", en: "Can I cancel my subscription at any time?" },
               a: { sq: "Po, mund të anuloni abonimi tuaj në çdo kohë pa asnjë penalizim. Do të keni qasje deri në fund të periudhës për të cilën keni paguar.", en: "Yes, you can cancel your subscription at any time with no penalty. You'll have access until the end of the period you've paid for." },
-              qEs: "¿Puedo cancelar mi suscripción en cualquier momento?",
+              qEs: "Puedo cancelar mi suscripción en cualquier momento?",
               aEs: "Sí, puede cancelar su suscripción en cualquier momento sin penalización. Tendrá acceso hasta el final del período por el que ha pagado.",
               qDe: "Kann ich mein Abonnement jederzeit kündigen?",
               aDe: "Ja, Sie können Ihr Abonnement jederzeit ohne Strafe kündigen. Sie haben bis zum Ende des bezahlten Zeitraums Zugang.",
@@ -369,7 +369,7 @@ export default function CompareFeatures() {
             {sq(lang,
               <>Gati të filloni? <span className="text-indigo-400">14 ditë falas</span>, pa kartë krediti.</>,
               <>Ready to start? <span className="text-indigo-400">14 days free</span>, no credit card.</>,
-              <>¿Listo para empezar? <span className="text-indigo-400">14 días gratis</span>, sin tarjeta de crédito.</>,
+              <>Listo para empezar? <span className="text-indigo-400">14 días gratis</span>, sin tarjeta de crédito.</>,
               <>Bereit loszulegen? <span className="text-indigo-400">14 Tage kostenlos</span>, keine Kreditkarte.</>,
               <>Подготвени да започнете? <span className="text-indigo-400">14 дена бесплатно</span>, без кредитна картичка.</>
             )}

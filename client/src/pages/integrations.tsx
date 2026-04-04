@@ -513,7 +513,7 @@ export default function Integrations() {
               <Layers className="h-5 w-5 text-gray-400" />
             </div>
             <p className="font-semibold text-gray-700 mb-1">
-              {sq(lang, "Nuk e gjeni integrimin?", "Can't find the integration you need?", "¿No encuentra la integración que necesita?", "Finden Sie die Integration nicht?", "Не ја наоѓате интеграцијата што ви треба?")}
+              {sq(lang, "Nuk e gjeni integrimin?", "Can't find the integration you need?", "No encuentra la integración que necesita?", "Finden Sie die Integration nicht?", "Не ја наоѓате интеграцијата што ви треба?")}
             </p>
             <p className="text-sm text-gray-400 mb-3">
               {sq(lang,
@@ -538,7 +538,7 @@ export default function Integrations() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
-              {sq(lang, "Si funksionon integrimi?", "How does integration work?", "¿Cómo funciona la integración?", "Wie funktioniert die Integration?", "Како функционира интеграцијата?")}
+              {sq(lang, "Si funksionon integrimi?", "How does integration work?", "Cómo funciona la integración?", "Wie funktioniert die Integration?", "Како функционира интеграцијата?")}
             </h2>
             <p className="text-sm text-gray-500">
               {sq(lang, "Tre hapa të thjeshtë — pa kod, pa ekspertizë teknike", "Three simple steps — no code, no technical expertise needed", "Tres pasos simples — sin código, sin experiencia técnica necesaria", "Drei einfache Schritte — kein Code, keine technische Expertise erforderlich", "Три едноставни чекори — без код, без технички познавања")}
@@ -612,7 +612,7 @@ export default function Integrations() {
             {sq(lang,
               <>Gati të lidheni me <span className="text-indigo-400">mjetet tuaja</span>?</>,
               <>Ready to connect your <span className="text-indigo-400">favorite tools</span>?</>,
-              <>¿Listo para conectar sus <span className="text-indigo-400">herramientas favoritas</span>?</>,
+              <>Listo para conectar sus <span className="text-indigo-400">herramientas favoritas</span>?</>,
               <>Bereit, Ihre <span className="text-indigo-400">Lieblingstools</span> zu verbinden?</>,
               <>Подготвени да ги поврзете <span className="text-indigo-400">вашите алатки</span>?</>
             )}

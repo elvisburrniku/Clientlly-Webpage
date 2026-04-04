@@ -129,7 +129,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3">
               <h2 className="text-2xl font-extrabold text-gray-900 mb-4">
-                {sq(lang, "Si funksionon?", "How does it work?", "¿Cómo funciona?", "Wie funktioniert es?", "Како функционира?")}
+                {sq(lang, "Si funksionon?", "How does it work?", "Cómo funciona?", "Wie funktioniert es?", "Како функционира?")}
               </h2>
               <p className="text-gray-600 leading-relaxed text-base mb-8">
                 {pick(lang, data.description)}
@@ -232,7 +232,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
         <div className="absolute bottom-8 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.5s"}}></div>
         <div className="max-w-3xl mx-auto text-center relative">
           <h2 className="text-3xl lg:text-4xl font-extrabold text-black mb-4 tracking-tight">
-            {sq(lang, "Gati të filloni?", "Ready to get started?", "¿Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?")}
+            {sq(lang, "Gati të filloni?", "Ready to get started?", "Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?")}
           </h2>
           <p className="text-black/75 mb-8">
             {sq(lang, "Të 16 modulet të aktivizuara automatikisht me abonimin tuaj. Shtoni ekipin dhe nisni menjëherë.", "All 16 modules activated automatically with your subscription. Add your team and start right away.", "Los 16 módulos se activan automáticamente con su suscripción. Agregue su equipo y comience de inmediato.", "Alle 16 Module werden automatisch mit Ihrem Abonnement aktiviert. Fügen Sie Ihr Team hinzu und starten Sie sofort.", "Сите 16 модули се активираат автоматски со вашата претплата. Додајте го тимот и започнете веднаш.")}

@@ -163,7 +163,7 @@ export default function Dashboard() {
     const userName = (user as any)?.firstName || sq(lang, 'atje', 'there', 'ahí', 'da', 'таму') as string;
     
     const morningMessages = [
-      sq(lang, `Gati për të filluar një ditë tjetër produktive, ${userName}?`, `Ready to start another productive day, ${userName}?`, `¿Listo para comenzar otro día productivo, ${userName}?`, `Bereit für einen weiteren produktiven Tag, ${userName}?`, `Подготвени за уште еден продуктивен ден, ${userName}?`) as string,
+      sq(lang, `Gati për të filluar një ditë tjetër produktive, ${userName}?`, `Ready to start another productive day, ${userName}?`, `Listo para comenzar otro día productivo, ${userName}?`, `Bereit für einen weiteren produktiven Tag, ${userName}?`, `Подготвени за уште еден продуктивен ден, ${userName}?`) as string,
       sq(lang, "Le ta bëjmë këtë ditë të rëndësishme!", "Let's make today count!", "¡Hagamos que hoy cuente!", "Machen wir heute den Unterschied!", "Ајде денеска да направиме разлика!") as string,
       sq(lang, "Biznesi juaj po pret që ju të shkëlqeni sot!", "Your business is waiting for you to shine today!", "¡Tu negocio espera que brilles hoy!", "Ihr Unternehmen wartet darauf, dass Sie heute glänzen!", "Вашиот бизнис чека да блеснете денес!") as string,
       sq(lang, "Koha për t'i kthyer idetë e mëngjesit në realitet!", "Time to turn those morning ideas into reality!", "¡Hora de convertir esas ideas matutinas en realidad!", "Zeit, Ihre Morgenideen in die Realität umzusetzen!", "Време е утринските идеи да ги претворите во реалност!") as string
@@ -177,14 +177,14 @@ export default function Dashboard() {
     ];
     
     const eveningMessages = [
-      sq(lang, `Duke përfunduar një ditë tjetër të suksesshme, ${userName}?`, `Wrapping up another successful day, ${userName}?`, `¿Terminando otro día exitoso, ${userName}?`, `Einen weiteren erfolgreichen Tag abrunden, ${userName}?`, `Завршувате уште еден успешен ден, ${userName}?`) as string,
+      sq(lang, `Duke përfunduar një ditë tjetër të suksesshme, ${userName}?`, `Wrapping up another successful day, ${userName}?`, `Terminando otro día exitoso, ${userName}?`, `Einen weiteren erfolgreichen Tag abrunden, ${userName}?`, `Завршувате уште еден успешен ден, ${userName}?`) as string,
       sq(lang, "Koha për të rishikuar arritjet e sotme!", "Time to review today's achievements!", "¡Hora de revisar los logros de hoy!", "Zeit, die heutigen Errungenschaften zu überprüfen!", "Време е да ги прегледате денешните достигнувања!") as string,
       sq(lang, "Le ta përfundojmë fort sot!", "Let's finish strong today!", "¡Terminemos fuerte hoy!", "Lassen Sie uns heute stark abschließen!", "Ајде да завршиме силно денес!") as string,
       sq(lang, "Planifikimi për nesër fillon tani!", "Planning for tomorrow starts now!", "¡La planificación para mañana comienza ahora!", "Die Planung für morgen beginnt jetzt!", "Планирањето за утре почнува сега!") as string
     ];
     
     const weekendMessages = [
-      sq(lang, `Duke punuar fort edhe në fundjavë? Je i përkushtuar, ${userName}!`, `Working hard even on weekends? You're dedicated, ${userName}!`, `¿Trabajando duro incluso los fines de semana? Eres dedicado, ${userName}!`, `Arbeiten Sie auch am Wochenende hart? Sie sind engagiert, ${userName}!`, `Работите напорно и за викенд? Посветени сте, ${userName}!`) as string,
+      sq(lang, `Duke punuar fort edhe në fundjavë? Je i përkushtuar, ${userName}!`, `Working hard even on weekends? You're dedicated, ${userName}!`, `Trabajando duro incluso los fines de semana? Eres dedicado, ${userName}!`, `Arbeiten Sie auch am Wochenende hart? Sie sind engagiert, ${userName}!`, `Работите напорно и за викенд? Посветени сте, ${userName}!`) as string,
       sq(lang, "Mënyra e punës së fundjavës e aktivizuar!", "Weekend hustle mode activated!", "¡Modo trabajo de fin de semana activado!", "Wochenend-Arbeitsmodus aktiviert!", "Режим на викенд работа активиран!") as string,
       sq(lang, "Përkushtimi juaj është frymëzues!", "Your dedication is inspiring!", "¡Tu dedicación es inspiradora!", "Ihr Engagement ist inspirierend!", "Вашата посветеност е инспиративна!") as string,
       sq(lang, "Suksesi nuk merr pushime fundjavë!", "Success doesn't take weekends off!", "¡El éxito no descansa los fines de semana!", "Erfolg macht kein Wochenende!", "Успехот не зема викенд!") as string
