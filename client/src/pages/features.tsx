@@ -133,10 +133,10 @@ const features = [
     category: "finance" as Category,
     tag: { sq: "Financë", en: "Finance" },
     title: { sq: "Raporte & Analitikë", en: "Insights & Reports" },
-    tagline: { sq: "Merrni vendime të drejta bazuar në të dhëna reale", en: "Make the right decisions based on real data" },
+    tagline: { sq: "Dashboard i plotë me KPI dhe parashikime", en: "Full dashboard with KPIs and forecasts" },
     desc: {
-      sq: "Paneli i analitikës ju jep një pamje të plotë — shitjet, shpenzimet, fluksi monetar, prezenca e ekipit dhe shërbimi i flotës — të gjitha në kohë reale.",
-      en: "The analytics dashboard gives a complete picture — sales, expenses, cash flow, team attendance and fleet service — all in real time."
+      sq: "Paneli i analitikës ju jep një pamje të plotë — shitjet, shpenzimet, fluksi monetar, prezenca e ekipit dhe shërbimi i flotës — të gjitha në kohë reale me KPI dhe parashikime financiare.",
+      en: "The analytics dashboard gives a complete picture — sales, expenses, cash flow, team attendance and fleet service — all in real time with KPIs and financial forecasts."
     },
     benefits: [
       { sq: "Panel analitike interaktive me grafikë", en: "Interactive analytics dashboard with charts" },
