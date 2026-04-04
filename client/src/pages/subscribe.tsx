@@ -668,42 +668,45 @@ export default function Subscribe() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <div className="pt-28 pb-14 px-6 bg-gradient-to-b from-indigo-50/80 via-white to-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
-              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-              Çmim transparent · Pa kosto të fshehura
-            </div>
-            <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
-              Zgjidhni planin e <span className="text-indigo-600">duhur</span>
-            </h1>
-            <p className="text-lg text-gray-500">
-              Të gjithë 16 modulet — në çdo plan. Ndryshimi është vetëm në numrin e përdoruesve.
-            </p>
-          </div>
-          {/* Trust row */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {[
-              { icon: Shield, label: "Mbrojtje e të dhënave", sub: "GDPR & SSL" },
-              { icon: CheckCircle, label: "Pa kartë kredie", sub: "14 ditë provë" },
-              { icon: Headphones, label: "Mbështetje 24/7", sub: "Ekip real" },
-              { icon: ArrowLeft, label: "Anuloni kur doni", sub: "Pa detyrime" },
-            ].map(({ icon: Icon, label, sub }, i) => (
-              <div key={i} className="flex items-center gap-2.5 p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
-                <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
-                  <Icon className="h-4 w-4 text-indigo-600" />
-                </div>
-                <div>
-                  <p className="text-xs font-semibold text-gray-800 leading-snug">{label}</p>
-                  <p className="text-[10px] text-gray-400">{sub}</p>
-                </div>
+      {/* Hero Section - only on step 0 */}
+      {currentStep === 0 && (
+        <div className="pt-28 pb-14 px-6 bg-gradient-to-b from-indigo-50/80 via-white to-white border-b border-gray-100">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
+                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                Çmim transparent · Pa kosto të fshehura
               </div>
-            ))}
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
+                Zgjidhni planin e <span className="text-indigo-600">duhur</span>
+              </h1>
+              <p className="text-lg text-gray-500">
+                Të gjithë 16 modulet — në çdo plan. Ndryshimi është vetëm në numrin e përdoruesve.
+              </p>
+            </div>
+            {/* Trust row */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              {[
+                { icon: Shield, label: "Mbrojtje e të dhënave", sub: "GDPR & SSL" },
+                { icon: CheckCircle, label: "Pa kartë kredie", sub: "14 ditë provë" },
+                { icon: Headphones, label: "Mbështetje 24/7", sub: "Ekip real" },
+                { icon: ArrowLeft, label: "Anuloni kur doni", sub: "Pa detyrime" },
+              ].map(({ icon: Icon, label, sub }, i) => (
+                <div key={i} className="flex items-center gap-2.5 p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                    <Icon className="h-4 w-4 text-indigo-600" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-gray-800 leading-snug">{label}</p>
+                    <p className="text-[10px] text-gray-400">{sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      {currentStep > 0 && <div className="pt-24" />}
 
       {/* Main Form Section */}
       <section className="py-12 px-4 bg-gray-50/50 min-h-screen">
