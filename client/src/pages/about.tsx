@@ -1,938 +1,378 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { 
-  ArrowRight,
-  Users,
-  Target,
-  Award,
-  Globe,
-  Heart,
-  Lightbulb,
-  Shield,
-  Zap,
-  TrendingUp,
-  CheckCircle,
-  Star,
-  Building2,
-  Calendar,
-  MapPin,
-  Sparkles,
-  Code,
-  HeadphonesIcon,
-  Rocket,
-  Compass,
-  Crown,
-  ChevronRight,
-  Play,
-  Brain,
-  Infinity,
-  FileText,
-  Menu,
-  X
+  ArrowRight, Users, Globe, Shield, Building2, FileText,
+  Rocket, Crown, Code, TrendingUp, Zap, Lightbulb,
+  Heart, Menu, X, CheckCircle, Calendar
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import { SocialLinks } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
 import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useTranslation } from "@/hooks/useTranslation";
 
+const sq = (lang: string, albanian: string, english: string) =>
+  lang === 'sq' ? albanian : english;
+
 const AboutPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const { t, language } = useTranslation();
+  const { currentLanguage } = useTranslation();
+  const lang = currentLanguage;
 
-  useEffect(() => {
-    setIsVisible(true);
-
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
-    }, observerOptions);
-
-    // Observe all scroll-animate elements
-    const animateElements = document.querySelectorAll('.scroll-animate, .scroll-animate-letters');
-    animateElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      animateElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
-  const heroStats = [
-    { number: "200", label: "Customers Trust Us", icon: Building2, color: "from-blue-500 to-cyan-500" },
-    { number: "12,000", label: "Invoices Processed", icon: FileText, color: "from-purple-500 to-pink-500" },
-    { number: "5", label: "Countries Worldwide", icon: Globe, color: "from-green-500 to-emerald-500" },
-    { number: "99.9%", label: "Uptime Reliability", icon: Shield, color: "from-orange-500 to-red-500" }
+  const stats = [
+    { value: "200+", label: sq(lang, "Klientë na Besojnë", "Clients Trust Us"), icon: Building2 },
+    { value: "12K+", label: sq(lang, "Fatura të Përpunuara", "Invoices Processed"), icon: FileText },
+    { value: "5", label: sq(lang, "Vende në Mbarë Botën", "Countries Worldwide"), icon: Globe },
+    { value: "99.9%", label: sq(lang, "Besueshmëria e Kohës", "Uptime Reliability"), icon: Shield },
   ];
 
   const principles = [
     {
       icon: Rocket,
-      title: "Innovation at Heart",
-      description: "We constantly push the boundaries of what's possible, creating tomorrow's business solutions today.",
-      color: "from-blue-500 to-purple-600"
+      color: "bg-blue-50 text-blue-600",
+      title: sq(lang, "Inovacion në Zemër", "Innovation at Heart"),
+      desc: sq(lang, "Shtyjmë vazhdimisht kufijtë e mundshmes, duke krijuar zgjidhjet e biznesit të së nesërmes sot.", "We constantly push the boundaries of what's possible, creating tomorrow's business solutions today."),
     },
     {
       icon: Users,
-      title: "Community First",
-      description: "Every feature is built with our community in mind, ensuring real value for real businesses.",
-      color: "from-purple-500 to-pink-600"
+      color: "bg-violet-50 text-violet-600",
+      title: sq(lang, "Komuniteti i Parë", "Community First"),
+      desc: sq(lang, "Çdo veçori ndërtohet me komunitetin tonë në mendje, duke siguruar vlerë reale për biznese reale.", "Every feature is built with our community in mind, ensuring real value for real businesses."),
     },
     {
       icon: Crown,
-      title: "Excellence Always",
-      description: "We maintain the highest standards in everything we do, from code quality to customer support.",
-      color: "from-amber-500 to-orange-600"
+      color: "bg-amber-50 text-amber-600",
+      title: sq(lang, "Përsosmëri Gjithmonë", "Excellence Always"),
+      desc: sq(lang, "Mbajmë standardet më të larta në gjithçka që bëjmë, nga cilësia e kodit deri te mbështetja e klientit.", "We maintain the highest standards in everything we do, from code quality to customer support."),
     },
     {
       icon: Heart,
-      title: "Genuine Care",
-      description: "Your success is our success. We're here to support you every step of your business journey.",
-      color: "from-green-500 to-teal-600"
-    }
-  ];
-
-  const collaborationFeatures = [
-    {
-      icon: Lightbulb,
-      title: "Share Your Ideas",
-      description: "Submit feature requests, workflow improvements, and business automation ideas directly through your dashboard.",
-      benefits: ["Priority review process", "Direct developer feedback", "Implementation timeline updates"]
+      color: "bg-rose-50 text-rose-600",
+      title: sq(lang, "Kujdes i Vërtetë", "Genuine Care"),
+      desc: sq(lang, "Suksesi juaj është suksesi ynë. Ne jemi këtu t'ju mbështesim çdo hap të rrugëtimit tuaj të biznesit.", "Your success is our success. We're here to support you every step of your business journey."),
     },
-    {
-      icon: Users,
-      title: "Collaborative Development",
-      description: "Work closely with our development team to design custom features that match your exact business needs.",
-      benefits: ["One-on-one consultations", "Custom prototyping", "Real-time progress tracking"]
-    },
-    {
-      icon: Zap,
-      title: "Free Implementation",
-      description: "All approved customer suggestions are developed and deployed at no additional cost to enhance everyone's experience.",
-      benefits: ["Zero development fees", "Automatic updates", "Lifetime feature access"]
-    },
-    {
-      icon: TrendingUp,
-      title: "Mutual Growth",
-      description: "As your business grows and evolves, so does our platform - creating a win-win ecosystem for all users.",
-      benefits: ["Scalable solutions", "Industry-specific tools", "Community-driven features"]
-    }
   ];
 
   const team = [
     {
-      name: "Sarah Chen",
-      role: "CEO & Founder",
-      bio: "Former McKinsey consultant with 15+ years in business automation",
-      image: "/api/placeholder/300/300"
+      name: "Alban Gunga",
+      role: sq(lang, "CEO & Themelues", "CEO & Founder"),
+      desc: sq(lang, "Lider vizionar që drejton inovacionin në zgjidhjet e menaxhimit të biznesit.", "Visionary leader driving innovation in business management solutions."),
+      icon: Crown,
+      color: "from-blue-500 to-indigo-600",
     },
     {
-      name: "Michael Rodriguez",
-      role: "CTO",
-      bio: "Ex-Google engineer specializing in scalable business platforms",
-      image: "/api/placeholder/300/300"
+      name: "Elvis Burrniku",
+      role: sq(lang, "Drejtori i Teknologjisë", "Chief Technology Officer"),
+      desc: sq(lang, "Arkitekt teknik i zgjidhjeve shkallëzuese dhe ekselencës inxhinierike.", "Technical architect of scalable solutions and engineering excellence."),
+      icon: Code,
+      color: "from-violet-500 to-purple-600",
     },
     {
-      name: "Emily Johnson",
-      role: "Head of Product",
-      bio: "Product strategy expert from Salesforce with deep SMB insights",
-      image: "/api/placeholder/300/300"
+      name: "Liridon Salihu",
+      role: sq(lang, "VP i Inxhinierisë", "VP of Engineering"),
+      desc: sq(lang, "Strateg inxhinierik që siguron procese të qëndrueshme zhvillimi dhe cilësi të lartë.", "Engineering strategist ensuring robust development processes and high quality."),
+      icon: Rocket,
+      color: "from-emerald-500 to-teal-600",
     },
     {
       name: "David Kim",
-      role: "VP of Engineering",
-      bio: "Infrastructure architect with experience at AWS and Microsoft",
-      image: "/api/placeholder/300/300"
-    }
+      role: sq(lang, "Menaxher Produkti", "Product Manager"),
+      desc: sq(lang, "Ekspert i strategjisë së produktit me njohuri të thella për bizneset e vogla dhe të mesme.", "Product strategy expert with deep insights for small and medium businesses."),
+      icon: TrendingUp,
+      color: "from-amber-500 to-orange-600",
+    },
   ];
 
   const timeline = [
     {
       year: "2021",
-      title: "The Beginning",
-      description: "Founded with a vision to simplify business operations for small and medium enterprises."
+      title: sq(lang, "Fillimi", "The Beginning"),
+      desc: sq(lang, "U themelua me vizionin për të thjeshtuar operacionet e biznesit për ndërmarrjet e vogla dhe të mesme.", "Founded with a vision to simplify business operations for small and medium enterprises."),
     },
     {
       year: "2022",
-      title: "First Milestone",
-      description: "Reached 40 customers in 4 countries and launched our comprehensive invoicing platform."
+      title: sq(lang, "Milestoni i Parë", "First Milestone"),
+      desc: sq(lang, "Arritëm 40 klientë në 4 vende dhe lansuam platformën tonë gjithëpërfshirëse të faturimit.", "Reached 40 customers in 4 countries and launched our comprehensive invoicing platform."),
     },
     {
       year: "2023",
-      title: "Platform Growth",
-      description: "Enhanced our features and introduced advanced reporting and analytics capabilities."
+      title: sq(lang, "Rritja e Platformës", "Platform Growth"),
+      desc: sq(lang, "Zgjeruam veçoritë tona dhe prezantuam kapacitete të avancuara raportimi dhe analitike.", "Enhanced our features and introduced advanced reporting and analytics capabilities."),
     },
     {
       year: "2024",
-      title: "AI Integration",
-      description: "Launched AI-powered insights and automated business intelligence features."
+      title: sq(lang, "Integrimi i AI", "AI Integration"),
+      desc: sq(lang, "Lansuat njohuri të drejtuara nga AI dhe veçori të automatizuara të inteligjencës biznesore.", "Launched AI-powered insights and automated business intelligence features."),
     },
     {
       year: "2025",
-      title: "Current Milestone",
-      description: "Reached 150 customers and continue expanding our comprehensive business management suite."
-    }
+      title: sq(lang, "Milestoni Aktual", "Current Milestone"),
+      desc: sq(lang, "Arritëm 200 klientë dhe vazhdojmë të zgjerojmë paketën tonë gjithëpërfshirëse të menaxhimit të biznesit.", "Reached 200 customers and continue expanding our comprehensive business management suite."),
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 relative overflow-hidden">
-      {/* Background Grid Pattern - Fading grid from hero through stats section */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none -z-10" style={{ height: '200vh' }}>
-        <div className="absolute inset-0 opacity-100"
-             style={{
-               backgroundImage: 'linear-gradient(to right, rgba(128,128,128,0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(128,128,128,0.15) 1px, transparent 1px)',
-               backgroundSize: '24px 24px',
-               maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 85%, rgba(0,0,0,0) 100%)',
-               WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 85%, rgba(0,0,0,0) 100%)'
-             }}></div>
-      </div>
-
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-muted/50"></div>
-      </div>
+    <div className="min-h-screen bg-white">
 
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
+      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Left Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
-              <div className="relative">
-                <img 
-                  src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
-                  style={{ 
-                    filter: 'none',
-                    background: 'transparent'
-                  }}
-                  onError={(e) => {
-                    console.error('Logo failed to load:', e);
-                    e.currentTarget.style.border = '2px solid red';
-                  }}
-                  onLoad={() => console.log('Logo loaded successfully')}
-                />
-              </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
+            <Link href="/" className="flex items-center space-x-2.5">
+              <img src={logoPath} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-lg font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
-              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
-                className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
-              >
-                Pricing
-              </Button>
-              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 font-bold">Contact Us</Link>
+              <Link href="/about" className="text-sm font-semibold text-indigo-600 transition-colors">
+                {sq(lang, "Rreth Nesh", "About Us")}
+              </Link>
+              <Link href="/#features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(lang, "Veçoritë", "Features")}
+              </Link>
+              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(lang, "Çmimet", "Pricing")}
+              </button>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                {sq(lang, "Kontakt", "Contact")}
+              </Link>
             </div>
 
-            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
-            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = "/api/login"}
-                className="text-muted-foreground hover:text-primary transition-all duration-300"
-              >
-                Login
-              </Button>
-              <Button 
-                onClick={() => window.location.href = '/subscribe'}
-                className="px-4 py-2 bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                Buy Now
-              </Button>
-              <Button 
-                onClick={() => window.location.href = "/trial"}
-                className="px-4 py-2 bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                Start Your Trial
-              </Button>
-
+            <div className="hidden lg:flex items-center space-x-3">
+              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 px-3 py-2 transition-colors">
+                {sq(lang, "Hyr", "Login")}
+              </button>
+              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                {sq(lang, "Blej Tani", "Buy Now")}
+              </button>
+              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                {sq(lang, "Provo Falas", "Free Trial")}
+              </button>
               <LanguageSelector />
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="flex lg:hidden items-center space-x-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="scale-in"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
-              >
-                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
-            </div>
+            <button className="lg:hidden p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="lg:hidden glass-effect border-b border-white/20 slide-in-bottom">
-            <div className="px-4 py-4 space-y-4">
-              {/* Navigation Links */}
-              <Link href="/about" className="block text-lg text-primary transition-colors font-bold">
-                {language === 'sq' ? 'Rreth Nesh' : 'About Us'}
-              </Link>
-              <Link href="/#features" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">
-                {language === 'sq' ? 'Veçoritë' : 'Features'}
-              </Link>
-              <Button 
-                variant="ghost"
-                onClick={() => {
-                  window.location.href = '/subscribe';
-                  setShowMobileMenu(false);
-                }}
-                className="w-full text-left justify-start text-lg text-muted-foreground hover:text-primary font-bold"
-              >
-                {language === 'sq' ? 'Çmimet' : 'Pricing'}
-              </Button>
-              <Link href="/contact" className="block text-lg text-muted-foreground hover:text-primary transition-colors font-bold">
-                {language === 'sq' ? 'Na Kontaktoni' : 'Contact Us'}
-              </Link>
-              
-              {/* Action Buttons */}
-              <div className="pt-4 space-y-2">
-                <Button 
-                  variant="ghost" 
-                  onClick={() => {
-                    window.location.href = "/api/login";
-                    setShowMobileMenu(false);
-                  }} 
-                  className="w-full text-left justify-start text-muted-foreground hover:text-primary"
-                >
-                  {language === 'sq' ? 'Hyni' : 'Login'}
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = '/subscribe';
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                  style={{outline: 'none', boxShadow: 'none'}}
-                >
-                  {language === 'sq' ? 'Blini Tani' : 'Buy Now'}
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = "/trial";
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                  style={{outline: 'none', boxShadow: 'none'}}
-                >
-                  {language === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
-                </Button>
-                <div className="pt-2">
-                  <LanguageSelector />
-                </div>
-              </div>
+          <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+            <Link href="/about" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Rreth Nesh", "About Us")}</Link>
+            <Link href="/#features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
+            <button onClick={() => window.location.href = '/subscribe'} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
+            <div className="pt-2 flex flex-col gap-2">
+              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</button>
+              <LanguageSelector />
             </div>
           </div>
         )}
       </nav>
-      
-      <div className="relative z-10">
-      {/* Navigation */}
-      <nav className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative overflow-hidden">
-                <img 
-                  src={logoPath} 
-                  alt="BusinessFlow Pro" 
-                  className="w-12 h-9 object-contain logo-simple"
-                />
-              </div>
-            </Link>
-            
-            <div className="flex items-center space-x-6">
-              <Link href="/" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Home
-              </Link>
-              <Link href="/calculator" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                Pricing
-              </Link>
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
 
-      {/* Hero Section with Yellow Background */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400">
-        {/* Floating Sparkle Animations */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-12 left-[8%] w-2 h-2 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
-          <div className="absolute top-20 right-[12%] w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
-          <div className="absolute bottom-16 left-[15%] w-2.5 h-2.5 bg-white/25 rounded-full animate-bounce" style={{ animationDelay: '0.6s' }}></div>
-          <div className="absolute bottom-12 right-[20%] w-1 h-1 bg-white/35 rounded-full animate-bounce" style={{ animationDelay: '0.9s' }}></div>
-          <div className="absolute top-16 left-[75%] w-1.5 h-1.5 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '1.2s' }}></div>
-          <div className="absolute bottom-20 right-[8%] w-2 h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '1.5s' }}></div>
-          <div className="absolute top-32 left-[45%] w-1 h-1 bg-white/35 rounded-full animate-bounce" style={{ animationDelay: '1.8s' }}></div>
-          <div className="absolute bottom-32 right-[40%] w-1.5 h-1.5 bg-white/30 rounded-full animate-bounce" style={{ animationDelay: '2.1s' }}></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-8 tracking-tight leading-tight fade-in">
-              {language === 'sq' ? 'Rreth' : 'About'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">BusinessFlow Pro</span>
-            </h1>
-            <p className="text-2xl lg:text-3xl text-black max-w-5xl mx-auto leading-relaxed mb-12 tracking-tight">
-              {language === 'sq' ? 
-                'Duke ndërtuar të ardhmen e menaxhimit të biznesit me inovacion shqiptar dhe përsosmëri globale.' : 
-                "We're on a mission to empower businesses worldwide with intelligent automation, seamless workflows, and data-driven insights that drive real growth."
-              }
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {heroStats.map((stat, index) => (
-              <Card key={index} className={`p-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 hover:shadow-2xl transition-all duration-500 group ${isVisible ? 'animate-fade-in-up' : ''}`} style={{animationDelay: `${index * 200}ms`}}>
-                <div className={`w-16 h-16 bg-gradient-to-r ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground">
-                  {language === 'sq' ? (
-                    stat.label === "Customers Trust Us" ? 'Klientë na Besojnë' :
-                    stat.label === "Invoices Processed" ? 'Fatura të Përpunuara' :
-                    stat.label === "Countries Worldwide" ? 'Vende në Mbarë Botën' :
-                    stat.label === "Uptime Reliability" ? 'Besueshmëria e Kohës së Punës' :
-                    stat.label
-                  ) : stat.label}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership Team Section */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-800 dark:via-gray-900 dark:to-blue-950/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              {language === 'sq' ? 'Takoni Ekipin Tonë' : 'Meet Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Team'}</span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              {language === 'sq' ? 'Novatorët e apasionuar që drejtojnë historinë e suksesit të BusinessFlow Pro' : 'The passionate innovators driving BusinessFlow Pro\'s success story'}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {/* CEO & Founder */}
-            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Crown className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-black text-foreground mb-2">Alban Gunga</h3>
-              <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-4">CEO & Founder</p>
-              <p className="text-muted-foreground leading-relaxed">
-                Visionary leader driving innovation in business management solutions, focusing on empowering small businesses worldwide.
-              </p>
-            </Card>
-
-            {/* CTO */}
-            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Code className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-black text-foreground mb-2">Elvis Burrniku</h3>
-              <p className="text-lg font-semibold text-purple-600 dark:text-purple-400 mb-4">Chief Technology Officer</p>
-              <p className="text-muted-foreground leading-relaxed">
-                Technical mastermind architecting scalable solutions and leading engineering excellence across our platform.
-              </p>
-            </Card>
-
-            {/* VP of Engineering */}
-            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Rocket className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-black text-foreground mb-2">Liridon Salihu</h3>
-              <p className="text-lg font-semibold text-green-600 dark:text-green-400 mb-4">VP of Engineering</p>
-              <p className="text-muted-foreground leading-relaxed">
-                Engineering strategist ensuring robust development processes and delivering high-quality features that users love.
-              </p>
-            </Card>
-
-            {/* Product Manager */}
-            <Card className="p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Target className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-black text-foreground mb-2">David Kim</h3>
-              <p className="text-lg font-semibold text-orange-600 dark:text-orange-400 mb-4">Product Manager</p>
-              <p className="text-muted-foreground leading-relaxed">
-                Strategic product leader focused on user experience and feature innovation, driving product roadmap and customer success.
-              </p>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Journey Section */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-32 left-16 w-4 h-4 animate-ping delay-0">
-            <Sparkles className="w-4 h-4 text-blue-500/40" />
-          </div>
-          <div className="absolute top-48 right-24 w-6 h-6 animate-ping delay-1000">
-            <Star className="w-6 h-6 text-purple-500/40" />
-          </div>
-          <div className="absolute bottom-40 left-32 w-3 h-3 animate-ping delay-2000">
-            <Heart className="w-3 h-3 text-pink-500/40" />
-          </div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 fade-in tracking-tight leading-tight">
-              {language === 'sq' ? 'Udhëtimi Ynë' : 'Our'} <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{language === 'sq' ? '' : 'Journey'}</span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed scroll-animate">
-              {language === 'sq' ? 'Nga startup në platformë globale menaxhimi biznesi' : 'From a simple idea in 2021 to empowering businesses worldwide'}
-            </p>
-          </div>
-          
-          {/* Compact Timeline Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {timeline.map((item, index) => (
-              <Card key={index} className="p-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:shadow-3xl transition-all duration-500 group hover:scale-105 hover:-translate-y-2 overflow-hidden relative">
-                {/* Animated Background */}
-                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-700 ${
-                  index % 3 === 0 ? 'from-blue-500 to-purple-600' :
-                  index % 3 === 1 ? 'from-purple-500 to-pink-600' :
-                  'from-pink-500 to-blue-600'
-                }`}></div>
-                
-                <div className="relative z-10">
-                  {/* Year Badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge className={`px-4 py-2 font-black text-xl ${
-                      index % 3 === 0 ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' :
-                      index % 3 === 1 ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' :
-                      'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200'
-                    }`}>
-                      {item.year}
-                    </Badge>
-                    <div className={`w-12 h-12 bg-gradient-to-br ${
-                      index % 3 === 0 ? 'from-blue-500 to-purple-600' :
-                      index % 3 === 1 ? 'from-purple-500 to-pink-600' :
-                      'from-pink-500 to-blue-600'
-                    } rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500`}>
-                      <Calendar className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-black text-foreground mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
-                    {item.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed text-sm group-hover:text-foreground transition-colors duration-500">
-                    {item.description}
-                  </p>
-                </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute top-3 right-3 w-2 h-2 bg-blue-400/30 rounded-full animate-ping group-hover:animate-bounce"></div>
-                <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-purple-400/30 rounded-full animate-pulse group-hover:animate-spin"></div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Principles Section */}
-      <section className="py-32 relative overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50/50 via-purple-50/50 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/20 dark:to-pink-950/20"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black text-foreground mb-8 scroll-animate-letters tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                What Drives Us
-              </span>
-            </h2>
-            <p className="text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed scroll-animate">
-              Four core principles that shape every decision, every feature, and every interaction
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {principles.map((value, index) => (
-              <Card key={index} className="p-10 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:border-white/40 hover:shadow-3xl transition-all duration-700 group hover:scale-110 hover:-translate-y-4 scroll-animate overflow-hidden relative" style={{animationDelay: `${index * 200}ms`}}>
-                {/* Animated Background Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-700 ${value.color}"></div>
-                
-                <div className="text-center relative z-10">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:rotate-12 group-hover:scale-125 transition-all duration-500`}>
-                    <value.icon className="w-10 h-10 text-white group-hover:animate-pulse" />
-                  </div>
-                  <h3 className="text-2xl font-black text-foreground mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg group-hover:text-foreground transition-colors duration-500">
-                    {value.description}
-                  </p>
-                </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute top-4 right-4 w-3 h-3 bg-blue-400/30 rounded-full animate-ping group-hover:animate-bounce"></div>
-                <div className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400/30 rounded-full animate-pulse group-hover:animate-spin"></div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Growing Together Section - HoneyBook Style */}
-      <section className="relative w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Floating sparkle elements */}
-          <div className="absolute top-20 left-16 w-4 h-4 animate-ping delay-0">
-            <Sparkles className="w-4 h-4 text-amber-600/30" />
-          </div>
-          <div className="absolute bottom-32 right-20 w-6 h-6 animate-ping delay-1000">
-            <Sparkles className="w-6 h-6 text-orange-600/40" />
-          </div>
-          <div className="absolute top-40 right-32 w-3 h-3 animate-ping delay-2000">
-            <Sparkles className="w-3 h-3 text-yellow-600/30" />
-          </div>
-        </div>
-        
-        <div className="relative z-10 h-full flex items-center">
-          <div className="w-full max-w-7xl mx-auto px-4 py-24 lg:py-32">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-              {/* Left Side - Content */}
-              <div className="space-y-8 lg:space-y-12">
-                {/* Main Heading */}
-                <div className="space-y-6">
-                  <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-4 tracking-tight fade-in">
-                    Let's <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">grow</span> together
-                  </h2>
-                  
-                  <div className="space-y-4">
-                    <p className="text-xl lg:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed">
-                      Every feature we develop based on customer feedback benefits the entire BusinessFlow Pro community.
-                    </p>
-                    <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
-                      When you succeed, we all succeed – creating a powerful ecosystem of continuous improvement and shared growth.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Feature Highlights */}
-                <div className="space-y-6">
-                  {/* Your Ideas */}
-                  <div className="group">
-                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Your Ideas</h4>
-                    <p className="text-lg text-gray-700 dark:text-gray-200">Share your vision and we'll make it reality</p>
-                  </div>
-                  
-                  {/* Fast Development */}
-                  <div className="group">
-                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Fast Development</h4>
-                    <p className="text-lg text-gray-700 dark:text-gray-200">Ideas become features in record time</p>
-                  </div>
-                  
-                  {/* Mutual Growth */}
-                  <div className="group">
-                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Mutual Growth</h4>
-                    <p className="text-lg text-gray-700 dark:text-gray-200">We succeed when you succeed</p>
-                  </div>
-                </div>
-                
-                {/* Call to Action */}
-                <div className="pt-4">
-                  <Button 
-                    onClick={() => window.location.href = '/collaboration'}
-                    className="group px-8 py-4 bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-gray-900 border-0 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
-                  >
-                    <span className="flex items-center">
-                      Learn more
-                      <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
-                    </span>
-                  </Button>
-                </div>
-              </div>
-              
-              {/* Right Side - Premium Community Card */}
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative group perspective-1000">
-                  {/* Main Card */}
-                  <div className="relative bg-gradient-to-br from-white/95 via-white/90 to-white/85 dark:from-gray-50/95 dark:via-gray-50/90 dark:to-gray-50/85 backdrop-blur-2xl rounded-3xl p-8 lg:p-10 shadow-2xl border border-white/40 max-w-lg transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl hover:shadow-amber-500/20">
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    <div className="relative space-y-8">
-                      {/* Header with Animated Icon */}
-                      <div className="text-center">
-                        <div className="relative mb-6">
-                          <div className="w-20 h-20 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto shadow-xl transform group-hover:rotate-12 transition-transform duration-500">
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                            <Users className="w-10 h-10 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
-                          </div>
-                          {/* Floating particles around icon */}
-                          <div className="absolute -top-2 -right-2 w-4 h-4 bg-blue-400/60 rounded-full animate-bounce"></div>
-                          <div className="absolute -bottom-1 -left-3 w-3 h-3 bg-purple-400/60 rounded-full animate-bounce delay-300"></div>
-                        </div>
-                        
-                        <h3 className="text-3xl font-black text-gray-900 dark:text-gray-800 mb-3 transform transition-all duration-500 hover:scale-105 hover:text-orange-600">
-                          Community First
-                        </h3>
-                        <p className="text-lg text-gray-700 dark:text-gray-800 leading-relaxed font-medium">
-                          Your success drives our development. Every feature we build strengthens our entire community.
-                        </p>
-                      </div>
-                      
-                      {/* Enhanced Benefits Grid */}
-                      <div className="space-y-5">
-                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                            <Code className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Free Custom Development</h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">Dedicated team builds your ideas at no extra cost</p>
-                          </div>
-                        </div>
-                        
-                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
-                          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                            <HeadphonesIcon className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Expert Team Support</h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">Direct access to our development experts</p>
-                          </div>
-                        </div>
-                        
-                        <div className="group/item flex items-start space-x-4 p-4 rounded-2xl hover:bg-white/50 dark:hover:bg-gray-50/50 transition-all duration-300">
-                          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg group-hover/item:scale-110 transition-transform duration-300">
-                            <TrendingUp className="w-6 h-6 text-white" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-gray-900 dark:text-gray-800 mb-1">Shared Growth</h4>
-                            <p className="text-sm text-gray-600 dark:text-gray-700">Community-driven feature roadmap</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-
-                    </div>
-                  </div>
-                  
-                  {/* Enhanced Floating Elements */}
-                  <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl backdrop-blur-sm floating-element shadow-xl opacity-80">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Sparkles className="w-8 h-8 text-white animate-spin-slow" />
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl backdrop-blur-sm floating-delayed shadow-lg opacity-80">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-white animate-pulse" />
-                    </div>
-                  </div>
-                  <div className="absolute top-1/3 -left-8 w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full backdrop-blur-sm floating-slow shadow-lg opacity-70"></div>
-                  <div className="absolute top-1/4 -right-10 w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full backdrop-blur-sm floating-element shadow-lg opacity-70"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet Our Team Section */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/30 dark:to-purple-950/30">
-
-        
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 animate-text-reveal tracking-tight leading-tight">
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Meet Our Team
-              </span>
-            </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-delayed">
-              The passionate innovators driving BusinessFlow Pro's success story
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {team.map((member, index) => (
-              <Card key={index} className="group relative overflow-hidden bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border-2 border-white/20 hover:border-white/60 hover:shadow-3xl transition-all duration-700 hover:scale-110 hover:-translate-y-8 hover:rotate-1 rounded-3xl">
-                {/* Animated Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-all duration-700 rounded-3xl ${
-                  index === 0 ? 'from-blue-500/20 via-purple-500/20 to-blue-600/20' :
-                  index === 1 ? 'from-purple-500/20 via-pink-500/20 to-purple-600/20' :
-                  index === 2 ? 'from-green-500/20 via-blue-500/20 to-green-600/20' :
-                  'from-orange-500/20 via-red-500/20 to-orange-600/20'
-                }`}></div>
-                
-                {/* Floating Animation Elements */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className={`absolute top-4 right-4 w-3 h-3 rounded-full animate-bounce ${
-                    index === 0 ? 'bg-blue-400' :
-                    index === 1 ? 'bg-purple-400' :
-                    index === 2 ? 'bg-green-400' :
-                    'bg-orange-400'
-                  }`}></div>
-                  <div className={`absolute bottom-6 left-4 w-2 h-2 rounded-full animate-ping ${
-                    index === 0 ? 'bg-purple-400' :
-                    index === 1 ? 'bg-pink-400' :
-                    index === 2 ? 'bg-blue-400' :
-                    'bg-red-400'
-                  }`}></div>
-                  <div className={`absolute top-1/2 left-2 w-1.5 h-1.5 rounded-full animate-pulse ${
-                    index === 0 ? 'bg-blue-300' :
-                    index === 1 ? 'bg-purple-300' :
-                    index === 2 ? 'bg-green-300' :
-                    'bg-orange-300'
-                  }`}></div>
-                </div>
-                
-                <div className="p-8 text-center relative z-10">
-                  {/* Animated Icon Avatar */}
-                  <div className="relative mb-8">
-                    <div className={`w-32 h-32 mx-auto rounded-full shadow-2xl group-hover:shadow-3xl transition-all duration-700 group-hover:scale-125 group-hover:rotate-12 flex items-center justify-center bg-gradient-to-br ${
-                      index === 0 ? 'from-blue-500 to-purple-600' :
-                      index === 1 ? 'from-purple-500 to-pink-600' :
-                      index === 2 ? 'from-green-500 to-blue-600' :
-                      'from-orange-500 to-red-600'
-                    }`}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
-                      <div className="relative text-4xl font-black text-white group-hover:animate-pulse">
-                        {member.name.split(' ').map(name => name[0]).join('')}
-                      </div>
-                    </div>
-                    
-                    {/* Animated Role Badge */}
-                    <div className={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-2xl text-sm font-black text-white shadow-xl group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 bg-gradient-to-r ${
-                      index === 0 ? 'from-blue-600 to-purple-700' :
-                      index === 1 ? 'from-purple-600 to-pink-700' :
-                      index === 2 ? 'from-green-600 to-blue-700' :
-                      'from-orange-600 to-red-700'
-                    }`}>
-                      {member.role.split(' ')[0]}
-                    </div>
-                  </div>
-                  
-                  {/* Animated Name */}
-                  <h3 className="text-2xl font-black text-foreground mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-500 group-hover:scale-105">
-                    {member.name}
-                  </h3>
-                  
-                  {/* Animated Role */}
-                  <div className={`text-lg font-bold mb-4 transition-all duration-500 group-hover:scale-105 ${
-                    index === 0 ? 'text-blue-600 dark:text-blue-400 group-hover:text-blue-700' :
-                    index === 1 ? 'text-purple-600 dark:text-purple-400 group-hover:text-purple-700' :
-                    index === 2 ? 'text-green-600 dark:text-green-400 group-hover:text-green-700' :
-                    'text-orange-600 dark:text-orange-400 group-hover:text-orange-700'
-                  }`}>
-                    {member.role}
-                  </div>
-                  
-                  {/* Animated Bio */}
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-all duration-500 group-hover:scale-105">
-                    {member.bio}
-                  </p>
-                </div>
-                
-                {/* Animated Border Glow */}
-                <div className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${
-                  index === 0 ? 'shadow-[0_0_30px_rgba(59,130,246,0.5)]' :
-                  index === 1 ? 'shadow-[0_0_30px_rgba(147,51,234,0.5)]' :
-                  index === 2 ? 'shadow-[0_0_30px_rgba(34,197,94,0.5)]' :
-                  'shadow-[0_0_30px_rgba(249,115,22,0.5)]'
-                }`}></div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ready to Trust Your Business CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          {/* Floating sparkles */}
-          <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-white rounded-full animate-pulse delay-300"></div>
-          <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-white/80 rounded-full animate-pulse delay-700"></div>
-          <div className="absolute bottom-1/3 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/60 rounded-full animate-pulse delay-500"></div>
-          <div className="absolute top-2/3 left-1/5 w-1 h-1 bg-white rounded-full animate-pulse delay-200"></div>
-          <div className="absolute top-1/5 right-1/5 w-2 h-2 bg-white/70 rounded-full animate-pulse delay-900"></div>
-        </div>
-        
+      {/* Hero */}
+      <section className="pt-32 pb-24 px-6 lg:px-8 bg-gradient-to-b from-indigo-50/60 via-white to-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 drop-shadow-lg fade-in">
-            {language === 'sq' ? 'Gati të Besoni Biznesin Tuaj me Ne?' : 'Ready to Trust Your Business with Us?'}
-          </h2>
-          <p className="text-xl text-black mb-8 leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
-            {language === 'sq' ? 
-              'Bashkohuni me qindra biznese që kanë thjeshtuar operacionet e tyre me BusinessFlow Pro.' : 
-              'Join thousands of businesses who have streamlined their operations with BusinessFlow Pro. Experience enterprise-grade security, expert support, and seamless migration - all backed by our success guarantee.'
-            }
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-8">
+            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+            {sq(lang, "Themeluar në 2021 · 5 vende", "Founded 2021 · 5 Countries")}
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight tracking-tight mb-6">
+            {sq(lang,
+              <>Rreth <span className="text-indigo-600">Clientlly</span></>,
+              <>About <span className="text-indigo-600">Clientlly</span></>
+            )}
+          </h1>
+          <p className="text-lg lg:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed mb-10">
+            {sq(lang,
+              "Jemi në një mision për të fuqizuar bizneset në mbarë botën me automatizim inteligjent, rrjedha të qetë pune dhe njohuri të drejtuara nga të dhënat.",
+              "We're on a mission to empower businesses worldwide with intelligent automation, seamless workflows, and data-driven insights that drive real growth."
+            )}
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg"
-              onClick={() => window.location.href = "/trial"}
-              className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >
-              {language === 'sq' ? 'Filloni Provën Tuaj' : 'Start Your Trial'}
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              onClick={() => window.location.href = "/subscribe"}
-              className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
-            >
-              {language === 'sq' ? 'Blini Tani' : 'Buy Now'}
-            </Button>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button onClick={() => window.location.href = "/trial"} className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors shadow-sm">
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <button onClick={() => window.location.href = "/contact"} className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-colors">
+              {sq(lang, "Na Kontaktoni", "Contact Us")}
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Stats */}
+      <section className="py-16 px-6 lg:px-8 border-y border-gray-100 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map(({ value, label, icon: Icon }) => (
+              <div key={label} className="text-center">
+                <div className="inline-flex p-2.5 rounded-xl bg-indigo-50 mb-3">
+                  <Icon className="h-5 w-5 text-indigo-600" />
+                </div>
+                <div className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-1">{value}</div>
+                <div className="text-sm text-gray-500 font-medium">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission / Principles */}
+      <section className="py-24 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">
+              {sq(lang, "Vlerat Tona", "Our Values")}
+            </p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
+              {sq(lang, "Çfarë na drejton", "What drives us")}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {principles.map(({ icon: Icon, color, title, desc }) => (
+              <div key={title} className="p-7 bg-white border border-gray-100 rounded-2xl hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                <div className={`inline-flex p-3 rounded-xl ${color} bg-opacity-10 mb-5`}>
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-24 px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">
+              {sq(lang, "Ekipi", "Team")}
+            </p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+              {sq(lang, "Njerëzit pas Clientlly", "The people behind Clientlly")}
+            </h2>
+            <p className="text-lg text-gray-500 max-w-xl mx-auto">
+              {sq(lang, "Novatorët e apasionuar që drejtojnë historinë e suksesit tonë.", "The passionate innovators driving our success story.")}
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {team.map(({ name, role, desc, icon: Icon, color }) => (
+              <div key={name} className="p-7 bg-white border border-gray-100 rounded-2xl text-center hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                <div className={`w-16 h-16 bg-gradient-to-br ${color} rounded-full flex items-center justify-center mx-auto mb-5 shadow-md`}>
+                  <Icon className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-1">{name}</h3>
+                <p className="text-sm font-semibold text-indigo-600 mb-3">{role}</p>
+                <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-24 px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">
+              {sq(lang, "Historia Jonë", "Our Journey")}
+            </p>
+            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
+              {sq(lang, "Si kemi arritur këtu", "How we got here")}
+            </h2>
+          </div>
+          <div className="relative">
+            <div className="absolute left-6 top-0 bottom-0 w-px bg-gray-200"></div>
+            <div className="space-y-10">
+              {timeline.map(({ year, title, desc }, i) => (
+                <div key={year} className="relative flex gap-8 pl-16">
+                  <div className="absolute left-0 flex items-center justify-center w-12 h-12 rounded-full bg-indigo-600 text-white text-xs font-bold shadow-md">
+                    {year.slice(2)}
+                  </div>
+                  <div className="pt-2 pb-2">
+                    <div className="text-xs font-semibold text-indigo-600 mb-1">{year}</div>
+                    <h3 className="font-bold text-gray-900 mb-1.5">{title}</h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Collaboration */}
+      <section className="py-24 px-6 lg:px-8 bg-indigo-600">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-indigo-200 text-sm font-semibold uppercase tracking-wider mb-4">
+                {sq(lang, "Bashkëpunimi", "Collaboration")}
+              </p>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+                {sq(lang, "Le të rritemi bashkë", "Let's grow together")}
+              </h2>
+              <p className="text-indigo-200 text-lg leading-relaxed mb-8">
+                {sq(lang,
+                  "Platforma jonë ndërtohet bashkë me ju. Dërgoni idetë tuaja dhe ekipi ynë i zhvillimit do t'i kthejë në realitet, falas.",
+                  "Our platform is built together with you. Send your ideas and our development team will make them reality, at no cost."
+                )}
+              </p>
+              <button onClick={() => window.location.href = "/collaboration"} className="inline-flex items-center gap-2 px-5 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors shadow-sm">
+                {sq(lang, "Mëso Bashkëpunimin", "Learn About Collaboration")}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Lightbulb, title: sq(lang, "Idetë Tuaja", "Your Ideas"), desc: sq(lang, "Dërgoni kërkesa veçorish direkt nga paneli juaj", "Submit feature requests directly from your dashboard") },
+                { icon: Users, title: sq(lang, "Zhvillim i Bashkëpunuar", "Collaborative Development"), desc: sq(lang, "Punoni ngushtë me ekipin tonë të zhvillimit", "Work closely with our development team") },
+                { icon: Zap, title: sq(lang, "Implementim Falas", "Free Implementation"), desc: sq(lang, "Të gjitha sugjerimet e aprovuara zhvillohen falas", "All approved suggestions developed at no cost") },
+                { icon: TrendingUp, title: sq(lang, "Rritje e Ndërsjellë", "Mutual Growth"), desc: sq(lang, "Platforma rritet me rritjen e biznesit tuaj", "Platform grows with your business") },
+              ].map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="p-5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                  <Icon className="h-5 w-5 text-indigo-200 mb-3" />
+                  <h4 className="text-white font-semibold text-sm mb-1">{title}</h4>
+                  <p className="text-indigo-200 text-xs leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 px-6 lg:px-8 bg-gray-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+            {sq(lang,
+              <>Gati të <span className="text-indigo-400">filloni</span>?</>,
+              <>Ready to <span className="text-indigo-400">get started</span>?</>
+            )}
+          </h2>
+          <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+            {sq(lang,
+              "Bashkohuni me 200+ biznese që kanë thjeshtuar operacionet e tyre me Clientlly.",
+              "Join 200+ businesses who have streamlined their operations with Clientlly."
+            )}
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button onClick={() => window.location.href = "/trial"} className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-colors shadow-sm">
+              {sq(lang, "Fillo Provën Tënde", "Start Your Trial")}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <button onClick={() => window.location.href = "/subscribe"} className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-colors">
+              {sq(lang, "Shiko Çmimet", "View Pricing")}
+            </button>
+          </div>
+        </div>
+      </section>
+
       <Footer />
-    </div>
     </div>
   );
 };
