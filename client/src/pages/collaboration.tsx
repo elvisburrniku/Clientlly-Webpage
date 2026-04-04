@@ -363,23 +363,17 @@ export default function CollaborationPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
               onClick={() => { window.location.href = '/trial'; }}
-              className="inline-flex items-center justify-center gap-3 px-7 py-4 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-indigo-700 font-bold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg text-sm"
             >
-              <Rocket className="h-5 w-5 flex-shrink-0" />
-              <span className="flex flex-col items-start leading-tight">
-                <span className="text-sm font-bold">{sq(lang, "Provoje Bashkëpunimin", "Try Collaboration")}</span>
-                <span className="text-[10px] font-medium text-indigo-400 tracking-wide">{sq(lang, "14 ditë falas • Pa kartë kredie", "14 days free • No credit card")}</span>
-              </span>
+              <Rocket className="h-4 w-4" />
+              {sq(lang, "Fillo 14-Ditëshin Falas", "Start 14-Day Free Trial")}
             </button>
             <button
               onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }}
-              className="inline-flex items-center justify-center gap-3 px-7 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/30 text-sm"
             >
-              <CreditCard className="h-5 w-5 flex-shrink-0" />
-              <span className="flex flex-col items-start leading-tight">
-                <span className="text-sm font-bold">{sq(lang, "Aktivizo Bashkëpunimin", "Activate Collaboration")}</span>
-                <span className="text-[10px] font-medium text-white/60 tracking-wide">{sq(lang, "Plan Pro ose Enterprise", "Pro or Enterprise plan")}</span>
-              </span>
+              <CreditCard className="h-4 w-4" />
+              {sq(lang, "Bli Plan Pro / Enterprise", "Get Pro or Enterprise")}
             </button>
           </div>
         </div>
