@@ -468,7 +468,7 @@ export default function Features() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="anim-fade inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-8 shadow-sm">
             <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            {sq(lang, "14 module të integruara plotësisht", "14 fully integrated modules")}
+            {sq(lang, "16 module të integruara plotësisht", "16 fully integrated modules")}
           </div>
           <h1 className="anim-rise anim-d1 text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight mb-5 leading-[1.1]">
             {sq(lang,
@@ -920,8 +920,8 @@ export default function Features() {
         <div className="max-w-3xl mx-auto text-center relative">
           <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
             {sq(lang,
-              <>Provoni të 14 modulet<br />falas për 14 ditë</>,
-              <>Try all 14 modules<br />free for 14 days</>
+              <>Provoni të 16 modulet<br />falas për 14 ditë</>,
+              <>Try all 16 modules<br />free for 14 days</>
             )}
           </h2>
           <p className="anim-rise anim-d1 text-indigo-200 text-lg mb-10">

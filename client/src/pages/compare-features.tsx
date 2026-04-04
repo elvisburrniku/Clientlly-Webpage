@@ -222,8 +222,8 @@ export default function CompareFeatures() {
           </h1>
           <p className="text-base text-gray-500 max-w-xl mx-auto mb-8">
             {sq(lang,
-              "Çdo plan përfshin të gjitha 14 modulet. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.",
-              "Every plan includes all 14 modules. Differences are only in the number of users and invoice volume."
+              "Çdo plan përfshin të gjitha 16 modulet. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.",
+              "Every plan includes all 16 modules. Differences are only in the number of users and invoice volume."
             )}
           </p>
 
@@ -279,7 +279,7 @@ export default function CompareFeatures() {
                   </p>
                   <p className="text-xs text-gray-500 flex items-center gap-1.5">
                     <Zap className="h-3.5 w-3.5 text-indigo-400 flex-shrink-0" />
-                    {sq(lang, "Të gjitha 14 modulet", "All 14 modules included")}
+                    {sq(lang, "Të gjitha 16 modulet", "All 16 modules included")}
                   </p>
                 </div>
                 <button
@@ -388,7 +388,7 @@ export default function CompareFeatures() {
             },
             {
               q: { sq: "A përfshihen të gjitha veçoritë në planin Starter?", en: "Are all features included in the Starter plan?" },
-              a: { sq: "Po! Çdo plan përfshin të gjitha 14 modulet e Clientlly. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.", en: "Yes! Every plan includes all 14 Clientlly modules. Differences are only in user count and invoice volume." },
+              a: { sq: "Po! Çdo plan përfshin të gjitha 16 modulet e Clientlly. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.", en: "Yes! Every plan includes all 16 Clientlly modules. Differences are only in user count and invoice volume." },
             },
             {
               q: { sq: "Çfarë ndodh pas 14 ditëve të provës falas?", en: "What happens after the 14-day free trial?" },

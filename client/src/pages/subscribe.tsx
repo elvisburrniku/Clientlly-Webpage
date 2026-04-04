@@ -493,7 +493,7 @@ export default function Subscribe() {
         )}
       </div>
       <p className="text-center text-xs text-gray-400 mt-6">
-        Të gjithë planet përfshijnë 14 modulet · Ndryshoni planin kur të dëshironi
+        Të gjithë planet përfshijnë 16 modulet · Ndryshoni planin kur të dëshironi
       </p>
     </div>
   );
@@ -720,7 +720,7 @@ export default function Subscribe() {
               Zgjidhni planin e <span className="text-indigo-600">duhur</span>
             </h1>
             <p className="text-lg text-gray-500">
-              Të gjithë 14 modulet — në çdo plan. Ndryshimi është vetëm në numrin e përdoruesve.
+              Të gjithë 16 modulet — në çdo plan. Ndryshimi është vetëm në numrin e përdoruesve.
             </p>
           </div>
           {/* Trust row */}

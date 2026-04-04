@@ -121,8 +121,8 @@ export default function Trial() {
               </h1>
               <p className="text-base text-gray-500 leading-relaxed mb-7">
                 {sq(lang,
-                  "Qasje e plotë në të gjitha 14 modulet — pa kartë krediti, pa angazhim. Nëse nuk e doni, anuloni me 1 klikim.",
-                  "Full access to all 14 modules — no credit card, no commitment. If you don't love it, cancel with 1 click."
+                  "Qasje e plotë në të gjitha 16 modulet — pa kartë krediti, pa angazhim. Nëse nuk e doni, anuloni me 1 klikim.",
+                  "Full access to all 16 modules — no credit card, no commitment. If you don't love it, cancel with 1 click."
                 )}
               </p>
 
@@ -132,7 +132,7 @@ export default function Trial() {
                   { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card"), sub: sq(lang, "Asnjë ngarkesë e befasishme", "No surprise charges") },
                   { icon: Zap,    label: sq(lang, "Aktivizim i menjëhershëm", "Instant activation"), sub: sq(lang, "Gati brenda 60 sekondave", "Ready in 60 seconds") },
                   { icon: Check,  label: sq(lang, "Anulo kur dëshironi", "Cancel anytime"), sub: sq(lang, "Pa penalizim, asnjëherë", "No penalty, ever") },
-                  { icon: Star,   label: sq(lang, "Qasje e plotë", "Full access"), sub: sq(lang, "Të gjitha 14 modulet", "All 14 modules") },
+                  { icon: Star,   label: sq(lang, "Qasje e plotë", "Full access"), sub: sq(lang, "Të gjitha 16 modulet", "All 16 modules") },
                 ].map(({ icon: Icon, label, sub }, i) => (
                   <div key={i} className="flex items-start gap-3 p-3.5 bg-white border border-gray-200 rounded-xl shadow-sm">
                     <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
@@ -162,7 +162,7 @@ export default function Trial() {
                   ))}
                   <div className="flex items-center gap-2.5 text-sm text-indigo-600 font-medium mt-1">
                     <ChevronRight className="h-4 w-4" />
-                    <Link href="/features">{sq(lang, "Shiko të gjitha 14 modulet →", "See all 14 modules →")}</Link>
+                    <Link href="/features">{sq(lang, "Shiko të gjitha 16 modulet →", "See all 16 modules →")}</Link>
                   </div>
                 </div>
               </div>
@@ -377,7 +377,7 @@ export default function Trial() {
             },
             {
               q: { sq: "A janë të gjitha veçoritë të disponueshme gjatë provës?", en: "Are all features available during the trial?" },
-              a: { sq: "Po, qasje e plotë në të gjitha 14 modulet — Faturim, HR, GPS Prezencë, Motorpool, CRM, dhe shumë të tjera.", en: "Yes, full access to all 14 modules — Invoicing, HR, GPS Attendance, Motorpool, CRM, and much more." },
+              a: { sq: "Po, qasje e plotë në të gjitha 16 modulet — Faturim, HR, GPS Prezencë, Motorpool, CRM, dhe shumë të tjera.", en: "Yes, full access to all 16 modules — Invoicing, HR, GPS Attendance, Motorpool, CRM, and much more." },
             },
           ].map(({ q, a }, i) => (
             <details key={i} className="group mb-2 bg-white rounded-xl border border-gray-200 overflow-hidden">
