@@ -146,7 +146,7 @@ const CollaborationPage = () => {
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(lang, "Rreth Nesh", "About")}
               </Link>
-              <Link href="/#features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(lang, "Veçoritë", "Features")}
               </Link>
               <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
@@ -180,7 +180,7 @@ const CollaborationPage = () => {
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
             <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
-            <Link href="/#features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
             <button onClick={() => window.location.href = '/subscribe'} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">

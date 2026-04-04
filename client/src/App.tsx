@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
 import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
 import Landing from "@/pages/landing";
+import Features from "@/pages/features";
 import FeatureInvoicing from "@/pages/feature-invoicing";
 import FeatureExpenses from "@/pages/feature-expenses";
 import FeatureTax from "@/pages/feature-tax";
@@ -69,6 +70,7 @@ function Router() {
       ) : !isAuthenticated ? (
         <>
           <Route path="/" component={Landing} />
+          <Route path="/features" component={Features} />
           <Route path="/features/invoicing" component={FeatureInvoicing} />
           <Route path="/features/expenses" component={FeatureExpenses} />
           <Route path="/features/tax" component={FeatureTax} />
@@ -118,6 +120,7 @@ function Router() {
       ) : (
         <>
           <Route path="/" component={Dashboard} />
+          <Route path="/features" component={Features} />
           <Route path="/features/invoicing" component={FeatureInvoicing} />
           <Route path="/features/expenses" component={FeatureExpenses} />
           <Route path="/features/tax" component={FeatureTax} />
