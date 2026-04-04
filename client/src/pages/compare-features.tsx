@@ -1,474 +1,470 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { 
-  Check, 
-  ArrowLeft, 
-  FileText, 
-  Receipt, 
-  CreditCard, 
-  BarChart3, 
-  Users, 
-  Building2,
-  Package, 
-  Clock, 
-  Calendar, 
-  RefreshCw,
-  Star,
-  CheckCircle,
-  Zap,
-  Target,
-  Award,
-  Globe,
-  Heart,
-  Lightbulb,
-  Shield,
-  TrendingUp,
-  Menu,
-  X
-} from 'lucide-react';
-import Footer from "@/components/Footer";
+import {
+  Check, Minus, Menu, X, ArrowRight, Zap, Users, FileText, Shield,
+  Star, ChevronDown, ChevronUp, Info,
+} from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import Footer from "@/components/Footer";
+import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import { useLanguage } from "@/lib/i18n";
+
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
+  return lang === "sq" ? alb : eng;
+}
+
+const PLANS = [
+  {
+    id: "starter",
+    name: { sq: "Starter", en: "Starter" },
+    price: 20,
+    yearlyPrice: 16,
+    users: { sq: "deri 3 përdorues", en: "up to 3 users" },
+    invoices: { sq: "200 fatura / muaj", en: "200 invoices / month" },
+    color: "border-gray-200",
+    badge: null,
+    btnClass: "bg-gray-900 hover:bg-gray-700 text-white",
+    highlight: false,
+  },
+  {
+    id: "professional",
+    name: { sq: "Professional", en: "Professional" },
+    price: 35,
+    yearlyPrice: 28,
+    users: { sq: "deri 10 përdorues", en: "up to 10 users" },
+    invoices: { sq: "500 fatura / muaj", en: "500 invoices / month" },
+    color: "border-indigo-500 ring-2 ring-indigo-500/20",
+    badge: { sq: "Më i Popullarizuari", en: "Most Popular" },
+    btnClass: "bg-indigo-600 hover:bg-indigo-500 text-white shadow-sm hover:shadow-lg",
+    highlight: true,
+  },
+  {
+    id: "enterprise",
+    name: { sq: "Enterprise", en: "Enterprise" },
+    price: 50,
+    yearlyPrice: 40,
+    users: { sq: "deri 50 përdorues", en: "up to 50 users" },
+    invoices: { sq: "Pa limit fatura", en: "Unlimited invoices" },
+    color: "border-gray-200",
+    badge: null,
+    btnClass: "bg-gray-900 hover:bg-gray-700 text-white",
+    highlight: false,
+  },
+];
+
+type CellVal = boolean | string;
+
+const FEATURE_GROUPS: {
+  group: { sq: string; en: string };
+  rows: { label: { sq: string; en: string }; tip?: { sq: string; en: string }; starter: CellVal; professional: CellVal; enterprise: CellVal }[];
+}[] = [
+  {
+    group: { sq: "Limitet e Planit", en: "Plan Limits" },
+    rows: [
+      { label: { sq: "Përdorues", en: "Users" }, starter: "3", professional: "10", enterprise: "50" },
+      { label: { sq: "Fatura / muaj", en: "Invoices / month" }, starter: "200", professional: "500", enterprise: "∞" },
+      { label: { sq: "Hapësirë ruajtjeje", en: "Storage" }, starter: "5 GB", professional: "20 GB", enterprise: "100 GB" },
+      { label: { sq: "Mbështetje", en: "Support" }, starter: "Email", professional: "Chat & Email", enterprise: "Prioritare 24/7" },
+    ],
+  },
+  {
+    group: { sq: "Financë", en: "Finance" },
+    rows: [
+      { label: { sq: "Faturim Elektronik", en: "Electronic Invoicing" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Oferta & Kuota Dixhitale", en: "Digital Quotes & Offers" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Gjurmim Shpenzimesh", en: "Expense Tracking" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Menaxhim Borxhesh", en: "Debt Management" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Nënshkrim Dixhital (Klient + Kompani)", en: "Digital Signature (Client + Company)" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Gjurmim: hapur → lexuar → nënshkruar", en: "Tracking: opened → read → signed" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Rikujtime automatike pagese", en: "Auto payment reminders" }, starter: true, professional: true, enterprise: true },
+    ],
+  },
+  {
+    group: { sq: "Raporte & Analitikë", en: "Reports & Analytics" },
+    rows: [
+      { label: { sq: "Raporte financiare", en: "Financial reports" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Pasqyrë e të ardhurave & shpenzimeve", en: "Revenue & expense overview" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Eksport PDF / Excel", en: "PDF / Excel export" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Analitikë e avancuar", en: "Advanced analytics" }, starter: false, professional: true, enterprise: true },
+      { label: { sq: "Raporte me porosi (custom)", en: "Custom reports" }, starter: false, professional: false, enterprise: true },
+    ],
+  },
+  {
+    group: { sq: "Klientë & Furnitorë", en: "Clients & Vendors" },
+    rows: [
+      { label: { sq: "CRM — Menaxhim Klientësh", en: "CRM — Client Management" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Historik komunikimi", en: "Communication history" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Menaxhim Furnitorësh", en: "Vendor Management" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Porosi blerje (PO)", en: "Purchase orders (PO)" }, starter: true, professional: true, enterprise: true },
+    ],
+  },
+  {
+    group: { sq: "Operacione", en: "Operations" },
+    rows: [
+      { label: { sq: "Menaxhim Inventarit", en: "Inventory Management" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Alarme rezerva të ulëta", en: "Low-stock alerts" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Prezencë me GPS", en: "GPS Attendance" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Motorpool / Menaxhim Flotë", en: "Motorpool / Fleet Management" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Kalendarë & Caktim takimesh", en: "Calendar & Meeting scheduler" }, starter: true, professional: true, enterprise: true },
+    ],
+  },
+  {
+    group: { sq: "HR & Personeli", en: "HR & Staff" },
+    rows: [
+      { label: { sq: "Menaxhim HR", en: "HR Management" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Listë pagese (Payroll)", en: "Payroll" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Menaxhim Lejeve", en: "Leave Management" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Menaxhim Trajnimesh", en: "Training Management" }, starter: false, professional: true, enterprise: true },
+      { label: { sq: "Raporte performancë", en: "Performance reports" }, starter: false, professional: true, enterprise: true },
+    ],
+  },
+  {
+    group: { sq: "Siguria & Integrimi", en: "Security & Integration" },
+    rows: [
+      { label: { sq: "Kriptim TLS 256-bit", en: "TLS 256-bit encryption" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Qasje API", en: "API access" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Webhooks", en: "Webhooks" }, starter: false, professional: true, enterprise: true },
+      { label: { sq: "SSO / Active Directory", en: "SSO / Active Directory" }, starter: false, professional: false, enterprise: true },
+      { label: { sq: "Log auditimi", en: "Audit log" }, starter: false, professional: true, enterprise: true },
+    ],
+  },
+];
 
 export default function CompareFeatures() {
-  const [isVisible, setIsVisible] = useState(false);
+  const { currentLanguage } = useLanguage();
+  const lang = currentLanguage;
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
+  const [expandedGroups, setExpandedGroups] = useState<Record<number, boolean>>(
+    Object.fromEntries(FEATURE_GROUPS.map((_, i) => [i, true]))
+  );
 
-  useEffect(() => {
-    setIsVisible(true);
+  const toggleGroup = (i: number) =>
+    setExpandedGroups(prev => ({ ...prev, [i]: !prev[i] }));
 
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
-    }, observerOptions);
-
-    // Observe all scroll-animate elements
-    const animateElements = document.querySelectorAll('.scroll-animate');
-    animateElements.forEach((el) => observer.observe(el));
-
-    return () => {
-      animateElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
-
-
-
-  const coreFeatures = [
-    {
-      icon: FileText,
-      title: "Professional Invoicing",
-      description: "Create unlimited professional invoices with custom branding and automated payment reminders",
-      color: "from-blue-600 to-indigo-600"
-    },
-    {
-      icon: Receipt,
-      title: "Smart Expense Tracking",
-      description: "Track business expenses with automated categorization and receipt scanning",
-      color: "from-green-500 to-emerald-600"
-    },
-    {
-      icon: CreditCard,
-      title: "Debt Management",
-      description: "Monitor and manage business debts with payment scheduling and automated alerts",
-      color: "from-red-500 to-pink-600"
-    },
-    {
-      icon: BarChart3,
-      title: "Insights & Reports",
-      description: "Generate comprehensive business reports with advanced analytics and forecasting",
-      color: "from-cyan-500 to-blue-600"
-    },
-    {
-      icon: Users,
-      title: "Client Management",
-      description: "Comprehensive CRM with client profiles, communication history, and project tracking",
-      color: "from-indigo-500 to-purple-600"
-    },
-    {
-      icon: Building2,
-      title: "Vendor Management",
-      description: "Track suppliers, purchase orders, and vendor performance analytics",
-      color: "from-amber-500 to-orange-600"
-    },
-    {
-      icon: Package,
-      title: "Inventory Management",
-      description: "Real-time inventory tracking with low-stock alerts and automated reordering",
-      color: "from-violet-500 to-purple-600"
-    },
-    {
-      icon: Clock,
-      title: "Time & Attendance",
-      description: "GPS-enabled time tracking with team scheduling and productivity analytics",
-      color: "from-teal-500 to-cyan-600"
-    },
-    {
-      icon: Calendar,
-      title: "Smart Calendar",
-      description: "AI-powered scheduling with team coordination and automated meeting planning",
-      color: "from-slate-600 to-gray-700"
-    }
-  ];
+  const Cell = ({ val }: { val: CellVal }) => {
+    if (val === true) return <Check className="h-5 w-5 text-indigo-600 mx-auto" />;
+    if (val === false) return <Minus className="h-4 w-4 text-gray-300 mx-auto" />;
+    return <span className="text-sm font-semibold text-gray-700">{val}</span>;
+  };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3">
-              <img 
-                src={logoPath}
-                alt="BusinessFlow Pro Logo" 
-                className="w-12 h-9 object-contain hover:scale-110 transition-transform duration-300"
-              />
+    <div className="min-h-screen bg-white">
+
+      {/* ── NAV ── */}
+      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative flex items-center h-16">
+            <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/about" className="text-lg font-bold text-foreground hover:text-primary transition-colors">
-                About Us
-              </Link>
-              <div className="relative group">
-                <button className="text-lg font-bold text-foreground hover:text-primary transition-colors flex items-center">
-                  Features
-                  <svg className="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </div>
-              <Link href="/subscribe" className="text-lg font-bold text-foreground hover:text-primary transition-colors">
-                Pricing
-              </Link>
-              <Link href="/contact" className="text-lg font-bold text-foreground hover:text-primary transition-colors">
-                Contact Us
-              </Link>
+            <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/compare-features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Krahaso Planet", "Compare Plans")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact")}</Link>
             </div>
 
-            {/* Action Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <LanguageSelector />
-              <Link href="/login">
-                <Button variant="ghost" className="text-foreground hover:text-primary hover:bg-primary/10">
-                  Login
-                </Button>
-              </Link>
-              <Button 
-                onClick={() => window.location.href = '/subscribe'}
-                className="bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                Buy Now
-              </Button>
-              <Button 
+            <div className="hidden lg:flex items-center space-x-5 ml-auto">
+              <button
                 onClick={() => window.location.href = "/trial"}
-                className="bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
+                className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md hover:-translate-y-0.5"
               >
-                Start Your Trial
-              </Button>
+                <span className="flex flex-col items-start leading-tight">
+                  <span className="text-[9px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
+                  <span className="text-xs">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
+                </span>
+                <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+              </button>
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 hover:bg-gray-700 text-white rounded-xl transition-colors">
+                {sq(lang, "Blej Tani", "Buy Now")}
+              </button>
+              <LanguageSelector />
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
-              >
-                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
+            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+        </div>
+        {showMobileMenu && (
+          <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features")}</Link>
+            <button onClick={() => window.location.href = "/subscribe"} className="block w-full text-left text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact")}</Link>
+            <div className="pt-2 flex flex-col gap-2">
+              <button onClick={() => window.location.href = "/trial"} className="text-sm font-bold px-4 py-3 bg-indigo-600 text-white rounded-xl">{sq(lang, "Fillo Provën Tani — 14 Ditë Falas", "Start Free Trial — 14 Days Free")}</button>
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-xl">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <LanguageSelector />
             </div>
           </div>
-
-          {/* Mobile Navigation */}
-          {showMobileMenu && (
-            <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-border">
-                <Link 
-                  href="/about"
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded-md"
-                  onClick={() => setShowMobileMenu(false)}
-                >
-                  About Us
-                </Link>
-                <button className="block w-full text-left px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded-md">
-                  Features
-                </button>
-                <Link 
-                  href="/subscribe"
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded-md"
-                  onClick={() => setShowMobileMenu(false)}
-                >
-                  Pricing
-                </Link>
-                <Link 
-                  href="/contact"
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-primary hover:bg-gray-50 rounded-md"
-                  onClick={() => setShowMobileMenu(false)}
-                >
-                  Contact Us
-                </Link>
-                <div className="px-3 py-2">
-                  <LanguageSelector />
-                </div>
-              </div>
-              <div className="px-2 py-3 border-t border-border bg-gray-50 space-y-2">
-                <Button 
-                  variant="ghost"
-                  onClick={() => {
-                    window.location.href = '/login';
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full text-foreground hover:text-primary hover:bg-white font-medium"
-                >
-                  Login
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = '/subscribe';
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-yellow-500 text-black hover:bg-yellow-600 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                  style={{outline: 'none', boxShadow: 'none'}}
-                >
-                  Buy Now
-                </Button>
-                <Button 
-                  onClick={() => {
-                    window.location.href = "/trial";
-                    setShowMobileMenu(false);
-                  }}
-                  className="w-full bg-purple-600 text-white hover:bg-purple-700 font-medium focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                  style={{outline: 'none', boxShadow: 'none'}}
-                >
-                  Start Your Trial
-                </Button>
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </nav>
 
-      {/* Full-width Yellow background section */}
-      <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden py-16 mt-16">
-        {/* Yellow background sparkles */}
-        <div className="absolute top-8 right-12 w-4 h-4 animate-ping delay-0">
-          <div className="w-4 h-4 text-amber-600/40">✨</div>
-        </div>
-        <div className="absolute bottom-8 left-16 w-6 h-6 animate-ping delay-1000">
-          <div className="w-6 h-6 text-orange-600/50">✨</div>
-        </div>
-        <div className="absolute top-8 right-24 w-3 h-3 animate-ping delay-2000">
-          <div className="w-3 h-3 text-yellow-600/40">✨</div>
-        </div>
-        <div className="absolute bottom-8 left-20 w-2 h-2 bg-amber-600 rounded-full animate-bounce delay-500"></div>
-        <div className="absolute top-1/2 left-8 w-1.5 h-1.5 bg-orange-600 rounded-full animate-pulse delay-1500"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
-          <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-medium text-gray-800 mb-6">
-            <Award className="w-4 h-4 mr-2 text-gray-700" />
-            One Platform • Multiple Plans
+      {/* ── HERO ── */}
+      <section className="pt-24 pb-10 bg-gradient-to-b from-indigo-50/60 to-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6 pt-8 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5">
+            <Star className="h-3.5 w-3.5" />
+            {sq(lang, "Të gjitha planet, të gjitha veçoritë", "All plans, all features")}
           </div>
-          
-          <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight mb-8 tracking-tight drop-shadow-lg animate-professional-fade">
-            Choose your <span className="animate-subtle-gradient">perfect fit</span>
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-3 leading-tight">
+            {sq(lang,
+              <>Krahaso <span className="text-indigo-600">Planet</span></>,
+              <>Compare <span className="text-indigo-600">Plans</span></>
+            )}
           </h1>
-          
-          <p className="text-2xl lg:text-3xl text-gray-800 max-w-5xl mx-auto leading-relaxed drop-shadow-sm mb-0">
-            All plans include the complete BusinessFlow Pro feature suite. Only pricing differs based on team size and invoice volume to match your business needs.
+          <p className="text-base text-gray-500 max-w-xl mx-auto mb-8">
+            {sq(lang,
+              "Çdo plan përfshin të gjitha 14 modulet. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.",
+              "Every plan includes all 14 modules. Differences are only in the number of users and invoice volume."
+            )}
           </p>
-        </div>
-      </div>
 
-      <div className="px-4 pt-8">
-        <div className="max-w-7xl mx-auto">
-          {/* Why One Plan Philosophy */}
-          <div className="max-w-5xl mx-auto mb-16">
-            <div className="p-10">
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Heart className="h-8 w-8 text-white" />
-                </div>
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight text-center animate-professional-fade">
-                Why One Plan <span className="animate-subtle-gradient">Fits All?</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-2xl font-black text-foreground mb-3">No Feature Restrictions</h3>
-                      <p className="text-xl text-muted-foreground leading-relaxed">Every business deserves access to professional tools. We believe limiting features based on price creates unnecessary barriers to growth.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-2xl font-black text-foreground mb-3">Fair & Transparent</h3>
-                      <p className="text-xl text-muted-foreground leading-relaxed">Pay based on your actual usage - team size and invoice volume - not artificial feature limitations that don't reflect real value.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-2xl font-black text-foreground mb-3">Scale Without Limits</h3>
-                      <p className="text-xl text-muted-foreground leading-relaxed">As your business grows, you won't hit feature walls. Your capabilities remain the same - only your capacity changes.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-2xl font-black text-foreground mb-3">Customer-First Approach</h3>
-                      <p className="text-xl text-muted-foreground leading-relaxed">We built this platform to help businesses succeed, not to maximize revenue through feature restrictions. Your success is our success.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          {/* Core Features Overview */}
-          <div className="mb-20">
-            <div className="p-10">
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                  <Target className="h-8 w-8 text-white" />
-                </div>
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 tracking-tight leading-tight text-center">
-                <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 bg-clip-text text-transparent">
-                  Complete Business Suite Included
-                </span>
-              </h2>
-              <p className="text-2xl text-muted-foreground text-center mb-10 leading-relaxed max-w-4xl mx-auto">
-                Every plan includes our complete feature set. No restrictions, no limitations - just the tools your business needs to succeed.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {coreFeatures.map((feature, index) => (
-                  <div key={index} className="group p-6 text-center">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <feature.icon className="h-8 w-8 text-white" />
-                    </div>
-                    
-                    <h3 className="text-xl font-black text-foreground mb-3 tracking-tight">
-                      {feature.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Additional explanation */}
-          <div className="mt-16">
-            <div className="p-10 text-center max-w-4xl mx-auto">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                <Award className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-4xl font-black text-foreground mb-4 tracking-tight leading-tight">
-                <span className="bg-gradient-to-r from-orange-600 via-yellow-600 to-red-600 bg-clip-text text-transparent">
-                  Full Access, Fair Pricing
-                </span>
-              </h3>
-              <p className="text-2xl text-muted-foreground leading-relaxed">
-                Unlike other platforms that restrict features to force expensive upgrades, we believe every business should have access to professional tools. Our pricing scales with your usage, not your capabilities.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Full Width CTA Section with Yellow Background */}
-        <div className="bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 py-16 px-4 text-center relative overflow-hidden mt-16 w-screen -mx-[50vw] ml-[calc(50%-50vw)]">
-          {/* Sparkle animations */}
-          <div className="absolute top-8 left-8 w-3 h-3 bg-white rounded-full animate-ping" style={{ animationDelay: '0s' }} />
-          <div className="absolute top-12 right-12 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-12 left-16 w-2.5 h-2.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2s' }} />
-          <div className="absolute bottom-8 right-8 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '3s' }} />
-          <div className="absolute top-1/2 left-6 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '1.5s' }} />
-          <div className="absolute top-1/3 right-6 w-2.5 h-2.5 bg-white rounded-full animate-ping" style={{ animationDelay: '2.5s' }} />
-          <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '0.5s' }} />
-          <div className="absolute top-1/4 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{ animationDelay: '3.5s' }} />
-
-          <div className="max-w-6xl mx-auto">
-            <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl relative z-10">
-              <Zap className="h-12 w-12 text-white" />
-            </div>
-            
-            <h2 className="text-5xl lg:text-6xl xl:text-7xl font-black mb-6 tracking-tight leading-tight relative z-10">
-              <span className="text-black animate-text-wave">
-                Ready to Transform Your Business?
+          {/* Billing toggle */}
+          <div className="inline-flex items-center gap-1 bg-gray-100 rounded-xl p-1 mb-10">
+            <button
+              onClick={() => setBilling("monthly")}
+              className={`px-5 py-2 rounded-lg text-sm font-semibold transition-all ${billing === "monthly" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"}`}
+            >
+              {sq(lang, "Mujor", "Monthly")}
+            </button>
+            <button
+              onClick={() => setBilling("yearly")}
+              className={`flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-all ${billing === "yearly" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"}`}
+            >
+              {sq(lang, "Vjetor", "Yearly")}
+              <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 px-1.5 py-0.5 rounded-full">
+                −20%
               </span>
-            </h2>
-            
-            <p className="text-2xl lg:text-3xl text-black max-w-4xl mx-auto mb-10 leading-relaxed font-medium relative z-10">
-              Join thousands of businesses already streamlining their operations with BusinessFlow Pro. Experience the full feature set with any plan you choose.
-            </p>
+            </button>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8 relative z-10">
-              <button 
-                onClick={() => window.location.href = "/trial"}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
+          {/* Plan cards */}
+          <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            {PLANS.map((plan) => (
+              <div
+                key={plan.id}
+                className={`relative bg-white rounded-2xl border ${plan.color} p-5 shadow-sm text-left`}
               >
-                Start Your Trial
-              </button>
-              <button 
-                onClick={() => window.location.href = "/subscribe"}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:scale-105 flex items-center justify-center focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                style={{outline: 'none', boxShadow: 'none'}}
-              >
-                Buy Now
-              </button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-black font-medium relative z-10">
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span>No credit card required</span>
+                {plan.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="bg-indigo-600 text-white text-[11px] font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm">
+                      {sq(lang, plan.badge.sq, plan.badge.en)}
+                    </span>
+                  </div>
+                )}
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">{sq(lang, plan.name.sq, plan.name.en)}</p>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-3xl font-extrabold text-gray-900">€{billing === "monthly" ? plan.price : plan.yearlyPrice}</span>
+                  <span className="text-sm text-gray-400">/mo</span>
+                </div>
+                {billing === "yearly" && (
+                  <p className="text-[11px] text-emerald-600 font-semibold mb-2">{sq(lang, "Faturuar vjetërisht", "Billed annually")}</p>
+                )}
+                <div className="space-y-1 mb-4 mt-2">
+                  <p className="text-xs text-gray-500 flex items-center gap-1.5">
+                    <Users className="h-3.5 w-3.5 text-indigo-400 flex-shrink-0" />
+                    {sq(lang, plan.users.sq, plan.users.en)}
+                  </p>
+                  <p className="text-xs text-gray-500 flex items-center gap-1.5">
+                    <FileText className="h-3.5 w-3.5 text-indigo-400 flex-shrink-0" />
+                    {sq(lang, plan.invoices.sq, plan.invoices.en)}
+                  </p>
+                  <p className="text-xs text-gray-500 flex items-center gap-1.5">
+                    <Zap className="h-3.5 w-3.5 text-indigo-400 flex-shrink-0" />
+                    {sq(lang, "Të gjitha 14 modulet", "All 14 modules included")}
+                  </p>
+                </div>
+                <button
+                  onClick={() => window.location.href = plan.highlight ? "/trial" : "/subscribe"}
+                  className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all ${plan.btnClass}`}
+                >
+                  {plan.highlight
+                    ? sq(lang, "Fillo Provën Tani", "Start Free Trial")
+                    : sq(lang, "Blej Tani", "Buy Now")}
+                </button>
               </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span>14-day free trial</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <span>Full feature access</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── FEATURE COMPARISON TABLE ── */}
+      <section className="py-14 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
+              {sq(lang, "Krahasim i plotë i veçorive", "Full feature comparison")}
+            </h2>
+            <p className="text-sm text-gray-500">
+              {sq(lang, "Shihni çfarë përfshin secili plan në detaje", "See exactly what each plan includes in detail")}
+            </p>
+          </div>
+
+          {/* Table header */}
+          <div className="hidden md:grid grid-cols-12 items-center px-5 py-3 mb-3 bg-gray-50 rounded-xl">
+            <div className="col-span-6 text-xs font-semibold text-gray-400 uppercase tracking-widest">
+              {sq(lang, "Veçoria", "Feature")}
+            </div>
+            {PLANS.map(plan => (
+              <div key={plan.id} className={`col-span-2 text-center text-xs font-bold uppercase tracking-widest ${plan.highlight ? "text-indigo-600" : "text-gray-500"}`}>
+                {sq(lang, plan.name.sq, plan.name.en)}
+              </div>
+            ))}
+          </div>
+
+          {FEATURE_GROUPS.map((group, gi) => (
+            <div key={gi} className="mb-4 border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+              {/* Group header */}
+              <button
+                onClick={() => toggleGroup(gi)}
+                className="w-full flex items-center justify-between px-5 py-3.5 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
+              >
+                <span className="text-sm font-bold text-gray-800">{sq(lang, group.group.sq, group.group.en)}</span>
+                {expandedGroups[gi]
+                  ? <ChevronUp className="h-4 w-4 text-gray-400" />
+                  : <ChevronDown className="h-4 w-4 text-gray-400" />
+                }
+              </button>
+
+              {expandedGroups[gi] && (
+                <div>
+                  {group.rows.map((row, ri) => (
+                    <div
+                      key={ri}
+                      className={`grid md:grid-cols-12 items-center px-5 py-3.5 border-t border-gray-100 ${ri % 2 === 0 ? "bg-white" : "bg-gray-50/30"} hover:bg-indigo-50/20 transition-colors`}
+                    >
+                      {/* Feature name (mobile: full width, desktop: 6 cols) */}
+                      <div className="md:col-span-6 mb-2 md:mb-0">
+                        <span className="text-sm text-gray-700 font-medium">{sq(lang, row.label.sq, row.label.en)}</span>
+                      </div>
+                      {/* Mobile: show all 3 values in a row */}
+                      <div className="flex md:hidden justify-around mt-1 mb-1">
+                        {PLANS.map(plan => (
+                          <div key={plan.id} className="flex flex-col items-center gap-1">
+                            <span className="text-[10px] text-gray-400">{sq(lang, plan.name.sq, plan.name.en)}</span>
+                            <Cell val={row[plan.id as keyof typeof row] as CellVal} />
+                          </div>
+                        ))}
+                      </div>
+                      {/* Desktop: 2 cols each */}
+                      {PLANS.map(plan => (
+                        <div key={plan.id} className="hidden md:flex md:col-span-2 justify-center">
+                          <Cell val={row[plan.id as keyof typeof row] as CellVal} />
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Legend */}
+          <div className="flex flex-wrap gap-4 justify-center mt-5 text-xs text-gray-400">
+            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-indigo-600" /> {sq(lang, "I përfshirë", "Included")}</span>
+            <span className="flex items-center gap-1.5"><Minus className="h-3.5 w-3.5 text-gray-300" /> {sq(lang, "Nuk është i disponueshëm", "Not available")}</span>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Footer */}
+      {/* ── FAQ SECTION ── */}
+      <section className="py-12 px-6 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-xl font-extrabold text-gray-900 mb-6 text-center">
+            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions")}
+          </h2>
+          {[
+            {
+              q: { sq: "A mund të ndërroj planin më vonë?", en: "Can I switch plans later?" },
+              a: { sq: "Po, mund të ndërroni planin në çdo kohë. Ndryshimi ndodh menjëherë dhe çmimi rregullohet automatikisht proporcionalisht.", en: "Yes, you can switch plans at any time. The change happens immediately and the price adjusts automatically on a prorated basis." },
+            },
+            {
+              q: { sq: "A përfshihen të gjitha veçoritë në planin Starter?", en: "Are all features included in the Starter plan?" },
+              a: { sq: "Po! Çdo plan përfshin të gjitha 14 modulet e Clientlly. Diferencat janë vetëm në numrin e përdoruesve dhe volumin e faturave.", en: "Yes! Every plan includes all 14 Clientlly modules. Differences are only in user count and invoice volume." },
+            },
+            {
+              q: { sq: "Çfarë ndodh pas 14 ditëve të provës falas?", en: "What happens after the 14-day free trial?" },
+              a: { sq: "Pasi të mbarojë prova juaj, ju do t'ju kërkohet të zgjidhni një plan. Nuk kemi të dhëna të kartës tuaj të kreditit derisa të vendosni vetë.", en: "After your trial ends, you'll be asked to choose a plan. We don't have your credit card details until you decide." },
+            },
+            {
+              q: { sq: "A mund të anuloj abonimi në çdo kohë?", en: "Can I cancel my subscription at any time?" },
+              a: { sq: "Po, mund të anuloni abonimi tuaj në çdo kohë pa asnjë penalizim. Do të keni qasje deri në fund të periudhës për të cilën keni paguar.", en: "Yes, you can cancel your subscription at any time with no penalty. You'll have access until the end of the period you've paid for." },
+            },
+          ].map(({ q, a }, i) => (
+            <details key={i} className="group mb-2 bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <summary className="flex items-center justify-between px-5 py-4 cursor-pointer select-none">
+                <span className="text-sm font-semibold text-gray-900">{sq(lang, q.sq, q.en)}</span>
+                <ChevronDown className="h-4 w-4 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-3" />
+              </summary>
+              <div className="px-5 pb-4">
+                <p className="text-sm text-gray-500 leading-relaxed">{sq(lang, a.sq, a.en)}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-16 px-6 bg-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/3 w-80 h-80 bg-indigo-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/3 w-56 h-56 bg-violet-500 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-3xl mx-auto text-center relative">
+          <div className="flex items-center justify-center gap-1.5 mb-4">
+            {[1,2,3,4,5].map(i => <Star key={i} className="h-4 w-4 text-amber-400 fill-amber-400" />)}
+          </div>
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
+            {sq(lang,
+              <>Gati të filloni? <span className="text-indigo-400">14 ditë falas</span>, pa kartë krediti.</>,
+              <>Ready to start? <span className="text-indigo-400">14 days free</span>, no credit card.</>
+            )}
+          </h2>
+          <p className="text-gray-400 text-sm mb-8 max-w-lg mx-auto">
+            {sq(lang,
+              "Filloni provën tuaj falas sot dhe zbuloni pse 200+ biznese zgjodhën Clientlly.",
+              "Start your free trial today and discover why 200+ businesses chose Clientlly."
+            )}
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button
+              onClick={() => window.location.href = "/trial"}
+              className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            >
+              <span className="flex flex-col items-start leading-tight">
+                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
+                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
+              </span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+            <button
+              onClick={() => window.location.href = "/subscribe"}
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200 text-sm"
+            >
+              {sq(lang, "Shiko Çmimet", "View Pricing")}
+            </button>
+          </div>
+          <div className="flex flex-wrap justify-center gap-5 mt-6">
+            {[
+              { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card") },
+              { icon: Check, label: sq(lang, "Anulo kur dëshironi", "Cancel anytime") },
+              { icon: Zap, label: sq(lang, "Qasje e menjëhershme", "Instant access") },
+            ].map(({ icon: Icon, label }, i) => (
+              <span key={i} className="flex items-center gap-1.5 text-xs text-gray-500">
+                <Icon className="h-3.5 w-3.5 text-gray-500" />
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
