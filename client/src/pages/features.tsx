@@ -150,6 +150,33 @@ const features = [
     stat: { value: "2×", label: { sq: "vendime më të mira", en: "better decisions" } },
   },
 
+  {
+    id: "buyer-cards",
+    icon: Wallet,
+    gradient: "from-amber-500 to-amber-600",
+    lightText: "text-amber-600",
+    border: "border-amber-100",
+    dotColor: "bg-amber-500",
+    category: "finance" as Category,
+    tag: { sq: "Financë", en: "Finance" },
+    title: { sq: "Kartelat e Blerësit", en: "Buyer Cards" },
+    tagline: { sq: "Menaxhoni kartelat dhe historikun e blerësve", en: "Manage buyer cards and purchase history" },
+    desc: {
+      sq: "Krijoni kartela dixhitale për çdo blerës me historikun e plotë të blerjeve, pagesave dhe borxheve. Çdo blerës ka profilin e vet me saldo aktuale, limitet e kreditit dhe statistikat e blerjeve.",
+      en: "Create digital cards for each buyer with complete purchase, payment and debt history. Each buyer has their own profile with current balance, credit limits and purchase statistics."
+    },
+    benefits: [
+      { sq: "Kartela dixhitale me saldo dhe historik blerje", en: "Digital cards with balance and purchase history" },
+      { sq: "Limit krediti dhe njoftim automatik", en: "Credit limit and automatic notification" },
+      { sq: "Gjurmim i pagesave dhe borxheve të blerësit", en: "Tracking buyer payments and debts" },
+      { sq: "Raport detajuar i çdo blerësi", en: "Detailed report for each buyer" },
+      { sq: "Kategorizim sipas llojit të blerësit", en: "Categorization by buyer type" },
+      { sq: "Eksport i listës së blerësve (PDF/Excel)", en: "Export buyer list (PDF/Excel)" },
+    ],
+    href: "/features/buyer-cards",
+    stat: { value: "100%", label: { sq: "transparencë blerësi", en: "buyer transparency" } },
+  },
+
   /* ── CLIENTS ─────────────────────────────────────────── */
   {
     id: "clients",
@@ -371,22 +398,48 @@ const features = [
     dotColor: "bg-pink-500",
     category: "hr" as Category,
     tag: { sq: "HR & Ekipi", en: "HR & Team" },
-    title: { sq: "Pushimet & Trajnimi", en: "Leave Management & Training" },
-    tagline: { sq: "Pushime, certifikata dhe testim — gjithçka i organizuar", en: "Leave, certificates and testing — all organised" },
+    title: { sq: "Menaxhim Lejesh", en: "Leave Management" },
+    tagline: { sq: "Pushime të organizuara, aprovim i shpejtë", en: "Organised leave, fast approval" },
     desc: {
-      sq: "Menaxhoni të gjitha llojet e pushimeve, kërkesat dhe balancin e ditëve të mbetura. Platformës i integruar sistemi i trajnimit me kuize, testime dhe certifikata dixhitale për çdo punonjës.",
-      en: "Manage all types of leave, requests and remaining day balances. The platform has an integrated training system with quizzes, tests and digital certificates for each employee."
+      sq: "Menaxhoni të gjitha llojet e pushimeve, kërkesat dhe balancin e ditëve të mbetura. Punonjësit kërkojnë pushim nga telefoni, menaxherët e aprovojnë me një klikim.",
+      en: "Manage all types of leave, requests and remaining day balances. Employees request leave from their phone, managers approve with one click."
     },
     benefits: [
       { sq: "Të gjitha llojet: vjetore, sëmundje, lindje, pa pagesë", en: "All types: annual, sick, maternity, unpaid" },
       { sq: "Kërkesë pushimi nga telefoni — aprovim direkt", en: "Leave request from phone — direct approval" },
       { sq: "Ditët e mbetura, dieta e pushimit dhe afati i skadimit", en: "Remaining days, leave allowance and expiry date" },
-      { sq: "Kuize dhe testime për punonjës", en: "Quizzes and tests for employees" },
-      { sq: "Certifikata dixhitale pas kalimit të provimit", en: "Digital certificates after passing the test" },
-      { sq: "Historiku i plotë i pushimeve dhe trajnimeve", en: "Full history of leave and training" },
+      { sq: "Kalendar vizual i pushimeve të ekipit", en: "Visual calendar of team leave" },
+      { sq: "Raporte dhe eksport të pushimeve mujore", en: "Monthly leave reports and export" },
+      { sq: "Historiku i plotë i pushimeve", en: "Full leave history" },
     ],
     href: "/features/leaves",
     stat: { value: "0", label: { sq: "kërkesa pushimi të humbura", en: "lost leave requests" } },
+  },
+  {
+    id: "training",
+    icon: GraduationCap,
+    gradient: "from-teal-500 to-emerald-600",
+    lightText: "text-teal-600",
+    border: "border-teal-100",
+    dotColor: "bg-teal-500",
+    category: "hr" as Category,
+    tag: { sq: "HR & Ekipi", en: "HR & Team" },
+    title: { sq: "Trajnim & Kuize", en: "Training & Quizzes" },
+    tagline: { sq: "Trajnoni ekipin tuaj drejtpërdrejt në platformë", en: "Train your team directly in the platform" },
+    desc: {
+      sq: "Krijoni programe trajnimi me kuize, testime dhe certifikata dixhitale për çdo punonjës. Gjurmoni progresin e trajnimit dhe siguroni që ekipi juaj është gjithmonë i përgatitur.",
+      en: "Create training programs with quizzes, tests and digital certificates for each employee. Track training progress and ensure your team is always prepared."
+    },
+    benefits: [
+      { sq: "Kuize dhe testime interaktive", en: "Interactive quizzes and tests" },
+      { sq: "Certifikata dixhitale pas kalimit të provimit", en: "Digital certificates after passing the test" },
+      { sq: "Programe trajnimi me module të ndryshme", en: "Training programs with different modules" },
+      { sq: "Gjurmim i progresit të çdo punonjësi", en: "Progress tracking for each employee" },
+      { sq: "Material trajnimi: video, PDF, artikuj", en: "Training materials: video, PDF, articles" },
+      { sq: "Raporte detajuara të trajnimit të ekipit", en: "Detailed team training reports" },
+    ],
+    href: "/features/training",
+    stat: { value: "100%", label: { sq: "ekip i trajnuar", en: "trained team" } },
   },
 ];
 
@@ -486,7 +539,7 @@ export default function Features() {
           {/* Quick stats */}
           <div className="anim-rise anim-d3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-lg mx-auto mb-10">
             {[
-              { v: "14", l: sq(lang, "Module", "Modules") },
+              { v: "16", l: sq(lang, "Module", "Modules") },
               { v: "€0", l: sq(lang, "Setup", "Setup") },
               { v: "14", l: sq(lang, "Ditë Falas", "Days Free") },
               { v: "200+", l: sq(lang, "Biznese", "Businesses") },

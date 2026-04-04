@@ -381,7 +381,7 @@ export default function Careers() {
               {[
                 { num: "200+", sq: "Biznese Aktive",    en: "Active Businesses" },
                 { num: "5",    sq: "Vende",             en: "Countries" },
-                { num: "14",   sq: "Module Software",   en: "Software Modules" },
+                { num: "16",   sq: "Module Software",   en: "Software Modules" },
                 { num: "2021", sq: "Vit Themelimi",     en: "Founded" },
               ].map(({ num, sq: sq_, en }, i) => (
                 <div key={i} className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm text-center">
