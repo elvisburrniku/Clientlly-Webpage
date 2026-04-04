@@ -528,13 +528,6 @@ export default function Landing() {
                   "Our platform is built together with you. Share your ideas and our development team will implement them — at no extra cost. Your success is our priority."
                 )}
               </p>
-              <button
-                onClick={() => go('/collaboration')}
-                className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm"
-              >
-                {sq(lang, "Mëso Bashkëpunimin", "Explore Collaboration")}
-                <ArrowRight className="h-4 w-4" />
-              </button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
