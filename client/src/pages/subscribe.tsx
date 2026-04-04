@@ -17,7 +17,8 @@ import { Check, ArrowLeft, ArrowRight, User, Users, CreditCard, Shield, Home, Bu
 import { InlineSpinner } from "@/components/LoadingStates";
 import { Link } from "wouter";
 import { useTranslation } from "@/hooks/useTranslation";
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage, t as tr } from "@/lib/i18n";
+import { PLAN_F } from "@/lib/translations";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { formatCurrency, convertPrice } from "@/components/currency-selector";
 import { useLocationDetection } from "@/hooks/useLocationDetection";
@@ -63,13 +64,14 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
   selectedCurrency: string;
 }) => {
   const { toast } = useToast();
+  const { currentLanguage: lang } = useLanguage();
   const [isProcessing, setIsProcessing] = useState(false);
   const [loadingStage, setLoadingStage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
-    setLoadingStage('Duke përgatitur pagesën...');
+    setLoadingStage(sq(lang, 'Duke përgatitur pagesën...', 'Preparing payment...', 'Preparando el pago...', 'Zahlung wird vorbereitet...', 'Подготовка на плаќање...') as string);
 
     try {
       const response = await fetch('/api/create-account-and-subscription', {
@@ -86,18 +88,18 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
       const data = await response.json();
 
       if (data.checkoutUrl) {
-        setLoadingStage('Duke hapur faqen e pagesës...');
+        setLoadingStage(sq(lang, 'Duke hapur faqen e pagesës...', 'Opening payment page...', 'Abriendo página de pago...', 'Zahlungsseite wird geöffnet...', 'Отворање на страницата за плаќање...') as string);
         setTimeout(() => {
           window.open(data.checkoutUrl, '_blank');
           setIsProcessing(false);
           setLoadingStage('');
-          toast({ title: "Faqja e pagesës u hap", description: "Përfundoni pagesën në dritaren e re të Stripe." });
+          toast({ title: sq(lang, "Faqja e pagesës u hap", "Payment page opened", "Página de pago abierta", "Zahlungsseite geöffnet", "Страницата за плаќање е отворена") as string, description: sq(lang, "Përfundoni pagesën në dritaren e re të Stripe.", "Complete the payment in the new Stripe window.", "Complete el pago en la nueva ventana de Stripe.", "Schließen Sie die Zahlung im neuen Stripe-Fenster ab.", "Завршете го плаќањето во новиот Stripe прозорец.") as string });
         }, 600);
       } else {
         throw new Error('Failed to create checkout session');
       }
     } catch (error: any) {
-      toast({ title: "Pagesa Dështoi", description: error.message || 'Ndodhi një gabim. Provoni përsëri.', variant: "destructive" });
+      toast({ title: sq(lang, "Pagesa Dështoi", "Payment Failed", "Pago Fallido", "Zahlung Fehlgeschlagen", "Плаќањето Не Успеа") as string, description: sq(lang, error.message || 'Ndodhi një gabim. Provoni përsëri.', error.message || 'An error occurred. Please try again.', error.message || 'Ocurrió un error. Inténtelo de nuevo.', error.message || 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.', error.message || 'Настана грешка. Обидете се повторно.') as string, variant: "destructive" });
       setIsProcessing(false);
       setLoadingStage('');
     }
@@ -113,22 +115,22 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
           <div>
             <h3 className="font-bold text-lg text-gray-900">{plan.name}</h3>
             <p className="text-sm text-gray-500">
-              {billingPeriod === 'yearly' ? 'Faturim vjetor' : 'Faturim mujor'}
+              {billingPeriod === 'yearly' ? sq(lang, 'Faturim vjetor', 'Annual billing', 'Facturación anual', 'Jährliche Abrechnung', 'Годишна наплата') : sq(lang, 'Faturim mujor', 'Monthly billing', 'Facturación mensual', 'Monatliche Abrechnung', 'Месечна наплата')}
             </p>
           </div>
           <div className="text-right">
             <div className="font-extrabold text-2xl text-gray-900">
               €{((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice) / 100).toFixed(2)}
             </div>
-            <div className="text-xs text-gray-400">/{billingPeriod === 'yearly' ? 'vit' : 'muaj'}</div>
+            <div className="text-xs text-gray-400">/{billingPeriod === 'yearly' ? sq(lang, 'vit', 'yr', 'año', 'Jahr', 'год.') : sq(lang, 'muaj', 'mo', 'mes', 'Mo.', 'мес.')}</div>
             {billingPeriod === 'yearly' && savings > 0 && (
-              <div className="text-xs text-emerald-600 font-semibold">Kurseni {Math.round(savings)}%</div>
+              <div className="text-xs text-emerald-600 font-semibold">{sq(lang, `Kurseni ${Math.round(savings)}%`, `Save ${Math.round(savings)}%`, `Ahorre ${Math.round(savings)}%`, `Sparen Sie ${Math.round(savings)}%`, `Заштедете ${Math.round(savings)}%`)}</div>
             )}
           </div>
         </div>
         <Separator className="my-3" />
         <div className="space-y-1">
-          <p className="text-xs font-medium text-gray-600">Detajet e llogarisë:</p>
+          <p className="text-xs font-medium text-gray-600">{sq(lang, "Detajet e llogarisë:", "Account details:", "Detalles de la cuenta:", "Kontodetails:", "Детали за сметката:")}</p>
           <p className="text-xs text-gray-500">{userData.firstName} {userData.lastName} · {userData.email}</p>
           <p className="text-xs text-gray-500">{userData.companyName}</p>
         </div>
@@ -138,10 +140,10 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
         <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 space-y-3">
           <div className="flex items-center gap-2 mb-1">
             <Shield className="h-4 w-4 text-indigo-600" />
-            <span className="text-sm font-semibold text-gray-900">Pagesë e sigurt përmes Stripe</span>
+            <span className="text-sm font-semibold text-gray-900">{sq(lang, "Pagesë e sigurt përmes Stripe", "Secure payment via Stripe", "Pago seguro a través de Stripe", "Sichere Zahlung über Stripe", "Безбедно плаќање преку Stripe")}</span>
           </div>
           <p className="text-xs text-gray-500">
-            Do të ridirektoheni te faqja e sigurt e Stripe ku mund të paguani me kartë kredie, Apple Pay, ose Google Pay.
+            {sq(lang, "Do të ridirektoheni te faqja e sigurt e Stripe ku mund të paguani me kartë kredie, Apple Pay, ose Google Pay.", "You will be redirected to Stripe's secure page where you can pay with credit card, Apple Pay, or Google Pay.", "Será redirigido a la página segura de Stripe donde puede pagar con tarjeta de crédito, Apple Pay o Google Pay.", "Sie werden zur sicheren Stripe-Seite weitergeleitet, wo Sie mit Kreditkarte, Apple Pay oder Google Pay bezahlen können.", "Ќе бидете пренасочени на безбедната страница на Stripe каде што можете да платите со кредитна картичка, Apple Pay или Google Pay.")}
           </p>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5">
@@ -149,7 +151,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
               <div className="w-8 h-5 bg-red-500 rounded text-white text-[8px] font-bold flex items-center justify-center">MC</div>
               <div className="w-8 h-5 bg-blue-500 rounded text-white text-[8px] font-bold flex items-center justify-center">AMEX</div>
             </div>
-            <span className="text-[10px] text-gray-400">Enkriptim SSL 256-bit</span>
+            <span className="text-[10px] text-gray-400">{sq(lang, "Enkriptim SSL 256-bit", "256-bit SSL encryption", "Cifrado SSL de 256 bits", "256-Bit SSL-Verschlüsselung", "256-битна SSL енкрипција")}</span>
           </div>
         </div>
 
@@ -167,7 +169,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
           ) : (
             <div className="flex items-center space-x-2">
               <CreditCard className="h-4 w-4" />
-              <span>Paguaj Tani</span>
+              <span>{sq(lang, "Paguaj Tani", "Pay Now", "Pagar Ahora", "Jetzt Bezahlen", "Плати Сега")}</span>
             </div>
           )}
         </Button>
@@ -182,16 +184,16 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
                   <CreditCard className="w-5 h-5 text-indigo-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                 </div>
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-900">Duke procesuar...</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">{sq(lang, "Duke procesuar...", "Processing...", "Procesando...", "Wird verarbeitet...", "Се обработува...")}</h3>
               <p className="text-sm text-gray-500 mb-3">{loadingStage}</p>
-              <p className="text-xs text-gray-400">Ju lutem mos e mbyllni këtë dritare</p>
+              <p className="text-xs text-gray-400">{sq(lang, "Ju lutem mos e mbyllni këtë dritare", "Please do not close this window", "Por favor no cierre esta ventana", "Bitte schließen Sie dieses Fenster nicht", "Ве молиме не го затворајте овој прозорец")}</p>
             </div>
           </div>
         )}
         
         <div className="text-center">
           <p className="text-[10px] text-gray-400">
-            Siguri nga <span className="font-medium">Stripe</span> · Informacioni juaj është i enkriptuar dhe i sigurt
+            {sq(lang, "Siguri nga", "Secured by", "Asegurado por", "Gesichert durch", "Обезбедено од")} <span className="font-medium">Stripe</span> · {sq(lang, "Informacioni juaj është i enkriptuar dhe i sigurt", "Your information is encrypted and secure", "Su información está cifrada y segura", "Ihre Daten sind verschlüsselt und sicher", "Вашите информации се шифрирани и безбедни")}
           </p>
         </div>
       </div>
@@ -231,6 +233,25 @@ export default function Subscribe() {
   const { data: plans, isLoading: plansLoading } = useQuery<SubscriptionPlan[]>({
     queryKey: ['/api/subscription-plans'],
   });
+
+  const featureMap: Record<string, typeof PLAN_F[keyof typeof PLAN_F]> = {};
+  Object.values(PLAN_F).forEach(t5 => { featureMap[t5.sq] = t5; });
+  const tf = (feature: string): string => {
+    const clean = feature.replace(/\*\*/g, '');
+    const boldF = feature.startsWith("**") && feature.endsWith("**");
+    const match = featureMap[clean] ?? featureMap[feature];
+    if (!match) return feature;
+    const translated = tr(lang, match);
+    return boldF && !translated.startsWith("**") ? `**${translated}**` : translated;
+  };
+  const planName = (name: string) => {
+    const n: Record<string, Record<string, string>> = {
+      "Starter": { sq: "Starter", en: "Starter", es: "Inicial", de: "Starter", mk: "Стартер" },
+      "Professional": { sq: "Profesional", en: "Professional", es: "Profesional", de: "Professionell", mk: "Професионален" },
+      "Enterprise": { sq: "Enterprise", en: "Enterprise", es: "Empresarial", de: "Enterprise", mk: "Ентерпрајз" },
+    };
+    return n[name]?.[lang] ?? name;
+  };
 
   // Keep EUR as default - don't auto-change currency
   useEffect(() => {
@@ -332,7 +353,7 @@ export default function Subscribe() {
               billingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            Mujor
+            {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно")}
           </button>
           <button
             onClick={() => setBillingPeriod('yearly')}
@@ -340,7 +361,7 @@ export default function Subscribe() {
               billingPeriod === 'yearly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            Vjetor
+            {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно")}
             <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-15%</span>
           </button>
         </div>
@@ -383,13 +404,13 @@ export default function Subscribe() {
                 {isPopular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center px-3 py-1 bg-white text-indigo-600 text-xs font-bold rounded-full shadow-sm border border-indigo-100">
-                      ★ Më i Popullarizuari
+                      ★ {sq(lang, "Më i Popullarizuari", "Most Popular", "El Más Popular", "Am Beliebtesten", "Најпопуларен")}
                     </span>
                   </div>
                 )}
 
                 <div className="mb-6">
-                  <h3 className={`text-lg font-bold mb-2 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+                  <h3 className={`text-lg font-bold mb-2 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{planName(plan.name)}</h3>
                   {billingPeriod === 'yearly' && (
                     <div className="flex items-center gap-1.5 mb-0.5">
                       <span className={`text-sm line-through ${isPopular ? 'text-indigo-300' : 'text-gray-400'}`}>€{(plan.monthlyPrice / 100).toFixed(0)}</span>
@@ -398,15 +419,15 @@ export default function Subscribe() {
                   )}
                   <div className="flex items-baseline gap-1">
                     <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>{displayPrice}</span>
-                    <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/muaj</span>
+                    <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.")}</span>
                   </div>
                   {billingPeriod === 'yearly' && (
                     <div className={`text-xs mt-1 space-y-0.5`}>
                       <p className={isPopular ? 'text-indigo-200' : 'text-gray-400'}>
-                        €{(plan.monthlyPrice * 12 / 100).toFixed(0)}/vit pa zbritje → €{(plan.yearlyPrice / 100).toFixed(0)}/vit
+                        {sq(lang, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/vit → €${(plan.yearlyPrice / 100).toFixed(0)}/vit`, `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/yr → €${(plan.yearlyPrice / 100).toFixed(0)}/yr`)}
                       </p>
                       <p className="text-emerald-500 font-semibold">
-                        Kurseni €{((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/vit
+                        {sq(lang, `Kurseni €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/vit`, `Save €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/yr`, `Ahorre €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/año`, `Sparen Sie €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/Jahr`, `Заштедете €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/год.`)}
                       </p>
                     </div>
                   )}
@@ -414,23 +435,26 @@ export default function Subscribe() {
 
                 <ul className="space-y-2.5 mb-7">
                   {plan.features.map((feature, fi) => {
-                    const isGrow = feature.includes("Le të Rritemi Bashkë");
-                    const isBold = feature.startsWith("**") && feature.endsWith("**");
+                    const translated = tf(feature);
+                    const isGrow = translated.includes("Le të Rritemi Bashkë") || translated.includes("Let's Grow Together") || translated.includes("Crezcamos Juntos") || translated.includes("Lass uns gemeinsam wachsen") || translated.includes("Да Растеме Заедно");
+                    const isBold = translated.startsWith("**") && translated.endsWith("**");
                     if (isGrow) {
-                      const dash = feature.indexOf("—");
-                      const desc = dash !== -1 ? feature.slice(dash) : "";
+                      const dash = translated.indexOf("—");
+                      const growTitle = sq(lang, "Le të Rritemi Bashkë", "Let's Grow Together", "Crezcamos Juntos", "Lass uns gemeinsam wachsen", "Да Растеме Заедно");
+                      const desc = dash !== -1 ? translated.slice(dash) : "";
+                      const detailsLabel = sq(lang, "Detajet", "Details", "Detalles", "Details", "Детали");
                       return (
-                        <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={(e) => { e.stopPropagation(); setLocation('/collaboration'); window.scrollTo({top:0}); }}>
+                        <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={(e) => { e.stopPropagation(); window.location.href = '/collaboration'; }}>
                           <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
                           <span className="text-sm flex-1">
-                            <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
+                            <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>{growTitle}</span>
                             <span className={`${isPopular ? 'text-amber-300' : 'text-amber-600'}`}> {desc}</span>
-                            <span className={`ml-1 text-xs underline ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>→ Detajet</span>
+                            <span className={`ml-1 text-xs underline ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>→ {detailsLabel}</span>
                           </span>
                         </li>
                       );
                     }
-                    const clean = feature.replace(/\*\*/g, '');
+                    const clean = translated.replace(/\*\*/g, '');
                     return (
                       <li key={fi} className="flex items-start gap-2.5">
                         <CheckCircle className={`h-4 w-4 mt-0.5 flex-shrink-0 ${isPopular ? 'text-indigo-300' : 'text-indigo-500'}`} />
@@ -455,7 +479,7 @@ export default function Subscribe() {
                       isPopular ? 'bg-white text-indigo-700 hover:shadow-lg' : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg'
                     }`}
                   >
-                    Zgjidhni Planin →
+                    {sq(lang, "Zgjidhni Planin →", "Select Plan →", "Seleccionar Plan →", "Plan Auswählen →", "Изберете План →")}
                   </button>
                 </div>
               </div>
@@ -464,7 +488,7 @@ export default function Subscribe() {
         )}
       </div>
       <p className="text-center text-xs text-gray-400 mt-6">
-        Të gjithë planet përfshijnë 16 modulet · Ndryshoni planin kur të dëshironi
+        {sq(lang, "Të gjithë planet përfshijnë 16 modulet · Ndryshoni planin kur të dëshironi", "All plans include all 16 modules · Change plans whenever you want", "Todos los planes incluyen los 16 módulos · Cambie de plan cuando quiera", "Alle Pläne umfassen alle 16 Module · Wechseln Sie Pläne jederzeit", "Сите планови ги вклучуваат сите 16 модули · Менувајте планови кога сакате")}
       </p>
     </div>
   );
@@ -478,45 +502,45 @@ export default function Subscribe() {
               <Users className="h-6 w-6 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-extrabold text-gray-900">Krijoni Llogarinë</h2>
-              <p className="text-sm text-gray-500 mt-0.5">Konfiguroni llogarinë tuaj Clientlly</p>
+              <h2 className="text-xl font-extrabold text-gray-900">{sq(lang, "Krijoni Llogarinë", "Create Account", "Crear Cuenta", "Konto Erstellen", "Креирајте Сметка")}</h2>
+              <p className="text-sm text-gray-500 mt-0.5">{sq(lang, "Konfiguroni llogarinë tuaj Clientlly", "Set up your Clientlly account", "Configure su cuenta Clientlly", "Richten Sie Ihr Clientlly-Konto ein", "Поставете ја вашата Clientlly сметка")}</p>
             </div>
           </div>
         </div>
         <div className="px-8 py-7 space-y-5">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="firstName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Emri</Label>
-              <Input id="firstName" value={userData.firstName} onChange={(e) => setUserData({...userData, firstName: e.target.value})} placeholder="Artan" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+              <Label htmlFor="firstName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Emri", "First Name", "Nombre", "Vorname", "Име")}</Label>
+              <Input id="firstName" value={userData.firstName} onChange={(e) => setUserData({...userData, firstName: e.target.value})} placeholder={sq(lang, "Artan", "John", "Juan", "Max", "Иван") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="lastName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Mbiemri</Label>
-              <Input id="lastName" value={userData.lastName} onChange={(e) => setUserData({...userData, lastName: e.target.value})} placeholder="Hoxha" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+              <Label htmlFor="lastName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Mbiemri", "Last Name", "Apellido", "Nachname", "Презиме")}</Label>
+              <Input id="lastName" value={userData.lastName} onChange={(e) => setUserData({...userData, lastName: e.target.value})} placeholder={sq(lang, "Hoxha", "Smith", "García", "Müller", "Петров") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
             </div>
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="email" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Email</Label>
-            <Input id="email" type="email" value={userData.email} onChange={(e) => setUserData({...userData, email: e.target.value})} placeholder="artan@kompania.com" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            <Input id="email" type="email" value={userData.email} onChange={(e) => setUserData({...userData, email: e.target.value})} placeholder={sq(lang, "artan@kompania.com", "john@company.com", "juan@empresa.com", "max@firma.com", "иван@компанија.мк") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="password" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Fjalëkalimi</Label>
-            <Input id="password" type="password" value={userData.password} onChange={(e) => setUserData({...userData, password: e.target.value})} placeholder="Minimum 8 karaktere" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            <Label htmlFor="password" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Fjalëkalimi", "Password", "Contraseña", "Passwort", "Лозинка")}</Label>
+            <Input id="password" type="password" value={userData.password} onChange={(e) => setUserData({...userData, password: e.target.value})} placeholder={sq(lang, "Minimum 8 karaktere", "Minimum 8 characters", "Mínimo 8 caracteres", "Mindestens 8 Zeichen", "Минимум 8 карактери") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="confirmPassword" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Konfirmo Fjalëkalimin</Label>
-            <Input id="confirmPassword" type="password" value={userData.confirmPassword} onChange={(e) => setUserData({...userData, confirmPassword: e.target.value})} placeholder="Konfirmo fjalëkalimin" required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            <Label htmlFor="confirmPassword" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Konfirmo Fjalëkalimin", "Confirm Password", "Confirmar Contraseña", "Passwort Bestätigen", "Потврди Лозинка")}</Label>
+            <Input id="confirmPassword" type="password" value={userData.confirmPassword} onChange={(e) => setUserData({...userData, confirmPassword: e.target.value})} placeholder={sq(lang, "Konfirmo fjalëkalimin", "Confirm password", "Confirmar contraseña", "Passwort bestätigen", "Потврди лозинка") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
             {userData.password && userData.confirmPassword && userData.password !== userData.confirmPassword && (
-              <p className="text-xs text-red-600 flex items-center gap-1"><X className="h-3 w-3" /> Fjalëkalimet nuk përputhen</p>
+              <p className="text-xs text-red-600 flex items-center gap-1"><X className="h-3 w-3" /> {sq(lang, "Fjalëkalimet nuk përputhen", "Passwords do not match", "Las contraseñas no coinciden", "Passwörter stimmen nicht überein", "Лозинките не се совпаѓаат")}</p>
             )}
           </div>
           <div className="flex items-start gap-2.5 pt-1">
             <Checkbox id="terms" checked={userData.agreeToTerms} onCheckedChange={(checked) => setUserData({...userData, agreeToTerms: checked as boolean})} className="mt-0.5" />
             <Label htmlFor="terms" className="text-xs text-gray-500 leading-relaxed">
-              Pranoj <a href="/terms-of-service" target="_blank" className="text-indigo-600 hover:underline">Kushtet e Shërbimit</a> dhe <a href="/privacy-policy" target="_blank" className="text-indigo-600 hover:underline">Politikën e Privatësisë</a>
+              {sq(lang, "Pranoj", "I agree to the", "Acepto los", "Ich akzeptiere die", "Ги прифаќам")} <a href="/terms-of-service" target="_blank" className="text-indigo-600 hover:underline">{sq(lang, "Kushtet e Shërbimit", "Terms of Service", "Términos de Servicio", "Nutzungsbedingungen", "Услови за Користење")}</a> {sq(lang, "dhe", "and", "y", "und", "и")} <a href="/privacy-policy" target="_blank" className="text-indigo-600 hover:underline">{sq(lang, "Politikën e Privatësisë", "Privacy Policy", "Política de Privacidad", "Datenschutzrichtlinie", "Политика за Приватност")}</a>
             </Label>
           </div>
           <p className="text-xs text-gray-400 text-center">
-            Keni tashmë llogari? <a href="/api/login" className="text-indigo-600 hover:underline font-semibold">Hyni</a>
+            {sq(lang, "Keni tashmë llogari?", "Already have an account?", "¿Ya tiene una cuenta?", "Bereits ein Konto?", "Веќе имате сметка?")} <a href="/api/login" className="text-indigo-600 hover:underline font-semibold">{sq(lang, "Hyni", "Log in", "Iniciar sesión", "Anmelden", "Најавете се")}</a>
           </p>
         </div>
       </div>
@@ -532,54 +556,54 @@ export default function Subscribe() {
               <Building2 className="h-6 w-6 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-extrabold text-gray-900">Detajet e Kompanisë</h2>
-              <p className="text-sm text-gray-500 mt-0.5">Tregoni pak rreth biznesit tuaj</p>
+              <h2 className="text-xl font-extrabold text-gray-900">{sq(lang, "Detajet e Kompanisë", "Company Details", "Detalles de la Empresa", "Unternehmensdetails", "Детали за Компанијата")}</h2>
+              <p className="text-sm text-gray-500 mt-0.5">{sq(lang, "Tregoni pak rreth biznesit tuaj", "Tell us about your business", "Cuéntenos sobre su negocio", "Erzählen Sie uns von Ihrem Unternehmen", "Кажете ни за вашиот бизнис")}</p>
             </div>
           </div>
         </div>
         <div className="px-8 py-7 space-y-5">
           <div className="space-y-1.5">
-            <Label htmlFor="companyName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Emri i Kompanisë</Label>
-            <Input id="companyName" value={userData.companyName} onChange={(e) => setUserData({...userData, companyName: e.target.value})} placeholder="Kompania Juaj Sh.p.k." required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            <Label htmlFor="companyName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Emri i Kompanisë", "Company Name", "Nombre de la Empresa", "Firmenname", "Име на Компанијата")}</Label>
+            <Input id="companyName" value={userData.companyName} onChange={(e) => setUserData({...userData, companyName: e.target.value})} placeholder={sq(lang, "Kompania Juaj Sh.p.k.", "Your Company Ltd.", "Su Empresa S.L.", "Ihre Firma GmbH", "Ваша Компанија ДОО") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="companySize" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Madhësia e Kompanisë</Label>
+            <Label htmlFor="companySize" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Madhësia e Kompanisë", "Company Size", "Tamaño de la Empresa", "Unternehmensgröße", "Големина на Компанијата")}</Label>
             <Select value={userData.companySize} onValueChange={(value) => setUserData({...userData, companySize: value})}>
               <SelectTrigger className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 text-sm">
-                <SelectValue placeholder="Zgjidhni madhësinë" />
+                <SelectValue placeholder={sq(lang, "Zgjidhni madhësinë", "Select size", "Seleccionar tamaño", "Größe wählen", "Изберете големина") as string} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="1-5">1-5 punonjës</SelectItem>
-                <SelectItem value="6-20">6-20 punonjës</SelectItem>
-                <SelectItem value="21-50">21-50 punonjës</SelectItem>
-                <SelectItem value="51-200">51-200 punonjës</SelectItem>
-                <SelectItem value="200+">200+ punonjës</SelectItem>
+                <SelectItem value="1-5">{sq(lang, "1-5 punonjës", "1-5 employees", "1-5 empleados", "1-5 Mitarbeiter", "1-5 вработени")}</SelectItem>
+                <SelectItem value="6-20">{sq(lang, "6-20 punonjës", "6-20 employees", "6-20 empleados", "6-20 Mitarbeiter", "6-20 вработени")}</SelectItem>
+                <SelectItem value="21-50">{sq(lang, "21-50 punonjës", "21-50 employees", "21-50 empleados", "21-50 Mitarbeiter", "21-50 вработени")}</SelectItem>
+                <SelectItem value="51-200">{sq(lang, "51-200 punonjës", "51-200 employees", "51-200 empleados", "51-200 Mitarbeiter", "51-200 вработени")}</SelectItem>
+                <SelectItem value="200+">{sq(lang, "200+ punonjës", "200+ employees", "200+ empleados", "200+ Mitarbeiter", "200+ вработени")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="industry" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Industria</Label>
+            <Label htmlFor="industry" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Industria", "Industry", "Industria", "Branche", "Индустрија")}</Label>
             <Select value={userData.industry} onValueChange={(value) => setUserData({...userData, industry: value})}>
               <SelectTrigger className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 text-sm">
-                <SelectValue placeholder="Zgjidhni industrinë" />
+                <SelectValue placeholder={sq(lang, "Zgjidhni industrinë", "Select industry", "Seleccionar industria", "Branche wählen", "Изберете индустрија") as string} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="technology">Teknologji</SelectItem>
-                <SelectItem value="consulting">Konsulencë</SelectItem>
-                <SelectItem value="finance">Financë & Kontabilitet</SelectItem>
-                <SelectItem value="healthcare">Shëndetësi</SelectItem>
-                <SelectItem value="education">Arsim</SelectItem>
-                <SelectItem value="retail">Shitje me pakicë</SelectItem>
-                <SelectItem value="manufacturing">Prodhim</SelectItem>
-                <SelectItem value="real-estate">Pasuri të paluajtshme</SelectItem>
-                <SelectItem value="legal">Shërbime Ligjore</SelectItem>
-                <SelectItem value="other">Tjetër</SelectItem>
+                <SelectItem value="technology">{sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија")}</SelectItem>
+                <SelectItem value="consulting">{sq(lang, "Konsulencë", "Consulting", "Consultoría", "Beratung", "Консалтинг")}</SelectItem>
+                <SelectItem value="finance">{sq(lang, "Financë & Kontabilitet", "Finance & Accounting", "Finanzas y Contabilidad", "Finanzen & Buchhaltung", "Финансии и Сметководство")}</SelectItem>
+                <SelectItem value="healthcare">{sq(lang, "Shëndetësi", "Healthcare", "Salud", "Gesundheitswesen", "Здравство")}</SelectItem>
+                <SelectItem value="education">{sq(lang, "Arsim", "Education", "Educación", "Bildung", "Образование")}</SelectItem>
+                <SelectItem value="retail">{sq(lang, "Shitje me pakicë", "Retail", "Comercio", "Einzelhandel", "Малопродажба")}</SelectItem>
+                <SelectItem value="manufacturing">{sq(lang, "Prodhim", "Manufacturing", "Manufactura", "Produktion", "Производство")}</SelectItem>
+                <SelectItem value="real-estate">{sq(lang, "Pasuri të paluajtshme", "Real Estate", "Bienes Raíces", "Immobilien", "Недвижнини")}</SelectItem>
+                <SelectItem value="legal">{sq(lang, "Shërbime Ligjore", "Legal Services", "Servicios Legales", "Rechtsdienstleistungen", "Правни Услуги")}</SelectItem>
+                <SelectItem value="other">{sq(lang, "Tjetër", "Other", "Otro", "Sonstiges", "Друго")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="p-4 bg-indigo-50 rounded-xl border border-indigo-100">
-            <p className="text-xs font-semibold text-indigo-800 mb-1">Pas konfigurimit</p>
-            <p className="text-xs text-indigo-600 leading-relaxed">Do të mund të ftoni anëtarë të ekipit, të personalizoni hapësirën tuaj dhe të filloni menjëherë.</p>
+            <p className="text-xs font-semibold text-indigo-800 mb-1">{sq(lang, "Pas konfigurimit", "After setup", "Después de la configuración", "Nach der Einrichtung", "По поставувањето")}</p>
+            <p className="text-xs text-indigo-600 leading-relaxed">{sq(lang, "Do të mund të ftoni anëtarë të ekipit, të personalizoni hapësirën tuaj dhe të filloni menjëherë.", "You'll be able to invite team members, customize your workspace, and get started right away.", "Podrá invitar miembros del equipo, personalizar su espacio de trabajo y comenzar de inmediato.", "Sie können Teammitglieder einladen, Ihren Arbeitsbereich anpassen und sofort loslegen.", "Ќе можете да поканите членови на тимот, да го прилагодите вашиот работен простор и веднаш да започнете.")}</p>
           </div>
         </div>
       </div>
@@ -598,8 +622,8 @@ export default function Subscribe() {
                 <CreditCard className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-extrabold text-gray-900">Rishiko & Paguaj</h2>
-                <p className="text-sm text-gray-500 mt-0.5">Konfirmoni porosinë dhe finalizoni abonimin</p>
+                <h2 className="text-xl font-extrabold text-gray-900">{sq(lang, "Rishiko & Paguaj", "Review & Pay", "Revisar y Pagar", "Überprüfen & Bezahlen", "Прегледај & Плати")}</h2>
+                <p className="text-sm text-gray-500 mt-0.5">{sq(lang, "Konfirmoni porosinë dhe finalizoni abonimin", "Confirm your order and finalize the subscription", "Confirme su pedido y finalice la suscripción", "Bestätigen Sie Ihre Bestellung und schließen Sie das Abonnement ab", "Потврдете ја нарачката и финализирајте ја претплатата")}</p>
               </div>
             </div>
           </div>
@@ -643,11 +667,11 @@ export default function Subscribe() {
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Ballina</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Rreth Nesh</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Veçoritë</Link>
-              <Link href="/subscribe" className="text-sm font-semibold text-indigo-600">Çmimet</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Kontakt</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/subscribe" className="text-sm font-semibold text-indigo-600">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <LanguageSelector />
@@ -663,11 +687,11 @@ export default function Subscribe() {
         {/* Mobile Menu */}
         {showMobileMenu && (
           <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">Ballina</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">Rreth Nesh</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">Veçoritë</Link>
-            <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">Çmimet</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">Kontakt</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+            <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             <div className="pt-2 flex flex-col gap-2">
               <LanguageSelector />
             </div>
@@ -682,22 +706,22 @@ export default function Subscribe() {
             <div className="text-center max-w-2xl mx-auto mb-10">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                Çmim transparent · Pa kosto të fshehura
+                {sq(lang, "Çmim transparent · Pa kosto të fshehura", "Transparent pricing · No hidden costs", "Precios transparentes · Sin costos ocultos", "Transparente Preise · Keine versteckten Kosten", "Транспарентни цени · Без скриени трошоци")}
               </div>
               <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
-                Zgjidhni planin e <span className="text-indigo-600">duhur</span>
+                {sq(lang, <>Zgjidhni planin e <span className="text-indigo-600">duhur</span></>, <>Choose the <span className="text-indigo-600">right</span> plan</>, <>Elija el plan <span className="text-indigo-600">correcto</span></>, <>Wählen Sie den <span className="text-indigo-600">richtigen</span> Plan</>, <>Изберете го <span className="text-indigo-600">вистинскиот</span> план</>)}
               </h1>
               <p className="text-lg text-gray-500">
-                Të gjithë 16 modulet — në çdo plan. Ndryshimi është vetëm në numrin e përdoruesve.
+                {sq(lang, "Të gjithë 16 modulet — në çdo plan. Ndryshimi është vetëm në numrin e përdoruesve.", "All 16 modules — in every plan. The only difference is the number of users.", "Los 16 módulos — en cada plan. La diferencia es solo el número de usuarios.", "Alle 16 Module — in jedem Plan. Der Unterschied ist nur die Anzahl der Benutzer.", "Сите 16 модули — во секој план. Разликата е само во бројот на корисници.")}
               </p>
             </div>
             {/* Trust row */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
-                { icon: Shield, label: "Mbrojtje e të dhënave", sub: "GDPR & SSL" },
-                { icon: CheckCircle, label: "Pa kartë kredie", sub: "14 ditë provë" },
-                { icon: Headphones, label: "Mbështetje 24/7", sub: "Ekip real" },
-                { icon: ArrowLeft, label: "Anuloni kur doni", sub: "Pa detyrime" },
+                { icon: Shield, label: sq(lang, "Mbrojtje e të dhënave", "Data protection", "Protección de datos", "Datenschutz", "Заштита на податоци"), sub: "GDPR & SSL" },
+                { icon: CheckCircle, label: sq(lang, "Pa kartë kredie", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка"), sub: sq(lang, "14 ditë provë", "14 day trial", "14 días de prueba", "14 Tage Testversion", "14 дена проба") },
+                { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7"), sub: sq(lang, "Ekip real", "Real team", "Equipo real", "Echtes Team", "Реален тим") },
+                { icon: ArrowLeft, label: sq(lang, "Anuloni kur doni", "Cancel anytime", "Cancele cuando quiera", "Jederzeit kündigen", "Откажете кога сакате"), sub: sq(lang, "Pa detyrime", "No obligations", "Sin obligaciones", "Keine Verpflichtungen", "Без обврски") },
               ].map(({ icon: Icon, label, sub }, i) => (
                 <div key={i} className="flex items-center gap-2.5 p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
                   <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
@@ -731,7 +755,7 @@ export default function Subscribe() {
                 className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-gray-600 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Kthehu
+                {sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}
               </button>
             )}
             {currentStep < 3 && (
@@ -740,7 +764,7 @@ export default function Subscribe() {
                 disabled={!canProceedToNext()}
                 className="inline-flex items-center gap-2 px-7 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
-                Vazhdo
+                {sq(lang, "Vazhdo", "Continue", "Continuar", "Weiter", "Продолжи")}
                 <ArrowRight className="h-4 w-4" />
               </button>
             )}
