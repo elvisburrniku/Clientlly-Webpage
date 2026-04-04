@@ -703,15 +703,15 @@ export default function Landing() {
             )}
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
-            <Link href="/trial"
+            <button onClick={() => go('/trial')}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="/subscribe"
+            </button>
+            <button onClick={() => go('/subscribe')}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all">
               {sq(lang, "Shiko Çmimet", "View Pricing")}
-            </Link>
+            </button>
           </div>
         </div>
       </section>
