@@ -191,7 +191,7 @@ const generalResponses: { keywords: string[]; reply: string; quickReplies?: stri
   },
   {
     keywords: ['gjuhë', 'language', 'shqip', 'anglisht', 'maqedonisht'],
-    reply: "🌍 Clientlly mbështet shumë gjuhë:\n\n• Shqip (gjuha kryesore)\n• Anglisht\n• Maqedonisht\n\nNdërfaqja, faturat, dhe raportet mund të gjenerohen në secilën gjuhë. Mund ta ndryshoni gjuhën në çdo moment nga cilësimet.",
+    reply: "🌍 Clientlly mbështet shumë gjuhë:\n\n• Shqip (gjuha kryesore)\n• Anglisht\n• Maqedonisht\n• Spanjisht\n• Gjermanisht\n\nNdërfaqja, faturat, dhe raportet mund të gjenerohen në secilën gjuhë. Mund ta ndryshoni gjuhën në çdo moment nga cilësimet.",
     quickReplies: ["Si ta ndrysho gjuhën?", "Çfarë modulesh ka?"],
   },
   {

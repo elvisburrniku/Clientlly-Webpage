@@ -71,8 +71,8 @@ export default function FAQ() {
         {
           q: sq(lang, "Në cilat gjuhë ofrohet Clientlly?", "What languages is Clientlly available in?"),
           a: sq(lang,
-            "Clientlly ofrohet në Shqip, Anglisht dhe Maqedonisht. Ndërfaqja, faturat, dhe raportet mund të gjenerohen në secilën gjuhë.",
-            "Clientlly is available in Albanian, English and Macedonian. The interface, invoices, and reports can be generated in each language."
+            "Clientlly ofrohet në Shqip, Anglisht, Maqedonisht, Spanjisht dhe Gjermanisht. Ndërfaqja, faturat, dhe raportet mund të gjenerohen në secilën gjuhë.",
+            "Clientlly is available in Albanian, English, Macedonian, Spanish and German. The interface, invoices, and reports can be generated in each language."
           ),
         },
       ],
@@ -130,8 +130,8 @@ export default function FAQ() {
         {
           q: sq(lang, "A mund të krijoj fatura në shumë gjuhë?", "Can I create invoices in multiple languages?"),
           a: sq(lang,
-            "Po! Faturat mund të krijohen në Shqip, Anglisht, ose Maqedonisht. Mund të vendosni gjuhë të ndryshme për klientë të ndryshëm — ideale për biznese që punojnë me klientë ndërkombëtarë.",
-            "Yes! Invoices can be created in Albanian, English, or Macedonian. You can set different languages for different clients — ideal for businesses working with international clients."
+            "Po! Faturat mund të krijohen në Shqip, Anglisht, Maqedonisht, Spanjisht ose Gjermanisht. Mund të vendosni gjuhë të ndryshme për klientë të ndryshëm — ideale për biznese që punojnë me klientë ndërkombëtarë.",
+            "Yes! Invoices can be created in Albanian, English, Macedonian, Spanish or German. You can set different languages for different clients — ideal for businesses working with international clients."
           ),
         },
         {
