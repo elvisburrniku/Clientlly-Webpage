@@ -83,15 +83,15 @@ export default function FAQ() {
         {
           q: sq(lang, "Cilat janë planet e çmimeve?", "What are the pricing plans?"),
           a: sq(lang,
-            "Ofrojmë 3 plane:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet e njëjta. Me pagesë vjetore kurseni 15%.",
-            "We offer 3 plans:\n\n• Starter — €25/mo (3 users, 200 invoices)\n• Professional — €35/mo (10 users, 500 invoices)\n• Enterprise — €50/mo (50 users, unlimited invoices)\n\nAll plans include the same 16 modules. Save 15% with annual billing."
+            "Ofrojmë 3 plane:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet e njëjta. Dallimi kryesor është në numrin e përdoruesve dhe në programin \"Le të rritemi bashkë\" — zhvillim i personalizuar sipas nevojave tuaja. Me pagesë vjetore kurseni 15%.",
+            "We offer 3 plans:\n\n• Starter — €25/mo (3 users, 200 invoices)\n• Professional — €35/mo (10 users, 500 invoices)\n• Enterprise — €50/mo (50 users, unlimited invoices)\n\nAll plans include the same 16 modules. The key difference is in the number of users and the \"Let's Grow Together\" program — custom development based on your needs. Save 15% with annual billing."
           ),
         },
         {
           q: sq(lang, "Cili është dallimi mes planeve?", "What's the difference between plans?"),
           a: sq(lang,
-            "Të 16 modulet janë të njëjta në çdo plan. Dallimet kryesore janë:\n\n• Numri i përdoruesve dhe faturave\n• Programi \"Le të rritemi bashkë\":\n  - Starter: mbështetje standarde\n  - Professional: zhvillim i personalizuar FALAS sipas nevojave tuaja\n  - Enterprise: zhvillim PRIORITAR me ekip të dedikuar",
-            "All 16 modules are the same in every plan. Key differences are:\n\n• Number of users and invoices\n• The \"Let's Grow Together\" program:\n  - Starter: standard support\n  - Professional: FREE custom development based on your needs\n  - Enterprise: PRIORITY development with a dedicated team"
+            "Të 16 modulet janë të njëjta në çdo plan. Dallimi kryesor është në programin \"Le të rritemi bashkë\":\n\n🤝 Starter — mbështetje standarde\n🚀 Professional — zhvillim i personalizuar FALAS: na tregoni çfarë ju nevojitet dhe ne e ndërtojmë për ju!\n⭐ Enterprise — zhvillim PRIORITAR me ekip të dedikuar dhe implementim të shpejtë\n\nKy program na dallon nga konkurrentët — platforma rritet bashkë me biznesin tuaj.",
+            "All 16 modules are the same in every plan. The key difference is in the \"Let's Grow Together\" program:\n\n🤝 Starter — standard support\n🚀 Professional — FREE custom development: tell us what you need and we build it for you!\n⭐ Enterprise — PRIORITY development with a dedicated team and fast implementation\n\nThis program sets us apart from competitors — the platform grows together with your business."
           ),
         },
         {
