@@ -614,9 +614,20 @@ export default function Landing() {
                       <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo")}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
-                      <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>
-                        {sq(lang, `Faturuar vjetor · €${(plan.yearlyPrice / 100).toFixed(0)}/vit`, `Billed annually · €${(plan.yearlyPrice / 100).toFixed(0)}/yr`)}
-                      </p>
+                      <div className={`text-xs mt-1 space-y-0.5`}>
+                        <p className={isPopular ? 'text-indigo-200' : 'text-gray-400'}>
+                          {sq(lang,
+                            `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/vit pa zbritje → €${(plan.yearlyPrice / 100).toFixed(0)}/vit`,
+                            `€${(plan.monthlyPrice * 12 / 100).toFixed(0)}/yr → €${(plan.yearlyPrice / 100).toFixed(0)}/yr`
+                          )}
+                        </p>
+                        <p className="text-emerald-500 font-semibold">
+                          {sq(lang,
+                            `Kurseni €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/vit`,
+                            `Save €${((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/yr`
+                          )}
+                        </p>
+                      </div>
                     )}
                   </div>
                   <ul className="space-y-2.5 mb-7">

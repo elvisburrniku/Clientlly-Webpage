@@ -443,9 +443,14 @@ export default function Subscribe() {
                     <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/muaj</span>
                   </div>
                   {billingPeriod === 'yearly' && (
-                    <p className={`text-xs mt-1 ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>
-                      Faturuar vjetor · €{(plan.yearlyPrice / 100).toFixed(0)}/vit
-                    </p>
+                    <div className={`text-xs mt-1 space-y-0.5`}>
+                      <p className={isPopular ? 'text-indigo-200' : 'text-gray-400'}>
+                        €{(plan.monthlyPrice * 12 / 100).toFixed(0)}/vit pa zbritje → €{(plan.yearlyPrice / 100).toFixed(0)}/vit
+                      </p>
+                      <p className="text-emerald-500 font-semibold">
+                        Kurseni €{((plan.monthlyPrice * 12 - plan.yearlyPrice) / 100).toFixed(0)}/vit
+                      </p>
+                    </div>
                   )}
                 </div>
 

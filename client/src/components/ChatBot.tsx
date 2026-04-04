@@ -104,7 +104,7 @@ const moduleInfo: Record<string, { icon: any; reply: string; keywords: string[] 
 const generalResponses: { keywords: string[]; reply: string; quickReplies?: string[] }[] = [
   {
     keywords: ['çmim', 'pric', 'kosto', 'plan', 'sa kushton', 'paketë', 'tarif'],
-    reply: "💰 Planet tona janë:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet e njëjta. Dallimi kryesor është në numrin e përdoruesve dhe në programin \"Le të rritemi bashkë\":\n\n🤝 Starter — mbështetje standarde\n🚀 Professional — zhvillim i personalizuar falas sipas nevojave tuaja\n⭐ Enterprise — zhvillim prioritar me ekip të dedikuar\n\nÇmimet vjetore kanë 20% zbritje!",
+    reply: "💰 Planet tona janë:\n\n• Starter — €25/muaj (3 përdorues, 200 fatura)\n• Professional — €35/muaj (10 përdorues, 500 fatura)\n• Enterprise — €50/muaj (50 përdorues, fatura pa limit)\n\nTë gjitha planet përfshijnë të 16 modulet e njëjta. Dallimi kryesor është në numrin e përdoruesve dhe në programin \"Le të rritemi bashkë\":\n\n🤝 Starter — mbështetje standarde\n🚀 Professional — zhvillim i personalizuar falas sipas nevojave tuaja\n⭐ Enterprise — zhvillim prioritar me ekip të dedikuar\n\nÇmimet vjetore kanë 15% zbritje!",
     quickReplies: ["Çfarë është 'Le të rritemi bashkë'?", "Cili plan më përshtatet?", "A ka zbritje?"],
   },
   {
@@ -119,12 +119,12 @@ const generalResponses: { keywords: string[]; reply: string; quickReplies?: stri
   },
   {
     keywords: ['zbritj', 'ulje', 'discount', 'ofertë speciale', 'promocion'],
-    reply: "🏷️ Po! Ofrojmë zbritje 20% për pagesa vjetore:\n\n• Starter: €25/muaj → €21.25/muaj (vjetor)\n• Professional: €35/muaj → €29.75/muaj (vjetor)\n• Enterprise: €50/muaj → €42.50/muaj (vjetor)\n\nGjithashtu, migrimi i të dhënave është plotësisht FALAS për të gjithë klientët e rinj!",
+    reply: "🏷️ Po! Ofrojmë zbritje 15% për pagesa vjetore:\n\n• Starter: €300/vit → €255/vit (kurseni €45)\n• Professional: €420/vit → €357/vit (kurseni €63)\n• Enterprise: €600/vit → €510/vit (kurseni €90)\n\nGjithashtu, migrimi i të dhënave është plotësisht FALAS për të gjithë klientët e rinj!",
     quickReplies: ["Blej tani", "Fillo provën falas"],
   },
   {
     keywords: ['vjetor', 'annual', 'yearly'],
-    reply: "📅 Me pagesë vjetore kurseni 20%:\n\n• Starter: €255/vit (në vend të €300)\n• Professional: €357/vit (në vend të €420)\n• Enterprise: €510/vit (në vend të €600)\n\nPagesa vjetore kyçet për 12 muaj me çmim të ulur. Mund të filloni me provë falas para se të vendosni!",
+    reply: "📅 Me pagesë vjetore kurseni 15%:\n\n• Starter: €300/vit pa zbritje → €255/vit me zbritje (kurseni €45)\n• Professional: €420/vit pa zbritje → €357/vit me zbritje (kurseni €63)\n• Enterprise: €600/vit pa zbritje → €510/vit me zbritje (kurseni €90)\n\nKjo i bie €21.25/muaj, €29.75/muaj, dhe €42.50/muaj respektivisht. Pagesa vjetore kyçet për 12 muaj. Mund të filloni me provë falas para se të vendosni!",
     quickReplies: ["Fillo provën falas", "Blej tani"],
   },
   {
