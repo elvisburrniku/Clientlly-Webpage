@@ -216,6 +216,11 @@ const CollaborationPage = () => {
           </p>
 
           <div className="anim-rise anim-d4 flex flex-wrap justify-center gap-3 mb-14">
+            <a href="#process"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-all duration-200 shadow-sm"
+            >
+              {sq(lang, "Si Funksionon", "How It Works")}
+            </a>
             <button
               onClick={() => window.location.href = "/contact"}
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
@@ -230,11 +235,6 @@ const CollaborationPage = () => {
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
-            <a href="#process"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-all duration-200 shadow-sm"
-            >
-              {sq(lang, "Si Funksionon", "How It Works")}
-            </a>
           </div>
 
           {/* Quick stats */}
