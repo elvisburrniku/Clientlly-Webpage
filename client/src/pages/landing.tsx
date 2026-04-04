@@ -7,7 +7,7 @@ import {
   Clock, Check, Shield, ChevronDown, Menu, X, ArrowRight, Car,
   TrendingUp, Headphones, Zap, Globe, CheckCircle, Star,
   Briefcase, CalendarCheck, GraduationCap, DollarSign, FileCheck,
-  ChevronRight,
+  ChevronRight, Wallet,
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -36,6 +36,7 @@ const moduleCategories = (lang: string) => [
       { icon: Receipt, title: sq(lang, "Gjurmim Shpenzimesh", "Expense Tracking"), desc: sq(lang, "Kategorizim automatik & raport tatimor", "Automatic categorization & tax reports") },
       { icon: CreditCard, title: sq(lang, "Menaxhim Borxhesh", "Debt Management"), desc: sq(lang, "Planifikoni shlyerjet, qëndroni pa borxhe", "Plan repayments, stay debt-free") },
       { icon: BarChart3, title: sq(lang, "Raporte & Analitikë", "Insights & Reports"), desc: sq(lang, "Dashboard i plotë me KPI dhe parashikime", "Full dashboard with KPIs and forecasts") },
+      { icon: Wallet, title: sq(lang, "Kartelat e Blerësit", "Buyer Cards"), desc: sq(lang, "Menaxhoni kartelat dhe historikun e blerësve", "Manage buyer cards and purchase history") },
     ],
   },
   {
@@ -83,7 +84,7 @@ export default function Landing() {
 
   const stats = [
     { value: "200+", label: sq(lang, "Biznese", "Businesses") },
-    { value: "14", label: sq(lang, "Module", "Modules") },
+    { value: "15", label: sq(lang, "Module", "Modules") },
     { value: "5", label: sq(lang, "Vende", "Countries") },
     { value: "99.9%", label: sq(lang, "Uptime", "Uptime") },
   ];
@@ -205,8 +206,8 @@ export default function Landing() {
 
               <p className="anim-rise anim-d1 text-lg text-gray-500 leading-relaxed max-w-md">
                 {sq(lang,
-                  "14 module të integruara — faturim, shpenzime, inventar, HR, flotë dhe shumë më tepër. E gjitha në një platformë të vetme.",
-                  "14 integrated modules — invoicing, expenses, inventory, HR, fleet and more. All in a single platform."
+                  "15 module të integruara — faturim, shpenzime, inventar, HR, flotë dhe shumë më tepër. E gjitha në një platformë të vetme.",
+                  "15 integrated modules — invoicing, expenses, inventory, HR, fleet and more. All in a single platform."
                 )}
               </p>
 
@@ -323,7 +324,7 @@ export default function Landing() {
                 <div className="w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center">
                   <Check className="h-3 w-3 text-emerald-600" />
                 </div>
-                <span className="text-[11px] font-semibold text-gray-700">{sq(lang, "14 module aktive", "14 active modules")}</span>
+                <span className="text-[11px] font-semibold text-gray-700">{sq(lang, "15 module aktive", "15 active modules")}</span>
               </div>
             </div>
           </div>
@@ -385,11 +386,11 @@ export default function Landing() {
               {sq(lang, "Platforma", "Platform")}
             </p>
             <h2 id="features-title" className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-              {sq(lang, <>14 module — <span className="text-indigo-600">gjithçka e integruar</span></>, <>14 modules — <span className="text-indigo-600">everything integrated</span></>)}
+              {sq(lang, <>15 module — <span className="text-indigo-600">gjithçka e integruar</span></>, <>15 modules — <span className="text-indigo-600">everything integrated</span></>)}
             </h2>
             <p className="anim-rise anim-d1 text-lg text-gray-500 max-w-xl mx-auto">
               {sq(lang,
-                "Ndaloni së paguri për 5 aplikacione të ndryshme. Me Clientlly, gjithçka komunikon me njëra-tjetrën.",
+                "Ndaloni së paguri për 5 aplikacione të ndryshme. Me Clientlly, 15 module komunikon me njëra-tjetrën.",
                 "Stop paying for 5 different apps. With Clientlly, everything talks to each other."
               )}
             </p>
@@ -664,8 +665,8 @@ export default function Landing() {
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-400">
               {sq(lang,
-                "Të gjithë planet përfshijnë 14 modulet dhe mbështetjen 24/7. Ndryshoni planin kur të dëshironi.",
-                "All plans include all 14 modules and 24/7 support. Change plans whenever you want."
+                "Të gjithë planet përfshijnë 15 modulet dhe mbështetjen 24/7. Ndryshoni planin kur të dëshironi.",
+                "All plans include all 15 modules and 24/7 support. Change plans whenever you want."
               )}
             </p>
           </div>
