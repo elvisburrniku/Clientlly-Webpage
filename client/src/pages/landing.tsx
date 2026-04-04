@@ -334,7 +334,7 @@ export default function Landing() {
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     {[
                       { label: sq(lang, "Të ardhura", "Revenue", "Ingresos", "Einnahmen", "Приходи"), value: "€24,850", change: "+12%", color: "text-emerald-600 bg-emerald-50" },
-                      { label: sq(lang, "Fatura", "Invoices", "Facturas", "Rechnungen", "Фактури"), value: "48", change: "+5", color: "text-blue-600 bg-blue-50" },
+                      { label: sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци"), value: "€8,540", change: "-4%", color: "text-blue-600 bg-blue-50" },
                       { label: sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти"), value: "32", change: "+3", color: "text-violet-600 bg-violet-50" },
                     ].map(({ label, value, change, color }) => (
                       <div key={String(label)} className="p-3 rounded-xl bg-gray-50 border border-gray-100">
