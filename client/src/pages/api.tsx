@@ -232,16 +232,43 @@ export default function APIPage() {
                 )}
               </p>
               <div className="flex flex-wrap gap-3">
-                <button onClick={() => window.location.href = "/trial"}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-sm transition-all shadow-sm hover:shadow-lg hover:-translate-y-0.5">
-                  <Key className="h-4 w-4" />
-                  {sq(lang, "Merr API Key", "Get API Key")}
+                {/* Primary CTA — API Key */}
+                <button
+                  onClick={() => window.location.href = "/trial"}
+                  className="group inline-flex items-center gap-3 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-indigo-500/30 hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
+                    <Key className="h-4 w-4" />
+                  </div>
+                  <span className="flex flex-col items-start leading-tight">
+                    <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">
+                      {sq(lang, "Pa kartë krediti · 14 ditë falas", "No credit card · 14 days free")}
+                    </span>
+                    <span className="text-sm font-bold">
+                      {sq(lang, "Merr API Key Falas", "Get Free API Key")}
+                    </span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
                 </button>
+
+                {/* Secondary CTA — Docs */}
                 <button
                   onClick={() => document.getElementById("endpoints")?.scrollIntoView({ behavior: "smooth" })}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-sm border border-white/10 transition-all">
-                  <BookOpen className="h-4 w-4" />
-                  {sq(lang, "Shiko Dokumentacionin", "View Docs")}
+                  className="group inline-flex items-center gap-3 px-6 py-3.5 bg-white/8 hover:bg-white/12 text-white font-semibold rounded-xl border border-white/15 hover:border-white/25 transition-all duration-200 hover:-translate-y-0.5"
+                  style={{ background: "rgba(255,255,255,0.07)" }}
+                >
+                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="h-4 w-4 text-gray-300" />
+                  </div>
+                  <span className="flex flex-col items-start leading-tight">
+                    <span className="text-[10px] font-medium text-gray-500 uppercase tracking-widest">
+                      {sq(lang, "14 endpoints · JSON REST", "14 endpoints · JSON REST")}
+                    </span>
+                    <span className="text-sm font-bold">
+                      {sq(lang, "Shiko Dokumentacionin", "View Documentation")}
+                    </span>
+                  </span>
+                  <Terminal className="h-4 w-4 text-gray-400 group-hover:text-gray-300 transition-colors flex-shrink-0" />
                 </button>
               </div>
 
@@ -269,23 +296,26 @@ export default function APIPage() {
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></div>
                   <span className="ml-2 text-[11px] text-gray-500 font-mono">quickstart.js</span>
                 </div>
-                <pre className="p-5 text-xs font-mono text-gray-300 leading-relaxed overflow-x-auto">
-{`<span class="text-gray-500">// Clientlly API – Quick Start</span>
-<span class="text-indigo-400">const</span> <span class="text-emerald-400">clientlly</span> = <span class="text-indigo-400">new</span> <span class="text-amber-400">ClientllyAPI</span>({
-  apiKey: <span class="text-green-400">'sk_live_xxxxxxxxxxxx'</span>,
+                <pre
+                  className="p-5 text-xs font-mono leading-relaxed overflow-x-auto"
+                  dangerouslySetInnerHTML={{ __html:
+`<span style="color:#6b7280">// Clientlly API – Quick Start</span>
+<span style="color:#818cf8">const</span> <span style="color:#34d399">clientlly</span> = <span style="color:#818cf8">new</span> <span style="color:#fbbf24">ClientllyAPI</span>({
+  apiKey: <span style="color:#4ade80">'sk_live_xxxxxxxxxxxx'</span>,
 });
 
-<span class="text-gray-500">// Krijo faturë me një linjë</span>
-<span class="text-indigo-400">const</span> invoice = <span class="text-indigo-400">await</span> clientlly
+<span style="color:#6b7280">// Krijo faturë me një linjë</span>
+<span style="color:#818cf8">const</span> <span style="color:#e2e8f0">invoice</span> = <span style="color:#818cf8">await</span> <span style="color:#34d399">clientlly</span>
   .invoices
-  .<span class="text-amber-400">create</span>({
-    client_id: <span class="text-green-400">'clt_abc123'</span>,
-    amount: <span class="text-orange-400">1200</span>,
-    currency: <span class="text-green-400">'EUR'</span>,
+  .<span style="color:#fbbf24">create</span>({
+    client_id: <span style="color:#4ade80">'clt_abc123'</span>,
+    amount:    <span style="color:#fb923c">1200</span>,
+    currency:  <span style="color:#4ade80">'EUR'</span>,
   });
 
-console.<span class="text-amber-400">log</span>(invoice.id); <span class="text-gray-500">// inv_xyz789</span>`}
-                </pre>
+console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:#6b7280">// inv_xyz789</span>`
+                  }}
+                />
               </div>
               {/* Response preview */}
               <div className="mt-3 bg-gray-900 rounded-xl border border-white/10 px-4 py-3 font-mono text-xs text-gray-400">
