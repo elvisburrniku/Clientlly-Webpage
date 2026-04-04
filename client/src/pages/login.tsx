@@ -63,20 +63,12 @@ export default function Login() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
               <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
-                className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
-              >
+              <Link href="/subscribe" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">
                 Pricing
-              </Button>
-              <Button 
-                variant="ghost" 
-                onClick={() => window.location.href = '/contact'} 
-                className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 font-bold"
-              >
+              </Link>
+              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 font-bold">
                 Contact Us
-              </Button>
+              </Link>
             </div>
 
             {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
@@ -88,19 +80,16 @@ export default function Login() {
               >
                 Login
               </Button>
-              <Button 
-                variant="outline"
-                onClick={() => window.location.href = '/subscribe'}
-                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
+              <Link href="/subscribe"
+                className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium rounded-md text-sm inline-block"
               >
                 Buy Now
-              </Button>
-              <Button 
-                onClick={() => window.location.href = "/trial"}
-                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
+              </Link>
+              <Link href="/trial"
+                className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-md text-sm inline-block"
               >
                 Start Your Trial
-              </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -126,8 +115,8 @@ export default function Login() {
             <Link href="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors">Contact Us</Link>
             <div className="pt-2 border-t border-white/20">
               <Button variant="ghost" className="w-full justify-start text-sm mb-2" onClick={handleLogin}>Login</Button>
-              <Button className="w-full text-sm mb-2" onClick={() => window.location.href = '/subscribe'}>Buy Now</Button>
-              <Button onClick={() => window.location.href = '/trial'} className="w-full text-sm">Start Your Trial</Button>
+              <Link href="/subscribe" className="w-full text-sm mb-2 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">Buy Now</Link>
+              <Link href="/trial" className="w-full text-sm inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">Start Your Trial</Link>
             </div>
           </div>
         </div>

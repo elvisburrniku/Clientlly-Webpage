@@ -1,10 +1,11 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, ArrowRight, Download, Upload, CheckCircle, RefreshCw, Users, FileText, Database, Clock, Zap, Shield } from "lucide-react";
 
 export default function FeatureMigration() {
+  const [, setLocation] = useLocation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
       {/* Background Elements */}
@@ -33,7 +34,7 @@ export default function FeatureMigration() {
               variant="ghost" 
               size="sm"
               onClick={() => {
-                window.location.href = "/";
+                setLocation("/");
                 setTimeout(() => {
                   const featuresSection = document.getElementById('features');
                   if (featuresSection) {

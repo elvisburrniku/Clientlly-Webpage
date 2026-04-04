@@ -22,11 +22,13 @@ import {
   RefreshCw,
   MessageSquare
 } from 'lucide-react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { useToast } from '@/hooks/use-toast';
 
 const MigrationRequestPage = () => {
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -179,14 +181,14 @@ const MigrationRequestPage = () => {
               <Link href="/#features" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">Features</Link>
               <Button 
                 variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
+                onClick={() => go("/subscribe")}
                 className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
               >
                 Pricing
               </Button>
               <Button 
                 variant="ghost" 
-                onClick={() => window.location.href = '/contact'} 
+                onClick={() => go("/contact")} 
                 className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
               >
                 Contact Us
@@ -204,13 +206,13 @@ const MigrationRequestPage = () => {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => window.location.href = '/subscribe'}
+                onClick={() => go("/subscribe")}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 font-medium"
               >
                 Buy Now
               </Button>
               <Button 
-                onClick={() => window.location.href = "/trial"}
+                onClick={() => go("/trial")}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Start Your Trial
@@ -242,7 +244,7 @@ const MigrationRequestPage = () => {
               <Button 
                 variant="ghost"
                 onClick={() => {
-                  window.location.href = '/subscribe';
+                  go("/subscribe");
                   setShowMobileMenu(false);
                 }}
                 className="w-full text-left justify-start text-lg text-gray-600 hover:text-gray-800 font-bold"
@@ -252,7 +254,7 @@ const MigrationRequestPage = () => {
               <Button 
                 variant="ghost" 
                 onClick={() => {
-                  window.location.href = '/contact';
+                  go("/contact");
                   setShowMobileMenu(false);
                 }} 
                 className="w-full text-left justify-start text-lg text-gray-600 hover:text-gray-800 font-bold"
@@ -274,7 +276,7 @@ const MigrationRequestPage = () => {
                 <Button 
                   variant="outline"
                   onClick={() => {
-                    window.location.href = '/subscribe';
+                    go("/subscribe");
                     setShowMobileMenu(false);
                   }}
                   className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
@@ -283,7 +285,7 @@ const MigrationRequestPage = () => {
                 </Button>
                 <Button 
                   onClick={() => {
-                    window.location.href = "/trial";
+                    go("/trial");
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"

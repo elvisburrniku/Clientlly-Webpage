@@ -126,18 +126,18 @@ const AboutPage = () => {
               <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(lang, "Veçoritë", "Features")}
               </Link>
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(lang, "Çmimet", "Pricing")}
-              </button>
+              </Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(lang, "Kontakt", "Contact")}
               </Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
+              </Link>
               <LanguageSelector />
             </div>
 
@@ -152,11 +152,11 @@ const AboutPage = () => {
             <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/about" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
             <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
-            <button onClick={() => window.location.href = '/subscribe'} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
-              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</button>
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</Link>
+              <Link href="/trial" className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</Link>
               <LanguageSelector />
             </div>
           </div>
@@ -184,8 +184,8 @@ const AboutPage = () => {
             )}
           </p>
           <div className="anim-rise anim-d3 flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => window.location.href = "/trial"}
+            <Link
+              href="/trial"
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
@@ -193,10 +193,10 @@ const AboutPage = () => {
                 <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-            <button onClick={() => window.location.href = "/contact"} className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-colors">
+            </Link>
+            <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-colors">
               {sq(lang, "Na Kontaktoni", "Contact Us")}
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -324,10 +324,10 @@ const AboutPage = () => {
                   "We're not just a software vendor. We're your tech team. Send us your ideas and we build them — completely free, because we believe when you grow, we grow."
                 )}
               </p>
-              <button onClick={() => window.location.href = "/collaboration"} className="anim-rise anim-d3 inline-flex items-center gap-2 px-5 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors shadow-sm">
+              <Link href="/collaboration" className="anim-rise anim-d3 inline-flex items-center gap-2 px-5 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors shadow-sm">
                 {sq(lang, "Mëso Si Funksionon", "Learn How It Works")}
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -367,8 +367,8 @@ const AboutPage = () => {
             )}
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => window.location.href = "/trial"}
+            <Link
+              href="/trial"
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
@@ -376,10 +376,10 @@ const AboutPage = () => {
                 <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-            <button onClick={() => window.location.href = "/subscribe"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
+            </Link>
+            <Link href="/subscribe" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
               {sq(lang, "Shiko Çmimet", "View Pricing")}
-            </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'wouter';
+import { useLocation, Link } from 'wouter';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -102,21 +102,18 @@ export default function Success() {
             )}
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                className="flex-1 bg-gradient-to-r from-primary to-secondary hover:shadow-lg"
-                onClick={() => window.location.href = '/dashboard'}
+              <Link href="/dashboard"
+                className="flex-1 inline-flex items-center justify-center bg-gradient-to-r from-primary to-secondary hover:shadow-lg text-primary-foreground rounded-md h-10 px-4 py-2 text-sm font-medium"
               >
                 <span>Go to Dashboard</span>
                 <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              </Link>
               
-              <Button 
-                variant="outline"
-                onClick={() => window.location.href = '/'}
-                className="flex-1"
+              <Link href="/"
+                className="flex-1 inline-flex items-center justify-center border border-input bg-background hover:bg-accent rounded-md h-10 px-4 py-2 text-sm font-medium"
               >
                 Return to Home
-              </Button>
+              </Link>
             </div>
             
             <div className="text-center pt-4 border-t">

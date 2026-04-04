@@ -1,10 +1,11 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Shield, Lock, Eye, Key, FileCheck, UserCheck, Zap, CheckCircle, AlertTriangle, Globe, Clock } from "lucide-react";
 
 export default function FeatureSecurity() {
+  const [, setLocation] = useLocation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
       {/* Background Elements */}
@@ -31,7 +32,7 @@ export default function FeatureSecurity() {
               variant="ghost" 
               size="sm"
               onClick={() => {
-                window.location.href = "/";
+                setLocation("/");
                 setTimeout(() => {
                   const featuresSection = document.getElementById('features');
                   if (featuresSection) {

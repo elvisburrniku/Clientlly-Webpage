@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, TrendingUp, Clock, CheckCircle, BarChart3, FileText, Briefcase, Star } from "lucide-react";
+import { Link } from "wouter";
 import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import Footer from "@/components/Footer";
@@ -98,10 +99,10 @@ export default function CaseStudies() {
       <nav className="sticky top-0 z-40 bg-white border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative flex items-center h-16">
-            <button onClick={() => window.location.href = "/"} className="flex items-center gap-2 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2 flex-shrink-0">
               <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
               <span className="text-base font-bold text-gray-900">Clientlly</span>
-            </button>
+            </Link>
             <button onClick={() => window.history.back()}
               className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
               <ArrowLeft className="h-4 w-4" />{sq(lang, "Kthehu", "Back")}
@@ -224,14 +225,14 @@ export default function CaseStudies() {
             {sq(lang,"Bashkohuni me 200+ biznese që po rriten me Clientlly. 14-ditë provë falas.","Join 200+ businesses growing with Clientlly. 14-day free trial.")}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <button onClick={() => window.location.href="/trial"}
+            <Link href="/trial"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all">
               {sq(lang,"Fillo Provën Falas","Start Free Trial")}<ArrowRight className="h-4 w-4" />
-            </button>
-            <button onClick={() => window.location.href="/contact"}
+            </Link>
+            <Link href="/contact"
               className="px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all">
               {sq(lang,"Kontakto Sales","Contact Sales")}
-            </button>
+            </Link>
           </div>
         </div>
       </section>

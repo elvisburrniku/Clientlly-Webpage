@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { ArrowRight, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
@@ -11,16 +11,19 @@ function sq(lang: string, alb: string, eng: string): string {
 const Footer = () => {
   const { currentLanguage } = useLanguage();
   const lang = currentLanguage;
+  const [, setLocation] = useLocation();
+
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
 
   const cols = [
     {
       heading: sq(lang, "Produkti", "Product"),
       links: [
-        { label: sq(lang, "Veçoritë",     "Features"),      href: "/#features" },
-        { label: sq(lang, "Çmimet",        "Pricing"),       href: "/subscribe" },
-        { label: sq(lang, "Integrimi",     "Integrations"),  href: "/integrations" },
-        { label: sq(lang, "Bashkëpunim",  "Collaboration"), href: "/collaboration" },
-        { label: "API",                                        href: "/api" },
+        { label: sq(lang, "Veçoritë",    "Features"),      href: "/features" },
+        { label: sq(lang, "Çmimet",       "Pricing"),       href: "/subscribe" },
+        { label: sq(lang, "Integrimi",    "Integrations"),  href: "/integrations" },
+        { label: sq(lang, "Bashkëpunim", "Collaboration"), href: "/collaboration" },
+        { label: "API",                                      href: "/api" },
       ],
     },
     {
@@ -57,14 +60,14 @@ const Footer = () => {
 
             <p className="text-sm text-gray-400 leading-relaxed mb-6 max-w-[220px]">
               {sq(lang,
-                "Software i menaxhimit të biznesit për NVM-të. 14 module, një çmim.",
-                "Business management software for SMEs. 14 modules, one price."
+                "Software i menaxhimit të biznesit për NVM-të. 16 module, një çmim.",
+                "Business management software for SMEs. 16 modules, one price."
               )}
             </p>
 
             {/* Mini trial CTA */}
             <button
-              onClick={() => window.location.href = "/trial"}
+              onClick={() => go("/trial")}
               className="group inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-all duration-200 text-sm mb-8"
             >
               <span className="flex flex-col items-start leading-tight">
@@ -113,12 +116,13 @@ const Footer = () => {
               <ul className="space-y-2.5">
                 {col.links.map(link => (
                   <li key={link.href}>
-                    <button
-                      onClick={() => { window.location.href = link.href; window.scrollTo({ top: 0 }); }}
-                      className="text-sm text-gray-400 hover:text-white transition-colors duration-150 text-left w-full"
+                    <Link
+                      href={link.href}
+                      onClick={() => window.scrollTo({ top: 0 })}
+                      className="text-sm text-gray-400 hover:text-white transition-colors duration-150 text-left w-full block"
                     >
                       {link.label}
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -135,18 +139,15 @@ const Footer = () => {
             {sq(lang, "Të gjitha të drejtat e rezervuara.", "All rights reserved.")}
           </p>
           <div className="flex items-center gap-5">
-            <button onClick={() => window.location.href = "/privacy-policy"}
-              className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
+            <Link href="/privacy-policy" onClick={() => window.scrollTo({ top: 0 })} className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
               {sq(lang, "Privatësia", "Privacy")}
-            </button>
-            <button onClick={() => window.location.href = "/terms-of-service"}
-              className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
+            </Link>
+            <Link href="/terms-of-service" onClick={() => window.scrollTo({ top: 0 })} className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
               {sq(lang, "Kushtet", "Terms")}
-            </button>
-            <button onClick={() => window.location.href = "/help-center"}
-              className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
+            </Link>
+            <Link href="/help-center" onClick={() => window.scrollTo({ top: 0 })} className="text-xs text-gray-600 hover:text-gray-300 transition-colors">
               {sq(lang, "Ndihmë", "Help")}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

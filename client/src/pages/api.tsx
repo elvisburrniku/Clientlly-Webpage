@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   Code, Key, BookOpen, Copy, Check, Zap, Shield,
   Globe, Menu, X, ArrowRight, Terminal, Webhook,
@@ -143,6 +143,8 @@ const SNIPPETS: Record<Lang, Partial<Record<Snippet, string>>> = {
 };
 
 export default function APIPage() {
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const { currentLanguage } = useLanguage();
   const lang = currentLanguage;
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -174,16 +176,16 @@ export default function APIPage() {
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
               <Link href="/integrations" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Integrime", "Integrations")}</Link>
-              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
               <Link href="/api" className="text-sm font-semibold text-indigo-600">API</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => window.location.href = "/trial"}
+              <button onClick={() => go("/trial")}
                 className="text-sm font-semibold px-4 py-2 text-indigo-600 border border-indigo-200 rounded-lg hover:bg-indigo-50 transition-colors">
                 {sq(lang, "Merr API Key", "Get API Key")}
               </button>
-              <button onClick={() => window.location.href = "/subscribe"}
+              <button onClick={() => go("/subscribe")}
                 className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
               </button>
@@ -200,9 +202,9 @@ export default function APIPage() {
             <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
             <Link href="/integrations" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Integrime", "Integrations")}</Link>
-            <button onClick={() => window.location.href = "/subscribe"} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Merr API Key", "Get API Key")}</button>
+              <button onClick={() => go("/trial")} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Merr API Key", "Get API Key")}</button>
               <LanguageSelector />
             </div>
           </div>
@@ -234,7 +236,7 @@ export default function APIPage() {
               <div className="flex flex-wrap gap-3">
                 {/* Primary CTA — API Key */}
                 <button
-                  onClick={() => window.location.href = "/trial"}
+                  onClick={() => go("/trial")}
                   className="group inline-flex items-center gap-3 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-indigo-500/30 hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center flex-shrink-0">
@@ -658,12 +660,12 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <button onClick={() => window.location.href = "/trial"}
+            <button onClick={() => go("/trial")}
               className="inline-flex items-center gap-2 px-7 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5">
               <Key className="h-4 w-4" />
               {sq(lang, "Merr API Key Falas", "Get Free API Key")}
             </button>
-            <button onClick={() => window.location.href = "/contact"}
+            <button onClick={() => go("/contact")}
               className="inline-flex items-center gap-2 px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
               {sq(lang, "Na Kontaktoni", "Contact Us")}
             </button>

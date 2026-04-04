@@ -1,4 +1,5 @@
 import { ArrowLeft, Star, CheckCircle, Smartphone, Wifi, Bell, Shield, BarChart3, FileText, Users, Zap, Camera, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { AppStoreIcon, GooglePlayIcon } from "@/components/ui/animated-icons";
@@ -112,11 +113,11 @@ export default function MobileApp() {
       <nav className="sticky top-0 z-40 bg-white border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative flex items-center h-16">
-            <button onClick={() => window.location.href = "/"}
+            <Link href="/"
               className="flex items-center gap-2 flex-shrink-0">
               <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
               <span className="text-base font-bold text-gray-900">Clientlly</span>
-            </button>
+            </Link>
             <button onClick={() => window.history.back()}
               className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
               <ArrowLeft className="h-4 w-4" />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
@@ -81,20 +81,20 @@ export default function Careers() {
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
-              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact")}</Link>
             </div>
             <div className="hidden lg:flex items-center space-x-4 ml-auto">
               <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900">{sq(lang, "Hyr", "Login")}</button>
-              <button onClick={() => window.location.href = "/trial"}
+              <Link href="/trial"
                 className="group inline-flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all duration-200 text-sm">
                 <span className="flex flex-col items-start leading-tight">
                   <span className="text-[9px] text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free")}</span>
                   <span className="text-xs">{sq(lang, "Fillo Provën", "Start Trial")}</span>
                 </span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </button>
+              </Link>
               <LanguageSelector />
             </div>
             <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
@@ -108,7 +108,7 @@ export default function Careers() {
             <Link href="/features" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Veçoritë", "Features")}</Link>
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Rreth Nesh", "About")}</Link>
             <div className="pt-2 flex gap-2">
-              <button onClick={() => window.location.href = "/trial"} className="flex-1 text-sm font-bold py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Fillo Provën", "Start Trial")}</button>
+              <Link href="/trial" className="flex-1 text-sm font-bold py-2.5 bg-indigo-600 text-white rounded-lg text-center">{sq(lang, "Fillo Provën", "Start Trial")}</Link>
               <LanguageSelector />
             </div>
           </div>

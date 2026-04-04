@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import ChatBot from "@/components/ChatBot";
 import { 
@@ -74,6 +74,8 @@ const moduleCategories = (lang: string) => [
 
 export default function Landing() {
   const { currentLanguage: lang } = useTranslation();
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [expandedCat, setExpandedCat] = useState<number | null>(null);
@@ -153,13 +155,13 @@ export default function Landing() {
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
               <a href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</a>
               <a href="#pricing-section" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</a>
-              <button onClick={() => window.location.href = '/contact'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</button>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
+              </Link>
               <LanguageSelector />
             </div>
 
@@ -175,10 +177,10 @@ export default function Landing() {
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
             <a href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</a>
             <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</a>
-            <button onClick={() => { window.location.href = '/contact'; setShowMobileMenu(false); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact")}</button>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
-              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</button>
+              <Link href="/subscribe" className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</Link>
+              <Link href="/trial" className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</Link>
               <LanguageSelector />
             </div>
           </div>
@@ -213,7 +215,7 @@ export default function Landing() {
 
               <div className="anim-rise anim-d2 flex flex-wrap gap-3">
                 <button
-                  onClick={() => window.location.href = "/trial"}
+                  onClick={() => go("/trial")}
                   className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <span className="flex flex-col items-start leading-tight">
@@ -236,11 +238,11 @@ export default function Landing() {
                   { icon: Check, label: sq(lang, "Konfigurim falas", "Free setup"), href: "/setup-migration" },
                   { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 support"), href: "/expert-support" },
                 ].map(({ icon: Icon, label, href }) => (
-                  <button key={String(label)} onClick={() => window.location.href = href}
+                  <Link key={String(label)} href={href}
                     className="flex items-center gap-1 hover:text-indigo-600 transition-colors font-medium">
                     <Icon className="h-3 w-3 text-gray-300" />
                     {label}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -529,13 +531,13 @@ export default function Landing() {
                   "Our platform is built together with you. Share your ideas and our development team will implement them — at no extra cost. Your success is our priority."
                 )}
               </p>
-              <button
-                onClick={() => window.location.href = "/collaboration"}
+              <Link
+                href="/collaboration"
                 className="anim-rise anim-d2 inline-flex items-center gap-2 px-5 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm"
               >
                 {sq(lang, "Mëso Bashkëpunimin", "Explore Collaboration")}
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -625,7 +627,7 @@ export default function Landing() {
                         const dash = feature.indexOf("—");
                         const desc = dash !== -1 ? feature.slice(dash) : "";
                         return (
-                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => window.location.href = '/collaboration'}>
+                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => go('/collaboration')}>
                             <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
                             <span className="text-sm flex-1">
                               <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
@@ -645,11 +647,11 @@ export default function Landing() {
                     })}
                   </ul>
                   <div className="space-y-2">
-                    <button onClick={() => window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`}
+                    <button onClick={() => go(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                       className={`w-full py-3 rounded-xl font-semibold text-sm transition-all hover:opacity-90 hover:-translate-y-0.5 ${isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'}`}>
                       {sq(lang, "Blej Tani", "Buy Now")}
                     </button>
-                    <button onClick={() => window.location.href = "/trial"}
+                    <button onClick={() => go("/trial")}
                       className={`w-full py-2.5 rounded-xl font-medium text-sm transition-all border ${isPopular ? 'border-indigo-400 text-indigo-100 hover:bg-white/10' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
                       {sq(lang, "Fillo Provën", "Start Trial")}
                     </button>
@@ -690,15 +692,15 @@ export default function Landing() {
             )}
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
-            <button onClick={() => window.location.href = "/trial"}
+            <Link href="/trial"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
-            </button>
-            <button onClick={() => window.location.href = "/subscribe"}
+            </Link>
+            <Link href="/subscribe"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all">
               {sq(lang, "Shiko Çmimet", "View Pricing")}
-            </button>
+            </Link>
           </div>
         </div>
       </section>

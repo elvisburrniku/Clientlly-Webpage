@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   Check, Minus, Menu, X, ArrowRight, Zap, Users, FileText, Shield,
   Star, ChevronDown, ChevronUp, Info,
@@ -133,6 +133,8 @@ const FEATURE_GROUPS: {
 export default function CompareFeatures() {
   const { currentLanguage } = useLanguage();
   const lang = currentLanguage;
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const [expandedGroups, setExpandedGroups] = useState<Record<number, boolean>>(
@@ -163,14 +165,14 @@ export default function CompareFeatures() {
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
-              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
               <Link href="/compare-features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Krahaso Planet", "Compare Plans")}</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <button
-                onClick={() => window.location.href = "/trial"}
+                onClick={() => go("/trial")}
                 className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md hover:-translate-y-0.5"
               >
                 <span className="flex flex-col items-start leading-tight">
@@ -179,9 +181,9 @@ export default function CompareFeatures() {
                 </span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
               </button>
-              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 hover:bg-gray-700 text-white rounded-xl transition-colors">
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2.5 bg-gray-900 hover:bg-gray-700 text-white rounded-xl transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
+              </Link>
               <LanguageSelector />
             </div>
 
@@ -194,11 +196,11 @@ export default function CompareFeatures() {
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
             <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features")}</Link>
-            <button onClick={() => window.location.href = "/subscribe"} className="block w-full text-left text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => window.location.href = "/trial"} className="text-sm font-bold px-4 py-3 bg-indigo-600 text-white rounded-xl">{sq(lang, "Fillo Provën Tani — 14 Ditë Falas", "Start Free Trial — 14 Days Free")}</button>
-              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-xl">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <Link href="/trial" className="block text-center text-sm font-bold px-4 py-3 bg-indigo-600 text-white rounded-xl">{sq(lang, "Fillo Provën Tani — 14 Ditë Falas", "Start Free Trial — 14 Days Free")}</Link>
+              <Link href="/subscribe" className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-xl">{sq(lang, "Blej Tani", "Buy Now")}</Link>
               <LanguageSelector />
             </div>
           </div>
@@ -281,7 +283,7 @@ export default function CompareFeatures() {
                   </p>
                 </div>
                 <button
-                  onClick={() => window.location.href = plan.highlight ? "/trial" : "/subscribe"}
+                  onClick={() => go(plan.highlight ? "/trial" : "/subscribe")}
                   className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all ${plan.btnClass}`}
                 >
                   {plan.highlight
@@ -434,7 +436,7 @@ export default function CompareFeatures() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button
-              onClick={() => window.location.href = "/trial"}
+              onClick={() => go("/trial")}
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
@@ -443,12 +445,12 @@ export default function CompareFeatures() {
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
-            <button
-              onClick={() => window.location.href = "/subscribe"}
+            <Link
+              href="/subscribe"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200 text-sm"
             >
               {sq(lang, "Shiko Çmimet", "View Pricing")}
-            </button>
+            </Link>
           </div>
           <div className="flex flex-wrap justify-center gap-5 mt-6">
             {[

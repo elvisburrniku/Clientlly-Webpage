@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 export default function FeatureTax() {
+  const [, setLocation] = useLocation();
   const [activeTab, setActiveTab] = useState("categories");
 
   return (
@@ -45,7 +46,7 @@ export default function FeatureTax() {
           <div className="flex items-center justify-between h-16">
             <button 
               onClick={() => {
-                window.location.href = "/";
+                setLocation("/");
                 setTimeout(() => {
                   const featuresSection = document.getElementById('features');
                   if (featuresSection) {
@@ -69,7 +70,7 @@ export default function FeatureTax() {
               <span className="hidden sm:block text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
             </Link>
             <Button 
-              onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+              onClick={() => { setLocation("/subscribe"); window.scrollTo({ top: 0 }); }}
               className="bg-orange-600 hover:bg-orange-700 text-white text-sm sm:text-base px-3 sm:px-4"
               size="sm"
             >
@@ -117,7 +118,7 @@ export default function FeatureTax() {
                 <Button 
                   size="lg" 
                   className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-2xl hover:shadow-purple-500/25 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-0 focus:border-none active:outline-none"
-                  onClick={() => window.location.href = "/trial"}
+                  onClick={() => { setLocation("/trial"); window.scrollTo({ top: 0 }); }}
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
                   Start Free Trial
@@ -511,7 +512,7 @@ export default function FeatureTax() {
               <Button 
                 size="lg" 
                 className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300"
-                onClick={() => window.location.href = "/subscribe?plan=professional&billing=yearly"}
+                onClick={() => { setLocation("/subscribe"); window.scrollTo({ top: 0 }); }}
               >
                 Start Free Trial
               </Button>

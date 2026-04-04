@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CardLoader, FeatureLoader } from "@/components/LoadingStates";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { 
   ChartLine, 
   FileText, 
@@ -63,6 +63,8 @@ interface SubscriptionStatus {
 }
 
 export default function Dashboard() {
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const { toast } = useToast();
   const { user, isLoading } = useAuth();
   const [showWelcomeAnimation, setShowWelcomeAnimation] = useState(true);
@@ -543,7 +545,7 @@ export default function Dashboard() {
                   <p className="text-sm text-muted-foreground">Subscribe to unlock all features</p>
                 </div>
                 <Button 
-                  onClick={() => window.location.href = "/subscribe"}
+                  onClick={() => go("/subscribe")}
                   className="bg-gradient-to-r from-primary to-secondary pulse-glow"
                 >
                   Subscribe Now

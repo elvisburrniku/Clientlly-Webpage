@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   FileText, Receipt, CreditCard, BarChart3, Users, Building2, Package, Clock,
   ArrowRight, Menu, X, CheckCircle, Star, Zap, Shield, TrendingUp,
@@ -411,6 +411,8 @@ const categoryIcons: Record<Category, JSX.Element> = {
 export default function Features() {
   const { currentLanguage } = useTranslation();
   const lang = currentLanguage;
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState<Category>("all");
 
@@ -433,11 +435,11 @@ export default function Features() {
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
               <Link href="/features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Veçoritë", "Features")}</Link>
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now")}</Link>
               <LanguageSelector />
             </div>
             <button className="lg:hidden p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
@@ -450,11 +452,11 @@ export default function Features() {
             <Link href="/" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
             <Link href="/features" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
-            <button onClick={() => { window.location.href = '/subscribe'; setShowMobileMenu(false); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2 w-full text-left" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Çmimet", "Pricing")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
-              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</button>
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</Link>
+              <Link href="/trial" className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial")}</Link>
               <LanguageSelector />
             </div>
           </div>
@@ -497,8 +499,8 @@ export default function Features() {
           </div>
 
           <div className="anim-rise anim-d4 flex flex-wrap justify-center gap-3">
-            <button
-              onClick={() => window.location.href = "/trial"}
+            <Link
+              href="/trial"
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
@@ -506,10 +508,10 @@ export default function Features() {
                 <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-            <button onClick={() => window.location.href = "/compare-features"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm">
+            </Link>
+            <Link href="/compare-features" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border-2 border-gray-200 hover:border-indigo-200 transition-all duration-200 shadow-sm text-sm">
               {sq(lang, "Krahaso Planet", "Compare Plans")}
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -926,13 +928,13 @@ export default function Features() {
             {sq(lang, "Pa kartë kredie. Pa angazhim. Qasje e plotë.", "No credit card. No commitment. Full access.")}
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
-            <button onClick={() => window.location.href = "/trial"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-indigo-700 font-semibold rounded-xl transition-all duration-200 shadow-sm hover:-translate-y-0.5">
+            <Link href="/trial" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-indigo-700 font-semibold rounded-xl transition-all duration-200 shadow-sm hover:-translate-y-0.5">
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
-            </button>
-            <button onClick={() => window.location.href = "/contact"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
+            </Link>
+            <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
               {sq(lang, "Na Kontaktoni", "Contact Us")}
-            </button>
+            </Link>
           </div>
         </div>
       </section>

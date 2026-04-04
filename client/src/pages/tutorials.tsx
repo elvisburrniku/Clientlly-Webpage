@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +20,8 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 
 export default function Tutorials() {
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const videoTutorials = [
@@ -168,7 +170,7 @@ export default function Tutorials() {
               <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
               <Button 
                 variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
+                onClick={() => go("/subscribe")}
                 className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
               >
                 Pricing
@@ -187,14 +189,14 @@ export default function Tutorials() {
               </Button>
               
               <Button 
-                onClick={() => window.location.href = "/subscribe"}
+                onClick={() => go("/subscribe")}
                 className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
               >
                 Buy Now
               </Button>
               
               <Button 
-                onClick={() => window.location.href = "/trial"}
+                onClick={() => go("/trial")}
                 className="bg-green-600 text-white hover:bg-green-700 font-medium"
               >
                 Start Your Trial
@@ -223,7 +225,7 @@ export default function Tutorials() {
               <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">Features</Link>
               <Button 
                 variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
+                onClick={() => go("/subscribe")}
                 className="block py-2 text-muted-foreground hover:text-primary transition-colors"
               >
                 Pricing
@@ -429,13 +431,13 @@ export default function Tutorials() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              onClick={() => window.location.href = "/trial"}
+              onClick={() => go("/trial")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg"
             >
               Start Your Trial
             </Button>
             <Button 
-              onClick={() => window.location.href = "/help-center"}
+              onClick={() => go("/help-center")}
               variant="outline"
               className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg"
             >

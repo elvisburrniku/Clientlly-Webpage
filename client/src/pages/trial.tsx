@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import { LanguageSelector } from "@/components/LanguageSelector";
@@ -17,6 +17,8 @@ function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element):
 }
 
 export default function Trial() {
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const { currentLanguage } = useLanguage();
   const lang = currentLanguage;
   const { toast } = useToast();
@@ -25,7 +27,8 @@ export default function Trial() {
 
   const trialMutation = useMutation({
     mutationFn: async (data: typeof form) => {
-      window.location.href = `/subscribe?plan=basic&billing=monthly&trial=true&email=${encodeURIComponent(data.email)}&name=${encodeURIComponent(data.firstName + " " + data.lastName)}&company=${encodeURIComponent(data.company)}`;
+      setLocation(`/subscribe?plan=basic&billing=monthly&trial=true&email=${encodeURIComponent(data.email)}&name=${encodeURIComponent(data.firstName + " " + data.lastName)}&company=${encodeURIComponent(data.company)}`);
+      window.scrollTo({ top: 0 });
     },
     onError: () => {
       toast({ title: "Gabim", description: "Ju lutem provoni sërish.", variant: "destructive" });
@@ -61,7 +64,7 @@ export default function Trial() {
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
-              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
               <Link href="/compare-features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Krahaso Planet", "Compare Plans")}</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact")}</Link>
             </div>
@@ -70,7 +73,7 @@ export default function Trial() {
               <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(lang, "Hyr", "Login")}
               </button>
-              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg transition-colors">
+              <button onClick={() => go("/subscribe")} className="text-sm font-semibold px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
               </button>
               <LanguageSelector />
@@ -85,9 +88,9 @@ export default function Trial() {
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
             <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features")}</Link>
-            <button onClick={() => window.location.href = "/subscribe"} className="block text-sm font-medium text-gray-700 py-1.5 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-1.5 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
             <div className="pt-2 flex gap-2">
-              <button onClick={() => window.location.href = "/subscribe"} className="flex-1 text-sm font-semibold py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <button onClick={() => go("/subscribe")} className="flex-1 text-sm font-semibold py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
               <LanguageSelector />
             </div>
           </div>
@@ -416,7 +419,7 @@ export default function Trial() {
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
-            <button onClick={() => window.location.href = "/subscribe"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-sm">
+            <button onClick={() => go("/subscribe")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-sm">
               {sq(lang, "Shiko Çmimet", "View Pricing")}
             </button>
           </div>

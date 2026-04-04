@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import {
   ArrowRight, Lightbulb, Code, Rocket, CheckCircle, Users,
   Zap, TrendingUp, Globe, Menu, X, Star,
@@ -152,14 +152,14 @@ export default function CollaborationPage() {
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-3 ml-auto">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
+              </Link>
               <LanguageSelector />
             </div>
 
@@ -173,11 +173,11 @@ export default function CollaborationPage() {
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
             <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
-            <button onClick={() => window.location.href = '/subscribe'} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
-            <button onClick={() => window.location.href = '/subscribe'} className="w-full text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg mt-2">
+            <Link href="/subscribe" className="block text-center w-full text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg mt-2">
               {sq(lang, "Blej Tani", "Buy Now")}
-            </button>
+            </Link>
           </div>
         )}
       </nav>
@@ -208,13 +208,13 @@ export default function CollaborationPage() {
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                onClick={() => window.location.href = '/subscribe'}
+              <Link
+                href="/subscribe"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg"
               >
                 {sq(lang, "Fillo Tani — Falas", "Start Now — Free")}
                 <ArrowRight className="h-4 w-4" />
-              </button>
+              </Link>
               <button
                 onClick={() => document.getElementById('si-funksionon')?.scrollIntoView({behavior:'smooth'})}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
@@ -377,13 +377,13 @@ export default function CollaborationPage() {
             )}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              onClick={() => window.location.href = '/subscribe'}
+            <Link
+              href="/subscribe"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg"
             >
               {sq(lang, "Shiko Planet", "View Plans")}
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20">
               {sq(lang, "Na Kontaktoni", "Contact Us")}
             </Link>

@@ -250,7 +250,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
 
 export default function Subscribe() {
   const { toast } = useToast();
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const [currentStep, setCurrentStep] = useState(0);
   const { t } = useTranslation();
   const [selectedPlan, setSelectedPlan] = useState<string>('');
@@ -457,7 +457,7 @@ export default function Subscribe() {
                       const dash = feature.indexOf("—");
                       const desc = dash !== -1 ? feature.slice(dash) : "";
                       return (
-                        <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => window.location.href = '/collaboration'}>
+                        <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => { setLocation('/collaboration'); window.scrollTo({top:0}); }}>
                           <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
                           <span className="text-sm flex-1">
                             <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
@@ -679,9 +679,9 @@ export default function Subscribe() {
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Kontakt</Link>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
                 Blej Tani
-              </button>
+              </Link>
               <LanguageSelector />
             </div>
             <div className="flex lg:hidden items-center ml-auto">
@@ -701,7 +701,7 @@ export default function Subscribe() {
             <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">Çmimet</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">Kontakt</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => { window.location.href = '/subscribe'; setShowMobileMenu(false); }} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">Blej Tani</button>
+              <Link href="/subscribe" onClick={() => setShowMobileMenu(false)} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">Blej Tani</Link>
               <LanguageSelector />
             </div>
           </div>

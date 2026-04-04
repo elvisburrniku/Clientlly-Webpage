@@ -1,6 +1,6 @@
 import { ArrowLeft, CheckCircle, TrendingUp, Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
@@ -8,7 +8,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 
 export interface FeatureDetailData {
   category: { sq: string; en: string };
-  categoryColor: string; // tailwind bg class e.g. "bg-blue-600"
+  categoryColor: string;
   title: { sq: string; en: string };
   tagline: { sq: string; en: string };
   stat: { sq: string; en: string };
@@ -22,6 +22,9 @@ const sq = (lang: string, a: string, b: string) => lang === "sq" ? a : b;
 export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
   const { currentLanguage: lang } = useTranslation();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [, setLocation] = useLocation();
+
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
 
   return (
     <div className="min-h-screen bg-white">
@@ -36,7 +39,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/features" className="text-sm font-medium text-indigo-600 font-semibold">{sq(lang, "Veçoritë", "Features")}</Link>
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
             </div>
             <div className="hidden lg:flex items-center gap-3 ml-auto">
@@ -44,9 +47,9 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
                 <ArrowLeft className="h-4 w-4" />
                 {sq(lang, "Të gjitha veçoritë", "All features")}
               </Link>
-              <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+              <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
-              </button>
+              </Link>
               <LanguageSelector />
             </div>
             <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
@@ -58,11 +61,11 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
             <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
             <Link href="/features" className="block text-sm font-medium text-indigo-600 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
-            <button onClick={() => window.location.href = '/subscribe'} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact")}</Link>
-            <button onClick={() => window.location.href = '/subscribe'} className="w-full text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg mt-2">
+            <Link href="/subscribe" className="block w-full text-center text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg mt-2">
               {sq(lang, "Blej Tani", "Buy Now")}
-            </button>
+            </Link>
           </div>
         )}
       </nav>
@@ -139,7 +142,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
                     {sq(lang, "Të gjitha modulet të aktivizuara menjëherë. Pa kartë kredie.", "All modules activated instantly. No credit card.")}
                   </p>
                   <button
-                    onClick={() => window.location.href = '/subscribe'}
+                    onClick={() => go('/subscribe')}
                     className="w-full py-3 bg-white text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 transition-colors text-sm"
                   >
                     {sq(lang, "Shiko Planet", "View Plans")}
@@ -182,7 +185,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
-              onClick={() => window.location.href = '/subscribe'}
+              onClick={() => go('/subscribe')}
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all hover:scale-105 shadow-lg"
             >
               {sq(lang, "Shiko Planet", "View Plans")}

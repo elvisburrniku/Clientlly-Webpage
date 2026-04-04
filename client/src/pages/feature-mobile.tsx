@@ -1,10 +1,11 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Smartphone, Download, Wifi, Bell, Shield, RefreshCw, Camera, FileText, Users, CheckCircle, Star, Zap } from "lucide-react";
 
 export default function FeatureMobile() {
+  const [, setLocation] = useLocation();
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
       {/* Background Elements */}
@@ -34,7 +35,7 @@ export default function FeatureMobile() {
               variant="ghost" 
               size="sm"
               onClick={() => {
-                window.location.href = "/";
+                setLocation("/");
                 setTimeout(() => {
                   const featuresSection = document.getElementById('features');
                   if (featuresSection) {
@@ -305,7 +306,7 @@ export default function FeatureMobile() {
             <Button 
               size="lg" 
               className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4"
-              onClick={() => window.location.href = "/mobile-app"}
+              onClick={() => { setLocation("/mobile-app"); window.scrollTo({ top: 0 }); }}
             >
               <Download className="h-5 w-5 mr-2" />
               Download for iOS
@@ -313,7 +314,7 @@ export default function FeatureMobile() {
             <Button 
               size="lg" 
               className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8 py-4"
-              onClick={() => window.location.href = "/mobile-app"}
+              onClick={() => { setLocation("/mobile-app"); window.scrollTo({ top: 0 }); }}
             >
               <Download className="h-5 w-5 mr-2" />
               Download for Android

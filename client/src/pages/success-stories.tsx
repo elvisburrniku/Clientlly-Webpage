@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 
 const SuccessStories = () => {
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const stories = [
@@ -143,14 +145,14 @@ const SuccessStories = () => {
                 <Button 
                   variant="outline" 
                   size="sm"
-                  onClick={() => window.location.href = "/trial"}
+                  onClick={() => go("/trial")}
                   className="border-blue-200 text-blue-700 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-900/20"
                 >
                   Start Your Trial
                 </Button>
                 <Button 
                   size="sm"
-                  onClick={() => window.location.href = "/subscribe"}
+                  onClick={() => go("/subscribe")}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
                 >
                   Buy Now
@@ -192,14 +194,14 @@ const SuccessStories = () => {
                     variant="outline" 
                     size="sm" 
                     className="w-full border-blue-200 text-blue-700 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-900/20"
-                    onClick={() => window.location.href = "/trial"}
+                    onClick={() => go("/trial")}
                   >
                     Start Your Trial
                   </Button>
                   <Button 
                     size="sm" 
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                    onClick={() => window.location.href = "/subscribe"}
+                    onClick={() => go("/subscribe")}
                   >
                     Buy Now
                   </Button>
@@ -244,7 +246,7 @@ const SuccessStories = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg"
-              onClick={() => window.location.href = "/trial"}
+              onClick={() => go("/trial")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Start Your Success Story
@@ -252,7 +254,7 @@ const SuccessStories = () => {
             <Button 
               size="lg"
               variant="outline"
-              onClick={() => window.location.href = "/subscribe"}
+              onClick={() => go("/subscribe")}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
               See Pricing
@@ -427,7 +429,7 @@ const SuccessStories = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg"
-              onClick={() => window.location.href = "/trial"}
+              onClick={() => go("/trial")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Start Your Free Trial
@@ -436,7 +438,7 @@ const SuccessStories = () => {
             <Button 
               size="lg"
               variant="outline"
-              onClick={() => window.location.href = "/contact"}
+              onClick={() => go("/contact")}
               className="border-2 border-black text-black hover:bg-black hover:text-white px-8 py-4 text-lg font-bold transition-all duration-300"
             >
               Schedule a Demo

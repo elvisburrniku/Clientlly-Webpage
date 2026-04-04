@@ -1,4 +1,5 @@
 import { ArrowLeft, Shield, Lock, Server, Globe, Award, KeyRound, FileCheck, Database, Users, Clock, AlertTriangle, CheckCircle, Mail } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import Footer from "@/components/Footer";
@@ -84,10 +85,10 @@ export default function DataProtection() {
       <nav className="sticky top-0 z-40 bg-white border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative flex items-center h-16">
-            <button onClick={() => window.location.href="/"} className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
               <span className="text-base font-bold text-gray-900">Clientlly</span>
-            </button>
+            </Link>
             <button onClick={() => window.history.back()}
               className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
               <ArrowLeft className="h-4 w-4" />{sq(lang,"Kthehu","Back")}
@@ -241,14 +242,14 @@ export default function DataProtection() {
                 </div>
               </div>
               <div className="space-y-3">
-                <button onClick={() => window.location.href="/contact"}
-                  className="w-full py-3 px-5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all text-sm">
+                <Link href="/contact"
+                  className="block w-full py-3 px-5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all text-sm text-center">
                   {sq(lang,"Kontakto DPO","Contact DPO")}
-                </button>
-                <button onClick={() => window.location.href="/privacy-policy"}
-                  className="w-full py-3 px-5 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-200 transition-all text-sm">
+                </Link>
+                <Link href="/privacy-policy"
+                  className="block w-full py-3 px-5 bg-white hover:bg-gray-50 text-gray-700 font-semibold rounded-xl border border-gray-200 transition-all text-sm text-center">
                   {sq(lang,"Lexo Politikën e Privatësisë","Read Privacy Policy")}
-                </button>
+                </Link>
               </div>
             </div>
           </div>

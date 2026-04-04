@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,6 +19,8 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 
 export default function Webinars() {
+  const [, setLocation] = useLocation();
+  const go = (path: string) => { setLocation(path); window.scrollTo({ top: 0 }); };
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const upcomingWebinars = [
@@ -111,14 +113,14 @@ export default function Webinars() {
             <div className="hidden lg:flex items-center space-x-8">
               <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
               <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
-              <Button variant="ghost" onClick={() => window.location.href = '/subscribe'} className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Pricing</Button>
+              <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Pricing</Button>
               <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Contact Us</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="text-muted-foreground hover:text-primary transition-all duration-300">Login</Button>
-              <Button onClick={() => window.location.href = "/subscribe"} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">Buy Now</Button>
-              <Button onClick={() => window.location.href = "/trial"} className="bg-green-600 text-white hover:bg-green-700 font-medium">Start Your Trial</Button>
+              <Button onClick={() => go("/subscribe")} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">Buy Now</Button>
+              <Button onClick={() => go("/trial")} className="bg-green-600 text-white hover:bg-green-700 font-medium">Start Your Trial</Button>
               <div className="pt-2"><LanguageSelector /></div>
             </div>
 
@@ -133,7 +135,7 @@ export default function Webinars() {
             <div className="px-6 py-4 space-y-4">
               <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">About Us</Link>
               <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">Features</Link>
-              <Button variant="ghost" onClick={() => window.location.href = '/subscribe'} className="block py-2 text-muted-foreground hover:text-primary transition-colors">Pricing</Button>
+              <Button variant="ghost" onClick={() => go("/subscribe")} className="block py-2 text-muted-foreground hover:text-primary transition-colors">Pricing</Button>
               <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">Contact Us</Link>
             </div>
           </div>
@@ -323,10 +325,10 @@ export default function Webinars() {
             Join our next webinar and discover how to maximize your business potential with expert guidance and live Q&A.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={() => window.location.href = "#"} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">
+            <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">
               Register for Next Session
             </Button>
-            <Button onClick={() => window.location.href = "/trial"} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">
+            <Button onClick={() => go("/trial")} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">
               Start Your Trial
             </Button>
           </div>
