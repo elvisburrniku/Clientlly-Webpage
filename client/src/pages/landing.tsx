@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { t as tr } from "@/lib/i18n";
+import { PLAN_F } from "@/lib/translations";
 import Footer from "@/components/Footer";
 import clientllyLogo from '@assets/CLIENTLLY_ICON_1753793353861.png';
 
@@ -90,6 +92,27 @@ export default function Landing() {
   const { data: plans = [] } = useQuery<SubscriptionPlan[]>({
     queryKey: ["/api/subscription-plans"],
   });
+
+  const featureMap: Record<string, typeof PLAN_F[keyof typeof PLAN_F]> = {};
+  Object.values(PLAN_F).forEach(t5 => { featureMap[t5.sq] = t5; });
+
+  const tf = (feature: string): string => {
+    const clean = feature.replace(/\*\*/g, '');
+    const boldFeature = feature.startsWith("**") && feature.endsWith("**");
+    const match = featureMap[clean] ?? featureMap[feature];
+    if (!match) return feature;
+    const translated = tr(lang, match);
+    return boldFeature && !translated.startsWith("**") ? `**${translated}**` : translated;
+  };
+
+  const planName = (name: string) => {
+    const names: Record<string, Record<string, string>> = {
+      "Starter": { sq: "Starter", en: "Starter", es: "Inicial", de: "Starter", mk: "Стартер" },
+      "Professional": { sq: "Profesional", en: "Professional", es: "Profesional", de: "Professionell", mk: "Професионален" },
+      "Enterprise": { sq: "Enterprise", en: "Enterprise", es: "Empresarial", de: "Enterprise", mk: "Ентерпрајз" },
+    };
+    return names[name]?.[lang] ?? name;
+  };
 
   const stats = [
     { value: "200+", label: sq(lang, "Biznese", "Businesses", "Empresas", "Unternehmen", "Бизниси") },
@@ -670,7 +693,7 @@ export default function Landing() {
                     </div>
                   )}
                   <div className="mb-6">
-                    <h3 className={`text-lg font-bold mb-1 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
+                    <h3 className={`text-lg font-bold mb-1 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{planName(plan.name)}</h3>
                     {billingPeriod === 'yearly' && (
                       <div className="flex items-center gap-1.5 mb-0.5">
                         <span className={`text-sm line-through ${isPopular ? 'text-indigo-300' : 'text-gray-400'}`}>€{(plan.monthlyPrice / 100).toFixed(0)}</span>
@@ -705,23 +728,26 @@ export default function Landing() {
                   </div>
                   <ul className="space-y-2.5 mb-7">
                     {plan.features.map((feature, fi) => {
-                      const isGrow = feature.includes("Le të Rritemi Bashkë");
-                      const isBold = feature.startsWith("**") && feature.endsWith("**");
+                      const translated = tf(feature);
+                      const isGrow = translated.includes("Le të Rritemi Bashkë") || translated.includes("Let's Grow Together") || translated.includes("Crezcamos Juntos") || translated.includes("Lass uns gemeinsam wachsen") || translated.includes("Да Растеме Заедно");
+                      const isBold = translated.startsWith("**") && translated.endsWith("**");
                       if (isGrow) {
-                        const dash = feature.indexOf("—");
-                        const desc = dash !== -1 ? feature.slice(dash) : "";
+                        const dash = translated.indexOf("—");
+                        const growTitle = sq(lang, "Le të Rritemi Bashkë", "Let's Grow Together", "Crezcamos Juntos", "Lass uns gemeinsam wachsen", "Да Растеме Заедно");
+                        const desc = dash !== -1 ? translated.slice(dash) : "";
+                        const detailsLabel = sq(lang, "Detajet", "Details", "Detalles", "Details", "Детали");
                         return (
                           <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => { window.location.href = '/collaboration'; }}>
                             <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
                             <span className="text-sm flex-1">
-                              <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>Le të Rritemi Bashkë</span>
+                              <span className={`font-bold ${isPopular ? 'text-amber-200' : 'text-amber-700'}`}>{growTitle}</span>
                               <span className={`${isPopular ? 'text-amber-300' : 'text-amber-600'}`}> {desc}</span>
-                              <span className={`ml-1 text-xs underline ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>→ Detajet</span>
+                              <span className={`ml-1 text-xs underline ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>→ {detailsLabel}</span>
                             </span>
                           </li>
                         );
                       }
-                      const clean = feature.replace(/\*\*/g, '');
+                      const clean = translated.replace(/\*\*/g, '');
                       return (
                         <li key={fi} className="flex items-start gap-2.5">
                           <CheckCircle className={`h-4 w-4 mt-0.5 flex-shrink-0 ${isPopular ? 'text-indigo-300' : 'text-indigo-500'}`} />
