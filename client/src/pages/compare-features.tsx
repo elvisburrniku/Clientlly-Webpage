@@ -267,14 +267,20 @@ export default function CompareFeatures() {
                     {sq(lang, "Të gjitha 16 modulet", "All 16 modules included")}
                   </p>
                 </div>
-                <button
-                  onClick={() => go(plan.highlight ? "/trial" : "/subscribe")}
-                  className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all ${plan.btnClass}`}
-                >
-                  {plan.highlight
-                    ? sq(lang, "Fillo Provën Tani", "Start Free Trial")
-                    : sq(lang, "Blej Tani", "Buy Now")}
-                </button>
+                <div className="flex flex-col gap-2">
+                  <button
+                    onClick={() => { window.location.href = '/subscribe'; }}
+                    className={`w-full py-2.5 rounded-xl text-sm font-semibold transition-all ${plan.btnClass}`}
+                  >
+                    {sq(lang, "Blej Tani", "Buy Now")}
+                  </button>
+                  <button
+                    onClick={() => { window.location.href = '/trial'; }}
+                    className="w-full py-2.5 rounded-xl text-sm font-semibold border border-gray-200 text-gray-600 hover:border-indigo-300 hover:text-indigo-600 transition-all bg-white"
+                  >
+                    {sq(lang, "Fillo Provën — 14 Ditë", "Start Trial — 14 Days")}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
