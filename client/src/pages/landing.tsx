@@ -123,7 +123,7 @@ export default function Landing() {
       n: "02",
       icon: Package,
       title: sq(lang, "Të Gjitha Modulet të Përfshira", "All Modules Included"),
-      desc: sq(lang, "Të gjitha 16 modulet aktivizohen automatikisht me planin tuaj. Shtoni ekipin dhe nisni menjëherë.", "All 16 modules are automatically activated with your plan. Add your team and get started right away."),
+      desc: sq(lang, "Të gjitha 14 modulet aktivizohen automatikisht me planin tuaj. Shtoni ekipin dhe nisni menjëherë.", "All 14 modules are automatically activated with your plan. Add your team and get started right away."),
     },
     {
       n: "03",
