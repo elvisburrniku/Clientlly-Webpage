@@ -61,35 +61,18 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
   const [loadingStage, setLoadingStage] = useState('');
-  const [clientSecret, setClientSecret] = useState('');
-
-  // No need to create payment intent here as we're using Stripe Checkout
+  const [paymentMethod, setPaymentMethod] = useState<'card' | 'stripe'>('card');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
-    setLoadingStage('Preparing your subscription...');
+    setLoadingStage(paymentMethod === 'card' ? 'Duke përgatitur pagesën...' : 'Duke u ridirektuar te Stripe...');
 
     try {
-      console.log("Processing subscription for:", {
-        user: userData,
-        plan: plan.name,
-        billing: billingPeriod
-      });
-      
-      setLoadingStage('Creating secure checkout session...');
-      
-      // Create account and redirect to Stripe checkout
       const response = await fetch('/api/create-account-and-subscription', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userData,
-          planId: plan.id,
-          billingPeriod
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userData, planId: plan.id, billingPeriod }),
       });
 
       if (!response.ok) {
@@ -100,26 +83,13 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
       const data = await response.json();
 
       if (data.checkoutUrl) {
-        setLoadingStage('Redirecting to secure payment...');
-        
-        // Add a brief delay to show the final stage
-        setTimeout(() => {
-          window.location.href = data.checkoutUrl;
-        }, 800);
+        setLoadingStage('Duke u ridirektuar te pagesa e sigurt...');
+        setTimeout(() => { window.location.href = data.checkoutUrl; }, 800);
       } else {
-        throw new Error('Failed to create checkout session - no checkout URL received');
+        throw new Error('Failed to create checkout session');
       }
-
     } catch (error: any) {
-      console.error('Payment error:', error);
-      
-      const errorMessage = error.message || 'There was an error setting up your payment. Please try again.';
-      
-      toast({
-        title: "Payment Setup Failed",
-        description: errorMessage,
-        variant: "destructive",
-      });
+      toast({ title: "Pagesa Dështoi", description: error.message || 'Ndodhi një gabim. Provoni përsëri.', variant: "destructive" });
       setIsProcessing(false);
       setLoadingStage('');
     }
@@ -130,117 +100,124 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="p-6 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg border">
-        <div className="flex justify-between items-center mb-4">
+      <div className="p-5 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-100">
+        <div className="flex justify-between items-center mb-3">
           <div>
-            <h3 className="font-bold text-lg">{plan.name} Plan</h3>
-            <p className="text-muted-foreground">
-              {billingPeriod === 'yearly' ? 'Billed yearly' : 'Billed monthly'}
+            <h3 className="font-bold text-lg text-gray-900">{plan.name}</h3>
+            <p className="text-sm text-gray-500">
+              {billingPeriod === 'yearly' ? 'Faturim vjetor' : 'Faturim mujor'}
             </p>
           </div>
           <div className="text-right">
-            <div className="font-bold text-2xl">
-              {selectedCurrency === 'EUR' ? (
-                // Use actual API pricing data for EUR
-                `€${((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice) / 100).toFixed(2)}`
-              ) : (
-                formatCurrency(
-                  convertPrice(price / 100, 'USD', selectedCurrency),
-                  selectedCurrency
-                )
-              )}
+            <div className="font-extrabold text-2xl text-gray-900">
+              €{((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice) / 100).toFixed(2)}
             </div>
-            <div className="text-sm text-muted-foreground">
-              /{billingPeriod === 'yearly' ? 'year' : 'month'}
-            </div>
+            <div className="text-xs text-gray-400">/{billingPeriod === 'yearly' ? 'vit' : 'muaj'}</div>
             {billingPeriod === 'yearly' && savings > 0 && (
-              <div className="text-sm text-green-600 font-medium">
-                Save {Math.round(savings)}%
-              </div>
+              <div className="text-xs text-emerald-600 font-semibold">Kurseni {Math.round(savings)}%</div>
             )}
           </div>
         </div>
-        
-        <Separator className="my-4" />
-        
-        <div className="space-y-2">
-          <h4 className="font-medium">Account Details:</h4>
-          <p className="text-sm text-muted-foreground">{userData.firstName} {userData.lastName}</p>
-          <p className="text-sm text-muted-foreground">{userData.email}</p>
-          <p className="text-sm text-muted-foreground">{userData.companyName}</p>
+        <Separator className="my-3" />
+        <div className="space-y-1">
+          <p className="text-xs font-medium text-gray-600">Detajet e llogarisë:</p>
+          <p className="text-xs text-gray-500">{userData.firstName} {userData.lastName} · {userData.email}</p>
+          <p className="text-xs text-gray-500">{userData.companyName}</p>
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-          <div className="flex items-center space-x-2 text-green-700">
-            <Shield className="h-4 w-4" />
-            <span className="text-sm font-medium">
-              {process.env.NODE_ENV === 'development' ? 'Demo Payment Mode' : 'Secure Payment with Stripe'}
-            </span>
-          </div>
-          <p className="text-sm text-green-600 mt-1">
-            {process.env.NODE_ENV === 'development' 
-              ? "You'll be redirected to Stripe's test payment page. Use test card 4242 4242 4242 4242 for testing."
-              : "You'll be redirected to Stripe's secure payment page to complete your subscription."
-            }
-          </p>
+      <div className="space-y-3">
+        <p className="text-sm font-semibold text-gray-900">Zgjidhni mënyrën e pagesës:</p>
+        <div className="grid grid-cols-2 gap-3">
+          <button type="button" onClick={() => setPaymentMethod('card')}
+            className={`p-4 rounded-xl border-2 text-left transition-all ${
+              paymentMethod === 'card'
+                ? 'border-indigo-600 bg-indigo-50 shadow-sm'
+                : 'border-gray-200 hover:border-gray-300 bg-white'
+            }`}>
+            <CreditCard className={`h-5 w-5 mb-2 ${paymentMethod === 'card' ? 'text-indigo-600' : 'text-gray-400'}`} />
+            <p className={`text-sm font-semibold ${paymentMethod === 'card' ? 'text-indigo-600' : 'text-gray-700'}`}>Kartë Kredie</p>
+            <p className="text-[10px] text-gray-400 mt-0.5">Visa, Mastercard, Amex</p>
+          </button>
+          <button type="button" onClick={() => setPaymentMethod('stripe')}
+            className={`p-4 rounded-xl border-2 text-left transition-all ${
+              paymentMethod === 'stripe'
+                ? 'border-indigo-600 bg-indigo-50 shadow-sm'
+                : 'border-gray-200 hover:border-gray-300 bg-white'
+            }`}>
+            <Shield className={`h-5 w-5 mb-2 ${paymentMethod === 'stripe' ? 'text-indigo-600' : 'text-gray-400'}`} />
+            <p className={`text-sm font-semibold ${paymentMethod === 'stripe' ? 'text-indigo-600' : 'text-gray-700'}`}>Stripe Checkout</p>
+            <p className="text-[10px] text-gray-400 mt-0.5">Pagesë e sigurt Stripe</p>
+          </button>
         </div>
+
+        {paymentMethod === 'card' && (
+          <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 space-y-3">
+            <p className="text-xs text-gray-500">
+              Do të ridirektoheni te formulari i sigurt i kartës së kreditit për të përfunduar pagesën.
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <div className="w-8 h-5 bg-blue-700 rounded text-white text-[8px] font-bold flex items-center justify-center">VISA</div>
+                <div className="w-8 h-5 bg-red-500 rounded text-white text-[8px] font-bold flex items-center justify-center">MC</div>
+                <div className="w-8 h-5 bg-blue-500 rounded text-white text-[8px] font-bold flex items-center justify-center">AMEX</div>
+              </div>
+              <span className="text-[10px] text-gray-400">Enkriptim SSL 256-bit</span>
+            </div>
+          </div>
+        )}
+
+        {paymentMethod === 'stripe' && (
+          <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 space-y-2">
+            <div className="flex items-center gap-2">
+              <Shield className="h-4 w-4 text-purple-600" />
+              <span className="text-xs font-medium text-purple-700">Stripe Checkout i Sigurt</span>
+            </div>
+            <p className="text-xs text-purple-600">
+              Do të ridirektoheni te faqja e sigurt e Stripe ku mund të paguani me kartë kredie, Apple Pay, ose Google Pay.
+            </p>
+          </div>
+        )}
 
         <Button 
           type="submit" 
           size="lg" 
-          className="w-full bg-gradient-to-r from-primary to-secondary hover:shadow-lg disabled:opacity-70 transition-all duration-300 relative overflow-hidden"
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-200 relative overflow-hidden"
           disabled={isProcessing}
         >
           {isProcessing ? (
             <div className="flex items-center space-x-2">
               <InlineSpinner size="sm" />
-              <span className="animate-pulse">{loadingStage || 'Setting up payment...'}</span>
+              <span className="animate-pulse">{loadingStage}</span>
             </div>
           ) : (
             <div className="flex items-center space-x-2">
-              <CreditCard className="h-4 w-4" />
-              <span>Continue to Payment</span>
+              {paymentMethod === 'card' ? <CreditCard className="h-4 w-4" /> : <Shield className="h-4 w-4" />}
+              <span>{paymentMethod === 'card' ? 'Paguaj me Kartë' : 'Vazhdo me Stripe'}</span>
             </div>
-          )}
-          {isProcessing && (
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer" />
           )}
         </Button>
 
-        {/* Loading Overlay */}
         {isProcessing && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center animate-bounce-in">
-            <div className="bg-white dark:bg-gray-900 rounded-lg p-8 max-w-md mx-4 text-center shadow-2xl">
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
+            <div className="bg-white rounded-xl p-8 max-w-md mx-4 text-center shadow-2xl">
               <div className="flex justify-center mb-4">
                 <div className="relative">
-                  <div className="w-16 h-16 border-4 border-primary/20 rounded-full"></div>
-                  <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin absolute top-0 left-0"></div>
-                  <CreditCard className="w-6 h-6 text-primary absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                  <div className="w-14 h-14 border-4 border-indigo-100 rounded-full"></div>
+                  <div className="w-14 h-14 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin absolute top-0 left-0"></div>
+                  <CreditCard className="w-5 h-5 text-indigo-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                 </div>
               </div>
-              
-              <h3 className="text-lg font-semibold mb-2">Processing Your Subscription</h3>
-              <p className="text-muted-foreground mb-4">{loadingStage}</p>
-              
-              <div className="flex justify-center space-x-1 loading-dots">
-                <span className="w-2 h-2 bg-primary rounded-full"></span>
-                <span className="w-2 h-2 bg-primary rounded-full"></span>
-                <span className="w-2 h-2 bg-primary rounded-full"></span>
-              </div>
-              
-              <p className="text-xs text-muted-foreground mt-4">
-                Please do not close this window
-              </p>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">Duke procesuar...</h3>
+              <p className="text-sm text-gray-500 mb-3">{loadingStage}</p>
+              <p className="text-xs text-gray-400">Ju lutem mos e mbyllni këtë dritare</p>
             </div>
           </div>
         )}
         
         <div className="text-center">
-          <p className="text-xs text-muted-foreground">
-            Powered by <span className="font-medium">Stripe</span> • 
-            Your payment information is secure and encrypted
+          <p className="text-[10px] text-gray-400">
+            Siguri nga <span className="font-medium">Stripe</span> · Informacioni juaj është i enkriptuar dhe i sigurt
           </p>
         </div>
       </div>
