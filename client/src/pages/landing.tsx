@@ -138,14 +138,16 @@ export default function Landing() {
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-2">
+          <div className="relative flex items-center h-16">
+            {/* Logo — majtas */}
+            <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
               <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/" className="text-sm font-medium text-indigo-600 font-semibold transition-colors">
+            {/* Nav links — qendër absolute */}
+            <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
+              <Link href="/" className="text-sm font-semibold text-indigo-600 transition-colors">
                 {sq(currentLanguage, "Ballina", "Home")}
               </Link>
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
@@ -162,15 +164,13 @@ export default function Landing() {
               </button>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-3">
-              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 px-3 py-2 transition-colors">
+            {/* Butonat — djathtas */}
+            <div className="hidden lg:flex items-center space-x-5 ml-auto">
+              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                 {sq(currentLanguage, "Hyr", "Login")}
               </button>
               <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
                 {sq(currentLanguage, "Blej Tani", "Buy Now")}
-              </button>
-              <button onClick={() => window.location.href = "/trial"} className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-                {sq(currentLanguage, "Provo Falas", "Free Trial")}
               </button>
               <LanguageSelector />
             </div>
