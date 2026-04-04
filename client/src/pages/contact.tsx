@@ -4,7 +4,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import {
-  Mail, Phone, MapPin, Clock, Send, MessageSquare,
+  Mail, Phone, MapPin, Clock, Send,
   ArrowRight, CheckCircle, Menu, X, Headphones,
   Star, Zap, Users, BookOpen, ExternalLink,
 } from "lucide-react";
@@ -357,23 +357,6 @@ export default function Contact() {
                     <ExternalLink className="h-3 w-3 text-gray-300 group-hover:text-indigo-400 transition-colors" />
                   </Link>
                 ))}
-              </div>
-            </div>
-
-            {/* Live chat indicator */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 hover:border-emerald-200 transition-colors">
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
-                    <MessageSquare className="h-5 w-5 text-emerald-600" />
-                  </div>
-                  <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></span>
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-semibold text-gray-900">{sq(lang, "Chat i drejtpërdrejtë", "Live Chat")}</p>
-                  <p className="text-xs text-emerald-600 font-medium">{sq(lang, "Online tani · Përgjigje < 5 min", "Online now · Reply < 5 min")}</p>
-                </div>
-                <ArrowRight className="h-4 w-4 text-gray-300" />
               </div>
             </div>
 
