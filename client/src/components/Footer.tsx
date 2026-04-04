@@ -120,7 +120,7 @@ const Footer = () => {
 
           {/* App store badges side by side */}
           <div className="flex items-center gap-2.5">
-            <a href="/mobile-app"
+            <a href="/mobile-app" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-gray-700 transition-all duration-200 group">
               <AppleSVG />
               <div>
@@ -128,7 +128,7 @@ const Footer = () => {
                 <div className="text-[13px] font-semibold text-white leading-snug">App Store</div>
               </div>
             </a>
-            <a href="/mobile-app"
+            <a href="/mobile-app" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-gray-700 transition-all duration-200 group">
               <GooglePlaySVG />
               <div>
