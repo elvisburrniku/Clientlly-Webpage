@@ -207,22 +207,6 @@ export default function CollaborationPage() {
                 "You suggest — we build. Every custom feature is developed free by our professional team, directly in your platform."
               )}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/subscribe"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-all hover:scale-105 shadow-lg"
-              >
-                {sq(lang, "Fillo Tani — Falas", "Start Now — Free")}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <button
-                onClick={() => document.getElementById('si-funksionon')?.scrollIntoView({behavior:'smooth'})}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
-              >
-                {sq(lang, "Si Funksionon?", "How It Works?")}
-                <ChevronRight className="h-4 w-4" />
-              </button>
-            </div>
 
             {/* Quick stats */}
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-xl mx-auto">
