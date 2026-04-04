@@ -135,9 +135,6 @@ const AboutPage = () => {
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
-              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                {sq(lang, "Hyr", "Login")}
-              </button>
               <button onClick={() => window.location.href = '/subscribe'} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now")}
               </button>
