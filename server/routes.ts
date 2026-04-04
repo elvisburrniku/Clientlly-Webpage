@@ -188,7 +188,6 @@ const SUBSCRIPTION_PLANS = {
     description: "",
     features: [
       "**Deri në 20 përdorues**",
-      "**+€2 për çdo përdorues shtesë pas 20**",
       "Fatura të Pakufizuara",
       "Faturim Profesional",
       "Gjurmim Shpenzimesh",

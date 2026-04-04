@@ -603,7 +603,7 @@ export default function Landing() {
                   <div className="mb-6">
                     <h3 className={`text-lg font-bold mb-1 ${isPopular ? 'text-white' : 'text-gray-900'}`}>{plan.name}</h3>
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>€{price}</span>
+                      <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>€{(price / 100).toFixed(0)}</span>
                       <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo")}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
