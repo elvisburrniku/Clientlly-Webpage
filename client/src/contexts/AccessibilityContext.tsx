@@ -22,7 +22,7 @@ const defaultSettings: AccessibilitySettings = {
   theme: 'default',
   fontSize: 'normal',
   reducedMotion: false,
-  focusIndicators: true,
+  focusIndicators: false,
 };
 
 const AccessibilityContext = createContext<AccessibilityContextType | undefined>(undefined);
@@ -36,7 +36,8 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
     if (savedSettings) {
       try {
         const parsed = JSON.parse(savedSettings);
-        setSettings({ ...defaultSettings, ...parsed });
+        // Always force focusIndicators off to prevent yellow outline
+        setSettings({ ...defaultSettings, ...parsed, focusIndicators: false });
       } catch (error) {
         console.error('Failed to parse accessibility settings:', error);
       }
