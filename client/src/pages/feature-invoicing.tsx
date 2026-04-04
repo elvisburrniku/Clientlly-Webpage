@@ -19,5 +19,20 @@ export default function FeatureInvoicing() {
       { sq: "Rikujtime automatike kur fatura nuk paguhet", en: "Automatic reminders when invoice is unpaid" },
       { sq: "Shabllone të ndryshme me markën tuaj", en: "Different templates with your brand" },
     ],
+    workflow: [
+      { step: "1", sq: "Zgjidhni shabllon fature dhe plotësoni artikujt, sasitë dhe çmimet", en: "Choose an invoice template and fill in items, quantities and prices" },
+      { step: "2", sq: "Dërgoni faturën me email — klienti merr linkun për ta hapur", en: "Send the invoice by email — the client receives the link to open it" },
+      { step: "3", sq: "Gjurmoni: kur hapet, sa herë lexohet, dhe statusin e pagesës", en: "Track: when it's opened, how many times read, and payment status" },
+      { step: "4", sq: "Klienti nënshkruan dixhitalisht dhe ju merrni konfirmimin menjëherë", en: "Client signs digitally and you get confirmation immediately" },
+      { step: "5", sq: "Rikujtime automatike dërgohen nëse fatura nuk paguhet brenda afatit", en: "Auto reminders sent if invoice is unpaid within the deadline" },
+    ],
+    capabilities: [
+      { icon: "📧", title: { sq: "Dërgim me Email", en: "Email Delivery" }, desc: { sq: "Fatura dërgohet direkt me email — profesionale dhe e menjëhershme", en: "Invoice sent directly by email — professional and immediate" } },
+      { icon: "👁️", title: { sq: "Gjurmim Hapjeje", en: "Open Tracking" }, desc: { sq: "Shikoni kur klienti e hap faturën dhe sa herë e lexon", en: "See when client opens the invoice and how many times they read it" } },
+      { icon: "✍️", title: { sq: "Nënshkrim Dixhital", en: "Digital Signature" }, desc: { sq: "Nënshkrim ligjërisht i vlefshëm nga telefoni ose kompjuteri", en: "Legally valid signature from phone or computer" } },
+      { icon: "🔔", title: { sq: "Rikujtime Automatike", en: "Auto Reminders" }, desc: { sq: "Sistemi dërgon rikujtime nëse fatura nuk paguhet brenda afatit", en: "System sends reminders if invoice is unpaid within deadline" } },
+      { icon: "🎨", title: { sq: "Shabllone të Markës", en: "Branded Templates" }, desc: { sq: "Shabllone profesionale me logon, ngjyrat dhe stilin tuaj", en: "Professional templates with your logo, colors and style" } },
+      { icon: "📊", title: { sq: "Raporte Faturash", en: "Invoice Reports" }, desc: { sq: "Statistika: paguar, në pritje, të vonuara — me grafikë dhe eksport", en: "Statistics: paid, pending, overdue — with charts and export" } },
+    ],
   }} />;
 }

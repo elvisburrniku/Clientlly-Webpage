@@ -26,6 +26,8 @@ import FeatureFleet from "@/pages/feature-fleet";
 import FeatureMaintenance from "@/pages/feature-maintenance";
 import FeaturePayroll from "@/pages/feature-payroll";
 import FeatureLeaves from "@/pages/feature-leaves";
+import FeatureBuyerCards from "@/pages/feature-buyer-cards";
+import FeatureTraining from "@/pages/feature-training";
 import About from "@/pages/about";
 import Collaboration from "@/pages/collaboration";
 import Contact from "@/pages/contact";
@@ -95,6 +97,8 @@ function Router() {
           <Route path="/features/maintenance" component={FeatureMaintenance} />
           <Route path="/features/payroll" component={FeaturePayroll} />
           <Route path="/features/leaves" component={FeatureLeaves} />
+          <Route path="/features/buyer-cards" component={FeatureBuyerCards} />
+          <Route path="/features/training" component={FeatureTraining} />
           <Route path="/about" component={About} />
           <Route path="/collaboration" component={Collaboration} />
           <Route path="/contact" component={Contact} />
@@ -150,6 +154,8 @@ function Router() {
           <Route path="/features/maintenance" component={FeatureMaintenance} />
           <Route path="/features/payroll" component={FeaturePayroll} />
           <Route path="/features/leaves" component={FeatureLeaves} />
+          <Route path="/features/buyer-cards" component={FeatureBuyerCards} />
+          <Route path="/features/training" component={FeatureTraining} />
           <Route path="/about" component={About} />
           <Route path="/collaboration" component={Collaboration} />
           <Route path="/contact" component={Contact} />

@@ -19,5 +19,19 @@ export default function FeatureReports() {
       { sq: "Raporte prezence, flote dhe shitjesh", en: "Attendance, fleet and sales reports" },
       { sq: "Eksport PDF/Excel me klikim", en: "PDF/Excel export with one click" },
     ],
+    workflow: [
+      { step: "1", sq: "Zgjidhni llojin e raportit: financiar, prezencë, flotë ose shitje", en: "Choose the report type: financial, attendance, fleet or sales" },
+      { step: "2", sq: "Filtroni sipas periudhës, departamentit ose punonjësit", en: "Filter by period, department or employee" },
+      { step: "3", sq: "Shikoni grafikët interaktive me trendet dhe krahasimet", en: "View interactive charts with trends and comparisons" },
+      { step: "4", sq: "Eksportoni në PDF ose Excel me një klikim", en: "Export to PDF or Excel with one click" },
+    ],
+    capabilities: [
+      { icon: "📊", title: { sq: "Panel Interaktiv", en: "Interactive Dashboard" }, desc: { sq: "Grafikë live me të dhëna në kohë reale që përditësohen automatikisht", en: "Live charts with real-time data that update automatically" } },
+      { icon: "💰", title: { sq: "Fluksi Monetar", en: "Cash Flow" }, desc: { sq: "Shikoni hyrjet dhe daljet e parasë me krahasime mujore", en: "View money inflows and outflows with monthly comparisons" } },
+      { icon: "📈", title: { sq: "Trende & Parashikime", en: "Trends & Forecasts" }, desc: { sq: "AI analizon trendet dhe parashikon të ardhmen financiare", en: "AI analyzes trends and forecasts the financial future" } },
+      { icon: "🔍", title: { sq: "Filtra të Avancuara", en: "Advanced Filters" }, desc: { sq: "Filtroni raportet sipas periudhës, kategorisë, punonjësit ose departamentit", en: "Filter reports by period, category, employee or department" } },
+      { icon: "📄", title: { sq: "Eksport PDF/Excel", en: "PDF/Excel Export" }, desc: { sq: "Eksportoni çdo raport në format profesional PDF ose Excel", en: "Export any report in professional PDF or Excel format" } },
+      { icon: "🔄", title: { sq: "Krahasim Periudhash", en: "Period Comparison" }, desc: { sq: "Krahasoni muajin me muajin ose vitin me vitin për trende", en: "Compare month to month or year to year for trends" } },
+    ],
   }} />;
 }

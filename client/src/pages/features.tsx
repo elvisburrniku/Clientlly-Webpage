@@ -880,10 +880,10 @@ export default function Features() {
                       </li>
                     ))}
                   </ul>
-                  <a href={href} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
+                  <Link href={href} className={`inline-flex items-center gap-2 text-sm font-semibold ${lightText} group-hover:gap-3 transition-all duration-200`}>
                     {sq(lang, "Shiko detajet e plota", "See full details")}
                     <ChevronRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

@@ -19,5 +19,19 @@ export default function FeatureExpenses() {
       { sq: "Raporte të gatshme për taksën", en: "Tax-ready reports" },
       { sq: "Buxhet, alarme tejkalimi dhe lidhje me flotën", en: "Budget, overage alerts and fleet integration" },
     ],
+    workflow: [
+      { step: "1", sq: "Shitësi Clientlly ju dërgon faturën — ajo shfaqet automatikisht te shpenzimet tuaja", en: "Clientlly vendor sends you an invoice — it appears automatically in your expenses" },
+      { step: "2", sq: "Aprovoni shpenzimin me një klikim — sistemi e kategorizon vetë", en: "Approve the expense with one click — the system categorizes it automatically" },
+      { step: "3", sq: "Për blerje jashtë Clientlly, skanoni faturën me kamerë ose ngarkoni PDF", en: "For purchases outside Clientlly, scan the invoice with camera or upload PDF" },
+      { step: "4", sq: "Shikoni raportet mujore me kategorit, buxhetin dhe alarmet", en: "View monthly reports with categories, budget and alerts" },
+    ],
+    capabilities: [
+      { icon: "🔄", title: { sq: "Integrim Automatik", en: "Auto Integration" }, desc: { sq: "Faturat nga biznese Clientlly regjistrohen automatikisht si shpenzime", en: "Invoices from Clientlly businesses auto-recorded as expenses" } },
+      { icon: "📸", title: { sq: "Skanim me Kamerë", en: "Camera Scanning" }, desc: { sq: "Fotografoni faturën dhe sistemi e lexon e kategorizon automatikisht", en: "Photo the invoice and the system reads and categorizes automatically" } },
+      { icon: "📁", title: { sq: "Kategorizim i Zgjuar", en: "Smart Categorization" }, desc: { sq: "Shpenzimet grupohen sipas kategorisë: zyrë, udhëtim, material, etj.", en: "Expenses grouped by category: office, travel, materials, etc." } },
+      { icon: "💰", title: { sq: "Buxhet & Alarme", en: "Budget & Alerts" }, desc: { sq: "Caktoni buxhete mujore dhe merrni alarme kur afrohet tejkalimi", en: "Set monthly budgets and get alerts when approaching overspend" } },
+      { icon: "📋", title: { sq: "Raporte Taksore", en: "Tax Reports" }, desc: { sq: "Raporte të gatshme për kontabilistin me zbritje dhe TVSH", en: "Reports ready for accountant with deductions and VAT" } },
+      { icon: "🚗", title: { sq: "Lidhje me Flotën", en: "Fleet Integration" }, desc: { sq: "Shpenzimet e flotës (karburant, mirëmbajtje) lidhen automatikisht", en: "Fleet expenses (fuel, maintenance) linked automatically" } },
+    ],
   }} />;
 }

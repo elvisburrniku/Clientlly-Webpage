@@ -15,6 +15,8 @@ export interface FeatureDetailData {
   description: { sq: string; en: string };
   benefits: Array<{ sq: string; en: string }>;
   relatedHref?: string;
+  workflow?: Array<{ step: string; sq: string; en: string }>;
+  capabilities?: Array<{ icon: string; title: { sq: string; en: string }; desc: { sq: string; en: string } }>;
 }
 
 const sq = (lang: string, a: string, b: string) => lang === "sq" ? a : b;
@@ -28,7 +30,6 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Nav */}
       <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6">
           <div className="relative flex items-center h-16">
@@ -70,7 +71,6 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
         )}
       </nav>
 
-      {/* Hero */}
       <section className="pt-16 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 overflow-hidden relative">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 left-16 w-64 h-64 bg-white rounded-full blur-3xl"></div>
@@ -104,11 +104,9 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-20 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-12">
-            {/* Description */}
             <div className="lg:col-span-3">
               <h2 className="text-2xl font-extrabold text-gray-900 mb-4">
                 {sq(lang, "Si funksionon?", "How does it work?")}
@@ -117,7 +115,6 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
                 {sq(lang, data.description.sq, data.description.en)}
               </p>
 
-              {/* Benefits */}
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 {sq(lang, "Çfarë përfshihet", "What's included")}
               </h3>
@@ -131,7 +128,6 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
               </ul>
             </div>
 
-            {/* Sidebar CTA */}
             <div className="lg:col-span-2">
               <div className="sticky top-24 space-y-4">
                 <div className="bg-indigo-600 rounded-2xl p-6 text-white">
@@ -172,7 +168,62 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
         </div>
       </section>
 
-      {/* CTA Bottom */}
+      {data.workflow && data.workflow.length > 0 && (
+        <section className="py-16 px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight text-center">
+              {sq(lang, "Procesi hap pas hapi", "Step-by-step process")}
+            </h2>
+            <p className="text-gray-500 text-center mb-12 max-w-2xl mx-auto">
+              {sq(lang, "Shikoni si funksionon nga fillimi deri në fund", "See how it works from start to finish")}
+            </p>
+            <div className="relative">
+              <div className="hidden lg:block absolute left-8 top-12 bottom-12 w-px bg-indigo-200"></div>
+              <div className="space-y-6">
+                {data.workflow.map((w, i) => (
+                  <div key={i} className="flex items-start gap-5">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-lg font-extrabold shadow-lg relative z-10">
+                      {w.step}
+                    </div>
+                    <div className="pt-3">
+                      <p className="text-base text-gray-700 leading-relaxed font-medium">
+                        {sq(lang, w.sq, w.en)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {data.capabilities && data.capabilities.length > 0 && (
+        <section className="py-16 px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight text-center">
+              {sq(lang, "Aftësi kryesore", "Key capabilities")}
+            </h2>
+            <p className="text-gray-500 text-center mb-10 max-w-2xl mx-auto">
+              {sq(lang, "Funksionet që e bëjnë këtë modul të domosdoshëm", "Features that make this module essential")}
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {data.capabilities.map((c, i) => (
+                <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md hover:border-indigo-100 transition-all group">
+                  <div className="text-2xl mb-3">{c.icon}</div>
+                  <h4 className="text-sm font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    {sq(lang, c.title.sq, c.title.en)}
+                  </h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    {sq(lang, c.desc.sq, c.desc.en)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 relative overflow-hidden">
         <div className="absolute top-6 right-12 w-3 h-3 bg-white rounded-full animate-bounce opacity-60"></div>
         <div className="absolute bottom-8 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.5s"}}></div>
