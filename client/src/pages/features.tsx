@@ -15,7 +15,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 const sq = (lang: string, albanian: string | JSX.Element, english: string | JSX.Element) =>
   lang === 'sq' ? albanian : english;
 
-const CATEGORIES = ["all", "finance", "clients", "operations", "hr", "fleet"] as const;
+const CATEGORIES = ["all", "finance", "operations", "hr", "fleet"] as const;
 type Category = typeof CATEGORIES[number];
 
 const features = [
@@ -185,7 +185,7 @@ const features = [
     lightText: "text-indigo-600",
     border: "border-indigo-100",
     dotColor: "bg-indigo-500",
-    category: "clients" as Category,
+    category: "operations" as Category,
     tag: { sq: "Klientë", en: "Clients" },
     title: { sq: "Menaxhim Klientësh (CRM)", en: "Client Management (CRM)" },
     tagline: { sq: "Ndërtoni marrëdhënie të forta me çdo klient", en: "Build strong relationships with every client" },
@@ -446,7 +446,6 @@ const features = [
 const categoryLabels: Record<Category, { sq: string; en: string }> = {
   all:        { sq: "Të gjitha",  en: "All" },
   finance:    { sq: "Financë",    en: "Finance" },
-  clients:    { sq: "Klientë",    en: "Clients" },
   operations: { sq: "Operacione", en: "Operations" },
   hr:         { sq: "HR & Ekipi", en: "HR & Team" },
   fleet:      { sq: "Flotë Makinash", en: "Fleet" },
@@ -455,7 +454,6 @@ const categoryLabels: Record<Category, { sq: string; en: string }> = {
 const categoryIcons: Record<Category, JSX.Element> = {
   all:        <span>✦</span>,
   finance:    <span>€</span>,
-  clients:    <Users className="h-3.5 w-3.5" />,
   operations: <Package className="h-3.5 w-3.5" />,
   hr:         <GraduationCap className="h-3.5 w-3.5" />,
   fleet:      <Car className="h-3.5 w-3.5" />,
