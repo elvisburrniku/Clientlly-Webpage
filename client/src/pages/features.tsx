@@ -83,19 +83,19 @@ const features = [
     title: { sq: "Gjurmim Shpenzimesh", en: "Expense Tracking" },
     tagline: { sq: "Organizoni shpenzimet, kurseni kohë dhe para", en: "Organise expenses, save time and money" },
     desc: {
-      sq: "Fotografoni faturat dhe sistemi i kategorizon automatikisht. Gjeneron raporte tatimore të gatshme dhe zbuloni ku po shpenzoni më shumë.",
-      en: "Photograph receipts and the system categorises them automatically. Generates tax-ready reports and reveals where you're spending most."
+      sq: "Nëse shitësi përdor Clientlly, fatura e tij regjistrohet direkt si shpenzim për ju — pa asnjë hyrje manuale. Thjesht aprovoni dhe sistemi e bën vetë. Për blerjet e tjera, skanoni faturën me kamerë.",
+      en: "If the seller uses Clientlly, their invoice registers directly as an expense for you — no manual entry. Just approve and the system does it. For other purchases, scan the receipt with your camera."
     },
     benefits: [
-      { sq: "Skanim automatik i faturave me kamerë", en: "Auto receipt scanning with camera" },
+      { sq: "Fatura e shitësit Clientlly → shpenzim automatik për ju", en: "Clientlly seller invoice → automatic expense for you" },
+      { sq: "Pa hyrje manuale — thjesht aprovoni me 1 klikim", en: "No manual entry — just approve in 1 click" },
+      { sq: "Skanim automatik i faturave me kamerë (të tjerët)", en: "Auto receipt scanning with camera (others)" },
       { sq: "Kategorizim inteligjent i shpenzimeve", en: "Smart expense categorisation" },
       { sq: "Raporte të gatshme për taksën", en: "Tax-ready expense reports" },
-      { sq: "Buxhet dhe alarme tejkalimi", en: "Budget limits and overspend alerts" },
-      { sq: "Eksport në Excel/PDF", en: "Export to Excel/PDF" },
-      { sq: "Lidhje me shpenzimet e flotës së makinave", en: "Link with fleet vehicle expenses" },
+      { sq: "Buxhet, alarme tejkalimi dhe lidhje me flotën", en: "Budget, overspend alerts and fleet link" },
     ],
     href: "/features/expenses",
-    stat: { value: "12h", label: { sq: "kursyer/javë", en: "saved/week" } },
+    stat: { value: "0", label: { sq: "hyrje manuale mes bizneseve Clientlly", en: "manual entries between Clientlly businesses" } },
   },
   {
     id: "debt",
@@ -520,6 +520,47 @@ export default function Features() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── B2B NETWORK CALLOUT ── */}
+      <section className="py-10 px-6 lg:px-8 bg-indigo-600">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <div className="flex-shrink-0 w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+              <Zap className="h-7 w-7 text-white" />
+            </div>
+            <div className="text-center md:text-left flex-1">
+              <h3 className="text-xl font-extrabold text-white mb-1.5">
+                {sq(lang,
+                  "Shpenzimi regjistrohet vetë — nëse shitësi përdor Clientlly",
+                  "Expense registers itself — if the seller uses Clientlly"
+                )}
+              </h3>
+              <p className="text-indigo-100 text-sm leading-relaxed">
+                {sq(lang,
+                  "Kur shitësi ju dërgon faturën përmes Clientlly, ajo shfaqet direkt në listën tuaj të shpenzimeve. Pa kopjim, pa hyrje manuale — thjesht klikoni Aprovo dhe shpenzimi regjistrohet menjëherë.",
+                  "When a seller sends you an invoice through Clientlly, it appears directly in your expense list. No copying, no manual entry — just click Approve and the expense is registered instantly."
+                )}
+              </p>
+            </div>
+            <div className="flex-shrink-0 flex items-center gap-3 text-sm font-semibold">
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center"><FileText className="h-5 w-5 text-white" /></div>
+                <span className="text-indigo-100 text-xs">{sq(lang, "Faturë (shitësi)", "Invoice (seller)")}</span>
+              </div>
+              <ArrowRight className="h-5 w-5 text-indigo-300" />
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center"><CheckCircle className="h-5 w-5 text-white" /></div>
+                <span className="text-indigo-100 text-xs">{sq(lang, "Aprovo", "Approve")}</span>
+              </div>
+              <ArrowRight className="h-5 w-5 text-indigo-300" />
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-10 h-10 bg-emerald-500/80 rounded-xl flex items-center justify-center"><Receipt className="h-5 w-5 text-white" /></div>
+                <span className="text-indigo-100 text-xs">{sq(lang, "Shpenzim (blersit)", "Expense (buyer)")}</span>
+              </div>
             </div>
           </div>
         </div>
