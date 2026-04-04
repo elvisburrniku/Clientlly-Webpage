@@ -150,7 +150,7 @@ export default function Landing() {
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            <div className="hidden lg:flex items-center space-x-7 flex-1 justify-center">
+            <div className="hidden md:flex items-center space-x-7 flex-1 justify-center">
               <Link href="/" className="text-sm font-semibold text-indigo-600">{sq(lang, "Ballina", "Home")}</Link>
               <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
               <a href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</a>
@@ -158,29 +158,29 @@ export default function Landing() {
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact")}</Link>
             </div>
 
-            <div className="hidden lg:flex items-center space-x-5 flex-shrink-0 relative z-[60]">
-              <button onClick={() => { window.location.href = '/subscribe'; }} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
+            <div className="hidden md:flex items-center space-x-5 flex-shrink-0 relative z-[60]">
+              <button onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors cursor-pointer">
                 {sq(lang, "Blej Tani", "Buy Now")}
               </button>
               <LanguageSelector />
             </div>
 
-            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+            <button className="md:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
               {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
 
         {showMobileMenu && (
-          <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+          <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
             <Link href="/" className="block text-sm font-semibold text-indigo-600 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home")}</Link>
-            <button onClick={() => go('/about')} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Rreth Nesh", "About")}</button>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Rreth Nesh", "About")}</Link>
             <a href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</a>
             <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing")}</a>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <Link href="/subscribe" className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg w-full">{sq(lang, "Blej Tani", "Buy Now")}</Link>
-              <Link href="/trial" className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial")}</Link>
+              <button onClick={() => { window.location.href = '/subscribe?plan=professional&billing=monthly'; }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg w-full">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <button onClick={() => { window.location.href = '/trial'; }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial")}</button>
               <LanguageSelector />
             </div>
           </div>
