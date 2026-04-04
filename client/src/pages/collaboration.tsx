@@ -124,13 +124,13 @@ export default function CollaborationPage() {
       role: sq(lang, "Drejtues Operacional, Truly Nolen", "Operations Manager, Truly Nolen"),
       avatar: "AS",
       color: "from-blue-500 to-indigo-600",
-      tag: sq(lang, "Raportim i Personalizuar", "Custom Reporting"),
+      tag: sq(lang, "Kontrata Biznesore", "Business Contracts"),
       text: sq(lang,
-        "Propozova një raport të personalizuar të rrjedhës monetare — dhe e pashë gati brenda 12 ditësh. Nuk mund ta besoja. Tani e gjeneroj me një klik çdo të hënë dhe i kursej ekipit tim mbi 8 orë pune në javë.",
-        "I proposed a custom cash flow report — and saw it live within 12 days. I couldn't believe it. Now I generate it in one click every Monday, saving my team over 8 hours a week."
+        "Kisha nevojë për kontrata standarde me klientët — propozova idenë dhe brenda dy javësh Clientlly kishte ndërtuar një modul të plotë. Tani çdo kontratë nënshkruhet dixhitalisht dhe arkivohet automatikisht. Nuk humbasim asnjë dokument.",
+        "I needed standard client contracts — I proposed the idea and within two weeks Clientlly had built a full module. Now every contract is signed digitally and archived automatically. We never lose a document."
       ),
-      stat: sq(lang, "8 orë/javë të kursyera", "8 hrs/week saved"),
-      statIcon: "⏱️",
+      stat: sq(lang, "100% kontrata të sigurta", "100% contracts secured"),
+      statIcon: "📝",
     },
     {
       name: "Blerta Krasniqi",
