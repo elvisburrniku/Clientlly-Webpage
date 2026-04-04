@@ -211,25 +211,26 @@ export default function CompareFeatures() {
       {/* ── FEATURE COMPARISON TABLE ── */}
       <section className="py-14 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-2">
-              {sq(lang, "Krahasim i plotë i veçorive", "Full feature comparison")}
-            </h2>
-            <p className="text-sm text-gray-500">
-              {sq(lang, "Shihni çfarë përfshin secili plan në detaje", "See exactly what each plan includes in detail")}
-            </p>
-          </div>
-
-          {/* Table header */}
-          <div className="hidden md:grid grid-cols-12 items-center px-5 py-3 mb-3 bg-gray-50 rounded-xl">
-            <div className="col-span-6 text-xs font-semibold text-gray-400 uppercase tracking-widest">
-              {sq(lang, "Veçoria", "Feature")}
+          {/* Table title + header merged */}
+          <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-sm mb-4">
+            <div className="bg-indigo-600 px-6 py-5">
+              <h2 className="text-xl font-extrabold text-white mb-0.5">
+                {sq(lang, "Krahasim i plotë i veçorive", "Full Feature Comparison")}
+              </h2>
+              <p className="text-indigo-200 text-sm">
+                {sq(lang, "Shihni çfarë përfshin secili plan në detaje", "See exactly what each plan includes in detail")}
+              </p>
             </div>
-            {PLANS.map(plan => (
-              <div key={plan.id} className={`col-span-2 text-center text-xs font-bold uppercase tracking-widest ${plan.highlight ? "text-indigo-600" : "text-gray-500"}`}>
-                {sq(lang, plan.name.sq, plan.name.en)}
+            <div className="hidden md:grid grid-cols-12 items-center px-5 py-3 bg-gray-50 border-t border-gray-200">
+              <div className="col-span-6 text-xs font-semibold text-gray-400 uppercase tracking-widest">
+                {sq(lang, "Veçoria", "Feature")}
               </div>
-            ))}
+              {PLANS.map(plan => (
+                <div key={plan.id} className={`col-span-2 text-center text-xs font-bold uppercase tracking-widest ${plan.highlight ? "text-indigo-600" : "text-gray-500"}`}>
+                  {sq(lang, plan.name.sq, plan.name.en)}
+                </div>
+              ))}
+            </div>
           </div>
 
           {FEATURE_GROUPS.map((group, gi) => (
