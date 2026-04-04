@@ -211,7 +211,7 @@ export default function Landing() {
 
               <div className="anim-rise anim-d2 flex flex-wrap gap-3">
                 <button
-                  onClick={() => go("/trial")}
+                  onClick={() => { window.location.href = '/trial'; }}
                   className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <span className="flex flex-col items-start leading-tight">
@@ -661,10 +661,11 @@ export default function Landing() {
                       <CreditCard className="h-3.5 w-3.5" />
                       {sq(lang, "Blej Tani", "Buy Now")}
                     </button>
-                    <Link href="/trial"
+                    <button
+                      onClick={() => { window.location.href = '/trial'; }}
                       className={`block w-full py-2.5 rounded-xl font-medium text-sm text-center transition-all border ${isPopular ? 'border-indigo-400 text-indigo-100 hover:bg-white/10' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
                       {sq(lang, "Fillo Provën", "Start Trial")}
-                    </Link>
+                    </button>
                   </div>
                 </div>
               );
@@ -702,7 +703,7 @@ export default function Landing() {
             )}
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
-            <button onClick={() => go('/trial')}
+            <button onClick={() => { window.location.href = '/trial'; }}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
               {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
               <ArrowRight className="h-4 w-4" />
