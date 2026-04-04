@@ -298,7 +298,7 @@ export default function Contact() {
                 {[
                   { icon: Mail, label: "Email", value: "info@clientlly.com", sub: sq(lang, "Përgjigje brenda 24h", "Reply within 24h") },
                   { icon: Phone, label: sq(lang, "Telefon", "Phone"), value: "+383 44 000 000", sub: sq(lang, "E hënë–Premte, 8–17h", "Mon–Fri, 8am–5pm") },
-                  { icon: MapPin, label: sq(lang, "Zyra", "Office"), value: sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo"), sub: "Rruga UCK, Nr. 12" },
+                  { icon: MapPin, label: sq(lang, "Zyra", "Office"), value: sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo"), sub: "Linda Premium Residence nr 9, Prishtina e re" },
                 ].map(({ icon: Icon, label, value, sub }, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-indigo-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">
