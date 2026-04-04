@@ -595,8 +595,8 @@ export default function Landing() {
                   }`}>
                   {isPopular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="inline-flex items-center px-3 py-1 bg-amber-400 text-amber-900 text-xs font-bold rounded-full shadow-sm">
-                        ⭐ {sq(lang, "Më i Popullarizuari", "Most Popular")}
+                      <span className="inline-flex items-center px-3 py-1 bg-white text-indigo-600 text-xs font-bold rounded-full shadow-sm border border-indigo-100">
+                        ★ {sq(lang, "Më i Popullarizuari", "Most Popular")}
                       </span>
                     </div>
                   )}
@@ -628,11 +628,11 @@ export default function Landing() {
                         const dash = feature.indexOf("—");
                         const desc = dash !== -1 ? feature.slice(dash) : "";
                         return (
-                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg ${isPopular ? 'bg-white/10' : 'bg-amber-50'}`}>
-                            <span className="text-amber-400 mt-0.5 flex-shrink-0 text-xs font-black">✦</span>
+                          <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border ${isPopular ? 'bg-white/10 border-white/20' : 'bg-indigo-50 border-indigo-100'}`}>
+                            <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-white' : 'text-indigo-500'}`}>✦</span>
                             <span className="text-sm">
-                              <span className={`font-bold ${isPopular ? 'text-amber-300' : 'text-amber-600'}`}>Le të Rritemi Bashkë</span>
-                              <span className={`${isPopular ? 'text-indigo-200' : 'text-gray-500'}`}> {desc}</span>
+                              <span className={`font-bold ${isPopular ? 'text-white' : 'text-indigo-700'}`}>Le të Rritemi Bashkë</span>
+                              <span className={`${isPopular ? 'text-indigo-200' : 'text-indigo-500'}`}> {desc}</span>
                             </span>
                           </li>
                         );
