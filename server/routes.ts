@@ -29,7 +29,8 @@ const SUBSCRIPTION_PLANS = {
     features: [
       "**1 përdorues**",
       "Fatura të Pakufizuara",
-      "Faturim Profesional",
+      "Ofertat",
+      "Kalendari",
       "Gjurmim Shpenzimesh",
       "Menaxhim Borxhesh",
       "Raporte & Analitikë",
@@ -108,7 +109,8 @@ const SUBSCRIPTION_PLANS = {
     features: [
       "**Deri në 5 përdorues**",
       "Fatura të Pakufizuara",
-      "Faturim Profesional",
+      "Ofertat",
+      "Kalendari",
       "Gjurmim Shpenzimesh",
       "Menaxhim Borxhesh",
       "Raporte & Analitikë",
@@ -189,7 +191,8 @@ const SUBSCRIPTION_PLANS = {
     features: [
       "**Deri në 20 përdorues**",
       "Fatura të Pakufizuara",
-      "Faturim Profesional",
+      "Ofertat",
+      "Kalendari",
       "Gjurmim Shpenzimesh",
       "Menaxhim Borxhesh",
       "Raporte & Analitikë",
