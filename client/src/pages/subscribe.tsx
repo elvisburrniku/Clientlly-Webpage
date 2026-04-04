@@ -458,17 +458,24 @@ export default function Subscribe() {
                   })}
                 </ul>
 
-                <button
-                  type="button"
-                  onClick={() => { setSelectedPlan(plan.id); setCurrentStep(1); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98] ${
-                    isSelected
-                      ? isPopular ? 'bg-white text-indigo-700 shadow-md' : 'bg-indigo-600 text-white shadow-md'
-                      : isPopular ? 'bg-white text-indigo-700 hover:shadow-md' : 'bg-indigo-600 text-white hover:shadow-md'
-                  }`}
-                >
-                  {isSelected ? <><Check className="inline h-4 w-4 mr-1.5" />Zgjedhur</> : 'Zgjidhni Planin'}
-                </button>
+                <div className="mt-auto pt-4">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setSelectedPlan(plan.id);
+                      setCurrentStep(1);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    style={{ position: 'relative', zIndex: 10 }}
+                    className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all cursor-pointer ${
+                      isPopular ? 'bg-white text-indigo-700 hover:shadow-lg' : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg'
+                    }`}
+                  >
+                    Zgjidhni Planin →
+                  </button>
+                </div>
               </div>
             );
           })
