@@ -3,6 +3,10 @@ import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { AppStoreIcon, GooglePlayIcon } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
+import screenInvoices from "@assets/IMG_6934_1775317016363.jpeg";
+import screenExpenses from "@assets/IMG_6935_1775317016363.jpeg";
+import screenReports  from "@assets/IMG_6936_1775317016363.jpeg";
+import screenDetail   from "@assets/IMG_6937_1775317016363.jpeg";
 
 function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
   return lang === "sq" ? alb : eng;
@@ -183,32 +187,23 @@ export default function MobileApp() {
               </div>
             </div>
 
-            {/* Right — phone mockups row */}
-            <div className="relative flex justify-center items-end gap-4">
-              {screens.slice(0, 3).map((s, i) => {
-                const Icon = s.icon;
-                const heights = ["h-56", "h-72", "h-56"];
-                return (
-                  <div key={i}
-                    className={`${heights[i]} w-32 rounded-3xl bg-gradient-to-b ${s.color} p-4 flex flex-col justify-between shadow-xl`}>
-                    <div className="flex justify-between items-center">
-                      <div className="w-1.5 h-1.5 rounded-full bg-white/50" />
-                      <div className="w-8 h-1 rounded-full bg-white/30" />
-                    </div>
-                    <div>
-                      <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center mb-2">
-                        <Icon className="h-4 w-4 text-white" />
-                      </div>
-                      <p className="text-[10px] font-bold text-white leading-tight">{s.label}</p>
-                      <div className="mt-2 space-y-1">
-                        <div className="h-1.5 rounded-full bg-white/20 w-full" />
-                        <div className="h-1.5 rounded-full bg-white/20 w-3/4" />
-                        <div className="h-1.5 rounded-full bg-white/20 w-1/2" />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+            {/* Right — real app screenshots */}
+            <div className="relative flex justify-center items-end gap-3">
+              {/* Side phone (smaller, slightly behind) */}
+              <div className="hidden sm:block w-36 rounded-[2rem] overflow-hidden border-4 border-gray-800 shadow-2xl mb-4 self-end"
+                style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.25)" }}>
+                <img src={screenExpenses} alt="Expenses screen" className="w-full h-auto block" />
+              </div>
+              {/* Centre phone (tallest, front) */}
+              <div className="w-44 rounded-[2.2rem] overflow-hidden border-4 border-gray-800 shadow-2xl z-10"
+                style={{ boxShadow: "0 30px 70px rgba(99,102,241,0.25)" }}>
+                <img src={screenInvoices} alt="Invoices screen" className="w-full h-auto block" />
+              </div>
+              {/* Side phone (smaller, slightly behind) */}
+              <div className="hidden sm:block w-36 rounded-[2rem] overflow-hidden border-4 border-gray-800 shadow-2xl mb-4 self-end"
+                style={{ boxShadow: "0 25px 60px rgba(0,0,0,0.25)" }}>
+                <img src={screenReports} alt="Reports screen" className="w-full h-auto block" />
+              </div>
             </div>
 
           </div>
@@ -264,29 +259,30 @@ export default function MobileApp() {
       {/* ── Screenshots strip ── */}
       <section className="py-16 px-6 lg:px-8 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-3 text-center">
             {sq(lang, "Shikim i Brendshëm", "A Glimpse Inside")}
           </h2>
-          <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide justify-center flex-wrap">
-            {screens.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <div key={i} className={`flex-shrink-0 w-36 h-60 rounded-3xl bg-gradient-to-b ${s.color} p-5 flex flex-col justify-between shadow-lg`}>
-                  <div>
-                    <div className="w-8 h-1 rounded-full bg-white/30 mx-auto mb-3" />
-                    <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center mb-3">
-                      <Icon className="h-5 w-5 text-white" />
-                    </div>
-                    <p className="text-xs font-bold text-white">{s.label}</p>
-                  </div>
-                  <div className="space-y-1.5">
-                    <div className="h-2 bg-white/20 rounded-full" />
-                    <div className="h-2 bg-white/20 rounded-full w-3/4" />
-                    <div className="h-2 bg-white/20 rounded-full w-1/2" />
-                  </div>
+          <p className="text-sm text-gray-400 text-center mb-10">
+            {sq(lang, "Ekrane reale nga aplikacioni Clientlly", "Real screens from the Clientlly app")}
+          </p>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { src: screenInvoices, label: sq(lang, "Faturat", "Invoices"),  caption: sq(lang, "Menaxhim i plotë i faturave me statusin e pagesës", "Complete invoice management with payment status") },
+              { src: screenExpenses, label: sq(lang, "Shpenzimet", "Expenses"), caption: sq(lang, "Ndjekja e shpenzimeve mujore me krahasim", "Monthly expense tracking with comparison") },
+              { src: screenReports,  label: sq(lang, "Raportet", "Reports"),   caption: sq(lang, "Raporte të ardhurash me grafikë interaktiv", "Revenue reports with interactive charts") },
+              { src: screenDetail,   label: sq(lang, "Detajet", "Details"),    caption: sq(lang, "Detajet e faturës me opsione pagese", "Invoice details with payment options") },
+            ].map((s, i) => (
+              <div key={i} className="flex flex-col items-center">
+                {/* phone frame */}
+                <div className="w-full max-w-[160px] rounded-[1.8rem] overflow-hidden border-[3px] border-gray-800 shadow-xl mx-auto"
+                  style={{ boxShadow: "0 20px 50px rgba(0,0,0,0.18)" }}>
+                  <img src={s.src as string} alt={s.label as string} className="w-full h-auto block" />
                 </div>
-              );
-            })}
+                <p className="mt-3 text-xs font-bold text-gray-900 text-center">{s.label}</p>
+                <p className="mt-1 text-[11px] text-gray-400 text-center leading-snug px-1">{s.caption}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
