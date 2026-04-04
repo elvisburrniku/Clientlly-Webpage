@@ -288,20 +288,20 @@ export default function FAQ() {
 
       <section className="pb-20 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="flex flex-wrap gap-2 mb-8 justify-center">
+          <div className="flex gap-1.5 mb-8 justify-center overflow-x-auto scrollbar-hide">
             {categories.map(cat => {
               const Icon = cat.icon;
               return (
                 <button
                   key={cat.id}
                   onClick={() => { setActiveCategory(cat.id); setOpenIndex(0); }}
-                  className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
+                  className={`inline-flex items-center gap-1 px-3 py-2 rounded-lg text-[11px] font-semibold transition-all whitespace-nowrap flex-shrink-0 ${
                     activeCategory === cat.id
                       ? "bg-indigo-600 text-white shadow-sm"
                       : "bg-gray-50 text-gray-600 hover:bg-gray-100"
                   }`}
                 >
-                  <Icon className="h-3.5 w-3.5" />
+                  <Icon className="h-3 w-3" />
                   {cat.label}
                 </button>
               );
