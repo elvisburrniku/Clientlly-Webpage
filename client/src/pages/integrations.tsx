@@ -1,350 +1,491 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { 
-  ArrowLeft,
-  CheckCircle,
-  ExternalLink,
-  Zap,
-  Shield,
-  Globe,
-  Smartphone,
-  CreditCard,
-  Database,
-  Mail,
-  MessageSquare,
-  Calendar,
-  FileText,
-  BarChart3,
-  Users,
-  Building2,
-  CloudRain,
-  Menu,
-  X
+import {
+  ArrowRight, CheckCircle, ExternalLink, Zap, Shield,
+  Globe, Smartphone, CreditCard, Database, Mail,
+  MessageSquare, Calendar, FileText, BarChart3, Users,
+  Building2, Menu, X, Code, Layers, Package,
+  RefreshCw, Lock, Headphones,
 } from "lucide-react";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
+import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import { useLanguage } from "@/lib/i18n";
+
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element): string | JSX.Element {
+  return lang === "sq" ? alb : eng;
+}
+
+const integrations = [
+  {
+    name: "Stripe",
+    description: "Pranoni pagesa online, menaxhoni abonimet dhe automatizoni faturimin",
+    descriptionEn: "Accept online payments, manage subscriptions, and automate billing",
+    category: "Pagesa",
+    categoryEn: "Payments",
+    icon: CreditCard,
+    badge: "Native",
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-100",
+    features: ["Pagesa të sigurta", "Menaxhim abonimesh", "Faturim automatik", "Multi-valutor"],
+    featuresEn: ["Secure payments", "Subscription management", "Automated invoicing", "Multi-currency"],
+    iconBg: "bg-violet-600",
+  },
+  {
+    name: "PayPal",
+    description: "Pranoni pagesa PayPal nga klientët në mbarë botën me lehtësi",
+    descriptionEn: "Accept PayPal payments from clients worldwide with ease",
+    category: "Pagesa",
+    categoryEn: "Payments",
+    icon: Globe,
+    badge: "API",
+    badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
+    features: ["Pagesa ndërkombëtare", "Mbrojtje blerësi", "Shpejtësi transferi", "Raporte detajuese"],
+    featuresEn: ["International payments", "Buyer protection", "Fast transfers", "Detailed reports"],
+    iconBg: "bg-sky-600",
+  },
+  {
+    name: "Google Workspace",
+    description: "Sinkronizoni Gmail, Google Calendar dhe Google Drive me platformën",
+    descriptionEn: "Sync Gmail, Google Calendar and Google Drive with the platform",
+    category: "Produktivitet",
+    categoryEn: "Productivity",
+    icon: Mail,
+    badge: "Native",
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-100",
+    features: ["Integrim email", "Sync kalendarit", "Ndarje dokumentesh", "Bashkëpunim ekipi"],
+    featuresEn: ["Email integration", "Calendar sync", "Document sharing", "Team collaboration"],
+    iconBg: "bg-red-500",
+  },
+  {
+    name: "Microsoft 365",
+    description: "Lidheni me Outlook, Teams dhe OneDrive për produktivitet maksimal",
+    descriptionEn: "Connect with Outlook, Teams and OneDrive for maximum productivity",
+    category: "Produktivitet",
+    categoryEn: "Productivity",
+    icon: Building2,
+    badge: "API",
+    badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
+    features: ["Sync Outlook", "Njoftime Teams", "Ruajtje OneDrive", "Dokumente Office"],
+    featuresEn: ["Outlook sync", "Teams notifications", "OneDrive storage", "Office documents"],
+    iconBg: "bg-blue-600",
+  },
+  {
+    name: "WhatsApp Business",
+    description: "Dërgoni njoftime, fatura dhe kujtesa drejtpërsëdrejti tek klientët",
+    descriptionEn: "Send notifications, invoices and reminders directly to clients",
+    category: "Komunikim",
+    categoryEn: "Communication",
+    icon: MessageSquare,
+    badge: "Webhook",
+    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-100",
+    features: ["Njoftime automatike", "Dërgim faturash", "Kujtesa pagesash", "Chat i drejtpërdrejtë"],
+    featuresEn: ["Automated notifications", "Invoice sending", "Payment reminders", "Direct chat"],
+    iconBg: "bg-emerald-600",
+  },
+  {
+    name: "Slack",
+    description: "Merrni njoftime dhe menaxhoni detyra direkt nga workspace i Slack",
+    descriptionEn: "Get notifications and manage tasks directly from your Slack workspace",
+    category: "Komunikim",
+    categoryEn: "Communication",
+    icon: Zap,
+    badge: "Webhook",
+    badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-100",
+    features: ["Njoftime në kohë reale", "Menaxhim detyrash", "Alarme faturash", "Azhurnime ekipi"],
+    featuresEn: ["Real-time notifications", "Task management", "Invoice alerts", "Team updates"],
+    iconBg: "bg-purple-600",
+  },
+  {
+    name: "QuickBooks",
+    description: "Sinkronizoni të dhënat e kontabilitetit me QuickBooks Online pa ndërprerje",
+    descriptionEn: "Seamlessly sync your accounting data with QuickBooks Online",
+    category: "Kontabilitet",
+    categoryEn: "Accounting",
+    icon: BarChart3,
+    badge: "API",
+    badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
+    features: ["Sync në kohë reale", "Mapim llogarish", "Import transaksionesh", "Raporte taksash"],
+    featuresEn: ["Real-time sync", "Account mapping", "Transaction import", "Tax reporting"],
+    iconBg: "bg-green-600",
+  },
+  {
+    name: "Xero",
+    description: "Sinkronizim dy-drejtimësh me softuerin e kontabilitetit Xero",
+    descriptionEn: "Two-way sync with Xero accounting software for seamless bookkeeping",
+    category: "Kontabilitet",
+    categoryEn: "Accounting",
+    icon: FileText,
+    badge: "API",
+    badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
+    features: ["Sync faturash", "Gjurmim shpenzimesh", "Barazim bankar", "Raporte financiare"],
+    featuresEn: ["Invoice sync", "Expense tracking", "Bank reconciliation", "Financial reporting"],
+    iconBg: "bg-teal-600",
+  },
+  {
+    name: "Zapier",
+    description: "Lidhuni me 5000+ aplikacione dhe automatizoni çdo rrjedhë pune",
+    descriptionEn: "Connect with 5000+ apps and automate any workflow imaginable",
+    category: "Automatizim",
+    categoryEn: "Automation",
+    icon: RefreshCw,
+    badge: "Native",
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-100",
+    features: ["Rrjedhë pune të personalizuara", "Lidhje me shumë app", "Aktivizues automatikë", "Mapim të dhënash"],
+    featuresEn: ["Custom workflows", "Multi-app connections", "Automatic triggers", "Data mapping"],
+    iconBg: "bg-orange-500",
+  },
+  {
+    name: "Brevo (SendGrid)",
+    description: "Dërgoni email marketingu, fatura dhe njoftime me cilësi të lartë",
+    descriptionEn: "Send marketing emails, invoices and notifications at high deliverability",
+    category: "Email",
+    categoryEn: "Email",
+    icon: Mail,
+    badge: "Native",
+    badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-100",
+    features: ["Email marketingu", "Template të gatshme", "Analitikë dërgimesh", "Automatizim"],
+    featuresEn: ["Marketing emails", "Ready-made templates", "Send analytics", "Automation"],
+    iconBg: "bg-indigo-600",
+  },
+  {
+    name: "REST API",
+    description: "Ndërtoni integrime të personalizuara me API-n tonë të plotë RESTful",
+    descriptionEn: "Build custom integrations using our full-featured RESTful API",
+    category: "Zhvillues",
+    categoryEn: "Developer",
+    icon: Code,
+    badge: "API",
+    badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
+    features: ["Dokumentacion i plotë", "Webhooks", "OAuth 2.0", "Kuota të larta"],
+    featuresEn: ["Full documentation", "Webhooks", "OAuth 2.0", "High rate limits"],
+    iconBg: "bg-gray-800",
+  },
+  {
+    name: "Twilio",
+    description: "SMS dhe alarme zanore për ngjarje kritike të biznesit tuaj",
+    descriptionEn: "SMS and voice alerts for critical business events in real time",
+    category: "Komunikim",
+    categoryEn: "Communication",
+    icon: Smartphone,
+    badge: "API",
+    badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
+    features: ["Alarme SMS", "Njoftime zanore", "Autentifikim 2FA", "Komunikim me klientë"],
+    featuresEn: ["SMS alerts", "Voice notifications", "2FA authentication", "Client communications"],
+    iconBg: "bg-rose-600",
+  },
+];
+
+const CATEGORY_ALL = "Të gjitha";
+const CATEGORY_ALL_EN = "All";
 
 export default function Integrations() {
+  const { currentLanguage } = useLanguage();
+  const lang = currentLanguage;
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(CATEGORY_ALL);
 
-  const integrations = [
-    {
-      name: "Stripe",
-      description: "Accept payments, manage subscriptions, and handle billing automatically",
-      category: "Payment Processing",
-      icon: CreditCard,
-      status: "Native",
-      features: ["Secure payment processing", "Subscription management", "Invoice automation", "Multi-currency support"],
-      color: "from-purple-500 to-blue-500"
-    },
-    {
-      name: "QuickBooks",
-      description: "Sync your accounting data seamlessly with QuickBooks Online",
-      category: "Accounting",
-      icon: FileText,
-      status: "API",
-      features: ["Real-time sync", "Chart of accounts mapping", "Transaction import", "Tax reporting"],
-      color: "from-green-500 to-teal-500"
-    },
-    {
-      name: "Google Workspace",
-      description: "Connect with Gmail, Google Calendar, and Google Drive",
-      category: "Productivity",
-      icon: Mail,
-      status: "Native",
-      features: ["Email integration", "Calendar sync", "Document sharing", "Team collaboration"],
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      name: "Slack",
-      description: "Get notifications and manage tasks directly from Slack",
-      category: "Communication",
-      icon: MessageSquare,
-      status: "Webhook",
-      features: ["Real-time notifications", "Task management", "Invoice alerts", "Team updates"],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      name: "Salesforce",
-      description: "Sync customer data and sales pipeline with Salesforce CRM",
-      category: "CRM",
-      icon: Users,
-      status: "API",
-      features: ["Contact synchronization", "Lead management", "Sales tracking", "Custom fields"],
-      color: "from-orange-500 to-red-500"
-    },
-    {
-      name: "Zapier",
-      description: "Connect with 5000+ apps through Zapier automation",
-      category: "Automation",
-      icon: Zap,
-      status: "Native",
-      features: ["Custom workflows", "Multi-app connections", "Trigger automation", "Data mapping"],
-      color: "from-amber-500 to-orange-500"
-    },
-    {
-      name: "Microsoft 365",
-      description: "Integrate with Outlook, Teams, and OneDrive",
-      category: "Productivity",
-      icon: Building2,
-      status: "API",
-      features: ["Outlook sync", "Teams notifications", "OneDrive storage", "Office documents"],
-      color: "from-blue-500 to-indigo-500"
-    },
-    {
-      name: "Xero",
-      description: "Two-way sync with Xero accounting software",
-      category: "Accounting",
-      icon: BarChart3,
-      status: "API",
-      features: ["Invoice sync", "Expense tracking", "Bank reconciliation", "Financial reporting"],
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      name: "Twilio",
-      description: "SMS notifications and voice alerts for important events",
-      category: "Communication",
-      icon: Smartphone,
-      status: "API",
-      features: ["SMS alerts", "Voice notifications", "Two-factor auth", "Customer communications"],
-      color: "from-red-500 to-pink-500"
-    }
+  const categories = [
+    { sq: CATEGORY_ALL, en: CATEGORY_ALL_EN },
+    { sq: "Pagesa", en: "Payments" },
+    { sq: "Produktivitet", en: "Productivity" },
+    { sq: "Komunikim", en: "Communication" },
+    { sq: "Kontabilitet", en: "Accounting" },
+    { sq: "Automatizim", en: "Automation" },
+    { sq: "Email", en: "Email" },
+    { sq: "Zhvillues", en: "Developer" },
   ];
 
-  const categories = Array.from(new Set(integrations.map(integration => integration.category)));
+  const filtered = activeCategory === CATEGORY_ALL
+    ? integrations
+    : integrations.filter(i => i.category === activeCategory || i.categoryEn === activeCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 glass-effect border-b border-white/20">
-        <div className="max-w-[1800px] mx-auto px-6 sm:px-8 lg:px-20">
-          <div className="flex items-center justify-between h-16">
-            {/* Left Section - Logo and Company Name */}
-            <Link href="/" className="flex items-center space-x-3 slide-in-left group transition-all duration-300 logo-container">
-              <div className="relative">
-                <img 
-                  src="/attached_assets/CLIENTLLY_ICON_1753793353861.png" 
-                  alt="BusinessFlow Pro" 
-                  className="w-14 h-10 object-contain logo-simple cursor-pointer"
-                  style={{ 
-                    filter: 'none',
-                    background: 'transparent'
-                  }}
-                />
-              </div>
-              <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">BusinessFlow Pro</span>
+    <div className="min-h-screen bg-white">
+
+      {/* ── NAV ── */}
+      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative flex items-center h-16">
+            <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
+              <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
 
-            {/* Center Section - Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">About Us</Link>
-              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Features</Link>
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
-                className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
-              >
-                Pricing
-              </Button>
-              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">Contact Us</Link>
+            <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features")}</Link>
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing")}</button>
+              <Link href="/integrations" className="text-sm font-semibold text-indigo-600">{sq(lang, "Integrime", "Integrations")}</Link>
             </div>
 
-            {/* Right Section - Login, Buy Now, Start Your Trial, Language */}
-            <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = "/api/login"}
-                className="text-muted-foreground hover:text-primary transition-all duration-300"
-              >
-                Login
-              </Button>
-              
-              <Button 
-                onClick={() => window.location.href = "/subscribe"}
-                className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >
-                Buy Now
-              </Button>
-              
-              <Button 
-                onClick={() => window.location.href = "/trial"}
-                className="bg-green-600 text-white hover:bg-green-700 font-medium"
-              >
-                Start Your Trial
-              </Button>
-              
-              <div className="pt-2">
-                <LanguageSelector />
-              </div>
+            <div className="hidden lg:flex items-center space-x-5 ml-auto">
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                {sq(lang, "Blej Tani", "Buy Now")}
+              </button>
+              <LanguageSelector />
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="lg:hidden p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-white/10 transition-all duration-300"
-            >
-              {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="lg:hidden glass-effect border-t border-white/20">
-            <div className="px-6 py-4 space-y-4">
-              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">About Us</Link>
-              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">Features</Link>
-              <Button 
-                variant="ghost"
-                onClick={() => window.location.href = '/subscribe'}
-                className="block py-2 text-muted-foreground hover:text-primary transition-colors"
-              >
-                Pricing
-              </Button>
-              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">Contact Us</Link>
-              <div className="flex flex-col space-y-2 pt-4 border-t border-white/20">
-                <Button 
-                  variant="ghost"
-                  onClick={() => window.location.href = "/api/login"}
-                  className="w-full justify-start text-muted-foreground hover:text-primary"
-                >
-                  Login
-                </Button>
-                <Button 
-                  onClick={() => window.location.href = "/subscribe"}
-                  className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
-                >
-                  Buy Now
-                </Button>
-                <Button 
-                  onClick={() => window.location.href = "/trial"}
-                  className="w-full bg-green-600 text-white hover:bg-green-700 font-medium"
-                >
-                  Start Your Trial
-                </Button>
-              </div>
+          <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features")}</Link>
+            <button onClick={() => window.location.href = "/subscribe"} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing")}</button>
+            <Link href="/integrations" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Integrime", "Integrations")}</Link>
+            <div className="pt-2 flex flex-col gap-2">
+              <button onClick={() => window.location.href = "/subscribe"} className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now")}</button>
+              <LanguageSelector />
             </div>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 relative bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
-        {/* Floating Sparkles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
-          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/35 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-          <div className="absolute bottom-1/4 right-1/5 w-2 h-2 bg-white/45 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center">
-            <Badge className="mb-6 bg-black/20 text-black border-black/30 px-6 py-2 text-lg font-bold">
-              <Globe className="w-5 h-5 mr-2" />
-              Seamless Integrations
-            </Badge>
-            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 fade-in leading-tight tracking-tight">
-              Connect with <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Everything</span>
+      {/* ── HERO ── */}
+      <section className="pt-24 pb-14 bg-gradient-to-b from-indigo-50/80 via-white to-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6 pt-10">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
+              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+              {sq(lang, "12 integrime aktive · Të gjitha planet", "12 active integrations · All plans")}
+            </div>
+            <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
+              {sq(lang,
+                <>Lidheni me <span className="text-indigo-600">çdo mjet</span> që përdorni</>,
+                <>Connect with <span className="text-indigo-600">every tool</span> you use</>
+              )}
             </h1>
-            <p className="text-xl lg:text-2xl text-black font-medium max-w-4xl mx-auto leading-relaxed">
-              Integrate BusinessFlow Pro with your favorite tools and services. Build powerful workflows that save time and eliminate manual work.
+            <p className="text-lg text-gray-500">
+              {sq(lang,
+                "Integrime të gatshme me platformat kryesore të biznesit. Çdo integrim është i përfshirë në çdo plan — pa kosto shtesë.",
+                "Ready-made integrations with leading business platforms. Every integration is included in every plan — at no extra cost."
+              )}
             </p>
+          </div>
+
+          {/* 3 highlights */}
+          <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+            {[
+              { icon: Package, value: "12+", label: sq(lang, "Integrime", "Integrations") },
+              { icon: Zap, value: sq(lang, "Pa kosto", "No extra cost"), label: sq(lang, "çdo plan", "any plan") },
+              { icon: RefreshCw, value: sq(lang, "Sync", "Sync"), label: sq(lang, "në kohë reale", "in real time") },
+            ].map(({ icon: Icon, value, label }, i) => (
+              <div key={i} className="bg-white border border-gray-100 rounded-2xl p-4 text-center shadow-sm">
+                <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center mx-auto mb-2">
+                  <Icon className="h-4 w-4 text-indigo-600" />
+                </div>
+                <p className="text-lg font-extrabold text-gray-900">{value}</p>
+                <p className="text-[11px] text-gray-400">{label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Integrations Grid */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              Popular <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Integrations</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Connect with the tools you already use and love
-            </p>
+      {/* ── CATEGORY FILTER ── */}
+      <section className="py-8 px-6 border-b border-gray-100 sticky top-16 bg-white z-40">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-wrap gap-2">
+            {categories.map(({ sq: albLabel, en: engLabel }) => {
+              const label = lang === "sq" ? albLabel : engLabel;
+              const isActive = activeCategory === albLabel || activeCategory === engLabel;
+              return (
+                <button
+                  key={albLabel}
+                  onClick={() => setActiveCategory(albLabel)}
+                  className={`px-4 py-1.5 text-sm font-medium rounded-full border transition-all ${
+                    isActive
+                      ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
+                      : "bg-white text-gray-600 border-gray-200 hover:border-indigo-300 hover:text-indigo-600"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
           </div>
+        </div>
+      </section>
 
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <Badge key={category} variant="outline" className="px-4 py-2 text-sm">
-                {category}
-              </Badge>
-            ))}
-          </div>
-
-          {/* Integrations Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {integrations.map((integration, index) => (
-              <Card key={integration.name} className="group hover:scale-105 transition-all duration-300 hover:shadow-xl glass-effect border-white/20">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-r ${integration.color}`}>
-                      <integration.icon className="w-6 h-6 text-white" />
+      {/* ── INTEGRATIONS GRID ── */}
+      <section className="py-12 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {filtered.map(({ name, description, descriptionEn, category, categoryEn, icon: Icon, badge, badgeColor, features, featuresEn, iconBg }) => (
+              <div key={name} className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center shadow-sm flex-shrink-0`}>
+                      <Icon className="h-5 w-5 text-white" />
                     </div>
-                    <Badge variant={integration.status === 'Native' ? 'default' : 'secondary'} className="text-xs">
-                      {integration.status}
-                    </Badge>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-sm leading-tight">{name}</h3>
+                      <p className="text-[10px] text-gray-400 mt-0.5">
+                        {lang === "sq" ? category : categoryEn}
+                      </p>
+                    </div>
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-foreground mb-2">{integration.name}</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{integration.description}</p>
-                  
-                  <div className="space-y-2 mb-6">
-                    {integration.features.map((feature) => (
-                      <div key={feature} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
+                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${badgeColor}`}>
+                    {badge}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                  {lang === "sq" ? description : descriptionEn}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-1.5 mb-5">
+                  {(lang === "sq" ? features : featuresEn).map((f, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <CheckCircle className="h-3.5 w-3.5 text-indigo-500 flex-shrink-0" />
+                      <span className="text-xs text-gray-600">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                <button className="w-full flex items-center justify-center gap-1.5 py-2 text-xs font-semibold text-indigo-600 border border-indigo-100 rounded-xl bg-indigo-50 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-all duration-200">
+                  {sq(lang, "Shiko dokumentacionin", "View documentation")}
+                  <ExternalLink className="h-3 w-3" />
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* Request integration */}
+          <div className="mt-8 border border-dashed border-gray-200 rounded-2xl p-6 text-center bg-gray-50/50 hover:border-indigo-200 transition-colors">
+            <div className="w-10 h-10 bg-white border border-gray-200 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-sm">
+              <Layers className="h-5 w-5 text-gray-400" />
+            </div>
+            <p className="font-semibold text-gray-700 mb-1">
+              {sq(lang, "Nuk e gjeni integrimin?", "Can't find the integration you need?")}
+            </p>
+            <p className="text-sm text-gray-400 mb-3">
+              {sq(lang,
+                "Kërkojeni dhe ekipi ynë do ta ndërtojë — plotësisht falas.",
+                "Request it and our team will build it — completely free of charge."
+              )}
+            </p>
+            <button
+              onClick={() => window.location.href = "/contact"}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors">
+              {sq(lang, "Kërkoni integrim të ri", "Request a new integration")}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS ── */}
+      <section className="py-16 px-6 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+              {sq(lang, "Si funksionon integrimi?", "How does integration work?")}
+            </h2>
+            <p className="text-sm text-gray-500">
+              {sq(lang, "Tre hapa të thjeshtë — pa kod, pa ekspertizë teknike", "Three simple steps — no code, no technical expertise needed")}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                step: "01",
+                icon: Zap,
+                color: "bg-indigo-600",
+                title: sq(lang, "Zgjidhni integrimin", "Choose integration"),
+                desc: sq(lang,
+                  "Zgjidhni integrimin nga lista jonë dhe klikoni 'Lidhu'. Nuk keni nevojë për njohuri teknike.",
+                  "Select the integration from our list and click 'Connect'. No technical knowledge required."
+                ),
+              },
+              {
+                step: "02",
+                icon: Lock,
+                color: "bg-emerald-600",
+                title: sq(lang, "Autorizoni lidhjen", "Authorize the connection"),
+                desc: sq(lang,
+                  "Identifikohuni në llogarinë e shërbimit dhe autorizoni Clientlly të aksesojë të dhënat e nevojshme.",
+                  "Sign into your service account and authorize Clientlly to access the necessary data."
+                ),
+              },
+              {
+                step: "03",
+                icon: RefreshCw,
+                color: "bg-violet-600",
+                title: sq(lang, "Sinkronizimi fillon", "Sync begins"),
+                desc: sq(lang,
+                  "Integrimi aktivizohet automatikisht. Të dhënat sinkronizohen në kohë reale pa ndërhyrje manuale.",
+                  "The integration activates automatically. Data syncs in real time without manual intervention."
+                ),
+              },
+            ].map(({ step, icon: Icon, color, title, desc }, i) => (
+              <div key={i} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-10 h-10 rounded-xl ${color} flex items-center justify-center shadow-sm`}>
+                    <Icon className="h-5 w-5 text-white" />
                   </div>
-                  
-                  <Button className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Connect
-                  </Button>
-                </CardContent>
-              </Card>
+                  <span className="text-3xl font-extrabold text-gray-100 select-none">{step}</span>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400 full-width">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: '0s' }}></div>
-          <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-1/3 left-1/5 w-4 h-4 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+      {/* ── CTA ── */}
+      <section className="py-16 px-6 bg-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-violet-500 rounded-full blur-3xl"></div>
         </div>
-        
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            Ready to Connect Your Tools?
+        <div className="max-w-3xl mx-auto text-center relative">
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
+            {sq(lang,
+              <>Gati të lidheni me <span className="text-indigo-400">mjetet tuaja</span>?</>,
+              <>Ready to connect your <span className="text-indigo-400">favorite tools</span>?</>
+            )}
           </h2>
-          <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
-            Start building powerful workflows today. All integrations are included in every plan.
+          <p className="text-gray-400 mb-8 leading-relaxed">
+            {sq(lang,
+              "Të gjitha integrimet janë të përfshira në çdo plan — Starter, Professional dhe Enterprise. Filloni sot pa asnjë kosto shtesë.",
+              "All integrations are included in every plan — Starter, Professional and Enterprise. Start today with no additional cost."
+            )}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={() => window.location.href = "/trial"}
-              className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg"
-            >
-              Start Your Trial
-            </Button>
-            <Button 
-              onClick={() => window.location.href = "/subscribe"}
-              variant="outline"
-              className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg"
-            >
-              View Pricing
-            </Button>
+          <div className="flex flex-wrap justify-center gap-3">
+            <button onClick={() => window.location.href = "/trial"}
+              className="inline-flex items-center gap-2 px-7 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial")}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+            <button onClick={() => window.location.href = "/contact"}
+              className="inline-flex items-center gap-2 px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
+              {sq(lang, "Na Kontaktoni", "Contact Us")}
+            </button>
+          </div>
+
+          {/* Trust row */}
+          <div className="flex flex-wrap justify-center gap-5 mt-8">
+            {[
+              { icon: Shield, text: sq(lang, "SSL & GDPR", "SSL & GDPR") },
+              { icon: Headphones, text: sq(lang, "Mbështetje 24/7", "24/7 Support") },
+              { icon: CheckCircle, text: sq(lang, "Pa kartë kredie", "No credit card") },
+            ].map(({ icon: Icon, text }, i) => (
+              <div key={i} className="flex items-center gap-1.5 text-gray-400 text-xs font-medium">
+                <Icon className="h-3.5 w-3.5" />
+                {text}
+              </div>
+            ))}
           </div>
         </div>
       </section>
