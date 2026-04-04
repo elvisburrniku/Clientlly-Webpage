@@ -137,11 +137,11 @@ export default function Landing() {
 
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center space-x-2.5">
+            <Link href="/" className="flex items-center space-x-2">
               <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
-              <span className="text-lg font-bold text-gray-900">Clientlly</span>
+              <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
 
             <div className="hidden lg:flex items-center space-x-8">

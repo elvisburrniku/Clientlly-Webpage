@@ -1,38 +1,28 @@
 import { useState } from 'react';
-import { useLanguage, SUPPORTED_LANGUAGES } from '@/lib/i18n';
-import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/lib/i18n';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Globe, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export function LanguageSelector() {
-  const { currentLanguage, changeLanguage, supportedLanguages, locationInfo } = useLanguage();
+  const { currentLanguage, changeLanguage, supportedLanguages } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const currentLang = supportedLanguages.find(lang => lang.code === currentLanguage);
 
-
-
   return (
-    <div className="flex items-center space-x-2">
-      <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-        <DropdownMenuTrigger asChild>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="flex items-center space-x-2 bg-white/80 hover:bg-white border border-gray-200 hover:border-gray-300"
-          >
-            <Globe className="h-4 w-4" />
-            <span className="hidden sm:inline">{currentLang?.flag}</span>
-            <span className="hidden md:inline">{currentLang?.name}</span>
-            <ChevronDown className="h-3 w-3" />
-          </Button>
-        </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger asChild>
+        <button className="inline-flex items-center gap-1 px-2 py-1.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors focus:outline-none">
+          <span className="text-base leading-none">{currentLang?.flag}</span>
+          <ChevronDown className="h-3 w-3 opacity-60" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-40 p-1">
         {supportedLanguages.map((language) => (
           <DropdownMenuItem
             key={language.code}
@@ -40,19 +30,20 @@ export function LanguageSelector() {
               changeLanguage(language.code);
               setIsOpen(false);
             }}
-            className={`flex items-center space-x-3 cursor-pointer ${
-              currentLanguage === language.code ? 'bg-primary/10 text-primary' : ''
+            className={`flex items-center gap-2.5 cursor-pointer rounded-md px-2.5 py-2 text-sm ${
+              currentLanguage === language.code
+                ? 'bg-indigo-50 text-indigo-700 font-semibold'
+                : 'text-gray-700 hover:bg-gray-50'
             }`}
           >
-            <span className="text-lg">{language.flag}</span>
-            <span className="font-medium">{language.name}</span>
+            <span className="text-base">{language.flag}</span>
+            <span>{language.name}</span>
             {currentLanguage === language.code && (
-              <span className="ml-auto text-xs text-primary">✓</span>
+              <span className="ml-auto text-indigo-600 text-xs">✓</span>
             )}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-    </div>
   );
 }

@@ -8,9 +8,11 @@ export interface Language {
 }
 
 export const SUPPORTED_LANGUAGES: Language[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'en', name: 'English', flag: '🇬🇧' },
   { code: 'sq', name: 'Shqip', flag: '🇦🇱' },
   { code: 'mk', name: 'Македонски', flag: '🇲🇰' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
 ];
 
 // Translation interfaces
