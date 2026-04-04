@@ -612,7 +612,7 @@ export default function Landing() {
                   </div>
                   <ul className="space-y-2.5 mb-7">
                     {plan.features.map((feature, fi) => {
-                      const isGrow = feature.includes("Let's Grow Together");
+                      const isGrow = feature.includes("Le të Rritemi Bashkë");
                       const isBold = feature.startsWith("**") && feature.endsWith("**");
                       if (isGrow) {
                         const dash = feature.indexOf("—");
@@ -621,7 +621,7 @@ export default function Landing() {
                           <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg ${isPopular ? 'bg-white/10' : 'bg-amber-50'}`}>
                             <span className="text-amber-400 mt-0.5 flex-shrink-0 text-xs font-black">✦</span>
                             <span className="text-sm">
-                              <span className={`font-bold ${isPopular ? 'text-amber-300' : 'text-amber-600'}`}>Let's Grow Together</span>
+                              <span className={`font-bold ${isPopular ? 'text-amber-300' : 'text-amber-600'}`}>Le të Rritemi Bashkë</span>
                               <span className={`${isPopular ? 'text-indigo-200' : 'text-gray-500'}`}> {desc}</span>
                             </span>
                           </li>
