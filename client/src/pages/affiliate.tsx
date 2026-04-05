@@ -436,7 +436,7 @@ export default function Affiliate() {
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
                     {sq(lang,
-                      "Çdo afiliat është përgjegjës për deklarimin dhe pagimin e tatimeve në vendin e tij sipas legjislacionit vendor. Ne dërgojmë çdo muaj një pasqyrë të detajuar të komisioneve të fituara — ky dokument mund të përdoret si dëshmi financiare për autoritetet tatimore. Nëse jeni person fizik në Kosovë, komisioni konsiderohet të ardhur i rastësishëm dhe i nënshtrohet tatimit sipas ligjit. Rekomandojmë konsultim me kontabilistin tuaj.",
+                      "Çdo afiliat është përgjegjës për deklarimin dhe pagimin e tatimeve në vendin e tij sipas legjislacionit vendor. Ne dërgojmë çdo muaj një pasqyrë të detajuar të komisioneve të fituara — ky dokument mund të përdoret si dëshmi financiare për autoritetet tatimore. Rekomandojmë konsultim me kontabilistin tuaj për detajet specifike të vendit ku jetoni.",
                       "Each affiliate is responsible for declaring and paying taxes in their country according to local legislation. We send a detailed monthly statement of earned commissions — this document can be used as financial proof for tax authorities. We recommend consulting your accountant.",
                       "Cada afiliado es responsable de declarar y pagar impuestos en su país. Enviamos un estado de cuenta mensual detallado de las comisiones ganadas. Recomendamos consultar con su contador.",
                       "Jeder Affiliate ist verantwortlich für die Erklärung und Zahlung von Steuern in seinem Land. Wir senden monatlich eine detaillierte Abrechnung der verdienten Provisionen. Wir empfehlen, Ihren Buchhalter zu konsultieren.",
