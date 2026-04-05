@@ -52,7 +52,7 @@ const UI = {
     contact: { sq: "📧 Kontakti", en: "📧 Contact", es: "📧 Contacto", de: "📧 Kontakt", mk: "📧 Контакт" },
     contactMsg: { sq: "Si mund t'ju kontaktoj?", en: "How can I contact you?", es: "Como puedo contactarles?", de: "Wie kann ich Sie kontaktieren?", mk: "Kako можам да ве контактирам?" },
     affiliate: { sq: "🤝 Programi Afilimit", en: "🤝 Affiliate Program", es: "🤝 Programa Afiliados", de: "🤝 Affiliate-Programm", mk: "🤝 Афилијат Програма" },
-    affiliateMsg: { sq: "Si funksionon programi i afilimit?", en: "How does the affiliate program work?", es: "Como funciona el programa de afiliados?", de: "Wie funktioniert das Affiliate-Programm?", mk: "Kako функционира афилијат програмата?" },
+    affiliateMsg: { sq: "Programi i afilimit", en: "affiliate program", es: "programa afiliados", de: "affiliate-programm", mk: "афилијат програма" },
   },
 };
 
@@ -445,11 +445,11 @@ const generalResponses: { keywords: Record<string, string[]>; reply: L5; quickRe
   },
   {
     keywords: {
-      sq: ['afiliat', 'fitoj para', 'referoj', 'referim', 'partner', 'partneri', 'fitoj me clientlly', 'fitoj nga clientlly', 'programi afilimit', 'si funksionon programi'],
+      sq: ['afiliat', 'afilim', 'afilimit', 'fitoj para', 'referoj', 'referim', 'partner', 'partneri', 'fitoj me clientlly', 'fitoj nga clientlly'],
       en: ['affiliate', 'earn money', 'refer', 'referral', 'partner', 'earn with clientlly', 'affiliate program', 'how does the affiliate'],
-      es: ['afiliado', 'ganar dinero', 'referir', 'referido', 'socio', 'ganar con clientlly', 'programa afiliados', 'como funciona el programa'],
-      de: ['affiliate', 'geld verdienen', 'weiterempfehlen', 'empfehlung', 'partner', 'verdienen mit clientlly', 'affiliate-programm', 'wie funktioniert das affiliate'],
-      mk: ['афилијат', 'заработи пари', 'упати', 'партнер', 'заработи со clientlly', 'афилијат програма', 'kako функционира афилијат'],
+      es: ['afiliado', 'afiliados', 'ganar dinero', 'referir', 'referido', 'socio', 'ganar con clientlly', 'programa de afiliados'],
+      de: ['affiliate', 'geld verdienen', 'weiterempfehlen', 'empfehlung', 'partner', 'verdienen mit clientlly', 'affiliate-programm'],
+      mk: ['афилијат', 'заработи пари', 'упати', 'партнер', 'заработи со clientlly', 'афилијат програма'],
     },
     reply: {
       sq: "🤝 Mirë se vini në Programin e Afilimit të Clientlly!\n\nFitoni 10% komision për çdo pagesë — përgjithmonë. Zgjidhni çfarë dëshironi të dini:",
