@@ -1,6 +1,7 @@
 import { ArrowLeft, Star, CheckCircle, Smartphone, Wifi, Bell, Shield, BarChart3, FileText, Users, Zap, Camera, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useLanguage } from "@/lib/i18n";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import clientllyLogo from "@assets/logo-clientlly_1775347060628.png";
 import { AppStoreIcon, GooglePlayIcon } from "@/components/ui/animated-icons";
 import Footer from "@/components/Footer";
@@ -126,11 +127,14 @@ export default function MobileApp() {
               className="flex items-center gap-2 flex-shrink-0">
               <img src={clientllyLogo} alt="Clientlly" className="h-8 object-contain" />
             </Link>
-            <button onClick={() => window.history.back()}
-              className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
-              <ArrowLeft className="h-4 w-4" />
-              {sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}
-            </button>
+            <div className="ml-auto flex items-center gap-4">
+              <LanguageSelector />
+              <button onClick={() => window.history.back()}
+                className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                <ArrowLeft className="h-4 w-4" />
+                {sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
