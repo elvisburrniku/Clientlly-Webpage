@@ -53,6 +53,7 @@ const Footer = () => {
         { label: t(lang, C.footer_careers),  href: "/careers" },
         { label: t(lang, C.footer_contact),  href: "/contact" },
         { label: t(lang, C.footer_cases),    href: "/case-studies" },
+        { label: t(lang, C.footer_affiliate), href: "/affiliate" },
       ],
     },
     {

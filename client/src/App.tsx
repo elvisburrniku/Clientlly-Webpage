@@ -63,6 +63,7 @@ const Blog = lazy(() => import("@/pages/blog"));
 const CaseStudies = lazy(() => import("@/pages/case-studies"));
 const BestPractices = lazy(() => import("@/pages/best-practices"));
 const FAQ = lazy(() => import("@/pages/faq"));
+const Affiliate = lazy(() => import("@/pages/affiliate"));
 
 const getLoadingText = () => {
   try {
@@ -146,6 +147,7 @@ function Router() {
             <Route path="/case-studies" component={CaseStudies} />
             <Route path="/best-practices" component={BestPractices} />
             <Route path="/faq" component={FAQ} />
+            <Route path="/affiliate" component={Affiliate} />
           </>
         ) : (
           <>
@@ -202,6 +204,7 @@ function Router() {
             <Route path="/case-studies" component={CaseStudies} />
             <Route path="/best-practices" component={BestPractices} />
             <Route path="/faq" component={FAQ} />
+            <Route path="/affiliate" component={Affiliate} />
           </>
         )}
         <Route component={NotFound} />

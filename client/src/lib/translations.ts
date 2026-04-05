@@ -57,6 +57,7 @@ export const C = {
   footer_careers:     { sq: "Karriera",         en: "Careers",        es: "Carreras",         de: "Karriere",           mk: "Кариера" } as T5,
   footer_contact:     { sq: "Kontakti",         en: "Contact",        es: "Contacto",         de: "Kontakt",            mk: "Контакт" } as T5,
   footer_cases:       { sq: "Studimet",         en: "Case Studies",   es: "Casos de Estudio", de: "Fallstudien",        mk: "Студии на Случај" } as T5,
+  footer_affiliate:   { sq: "Programi i Afilimit", en: "Affiliate Program", es: "Programa de Afiliados", de: "Partnerprogramm", mk: "Партнерска Програма" } as T5,
   footer_privacy:     { sq: "Privatësia",       en: "Privacy Policy", es: "Política de Privacidad", de: "Datenschutz",  mk: "Политика на Приватност" } as T5,
   footer_terms:       { sq: "Kushtet e Shërbimit", en: "Terms of Service", es: "Términos de Servicio", de: "Nutzungsbedingungen", mk: "Услови на Употреба" } as T5,
   footer_data:        { sq: "Mbrojtja e të Dhënave", en: "Data Protection", es: "Protección de Datos", de: "Datenschutz", mk: "Заштита на Податоци" } as T5,
