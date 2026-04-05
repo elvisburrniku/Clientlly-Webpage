@@ -6,7 +6,7 @@ import clientllyLogo from "@assets/logo-clientlly_1775347060628.png";
 import { useLanguage } from "@/lib/i18n";
 import { useToast } from "@/hooks/use-toast";
 import {
-  ArrowRight, Menu, X, Gift, TrendingUp, Users, DollarSign,
+  ArrowRight, Menu, X, Gift, TrendingUp, Users, Wallet,
   Share2, BarChart3, CheckCircle, Zap, Globe, Heart,
   Rocket, Shield, Clock, Mail, Copy, Star,
 } from "lucide-react";
@@ -17,7 +17,7 @@ function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, 
 
 const BENEFITS = [
   {
-    icon: DollarSign, color: "bg-emerald-100 text-emerald-600",
+    icon: Wallet, color: "bg-emerald-100 text-emerald-600",
     sq: "10% Komision Përjetshëm", en: "10% Lifetime Commission",
     es: "10% Comisión de por Vida", de: "10% Lebenslange Provision", mk: "10% Доживотна Провизија",
     dsq: "Fitoni 10% komision për çdo pagesë që bën klienti juaj, përgjithmonë. Sa më shumë klientë, aq më shumë fitoni.",
@@ -100,7 +100,7 @@ const STEPS = [
     dmk: "Споделете го вашиот линк со колеги, клиенти или на социјални медиуми. Имаме готови материјали за вас.",
   },
   {
-    num: "03", icon: DollarSign, color: "from-emerald-500 to-green-500",
+    num: "03", icon: Wallet, color: "from-emerald-500 to-green-500",
     sq: "Fitoni 10%", en: "Earn 10%",
     es: "Gane 10%", de: "Verdienen Sie 10%", mk: "Заработете 10%",
     dsq: "Çdo herë që klienti juaj paguan, ju fitoni 10% komision. Përgjithmonë, pa limit.",
@@ -394,7 +394,7 @@ export default function Affiliate() {
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
-                  <DollarSign className="h-6 w-6" />
+                  <Wallet className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
