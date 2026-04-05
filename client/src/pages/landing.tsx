@@ -288,7 +288,7 @@ export default function Landing() {
                 >
                   <span className="flex flex-col items-start leading-tight">
                     <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
-                    <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба")}</span>
+                    <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Testversion Starten", "Започни Бесплатна Проба")}</span>
                   </span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
@@ -766,7 +766,7 @@ export default function Landing() {
                     <button
                       onClick={() => { window.location.href = '/trial'; }}
                       className={`block w-full py-2.5 rounded-xl font-medium text-sm text-center transition-all border ${isPopular ? 'border-indigo-400 text-indigo-100 hover:bg-white/10' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
-                      {sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}
+                      {sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "14 Tage Testen", "Започни Проба")}
                     </button>
                   </div>
                 </div>
