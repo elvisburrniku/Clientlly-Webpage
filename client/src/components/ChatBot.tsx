@@ -713,11 +713,20 @@ export default function ChatBot() {
                     </p>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
-                    {quickTopics.map(({ label, msg }) => (
+                    {quickTopics.slice(0, 4).map(({ label, msg }) => (
                       <button
                         key={msg}
                         onClick={() => handleSend(msg)}
                         className="text-left px-3 py-2.5 bg-white hover:bg-indigo-50 border border-gray-200 hover:border-indigo-200 rounded-xl text-xs font-medium text-gray-700 transition-all duration-150"
+                      >
+                        {label}
+                      </button>
+                    ))}
+                    {quickTopics.slice(4).map(({ label, msg }) => (
+                      <button
+                        key={msg}
+                        onClick={() => handleSend(msg)}
+                        className="col-span-2 text-center px-3 py-2.5 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 hover:border-indigo-300 rounded-xl text-xs font-semibold text-indigo-700 transition-all duration-150"
                       >
                         {label}
                       </button>
