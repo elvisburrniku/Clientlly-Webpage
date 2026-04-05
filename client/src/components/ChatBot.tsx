@@ -575,9 +575,9 @@ export default function ChatBot() {
   };
 
   const quickTopics = [
-    { label: pk(lang, UI.quickTopics.pricing), msg: pk(lang, UI.quickTopics.pricingMsg) },
     { label: pk(lang, UI.quickTopics.modules), msg: pk(lang, UI.quickTopics.modulesMsg) },
     { label: pk(lang, UI.quickTopics.trial), msg: pk(lang, UI.quickTopics.trialMsg) },
+    { label: pk(lang, UI.quickTopics.pricing), msg: pk(lang, UI.quickTopics.pricingMsg) },
     { label: pk(lang, UI.quickTopics.contact), msg: pk(lang, UI.quickTopics.contactMsg) },
   ];
 
