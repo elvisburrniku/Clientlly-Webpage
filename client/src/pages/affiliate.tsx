@@ -186,11 +186,11 @@ export default function Affiliate() {
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="mailto:info@clientlly.com?subject=Aplikim për Programin e Afilimit / Affiliate Program Application" target="_blank" rel="noopener noreferrer"
+            <button onClick={() => { window.location.href = '/contact'; }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer">
               {sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега")}
               <ArrowRight className="h-5 w-5" />
-            </a>
+            </button>
             <button onClick={() => { document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white/80 text-gray-900 font-bold rounded-xl hover:bg-white transition-all">
               {sq(lang, "Si funksionon?", "How it works?", "Como funciona?", "Wie funktioniert es?", "Како функционира?")}
@@ -356,11 +356,11 @@ export default function Affiliate() {
               "Аплицирајте денес и започнете да заработувате 10% провизија за секој препорачан клиент. Без трошоци, без ризик."
             )}
           </p>
-          <a href="mailto:info@clientlly.com?subject=Aplikim për Programin e Afilimit / Affiliate Program Application" target="_blank" rel="noopener noreferrer"
+          <button onClick={() => { window.location.href = '/contact'; }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
             <Mail className="h-5 w-5" />
             {sq(lang, "Apliko për Programin e Afilimit", "Apply for the Affiliate Program", "Aplicar al Programa de Afiliados", "Für das Partnerprogramm bewerben", "Аплицирајте за Партнерската Програма")}
-          </a>
+          </button>
           <p className="text-sm text-gray-700 mt-4">{sq(lang, "info@clientlly.com", "info@clientlly.com", "info@clientlly.com", "info@clientlly.com", "info@clientlly.com")}</p>
         </div>
       </section>
