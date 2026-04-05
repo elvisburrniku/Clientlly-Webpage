@@ -111,19 +111,19 @@ const Footer = () => {
 
           {/* App store badges side by side */}
           <div className="flex items-center gap-2.5">
-            <a href="/mobile-app" target="_blank" rel="noopener noreferrer"
+            <a href="/mobile-app"
               className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-gray-700 transition-all duration-200 group">
               <AppleSVG />
               <div>
-                <div className="text-[8px] text-gray-500 uppercase tracking-widest leading-none">Download on the</div>
+                <div className="text-[8px] text-gray-500 uppercase tracking-widest leading-none">{t(lang, { sq: "Shkarko nga", en: "Download on the", es: "Descargar en", de: "Laden im", mk: "Преземи од" })}</div>
                 <div className="text-[13px] font-semibold text-white leading-snug">App Store</div>
               </div>
             </a>
-            <a href="/mobile-app" target="_blank" rel="noopener noreferrer"
+            <a href="/mobile-app"
               className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-gray-700 transition-all duration-200 group">
               <GooglePlaySVG />
               <div>
-                <div className="text-[8px] text-gray-500 uppercase tracking-widest leading-none">Get it on</div>
+                <div className="text-[8px] text-gray-500 uppercase tracking-widest leading-none">{t(lang, { sq: "Merr në", en: "Get it on", es: "Consíguelo en", de: "Jetzt bei", mk: "Земи го на" })}</div>
                 <div className="text-[13px] font-semibold text-white leading-snug">Google Play</div>
               </div>
             </a>
