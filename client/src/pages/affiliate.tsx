@@ -470,18 +470,18 @@ export default function Affiliate() {
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
                     {sq(lang,
-                      "Çdo afiliat merr akses në një panel kontrolli personal ku mund të shohë në kohë reale: numrin e klientëve aktiv, pagesat e tyre mujore, komisionet e fituara dhe historikun e transfertave. Do të merrni gjithashtu njoftime me email çdo herë që: një klient i ri regjistrohet me linkun tuaj, një klient paguan abonamentin (dhe ju fiton komision), ose nëse ndodh ndryshim i statusit të klientit.",
-                      "Each affiliate gets access to a personal dashboard where they can see in real time: number of active clients, their monthly payments, commissions earned and transfer history. You'll also receive email notifications whenever: a new client signs up with your link, a client pays their subscription (and you earn commission), or if a client's status changes.",
-                      "Cada afiliado tiene acceso a un panel personal donde puede ver en tiempo real: número de clientes activos, pagos mensuales, comisiones ganadas e historial de transferencias. También recibirá notificaciones por correo cuando un nuevo cliente se registre, un cliente pague y usted gane comisión.",
-                      "Jeder Affiliate erhält Zugang zu einem persönlichen Dashboard, wo er in Echtzeit sehen kann: Anzahl aktiver Kunden, ihre monatlichen Zahlungen, verdiente Provisionen und Transferverlauf. Sie erhalten auch E-Mail-Benachrichtigungen wenn ein neuer Kunde sich anmeldet oder ein Kunde zahlt.",
-                      "Секој афилијат добива пристап до личен контролен панел каде може да гледа во реално време: број на активни клиенти, нивните месечни плаќања, заработени провизии и историја на трансфери. Исто така ќе добивате е-пошта известувања."
+                      "Çdo muaj, deri më datën 5, do të merrni një email me raport të detajuar nga ekipi ynë. Raporti përmban: listën e klientëve aktiv që keni referuar, pagesat e tyre të muajit të kaluar, komisionin tuaj të saktë dhe shumën totale që do të transferohet. Nëse keni pyetje rreth ndonjë klienti, mund të na kontaktoni direkt në info@clientlly.com dhe i verifikojmë brenda 24 orësh.",
+                      "Every month, by the 5th, you will receive a detailed report email from our team. The report includes: the list of active clients you have referred, their previous month's payments, your exact commission and the total amount to be transferred. If you have questions about any client, contact us directly at info@clientlly.com and we'll verify within 24 hours.",
+                      "Cada mes, antes del día 5, recibirá un correo electrónico con un informe detallado de nuestro equipo. El informe incluye: lista de clientes activos referidos, pagos del mes anterior, su comisión exacta y el importe total a transferir. Para preguntas, contáctenos en info@clientlly.com.",
+                      "Jeden Monat bis zum 5. erhalten Sie eine detaillierte Bericht-E-Mail von unserem Team. Der Bericht enthält: Liste der aktiven vermittelten Kunden, Zahlungen des Vormonats, Ihre genaue Provision und den zu überweisenden Gesamtbetrag. Bei Fragen: info@clientlly.com.",
+                      "Секој месец, до 5-ти, ќе добивате детален извештај по е-пошта од нашиот тим. Извештајот содржи: листа на активни клиенти кои сте ги упатиле, нивните плаќања од претходниот месец, вашата точна провизија и вкупниот износ за префрлање. За прашања: info@clientlly.com."
                     )}
                   </p>
                   <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {[
-                      { icon: Users, sq: "Klientë aktiv", en: "Active clients", es: "Clientes activos", de: "Aktive Kunden", mk: "Активни клиенти", color: "bg-indigo-50 text-indigo-700" },
-                      { icon: TrendingUp, sq: "Komisione mujore", en: "Monthly commissions", es: "Comisiones mensuales", de: "Monatliche Provisionen", mk: "Месечни провизии", color: "bg-emerald-50 text-emerald-700" },
-                      { icon: Zap, sq: "Njoftime në kohë real", en: "Real-time alerts", es: "Alertas en tiempo real", de: "Echtzeit-Benachrichtigungen", mk: "Известувања во реално време", color: "bg-amber-50 text-amber-700" },
+                      { icon: Users, sq: "Lista e klientëve aktiv", en: "Active clients list", es: "Lista de clientes activos", de: "Liste aktiver Kunden", mk: "Листа на активни клиенти", color: "bg-indigo-50 text-indigo-700" },
+                      { icon: TrendingUp, sq: "Komisioni i saktë", en: "Exact commission", es: "Comisión exacta", de: "Genaue Provision", mk: "Точна провизија", color: "bg-emerald-50 text-emerald-700" },
+                      { icon: Zap, sq: "Raport deri më 5 të muajit", en: "Report by 5th of month", es: "Informe antes del día 5", de: "Bericht bis zum 5.", mk: "Извештај до 5-ти", color: "bg-amber-50 text-amber-700" },
                     ].map((item, i) => (
                       <div key={i} className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold ${item.color}`}>
                         <item.icon className="h-4 w-4" />
