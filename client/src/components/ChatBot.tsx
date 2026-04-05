@@ -350,6 +350,10 @@ const generalResponses: { keywords: Record<string, string[]>; reply: L5; quickRe
       de: "📧 Sie können uns kontaktieren:\n\n• E-Mail: info@clientlly.com\n• Büro: Linda Premium Residence Nr 9, Neues Pristina, Kosovo\n• Chat: Sie sprechen gerade mit uns! 😊\n\nÖffnungszeiten: Montag – Freitag, 08:00 – 17:00",
       mk: "📧 Можете да не контактирате:\n\n• Е-пошта: info@clientlly.com\n• Канцеларија: Linda Premium Residence бр 9, Нова Приштина, Косово\n• Чет: Зборувате со нас токму сега! 😊\n\nРаботно време: Понеделник – Петок, 08:00 – 17:00",
     },
+    quickReplies: [
+      { sq: "✉️ Dërgo email", en: "✉️ Send email", es: "✉️ Enviar email", de: "✉️ E-Mail senden", mk: "✉️ Испрати е-пошта" },
+      { sq: "📋 Na kontaktoni", en: "📋 Contact form", es: "📋 Formulario de contacto", de: "📋 Kontaktformular", mk: "📋 Контакт форма" },
+    ],
   },
   {
     keywords: {
@@ -563,6 +567,13 @@ export default function ChatBot() {
     'jetzt kaufen': '/subscribe', 'купи сега': '/subscribe',
     'fillo provën falas': '/trial', 'start free trial': '/trial', 'iniciar prueba gratis': '/trial',
     'kostenlose testversion starten': '/trial', 'започни бесплатна проба': '/trial',
+    '📋 na kontaktoni': '/contact', '📋 contact form': '/contact', '📋 formulario de contacto': '/contact',
+    '📋 kontaktformular': '/contact', '📋 контакт форма': '/contact',
+  };
+
+  const emailActions: Record<string, boolean> = {
+    '✉️ dërgo email': true, '✉️ send email': true, '✉️ enviar email': true,
+    '✉️ e-mail senden': true, '✉️ испрати е-пошта': true,
   };
 
   const handleSend = (text?: string) => {
@@ -572,6 +583,11 @@ export default function ChatBot() {
     const navTarget = navigationActions[msg.toLowerCase()];
     if (navTarget) {
       window.location.href = navTarget;
+      return;
+    }
+
+    if (emailActions[msg.toLowerCase()]) {
+      window.location.href = 'mailto:info@clientlly.com?subject=Kontakt nga Clientlly';
       return;
     }
 
