@@ -274,11 +274,20 @@ export default function Landing() {
 
               <p className="anim-rise anim-d1 text-lg text-gray-500 leading-relaxed max-w-md">
                 {sq(lang,
-                  "16 module të integruara — faturim, shpenzime, inventar, burimet njerëzore, flotë dhe shumë më tepër. E gjitha në një platformë të vetme.",
-                  "16 integrated modules — invoicing, expenses, inventory, HR, fleet and more. All in a single platform.",
-                  "16 módulos integrados — facturación, gastos, inventario, RRHH, flota y más. Todo en una sola plataforma.",
-                  "16 integrierte Module — Rechnungsstellung, Ausgaben, Inventar, HR, Flotte und mehr. Alles auf einer Plattform.",
-                  "16 интегрирани модули — фактурирање, трошоци, залихи, HR, флота и повеќе. Сé на една платформа."
+                  "Software i menaxhimit të biznesit për NVM-të.",
+                  "Business management software for SMEs.",
+                  "Software de gestión empresarial para PYMEs.",
+                  "Geschäftsmanagement-Software für KMU.",
+                  "Софтвер за управување со бизнис за МСП."
+                )}
+              </p>
+              <p className="anim-rise anim-d1 text-xl font-bold text-indigo-600">
+                {sq(lang,
+                  "16 module, një çmim.",
+                  "16 modules, one price.",
+                  "16 módulos, un precio.",
+                  "16 Module, ein Preis.",
+                  "16 модули, една цена."
                 )}
               </p>
 
