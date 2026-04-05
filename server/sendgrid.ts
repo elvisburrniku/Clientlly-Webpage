@@ -73,3 +73,59 @@ export async function sendContactEmail(data: {
     return false;
   }
 }
+
+export async function sendAffiliateEmail(data: {
+  name: string;
+  email: string;
+  phone: string;
+  method: string;
+}): Promise<boolean> {
+  try {
+    const { client, fromEmail } = await getUncachableSendGridClient();
+
+    await client.send({
+      to: 'info@clientlly.com',
+      from: fromEmail,
+      replyTo: data.email,
+      subject: `[Afilim] Aplikim i ri — ${data.name}`,
+      html: `
+        <div style="font-family:Inter,sans-serif;max-width:560px;margin:0 auto;">
+          <div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:28px 32px;border-radius:12px 12px 0 0;">
+            <h1 style="color:#fff;margin:0;font-size:22px;font-weight:700;">🤝 Aplikim i Ri për Programin e Afilimit</h1>
+            <p style="color:#c7d2fe;margin:6px 0 0;font-size:14px;">Clientlly Affiliate Program</p>
+          </div>
+          <div style="background:#fff;border:1px solid #e5e7eb;border-top:none;padding:28px 32px;border-radius:0 0 12px 12px;">
+            <table style="width:100%;border-collapse:collapse;">
+              <tr style="border-bottom:1px solid #f3f4f6;">
+                <td style="padding:12px 8px;font-weight:600;color:#4338ca;width:140px;">👤 Emri:</td>
+                <td style="padding:12px 8px;color:#111827;font-size:15px;">${data.name}</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f3f4f6;">
+                <td style="padding:12px 8px;font-weight:600;color:#4338ca;">📧 Email:</td>
+                <td style="padding:12px 8px;color:#111827;font-size:15px;"><a href="mailto:${data.email}" style="color:#4f46e5;">${data.email}</a></td>
+              </tr>
+              <tr style="border-bottom:1px solid #f3f4f6;">
+                <td style="padding:12px 8px;font-weight:600;color:#4338ca;">📞 Telefoni:</td>
+                <td style="padding:12px 8px;color:#111827;font-size:15px;">${data.phone || '—'}</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 8px;font-weight:600;color:#4338ca;vertical-align:top;">💡 Metoda:</td>
+                <td style="padding:12px 8px;color:#111827;font-size:15px;line-height:1.6;">${data.method}</td>
+              </tr>
+            </table>
+            <div style="margin-top:24px;padding:16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;">
+              <p style="margin:0;color:#15803d;font-size:13px;font-weight:600;">✅ Veprim i rekomanduar: Dërgoni email konfirmimi tek <a href="mailto:${data.email}" style="color:#15803d;">${data.email}</a> dhe jepni linkun e tyre unik të referimit brenda 24-48 orësh.</p>
+            </div>
+          </div>
+          <p style="text-align:center;color:#9ca3af;font-size:12px;margin-top:16px;">Aplikim i dërguar nga faqja e afilimit — clientlly.com/affiliate</p>
+        </div>
+      `,
+    });
+
+    console.log(`Affiliate application email sent from ${data.email}`);
+    return true;
+  } catch (error) {
+    console.error('SendGrid affiliate email error:', error);
+    return false;
+  }
+}

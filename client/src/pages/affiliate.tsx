@@ -122,23 +122,49 @@ export default function Affiliate() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { currentLanguage: lang } = useLanguage();
   const { toast } = useToast();
-  const [copied, setCopied] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', phone: '', method: '' });
 
-  const handleApply = () => {
-    navigator.clipboard.writeText('info@clientlly.com').then(() => {
-      setCopied(true);
-      toast({
-        title: sq(lang, "Email u kopjua!", "Email copied!", "Email copiado!", "E-Mail kopiert!", "Е-пошта копирана!") as string,
-        description: sq(lang,
-          "Dërgoni email në info@clientlly.com me subjektin: Aplikim për Programin e Afilimit",
-          "Send email to info@clientlly.com with subject: Affiliate Program Application",
-          "Envíe un email a info@clientlly.com con asunto: Solicitud de Programa de Afiliados",
-          "Senden Sie eine E-Mail an info@clientlly.com mit Betreff: Partnerprogramm Bewerbung",
-          "Испратете е-пошта на info@clientlly.com со наслов: Апликација за Партнерска Програма"
-        ) as string,
+  const scrollToForm = () => {
+    document.getElementById('affiliate-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.method) return;
+    setSending(true);
+    try {
+      const res = await fetch('/api/affiliate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       });
-      setTimeout(() => setCopied(false), 3000);
-    });
+      if (res.ok) {
+        setSent(true);
+        setForm({ name: '', email: '', phone: '', method: '' });
+        toast({
+          title: sq(lang, "Aplikimi u dërgua!", "Application sent!", "Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!") as string,
+          description: sq(lang,
+            "Faleminderit! Do t'ju kontaktojmë brenda 24-48 orësh.",
+            "Thank you! We'll contact you within 24-48 hours.",
+            "Gracias! Le contactaremos en 24-48 horas.",
+            "Danke! Wir melden uns innerhalb von 24-48 Stunden.",
+            "Благодариме! Ќе ве контактираме во рок од 24-48 часа."
+          ) as string,
+        });
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      toast({
+        title: sq(lang, "Gabim!", "Error!", "Error!", "Fehler!", "Грешка!") as string,
+        description: sq(lang, "Provoni përsëri ose shkruani direkt tek info@clientlly.com", "Please try again or email info@clientlly.com directly", "Intente de nuevo o envíe un email a info@clientlly.com", "Versuchen Sie es erneut oder senden Sie eine E-Mail an info@clientlly.com", "Обидете се повторно или испратете е-пошта на info@clientlly.com") as string,
+        variant: "destructive",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -206,11 +232,11 @@ export default function Affiliate() {
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button onClick={handleApply}
+            <button onClick={scrollToForm}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer">
-              {copied ? <CheckCircle className="h-5 w-5" /> : <Mail className="h-5 w-5" />}
-              {copied ? sq(lang, "Email u kopjua!", "Email copied!", "Email copiado!", "E-Mail kopiert!", "Копирано!") : sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега")}
-              {!copied && <ArrowRight className="h-5 w-5" />}
+              <Gift className="h-5 w-5" />
+              {sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега")}
+              <ArrowRight className="h-5 w-5" />
             </button>
             <button onClick={() => { document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white/80 text-gray-900 font-bold rounded-xl hover:bg-white transition-all">
@@ -350,39 +376,112 @@ export default function Affiliate() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-400 py-20">
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="absolute bg-white rounded-full animate-bounce opacity-20"
-              style={{ width: 8 + i * 3, height: 8 + i * 3, top: `${15 + i * 12}%`, left: `${8 + i * 15}%`, animationDelay: `${i * 0.5}s`, animationDuration: `${2.5 + i * 0.4}s` }} />
-          ))}
-        </div>
-        <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight mb-6">
-            {sq(lang,
-              "Gati të filloni të fitoni?",
-              "Ready to start earning?",
-              "Listo para comenzar a ganar?",
-              "Bereit zu verdienen?",
-              "Подготвени да почнете да заработувате?"
-            )}
-          </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-xl mx-auto">
-            {sq(lang,
-              "Aplikoni sot dhe filloni të fitoni 10% komision për çdo klient që referoni. Pa kosto, pa rrezik.",
-              "Apply today and start earning 10% commission for every client you refer. No cost, no risk.",
-              "Aplique hoy y comience a ganar 10% de comisión por cada cliente que refiera. Sin costo, sin riesgo.",
-              "Bewerben Sie sich heute und verdienen Sie 10% Provision für jeden empfohlenen Kunden. Keine Kosten, kein Risiko.",
-              "Аплицирајте денес и започнете да заработувате 10% провизија за секој препорачан клиент. Без трошоци, без ризик."
-            )}
-          </p>
-          <button onClick={handleApply}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-            {copied ? <CheckCircle className="h-5 w-5" /> : <Mail className="h-5 w-5" />}
-            {copied ? sq(lang, "Email u kopjua!", "Email copied!", "Email copiado!", "E-Mail kopiert!", "Копирано!") : sq(lang, "Apliko për Programin e Afilimit", "Apply for the Affiliate Program", "Aplicar al Programa de Afiliados", "Für das Partnerprogramm bewerben", "Аплицирајте за Партнерската Програма")}
-          </button>
-          <p className="text-sm text-gray-700 mt-4">{sq(lang, "info@clientlly.com", "info@clientlly.com", "info@clientlly.com", "info@clientlly.com", "info@clientlly.com")}</p>
+      {/* APPLICATION FORM */}
+      <section id="affiliate-form" className="py-20 bg-gray-50">
+        <div className="max-w-2xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <p className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">{sq(lang, "Formulari i Aplikimit", "Application Form", "Formulario de Solicitud", "Bewerbungsformular", "Формулар за Апликација")}</p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">
+              {sq(lang, "Gati të filloni të fitoni?", "Ready to start earning?", "Listo para comenzar a ganar?", "Bereit zu verdienen?", "Подготвени да почнете да заработувате?")}
+            </h2>
+            <p className="text-gray-500">
+              {sq(lang, "Plotësoni formularin dhe do t'ju kontaktojmë brenda 24-48 orësh me linkun tuaj unik.", "Fill out the form and we'll contact you within 24-48 hours with your unique link.", "Complete el formulario y le contactaremos en 24-48 horas con su enlace único.", "Füllen Sie das Formular aus und wir melden uns innerhalb von 24-48 Stunden mit Ihrem eindeutigen Link.", "Пополнете го формуларот и ќе ве контактираме во рок од 24-48 часа со вашиот уникатен линк.")}
+            </p>
+          </div>
+
+          {sent ? (
+            <div className="bg-white rounded-2xl border border-emerald-200 shadow-sm p-12 text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                <CheckCircle className="h-8 w-8 text-emerald-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                {sq(lang, "Aplikimi u dërgua!", "Application sent!", "Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!")}
+              </h3>
+              <p className="text-gray-500 mb-6">
+                {sq(lang, "Faleminderit! Do t'ju kontaktojmë brenda 24-48 orësh me linkun tuaj unik të afilimit.", "Thank you! We'll contact you within 24-48 hours with your unique affiliate link.", "Gracias! Le contactaremos en 24-48 horas con su enlace único de afiliado.", "Danke! Wir melden uns innerhalb von 24-48 Stunden mit Ihrem einzigartigen Affiliate-Link.", "Благодариме! Ќе ве контактираме во рок од 24-48 часа со вашиот уникатен афилијатски линк.")}
+              </p>
+              <button onClick={() => setSent(false)} className="text-indigo-600 font-semibold hover:underline">
+                {sq(lang, "Dërgo aplikim tjetër", "Submit another application", "Enviar otra solicitud", "Weitere Bewerbung senden", "Испрати друга апликација")}
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 space-y-5">
+              {/* Emri */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                  {sq(lang, "Emri i plotë", "Full name", "Nombre completo", "Vollständiger Name", "Целосно ime")} <span className="text-red-500">*</span>
+                </label>
+                <input type="text" required value={form.name}
+                  onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                  placeholder={sq(lang, "p.sh. Alban Gunga", "e.g. John Smith", "ej. Juan García", "z.B. Max Müller", "пр. Марко Марковски") as string}
+                  className="w-full h-12 px-4 border border-gray-200 rounded-xl bg-white text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none" />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                  {sq(lang, "Adresa email", "Email address", "Dirección de email", "E-Mail-Adresse", "Е-пошта адреса")} <span className="text-red-500">*</span>
+                </label>
+                <input type="email" required value={form.email}
+                  onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                  placeholder="email@shembull.com"
+                  className="w-full h-12 px-4 border border-gray-200 rounded-xl bg-white text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none" />
+              </div>
+
+              {/* Telefoni */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                  {sq(lang, "Numri i telefonit", "Phone number", "Número de teléfono", "Telefonnummer", "Телефонски број")} <span className="text-gray-400 font-normal text-xs ml-1">({sq(lang, "opsional", "optional", "opcional", "optional", "опционално")})</span>
+                </label>
+                <input type="tel" value={form.phone}
+                  onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                  placeholder="+383 44 000 000"
+                  className="w-full h-12 px-4 border border-gray-200 rounded-xl bg-white text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none" />
+              </div>
+
+              {/* Metoda e referimit */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                  {sq(lang, "Si planifikoni t'i referoni klientët?", "How do you plan to refer clients?", "Como planea referir clientes?", "Wie planen Sie Kunden zu empfehlen?", "Kako планирате да упатувате клиенти?")} <span className="text-red-500">*</span>
+                </label>
+                <textarea required value={form.method}
+                  onChange={e => setForm(f => ({ ...f, method: e.target.value }))}
+                  rows={4}
+                  placeholder={sq(lang,
+                    "p.sh. Jam kontabilist dhe kam klientë biznesi, Instagram me 5,000 ndjekës, blog për biznes...",
+                    "e.g. I'm an accountant with business clients, Instagram with 5,000 followers, business blog...",
+                    "ej. Soy contable con clientes empresariales, Instagram con 5,000 seguidores, blog de negocios...",
+                    "z.B. Ich bin Buchhalter mit Geschäftskunden, Instagram mit 5.000 Followern, Business-Blog...",
+                    "пр. Сум сметководител со деловни клиенти, Instagram со 5.000 следбеници, деловен блог..."
+                  ) as string}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-white text-gray-900 resize-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none" />
+              </div>
+
+              <button type="submit" disabled={sending}
+                className="w-full h-12 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-400 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-indigo-200 hover:shadow-xl flex items-center justify-center gap-2">
+                {sending ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    {sq(lang, "Duke dërguar...", "Sending...", "Enviando...", "Senden...", "Испраќање...")}
+                  </>
+                ) : (
+                  <>
+                    <Mail className="h-5 w-5" />
+                    {sq(lang, "Dërgoni Aplikimin", "Submit Application", "Enviar Solicitud", "Bewerbung Absenden", "Испрати Апликација")}
+                  </>
+                )}
+              </button>
+              <p className="text-center text-xs text-gray-400">
+                {sq(lang,
+                  "Duke dërguar formularin, pranoni Kushtet e Shërbimit dhe Politikën e Privatësisë të Clientlly.",
+                  "By submitting, you agree to Clientlly's Terms of Service and Privacy Policy.",
+                  "Al enviar, acepta los Términos de Servicio y la Política de Privacidad de Clientlly.",
+                  "Durch die Einreichung stimmen Sie den Nutzungsbedingungen und der Datenschutzrichtlinie von Clientlly zu.",
+                  "Со поднесувањето се согласувате со Условите за употреба и Политиката за приватност на Clientlly."
+                )}
+              </p>
+            </form>
+          )}
         </div>
       </section>
 

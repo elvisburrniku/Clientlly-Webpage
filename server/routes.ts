@@ -499,6 +499,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Affiliate application endpoint
+  app.post('/api/affiliate', async (req, res) => {
+    try {
+      const { name, email, phone, method } = req.body;
+      if (!name || !email || !method) {
+        return res.status(400).json({ message: 'Missing required fields' });
+      }
+      console.log(`Affiliate application from: ${name} (${email})`);
+      const { sendAffiliateEmail } = await import('./sendgrid');
+      await sendAffiliateEmail({ name, email, phone: phone || '', method });
+      res.json({ success: true });
+    } catch (error: any) {
+      console.error('Affiliate form error:', error);
+      res.status(500).json({ message: 'Failed to send application' });
+    }
+  });
+
   // Stripe webhook endpoint
   app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
     // In development mode, skip webhook verification for testing
