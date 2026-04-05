@@ -376,6 +376,127 @@ export default function Affiliate() {
         </div>
       </section>
 
+      {/* PAYMENT & TAX DETAILS */}
+      <section className="py-20">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <p className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">
+              {sq(lang, "Pyetjet e shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufige Fragen", "Често Поставувани Прашања")}
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
+              {sq(lang, "Gjithçka që duhet të dini", "Everything you need to know", "Todo lo que necesita saber", "Alles was Sie wissen müssen", "Сè што треба да знаете")}
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-1 gap-6 max-w-3xl mx-auto">
+
+            {/* Pagesa */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                  <DollarSign className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {sq(lang, "Si paguhem?", "How do I get paid?", "Como me pagan?", "Wie werde ich bezahlt?", "Kako се плаќам?")}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {sq(lang,
+                      "Pagesat bëhen çdo muaj me transfertë bankare direkt në llogarinë tuaj. Pas aprovimit të aplikimit tuaj, na dërgoni numrin IBAN të llogarisë suaj dhe ne do të transferojmë automatikisht komisionin tuaj deri më datën 10 të çdo muaji. Shuma minimale për transfertë është €50 — nëse nuk e arrini këtë shumë, akumulohet për muajin tjetër.",
+                      "Payments are made monthly via direct bank transfer to your account. After your application is approved, send us your IBAN and we will automatically transfer your commission by the 10th of each month. Minimum transfer amount is €50 — if not reached, it accumulates for the next month.",
+                      "Los pagos se realizan mensualmente mediante transferencia bancaria directa a su cuenta. Tras la aprobación, envíenos su IBAN y transferiremos automáticamente su comisión antes del día 10 de cada mes. El importe mínimo es €50.",
+                      "Zahlungen erfolgen monatlich per Banküberweisung auf Ihr Konto. Nach der Genehmigung senden Sie uns Ihre IBAN und wir überweisen Ihre Provision automatisch bis zum 10. jedes Monats. Mindestbetrag €50.",
+                      "Плаќањата се вршат месечно преку директен банкарски трансфер на вашата сметка. По одобрувањето, испратете ни го вашиот IBAN и ние автоматски ќе ја префрлиме вашата провизија до 10-ти на секој месец. Минимален износ €50."
+                    )}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full">
+                      <CheckCircle className="h-3.5 w-3.5" /> {sq(lang, "Transfertë bankare", "Bank transfer", "Transferencia bancaria", "Banküberweisung", "Банкарски трансфер")}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full">
+                      <CheckCircle className="h-3.5 w-3.5" /> {sq(lang, "Deri më 10 të muajit", "By 10th of month", "Antes del día 10", "Bis zum 10. des Monats", "До 10-ти на месецот")}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full">
+                      <CheckCircle className="h-3.5 w-3.5" /> {sq(lang, "Minimum €50", "Minimum €50", "Mínimo €50", "Mindestens €50", "Минимум €50")}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Tatimet */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0">
+                  <Shield className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {sq(lang, "Si funksionojnë tatimet?", "How do taxes work?", "Como funcionan los impuestos?", "Wie funktionieren Steuern?", "Kako функционираат даноците?")}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {sq(lang,
+                      "Çdo afiliat është përgjegjës për deklarimin dhe pagimin e tatimeve në vendin e tij sipas legjislacionit vendor. Ne dërgojmë çdo muaj një pasqyrë të detajuar të komisioneve të fituara — ky dokument mund të përdoret si dëshmi financiare për autoritetet tatimore. Nëse jeni person fizik në Kosovë, komisioni konsiderohet të ardhur i rastësishëm dhe i nënshtrohet tatimit sipas ligjit. Rekomandojmë konsultim me kontabilistin tuaj.",
+                      "Each affiliate is responsible for declaring and paying taxes in their country according to local legislation. We send a detailed monthly statement of earned commissions — this document can be used as financial proof for tax authorities. We recommend consulting your accountant.",
+                      "Cada afiliado es responsable de declarar y pagar impuestos en su país. Enviamos un estado de cuenta mensual detallado de las comisiones ganadas. Recomendamos consultar con su contador.",
+                      "Jeder Affiliate ist verantwortlich für die Erklärung und Zahlung von Steuern in seinem Land. Wir senden monatlich eine detaillierte Abrechnung der verdienten Provisionen. Wir empfehlen, Ihren Buchhalter zu konsultieren.",
+                      "Секој афилијат е одговорен за пријавување и плаќање даноци во својата земја. Испраќаме детален месечен извод на заработените провизии. Препорачуваме консултација со вашиот сметководител."
+                    )}
+                  </p>
+                  <div className="mt-4 p-3 bg-amber-50 border border-amber-100 rounded-xl">
+                    <p className="text-amber-800 text-sm font-medium">
+                      ⚠️ {sq(lang,
+                        "Ne lëshojmë pasqyrë mujore të komisioneve. Tatimin e menaxhoni vetë sipas ligjit të vendit tuaj.",
+                        "We issue monthly commission statements. You manage taxes yourself according to your country's law.",
+                        "Emitimos estados de comisiones mensuales. Usted gestiona los impuestos según la ley de su país.",
+                        "Wir stellen monatliche Provisionsabrechnungen aus. Sie verwalten Steuern selbst gemäß dem Recht Ihres Landes.",
+                        "Издаваме месечни извештаи за провизии. Вие управувате со даноците сами според законот на вашата земја."
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Gjurmimi i klientëve */}
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8">
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0">
+                  <BarChart3 className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {sq(lang, "Si e di unë nëse klientët janë ende aktiv?", "How do I know if clients are still active?", "Como sé si los clientes siguen activos?", "Wie weiß ich, ob Kunden noch aktiv sind?", "Kako знам дали клиентите се уште активни?")}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {sq(lang,
+                      "Çdo afiliat merr akses në një panel kontrolli personal ku mund të shohë në kohë reale: numrin e klientëve aktiv, pagesat e tyre mujore, komisionet e fituara dhe historikun e transfertave. Do të merrni gjithashtu njoftime me email çdo herë që: një klient i ri regjistrohet me linkun tuaj, një klient paguan abonamentin (dhe ju fiton komision), ose nëse ndodh ndryshim i statusit të klientit.",
+                      "Each affiliate gets access to a personal dashboard where they can see in real time: number of active clients, their monthly payments, commissions earned and transfer history. You'll also receive email notifications whenever: a new client signs up with your link, a client pays their subscription (and you earn commission), or if a client's status changes.",
+                      "Cada afiliado tiene acceso a un panel personal donde puede ver en tiempo real: número de clientes activos, pagos mensuales, comisiones ganadas e historial de transferencias. También recibirá notificaciones por correo cuando un nuevo cliente se registre, un cliente pague y usted gane comisión.",
+                      "Jeder Affiliate erhält Zugang zu einem persönlichen Dashboard, wo er in Echtzeit sehen kann: Anzahl aktiver Kunden, ihre monatlichen Zahlungen, verdiente Provisionen und Transferverlauf. Sie erhalten auch E-Mail-Benachrichtigungen wenn ein neuer Kunde sich anmeldet oder ein Kunde zahlt.",
+                      "Секој афилијат добива пристап до личен контролен панел каде може да гледа во реално време: број на активни клиенти, нивните месечни плаќања, заработени провизии и историја на трансфери. Исто така ќе добивате е-пошта известувања."
+                    )}
+                  </p>
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {[
+                      { icon: Users, sq: "Klientë aktiv", en: "Active clients", es: "Clientes activos", de: "Aktive Kunden", mk: "Активни клиенти", color: "bg-indigo-50 text-indigo-700" },
+                      { icon: TrendingUp, sq: "Komisione mujore", en: "Monthly commissions", es: "Comisiones mensuales", de: "Monatliche Provisionen", mk: "Месечни провизии", color: "bg-emerald-50 text-emerald-700" },
+                      { icon: Zap, sq: "Njoftime në kohë real", en: "Real-time alerts", es: "Alertas en tiempo real", de: "Echtzeit-Benachrichtigungen", mk: "Известувања во реално време", color: "bg-amber-50 text-amber-700" },
+                    ].map((item, i) => (
+                      <div key={i} className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold ${item.color}`}>
+                        <item.icon className="h-4 w-4" />
+                        {sq(lang, item.sq, item.en, item.es, item.de, item.mk)}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* APPLICATION FORM */}
       <section id="affiliate-form" className="py-20 bg-gray-50">
         <div className="max-w-2xl mx-auto px-6">
