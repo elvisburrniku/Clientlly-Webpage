@@ -198,7 +198,7 @@ const moduleInfo: Record<string, { icon: any; reply: L5; keywords: Record<string
       de: "💵 Das Gehaltsmodul automatisiert die Gehaltsberechnung basierend auf Anwesenheit, Abzügen, Boni und Steuern. Erstellen Sie professionelle Gehaltsabrechnungen und periodische Berichte.",
       mk: "💵 Модулот за Плати го автоматизира пресметувањето на платите врз основа на присуство, одбитоци, бонуси и даноци. Генерирајте професионални платни листи и периодични извештаи.",
     },
-    keywords: { sq: ['pag', 'rrog', 'fletëpag'], en: ['payroll', 'salary', 'wage', 'pay'], es: ['nómina', 'salario', 'sueldo', 'paga'], de: ['gehalt', 'lohn', 'gehaltsabrech'], mk: ['плат', 'заработк'] },
+    keywords: { sq: ['pagat', 'paga ', 'rroga', 'rrogat', 'fletëpag', 'listëpages'], en: ['payroll', 'salary', 'wage', 'pay slip'], es: ['nómina', 'salario', 'sueldo', 'paga mensual'], de: ['gehalt', 'lohn', 'gehaltsabrech', 'lohnabrechnung'], mk: ['плати ', 'плата ', 'заработк'] },
   },
   pushime: {
     icon: CalendarX,
