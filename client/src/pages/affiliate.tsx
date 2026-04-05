@@ -186,7 +186,7 @@ export default function Affiliate() {
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button onClick={() => { window.location.href = '/contact'; }}
+            <button onClick={() => { window.open('mailto:info@clientlly.com?subject=Aplikim për Programin e Afilimit', '_blank'); }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer">
               {sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега")}
               <ArrowRight className="h-5 w-5" />
@@ -356,7 +356,7 @@ export default function Affiliate() {
               "Аплицирајте денес и започнете да заработувате 10% провизија за секој препорачан клиент. Без трошоци, без ризик."
             )}
           </p>
-          <button onClick={() => { window.location.href = '/contact'; }}
+          <button onClick={() => { window.open('mailto:info@clientlly.com?subject=Aplikim për Programin e Afilimit', '_blank'); }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
             <Mail className="h-5 w-5" />
             {sq(lang, "Apliko për Programin e Afilimit", "Apply for the Affiliate Program", "Aplicar al Programa de Afiliados", "Für das Partnerprogramm bewerben", "Аплицирајте за Партнерската Програма")}
