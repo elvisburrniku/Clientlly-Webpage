@@ -1,17 +1,165 @@
-# Clientlly Web — Guidë Dizajni / Design System Guide
+# Clientlly ERP — Guidë Dizajni + Përshkrim Softweri
 # Kopjo këtë tek projekti Clientlly ERP dhe thuaj agentit:
-# "Dizajno ERP-në duke ndjekur këtë guidë dizajni saktësisht"
+# "Ndërto Clientlly ERP duke ndjekur këtë guidë saktësisht — dizajnin, modulet, dhe strukturën"
 
 ---
 
 ## KËRKESA PËR AGENTIN E ERP:
 
-Dizajno Clientlly ERP me të njëjtin stil vizual si Clientlly Web.
-Ndiq këtë guidë saktësisht për ngjyrat, fontet, komponentët dhe animacionet.
+Ndërto Clientlly ERP me të njëjtin stil vizual si Clientlly Web.
+Ndiq këtë guidë saktësisht për:
+1. Përshkrimin e softwerit — çfarë bën, çfarë modulesh ka, si funksionon
+2. Dizajnin vizual — ngjyrat, fontet, komponentët, animacionet
 Gjuha kryesore: Shqip (sq). Mbështet 5 gjuhë: sq, en, es, de, mk.
 Valuta: Euro (€) — asnjëherë dollar ($).
+Kompania regjistruar në Kosovë.
 
 ---
+
+## PJESA 1: PËRSHKRIMI I SOFTWERIT
+
+### Çfarë është Clientlly ERP?
+
+Clientlly ERP është një platformë e plotë e menaxhimit të biznesit (ERP/SaaS) e dizajnuar për Ndërmarrjet e Vogla dhe të Mesme (NVM). Ofron 16 module të integruara në një çmim të vetëm, duke eliminuar nevojën për software të ndryshme. E ndërtuar si web app me React, me backend Node.js/Express dhe PostgreSQL.
+
+### Slogani kryesor
+- SQ: "Software i menaxhimit të biznesit për NVM-të. 16 module, një çmim."
+- EN: "Business management software for SMEs. 16 modules, one price."
+
+### Statistikat kryesore
+- 200+ biznese përdoruese
+- 16 module të integruara
+- 5 vende (Kosovë, Shqipëri, Maqedoni, DACH, Spanjë)
+- 99.9% uptime
+
+---
+
+### 16 MODULET E CLIENTLLY ERP
+
+Modulet janë të organizuara në 4 kategori:
+
+#### KATEGORIA 1: FINANCA (6 module)
+Ngjyra: bg-blue-50 text-blue-700
+
+| # | Moduli SQ | Moduli EN | Ikona | Përshkrimi |
+|---|-----------|-----------|-------|------------|
+| 1 | Kuotime Elektronike | Electronic Quotes | FileCheck | Krijo & dërgo kuotim profesional brenda sekondave |
+| 2 | Faturim Profesional | Professional Invoicing | FileText | Fatura automatike, reminders & gjurmim pagesash |
+| 3 | Gjurmim Shpenzimesh | Expense Tracking | Receipt | Kategorizim automatik & raport tatimor |
+| 4 | Menaxhim Borxhesh | Debt Management | CreditCard | Planifikoni shlyerjet, qëndroni pa borxhe |
+| 5 | Raporte & Analitikë | Insights & Reports | BarChart3 | Dashboard i plotë me KPI dhe parashikime |
+| 6 | Kartelat e Blerësit | Buyer Cards | Wallet | Menaxhoni kartelat dhe historikun e blerësve |
+
+#### KATEGORIA 2: OPERACIONE (4 module)
+Ngjyra: bg-violet-50 text-violet-700
+
+| # | Moduli SQ | Moduli EN | Ikona | Përshkrimi |
+|---|-----------|-----------|-------|------------|
+| 7 | Menaxhim Klientësh | Client Management | Users | CRM i plotë — historik, projekte & komunikim |
+| 8 | Menaxhim Furnitorësh | Vendor Management | Building2 | Porosi, kontrata dhe vlerësim furnitorësh |
+| 9 | Menaxhim Inventari | Inventory Management | Package | Stok i saktë, alarme automatike & barkode |
+| 10 | Kalendarit & Takime | Calendar & Meetings | CalendarCheck | Caktime inteligjente dhe njoftime automatike |
+
+#### KATEGORIA 3: FLOTË (2 module)
+Ngjyra: bg-amber-50 text-amber-700
+
+| # | Moduli SQ | Moduli EN | Ikona | Përshkrimi |
+|---|-----------|-----------|-------|------------|
+| 11 | Menaxhim Floteje | Fleet Management | Car | Gjurmoni automjetet, shpenzimet & mirëmbajtjen |
+| 12 | Mirëmbajtje & Servisim | Maintenance & Service | Zap | Planifikoni servisimet, reduktoni kohën e ndërprerjes |
+
+#### KATEGORIA 4: BURIME NJERËZORE (4 module)
+Ngjyra: bg-emerald-50 text-emerald-700
+
+| # | Moduli SQ | Moduli EN | Ikona | Përshkrimi |
+|---|-----------|-----------|-------|------------|
+| 13 | Prezencë (GPS) | Attendance (GPS) | Clock | Check-in me GPS nga celulari, raporte automatike |
+| 14 | Pagat e Punonjësve | Payroll | DollarSign | Llogaritje automatike me zbritje dhe raporte |
+| 15 | Menaxhim Lejesh | Leave Management | Briefcase | Kërkesa, aprovim dhe bilanci i lejeve |
+| 16 | Trajnim & Kuize | Training & Quizzes | GraduationCap | Trajnoni ekipin tuaj drejtpërdrejt në platformë |
+
+---
+
+### ÇMIMET (3 plane)
+
+Të gjitha planet përfshijnë TË GJITHA 16 modulet. Dallimi është vetëm numri i përdoruesve.
+Valuta: Euro (€). Zbritje 15% për pagesë vjetore.
+
+| Plan | Çmimi Mujor | Çmimi Vjetor | Përdorues | Fatura |
+|------|-------------|--------------|-----------|--------|
+| Starter | €25/muaj | €255/vit (€21.25/muaj) | 1 përdorues | Pa limit |
+| Professional | €35/muaj | €357/vit (€29.75/muaj) | Deri 5 përdorues | Pa limit |
+| Enterprise | €50/muaj | €510/vit (€42.50/muaj) | Deri 20 përdorues | Pa limit |
+
+- Provë falas: 14 ditë, pa kartë krediti
+- Professional & Enterprise kanë "Le të Rritemi së Bashku" — zhvillim i personalizuar falas
+- Pagesa: Stripe (EUR)
+
+---
+
+### STRUKTURA E FAQEVE TË WEBIT
+
+| Faqja | Rruga | Përshkrimi |
+|-------|-------|------------|
+| Ballina | / | Hero + 16 module + çmime + CTA |
+| Modulet | /features | Lista e moduleve me filtrim |
+| Çmimet | /subscribe | Forma e abonimit 4-hapa |
+| Rreth Nesh | /about | Ekipi, misioni, kronologjia |
+| Kontakti | /contact | Formë kontakti + info |
+| Prova Falas | /trial | Formë regjistrimi për provë 14-ditore |
+| Login | /login | Hyrje në llogari |
+| Bashkëpunim | /collaboration | "Le të rritemi së bashku" |
+| Krahasim Planesh | /compare-features | Tabelë krahasuese e planeve |
+| Karriera | /careers | Formë aplikimi pune |
+| FAQ | /faq | Pyetje të shpeshta |
+| Blog | /blog | Artikuj biznesi |
+| Komunitet | /community | Forumi i komunitetit |
+| Afilimi | /affiliate | Program afilimi 10% komision |
+| App Mobile | /mobile-app | Faqe e app store |
+| API | /api | Dokumentim API për zhvillues |
+| Faqe modulesh | /features/invoicing, /features/expenses, etj. | Faqe detaje për secilin modul |
+| Ligjore | /terms-of-service, /privacy-policy, /data-protection | Politika ligjore |
+
+---
+
+### NAVIGIMI (Desktop)
+Logo (majtas) → Ballina, Modulet, Çmimet, Rreth Nesh, Kontakti → LanguageSelector → Provo Falas, Blej Tani (djathtas)
+
+### NAVIGIMI (Mobile)
+Logo (majtas) → LanguageSelector + ☰ hamburger (djathtas)
+Menu e hapur: Të gjitha lidhjet + butona
+
+---
+
+### FOOTER
+3 kolona:
+- **Produkti**: Modulet, Çmimet, Integrime, Bashkëpunim, API
+- **Kompania**: Rreth Nesh, Karriera, Kontakti, Studimet, Programi i Afilimit
+- **Ligjore**: Privatësia, Kushtet e Shërbimit, Mbrojtja e të Dhënave
+
+Plus: App Store / Google Play badge-e + rrjete sociale
+
+---
+
+### CHATBOT AI
+- Emri: "Clientlly Support Bot • AI Agent"
+- Pozicioni: Floating widget (poshtë djathtas)
+- Funksioni: Përgjigje automatike për çmime, module, mbështetje, provë falas
+- Quick topics: Modulet → Prova falas → Çmimet → Kontakti
+
+---
+
+### KOMPANIA
+- Emri: Clientlly
+- Email: info@clientlly.com
+- Regjistruar në: Kosovë
+- Ekipi: Alban Gunga (CEO), Elvis Burrniku (CTO), Liridon Salihu (VP Engineering), David Kim (Product Manager)
+
+---
+
+## PJESA 2: DIZAJNI VIZUAL
+
+
 
 ## 1. FONTET
 
