@@ -558,9 +558,23 @@ export default function ChatBot() {
 
   const goodbyeKeywords = (generalResponses.find(r => r.keywords.sq.includes('mirupafshim'))?.keywords[lang] || ['bye', 'goodbye']);
 
+  const navigationActions: Record<string, string> = {
+    'blej tani': '/subscribe', 'buy now': '/subscribe', 'comprar ahora': '/subscribe',
+    'jetzt kaufen': '/subscribe', 'купи сега': '/subscribe',
+    'fillo provën falas': '/trial', 'start free trial': '/trial', 'iniciar prueba gratis': '/trial',
+    'kostenlose testversion starten': '/trial', 'започни бесплатна проба': '/trial',
+  };
+
   const handleSend = (text?: string) => {
     const msg = (text || inputValue).trim();
     if (!msg) return;
+
+    const navTarget = navigationActions[msg.toLowerCase()];
+    if (navTarget) {
+      window.location.href = navTarget;
+      return;
+    }
+
     setShowWelcome(false);
     setMessages(prev => [...prev, {
       id: Date.now().toString(),
