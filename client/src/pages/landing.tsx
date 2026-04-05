@@ -14,7 +14,7 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { t as tr } from "@/lib/i18n";
 import { PLAN_F } from "@/lib/translations";
 import Footer from "@/components/Footer";
-import clientllyLogo from '@assets/CLIENTLLY_ICON_1753793353861.png';
+import clientllyLogo from '@assets/logo-clientlly_1775347060628.png';
 
 interface SubscriptionPlan {
   id: string;
@@ -212,8 +212,7 @@ export default function Landing() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="relative flex items-center h-16">
             <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
-              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
-              <span className="text-base font-bold text-gray-900">Clientlly</span>
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 object-contain" />
             </Link>
 
             <div className="hidden md:flex items-center space-x-7 flex-1 justify-center">

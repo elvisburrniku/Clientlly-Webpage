@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { useLanguage, t } from "@/lib/i18n";
 import { C } from "@/lib/translations";
-import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
+import clientllyLogo from "@assets/logo-clientlly_1775347060628.png";
 
 const AppleSVG = () => (
   <svg className="w-5 h-5 text-white flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -75,8 +75,7 @@ const Footer = () => {
           {/* Brand column */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <img src={clientllyLogo} alt="Clientlly" className="h-8 w-10 object-contain" />
-              <span className="text-base font-bold text-white">Clientlly</span>
+              <img src={clientllyLogo} alt="Clientlly" className="h-8 object-contain brightness-0 invert" />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed max-w-[210px]">
               {t(lang, C.footer_tagline)}
