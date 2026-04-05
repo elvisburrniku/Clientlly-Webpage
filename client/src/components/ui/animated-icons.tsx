@@ -1,41 +1,53 @@
-import React from 'react';
+import { useLanguage } from '@/lib/i18n';
+
+function sq(lang: string, alb: string, eng: string, es?: string, de?: string, mk?: string): string {
+  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+}
 
 // ── Apple App Store Badge ──────────────────────────────────────────
-export const AppStoreIcon = ({ className = "", compact = false }: { className?: string; compact?: boolean }) => (
-  <a href="/mobile-app" aria-label="Download on the App Store"
-    className={`group inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-black hover:bg-gray-900 border border-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md ${className}`}>
-    {/* Apple logo */}
-    <svg className="w-5 h-6 text-white flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-    </svg>
-    {!compact && (
-      <div className="text-left">
-        <div className="text-[9px] font-medium text-gray-400 uppercase tracking-widest leading-none mb-0.5">Download on the</div>
-        <div className="text-[13px] font-bold text-white leading-none">App Store</div>
-      </div>
-    )}
-  </a>
-);
+export const AppStoreIcon = ({ className = "", compact = false }: { className?: string; compact?: boolean }) => {
+  const { currentLanguage: lang } = useLanguage();
+  return (
+    <a href="/mobile-app" aria-label={sq(lang, "Shkarko nga App Store", "Download on the App Store", "Descargar en App Store", "Im App Store laden", "Преземи од App Store")}
+      className={`group inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-black hover:bg-gray-900 border border-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md ${className}`}>
+      <svg className="w-5 h-6 text-white flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      {!compact && (
+        <div className="text-left">
+          <div className="text-[9px] font-medium text-gray-400 uppercase tracking-widest leading-none mb-0.5">
+            {sq(lang, "Shkarko nga", "Download on the", "Descargar en", "Laden im", "Преземи од")}
+          </div>
+          <div className="text-[13px] font-bold text-white leading-none">App Store</div>
+        </div>
+      )}
+    </a>
+  );
+};
 
 // ── Google Play Badge ──────────────────────────────────────────────
-export const GooglePlayIcon = ({ className = "", compact = false }: { className?: string; compact?: boolean }) => (
-  <a href="/mobile-app" aria-label="Get it on Google Play"
-    className={`group inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-black hover:bg-gray-900 border border-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md ${className}`}>
-    {/* Colorful Play Store triangle */}
-    <svg className="w-5 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none">
-      <path d="M3.609 1.814L13.792 12 3.61 22.186A1.5 1.5 0 013 21V3c0-.525.282-1.008.609-1.186z" fill="#EA4335"/>
-      <path d="M13.792 12L3.61 1.814 17.03 9.287 13.792 12z" fill="#FBBC04"/>
-      <path d="M13.792 12l3.238 2.713L3.61 22.186 13.792 12z" fill="#34A853"/>
-      <path d="M17.03 9.287L13.792 12l3.238 2.713 2.45-1.432A1.5 1.5 0 0021 12a1.5 1.5 0 00-.52-1.28l-3.45-1.433z" fill="#4285F4"/>
-    </svg>
-    {!compact && (
-      <div className="text-left">
-        <div className="text-[9px] font-medium text-gray-400 uppercase tracking-widest leading-none mb-0.5">Get it on</div>
-        <div className="text-[13px] font-bold text-white leading-none">Google Play</div>
-      </div>
-    )}
-  </a>
-);
+export const GooglePlayIcon = ({ className = "", compact = false }: { className?: string; compact?: boolean }) => {
+  const { currentLanguage: lang } = useLanguage();
+  return (
+    <a href="/mobile-app" aria-label={sq(lang, "Merr në Google Play", "Get it on Google Play", "Consíguelo en Google Play", "Jetzt bei Google Play", "Земи го на Google Play")}
+      className={`group inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-black hover:bg-gray-900 border border-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-0.5 shadow-sm hover:shadow-md ${className}`}>
+      <svg className="w-5 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+        <path d="M3.609 1.814L13.792 12 3.61 22.186A1.5 1.5 0 013 21V3c0-.525.282-1.008.609-1.186z" fill="#EA4335"/>
+        <path d="M13.792 12L3.61 1.814 17.03 9.287 13.792 12z" fill="#FBBC04"/>
+        <path d="M13.792 12l3.238 2.713L3.61 22.186 13.792 12z" fill="#34A853"/>
+        <path d="M17.03 9.287L13.792 12l3.238 2.713 2.45-1.432A1.5 1.5 0 0021 12a1.5 1.5 0 00-.52-1.28l-3.45-1.433z" fill="#4285F4"/>
+      </svg>
+      {!compact && (
+        <div className="text-left">
+          <div className="text-[9px] font-medium text-gray-400 uppercase tracking-widest leading-none mb-0.5">
+            {sq(lang, "Merr në", "Get it on", "Consíguelo en", "Jetzt bei", "Земи го на")}
+          </div>
+          <div className="text-[13px] font-bold text-white leading-none">Google Play</div>
+        </div>
+      )}
+    </a>
+  );
+};
 
 // ── Facebook Icon ──────────────────────────────────────────────────
 export const FacebookIcon = ({ className = "" }: { className?: string }) => (
