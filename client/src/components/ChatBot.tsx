@@ -50,7 +50,9 @@ const UI = {
     trial: { sq: "🎉 Prova falas", en: "🎉 Free trial", es: "🎉 Prueba gratis", de: "🎉 Kostenlose Testversion", mk: "🎉 Бесплатна проба" },
     trialMsg: { sq: "Si të filloj provën falas?", en: "How do I start the free trial?", es: "Como inicio la prueba gratuita?", de: "Wie starte ich die kostenlose Testversion?", mk: "Како да ја започнам бесплатната проба?" },
     contact: { sq: "📧 Kontakti", en: "📧 Contact", es: "📧 Contacto", de: "📧 Kontakt", mk: "📧 Контакт" },
-    contactMsg: { sq: "Si mund t'ju kontaktoj?", en: "How can I contact you?", es: "Como puedo contactarles?", de: "Wie kann ich Sie kontaktieren?", mk: "Како можам да ве контактирам?" },
+    contactMsg: { sq: "Si mund t'ju kontaktoj?", en: "How can I contact you?", es: "Como puedo contactarles?", de: "Wie kann ich Sie kontaktieren?", mk: "Kako можам да ве контактирам?" },
+    affiliate: { sq: "🤝 Programi Afilimit", en: "🤝 Affiliate Program", es: "🤝 Programa Afiliados", de: "🤝 Affiliate-Programm", mk: "🤝 Афилијат Програма" },
+    affiliateMsg: { sq: "Si funksionon programi i afilimit?", en: "How does the affiliate program work?", es: "Como funciona el programa de afiliados?", de: "Wie funktioniert das Affiliate-Programm?", mk: "Kako функционира афилијат програмата?" },
   },
 };
 
@@ -649,6 +651,7 @@ export default function ChatBot() {
     { label: pk(lang, UI.quickTopics.trial), msg: pk(lang, UI.quickTopics.trialMsg) },
     { label: pk(lang, UI.quickTopics.pricing), msg: pk(lang, UI.quickTopics.pricingMsg) },
     { label: pk(lang, UI.quickTopics.contact), msg: pk(lang, UI.quickTopics.contactMsg) },
+    { label: pk(lang, UI.quickTopics.affiliate), msg: pk(lang, UI.quickTopics.affiliateMsg) },
   ];
 
   if (!isOpen) {
