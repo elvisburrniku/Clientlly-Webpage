@@ -405,7 +405,7 @@ const generalResponses: { keywords: Record<string, string[]>; reply: L5; quickRe
     quickReplies: [
       { sq: "Çfarë modulesh ka?", en: "What modules are there?", es: "Que módulos hay?", de: "Welche Module gibt es?", mk: "Кои модули ги има?" },
       { sq: "Sa kushton?", en: "How much?", es: "Cuanto cuesta?", de: "Was kostet es?", mk: "Колку чини?" },
-      { sq: "Fillo provën falas", en: "Start free trial", es: "Iniciar prueba gratis", de: "Kostenlose Testversion starten", mk: "Започни бесплатна проба" },
+      { sq: "Programi i Afilimit", en: "Affiliate Program", es: "Programa de Afiliados", de: "Affiliate-Programm", mk: "Програма за Афилијати" },
     ],
   },
   {
@@ -440,6 +440,46 @@ const generalResponses: { keywords: Record<string, string[]>; reply: L5; quickRe
       mk: "👋 Ви благодариме што не контактиравте! Ако имате прашања во иднина, секогаш сум тука. Убав ден!",
     },
     quickReplies: [],
+  },
+  {
+    keywords: {
+      sq: ['afiliat', 'komision', 'fitoj para', 'referoj', 'referim', 'partner', 'partneri', 'fitoj me clientlly', 'fitoj nga clientlly'],
+      en: ['affiliate', 'commission', 'earn money', 'refer', 'referral', 'partner', 'earn with clientlly'],
+      es: ['afiliado', 'comisión', 'ganar dinero', 'referir', 'referido', 'socio', 'ganar con clientlly'],
+      de: ['affiliate', 'provision', 'geld verdienen', 'weiterempfehlen', 'empfehlung', 'partner', 'verdienen mit clientlly'],
+      mk: ['афилијат', 'провизија', 'заработи пари', 'упати', 'партнер', 'заработи со clientlly'],
+    },
+    reply: {
+      sq: "🤝 Programi i Afilimit të Clientlly:\n\n💰 Fitoni 10% komision për çdo pagesë që bën klienti i referuar — përgjithmonë!\n\nShembull:\n• Referoni 5 klientë me plan Professional (€35/muaj)\n• Ju fitoni: 5 × €35 × 10% = €17.50/muaj\n• Në vit: €210 — pa asnjë punë shtesë!\n\n📋 Si paguhem?\nTransfertë bankare direkt në IBAN tuaj, deri më 10 të çdo muaji. Minimumi €50.\n\n📊 Si e di kush është aktiv?\nÇdo muaj deri më 5, merrni raport të detajuar me listën e klientëve aktiv dhe komisionet.\n\n🏛️ Tatimet?\nJu menaxhoni vetë sipas ligjit të vendit tuaj. Ne lëshojmë pasqyrë mujore si dëshmi financiare.\n\nDëshironi të aplikoni?",
+      en: "🤝 Clientlly Affiliate Program:\n\n💰 Earn 10% commission on every payment your referred client makes — forever!\n\nExample:\n• Refer 5 clients on Professional plan (€35/month)\n• You earn: 5 × €35 × 10% = €17.50/month\n• Per year: €210 — with no extra work!\n\n📋 How do I get paid?\nDirect bank transfer to your IBAN, by the 10th of each month. Minimum €50.\n\n📊 How do I know who's active?\nBy the 5th of each month, you receive a detailed report with active clients and commissions.\n\n🏛️ Taxes?\nYou manage them yourself according to your country's law. We issue monthly commission statements.\n\nWould you like to apply?",
+      es: "🤝 Programa de Afiliados de Clientlly:\n\n💰 Gane 10% de comisión en cada pago de su cliente referido — para siempre!\n\nEjemplo:\n• Refiera 5 clientes con plan Professional (€35/mes)\n• Gana: 5 × €35 × 10% = €17.50/mes\n• Al año: €210 — sin trabajo adicional!\n\n📋 Como me pagan?\nTransferencia bancaria directa a su IBAN, antes del día 10 de cada mes. Mínimo €50.\n\n📊 Como sé quién está activo?\nAntes del día 5 de cada mes, recibe un informe detallado con clientes activos y comisiones.\n\n🏛️ Impuestos?\nLos gestiona usted mismo según la ley de su país. Emitimos estados mensuales de comisiones.\n\nDesea aplicar?",
+      de: "🤝 Clientlly Affiliate-Programm:\n\n💰 Verdienen Sie 10% Provision auf jede Zahlung Ihres vermittelten Kunden — für immer!\n\nBeispiel:\n• 5 Kunden mit Professional-Plan (€35/Monat) vermitteln\n• Sie verdienen: 5 × €35 × 10% = €17,50/Monat\n• Pro Jahr: €210 — ohne zusätzliche Arbeit!\n\n📋 Wie werde ich bezahlt?\nDirekte Banküberweisung auf Ihre IBAN, bis zum 10. jedes Monats. Mindestens €50.\n\n📊 Wie weiß ich, wer aktiv ist?\nBis zum 5. jedes Monats erhalten Sie einen detaillierten Bericht mit aktiven Kunden und Provisionen.\n\n🏛️ Steuern?\nSie verwalten sie selbst gemäß dem Recht Ihres Landes. Wir stellen monatliche Provisionsabrechnungen aus.\n\nMöchten Sie sich bewerben?",
+      mk: "🤝 Програма за Афилијати на Clientlly:\n\n💰 Заработете 10% провизија на секое плаќање на вашиот упатен клиент — засекогаш!\n\nПример:\n• Упатете 5 клиенти со Professional план (€35/месец)\n• Заработувате: 5 × €35 × 10% = €17.50/месец\n• Годишно: €210 — без дополнителна работа!\n\n📋 Kako се плаќам?\nДиректен банкарски трансфер на вашиот IBAN, до 10-ти на секој месец. Минимум €50.\n\n📊 Kako знам кој е активен?\nДо 5-ти на секој месец добивате детален извештај со активни клиенти и провизии.\n\n🏛️ Даноци?\nГи управувате сами според законот на вашата земја. Издаваме месечни извештаи за провизии.\n\nСакате да аплицирате?",
+    },
+    quickReplies: [
+      { sq: "Po, dua të aplikoj!", en: "Yes, I want to apply!", es: "Si, quiero aplicar!", de: "Ja, ich möchte mich bewerben!", mk: "Да, сакам да аплицирам!" },
+      { sq: "Sa mund të fitoj?", en: "How much can I earn?", es: "Cuanto puedo ganar?", de: "Wie viel kann ich verdienen?", mk: "Колку можам да заработам?" },
+    ],
+  },
+  {
+    keywords: {
+      sq: ['po dua të aplikoj', 'dua të aplikoj', 'si aplikoj', 'ku aplikoj', 'formulari i afilimit', 'regjistrohem si afiliat'],
+      en: ['yes i want to apply', 'how to apply', 'where to apply', 'affiliate form', 'join affiliate', 'sign up affiliate'],
+      es: ['si quiero aplicar', 'como aplicar', 'donde aplicar', 'formulario afiliado', 'unirse afiliado'],
+      de: ['ja ich möchte mich bewerben', 'wie bewerben', 'wo bewerben', 'affiliate formular', 'affiliate beitreten'],
+      mk: ['да сакам да аплицирам', 'kako да аплицирам', 'каде да аплицирам', 'афилијат формулар'],
+    },
+    reply: {
+      sq: "🎉 Shkëlqyeshëm! Ja hapat:\n\n1️⃣ Shkoni te: clientlly.com/affiliate\n2️⃣ Scrolloni te formulari \"Gati të filloni të fitoni?\"\n3️⃣ Plotësoni: emrin, emailin, telefonin dhe metodën tuaj të referimit\n4️⃣ Klikoni \"Dërgoni Aplikimin\"\n\n⏱️ Do t'ju kontaktojmë brenda 24-48 orësh me linkun tuaj unik të referimit.\n\nNuk ka asnjë kosto — aplikimi është plotësisht FALAS! 🚀",
+      en: "🎉 Excellent! Here are the steps:\n\n1️⃣ Go to: clientlly.com/affiliate\n2️⃣ Scroll to the 'Ready to start earning?' form\n3️⃣ Fill in: your name, email, phone and referral method\n4️⃣ Click 'Send Application'\n\n⏱️ We'll contact you within 24-48 hours with your unique referral link.\n\nThere's no cost — applying is completely FREE! 🚀",
+      es: "🎉 Excelente! Aquí están los pasos:\n\n1️⃣ Vaya a: clientlly.com/affiliate\n2️⃣ Desplácese al formulario '¿Listo para comenzar a ganar?'\n3️⃣ Complete: nombre, email, teléfono y método de referido\n4️⃣ Haga clic en 'Enviar Solicitud'\n\n⏱️ Le contactaremos en 24-48 horas con su enlace único de referido.\n\nNo hay costo — aplicar es completamente GRATIS! 🚀",
+      de: "🎉 Ausgezeichnet! Hier sind die Schritte:\n\n1️⃣ Gehen Sie zu: clientlly.com/affiliate\n2️⃣ Scrollen Sie zum Formular 'Bereit zu verdienen?'\n3️⃣ Füllen Sie aus: Name, E-Mail, Telefon und Empfehlungsmethode\n4️⃣ Klicken Sie auf 'Bewerbung senden'\n\n⏱️ Wir melden uns innerhalb von 24-48 Stunden mit Ihrem einzigartigen Empfehlungslink.\n\nKeine Kosten — die Bewerbung ist völlig KOSTENLOS! 🚀",
+      mk: "🎉 Одлично! Еве ги чекорите:\n\n1️⃣ Одете на: clientlly.com/affiliate\n2️⃣ Скролувајте до формуларот 'Подготвени да почнете да заработувате?'\n3️⃣ Пополнете: ime, е-пошта, телефон и метод на упатување\n4️⃣ Кликнете 'Испрати апликација'\n\n⏱️ Ќе ве контактираме во рок од 24-48 часа со вашиот уникатен линк за упатување.\n\nНема трошок — апликацијата е целосно БЕСПЛАТНА! 🚀",
+    },
+    quickReplies: [
+      { sq: "Shko te faqja e afilimit", en: "Go to affiliate page", es: "Ir a la página de afiliados", de: "Zur Affiliate-Seite", mk: "Оди на страницата за афилијати" },
+      { sq: "Kthehu te çmimet", en: "Back to pricing", es: "Volver a precios", de: "Zurück zu Preisen", mk: "Назад кон цените" },
+    ],
   },
   {
     keywords: {
