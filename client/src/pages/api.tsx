@@ -192,9 +192,12 @@ export default function APIPage() {
               <LanguageSelector />
             </div>
 
-            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <div className="lg:hidden flex items-center gap-2 ml-auto">
+              <LanguageSelector />
+              <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
         {showMobileMenu && (
@@ -205,7 +208,6 @@ export default function APIPage() {
             <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
             <div className="pt-2 flex flex-col gap-2">
               <button onClick={() => go("/trial")} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Merr API Key", "Get API Key", "Obtener clave API", "API-Schlüssel erhalten", "Добијте API клуч")}</button>
-              <LanguageSelector />
             </div>
           </div>
         )}

@@ -544,9 +544,12 @@ export default function Features() {
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <LanguageSelector />
             </div>
-            <button className="lg:hidden p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <div className="lg:hidden flex items-center gap-2">
+              <LanguageSelector />
+              <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
         {showMobileMenu && (
@@ -558,7 +561,6 @@ export default function Features() {
             <button onClick={() => { setShowMobileMenu(false); go("/contact"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</button>
             <div className="pt-2 flex flex-col gap-2">
               <button onClick={() => { setShowMobileMenu(false); go("/trial"); }} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial", "Prueba Gratis", "Kostenlose Testversion", "Бесплатна проба")}</button>
-              <LanguageSelector />
             </div>
           </div>
         )}

@@ -676,7 +676,8 @@ export default function Subscribe() {
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <LanguageSelector />
             </div>
-            <div className="flex lg:hidden items-center ml-auto">
+            <div className="flex lg:hidden items-center gap-2 ml-auto">
+              <LanguageSelector />
               <button onClick={() => setShowMobileMenu(!showMobileMenu)} className="p-2">
                 {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
@@ -693,7 +694,6 @@ export default function Subscribe() {
             <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <LanguageSelector />
             </div>
           </div>
         )}

@@ -250,8 +250,8 @@ const MigrationRequestPage = () => {
               </div>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div className="flex lg:hidden items-center space-x-2">
+            <div className="flex lg:hidden items-center gap-2">
+              <LanguageSelector />
               <Button
                 variant="ghost"
                 size="icon"

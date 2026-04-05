@@ -142,14 +142,15 @@ const CancelAnytimePage = () => {
               <LanguageSelector />
             </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              className="lg:hidden"
-              onClick={() => setShowMobileMenu(!showMobileMenu)}
-            >
-              {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            <div className="lg:hidden flex items-center gap-2">
+              <LanguageSelector />
+              <Button
+                variant="ghost"
+                onClick={() => setShowMobileMenu(!showMobileMenu)}
+              >
+                {showMobileMenu ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
         </div>
 

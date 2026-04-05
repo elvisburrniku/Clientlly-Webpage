@@ -364,9 +364,12 @@ export default function Integrations() {
               <LanguageSelector />
             </div>
 
-            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <div className="lg:hidden flex items-center gap-2 ml-auto">
+              <LanguageSelector />
+              <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
         {showMobileMenu && (
@@ -378,7 +381,6 @@ export default function Integrations() {
             <Link href="/integrations" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Integrime", "Integrations", "Integraciones", "Integrationen", "Интеграции")}</Link>
             <div className="pt-2 flex flex-col gap-2">
               <Link href="/subscribe" className="text-sm font-semibold px-4 py-2.5 bg-gray-900 text-white rounded-lg">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Link>
-              <LanguageSelector />
             </div>
           </div>
         )}

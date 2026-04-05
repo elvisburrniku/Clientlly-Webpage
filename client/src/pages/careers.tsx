@@ -97,9 +97,12 @@ export default function Careers() {
               </Link>
               <LanguageSelector />
             </div>
-            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <div className="lg:hidden flex items-center gap-2 ml-auto">
+              <LanguageSelector />
+              <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
         {showMobileMenu && (
@@ -109,7 +112,6 @@ export default function Careers() {
             <Link href="/about" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
             <div className="pt-2 flex gap-2">
               <Link href="/trial" className="flex-1 text-sm font-bold py-2.5 bg-indigo-600 text-white rounded-lg text-center">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Link>
-              <LanguageSelector />
             </div>
           </div>
         )}

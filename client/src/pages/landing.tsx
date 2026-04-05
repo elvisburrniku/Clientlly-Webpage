@@ -227,9 +227,12 @@ export default function Landing() {
               <LanguageSelector />
             </div>
 
-            <button className="md:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <div className="md:hidden flex items-center gap-2 ml-auto">
+              <LanguageSelector />
+              <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -242,7 +245,6 @@ export default function Landing() {
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             <div className="pt-2 flex flex-col gap-2">
               <button onClick={() => { window.location.href = '/trial'; }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial", "Prueba Gratis", "Kostenlos Testen", "Бесплатна Проба")}</button>
-              <LanguageSelector />
             </div>
           </div>
         )}

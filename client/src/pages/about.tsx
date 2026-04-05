@@ -139,9 +139,12 @@ const AboutPage = () => {
               <LanguageSelector />
             </div>
 
-            <button className="lg:hidden p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <div className="lg:hidden flex items-center gap-2 ml-auto">
+              <LanguageSelector />
+              <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -154,7 +157,6 @@ const AboutPage = () => {
             <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
             <div className="pt-2 flex flex-col gap-2">
               <Link href="/trial" className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial", "Prueba gratis", "Kostenlose Testversion", "Бесплатен пробен период")}</Link>
-              <LanguageSelector />
             </div>
           </div>
         )}
