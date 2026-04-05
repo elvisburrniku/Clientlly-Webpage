@@ -4,6 +4,7 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/logo-clientlly_1775347060628.png";
 import { useLanguage } from "@/lib/i18n";
+import { useToast } from "@/hooks/use-toast";
 import {
   ArrowRight, Menu, X, Gift, TrendingUp, Users, DollarSign,
   Share2, BarChart3, CheckCircle, Zap, Globe, Heart,
@@ -120,6 +121,25 @@ const EARNINGS = [
 export default function Affiliate() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { currentLanguage: lang } = useLanguage();
+  const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
+
+  const handleApply = () => {
+    navigator.clipboard.writeText('info@clientlly.com').then(() => {
+      setCopied(true);
+      toast({
+        title: sq(lang, "Email u kopjua!", "Email copied!", "Email copiado!", "E-Mail kopiert!", "Е-пошта копирана!") as string,
+        description: sq(lang,
+          "Dërgoni email në info@clientlly.com me subjektin: Aplikim për Programin e Afilimit",
+          "Send email to info@clientlly.com with subject: Affiliate Program Application",
+          "Envíe un email a info@clientlly.com con asunto: Solicitud de Programa de Afiliados",
+          "Senden Sie eine E-Mail an info@clientlly.com mit Betreff: Partnerprogramm Bewerbung",
+          "Испратете е-пошта на info@clientlly.com со наслов: Апликација за Партнерска Програма"
+        ) as string,
+      });
+      setTimeout(() => setCopied(false), 3000);
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -186,10 +206,11 @@ export default function Affiliate() {
             )}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button onClick={() => { window.open('mailto:info@clientlly.com?subject=Aplikim për Programin e Afilimit', '_blank'); }}
+            <button onClick={handleApply}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer">
-              {sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега")}
-              <ArrowRight className="h-5 w-5" />
+              {copied ? <CheckCircle className="h-5 w-5" /> : <Mail className="h-5 w-5" />}
+              {copied ? sq(lang, "Email u kopjua!", "Email copied!", "Email copiado!", "E-Mail kopiert!", "Копирано!") : sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега")}
+              {!copied && <ArrowRight className="h-5 w-5" />}
             </button>
             <button onClick={() => { document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white/80 text-gray-900 font-bold rounded-xl hover:bg-white transition-all">
@@ -356,10 +377,10 @@ export default function Affiliate() {
               "Аплицирајте денес и започнете да заработувате 10% провизија за секој препорачан клиент. Без трошоци, без ризик."
             )}
           </p>
-          <button onClick={() => { window.open('mailto:info@clientlly.com?subject=Aplikim për Programin e Afilimit', '_blank'); }}
+          <button onClick={handleApply}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-            <Mail className="h-5 w-5" />
-            {sq(lang, "Apliko për Programin e Afilimit", "Apply for the Affiliate Program", "Aplicar al Programa de Afiliados", "Für das Partnerprogramm bewerben", "Аплицирајте за Партнерската Програма")}
+            {copied ? <CheckCircle className="h-5 w-5" /> : <Mail className="h-5 w-5" />}
+            {copied ? sq(lang, "Email u kopjua!", "Email copied!", "Email copiado!", "E-Mail kopiert!", "Копирано!") : sq(lang, "Apliko për Programin e Afilimit", "Apply for the Affiliate Program", "Aplicar al Programa de Afiliados", "Für das Partnerprogramm bewerben", "Аплицирајте за Партнерската Програма")}
           </button>
           <p className="text-sm text-gray-700 mt-4">{sq(lang, "info@clientlly.com", "info@clientlly.com", "info@clientlly.com", "info@clientlly.com", "info@clientlly.com")}</p>
         </div>
