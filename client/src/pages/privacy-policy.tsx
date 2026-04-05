@@ -214,7 +214,7 @@ Jeder Partner ist vertraglich verpflichtet, Ihre Daten zu schützen, und darf si
 • E drejta e portabilitetit — merrni të dhënat në format CSV/JSON
 • E drejta e kundërshtimit — kundërshtoni përpunimin për marketing
 
-Për të ushtruar çdo të drejtë, na kontaktoni te: privacy@clientlly.com`,
+Për të ushtruar çdo të drejtë, na kontaktoni te: info@clientlly.com`,
         `As an EU resident, you have the following rights:
 
 • Right of access — request a copy of your data
@@ -224,7 +224,7 @@ Për të ushtruar çdo të drejtë, na kontaktoni te: privacy@clientlly.com`,
 • Right to portability — receive your data in CSV/JSON format
 • Right to object — object to processing for marketing
 
-To exercise any right, contact us at: privacy@clientlly.com`,
+To exercise any right, contact us at: info@clientlly.com`,
         `Como residente de la UE, tiene los siguientes derechos:
 
 • Derecho de acceso — solicitar una copia de sus datos
@@ -234,7 +234,7 @@ To exercise any right, contact us at: privacy@clientlly.com`,
 • Derecho a la portabilidad — recibir sus datos en formato CSV/JSON
 • Derecho de oposición — oponerse al tratamiento para marketing
 
-Para ejercer cualquier derecho, contáctenos en: privacy@clientlly.com`,
+Para ejercer cualquier derecho, contáctenos en: info@clientlly.com`,
         `Als EU-Bürger haben Sie folgende Rechte:
 
 • Recht auf Auskunft — eine Kopie Ihrer Daten anfordern
@@ -244,7 +244,7 @@ Para ejercer cualquier derecho, contáctenos en: privacy@clientlly.com`,
 • Recht auf Datenübertragbarkeit — Ihre Daten im CSV/JSON-Format erhalten
 • Widerspruchsrecht — der Verarbeitung zu Marketingzwecken widersprechen
 
-Um ein Recht auszuüben, kontaktieren Sie uns unter: privacy@clientlly.com`,
+Um ein Recht auszuüben, kontaktieren Sie uns unter: info@clientlly.com`,
         `Како жител на ЕУ, ги имате следните права:
 
 • Право на пристап — побарајте копија од вашите податоци
@@ -254,7 +254,7 @@ Um ein Recht auszuüben, kontaktieren Sie uns unter: privacy@clientlly.com`,
 • Право на преносливост — добијте ги податоците во CSV/JSON формат
 • Право на приговор — приговорете на обработка за маркетинг
 
-За да остварите било кое право, контактирајте нè на: privacy@clientlly.com`
+За да остварите било кое право, контактирајте нè на: info@clientlly.com`
       ),
     },
     {
@@ -400,7 +400,7 @@ Sie können eine sofortige Löschung beantragen, indem Sie uns direkt kontaktier
                         "За прашања за приватноста и заштитата на податоци:"
                       )}
                     </p>
-                    <p className="text-sm font-semibold text-indigo-700">privacy@clientlly.com</p>
+                    <p className="text-sm font-semibold text-indigo-700">info@clientlly.com</p>
                     <p className="text-xs text-gray-400 mt-1">{sq(lang,"Përgjigje brenda 72 orësh","Response within 72 hours","Respuesta en 72 horas","Antwort innerhalb von 72 Stunden","Одговор во рок од 72 часа")}</p>
                   </div>
                 </div>
