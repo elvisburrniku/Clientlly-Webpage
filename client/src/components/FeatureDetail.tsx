@@ -73,9 +73,12 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
               </Link>
               <LanguageSelector />
             </div>
-            <button className="lg:hidden p-2 ml-auto" onClick={() => setShowMobileMenu(!showMobileMenu)}>
-              {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            <div className="lg:hidden flex items-center gap-2 ml-auto">
+              <LanguageSelector />
+              <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
         {showMobileMenu && (

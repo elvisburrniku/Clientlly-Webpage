@@ -283,6 +283,408 @@ const integrations = [
   },
 ];
 
+// ─── API DOCUMENTATION COMPONENT ────────────────────────────────────────────
+function ApiDocs({ lang, sq }: { lang: string; sq: Function }) {
+  const [activeTab, setActiveTab] = useState<'auth' | 'endpoints' | 'webhooks' | 'sdk'>('auth');
+
+  const tabs = [
+    { id: 'auth' as const, label: sq(lang, 'Autentifikimi', 'Authentication', 'Autenticación', 'Authentifizierung', 'Автентикација') },
+    { id: 'endpoints' as const, label: sq(lang, 'Endpoint-et', 'Endpoints', 'Endpoints', 'Endpunkte', 'Точки на крај') },
+    { id: 'webhooks' as const, label: 'Webhooks' },
+    { id: 'sdk' as const, label: sq(lang, 'Shembuj Kodi', 'Code Examples', 'Ejemplos de Código', 'Code-Beispiele', 'Примери на Код') },
+  ];
+
+  return (
+    <section className="py-16 px-6 bg-white border-t border-gray-100">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-10 gap-6 flex-wrap">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-900 rounded-full text-[11px] font-semibold text-white mb-3">
+              <Code className="h-3 w-3" />
+              {sq(lang, 'Dokumentacion REST API', 'REST API Documentation', 'Documentación REST API', 'REST API-Dokumentation', 'REST API Документација')}
+            </div>
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+              {sq(lang, <>Ndërtoni me <span className="text-indigo-600">API-n tonë</span></>, <>Build with our <span className="text-indigo-600">API</span></>, <>Construya con nuestra <span className="text-indigo-600">API</span></>, <>Mit unserer <span className="text-indigo-600">API</span> entwickeln</>, <>Изградете со нашиот <span className="text-indigo-600">API</span></>)}
+            </h2>
+            <p className="text-sm text-gray-500 max-w-xl leading-relaxed">
+              {sq(lang,
+                'API RESTful me autentifikim OAuth 2.0, rate limit të lartë dhe dokumentacion të plotë. Bazë URL: api.clientlly.com/v1',
+                'RESTful API with OAuth 2.0 authentication, high rate limits and full documentation. Base URL: api.clientlly.com/v1',
+                'API RESTful con autenticación OAuth 2.0, límites altos y documentación completa. URL base: api.clientlly.com/v1',
+                'RESTful-API mit OAuth 2.0-Authentifizierung, hohen Rate-Limits und vollständiger Dokumentation. Basis-URL: api.clientlly.com/v1',
+                'RESTful API со OAuth 2.0 автентикација, високи лимити и целосна документација. Основен URL: api.clientlly.com/v1'
+              )}
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 text-xs">
+            {[
+              { label: 'Base URL', value: 'api.clientlly.com/v1', color: 'bg-gray-900 text-white' },
+              { label: 'Version', value: 'v1.4.2', color: 'bg-indigo-50 text-indigo-700' },
+              { label: 'Rate Limit', value: '1000 req/min', color: 'bg-emerald-50 text-emerald-700' },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="flex items-center gap-2">
+                <span className="text-gray-400 w-20">{label}</span>
+                <span className={`px-2.5 py-0.5 rounded-lg font-mono font-semibold text-[11px] ${color}`}>{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex gap-1 mb-6 bg-gray-50 p-1 rounded-xl w-fit border border-gray-100">
+          {tabs.map(t => (
+            <button
+              key={t.id}
+              onClick={() => setActiveTab(t.id)}
+              className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all ${
+                activeTab === t.id
+                  ? 'bg-white text-gray-900 shadow-sm border border-gray-100'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab content */}
+        <div className="grid lg:grid-cols-2 gap-6">
+
+          {/* ── AUTH ── */}
+          {activeTab === 'auth' && (<>
+            <div className="space-y-4">
+              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center"><Lock className="h-4 w-4 text-white" /></div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 text-sm">OAuth 2.0</h3>
+                    <p className="text-[11px] text-gray-400">{sq(lang, 'Standardi i industrisë', 'Industry standard', 'Estándar de la industria', 'Industriestandard', 'Индустриски стандард')}</p>
+                  </div>
+                </div>
+                <ol className="space-y-3">
+                  {[
+                    { step: '1', text: sq(lang, 'Regjistrohuni dhe merrni Client ID & Secret nga paneli', 'Register and get Client ID & Secret from dashboard', 'Regístrese y obtenga Client ID & Secret del panel', 'Registrieren Sie sich und holen Sie sich Client ID & Secret', 'Регистрирајте се и добијте Client ID & Secret') },
+                    { step: '2', text: sq(lang, 'Drejtojeni përdoruesin tek URL-ja e autorizimit', 'Redirect user to the authorization URL', 'Redirija al usuario a la URL de autorización', 'Benutzer zur Autorisierungs-URL weiterleiten', 'Пренасочете го корисникот кон URL за авторизација') },
+                    { step: '3', text: sq(lang, 'Shkëmbeni kodin e autorizimit për access token', 'Exchange authorization code for access token', 'Intercambie el código de autorización por un token de acceso', 'Autorisierungscode gegen Access Token tauschen', 'Разменете го кодот за авторизација за токен') },
+                    { step: '4', text: sq(lang, 'Përdorni access token në headerët e çdo kërkese', 'Use access token in headers of every request', 'Use el token de acceso en los encabezados de cada solicitud', 'Access Token in Header jeder Anfrage verwenden', 'Користете го токенот во заглавијата на секое барање') },
+                  ].map(({ step, text }) => (
+                    <li key={step} className="flex gap-3 text-sm text-gray-600">
+                      <span className="w-5 h-5 bg-indigo-100 text-indigo-700 rounded-full text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{step}</span>
+                      {text}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+                <h4 className="font-bold text-gray-900 text-sm mb-3">{sq(lang, 'Kufijtë e rate limit', 'Rate Limit Tiers', 'Niveles de límite de velocidad', 'Rate-Limit-Stufen', 'Нивоа на ограничување')}</h4>
+                <div className="space-y-2">
+                  {[
+                    { plan: 'Starter', rate: '100 req/min', color: 'bg-gray-100 text-gray-700' },
+                    { plan: 'Professional', rate: '500 req/min', color: 'bg-indigo-50 text-indigo-700' },
+                    { plan: 'Enterprise', rate: '1000 req/min', color: 'bg-emerald-50 text-emerald-700' },
+                  ].map(({ plan, rate, color }) => (
+                    <div key={plan} className="flex items-center justify-between text-xs">
+                      <span className="text-gray-600 font-medium">{plan}</span>
+                      <span className={`px-2 py-0.5 rounded-full font-semibold ${color}`}>{rate}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-900 rounded-2xl p-5 overflow-x-auto">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-semibold text-gray-400">{sq(lang, 'Shembull — Marrja e Access Token', 'Example — Getting Access Token', 'Ejemplo — Obtener Access Token', 'Beispiel — Access Token abrufen', 'Пример — Добивање Access Token')}</span>
+                <span className="text-[10px] px-2 py-0.5 bg-indigo-600/30 text-indigo-300 rounded-full font-semibold">JavaScript</span>
+              </div>
+              <pre className="text-xs leading-relaxed font-mono text-gray-200 whitespace-pre">{`const response = await fetch(
+  'https://api.clientlly.com/v1/oauth/token',
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      grant_type: 'authorization_code',
+      client_id: 'YOUR_CLIENT_ID',
+      client_secret: 'YOUR_CLIENT_SECRET',
+      code: authorizationCode,
+      redirect_uri: 'https://yourapp.com/callback'
+    })
+  }
+);
+
+const { access_token, expires_in } = 
+  await response.json();
+
+// Use token in all requests
+const headers = {
+  'Authorization': \`Bearer \${access_token}\`,
+  'Content-Type': 'application/json'
+};`}</pre>
+            </div>
+          </>)}
+
+          {/* ── ENDPOINTS ── */}
+          {activeTab === 'endpoints' && (<>
+            <div className="space-y-3">
+              {[
+                { method: 'GET', path: '/invoices', color: 'bg-emerald-100 text-emerald-700', desc: sq(lang, 'Merr të gjitha faturat', 'Get all invoices', 'Obtener todas las facturas', 'Alle Rechnungen abrufen', 'Земи ги сите фактури') },
+                { method: 'POST', path: '/invoices', color: 'bg-blue-100 text-blue-700', desc: sq(lang, 'Krijo faturë të re', 'Create new invoice', 'Crear nueva factura', 'Neue Rechnung erstellen', 'Создади нова фактура') },
+                { method: 'GET', path: '/invoices/:id', color: 'bg-emerald-100 text-emerald-700', desc: sq(lang, 'Merr faturën me ID', 'Get invoice by ID', 'Obtener factura por ID', 'Rechnung nach ID abrufen', 'Земи фактура по ID') },
+                { method: 'PUT', path: '/invoices/:id', color: 'bg-amber-100 text-amber-700', desc: sq(lang, 'Përditëso faturën', 'Update invoice', 'Actualizar factura', 'Rechnung aktualisieren', 'Ажурирај фактура') },
+                { method: 'DELETE', path: '/invoices/:id', color: 'bg-red-100 text-red-700', desc: sq(lang, 'Fshi faturën', 'Delete invoice', 'Eliminar factura', 'Rechnung löschen', 'Избриши фактура') },
+                { method: 'GET', path: '/clients', color: 'bg-emerald-100 text-emerald-700', desc: sq(lang, 'Merr listën e klientëve', 'Get client list', 'Obtener lista de clientes', 'Kundenliste abrufen', 'Земи листа на клиенти') },
+                { method: 'POST', path: '/clients', color: 'bg-blue-100 text-blue-700', desc: sq(lang, 'Shto klient të ri', 'Add new client', 'Agregar nuevo cliente', 'Neuen Kunden hinzufügen', 'Додади нов клиент') },
+                { method: 'GET', path: '/expenses', color: 'bg-emerald-100 text-emerald-700', desc: sq(lang, 'Merr shpenzimet', 'Get expenses', 'Obtener gastos', 'Ausgaben abrufen', 'Земи трошоци') },
+                { method: 'POST', path: '/expenses', color: 'bg-blue-100 text-blue-700', desc: sq(lang, 'Shto shpenzim', 'Add expense', 'Agregar gasto', 'Ausgabe hinzufügen', 'Додади трошок') },
+                { method: 'GET', path: '/reports/summary', color: 'bg-emerald-100 text-emerald-700', desc: sq(lang, 'Merr raportin përmbledhës', 'Get summary report', 'Obtener informe resumen', 'Zusammenfassungsbericht abrufen', 'Земи збирен извештај') },
+              ].map(({ method, path, color, desc }) => (
+                <div key={method + path} className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-xl hover:border-indigo-200 hover:shadow-sm transition-all">
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded font-mono w-14 text-center flex-shrink-0 ${color}`}>{method}</span>
+                  <span className="font-mono text-xs text-gray-800 flex-1">/v1{path}</span>
+                  <span className="text-[11px] text-gray-400 hidden sm:block">{desc}</span>
+                </div>
+              ))}
+            </div>
+            <div className="bg-gray-900 rounded-2xl p-5 overflow-x-auto">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-semibold text-gray-400">{sq(lang, 'Shembull — Krijo Faturë', 'Example — Create Invoice', 'Ejemplo — Crear Factura', 'Beispiel — Rechnung erstellen', 'Пример — Создади Фактура')}</span>
+                <span className="text-[10px] px-2 py-0.5 bg-indigo-600/30 text-indigo-300 rounded-full font-semibold">JavaScript</span>
+              </div>
+              <pre className="text-xs leading-relaxed font-mono text-gray-200 whitespace-pre">{`const invoice = await fetch(
+  'https://api.clientlly.com/v1/invoices',
+  {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer YOUR_TOKEN',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      client_id: 'client_abc123',
+      currency: 'EUR',
+      due_date: '2025-02-28',
+      items: [
+        {
+          description: 'Web Development',
+          quantity: 10,
+          unit_price: 85.00
+        }
+      ],
+      notes: 'Thank you for your business',
+      send_immediately: true
+    })
+  }
+);
+
+// Response
+{
+  "id": "inv_xyz789",
+  "status": "sent",
+  "total": 850.00,
+  "currency": "EUR",
+  "pdf_url": "https://cdn.clientlly.com/..."
+}`}</pre>
+            </div>
+          </>)}
+
+          {/* ── WEBHOOKS ── */}
+          {activeTab === 'webhooks' && (<>
+            <div className="space-y-4">
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-sm mb-3">{sq(lang, 'Events të disponueshëm', 'Available Events', 'Eventos disponibles', 'Verfügbare Events', 'Достапни настани')}</h3>
+                <div className="space-y-2">
+                  {[
+                    { event: 'invoice.created', desc: sq(lang, 'Faturë e re u krijua', 'New invoice created', 'Nueva factura creada', 'Neue Rechnung erstellt', 'Нова фактура создадена') },
+                    { event: 'invoice.paid', desc: sq(lang, 'Fatura u pagua', 'Invoice paid', 'Factura pagada', 'Rechnung bezahlt', 'Фактура платена') },
+                    { event: 'invoice.overdue', desc: sq(lang, 'Fatura ka vonesa', 'Invoice overdue', 'Factura vencida', 'Rechnung überfällig', 'Фактура задоцнета') },
+                    { event: 'client.created', desc: sq(lang, 'Klient i ri u shtua', 'New client added', 'Nuevo cliente agregado', 'Neuer Kunde hinzugefügt', 'Нов клиент додаден') },
+                    { event: 'expense.approved', desc: sq(lang, 'Shpenzim u aprovua', 'Expense approved', 'Gasto aprobado', 'Ausgabe genehmigt', 'Трошок одобрен') },
+                    { event: 'payment.received', desc: sq(lang, 'Pagesë u pranua', 'Payment received', 'Pago recibido', 'Zahlung erhalten', 'Плаќање примено') },
+                    { event: 'subscription.upgraded', desc: sq(lang, 'Plan u ndryshua', 'Plan upgraded', 'Plan actualizado', 'Plan aktualisiert', 'Планот е надграден') },
+                  ].map(({ event, desc }) => (
+                    <div key={event} className="flex items-center justify-between p-2.5 rounded-lg bg-gray-50 border border-gray-100">
+                      <span className="font-mono text-xs text-indigo-700 font-semibold">{event}</span>
+                      <span className="text-[11px] text-gray-500">{desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+                <h4 className="font-bold text-gray-900 text-sm mb-2">{sq(lang, 'Siguria e Webhooks', 'Webhook Security', 'Seguridad de Webhooks', 'Webhook-Sicherheit', 'Безбедност на Webhooks')}</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  {sq(lang,
+                    'Çdo kërkesë webhook vjen me header X-Clientlly-Signature. Verifikoni autentikën duke krahasuar HMAC-SHA256 me secret tuaj.',
+                    'Every webhook request comes with an X-Clientlly-Signature header. Verify authenticity by comparing HMAC-SHA256 with your secret.',
+                    'Cada solicitud de webhook viene con un encabezado X-Clientlly-Signature. Verifique la autenticidad comparando HMAC-SHA256 con su secreto.',
+                    'Jede Webhook-Anfrage enthält einen X-Clientlly-Signature-Header. Authentizität durch Vergleich von HMAC-SHA256 mit Ihrem Secret prüfen.',
+                    'Секоe webhook барање доаѓа со заглавие X-Clientlly-Signature. Проверете ја автентичноста споредувајќи HMAC-SHA256 со вашиот secret.'
+                  )}
+                </p>
+              </div>
+            </div>
+            <div className="bg-gray-900 rounded-2xl p-5 overflow-x-auto">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-semibold text-gray-400">{sq(lang, 'Verifikimi i Webhook', 'Webhook Verification', 'Verificación de Webhook', 'Webhook-Verifizierung', 'Верификација на Webhook')}</span>
+                <span className="text-[10px] px-2 py-0.5 bg-emerald-600/30 text-emerald-300 rounded-full font-semibold">Node.js</span>
+              </div>
+              <pre className="text-xs leading-relaxed font-mono text-gray-200 whitespace-pre">{`const crypto = require('crypto');
+const express = require('express');
+const app = express();
+
+app.post('/webhook', 
+  express.raw({ type: 'application/json' }),
+  (req, res) => {
+    const signature = req.headers[
+      'x-clientlly-signature'
+    ];
+    
+    const expected = crypto
+      .createHmac('sha256', WEBHOOK_SECRET)
+      .update(req.body)
+      .digest('hex');
+    
+    if (signature !== \`sha256=\${expected}\`) {
+      return res.status(401).json({ 
+        error: 'Invalid signature' 
+      });
+    }
+
+    const event = JSON.parse(req.body);
+    
+    switch (event.type) {
+      case 'invoice.paid':
+        // Handle paid invoice
+        console.log('Invoice paid:', event.data);
+        break;
+      case 'client.created':
+        // Handle new client
+        break;
+    }
+    
+    res.json({ received: true });
+  }
+);`}</pre>
+            </div>
+          </>)}
+
+          {/* ── SDK / CODE EXAMPLES ── */}
+          {activeTab === 'sdk' && (<>
+            <div className="space-y-3">
+              {[
+                { lang_code: 'JavaScript / Node.js', color: 'bg-yellow-50 border-yellow-200', dot: 'bg-yellow-400', install: 'npm install @clientlly/sdk', snippet: `import Clientlly from '@clientlly/sdk';
+
+const client = new Clientlly({
+  apiKey: process.env.CLIENTLLY_API_KEY
+});
+
+// Get all invoices
+const invoices = await client.invoices.list({
+  status: 'unpaid',
+  currency: 'EUR'
+});
+
+// Create client
+const newClient = await client.clients.create({
+  name: 'Acme Corp',
+  email: 'billing@acme.com',
+  currency: 'EUR'
+});` },
+                { lang_code: 'Python', color: 'bg-blue-50 border-blue-200', dot: 'bg-blue-400', install: 'pip install clientlly', snippet: `import clientlly
+
+client = clientlly.Client(
+    api_key=os.environ["CLIENTLLY_API_KEY"]
+)
+
+# List invoices
+invoices = client.invoices.list(
+    status="unpaid",
+    currency="EUR"
+)
+
+# Create expense
+expense = client.expenses.create(
+    amount=150.00,
+    currency="EUR",
+    category="marketing",
+    description="Social media ads"
+)` },
+                { lang_code: 'PHP', color: 'bg-violet-50 border-violet-200', dot: 'bg-violet-400', install: 'composer require clientlly/clientlly-php', snippet: `<?php
+use Clientlly\\Client;
+
+$client = new Client([
+  'api_key' => getenv('CLIENTLLY_API_KEY')
+]);
+
+// Get client list
+$clients = $client->clients->all([
+  'limit' => 50
+]);
+
+// Send invoice
+$invoice = $client->invoices->create([
+  'client_id' => 'client_abc123',
+  'currency'  => 'EUR',
+  'due_date'  => '2025-03-15',
+  'items'     => [...]
+]);` },
+              ].map(({ lang_code, color, dot, install, snippet }) => (
+                <div key={lang_code} className={`bg-white border rounded-xl p-4 ${color}`}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className={`w-2 h-2 rounded-full ${dot}`}></span>
+                    <span className="text-xs font-bold text-gray-700">{lang_code}</span>
+                  </div>
+                  <div className="bg-gray-100 rounded-lg px-3 py-1.5 mb-2 font-mono text-[11px] text-gray-600">{install}</div>
+                  <pre className="text-[10px] font-mono text-gray-600 leading-relaxed overflow-x-auto whitespace-pre">{snippet}</pre>
+                </div>
+              ))}
+            </div>
+            <div className="space-y-4">
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+                <h3 className="font-bold text-gray-900 text-sm mb-4">{sq(lang, 'Karakteristikat e SDK', 'SDK Features', 'Características del SDK', 'SDK-Funktionen', 'Карактеристики на SDK')}</h3>
+                <ul className="space-y-2.5">
+                  {[
+                    sq(lang, 'Retry automatik me backoff eksponencial', 'Auto retry with exponential backoff', 'Reintento automático con retroceso exponencial', 'Automatischer Retry mit exponentiellem Backoff', 'Автоматски retry со експоненцијален backoff'),
+                    sq(lang, 'Paginim automatik i rezultateve', 'Automatic result pagination', 'Paginación automática de resultados', 'Automatische Ergebnis-Paginierung', 'Автоматска пагинација на резултати'),
+                    sq(lang, 'Mbështetje TypeScript me tipe të plota', 'TypeScript support with full types', 'Soporte TypeScript con tipos completos', 'TypeScript-Unterstützung mit vollständigen Typen', 'TypeScript поддршка со целосни типови'),
+                    sq(lang, 'Logging i konfiguruar i kërkesave/përgjigjeve', 'Configurable request/response logging', 'Registro configurable de solicitudes/respuestas', 'Konfigurierbares Anfrage/Antwort-Logging', 'Конфигурабилно логирање на барања/одговори'),
+                    sq(lang, 'Testim me sandbox environment', 'Testing with sandbox environment', 'Prueba con entorno sandbox', 'Testen mit Sandbox-Umgebung', 'Тестирање со sandbox средина'),
+                  ].map((f, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs text-gray-600">
+                      <CheckCircle className="h-3.5 w-3.5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <Code className="h-4 w-4 text-indigo-600" />
+                  <h4 className="font-bold text-indigo-900 text-sm">{sq(lang, 'Sandbox Testimi', 'Testing Sandbox', 'Sandbox de Prueba', 'Test-Sandbox', 'Тест Sandbox')}</h4>
+                </div>
+                <p className="text-xs text-indigo-700 leading-relaxed mb-3">
+                  {sq(lang,
+                    'Përdorni environment-in sandbox për të testuar integrimet tuaja pa prekur të dhëna reale.',
+                    'Use the sandbox environment to test your integrations without touching real data.',
+                    'Use el entorno sandbox para probar sus integraciones sin tocar datos reales.',
+                    'Verwenden Sie die Sandbox-Umgebung, um Integrationen zu testen, ohne echte Daten zu berühren.',
+                    'Користете го sandbox за тестирање на интеграциите без допирање на реални податоци.'
+                  )}
+                </p>
+                <div className="bg-white rounded-lg px-3 py-2 font-mono text-[11px] text-gray-600">
+                  sandbox-api.clientlly.com/v1
+                </div>
+              </div>
+            </div>
+          </>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 const CATEGORY_ALL = "Të gjitha";
 const CATEGORY_ALL_EN = "All";
 
@@ -602,6 +1004,9 @@ export default function Integrations() {
           </div>
         </div>
       </section>
+
+      {/* ── API DOCUMENTATION ── */}
+      <ApiDocs lang={lang} sq={sq} />
 
       {/* ── CTA ── */}
       <section className="py-16 px-6 bg-gray-900 relative overflow-hidden">
