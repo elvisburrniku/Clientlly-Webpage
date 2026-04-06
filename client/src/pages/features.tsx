@@ -544,7 +544,7 @@ export default function Features() {
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <LanguageSelector />
             </div>
-            <div className="lg:hidden flex items-center gap-2">
+            <div className="lg:hidden flex items-center gap-2 ml-auto">
               <LanguageSelector />
               <button className="p-2" onClick={() => setShowMobileMenu(!showMobileMenu)}>
                 {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
