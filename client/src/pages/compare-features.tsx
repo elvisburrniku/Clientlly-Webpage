@@ -216,6 +216,39 @@ export default function CompareFeatures() {
         </div>
       </section>
 
+      {/* ── MOBILE PRICING CARDS (visible only on mobile) ── */}
+      <section className="md:hidden py-8 px-4 bg-gray-50 border-b border-gray-100">
+        <div className="mb-4 flex items-center justify-center gap-1 p-1 bg-white rounded-xl border border-gray-200 w-fit mx-auto">
+          <button onClick={() => setBilling("monthly")} className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all ${billing === "monthly" ? "bg-indigo-600 text-white shadow-sm" : "text-gray-500"}`}>
+            {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно")}
+          </button>
+          <button onClick={() => setBilling("yearly")} className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center gap-1 ${billing === "yearly" ? "bg-indigo-600 text-white shadow-sm" : "text-gray-500"}`}>
+            {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно")}
+            <span className="text-[9px] font-bold text-emerald-500 bg-emerald-50 px-1 py-0.5 rounded">-15%</span>
+          </button>
+        </div>
+        <div className="grid grid-cols-3 gap-3">
+          {PLANS.map((plan) => (
+            <div key={plan.id} className={`relative p-3 rounded-xl border-2 bg-white text-center ${plan.highlight ? "border-indigo-500 shadow-md" : "border-gray-200"}`}>
+              {plan.badge && (
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                  <span className="text-[8px] font-bold bg-indigo-600 text-white px-2 py-0.5 rounded-full">★ {pk(lang, plan.badge)}</span>
+                </div>
+              )}
+              <p className={`text-[10px] font-bold uppercase tracking-wide mb-1 ${plan.highlight ? "text-indigo-600" : "text-gray-500"}`}>{pk(lang, plan.name)}</p>
+              <p className={`text-2xl font-extrabold ${plan.highlight ? "text-indigo-600" : "text-gray-900"}`}>
+                €{billing === "yearly" ? plan.yearlyPrice.toFixed(0) : plan.price}
+              </p>
+              <p className="text-[9px] text-gray-400">/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.")}</p>
+              <p className="text-[9px] text-gray-500 mt-1 leading-tight">{pk(lang, plan.users)}</p>
+              <button onClick={() => { window.location.href = `/subscribe?plan=${plan.id}&billing=${billing}`; }} className={`mt-2 w-full py-1.5 rounded-lg text-[10px] font-bold transition-all ${plan.highlight ? "bg-indigo-600 text-white" : "bg-gray-900 text-white"}`}>
+                {sq(lang, "Zgjidhni →", "Select →", "Elegir →", "Wählen →", "Изберете →")}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── FEATURE COMPARISON TABLE ── */}
       <section className="py-14 px-6">
         <div className="max-w-5xl mx-auto">

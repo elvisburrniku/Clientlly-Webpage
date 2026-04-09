@@ -701,7 +701,7 @@ export default function Subscribe() {
 
       {/* Hero Section - only on step 0 */}
       {currentStep === 0 && (
-        <div className="pt-28 pb-14 px-6 bg-gradient-to-b from-indigo-50/80 via-white to-white border-b border-gray-100">
+        <div className="pt-20 sm:pt-28 pb-8 sm:pb-14 px-4 sm:px-6 bg-gradient-to-b from-indigo-50/80 via-white to-white border-b border-gray-100">
           <div className="max-w-5xl mx-auto">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">

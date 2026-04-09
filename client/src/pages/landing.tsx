@@ -89,7 +89,7 @@ export default function Landing() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [expandedCat, setExpandedCat] = useState<number | null>(null);
 
-  const { data: plans = [] } = useQuery<SubscriptionPlan[]>({
+  const { data: plans = [], isLoading: plansLoading } = useQuery<SubscriptionPlan[]>({
     queryKey: ["/api/subscription-plans"],
   });
 
@@ -687,7 +687,19 @@ export default function Landing() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {plans.map((plan, index) => {
+            {plansLoading ? (
+              Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="animate-pulse rounded-2xl border border-gray-200 p-7">
+                  <div className="h-5 bg-gray-100 rounded mb-3 w-24"></div>
+                  <div className="h-10 bg-gray-100 rounded mb-6 w-32"></div>
+                  <div className="space-y-3">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <div key={j} className="flex gap-2"><div className="h-4 w-4 bg-gray-100 rounded-full flex-shrink-0"></div><div className="h-4 bg-gray-100 rounded flex-1"></div></div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            ) : plans.map((plan, index) => {
               const price = billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
               const isPopular = index === 1;
               return (
