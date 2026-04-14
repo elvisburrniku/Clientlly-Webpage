@@ -22,9 +22,18 @@ import {
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 export default function HelpCenter() {
   const { currentLanguage: lang } = useLanguage();
@@ -35,7 +44,7 @@ export default function HelpCenter() {
 
   const categories = [
     {
-      title: sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток"),
+      title: sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток", "Pour commencer", "Para começar", "Per iniziare"),
       icon: Lightbulb,
       description: sq(lang, "Konfiguroni llogarinë tuaj dhe mësoni bazat", "Set up your account and learn the basics", "Configure su cuenta y aprenda lo básico", "Richten Sie Ihr Konto ein und lernen Sie die Grundlagen", "Поставете ја вашата сметка и научете ги основите"),
       articles: [
@@ -59,7 +68,7 @@ export default function HelpCenter() {
       color: "from-blue-500 to-cyan-500"
     },
     {
-      title: sq(lang, "Pagesat", "Payments", "Pagos", "Zahlungen", "Плаќања"),
+      title: sq(lang, "Pagesat", "Payments", "Pagos", "Zahlungen", "Плаќања", "Paiements", "Pagamentos", "Pagamenti"),
       icon: MessageSquare,
       description: sq(lang, "Pranoni dhe gjurmoni pagesat në mënyrë efikase", "Accept and track payments efficiently", "Acepte y rastree pagos eficientemente", "Zahlungen effizient akzeptieren und verfolgen", "Прифаќајте и следете плаќања ефикасно"),
       articles: [
@@ -71,7 +80,7 @@ export default function HelpCenter() {
       color: "from-purple-500 to-pink-500"
     },
     {
-      title: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци"),
+      title: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"),
       icon: BookOpen,
       description: sq(lang, "Gjurmoni dhe kategorizoni shpenzimet e biznesit", "Track and categorize business expenses", "Rastree y categorice los gastos empresariales", "Geschäftsausgaben verfolgen und kategorisieren", "Следете и категоризирајте деловни трошоци"),
       articles: [
@@ -83,7 +92,7 @@ export default function HelpCenter() {
       color: "from-orange-500 to-red-500"
     },
     {
-      title: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи"),
+      title: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"),
       icon: Video,
       description: sq(lang, "Gjeneroni njohuri dhe raporte financiare", "Generate insights and financial reports", "Genere información y reportes financieros", "Erkenntnisse und Finanzberichte generieren", "Генерирајте увид и финансиски извештаи"),
       articles: [
@@ -95,7 +104,7 @@ export default function HelpCenter() {
       color: "from-amber-500 to-orange-500"
     },
     {
-      title: sq(lang, "Integrimet", "Integrations", "Integraciones", "Integrationen", "Интеграции"),
+      title: sq(lang, "Integrimet", "Integrations", "Integraciones", "Integrationen", "Интеграции", "Intégrations", "Integrações", "Integrazioni"),
       icon: Users,
       description: sq(lang, "Lidhuni me mjete të tjera biznesi", "Connect with other business tools", "Conéctese con otras herramientas empresariales", "Mit anderen Geschäftstools verbinden", "Поврзете се со други деловни алатки"),
       articles: [
@@ -109,11 +118,11 @@ export default function HelpCenter() {
   ];
 
   const popularArticles = [
-    { title: sq(lang, "Si të krijoni faturën tuaj të parë", "How to create your first invoice", "Cómo crear su primera factura", "So erstellen Sie Ihre erste Rechnung", "Како да ја креирате вашата прва фактура"), category: sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток"), views: "12.5k", rating: 4.9 },
+    { title: sq(lang, "Si të krijoni faturën tuaj të parë", "How to create your first invoice", "Cómo crear su primera factura", "So erstellen Sie Ihre erste Rechnung", "Како да ја креирате вашата прва фактура"), category: sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток", "Pour commencer", "Para começar", "Per iniziare"), views: "12.5k", rating: 4.9 },
     { title: sq(lang, "Vendosja e kujtesave automatike të pagesave", "Setting up automatic payment reminders", "Configuración de recordatorios automáticos de pago", "Automatische Zahlungserinnerungen einrichten", "Поставување автоматски потсетници за плаќање"), category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање"), views: "8.2k", rating: 4.8 },
-    { title: sq(lang, "Lidhja e Stripe për pagesa online", "Connecting Stripe for online payments", "Conectando Stripe para pagos en línea", "Stripe für Online-Zahlungen verbinden", "Поврзување на Stripe за онлајн плаќања"), category: sq(lang, "Pagesat", "Payments", "Pagos", "Zahlungen", "Плаќања"), views: "6.8k", rating: 4.7 },
-    { title: sq(lang, "Kuptimi i kategorive tatimore", "Understanding tax categories", "Entendiendo categorías fiscales", "Steuerkategorien verstehen", "Разбирање на даночни категории"), category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци"), views: "5.4k", rating: 4.6 },
-    { title: sq(lang, "Krijimi i raporteve financiare mujore", "Creating monthly financial reports", "Creando informes financieros mensuales", "Monatliche Finanzberichte erstellen", "Креирање месечни финансиски извештаи"), category: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи"), views: "4.9k", rating: 4.8 }
+    { title: sq(lang, "Lidhja e Stripe për pagesa online", "Connecting Stripe for online payments", "Conectando Stripe para pagos en línea", "Stripe für Online-Zahlungen verbinden", "Поврзување на Stripe за онлајн плаќања"), category: sq(lang, "Pagesat", "Payments", "Pagos", "Zahlungen", "Плаќања", "Paiements", "Pagamentos", "Pagamenti"), views: "6.8k", rating: 4.7 },
+    { title: sq(lang, "Kuptimi i kategorive tatimore", "Understanding tax categories", "Entendiendo categorías fiscales", "Steuerkategorien verstehen", "Разбирање на даночни категории"), category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"), views: "5.4k", rating: 4.6 },
+    { title: sq(lang, "Krijimi i raporteve financiare mujore", "Creating monthly financial reports", "Creando informes financieros mensuales", "Monatliche Finanzberichte erstellen", "Креирање месечни финансиски извештаи"), category: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"), views: "4.9k", rating: 4.8 }
   ];
 
   return (
@@ -138,16 +147,16 @@ export default function HelpCenter() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
               <Button 
                 variant="ghost"
                 onClick={() => go("/subscribe")}
                 className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
               >
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
-              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
@@ -156,18 +165,18 @@ export default function HelpCenter() {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
               
               <Button 
                 onClick={() => go("/subscribe")}
                 className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               
               <Button 
                 onClick={() => go("/trial")}
                 className="bg-green-600 text-white hover:bg-green-700 font-medium"
-              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               
               <div className="pt-2">
                 <LanguageSelector />
@@ -189,16 +198,16 @@ export default function HelpCenter() {
         {showMobileMenu && (
           <div className="lg:hidden glass-effect border-t border-white/20">
             <div className="px-6 py-4 space-y-4">
-              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
               <Button 
                 variant="ghost"
                 onClick={() => go("/subscribe")}
                 className="block py-2 text-muted-foreground hover:text-primary transition-colors"
               >
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
-              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
           </div>
         )}
@@ -218,7 +227,7 @@ export default function HelpCenter() {
           <div className="text-center mb-8">
             <Badge className="mb-6 bg-black/20 text-black border-black/30 px-6 py-2 text-lg font-bold">
               <BookOpen className="w-5 h-5 mr-2" />
-              {sq(lang, "Qendra e Ndihmës", "Help Center", "Centro de Ayuda", "Hilfezentrum", "Центар за Помош")}
+              {sq(lang, "Qendra e Ndihmës", "Help Center", "Centro de Ayuda", "Hilfezentrum", "Центар за Помош", "Centre d'aide", "Centro de ajuda", "Centro assistenza")}
             </Badge>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 fade-in leading-tight tracking-tight">
               {sq(lang, "Si mund t'ju", "How can we ", "Cómo podemos ", "Wie können wir Ihnen ", "Како можеме да ви ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "ndihmojmë?", "help?", "ayudar?", "helfen?", "помогнеме?")}</span>
@@ -289,7 +298,7 @@ export default function HelpCenter() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              {sq(lang, "Shfleto sipas", "Browse by ", "Explorar por ", "Durchsuchen nach ", "Прегледај по ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Kategorisë", "Category", "Categoría", "Kategorie", "Категорија")}</span>
+              {sq(lang, "Shfleto sipas", "Browse by ", "Explorar por ", "Durchsuchen nach ", "Прегледај по ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Kategorisë", "Category", "Categoría", "Kategorie", "Категорија", "Catégorie", "Categoria", "Categoria")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Eksploroni udhëzuesit e organizuara sipas veçorive dhe rasteve të përdorimit", "Explore guides organized by feature and use case", "Explore guías organizadas por función y caso de uso", "Erkunden Sie Anleitungen nach Funktion und Anwendungsfall", "Истражете водичи организирани по функција и случај на употреба")}

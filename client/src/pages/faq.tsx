@@ -6,9 +6,18 @@ import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 interface FAQItem { q: string; a: string; }
 
@@ -39,10 +48,10 @@ export default function FAQ() {
     { id: "all", label: sq(lang, "Të gjitha", "All", "Todos", "Alle", "Сите"), icon: HelpCircle },
     { id: "general", label: sq(lang, "Të përgjithshme", "General", "General", "Allgemein", "Општо"), icon: Globe },
     { id: "pricing", label: sq(lang, "Çmimet & Planet", "Pricing & Plans", "Precios y Planes", "Preise & Pläne", "Цени и Планови"), icon: CreditCard },
-    { id: "features", label: sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции"), icon: Zap },
-    { id: "security", label: sq(lang, "Siguria", "Security", "Seguridad", "Sicherheit", "Безбедност"), icon: Shield },
-    { id: "support", label: sq(lang, "Mbështetja", "Support", "Soporte", "Unterstützung", "Поддршка"), icon: Headphones },
-    { id: "account", label: sq(lang, "Llogaria", "Account", "Cuenta", "Konto", "Сметка"), icon: Users },
+    { id: "features", label: sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità"), icon: Zap },
+    { id: "security", label: sq(lang, "Siguria", "Security", "Seguridad", "Sicherheit", "Безбедност", "Sécurité", "Segurança", "Sicurezza"), icon: Shield },
+    { id: "support", label: sq(lang, "Mbështetja", "Support", "Soporte", "Unterstützung", "Поддршка", "Assistance", "Suporte", "Supporto"), icon: Headphones },
+    { id: "account", label: sq(lang, "Llogaria", "Account", "Cuenta", "Konto", "Сметка", "Compte", "Conta", "Account"), icon: Users },
   ];
 
   const faqs: { category: string; items: FAQItem[] }[] = [
@@ -195,7 +204,7 @@ export default function FAQ() {
       category: "security",
       items: [
         {
-          q: sq(lang, "A janë të sigurta të dhënat e mia?", "Is my data secure?", "Están seguros mis datos?", "Sind meine Daten sicher?", "Дали моите податоци се безбедни?") as string,
+          q: sq(lang, "A janë të sigurta të dhënat e mia?", "Is my data secure?", "Están seguros mis datos?", "Sind meine Daten sicher?", "Дали моите податоци се безбедни?", "Mes données sont-elles sécurisées?", "Os meus dados estão seguros?", "I miei dati sono al sicuro?") as string,
           a: sq(lang,
             "Absolutisht! Përdorim enkriptim SSL 256-bit për të gjitha komunikimet. Të dhënat tuaja ruhen në servera të sigurt me backup të rregullt. Jemi plotësisht në përputhje me GDPR.",
             "Absolutely! We use 256-bit SSL encryption for all communications. Your data is stored on secure servers with regular backups. We are fully GDPR compliant.",
@@ -215,7 +224,7 @@ export default function FAQ() {
           ) as string,
         },
         {
-          q: sq(lang, "A mund t'i eksportoj të dhënat e mia?", "Can I export my data?", "Puedo exportar mis datos?", "Kann ich meine Daten exportieren?", "Дали можам да ги извезам моите податоци?") as string,
+          q: sq(lang, "A mund t'i eksportoj të dhënat e mia?", "Can I export my data?", "Puedo exportar mis datos?", "Kann ich meine Daten exportieren?", "Дали можам да ги извезам моите податоци?", "Puis-je exporter mes données?", "Posso exportar os meus dados?", "Posso esportare i miei dati?") as string,
           a: sq(lang,
             "Po! Mund të eksportoni të gjitha të dhënat tuaja në format Excel ose PDF në çdo moment. Faturat, raportet, listat e klientëve — gjithçka mund të shkarkohet.",
             "Yes! You can export all your data in Excel or PDF format at any time. Invoices, reports, client lists — everything can be downloaded.",
@@ -311,13 +320,13 @@ export default function FAQ() {
             <span className="font-extrabold text-gray-900 text-lg tracking-tight">Clientlly</span>
           </button>
           <div className="hidden lg:flex items-center gap-6">
-            <button onClick={() => go("/")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</button>
-            <button onClick={() => go("/features")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</button>
-            <button onClick={() => go("/contact")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</button>
+            <button onClick={() => go("/")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</button>
+            <button onClick={() => go("/features")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</button>
+            <button onClick={() => go("/contact")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</button>
           </div>
           <div className="hidden lg:flex items-center gap-3">
-            <button onClick={() => go("/subscribe")} className="px-4 py-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</button>
-            <button onClick={() => go("/trial")} className="px-4 py-2 text-sm font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</button>
+            <button onClick={() => go("/subscribe")} className="px-4 py-2 text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</button>
+            <button onClick={() => go("/trial")} className="px-4 py-2 text-sm font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</button>
           </div>
           <button onClick={() => setShowMobileMenu(!showMobileMenu)} className="lg:hidden p-2 text-gray-600">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -325,12 +334,12 @@ export default function FAQ() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <button onClick={() => go("/")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</button>
-            <button onClick={() => go("/features")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</button>
-            <button onClick={() => go("/contact")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</button>
+            <button onClick={() => go("/")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</button>
+            <button onClick={() => go("/features")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</button>
+            <button onClick={() => go("/contact")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</button>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => go("/subscribe")} className="w-full py-2.5 text-sm font-semibold border border-indigo-600 text-indigo-600 rounded-lg">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</button>
-              <button onClick={() => go("/trial")} className="w-full py-2.5 text-sm font-semibold bg-indigo-600 text-white rounded-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</button>
+              <button onClick={() => go("/subscribe")} className="w-full py-2.5 text-sm font-semibold border border-indigo-600 text-indigo-600 rounded-lg">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</button>
+              <button onClick={() => go("/trial")} className="w-full py-2.5 text-sm font-semibold bg-indigo-600 text-white rounded-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</button>
             </div>
           </div>
         )}
@@ -340,10 +349,10 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 rounded-full mb-6">
             <HelpCircle className="h-3.5 w-3.5 text-indigo-600" />
-            <span className="text-xs font-semibold text-indigo-600">{sq(lang, "Qendër Ndihme", "Help Center", "Centro de Ayuda", "Hilfezentrum", "Центар за помош")}</span>
+            <span className="text-xs font-semibold text-indigo-600">{sq(lang, "Qendër Ndihme", "Help Center", "Centro de Ayuda", "Hilfezentrum", "Центар за помош", "Centre d'aide", "Centro de ajuda", "Centro assistenza")}</span>
           </div>
           <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufig Gestellte Fragen", "Често Поставувани Прашања")}
+            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufig Gestellte Fragen", "Често Поставувани Прашања", "Questions fréquemment posées", "Perguntas frequentes", "Domande frequenti")}
           </h1>
           <p className="text-gray-500 text-lg max-w-lg mx-auto">
             {sq(lang,
@@ -409,12 +418,12 @@ export default function FAQ() {
           <div className="flex flex-wrap justify-center gap-3">
             <button onClick={() => go("/contact")}
               className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors shadow-sm">
-              {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+              {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               <ArrowRight className="h-4 w-4" />
             </button>
             <button onClick={() => go("/trial")}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-semibold rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
-              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
             </button>
           </div>
         </div>

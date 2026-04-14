@@ -4,9 +4,19 @@ import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import Footer from "@/components/Footer";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
+
 
 export default function DataProtection() {
   const { currentLanguage: lang } = useLanguage();
@@ -109,7 +119,7 @@ export default function DataProtection() {
             </Link>
             <button onClick={() => window.history.back()}
               className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
-              <ArrowLeft className="h-4 w-4" />{sq(lang,"Kthehu","Back","Volver","Zurück","Назад")}
+              <ArrowLeft className="h-4 w-4" />{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}
             </button>
           </div>
         </div>

@@ -23,7 +23,18 @@ interface SubscriptionPlan {
   detailedFeatures: PlanFeatures;
 }
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
+}
 
 export default function Compare() {
   const [location, navigate] = useLocation();
@@ -35,7 +46,7 @@ export default function Compare() {
     invoicing: sq(lang, "Faturimi & Faturimi", "Invoicing & Billing", "Facturación y Cobros", "Rechnungen & Abrechnung", "Фактурирање и наплата"),
     expenses: sq(lang, "Menaxhimi i Shpenzimeve", "Expense Management", "Gestión de Gastos", "Ausgabenverwaltung", "Управување со трошоци"),
     crm: sq(lang, "CRM & Shitjet", "CRM & Sales", "CRM y Ventas", "CRM & Vertrieb", "CRM и продажби"),
-    hr: sq(lang, "Menaxhimi i BNJ", "HR Management", "Gestión de RRHH", "Personalverwaltung", "Управување со ЧР"),
+    hr: sq(lang, "Menaxhimi i BNJ", "HR Management", "Gestión de RRHH", "Personalverwaltung", "Управување со ЧР", "Gestion des RH", "Gestão de RH", "Gestione HR"),
     contracts: sq(lang, "Menaxhimi i Kontratave", "Contract Management", "Gestión de Contratos", "Vertragsverwaltung", "Управување со договори"),
     analytics: sq(lang, "Analitika & Raportimi", "Analytics & Reporting", "Análisis e Informes", "Analysen & Berichte", "Аналитика и извештаи"),
     support: sq(lang, "Mbështetja & Shërbimi", "Support & Service", "Soporte y Servicio", "Support & Service", "Поддршка и сервис")
@@ -120,7 +131,7 @@ export default function Compare() {
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
               >
-                {sq(lang, "Mujore", "Monthly", "Mensual", "Monatlich", "Месечно")}
+                {sq(lang, "Mujore", "Monthly", "Mensual", "Monatlich", "Месечно", "Mensuel", "Mensal", "Mensile")}
               </button>
               
               <button
@@ -131,7 +142,7 @@ export default function Compare() {
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                 }`}
               >
-                {sq(lang, "Vjetore", "Yearly", "Anual", "Jährlich", "Годишно")}
+                {sq(lang, "Vjetore", "Yearly", "Anual", "Jährlich", "Годишно", "Annuel", "Anual", "Annuale")}
               </button>
               
               <div
@@ -255,7 +266,7 @@ export default function Compare() {
                 <thead>
                   <tr className="bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-700">
                     <th className="text-left p-6 font-bold text-lg min-w-[300px] border-r border-border/30">
-                      {sq(lang, "Veçoria", "Feature", "Función", "Funktion", "Функција")}
+                      {sq(lang, "Veçoria", "Feature", "Función", "Funktion", "Функција", "Fonctionnalité", "Funcionalidade", "Funzionalità")}
                     </th>
                     {plans.map((plan, index) => (
                       <th key={plan.id} className={`text-center p-6 font-bold min-w-[180px] border-r border-border/30 ${
@@ -266,11 +277,11 @@ export default function Compare() {
                           ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
                         </div>
                         <div className="text-sm font-normal text-muted-foreground">
-                          {sq(lang, "në muaj", "per month", "por mes", "pro Monat", "месечно")}
+                          {sq(lang, "në muaj", "per month", "por mes", "pro Monat", "месечно", "par mois", "por mês", "al mese")}
                         </div>
                         {index === 1 && (
                           <Badge className="mt-2 bg-gradient-to-r from-primary to-secondary text-white text-xs">
-                            {sq(lang, "Më Popullorja", "Most Popular", "Más Popular", "Am Beliebtesten", "Најпопуларно")}
+                            {sq(lang, "Më Popullorja", "Most Popular", "Más Popular", "Am Beliebtesten", "Најпопуларно", "Le plus populaire", "Mais popular", "Il più popolare")}
                           </Badge>
                         )}
                       </th>
@@ -327,7 +338,7 @@ export default function Compare() {
 
         <div className="text-center mt-12">
           <h3 className="text-2xl font-bold text-foreground mb-4">
-            {sq(lang, "Gati për të filluar?", "Ready to get started?", "Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?")}
+            {sq(lang, "Gati për të filluar?", "Ready to get started?", "Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?", "Prêt à commencer?", "Pronto para começar?", "Pronto per iniziare?")}
           </h3>
           <p className="text-muted-foreground mb-6">
             {sq(lang,

@@ -4,9 +4,19 @@ import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import Footer from "@/components/Footer";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
+
 
 export default function CaseStudies() {
   const { currentLanguage: lang } = useLanguage();
@@ -23,7 +33,7 @@ export default function CaseStudies() {
         { v: "€95K", l: sq(lang, "Arkëtuar brenda 30 ditësh", "Collected within 30 days", "Cobrado en 30 días", "Innerhalb von 30 Tagen eingezogen", "Наплатено во рок од 30 дена"), icon: TrendingUp },
         { v: "4×", l: sq(lang, "Shpejtësi fakturimi", "Invoicing speed", "Velocidad de facturación", "Rechnungsgeschwindigkeit", "Брзина на фактурирање"), icon: FileText },
       ],
-      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang,"Klientë","Clients","Clientes","Kunden","Клиенти"), sq(lang,"Raporte","Reports","Informes","Berichte","Извештаи"), sq(lang,"Shpenzime","Expenses","Gastos","Ausgaben","Трошоци")],
+      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti"), sq(lang, "Raporte", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"), sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese")],
       challenge: sq(lang,
         "Truly Nolen menaxhonte qindra kontrata shërbimi dhe fatura mujore për klientë biznesi e rezidencial. Procesi manual në Excel shkaktonte gabime dhe vonesa — shumë klientë nuk merrnin faturën në kohë dhe ekipi humbisnin orë duke ndjekur pagesat.",
         "Truly Nolen managed hundreds of service contracts and monthly invoices for business and residential clients. The manual Excel process caused errors and delays — many clients didn't receive invoices on time and the team wasted hours chasing payments.",
@@ -58,7 +68,7 @@ export default function CaseStudies() {
         { v: "€180K", l: sq(lang, "Xhiro vjetore e menaxhuar", "Annual revenue managed", "Ingresos anuales gestionados", "Verwalteter Jahresumsatz", "Управуван годишен приход"), icon: BarChart3 },
         { v: "55%", l: sq(lang, "Ulje e kohës së administrimit", "Reduction in admin time", "Reducción del tiempo administrativo", "Reduzierung der Verwaltungszeit", "Намалување на административното време"), icon: TrendingUp },
       ],
-      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang,"Shpenzime","Expenses","Gastos","Ausgaben","Трошоци"), sq(lang,"Inventar","Inventory","Inventario","Inventar","Инвентар"), sq(lang,"Klientë","Clients","Clientes","Kunden","Клиенти")],
+      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"), sq(lang, "Inventar", "Inventory", "Inventario", "Inventar", "Инвентар", "Stock", "Inventário", "Magazzino"), sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti")],
       challenge: sq(lang,
         "Scentlinqpro, distributor i parfumeve premium, kishte vështirësi në gjurmimin e stokut, faturimin e shpërndarësve dhe menaxhimin e shpenzimeve të importit. Tre sisteme të ndryshme krijonte konfuzion dhe të dhëna jo të sinkronizuara.",
         "Scentlinqpro, a premium fragrance distributor, struggled with tracking stock, invoicing distributors and managing import expenses. Three separate systems created confusion and unsynchronised data.",
@@ -93,7 +103,7 @@ export default function CaseStudies() {
         { v: "22%", l: sq(lang, "Ulje e borxheve të këqija", "Bad debt reduction", "Reducción de deudas incobrables", "Reduzierung von Forderungsausfällen", "Намалување на лоши долгови"), icon: TrendingUp },
         { v: "8 min", l: sq(lang, "Kohë mesatare fakturimi", "Average invoicing time", "Tiempo promedio de facturación", "Durchschnittliche Rechnungszeit", "Просечно време за фактурирање"), icon: Clock },
       ],
-      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang,"Furnitorë","Vendors","Proveedores","Lieferanten","Добавувачи"), sq(lang,"Inventar","Inventory","Inventario","Inventar","Инвентар"), sq(lang,"Borxhe","Debt","Deudas","Schulden","Долгови")],
+      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang, "Furnitorë", "Vendors", "Proveedores", "Lieferanten", "Добавувачи", "Fournisseurs", "Fornecedores", "Fornitori"), sq(lang, "Inventar", "Inventory", "Inventario", "Inventar", "Инвентар", "Stock", "Inventário", "Magazzino"), sq(lang,"Borxhe","Debt","Deudas","Schulden","Долгови")],
       challenge: sq(lang,
         "Mediterra menaxhonte mbi 200 furnitorë dhe 150 klientë në sisteme të ndryshme. Borxhet e vonuara dhe inventari ishin të pa-sinkronizuara, duke shkaktuar humbje financiare. Menaxheri duhej të kontrollonte 3 sisteme çdo ditë.",
         "Mediterra managed over 200 suppliers and 150 clients across different systems. Overdue debts and inventory were unsynchronized, causing financial losses. The manager had to check 3 systems daily.",
@@ -132,7 +142,7 @@ export default function CaseStudies() {
             </Link>
             <button onClick={() => window.history.back()}
               className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
-              <ArrowLeft className="h-4 w-4" />{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}
+              <ArrowLeft className="h-4 w-4" />{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}
             </button>
           </div>
         </div>
@@ -143,7 +153,7 @@ export default function CaseStudies() {
         <div className="max-w-5xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full mb-5">
             <Briefcase className="h-3.5 w-3.5 text-indigo-600" />
-            <span className="text-xs font-semibold text-indigo-700">{sq(lang, "Studimet e Rasteve", "Case Studies", "Casos de estudio", "Fallstudien", "Студии на случај")}</span>
+            <span className="text-xs font-semibold text-indigo-700">{sq(lang, "Studimet e Rasteve", "Case Studies", "Casos de estudio", "Fallstudien", "Студии на случај", "Études de cas", "Casos de estudo", "Casi di studio")}</span>
           </div>
           <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
             {sq(lang,
@@ -166,7 +176,7 @@ export default function CaseStudies() {
           <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-100 max-w-sm">
             {[
               { v:"200+", l: sq(lang,"Biznese aktive","Active businesses","Negocios activos","Aktive Unternehmen","Активни бизниси") },
-              { v:"98%",  l: sq(lang,"Kënaqësi klientësh","Customer satisfaction","Satisfacción del cliente","Kundenzufriedenheit","Задоволство на клиентите") },
+              { v:"98%",  l: sq(lang, "Kënaqësi klientësh", "Customer satisfaction", "Satisfacción del cliente", "Kundenzufriedenheit", "Задоволство на клиентите", "Satisfaction client", "Satisfação do cliente", "Soddisfazione del cliente") },
               { v:"€12M+",l: sq(lang,"Fatura të përpunuara","Invoices processed","Facturas procesadas","Verarbeitete Rechnungen","Обработени фактури") },
             ].map((s,i) => (
               <div key={i}>
@@ -266,7 +276,7 @@ export default function CaseStudies() {
           <div className="flex flex-wrap justify-center gap-3">
             <Link href="/trial"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all">
-              {sq(lang,"Fillo Provën Falas","Start Free Trial","Iniciar prueba gratuita","Kostenlose Testversion starten","Започнете бесплатна проба")}<ArrowRight className="h-4 w-4" />
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar prueba gratuita", "Kostenlose Testversion starten", "Започнете бесплатна проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}<ArrowRight className="h-4 w-4" />
             </Link>
             <Link href="/contact"
               className="px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all">

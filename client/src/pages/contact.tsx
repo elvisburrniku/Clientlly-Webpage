@@ -14,9 +14,19 @@ import ChatBot from "@/components/ChatBot";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
+
 
 export default function Contact() {
   const { currentLanguage } = useLanguage();
@@ -37,8 +47,8 @@ export default function Contact() {
     },
     onError: () => {
       toast({
-        title: sq(lang, "Gabim", "Error", "Error", "Fehler", "Грешка") as string,
-        description: sq(lang, "Diçka shkoi keq. Provoni përsëri.", "Something went wrong. Please try again.", "Algo salió mal. Inténtelo de nuevo.", "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.", "Нешто тргна наопаку. Обидете се повторно.") as string,
+        title: sq(lang, "Gabim", "Error", "Error", "Fehler", "Грешка", "Erreur", "Erro", "Errore") as string,
+        description: sq(lang, "Diçka shkoi keq. Provoni përsëri.", "Something went wrong. Please try again.", "Algo salió mal. Inténtelo de nuevo.", "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.", "Нешто тргна наопаку. Обидете се повторно.", "Une erreur s'est produite. Veuillez réessayer.", "Algo correu mal. Por favor, tente novamente.", "Qualcosa è andato storto. Riprova.") as string,
         variant: "destructive",
       });
     },
@@ -65,11 +75,11 @@ export default function Contact() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-              <Link href="/contact" className="text-sm font-semibold text-indigo-600">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+              <Link href="/contact" className="text-sm font-semibold text-indigo-600">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
@@ -86,11 +96,11 @@ export default function Contact() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-            <Link href="/contact" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+            <Link href="/contact" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             <div className="pt-2 flex flex-col gap-2">
             </div>
           </div>
@@ -157,7 +167,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h2 className="text-lg font-extrabold text-gray-900">
-                      {sq(lang, "Dërgoni një mesazh", "Send us a message", "Envíenos un mensaje", "Senden Sie uns eine Nachricht", "Испратете ни порака")}
+                      {sq(lang, "Dërgoni një mesazh", "Send us a message", "Envíenos un mensaje", "Senden Sie uns eine Nachricht", "Испратете ни порака", "Envoyez-nous un message", "Envie-nos uma mensagem", "Inviaci un messaggio")}
                     </h2>
                     <p className="text-xs text-gray-400 mt-0.5">
                       {sq(lang, "Plotësoni formularin — do t'ju kthejmë shpejt", "Fill the form — we'll reply quickly", "Complete el formulario — le responderemos rápidamente", "Füllen Sie das Formular aus — wir antworten schnell", "Пополнете го формуларот — ќе одговориме брзо")}
@@ -226,7 +236,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                          {sq(lang, "Kompania", "Company", "Empresa", "Unternehmen", "Компанија")}
+                          {sq(lang, "Kompania", "Company", "Empresa", "Unternehmen", "Компанија", "Entreprise", "Empresa", "Azienda")}
                         </label>
                         <input name="company" value={form.company} onChange={handle}
                           placeholder={sq(lang, "Emri i kompanisë", "Company name", "Nombre de la empresa", "Firmenname", "Име на компанијата") as string}
@@ -237,7 +247,7 @@ export default function Contact() {
                     {/* Subject */}
                     <div>
                       <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                        {sq(lang, "Tema", "Subject", "Asunto", "Betreff", "Тема")} *
+                        {sq(lang, "Tema", "Subject", "Asunto", "Betreff", "Тема", "Objet", "Assunto", "Oggetto")} *
                       </label>
                       <select name="subject" value={form.subject} onChange={handle} required
                         className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors text-gray-700">
@@ -248,14 +258,14 @@ export default function Contact() {
                         <option value="billing">{sq(lang, "Faturim dhe pagesa", "Billing & payments", "Facturación y pagos", "Abrechnung & Zahlungen", "Фактурирање и плаќања")}</option>
                         <option value="partnership">{sq(lang, "Partneritet biznesi", "Business partnership", "Asociación comercial", "Geschäftspartnerschaft", "Деловно партнерство")}</option>
                         <option value="migration">{sq(lang, "Migrim të dhënash", "Data migration", "Migración de datos", "Datenmigration", "Миграција на податоци")}</option>
-                        <option value="other">{sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго")}</option>
+                        <option value="other">{sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго", "Autre", "Outro", "Altro")}</option>
                       </select>
                     </div>
 
                     {/* Message */}
                     <div>
                       <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                        {sq(lang, "Mesazhi", "Message", "Mensaje", "Nachricht", "Порака")} *
+                        {sq(lang, "Mesazhi", "Message", "Mensaje", "Nachricht", "Порака", "Message", "Mensagem", "Messaggio")} *
                       </label>
                       <textarea name="message" value={form.message} onChange={handle} required rows={5}
                         placeholder={sq(lang, "Shkruani mesazhin tuaj këtu... Sa më shumë detaje, aq më mirë mund t'ju ndihmojmë.", "Write your message here... The more details, the better we can help you.", "Escriba su mensaje aquí... Cuantos más detalles, mejor podremos ayudarle.", "Schreiben Sie Ihre Nachricht hier... Je mehr Details, desto besser können wir Ihnen helfen.", "Напишете ја вашата порака тука... Колку повеќе детали, толку подобро можеме да ви помогнеме.") as string}
@@ -286,7 +296,7 @@ export default function Contact() {
                         </span>
                       ) : (
                         <>
-                          {sq(lang, "Dërgo Mesazhin", "Send Message", "Enviar mensaje", "Nachricht senden", "Испрати порака")}
+                          {sq(lang, "Dërgo Mesazhin", "Send Message", "Enviar mensaje", "Nachricht senden", "Испрати порака", "Envoyer le message", "Enviar mensagem", "Invia messaggio")}
                           <Send className="h-4 w-4" />
                         </>
                       )}
@@ -353,8 +363,8 @@ export default function Contact() {
               </p>
               <div className="space-y-1">
                 {[
-                  { icon: BookOpen, label: sq(lang, "Dokumentacioni", "Documentation", "Documentación", "Dokumentation", "Документација"), href: "/api" },
-                  { icon: Zap, label: sq(lang, "Pyetje të shpeshta", "FAQ", "Preguntas frecuentes", "Häufige Fragen", "Често поставувани прашања"), href: "/faq" },
+                  { icon: BookOpen, label: sq(lang, "Dokumentacioni", "Documentation", "Documentación", "Dokumentation", "Документација", "Documentation", "Documentação", "Documentazione"), href: "/api" },
+                  { icon: Zap, label: sq(lang, "Pyetje të shpeshta", "FAQ", "Preguntas frecuentes", "Häufige Fragen", "Често поставувани прашања", "FAQ", "FAQ", "FAQ"), href: "/faq" },
                   { icon: Users, label: sq(lang, "Rreth ekipit tonë", "About our team", "Sobre nuestro equipo", "Über unser Team", "За нашиот тим"), href: "/about" },
                 ].map(({ icon: Icon, label, href }, i) => (
                   <Link key={i} href={href}

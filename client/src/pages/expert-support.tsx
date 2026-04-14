@@ -7,9 +7,18 @@ import { Link, useLocation } from 'wouter';
 import { LanguageSelector } from '@/components/LanguageSelector';
 
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const ExpertSupportPage = () => {
   const { currentLanguage: lang } = useLanguage();
@@ -36,7 +45,7 @@ const ExpertSupportPage = () => {
     },
     {
       icon: <Phone className="w-8 h-8" />,
-      title: sq(lang, "Mbështetje Telefonike", "Phone Support", "Soporte Telefónico", "Telefon-Support", "Телефонска Поддршка"),
+      title: sq(lang, "Mbështetje Telefonike", "Phone Support", "Soporte Telefónico", "Telefon-Support", "Телефонска Поддршка", "Assistance téléphonique", "Suporte telefónico", "Supporto telefonico"),
       description: sq(lang, "Flisni drejtpërdrejt me ekspertët tanë të certifikuar për çështje komplekse dhe udhëzime të detajuara.", "Speak directly with our certified experts for complex issues and detailed guidance.", "Hable directamente con nuestros expertos certificados para problemas complejos y orientación detallada.", "Sprechen Sie direkt mit unseren zertifizierten Experten bei komplexen Problemen und detaillierter Anleitung.", "Разговарајте директно со нашите сертифицирани експерти за сложени прашања и детално водство."),
       features: [
         sq(lang, "Linjë e dedikuar mbështetjeje", "Dedicated support line", "Línea de soporte dedicada", "Dedizierte Support-Leitung", "Посветена линија за поддршка") as string,
@@ -54,7 +63,7 @@ const ExpertSupportPage = () => {
         sq(lang, "Trajnim personal", "Personal training", "Entrenamiento personal", "Persönliches Training", "Лична обука") as string,
         sq(lang, "Ndihmë për konfigurim", "Setup assistance", "Asistencia de configuración", "Einrichtungsassistenz", "Помош при поставување") as string
       ],
-      availability: sq(lang, "Orë pune", "Business hours", "Horario laboral", "Geschäftszeiten", "Работно време") as string
+      availability: sq(lang, "Orë pune", "Business hours", "Horario laboral", "Geschäftszeiten", "Работно време", "Heures d'ouverture", "Horário de funcionamento", "Orario di lavoro") as string
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
@@ -110,16 +119,16 @@ const ExpertSupportPage = () => {
             {/* Center - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
               <Button variant="ghost" onClick={() => go("/about")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
             </div>
 
@@ -130,17 +139,17 @@ const ExpertSupportPage = () => {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => go("/subscribe")}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
-              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               <Button 
                 onClick={() => go("/trial")}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               <LanguageSelector />
             </div>
 
@@ -161,22 +170,22 @@ const ExpertSupportPage = () => {
           <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-6 py-4 space-y-4">
               <Button variant="ghost" onClick={() => go("/about")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="w-full justify-start text-gray-600 dark:text-gray-300">
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
-              <Button onClick={() => go("/subscribe")} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
-              <Button onClick={() => go("/trial")} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              <Button onClick={() => go("/subscribe")} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
+              <Button onClick={() => go("/trial")} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
             </div>
           </div>
         )}
@@ -198,12 +207,12 @@ const ExpertSupportPage = () => {
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
               <Headphones className="w-4 h-4 mr-2 text-gray-700" />
-              {sq(lang, "Mbështetje Ekspertësh 24/7", "24/7 Expert Support", "Soporte Experto 24/7", "24/7 Experten-Support", "24/7 Експертска Поддршка")}
+              {sq(lang, "Mbështetje Ekspertësh 24/7", "24/7 Expert Support", "Soporte Experto 24/7", "24/7 Experten-Support", "24/7 Експертска Поддршка", "Assistance d'experts 24/7", "Suporte especializado 24/7", "Supporto esperto 24/7")}
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                {sq(lang, "Mbështetje", "Expert", "Soporte", "Experten-", "Експертска")} <span className="animate-subtle-gradient">{sq(lang, "Ekspertësh", "Support", "Experto", "Support", "Поддршка")}</span>
+                {sq(lang, "Mbështetje", "Expert", "Soporte", "Experten-", "Експертска")} <span className="animate-subtle-gradient">{sq(lang, "Ekspertësh", "Support", "Experto", "Support", "Поддршка", "Assistance", "Suporte", "Supporto")}</span>
               </span>
               <br />
               <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Kur Ju Nevojitet", "When You Need It", "Cuando Lo Necesite", "Wenn Sie Es Brauchen", "Кога Ви Треба")}</span>
@@ -326,7 +335,7 @@ const ExpertSupportPage = () => {
                   className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                 >
                   <Star className="w-5 h-5 mr-2" />
-                  {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба")}
+                  {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
                 </Button>
                 <Button 
                   size="lg"

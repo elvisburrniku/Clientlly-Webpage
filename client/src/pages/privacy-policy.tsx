@@ -4,9 +4,19 @@ import { useLanguage } from "@/lib/i18n";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import Footer from "@/components/Footer";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
+
 
 export default function PrivacyPolicy() {
   const { currentLanguage: lang } = useLanguage();
@@ -322,7 +332,7 @@ Sie können eine sofortige Löschung beantragen, indem Sie uns direkt kontaktier
             </Link>
             <button onClick={() => window.history.back()}
               className="ml-auto flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
-              <ArrowLeft className="h-4 w-4" />{sq(lang,"Kthehu","Back","Atrás","Zurück","Назад")}
+              <ArrowLeft className="h-4 w-4" />{sq(lang, "Kthehu", "Back", "Atrás", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}
             </button>
           </div>
         </div>
@@ -332,7 +342,7 @@ Sie können eine sofortige Löschung beantragen, indem Sie uns direkt kontaktier
         <div className="max-w-5xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full mb-5">
             <Shield className="h-3.5 w-3.5 text-indigo-600" />
-            <span className="text-xs font-semibold text-indigo-700">{sq(lang,"Politika e Privatësisë","Privacy Policy","Política de Privacidad","Datenschutzrichtlinie","Политика за Приватност")}</span>
+            <span className="text-xs font-semibold text-indigo-700">{sq(lang, "Politika e Privatësisë", "Privacy Policy", "Política de Privacidad", "Datenschutzrichtlinie", "Политика за Приватност", "Politique de confidentialité", "Política de privacidade", "Informativa sulla privacy")}</span>
           </div>
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
             {sq(lang,"Privatësia juaj është prioriteti ynë","Your privacy is our priority","Su privacidad es nuestra prioridad","Ihre Privatsphäre ist unsere Priorität","Вашата приватност е наш приоритет")}
@@ -390,7 +400,7 @@ Sie können eine sofortige Löschung beantragen, indem Sie uns direkt kontaktier
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 text-indigo-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">{sq(lang,"Na kontaktoni","Contact us","Contáctenos","Kontaktieren Sie uns","Контактирајте нè")}</h3>
+                    <h3 className="font-bold text-gray-900 mb-1">{sq(lang, "Na kontaktoni", "Contact us", "Contáctenos", "Kontaktieren Sie uns", "Контактирајте нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</h3>
                     <p className="text-sm text-gray-600 mb-2">
                       {sq(lang,
                         "Për çdo pyetje lidhur me privatësinë dhe mbrojtjen e të dhënave:",

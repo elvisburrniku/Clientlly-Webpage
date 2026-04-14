@@ -9,21 +9,31 @@ import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
 
-type T5 = { sq: string; en: string; es?: string; de?: string; mk?: string };
-const pk = (lang: string, t: T5) => { switch(lang) { case 'sq': return t.sq; case 'es': return t.es ?? t.en; case 'de': return t.de ?? t.en; case 'mk': return t.mk ?? t.en; default: return t.en; } };
+
+type T5 = { sq: string; en: string; es?: string; de?: string; mk?: string; fr?: string; pt?: string; it?: string };
+const pk = (lang: string, t: T5) => { switch(lang) { case 'sq': return t.sq; case 'es': return t.es ?? t.en; case 'de': return t.de ?? t.en; case 'mk': return t.mk ?? t.en; case 'fr': return t.fr ?? t.en; case 'pt': return t.pt ?? t.en; case 'it': return t.it ?? t.en; default: return t.en; } };
 
 const PLANS = [
   {
     id: "starter",
-    name: { sq: "Starter", en: "Starter", es: "Inicial", de: "Starter", mk: "Стартер" },
+    name: { sq: "Starter", en: "Starter", es: "Inicial", de: "Starter", mk: "Стартер", fr: "Débutant", pt: "Iniciante", it: "Base" },
     price: 25,
     yearlyPrice: 21.25,
-    users: { sq: "1 përdorues", en: "1 user", es: "1 usuario", de: "1 Benutzer", mk: "1 корисник" },
-    invoices: { sq: "200 fatura / muaj", en: "200 invoices / month", es: "200 facturas / mes", de: "200 Rechnungen / Monat", mk: "200 фактури / месец" },
+    users: { sq: "1 përdorues", en: "1 user", es: "1 usuario", de: "1 Benutzer", mk: "1 корисник", fr: "1 utilisateur", pt: "1 utilizador", it: "1 utente" },
+    invoices: { sq: "200 fatura / muaj", en: "200 invoices / month", es: "200 facturas / mes", de: "200 Rechnungen / Monat", mk: "200 фактури / месец", fr: "200 factures / mois", pt: "200 faturas / mês", it: "200 fatture / mese" },
     color: "border-gray-200",
     badge: null as T5 | null,
     btnClass: "bg-gray-900 hover:bg-gray-700 text-white",
@@ -31,23 +41,23 @@ const PLANS = [
   },
   {
     id: "professional",
-    name: { sq: "Professional", en: "Professional", es: "Profesional", de: "Professionell", mk: "Професионален" },
+    name: { sq: "Professional", en: "Professional", es: "Profesional", de: "Professionell", mk: "Професионален", fr: "Professionnel", pt: "Profissional", it: "Professionale" },
     price: 35,
     yearlyPrice: 29.75,
-    users: { sq: "deri 5 përdorues", en: "up to 5 users", es: "hasta 5 usuarios", de: "bis 5 Benutzer", mk: "до 5 корисници" },
-    invoices: { sq: "500 fatura / muaj", en: "500 invoices / month", es: "500 facturas / mes", de: "500 Rechnungen / Monat", mk: "500 фактури / месец" },
+    users: { sq: "deri 5 përdorues", en: "up to 5 users", es: "hasta 5 usuarios", de: "bis 5 Benutzer", mk: "до 5 корисници", fr: "jusqu'à 5 utilisateurs", pt: "até 5 utilizadores", it: "fino a 5 utenti" },
+    invoices: { sq: "500 fatura / muaj", en: "500 invoices / month", es: "500 facturas / mes", de: "500 Rechnungen / Monat", mk: "500 фактури / месец", fr: "500 factures / mois", pt: "500 faturas / mês", it: "500 fatture / mese" },
     color: "border-indigo-500 ring-2 ring-indigo-500/20",
-    badge: { sq: "Më i Popullarizuari", en: "Most Popular", es: "Más Popular", de: "Am Beliebtesten", mk: "Најпопуларен" } as T5 | null,
+    badge: { sq: "Më i Popullarizuari", en: "Most Popular", es: "Más Popular", de: "Am Beliebtesten", mk: "Најпопуларен", fr: "Le plus populaire", pt: "Mais popular", it: "Il più popolare" } as T5 | null,
     btnClass: "bg-indigo-600 hover:bg-indigo-500 text-white shadow-sm hover:shadow-lg",
     highlight: true,
   },
   {
     id: "enterprise",
-    name: { sq: "Enterprise", en: "Enterprise", es: "Empresarial", de: "Unternehmen", mk: "Претпријатие" },
+    name: { sq: "Enterprise", en: "Enterprise", es: "Empresarial", de: "Unternehmen", mk: "Претпријатие", fr: "Entreprise", pt: "Empresarial", it: "Enterprise" },
     price: 50,
     yearlyPrice: 42.50,
-    users: { sq: "deri 20 përdorues (+€2/shtesë)", en: "up to 20 users (+€2/extra)", es: "hasta 20 usuarios (+€2/extra)", de: "bis 20 Benutzer (+€2/extra)", mk: "до 20 корисници (+€2/дополнителен)" },
-    invoices: { sq: "Pa limit fatura", en: "Unlimited invoices", es: "Facturas ilimitadas", de: "Unbegrenzte Rechnungen", mk: "Неограничени фактури" },
+    users: { sq: "deri 20 përdorues (+€2/shtesë)", en: "up to 20 users (+€2/extra)", es: "hasta 20 usuarios (+€2/extra)", de: "bis 20 Benutzer (+€2/extra)", mk: "до 20 корисници (+€2/дополнителен)", fr: "jusqu'à 20 utilisateurs (+€2/sup.)", pt: "até 20 utilizadores (+€2/extra)", it: "fino a 20 utenti (+€2/extra)" },
+    invoices: { sq: "Pa limit fatura", en: "Unlimited invoices", es: "Facturas ilimitadas", de: "Unbegrenzte Rechnungen", mk: "Неограничени фактури", fr: "Factures illimitées", pt: "Faturas ilimitadas", it: "Fatture illimitate" },
     color: "border-gray-200",
     badge: null as T5 | null,
     btnClass: "bg-gray-900 hover:bg-gray-700 text-white",
@@ -62,53 +72,53 @@ const FEATURE_GROUPS: {
   rows: { label: T5; tip?: T5; starter: CellVal; professional: CellVal; enterprise: CellVal }[];
 }[] = [
   {
-    group: { sq: "Limitet e Planit", en: "Plan Limits", es: "Límites del Plan", de: "Plan-Limits", mk: "Ограничувања на планот" },
+    group: { sq: "Limitet e Planit", en: "Plan Limits", es: "Límites del Plan", de: "Plan-Limits", mk: "Ограничувања на планот", fr: "Limites du plan", pt: "Limites do plano", it: "Limiti del piano" },
     rows: [
-      { label: { sq: "Përdorues", en: "Users", es: "Usuarios", de: "Benutzer", mk: "Корисници" }, starter: "1", professional: "5", enterprise: "20 (+€2)" },
-      { label: { sq: "Fatura / muaj", en: "Invoices / month", es: "Facturas / mes", de: "Rechnungen / Monat", mk: "Фактури / месец" }, starter: "200", professional: "500", enterprise: "∞" },
-      { label: { sq: "Hapësirë ruajtjeje", en: "Storage", es: "Almacenamiento", de: "Speicher", mk: "Складирање" }, starter: "5 GB", professional: "20 GB", enterprise: "100 GB" },
-      { label: { sq: "Mbështetje", en: "Support", es: "Soporte", de: "Support", mk: "Поддршка" }, starter: "Email", professional: "Chat & Email", enterprise: "24/7" },
+      { label: { sq: "Përdorues", en: "Users", es: "Usuarios", de: "Benutzer", mk: "Корисници", fr: "Utilisateurs", pt: "Utilizadores", it: "Utenti" }, starter: "1", professional: "5", enterprise: "20 (+€2)" },
+      { label: { sq: "Fatura / muaj", en: "Invoices / month", es: "Facturas / mes", de: "Rechnungen / Monat", mk: "Фактури / месец", fr: "Factures / mois", pt: "Faturas / mês", it: "Fatture / mese" }, starter: "200", professional: "500", enterprise: "∞" },
+      { label: { sq: "Hapësirë ruajtjeje", en: "Storage", es: "Almacenamiento", de: "Speicher", mk: "Складирање", fr: "Stockage", pt: "Armazenamento", it: "Spazio" }, starter: "5 GB", professional: "20 GB", enterprise: "100 GB" },
+      { label: { sq: "Mbështetje", en: "Support", es: "Soporte", de: "Support", mk: "Поддршка", fr: "Assistance", pt: "Suporte", it: "Supporto" }, starter: "Email", professional: "Chat & Email", enterprise: "24/7" },
     ],
   },
   {
-    group: { sq: "Financë", en: "Finance", es: "Finanzas", de: "Finanzen", mk: "Финансии" },
+    group: { sq: "Financë", en: "Finance", es: "Finanzas", de: "Finanzen", mk: "Финансии", fr: "Finance", pt: "Finanças", it: "Finanza" },
     rows: [
-      { label: { sq: "Faturim Elektronik", en: "Electronic Invoicing", es: "Facturación Electrónica", de: "Elektronische Rechnungsstellung", mk: "Електронско Фактурирање" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Oferta & Kuota Dixhitale", en: "Digital Quotes & Offers", es: "Cotizaciones y Ofertas Digitales", de: "Digitale Angebote & Kostenvoranschläge", mk: "Дигитални Понуди и Офери" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Gjurmim Shpenzimesh", en: "Expense Tracking", es: "Seguimiento de Gastos", de: "Ausgabenverfolgung", mk: "Следење на Трошоци" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Menaxhim Borxhesh", en: "Debt Management", es: "Gestión de Deudas", de: "Schuldenmanagement", mk: "Управување со Долгови" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Nënshkrim Dixhital (Klient + Kompani)", en: "Digital Signature (Client + Company)", es: "Firma Digital (Cliente + Empresa)", de: "Digitale Unterschrift (Kunde + Unternehmen)", mk: "Дигитален Потпис (Клиент + Компанија)" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Gjurmim: hapur → lexuar → nënshkruar", en: "Tracking: opened → read → signed", es: "Seguimiento: abierto → leído → firmado", de: "Verfolgung: geöffnet → gelesen → unterschrieben", mk: "Следење: отворено → прочитано → потпишано" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Rikujtime automatike pagese", en: "Auto payment reminders", es: "Recordatorios de pago automáticos", de: "Automatische Zahlungserinnerungen", mk: "Автоматски потсетници за плаќање" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Faturim Elektronik", en: "Electronic Invoicing", es: "Facturación Electrónica", de: "Elektronische Rechnungsstellung", mk: "Електронско Фактурирање", fr: "Facturation électronique", pt: "Faturação eletrónica", it: "Fatturazione elettronica" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Oferta & Kuota Dixhitale", en: "Digital Quotes & Offers", es: "Cotizaciones y Ofertas Digitales", de: "Digitale Angebote & Kostenvoranschläge", mk: "Дигитални Понуди и Офери", fr: "Devis et offres numériques", pt: "Orçamentos e ofertas digitais", it: "Preventivi e offerte digitali" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Gjurmim Shpenzimesh", en: "Expense Tracking", es: "Seguimiento de Gastos", de: "Ausgabenverfolgung", mk: "Следење на Трошоци", fr: "Suivi des dépenses", pt: "Controlo de despesas", it: "Monitoraggio spese" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Menaxhim Borxhesh", en: "Debt Management", es: "Gestión de Deudas", de: "Schuldenmanagement", mk: "Управување со Долгови", fr: "Gestion des dettes", pt: "Gestão de dívidas", it: "Gestione dei debiti" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Nënshkrim Dixhital (Klient + Kompani)", en: "Digital Signature (Client + Company)", es: "Firma Digital (Cliente + Empresa)", de: "Digitale Unterschrift (Kunde + Unternehmen)", mk: "Дигитален Потпис (Клиент + Компанија)", fr: "Signature numérique (Client + Société)", pt: "Assinatura digital (Cliente + Empresa)", it: "Firma digitale (Cliente + Azienda)" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Gjurmim: hapur → lexuar → nënshkruar", en: "Tracking: opened → read → signed", es: "Seguimiento: abierto → leído → firmado", de: "Verfolgung: geöffnet → gelesen → unterschrieben", mk: "Следење: отворено → прочитано → потпишано", fr: "Suivi: ouvert → lu → signé", pt: "Rastreamento: aberto → lido → assinado", it: "Tracciamento: aperto → letto → firmato" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Rikujtime automatike pagese", en: "Auto payment reminders", es: "Recordatorios de pago automáticos", de: "Automatische Zahlungserinnerungen", mk: "Автоматски потсетници за плаќање", fr: "Rappels de paiement automatiques", pt: "Lembretes de pagamento automáticos", it: "Promemoria di pagamento automatici" }, starter: true, professional: true, enterprise: true },
     ],
   },
   {
-    group: { sq: "Raporte & Analitikë", en: "Reports & Analytics", es: "Informes y Análisis", de: "Berichte & Analysen", mk: "Извештаи и Аналитика" },
+    group: { sq: "Raporte & Analitikë", en: "Reports & Analytics", es: "Informes y Análisis", de: "Berichte & Analysen", mk: "Извештаи и Аналитика", fr: "Rapports et analyses", pt: "Relatórios e análises", it: "Report e analisi" },
     rows: [
-      { label: { sq: "Raporte financiare", en: "Financial reports", es: "Informes financieros", de: "Finanzberichte", mk: "Финансиски извештаи" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Pasqyrë e të ardhurave & shpenzimeve", en: "Revenue & expense overview", es: "Resumen de ingresos y gastos", de: "Einnahmen- & Ausgabenübersicht", mk: "Преглед на приходи и трошоци" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Eksport PDF / Excel", en: "PDF / Excel export", es: "Exportar PDF / Excel", de: "PDF / Excel Export", mk: "PDF / Excel извоз" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Analitikë e avancuar", en: "Advanced analytics", es: "Análisis avanzado", de: "Erweiterte Analysen", mk: "Напредна аналитика" }, starter: false, professional: true, enterprise: true },
-      { label: { sq: "Raporte me porosi (custom)", en: "Custom reports", es: "Informes personalizados", de: "Benutzerdefinierte Berichte", mk: "Прилагодени извештаи" }, starter: false, professional: false, enterprise: true },
+      { label: { sq: "Raporte financiare", en: "Financial reports", es: "Informes financieros", de: "Finanzberichte", mk: "Финансиски извештаи", fr: "Rapports financiers", pt: "Relatórios financeiros", it: "Report finanziari" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Pasqyrë e të ardhurave & shpenzimeve", en: "Revenue & expense overview", es: "Resumen de ingresos y gastos", de: "Einnahmen- & Ausgabenübersicht", mk: "Преглед на приходи и трошоци", fr: "Aperçu des revenus et dépenses", pt: "Visão geral de receitas e despesas", it: "Panoramica entrate e spese" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Eksport PDF / Excel", en: "PDF / Excel export", es: "Exportar PDF / Excel", de: "PDF / Excel Export", mk: "PDF / Excel извоз", fr: "Exportation PDF / Excel", pt: "Exportação PDF / Excel", it: "Esportazione PDF / Excel" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Analitikë e avancuar", en: "Advanced analytics", es: "Análisis avanzado", de: "Erweiterte Analysen", mk: "Напредна аналитика", fr: "Analyse avancée", pt: "Análise avançada", it: "Analisi avanzata" }, starter: false, professional: true, enterprise: true },
+      { label: { sq: "Raporte me porosi (custom)", en: "Custom reports", es: "Informes personalizados", de: "Benutzerdefinierte Berichte", mk: "Прилагодени извештаи", fr: "Rapports personnalisés", pt: "Relatórios personalizados", it: "Report personalizzati" }, starter: false, professional: false, enterprise: true },
     ],
   },
   {
-    group: { sq: "Klientë & Furnitorë", en: "Clients & Vendors", es: "Clientes y Proveedores", de: "Kunden & Lieferanten", mk: "Клиенти и Добавувачи" },
+    group: { sq: "Klientë & Furnitorë", en: "Clients & Vendors", es: "Clientes y Proveedores", de: "Kunden & Lieferanten", mk: "Клиенти и Добавувачи", fr: "Clients et fournisseurs", pt: "Clientes e fornecedores", it: "Clienti e fornitori" },
     rows: [
-      { label: { sq: "CRM — Menaxhim Klientësh", en: "CRM — Client Management", es: "CRM — Gestión de Clientes", de: "CRM — Kundenverwaltung", mk: "CRM — Управување со Клиенти" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Historik komunikimi", en: "Communication history", es: "Historial de comunicación", de: "Kommunikationsverlauf", mk: "Историја на комуникација" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Menaxhim Furnitorësh", en: "Vendor Management", es: "Gestión de Proveedores", de: "Lieferantenverwaltung", mk: "Управување со Добавувачи" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Porosi blerje (PO)", en: "Purchase orders (PO)", es: "Órdenes de compra (PO)", de: "Bestellungen (PO)", mk: "Нарачки за купување (PO)" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "CRM — Menaxhim Klientësh", en: "CRM — Client Management", es: "CRM — Gestión de Clientes", de: "CRM — Kundenverwaltung", mk: "CRM — Управување со Клиенти", fr: "CRM — Gestion des clients", pt: "CRM — Gestão de clientes", it: "CRM — Gestione clienti" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Historik komunikimi", en: "Communication history", es: "Historial de comunicación", de: "Kommunikationsverlauf", mk: "Историја на комуникација", fr: "Historique des communications", pt: "Histórico de comunicação", it: "Cronologia delle comunicazioni" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Menaxhim Furnitorësh", en: "Vendor Management", es: "Gestión de Proveedores", de: "Lieferantenverwaltung", mk: "Управување со Добавувачи", fr: "Gestion des fournisseurs", pt: "Gestão de fornecedores", it: "Gestione fornitori" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Porosi blerje (PO)", en: "Purchase orders (PO)", es: "Órdenes de compra (PO)", de: "Bestellungen (PO)", mk: "Нарачки за купување (PO)", fr: "Bons de commande (BC)", pt: "Ordens de compra (OC)", it: "Ordini di acquisto (OA)" }, starter: true, professional: true, enterprise: true },
     ],
   },
   {
-    group: { sq: "Operacione", en: "Operations", es: "Operaciones", de: "Betrieb", mk: "Операции" },
+    group: { sq: "Operacione", en: "Operations", es: "Operaciones", de: "Betrieb", mk: "Операции", fr: "Opérations", pt: "Operações", it: "Operazioni" },
     rows: [
-      { label: { sq: "Menaxhim Inventarit", en: "Inventory Management", es: "Gestión de Inventario", de: "Bestandsverwaltung", mk: "Управување со Залихи" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Alarme rezerva të ulëta", en: "Low-stock alerts", es: "Alertas de stock bajo", de: "Niedrigbestand-Warnungen", mk: "Предупредувања за низок залиха" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Prezencë me GPS", en: "GPS Attendance", es: "Asistencia con GPS", de: "GPS-Anwesenheit", mk: "GPS Присуство" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Motorpool / Menaxhim Flotë", en: "Motorpool / Fleet Management", es: "Gestión de Flota", de: "Fuhrparkverwaltung", mk: "Управување со Флота" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Kalendarë & Caktim takimesh", en: "Calendar & Meeting scheduler", es: "Calendario y Programador de reuniones", de: "Kalender & Terminplaner", mk: "Календар и Закажувач на состаноци" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Menaxhim Inventarit", en: "Inventory Management", es: "Gestión de Inventario", de: "Bestandsverwaltung", mk: "Управување со Залихи", fr: "Gestion des stocks", pt: "Gestão de inventário", it: "Gestione magazzino" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Alarme rezerva të ulëta", en: "Low-stock alerts", es: "Alertas de stock bajo", de: "Niedrigbestand-Warnungen", mk: "Предупредувања за низок залиха", fr: "Alertes de stock bas", pt: "Alertas de stock baixo", it: "Avvisi di scorte basse" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Prezencë me GPS", en: "GPS Attendance", es: "Asistencia con GPS", de: "GPS-Anwesenheit", mk: "GPS Присуство", fr: "Présence GPS", pt: "Presença GPS", it: "Presenze GPS" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Motorpool / Menaxhim Flotë", en: "Motorpool / Fleet Management", es: "Gestión de Flota", de: "Fuhrparkverwaltung", mk: "Управување со Флота", fr: "Gestion de flotte", pt: "Gestão de frota", it: "Gestione flotta" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Kalendarë & Caktim takimesh", en: "Calendar & Meeting scheduler", es: "Calendario y Programador de reuniones", de: "Kalender & Terminplaner", mk: "Календар и Закажувач на состаноци", fr: "Calendrier et planificateur de réunions", pt: "Calendário e agendador de reuniões", it: "Calendario e pianificatore riunioni" }, starter: true, professional: true, enterprise: true },
     ],
   },
   {
@@ -125,8 +135,8 @@ const FEATURE_GROUPS: {
     group: { sq: "Siguria & Integrimi", en: "Security & Integration", es: "Seguridad e Integración", de: "Sicherheit & Integration", mk: "Безбедност и Интеграција" },
     rows: [
       { label: { sq: "Kriptim TLS 256-bit", en: "TLS 256-bit encryption", es: "Cifrado TLS 256-bit", de: "TLS 256-Bit Verschlüsselung", mk: "TLS 256-бит Енкрипција" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Qasje API", en: "API access", es: "Acceso API", de: "API-Zugang", mk: "API пристап" }, starter: true, professional: true, enterprise: true },
-      { label: { sq: "Webhooks", en: "Webhooks", es: "Webhooks", de: "Webhooks", mk: "Webhooks" }, starter: false, professional: true, enterprise: true },
+      { label: { sq: "Qasje API", en: "API access", es: "Acceso API", de: "API-Zugang", mk: "API пристап", fr: "Accès API", pt: "Acesso à API", it: "Accesso API" }, starter: true, professional: true, enterprise: true },
+      { label: { sq: "Webhooks", en: "Webhooks", es: "Webhooks", de: "Webhooks", mk: "Webhooks", fr: "Webhooks", pt: "Webhooks", it: "Webhook" }, starter: false, professional: true, enterprise: true },
       { label: { sq: "SSO / Active Directory", en: "SSO / Active Directory", es: "SSO / Active Directory", de: "SSO / Active Directory", mk: "SSO / Active Directory" }, starter: false, professional: false, enterprise: true },
       { label: { sq: "Log auditimi", en: "Audit log", es: "Registro de auditoría", de: "Audit-Protokoll", mk: "Ревизорски дневник" }, starter: false, professional: true, enterprise: true },
     ],
@@ -166,11 +176,11 @@ export default function CompareFeatures() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-              <Link href="/compare-features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Krahaso Planet", "Compare Plans", "Comparar Planes", "Pläne Vergleichen", "Споредете Планови")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+              <Link href="/compare-features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Krahaso Planet", "Compare Plans", "Comparar Planes", "Pläne Vergleichen", "Споредете Планови", "Comparer les plans", "Comparar planos", "Confronta piani")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
@@ -187,10 +197,10 @@ export default function CompareFeatures() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             <div className="pt-2 flex flex-col gap-2">
             </div>
           </div>
@@ -220,10 +230,10 @@ export default function CompareFeatures() {
       <section className="md:hidden py-8 px-4 bg-gray-50 border-b border-gray-100">
         <div className="mb-4 flex items-center justify-center gap-1 p-1 bg-white rounded-xl border border-gray-200 w-fit mx-auto">
           <button onClick={() => setBilling("monthly")} className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all ${billing === "monthly" ? "bg-indigo-600 text-white shadow-sm" : "text-gray-500"}`}>
-            {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно")}
+            {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно", "Mensuel", "Mensal", "Mensile")}
           </button>
           <button onClick={() => setBilling("yearly")} className={`px-4 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center gap-1 ${billing === "yearly" ? "bg-indigo-600 text-white shadow-sm" : "text-gray-500"}`}>
-            {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно")}
+            {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно", "Annuel", "Anual", "Annuale")}
             <span className="text-[9px] font-bold text-emerald-500 bg-emerald-50 px-1 py-0.5 rounded">-15%</span>
           </button>
         </div>
@@ -239,10 +249,10 @@ export default function CompareFeatures() {
               <p className={`text-2xl font-extrabold ${plan.highlight ? "text-indigo-600" : "text-gray-900"}`}>
                 €{billing === "yearly" ? plan.yearlyPrice.toFixed(0) : plan.price}
               </p>
-              <p className="text-[9px] text-gray-400">/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.")}</p>
+              <p className="text-[9px] text-gray-400">/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.", "mois", "mês", "mese")}</p>
               <p className="text-[9px] text-gray-500 mt-1 leading-tight">{pk(lang, plan.users)}</p>
               <button onClick={() => { window.location.href = `/subscribe?plan=${plan.id}&billing=${billing}`; }} className={`mt-2 w-full py-1.5 rounded-lg text-[10px] font-bold transition-all ${plan.highlight ? "bg-indigo-600 text-white" : "bg-gray-900 text-white"}`}>
-                {sq(lang, "Zgjidhni →", "Select →", "Elegir →", "Wählen →", "Изберете →")}
+                {sq(lang, "Zgjidhni →", "Select →", "Elegir →", "Wählen →", "Изберете →", "Choisir →", "Selecionar →", "Seleziona →")}
               </button>
             </div>
           ))}
@@ -256,15 +266,15 @@ export default function CompareFeatures() {
           <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-sm mb-4">
             <div className="bg-indigo-600 px-6 py-5">
               <h2 className="text-xl font-extrabold text-white mb-0.5">
-                {sq(lang, "Krahasim i plotë i veçorive", "Full Feature Comparison", "Comparación completa de funciones", "Vollständiger Funktionsvergleich", "Целосна споредба на функции")}
+                {sq(lang, "Krahasim i plotë i veçorive", "Full Feature Comparison", "Comparación completa de funciones", "Vollständiger Funktionsvergleich", "Целосна споредба на функции", "Comparaison complète des fonctionnalités", "Comparação completa de funcionalidades", "Confronto completo delle funzionalità")}
               </h2>
               <p className="text-indigo-200 text-sm">
-                {sq(lang, "Shihni çfarë përfshin secili plan në detaje", "See exactly what each plan includes in detail", "Vea exactamente qué incluye cada plan en detalle", "Sehen Sie genau, was jeder Plan im Detail enthält", "Видете точно што вклучува секој план во детали")}
+                {sq(lang, "Shihni çfarë përfshin secili plan në detaje", "See exactly what each plan includes in detail", "Vea exactamente qué incluye cada plan en detalle", "Sehen Sie genau, was jeder Plan im Detail enthält", "Видете точно што вклучува секој план во детали", "Voyez exactement ce que chaque plan inclut en détail", "Veja exatamente o que cada plano inclui em detalhe", "Vedi esattamente cosa include ogni piano nel dettaglio")}
               </p>
             </div>
             <div className="hidden md:grid grid-cols-12 items-center px-5 py-3 bg-gray-50 border-t border-gray-200">
               <div className="col-span-6 text-xs font-semibold text-gray-400 uppercase tracking-widest">
-                {sq(lang, "Veçoria", "Feature", "Función", "Funktion", "Функција")}
+                {sq(lang, "Veçoria", "Feature", "Función", "Funktion", "Функција", "Fonctionnalité", "Funcionalidade", "Funzionalità")}
               </div>
               {PLANS.map(plan => (
                 <div key={plan.id} className={`col-span-2 text-center text-xs font-bold uppercase tracking-widest ${plan.highlight ? "text-indigo-600" : "text-gray-500"}`}>
@@ -323,7 +333,7 @@ export default function CompareFeatures() {
 
           {/* Legend */}
           <div className="flex flex-wrap gap-4 justify-center mt-5 text-xs text-gray-400">
-            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-indigo-600" /> {sq(lang, "I përfshirë", "Included", "Incluido", "Enthalten", "Вклучено")}</span>
+            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-indigo-600" /> {sq(lang, "I përfshirë", "Included", "Incluido", "Enthalten", "Вклучено", "Inclus", "Incluído", "Incluso")}</span>
             <span className="flex items-center gap-1.5"><Minus className="h-3.5 w-3.5 text-gray-300" /> {sq(lang, "Nuk është i disponueshëm", "Not available", "No disponible", "Nicht verfügbar", "Не е достапно")}</span>
           </div>
         </div>
@@ -333,7 +343,7 @@ export default function CompareFeatures() {
       <section className="py-12 px-6 bg-gray-50 border-t border-gray-100">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-xl font-extrabold text-gray-900 mb-6 text-center">
-            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufig Gestellte Fragen", "Често Поставувани Прашања")}
+            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufig Gestellte Fragen", "Често Поставувани Прашања", "Questions fréquemment posées", "Perguntas frequentes", "Domande frequenti")}
           </h2>
           {[
             {
@@ -425,7 +435,7 @@ export default function CompareFeatures() {
             >
               <span className="flex flex-col items-start leading-tight">
                 <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
-                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба")}</span>
+                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
@@ -434,13 +444,13 @@ export default function CompareFeatures() {
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200 text-sm"
             >
               <CreditCard className="h-4 w-4" />
-              {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+              {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
             </button>
           </div>
           <div className="flex flex-wrap justify-center gap-5 mt-6">
             {[
               { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка") },
-              { icon: Check, label: sq(lang, "Anulo kur dëshironi", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете кога сакате") },
+              { icon: Check, label: sq(lang, "Anulo kur dëshironi", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете кога сакате", "Résiliez à tout moment", "Cancele a qualquer momento", "Annulla quando vuoi") },
               { icon: Zap, label: sq(lang, "Qasje e menjëhershme", "Instant access", "Acceso instantáneo", "Sofortiger Zugang", "Моментален пристап") },
             ].map(({ icon: Icon, label }, i) => (
               <span key={i} className="flex items-center gap-1.5 text-xs text-gray-500">

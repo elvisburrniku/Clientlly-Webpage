@@ -7,9 +7,18 @@ import { Link, useLocation } from 'wouter';
 import { LanguageSelector } from '@/components/LanguageSelector';
 
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const BankSecurityPage = () => {
   const { currentLanguage: lang } = useLanguage();
@@ -139,16 +148,16 @@ const BankSecurityPage = () => {
             {/* Center - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
               <Button variant="ghost" onClick={() => go("/about")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
             </div>
 
@@ -159,17 +168,17 @@ const BankSecurityPage = () => {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => go("/subscribe")}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
-              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               <Button 
                 onClick={() => go("/trial")}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               <LanguageSelector />
             </div>
 
@@ -190,22 +199,22 @@ const BankSecurityPage = () => {
           <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-6 py-4 space-y-4">
               <Button variant="ghost" onClick={() => go("/about")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="w-full justify-start text-gray-600 dark:text-gray-300">
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
-              <Button onClick={() => go("/subscribe")} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
-              <Button onClick={() => go("/trial")} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              <Button onClick={() => go("/subscribe")} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
+              <Button onClick={() => go("/trial")} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
             </div>
           </div>
         )}
@@ -232,7 +241,7 @@ const BankSecurityPage = () => {
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                {sq(lang, "Siguri e Nivelit", "Bank-Level", "Seguridad de Nivel", "Sicherheit auf", "Безбедност на Ниво")} <span className="animate-subtle-gradient">{sq(lang, "Bankar", "Security", "Bancario", "Bankniveau", "Банка")}</span>
+                {sq(lang, "Siguri e Nivelit", "Bank-Level", "Seguridad de Nivel", "Sicherheit auf", "Безбедност на Ниво")} <span className="animate-subtle-gradient">{sq(lang, "Bankar", "Security", "Bancario", "Bankniveau", "Банка", "Sécurité", "Segurança", "Sicurezza")}</span>
               </span>
               <br />
               <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Mbrojtje", "Protection", "Protección", "Schutz", "Заштита")}</span>
@@ -247,7 +256,7 @@ const BankSecurityPage = () => {
                 onClick={() => go("/trial")}
                 className="px-8 py-4 bg-gray-900 text-white hover:bg-gray-800 rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
               >
-                {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба")}
+                {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion Starten", "Започни Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
               </Button>
               <Button 
                 onClick={() => go("/subscribe")}
@@ -266,7 +275,7 @@ const BankSecurityPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
-              {sq(lang, "Veçori Sigurie", "Enterprise", "Funciones de Seguridad", "Sicherheitsfunktionen", "Безбедносни Функции")} <span className="animate-subtle-gradient">{sq(lang, "Enterprise", "Security Features", "Empresariales", "für Unternehmen", "за Претпријатија")}</span>
+              {sq(lang, "Veçori Sigurie", "Enterprise", "Funciones de Seguridad", "Sicherheitsfunktionen", "Безбедносни Функции", "Entreprise", "Empresarial", "Enterprise")} <span className="animate-subtle-gradient">{sq(lang, "Enterprise", "Security Features", "Empresariales", "für Unternehmen", "за Претпријатија")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Mbrojtje sigurie me shumë shtresa që tejkalon standardet e industrisë dhe kërkesat rregullative.", "Multi-layered security protection that exceeds industry standards and regulatory requirements.", "Protección de seguridad multicapa que supera los estándares de la industria y los requisitos regulatorios.", "Mehrschichtiger Sicherheitsschutz, der Branchenstandards und regulatorische Anforderungen übertrifft.", "Повеќеслојна безбедносна заштита што ги надминува индустриските стандарди и регулаторните барања.")}
@@ -304,7 +313,7 @@ const BankSecurityPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              {sq(lang, "Pajtueshmëria me", "Industry", "Cumplimiento de la", "Branchenkonformität", "Индустриска")} <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Industrinë", "Compliance", "Industria", "Compliance", "Усогласеност")}</span>
+              {sq(lang, "Pajtueshmëria me", "Industry", "Cumplimiento de la", "Branchenkonformität", "Индустриска", "Secteur", "Setor", "Settore")} <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Industrinë", "Compliance", "Industria", "Compliance", "Усогласеност")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Ne plotësojmë ose tejkalojmë të gjitha standardet kryesore të sigurisë dhe privatësisë.", "We meet or exceed all major security and privacy compliance standards.", "Cumplimos o superamos todos los principales estándares de seguridad y privacidad.", "Wir erfüllen oder übertreffen alle wichtigen Sicherheits- und Datenschutzstandards.", "Ги исполнуваме или надминуваме сите главни стандарди за безбедност и приватност.")}
@@ -330,7 +339,7 @@ const BankSecurityPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              {sq(lang, "Masat e", "Security", "Medidas de", "Sicherheits-", "Безбедносни")} <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Sigurisë", "Measures", "Seguridad", "Maßnahmen", "Мерки")}</span>
+              {sq(lang, "Masat e", "Security", "Medidas de", "Sicherheits-", "Безбедносни", "Sécurité", "Segurança", "Sicurezza")} <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Sigurisë", "Measures", "Seguridad", "Maßnahmen", "Мерки")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Mbrojtje gjithëpërfshirëse në çdo nivel të infrastrukturës dhe aplikacionit tonë.", "Comprehensive protection at every level of our infrastructure and application.", "Protección integral en cada nivel de nuestra infraestructura y aplicación.", "Umfassender Schutz auf jeder Ebene unserer Infrastruktur und Anwendung.", "Сеопфатна заштита на секое ниво на нашата инфраструктура и апликација.")}

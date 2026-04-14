@@ -51,7 +51,18 @@ import {
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
+}
 
 interface SubscriptionStatus {
   hasSubscription: boolean;
@@ -98,11 +109,11 @@ export default function Dashboard() {
 
   const chartConfig = {
     revenue: {
-      label: sq(lang, "Të ardhurat", "Revenue", "Ingresos", "Einnahmen", "Приходи") as string,
+      label: sq(lang, "Të ardhurat", "Revenue", "Ingresos", "Einnahmen", "Приходи", "Revenus", "Receitas", "Entrate") as string,
       color: "#2563eb",
     },
     expenses: {
-      label: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string,
+      label: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string,
       color: "#dc2626",
     },
     profit: {
@@ -152,9 +163,9 @@ export default function Dashboard() {
 
   const getTimeBasedGreeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return sq(lang, "Mirëmëngjes", "Good morning", "Buenos días", "Guten Morgen", "Добро утро") as string;
-    if (hour < 17) return sq(lang, "Mirëdita", "Good afternoon", "Buenas tardes", "Guten Tag", "Добар ден") as string;
-    return sq(lang, "Mirëmbrëmje", "Good evening", "Buenas noches", "Guten Abend", "Добра вечер") as string;
+    if (hour < 12) return sq(lang, "Mirëmëngjes", "Good morning", "Buenos días", "Guten Morgen", "Добро утро", "Bonjour", "Bom dia", "Buongiorno") as string;
+    if (hour < 17) return sq(lang, "Mirëdita", "Good afternoon", "Buenas tardes", "Guten Tag", "Добар ден", "Bon après-midi", "Boa tarde", "Buon pomeriggio") as string;
+    return sq(lang, "Mirëmbrëmje", "Good evening", "Buenas noches", "Guten Abend", "Добра вечер", "Bonsoir", "Boa noite", "Buonasera") as string;
   };
 
   const getPersonalizedMessage = () => {
@@ -248,7 +259,7 @@ export default function Dashboard() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50/50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900/50 flex items-center justify-center">
         <FeatureLoader 
-          feature={sq(lang, "Paneli", "Dashboard", "Panel", "Dashboard", "Табла") as string}
+          feature={sq(lang, "Paneli", "Dashboard", "Panel", "Dashboard", "Табла", "Tableau de bord", "Painel", "Pannello") as string}
           steps={[
             sq(lang, "Duke ngarkuar të dhënat e përdoruesit", "Loading user data", "Cargando datos del usuario", "Benutzerdaten laden", "Вчитување кориснички податоци") as string,
             sq(lang, "Duke vendosur hapësirën e punës", "Setting up workspace", "Configurando espacio de trabajo", "Arbeitsbereich einrichten", "Поставување работен простор") as string,
@@ -267,7 +278,7 @@ export default function Dashboard() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'active':
-        return <Badge className="bg-green-100 text-green-800"><CheckCircle className="h-3 w-3 mr-1" />{sq(lang, "Aktiv", "Active", "Activo", "Aktiv", "Активно")}</Badge>;
+        return <Badge className="bg-green-100 text-green-800"><CheckCircle className="h-3 w-3 mr-1" />{sq(lang, "Aktiv", "Active", "Activo", "Aktiv", "Активно", "Actif", "Ativo", "Attivo")}</Badge>;
       case 'past_due':
         return <Badge variant="destructive"><AlertCircle className="h-3 w-3 mr-1" />{sq(lang, "Me vonesë", "Past Due", "Vencido", "Überfällig", "Задоцнето")}</Badge>;
       case 'canceled':
@@ -278,7 +289,7 @@ export default function Dashboard() {
   };
 
   const formatPlanName = (plan: string) => {
-    return plan?.charAt(0).toUpperCase() + plan?.slice(1) + ` ${sq(lang, "Plani", "Plan", "Plan", "Plan", "План")}` || sq(lang, "Pa Plan", "No Plan", "Sin Plan", "Kein Plan", "Без план") as string;
+    return plan?.charAt(0).toUpperCase() + plan?.slice(1) + ` ${sq(lang, "Plani", "Plan", "Plan", "Plan", "План", "Plan", "Plano", "Piano")}` || sq(lang, "Pa Plan", "No Plan", "Sin Plan", "Kein Plan", "Без план") as string;
   };
 
   return (
@@ -325,14 +336,14 @@ export default function Dashboard() {
                   {(user as any)?.firstName || (user as any)?.email || sq(lang, 'Përdorues', 'User', 'Usuario', 'Benutzer', 'Корисник')}
                 </span>
               </div>
-              <Button variant="ghost" size="icon" title={sq(lang, "Cilësimet", "Settings", "Configuración", "Einstellungen", "Поставки") as string}>
+              <Button variant="ghost" size="icon" title={sq(lang, "Cilësimet", "Settings", "Configuración", "Einstellungen", "Поставки", "Paramètres", "Definições", "Impostazioni") as string}>
                 <Settings className="h-4 w-4" />
               </Button>
               <Button 
                 variant="ghost" 
                 size="icon"
                 onClick={() => window.location.href = "/api/logout"}
-                title={sq(lang, "Dil", "Logout", "Cerrar sesión", "Abmelden", "Одјави се") as string}
+                title={sq(lang, "Dil", "Logout", "Cerrar sesión", "Abmelden", "Одјави се", "Déconnexion", "Terminar sessão", "Esci") as string}
               >
                 <LogOut className="h-4 w-4" />
               </Button>
@@ -477,7 +488,7 @@ export default function Dashboard() {
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                   <span className="text-blue-700 dark:text-blue-300 text-sm font-medium">
-                    {subscriptionStatus?.hasSubscription ? `${subscriptionStatus.subscriptionPlan} ${sq(lang, "Plani", "Plan", "Plan", "Plan", "План")}` : sq(lang, "Plani Falas", "Free Plan", "Plan Gratis", "Kostenloser Plan", "Бесплатен план")}
+                    {subscriptionStatus?.hasSubscription ? `${subscriptionStatus.subscriptionPlan} ${sq(lang, "Plani", "Plan", "Plan", "Plan", "План", "Plan", "Plano", "Piano")}` : sq(lang, "Plani Falas", "Free Plan", "Plan Gratis", "Kostenloser Plan", "Бесплатен план")}
                   </span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
@@ -486,11 +497,11 @@ export default function Dashboard() {
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <TrendingUp className="w-4 h-4 text-green-500" />
-                  <span className="text-green-700 dark:text-green-300 text-sm font-medium">{personalizedStats.invoices} {sq(lang, "Fatura", "Invoices", "Facturas", "Rechnungen", "Фактури")}</span>
+                  <span className="text-green-700 dark:text-green-300 text-sm font-medium">{personalizedStats.invoices} {sq(lang, "Fatura", "Invoices", "Facturas", "Rechnungen", "Фактури", "Factures", "Faturas", "Fatture")}</span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <Calendar className="w-4 h-4 text-blue-500" />
-                  <span className="text-blue-700 dark:text-blue-300 text-sm font-medium">{personalizedStats.tasks} {sq(lang, "Detyra", "Tasks", "Tareas", "Aufgaben", "Задачи")}</span>
+                  <span className="text-blue-700 dark:text-blue-300 text-sm font-medium">{personalizedStats.tasks} {sq(lang, "Detyra", "Tasks", "Tareas", "Aufgaben", "Задачи", "Tâches", "Tarefas", "Attività")}</span>
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <Clock className="w-4 h-4 text-purple-500" />
@@ -631,8 +642,8 @@ export default function Dashboard() {
                   <XAxis dataKey="month" />
                   <YAxis />
                   <ChartTooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="revenue" fill="#2563eb" name={sq(lang, "Të ardhurat", "Revenue", "Ingresos", "Einnahmen", "Приходи") as string} />
-                  <Bar dataKey="expenses" fill="#dc2626" name={sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string} />
+                  <Bar dataKey="revenue" fill="#2563eb" name={sq(lang, "Të ardhurat", "Revenue", "Ingresos", "Einnahmen", "Приходи", "Revenus", "Receitas", "Entrate") as string} />
+                  <Bar dataKey="expenses" fill="#dc2626" name={sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string} />
                   <Bar dataKey="profit" fill="#16a34a" name={sq(lang, "Fitimi", "Profit", "Ganancia", "Gewinn", "Профит") as string} />
                 </BarChart>
               </ResponsiveContainer>
@@ -644,7 +655,7 @@ export default function Dashboard() {
           {[
             { 
               icon: FileText, 
-              title: sq(lang, "Faturat", "Invoices", "Facturas", "Rechnungen", "Фактури") as string,
+              title: sq(lang, "Faturat", "Invoices", "Facturas", "Rechnungen", "Фактури", "Factures", "Faturas", "Fatture") as string,
               description: sq(lang, "Menaxhoni rrjedhën tuaj të faturimit", "Manage your invoicing workflow", "Gestiona tu flujo de facturación", "Verwalten Sie Ihren Rechnungsworkflow", "Управувајте со вашиот тек на фактурирање") as string,
               count: "247",
               color: "from-blue-500 to-blue-600",
@@ -652,7 +663,7 @@ export default function Dashboard() {
             },
             { 
               icon: Receipt, 
-              title: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string,
+              title: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string,
               description: sq(lang, "Gjurmoni shpenzimet e biznesit", "Track business expenses", "Registra gastos del negocio", "Geschäftsausgaben verfolgen", "Следете деловни трошоци") as string,
               count: "89",
               color: "from-green-500 to-green-600",
@@ -660,7 +671,7 @@ export default function Dashboard() {
             },
             { 
               icon: Users, 
-              title: sq(lang, "Klientët", "Clients", "Clientes", "Kunden", "Клиенти") as string,
+              title: sq(lang, "Klientët", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti") as string,
               description: sq(lang, "Menaxhimi i marrëdhënieve me klientët", "Customer relationship management", "Gestión de relaciones con clientes", "Kundenbeziehungsmanagement", "Управување со односи со клиенти") as string,
               count: "156",
               color: "from-purple-500 to-purple-600",

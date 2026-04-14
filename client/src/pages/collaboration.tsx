@@ -10,9 +10,19 @@ import Footer from "@/components/Footer";
 import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useTranslation } from "@/hooks/useTranslation";
 
-function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return albanian; case 'es': return es ?? english; case 'de': return de ?? english; case 'mk': return mk ?? english; default: return english; }
+function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return albanian;
+    case 'es': return es ?? english;
+    case 'de': return de ?? english;
+    case 'mk': return mk ?? english;
+    case 'fr': return fr ?? english;
+    case 'pt': return pt ?? english;
+    case 'it': return it ?? english;
+    default:   return english;
+  }
 }
+
 
 export default function CollaborationPage() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -183,10 +193,10 @@ export default function CollaborationPage() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-3 ml-auto">
@@ -204,10 +214,10 @@ export default function CollaborationPage() {
 
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             <div className="pt-2"></div>
           </div>
         )}
@@ -249,7 +259,7 @@ export default function CollaborationPage() {
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-xl mx-auto">
               {[
                 { value: "48h", label: sq(lang, "Kohë Përgjigje", "Response Time", "Tiempo de respuesta", "Reaktionszeit", "Време на одговор") },
-                { value: "100%", label: sq(lang, "Falas", "Free", "Gratis", "Kostenlos", "Бесплатно") },
+                { value: "100%", label: sq(lang, "Falas", "Free", "Gratis", "Kostenlos", "Бесплатно", "Gratuit", "Gratuito", "Gratuito") },
                 { value: "1-3 jav", label: sq(lang, "Dërgim", "Delivery", "Entrega", "Lieferung", "Испорака") },
               ].map(({ value, label }) => (
                 <div key={value} className="text-center">
@@ -340,7 +350,7 @@ export default function CollaborationPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Histori Suksesi", "Success Stories", "Historias de éxito", "Erfolgsgeschichten", "Приказни за успех")}
+              {sq(lang, "Histori Suksesi", "Success Stories", "Historias de éxito", "Erfolgsgeschichten", "Приказни за успех", "Histoires de succès", "Histórias de sucesso", "Storie di successo")}
             </p>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang, "Bizneset flasin", "Businesses speak", "Los negocios hablan", "Unternehmen sprechen", "Бизнисите зборуваат")}

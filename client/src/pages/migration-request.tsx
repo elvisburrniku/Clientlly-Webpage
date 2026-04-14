@@ -28,9 +28,18 @@ import { LanguageSelector } from '@/components/LanguageSelector';
 import { useToast } from '@/hooks/use-toast';
 
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const MigrationRequestPage = () => {
   const { currentLanguage: lang } = useLanguage();
@@ -108,7 +117,7 @@ const MigrationRequestPage = () => {
       });
     } catch (error) {
       toast({
-        title: sq(lang, "Gabim", "Error", "Error", "Fehler", "Грешка") as string,
+        title: sq(lang, "Gabim", "Error", "Error", "Fehler", "Грешка", "Erreur", "Erro", "Errore") as string,
         description: sq(lang, "Pati një gabim gjatë dërgimit të kërkesës suaj. Ju lutemi provoni përsëri.", "There was an error submitting your request. Please try again.", "Hubo un error al enviar su solicitud. Por favor, inténtelo de nuevo.", "Beim Senden Ihrer Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.", "Имаше грешка при поднесувањето на вашето барање. Ве молиме обидете се повторно.") as string,
         variant: "destructive",
       });
@@ -155,7 +164,7 @@ const MigrationRequestPage = () => {
 
   const platformLabels: Record<string, string | JSX.Element> = {
     'Excel/CSV Files': sq(lang, "Skedarë Excel/CSV", "Excel/CSV Files", "Archivos Excel/CSV", "Excel/CSV-Dateien", "Excel/CSV Датотеки"),
-    'Other': sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго"),
+    'Other': sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго", "Autre", "Outro", "Altro"),
   };
 
   const dataSizes = [
@@ -209,21 +218,21 @@ const MigrationRequestPage = () => {
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/about" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
               <Button 
                 variant="ghost"
                 onClick={() => go("/subscribe")}
                 className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
               >
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button 
                 variant="ghost" 
                 onClick={() => go("/contact")} 
                 className="text-lg text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-bold"
               >
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
             </div>
 
@@ -234,17 +243,17 @@ const MigrationRequestPage = () => {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white font-medium"
               >
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => go("/subscribe")}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 font-medium"
-              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               <Button 
                 onClick={() => go("/trial")}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               <div className="flex items-center">
                 <LanguageSelector />
               </div>
@@ -267,8 +276,8 @@ const MigrationRequestPage = () => {
         {showMobileMenu && (
           <div className="lg:hidden bg-white border-b border-gray-200">
             <div className="px-4 py-4 space-y-4">
-              <Link href="/about" className="block text-lg text-gray-600 hover:text-gray-800 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="block text-lg text-gray-600 hover:text-gray-800 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/about" className="block text-lg text-gray-600 hover:text-gray-800 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="block text-lg text-gray-600 hover:text-gray-800 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
               <Button 
                 variant="ghost"
                 onClick={() => {
@@ -277,7 +286,7 @@ const MigrationRequestPage = () => {
                 }}
                 className="w-full text-left justify-start text-lg text-gray-600 hover:text-gray-800 font-bold"
               >
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button 
                 variant="ghost" 
@@ -287,7 +296,7 @@ const MigrationRequestPage = () => {
                 }} 
                 className="w-full text-left justify-start text-lg text-gray-600 hover:text-gray-800 font-bold"
               >
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
               
               <div className="pt-4 space-y-2">
@@ -299,7 +308,7 @@ const MigrationRequestPage = () => {
                   }} 
                   className="w-full text-left justify-start text-gray-600 hover:text-gray-800"
                 >
-                  {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се")}
+                  {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се", "Connexion", "Iniciar sessão", "Accedi")}
                 </Button>
                 <Button 
                   variant="outline"
@@ -308,14 +317,14 @@ const MigrationRequestPage = () => {
                     setShowMobileMenu(false);
                   }}
                   className="w-full border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
-                >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+                >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
                 <Button 
                   onClick={() => {
                     go("/trial");
                     setShowMobileMenu(false);
                   }}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 font-medium"
-                >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+                >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               </div>
             </div>
           </div>
@@ -389,7 +398,7 @@ const MigrationRequestPage = () => {
                       <Users className="h-6 w-6 text-white" />
                     </div>
                     <div className="text-left">
-                      <div className="font-bold text-gray-900 dark:text-white">{sq(lang, "Mbështetje Eksperte", "Expert Support", "Soporte Experto", "Experten-Support", "Експертска Поддршка")}</div>
+                      <div className="font-bold text-gray-900 dark:text-white">{sq(lang, "Mbështetje Eksperte", "Expert Support", "Soporte Experto", "Experten-Support", "Експертска Поддршка", "Assistance experte", "Suporte especializado", "Supporto esperto")}</div>
                       <div className="text-sm text-gray-800 dark:text-gray-200">{sq(lang, "Ekip i Dedikuar", "Dedicated Team", "Equipo Dedicado", "Engagiertes Team", "Посветен Тим")}</div>
                     </div>
                   </div>
@@ -470,7 +479,7 @@ const MigrationRequestPage = () => {
                 <div className="space-y-3">
                   <Label htmlFor="firstName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
                     <Users className="h-5 w-5 mr-2 text-emerald-500" />
-                    {sq(lang, "Emri", "First Name", "Nombre", "Vorname", "Име")}
+                    {sq(lang, "Emri", "First Name", "Nombre", "Vorname", "Име", "Prénom", "Nome próprio", "Nome")}
                   </Label>
                   <Input
                     id="firstName"
@@ -484,7 +493,7 @@ const MigrationRequestPage = () => {
                 <div className="space-y-3">
                   <Label htmlFor="lastName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
                     <Users className="h-5 w-5 mr-2 text-blue-500" />
-                    {sq(lang, "Mbiemri", "Last Name", "Apellido", "Nachname", "Презиме")}
+                    {sq(lang, "Mbiemri", "Last Name", "Apellido", "Nachname", "Презиме", "Nom de famille", "Apelido", "Cognome")}
                   </Label>
                   <Input
                     id="lastName"
@@ -532,7 +541,7 @@ const MigrationRequestPage = () => {
               <div className="space-y-3">
                 <Label htmlFor="companyName" className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
                   <Building2 className="h-5 w-5 mr-2 text-green-500" />
-                  {sq(lang, "Emri i Kompanisë", "Company Name", "Nombre de la Empresa", "Firmenname", "Име на Компанијата")}
+                  {sq(lang, "Emri i Kompanisë", "Company Name", "Nombre de la Empresa", "Firmenname", "Име на Компанијата", "Nom de l'entreprise", "Nome da empresa", "Nome dell'azienda")}
                 </Label>
                 <Input
                   id="companyName"

@@ -11,8 +11,17 @@ import {
   Rocket, Shield, Clock, Mail, Copy, Star,
 } from "lucide-react";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch (lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
 
 const BENEFITS = [
@@ -178,9 +187,9 @@ export default function Affiliate() {
           </Link>
           <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-600">
             <a href="/#features" className="hover:text-indigo-600 transition-colors">{sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули")}</a>
-            <a href="/subscribe" className="hover:text-indigo-600 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</a>
-            <a href="/about" className="hover:text-indigo-600 transition-colors">{sq(lang, "Rreth nesh", "About", "Nosotros", "Über uns", "За нас")}</a>
-            <a href="/contact" className="hover:text-indigo-600 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</a>
+            <a href="/subscribe" className="hover:text-indigo-600 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</a>
+            <a href="/about" className="hover:text-indigo-600 transition-colors">{sq(lang, "Rreth nesh", "About", "Nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</a>
+            <a href="/contact" className="hover:text-indigo-600 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</a>
             <LanguageSelector />
           </div>
           <div className="md:hidden flex items-center gap-2 ml-auto">
@@ -193,9 +202,9 @@ export default function Affiliate() {
         {mobileOpen && (
           <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
             <a href="/#features" className="block text-gray-700 font-medium">{sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули")}</a>
-            <a href="/subscribe" className="block text-gray-700 font-medium">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</a>
-            <a href="/about" className="block text-gray-700 font-medium">{sq(lang, "Rreth nesh", "About", "Nosotros", "Über uns", "За нас")}</a>
-            <a href="/contact" className="block text-gray-700 font-medium">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</a>
+            <a href="/subscribe" className="block text-gray-700 font-medium">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</a>
+            <a href="/about" className="block text-gray-700 font-medium">{sq(lang, "Rreth nesh", "About", "Nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</a>
+            <a href="/contact" className="block text-gray-700 font-medium">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</a>
           </div>
         )}
       </nav>
@@ -211,7 +220,7 @@ export default function Affiliate() {
         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/30 backdrop-blur-sm rounded-full text-sm font-bold text-gray-900 mb-6">
             <Gift className="h-4 w-4" />
-            {sq(lang, "Programi i Afilimit", "Affiliate Program", "Programa de Afiliados", "Partnerprogramm", "Партнерска Програма")}
+            {sq(lang, "Programi i Afilimit", "Affiliate Program", "Programa de Afiliados", "Partnerprogramm", "Партнерска Програма", "Programme d'affiliation", "Programa de afiliados", "Programma affiliati")}
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight mb-6">
             {sq(lang,
@@ -235,7 +244,7 @@ export default function Affiliate() {
             <button onClick={scrollToForm}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer">
               <Gift className="h-5 w-5" />
-              {sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега")}
+              {sq(lang, "Apliko Tani", "Apply Now", "Aplicar Ahora", "Jetzt Bewerben", "Аплицирај Сега", "Postuler maintenant", "Candidatar-se agora", "Candidati ora")}
               <ArrowRight className="h-5 w-5" />
             </button>
             <button onClick={() => { document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' }); }}
@@ -381,7 +390,7 @@ export default function Affiliate() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
             <p className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Pyetjet e shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufige Fragen", "Често Поставувани Прашања")}
+              {sq(lang, "Pyetjet e shpeshta", "Frequently Asked Questions", "Preguntas Frecuentes", "Häufige Fragen", "Често Поставувани Прашања", "Questions fréquemment posées", "Perguntas frequentes", "Domande frequenti")}
             </p>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
               {sq(lang, "Gjithçka që duhet të dini", "Everything you need to know", "Todo lo que necesita saber", "Alles was Sie wissen müssen", "Сè што треба да знаете")}
@@ -588,7 +597,7 @@ export default function Affiliate() {
                 ) : (
                   <>
                     <Mail className="h-5 w-5" />
-                    {sq(lang, "Dërgoni Aplikimin", "Submit Application", "Enviar Solicitud", "Bewerbung Absenden", "Испрати Апликација")}
+                    {sq(lang, "Dërgoni Aplikimin", "Submit Application", "Enviar Solicitud", "Bewerbung Absenden", "Испрати Апликација", "Soumettre la candidature", "Submeter candidatura", "Invia candidatura")}
                   </>
                 )}
               </button>

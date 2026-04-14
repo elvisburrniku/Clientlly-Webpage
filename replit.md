@@ -2,11 +2,11 @@
 
 ## Overview
 
-Clientlly is a comprehensive business management SaaS application designed for small to medium-sized businesses in Kosovo and the region. It offers a full-stack solution with 16 integrated modules including professional invoicing, smart expense tracking, debt management, client and vendor management, HR management, and detailed insights and reports. The platform provides full 5-language support: Albanian (sq 🇦🇱), English (en 🇬🇧), Spanish (es 🇪🇸), German (de 🇩🇪), Macedonian (mk 🇲🇰). Uses Euro (€) currency by default. Company registered in Kosovo.
+Clientlly is a comprehensive business management SaaS application designed for small to medium-sized businesses in Kosovo and the region. It offers a full-stack solution with 16 integrated modules including professional invoicing, smart expense tracking, debt management, client and vendor management, HR management, and detailed insights and reports. The platform provides full 8-language support: Albanian (sq 🇽🇰), English (en 🇬🇧), Spanish (es 🇪🇸), German (de 🇩🇪), Macedonian (mk 🇲🇰), French (fr 🇫🇷), Portuguese (pt 🇵🇹), Italian (it 🇮🇹). Uses Euro (€) currency by default. Company registered in Kosovo.
 
-## Translation System (5-Language Infrastructure)
+## Translation System (8-Language Infrastructure)
 
-- **i18n.ts**: Core infrastructure — `T5` type, `t(lang, T5)` function, `useLanguage()` hook, `SUPPORTED_LANGUAGES` array (sq/en/es/de/mk)
+- **i18n.ts**: Core infrastructure — `T5` type, `t(lang, T5)` function, `useLanguage()` hook, `SUPPORTED_LANGUAGES` array (sq/en/es/de/mk/fr/pt/it)
 - **translations.ts**: Central namespace objects: `C` (common), `LANDING`, `SUBSCRIBE`, `COMPARE`, `ABOUT`, `CONTACT`, `COLLAB`, `TRIAL`, `LOGIN`, `FEATURES_PAGE`, `FEAT`, `CHAT`, `PLAN_F`
 - **Footer.tsx**: Fully migrated to `t(lang, C.xxx)` pattern — all 5 languages
 - **landing.tsx**: Fully translated — all sections in 5 languages including hero, nav, features, stats, testimonials, pricing, community, CTA

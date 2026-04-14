@@ -98,9 +98,18 @@ const plans: Plan[] = [
   }
 ];
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 export default function Calculator() {
   const { currentLanguage: lang } = useLanguage();
@@ -278,7 +287,7 @@ export default function Calculator() {
           <div className="flex items-center justify-center mb-4">
             <CalculatorIcon className="h-12 w-12 text-primary mr-3" />
             <h1 className="text-4xl font-bold text-foreground">
-              {sq(lang, "Kalkulatori i ", "Pricing ", "Calculadora de ", "Preis", "Калкулатор за ")}<span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{sq(lang, "Çmimeve", "Calculator", "Precios", "rechner", "Цени")}</span>
+              {sq(lang, "Kalkulatori i ", "Pricing ", "Calculadora de ", "Preis", "Калкулатор за ", "Tarifs", "Preços", "Prezzi")}<span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{sq(lang, "Çmimeve", "Calculator", "Precios", "rechner", "Цени")}</span>
             </h1>
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -304,7 +313,7 @@ export default function Calculator() {
                 {(locationData || locationLoading) && (
                   <div>
                     <label className="text-sm font-medium mb-3 block">
-                      {sq(lang, "Monedha", "Currency", "Moneda", "Währung", "Валута")}
+                      {sq(lang, "Monedha", "Currency", "Moneda", "Währung", "Валута", "Devise", "Moeda", "Valuta")}
                     </label>
                     <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg border">
                       {locationLoading ? (
@@ -333,7 +342,7 @@ export default function Calculator() {
                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                         }`}
                       >
-                        {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно")}
+                        {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно", "Mensuel", "Mensal", "Mensile")}
                       </button>
                       <button
                         onClick={() => setBillingPeriod('yearly')}
@@ -343,7 +352,7 @@ export default function Calculator() {
                             : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
                         }`}
                       >
-                        {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно")}
+                        {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно", "Annuel", "Anual", "Annuale")}
                       </button>
                       <div
                         className={`absolute top-2 bottom-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full shadow-md transition-all duration-300 ease-in-out ${
@@ -366,7 +375,7 @@ export default function Calculator() {
                 {/* Team Size */}
                 <div>
                   <label className="text-sm font-medium mb-3 block">
-                    {sq(lang, "Madhësia e Ekipit:", "Team Size:", "Tamaño del Equipo:", "Teamgröße:", "Големина на Тимот:")} <span className="font-bold text-primary">{teamSize[0]} {sq(lang, "përdorues", "users", "usuarios", "Benutzer", "корисници")}</span>
+                    {sq(lang, "Madhësia e Ekipit:", "Team Size:", "Tamaño del Equipo:", "Teamgröße:", "Големина на Тимот:")} <span className="font-bold text-primary">{teamSize[0]} {sq(lang, "përdorues", "users", "usuarios", "Benutzer", "корисници", "utilisateurs", "utilizadores", "utenti")}</span>
                   </label>
                   <Slider
                     value={teamSize}
@@ -412,7 +421,7 @@ export default function Calculator() {
                       <SelectItem value="startup">{sq(lang, "Startup", "Startup", "Startup", "Startup", "Стартап")}</SelectItem>
                       <SelectItem value="small-business">{sq(lang, "Biznes i Vogël", "Small Business", "Pequeña Empresa", "Kleines Unternehmen", "Мал Бизнис")}</SelectItem>
                       <SelectItem value="medium-business">{sq(lang, "Biznes i Mesëm", "Medium Business", "Mediana Empresa", "Mittleres Unternehmen", "Среден Бизнис")}</SelectItem>
-                      <SelectItem value="enterprise">{sq(lang, "Ndërmarrje", "Enterprise", "Empresa Grande", "Großunternehmen", "Претпријатие")}</SelectItem>
+                      <SelectItem value="enterprise">{sq(lang, "Ndërmarrje", "Enterprise", "Empresa Grande", "Großunternehmen", "Претпријатие", "Entreprise", "Empresarial", "Enterprise")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -457,7 +466,7 @@ export default function Calculator() {
 
                 {/* Industry Type */}
                 <div>
-                  <label className="text-sm font-medium mb-3 block">{sq(lang, "Industria", "Industry", "Industria", "Branche", "Индустрија")}</label>
+                  <label className="text-sm font-medium mb-3 block">{sq(lang, "Industria", "Industry", "Industria", "Branche", "Индустрија", "Secteur", "Setor", "Settore")}</label>
                   <Select value={industryType} onValueChange={setIndustryType}>
                     <SelectTrigger>
                       <SelectValue placeholder={sq(lang, "Zgjidhni industrinë tuaj", "Select your industry", "Seleccione su industria", "Wählen Sie Ihre Branche", "Изберете ја вашата индустрија") as string} />
@@ -465,13 +474,13 @@ export default function Calculator() {
                     <SelectContent>
                       <SelectItem value="technology">{sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија")}</SelectItem>
                       <SelectItem value="healthcare">{sq(lang, "Shëndetësi", "Healthcare", "Salud", "Gesundheitswesen", "Здравство")}</SelectItem>
-                      <SelectItem value="finance">{sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии")}</SelectItem>
+                      <SelectItem value="finance">{sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии", "Finance", "Finanças", "Finanza")}</SelectItem>
                       <SelectItem value="retail">{sq(lang, "Shitje me Pakicë", "Retail", "Comercio Minorista", "Einzelhandel", "Малопродажба")}</SelectItem>
                       <SelectItem value="manufacturing">{sq(lang, "Prodhim", "Manufacturing", "Manufactura", "Fertigung", "Производство")}</SelectItem>
                       <SelectItem value="consulting">{sq(lang, "Konsulencë", "Consulting", "Consultoría", "Beratung", "Консалтинг")}</SelectItem>
                       <SelectItem value="education">{sq(lang, "Arsim", "Education", "Educación", "Bildung", "Образование")}</SelectItem>
                       <SelectItem value="nonprofit">{sq(lang, "Jofitimprurëse", "Non-profit", "Sin Fines de Lucro", "Gemeinnützig", "Непрофитна")}</SelectItem>
-                      <SelectItem value="other">{sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго")}</SelectItem>
+                      <SelectItem value="other">{sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго", "Autre", "Outro", "Altro")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -572,7 +581,7 @@ export default function Calculator() {
                     </div>
                     <Link href="/subscribe">
                       <Button size="lg" className="w-full">
-                        {sq(lang, "Fillo Tani", "Get Started", "Comenzar", "Jetzt Starten", "Започни Сега")}
+                        {sq(lang, "Fillo Tani", "Get Started", "Comenzar", "Jetzt Starten", "Започни Сега", "Commencer", "Começar", "Inizia")}
                       </Button>
                     </Link>
                   </CardContent>
@@ -690,7 +699,7 @@ export default function Calculator() {
                           <span className="text-sm">{sq(lang, "Gati për Ndërmarrje", "Enterprise Ready", "Listo para Empresa", "Enterprise-fähig", "Подготвено за Претпријатие")}</span>
                         </div>
                         <Badge variant={recommendedPlan.id === 'business' ? "default" : "secondary"}>
-                          {recommendedPlan.id === 'business' ? sq(lang, "Po", "Yes", "Sí", "Ja", "Да") : sq(lang, "Pjesërisht", "Partial", "Parcial", "Teilweise", "Делумно")}
+                          {recommendedPlan.id === 'business' ? sq(lang, "Po", "Yes", "Sí", "Ja", "Да", "Oui", "Sim", "Sì") : sq(lang, "Pjesërisht", "Partial", "Parcial", "Teilweise", "Делумно")}
                         </Badge>
                       </div>
                     </div>
@@ -720,7 +729,7 @@ export default function Calculator() {
                           ${getProjectedGrowthCost(recommendedPlan, months)}
                         </div>
                         <div className="text-xs text-muted-foreground">
-                          ~{Math.round(teamSize[0] * Math.pow(1 + (growthRate[0]/100/12), months))} {sq(lang, "përdorues", "users", "usuarios", "Benutzer", "корисници")}
+                          ~{Math.round(teamSize[0] * Math.pow(1 + (growthRate[0]/100/12), months))} {sq(lang, "përdorues", "users", "usuarios", "Benutzer", "корисници", "utilisateurs", "utilizadores", "utenti")}
                         </div>
                       </div>
                     ))}
@@ -783,7 +792,7 @@ export default function Calculator() {
                     {plan.popular && (
                       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                         <Badge className="bg-gradient-to-r from-primary to-secondary text-white">
-                          {sq(lang, "Më Popullorja", "Most Popular", "Más Popular", "Beliebteste", "Најпопуларен")}
+                          {sq(lang, "Më Popullorja", "Most Popular", "Más Popular", "Beliebteste", "Најпопуларен", "Le plus populaire", "Mais popular", "Il più popolare")}
                         </Badge>
                       </div>
                     )}
@@ -810,7 +819,7 @@ export default function Calculator() {
                       </div>
                       {billingPeriod === 'yearly' && (
                         <div className="text-sm text-green-600 dark:text-green-400">
-                          {sq(lang, "Kurseni", "Save", "Ahorre", "Sparen Sie", "Заштедете")} {formatCurrency(
+                          {sq(lang, "Kurseni", "Save", "Ahorre", "Sparen Sie", "Заштедете", "Enregistrer", "Guardar", "Salva")} {formatCurrency(
                             convertPrice(
                               formatPrice(getYearlySavings(plan)),
                               'USD',
@@ -848,7 +857,7 @@ export default function Calculator() {
                           variant={plan.id === recommendedPlan?.id ? "default" : "outline"}
                           onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
                         >
-                          {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+                          {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
                         </Button>
                         {plan.id === 'basic' && (
                           <Button 
@@ -856,7 +865,7 @@ export default function Calculator() {
                             variant="ghost"
                             size="sm"
                             onClick={() => navigate(`/subscribe?plan=${plan.id}&billing=${billingPeriod}`)}
-                          >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+                          >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
                         )}
                         {plan.id !== 'basic' && (
                           <Button 
@@ -864,7 +873,7 @@ export default function Calculator() {
                             variant="ghost"
                             size="sm"
                             onClick={() => navigate('/subscribe?plan=basic&billing=monthly')}
-                          >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+                          >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
                         )}
                       </div>
                     </CardContent>

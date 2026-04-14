@@ -23,9 +23,18 @@ import {
 } from "lucide-react";
 
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const BestPractices = () => {
   const { currentLanguage: lang } = useLanguage();
@@ -85,7 +94,7 @@ const BestPractices = () => {
       ]
     },
     {
-      category: sq(lang, "Operacionet", "Operations", "Operaciones", "Betrieb", "Операции"),
+      category: sq(lang, "Operacionet", "Operations", "Operaciones", "Betrieb", "Операции", "Opérations", "Operações", "Operazioni"),
       icon: <Target className="w-6 h-6" />,
       color: "bg-gradient-to-r from-green-500 to-emerald-500",
       items: [
@@ -165,16 +174,16 @@ const BestPractices = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Link>
               <button onClick={() => handleNavigation('/#features')} className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}
+                {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </button>
               <Link href="/subscribe" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Link>
               <Link href="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Link>
               
               <div className="flex items-center space-x-4">
@@ -183,12 +192,12 @@ const BestPractices = () => {
                   size="sm"
                   onClick={() => go("/trial")}
                   className="border-blue-200 text-blue-700 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-900/20"
-                >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+                >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
                 <Button 
                   size="sm"
                   onClick={() => go("/subscribe")}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+                >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               </div>
             </div>
 
@@ -210,16 +219,16 @@ const BestPractices = () => {
             <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200/20 dark:border-gray-700/20">
               <div className="px-4 pt-2 pb-4 space-y-2">
                 <Link href="/about" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                  {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
                 </Link>
                 <button onClick={() => handleNavigation('/#features')} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium text-left w-full">
-                  {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}
+                  {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
                 </button>
                 <Link href="/subscribe" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                  {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
                 </Link>
                 <Link href="/contact" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                  {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
                 </Link>
                 <div className="pt-4 space-y-2">
                   <Button 
@@ -227,12 +236,12 @@ const BestPractices = () => {
                     size="sm" 
                     className="w-full border-blue-200 text-blue-700 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-900/20"
                     onClick={() => go("/trial")}
-                  >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+                  >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
                   <Button 
                     size="sm" 
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
                     onClick={() => go("/subscribe")}
-                  >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+                  >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
                 </div>
               </div>
             </div>
@@ -263,7 +272,7 @@ const BestPractices = () => {
             {sq(lang, "Udhëzime Eksperte", "Expert Guidance", "Guía Experta", "Expertenberatung", "Стручно Водство")}
           </Badge>
           <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-professional-fade">
-            {sq(lang, "Praktikat Më të Mira të", "Business ", "Mejores Prácticas", "Geschäftliche ", "Деловни ")}<span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Biznesit", "Best Practices", " Empresariales", "Best Practices", "Најдобри Практики")}</span>
+            {sq(lang, "Praktikat Më të Mira të", "Business ", "Mejores Prácticas", "Geschäftliche ", "Деловни ")}<span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Biznesit", "Best Practices", " Empresariales", "Best Practices", "Најдобри Практики", "Meilleures pratiques", "Melhores práticas", "Migliori pratiche")}</span>
           </h1>
           <p className="text-xl text-black/80 mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Strategji të provuara dhe rekomandime ekspertësh për të optimizuar operacionet e biznesit tuaj, përmirësuar efikasitetin dhe nxitur rritje të qëndrueshme me platformën tonë gjithëpërfshirëse të menaxhimit.", "Proven strategies and expert recommendations to optimize your business operations, improve efficiency, and drive sustainable growth with our comprehensive management platform.", "Estrategias probadas y recomendaciones de expertos para optimizar las operaciones de su negocio, mejorar la eficiencia e impulsar el crecimiento sostenible con nuestra plataforma integral de gestión.", "Bewährte Strategien und Expertenempfehlungen zur Optimierung Ihrer Geschäftsabläufe, Verbesserung der Effizienz und Förderung nachhaltigen Wachstums mit unserer umfassenden Management-Plattform.", "Докажани стратегии и стручни препораки за оптимизирање на вашите деловни операции, подобрување на ефикасноста и поттикнување одржлив раст со нашата сеопфатна платформа за управување.")}
@@ -337,7 +346,7 @@ const BestPractices = () => {
                             <span className="font-semibold text-sm">{practice.impact}</span>
                           </div>
                           <Button size="sm" variant="ghost" className="group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 text-blue-600 dark:text-blue-400">
-                            {sq(lang, "Mëso Më Shumë", "Learn More", "Saber Más", "Mehr Erfahren", "Дознајте Повеќе")}
+                            {sq(lang, "Mëso Më Shumë", "Learn More", "Saber Más", "Mehr Erfahren", "Дознајте Повеќе", "En savoir plus", "Saiba mais", "Scopri di più")}
                             <ArrowRight className="w-4 h-4 ml-1" />
                           </Button>
                         </div>
@@ -382,7 +391,7 @@ const BestPractices = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center text-white mb-4 mx-auto">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte Experto", "Experten-Support", "Стручна Поддршка")}</h3>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte Experto", "Experten-Support", "Стручна Поддршка", "Assistance experte", "Suporte especializado", "Supporto esperto")}</h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm">{sq(lang, "Akses 24/7 tek ekspertë dhe konsulentë të optimizimit të biznesit", "24/7 access to business optimization experts and consultants", "Acceso 24/7 a expertos en optimización empresarial y consultores", "24/7-Zugang zu Experten für Geschäftsoptimierung und Beratern", "24/7 пристап до експерти за оптимизација на бизнис и консултанти")}</p>
             </div>
           </div>
@@ -392,7 +401,7 @@ const BestPractices = () => {
               size="lg"
               onClick={() => go("/trial")}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}</Button>
+            >{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</Button>
             <Button 
               size="lg"
               variant="outline"

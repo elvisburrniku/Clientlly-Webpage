@@ -5,7 +5,18 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Shield, Lock, Eye, Key, FileCheck, UserCheck, Zap, CheckCircle, AlertTriangle, Globe, Clock } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
+}
 
 export default function FeatureSecurity() {
   const [, setLocation] = useLocation();
@@ -47,7 +58,7 @@ export default function FeatureSecurity() {
               className="px-2 sm:px-3"
             >
               <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-              <span className="text-sm sm:text-base">{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}</span>
+              <span className="text-sm sm:text-base">{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}</span>
             </Button>
           </div>
         </div>
@@ -62,7 +73,7 @@ export default function FeatureSecurity() {
             </div>
           </div>
           <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">
-            {sq(lang, "Siguria", "Enterprise", "Seguridad", "Unternehmens-", "Претприемничка")} <span className="animate-subtle-gradient">{sq(lang, "e Ndërmarrjes", "Security", "Empresarial", "Sicherheit", "Безбедност")}</span>
+            {sq(lang, "Siguria", "Enterprise", "Seguridad", "Unternehmens-", "Претприемничка", "Entreprise", "Empresarial", "Enterprise")} <span className="animate-subtle-gradient">{sq(lang, "e Ndërmarrjes", "Security", "Empresarial", "Sicherheit", "Безбедност", "Sécurité", "Segurança", "Sicurezza")}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {sq(lang,
@@ -262,7 +273,7 @@ export default function FeatureSecurity() {
           <div className="flex justify-center items-center space-x-6 text-red-100">
             <div className="flex items-center space-x-2">
               <Lock className="h-5 w-5" />
-              <span>{sq(lang, "Siguri e Nivelit Bankar", "Bank-Level Security", "Seguridad de Nivel Bancario", "Sicherheit auf Bankniveau", "Безбедност на банкарско ниво")}</span>
+              <span>{sq(lang, "Siguri e Nivelit Bankar", "Bank-Level Security", "Seguridad de Nivel Bancario", "Sicherheit auf Bankniveau", "Безбедност на банкарско ниво", "Sécurité de niveau bancaire", "Segurança de nível bancário", "Sicurezza a livello bancario")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Globe className="h-5 w-5" />

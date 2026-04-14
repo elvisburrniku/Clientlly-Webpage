@@ -20,9 +20,18 @@ import {
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 export default function Tutorials() {
   const { currentLanguage: lang } = useLanguage();
@@ -35,17 +44,17 @@ export default function Tutorials() {
       title: sq(lang, "Fillimi me BusinessFlow Pro", "Getting Started with BusinessFlow Pro", "Primeros Pasos con BusinessFlow Pro", "Erste Schritte mit BusinessFlow Pro", "Почеток со BusinessFlow Pro"),
       description: sq(lang, "Udhëzim i plotë për vendosjen e llogarisë tuaj dhe krijimin e faturës së parë", "Complete walkthrough of setting up your account and creating your first invoice", "Guía completa para configurar su cuenta y crear su primera factura", "Komplette Anleitung zur Einrichtung Ihres Kontos und Erstellung Ihrer ersten Rechnung", "Целосен водич за поставување на сметката и креирање на вашата прва фактура"),
       duration: "12:30",
-      level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник"),
+      level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник", "Débutant", "Iniciante", "Principiante"),
       views: "25.2k",
       rating: 4.9,
       thumbnail: "/attached_assets/image_1753653135199.png",
-      category: sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток")
+      category: sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток", "Pour commencer", "Para começar", "Per iniziare")
     },
     {
       title: sq(lang, "Veçoritë e Avancuara të Faturimit", "Advanced Invoicing Features", "Funciones Avanzadas de Facturación", "Erweiterte Rechnungsfunktionen", "Напредни Функции за Фактурирање"),
       description: sq(lang, "Mësoni fatura periodike, shabllone të personalizuara dhe automatizimin e pagesave", "Learn recurring invoices, custom templates, and payment automation", "Aprenda facturas recurrentes, plantillas personalizadas y automatización de pagos", "Lernen Sie wiederkehrende Rechnungen, benutzerdefinierte Vorlagen und Zahlungsautomatisierung", "Научете повторувачки фактури, прилагодени шаблони и автоматизација на плаќања"),
       duration: "18:45",
-      level: sq(lang, "Mesatar", "Intermediate", "Intermedio", "Fortgeschritten", "Средно"),
+      level: sq(lang, "Mesatar", "Intermediate", "Intermedio", "Fortgeschritten", "Средно", "Intermédiaire", "Intermédio", "Intermedio"),
       views: "18.7k",
       rating: 4.8,
       thumbnail: "/attached_assets/image_1753653135199.png",
@@ -55,37 +64,37 @@ export default function Tutorials() {
       title: sq(lang, "Zotërimi i Gjurmimit të Shpenzimeve", "Expense Tracking Mastery", "Dominio del Seguimiento de Gastos", "Meisterung der Ausgabenverfolgung", "Совладување на Следење Трошоци"),
       description: sq(lang, "Zotëroni skanimin e faturave, kategorizimin dhe raportimin e gatshëm për taksa", "Master receipt scanning, categorization, and tax-ready reporting", "Domine el escaneo de recibos, categorización e informes listos para impuestos", "Meistern Sie Belegscannen, Kategorisierung und steuerfertige Berichte", "Совладајте скенирање сметки, категоризација и извештаи готови за даноци"),
       duration: "15:20",
-      level: sq(lang, "Mesatar", "Intermediate", "Intermedio", "Fortgeschritten", "Средно"),
+      level: sq(lang, "Mesatar", "Intermediate", "Intermedio", "Fortgeschritten", "Средно", "Intermédiaire", "Intermédio", "Intermedio"),
       views: "16.3k",
       rating: 4.7,
       thumbnail: "/attached_assets/image_1753653135199.png",
-      category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци")
+      category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese")
     },
     {
       title: sq(lang, "Thellim në Raportet Financiare", "Financial Reports Deep Dive", "Profundización en Informes Financieros", "Vertiefung in Finanzberichte", "Длабинска Анализа на Финансиски Извештаи"),
       description: sq(lang, "Gjeneroni njohuri të fuqishme me raporte fitimi dhe humbjeje, rrjedhës së parave dhe raporte të personalizuara", "Generate powerful insights with profit & loss, cash flow, and custom reports", "Genere información poderosa con informes de ganancias y pérdidas, flujo de caja e informes personalizados", "Generieren Sie leistungsstarke Einblicke mit Gewinn- & Verlustberichten, Cashflow- und benutzerdefinierten Berichten", "Генерирајте моќни увиди со извештаи за добивка и загуба, готовински тек и прилагодени извештаи"),
       duration: "22:15",
-      level: sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден"),
+      level: sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден", "Avancé", "Avançado", "Avanzato"),
       views: "12.8k",
       rating: 4.9,
       thumbnail: "/attached_assets/image_1753653135199.png",
-      category: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи")
+      category: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report")
     },
     {
       title: sq(lang, "Punëtori Integrimi API", "API Integration Workshop", "Taller de Integración API", "API-Integrations-Workshop", "Работилница за API Интеграција"),
       description: sq(lang, "Ndërtoni integrime të personalizuara duke përdorur API-në tonë REST dhe webhooks", "Build custom integrations using our REST API and webhooks", "Construya integraciones personalizadas usando nuestra API REST y webhooks", "Erstellen Sie benutzerdefinierte Integrationen mit unserer REST-API und Webhooks", "Изградете прилагодени интеграции користејќи го нашиот REST API и webhooks"),
       duration: "35:40",
-      level: sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден"),
+      level: sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден", "Avancé", "Avançado", "Avanzato"),
       views: "8.5k",
       rating: 4.6,
       thumbnail: "/attached_assets/image_1753653135199.png",
-      category: sq(lang, "Integrimet", "Integrations", "Integraciones", "Integrationen", "Интеграции")
+      category: sq(lang, "Integrimet", "Integrations", "Integraciones", "Integrationen", "Интеграции", "Intégrations", "Integrações", "Integrazioni")
     },
     {
       title: sq(lang, "Tutorial i Aplikacionit Mobil", "Mobile App Tutorial", "Tutorial de la App Móvil", "Mobile App Tutorial", "Упатство за Мобилна Апликација"),
       description: sq(lang, "Përfitoni maksimumin nga aplikacioni ynë mobil për menaxhim biznesi në lëvizje", "Get the most out of our mobile app for on-the-go business management", "Aproveche al máximo nuestra app móvil para gestión empresarial en movimiento", "Holen Sie das Beste aus unserer mobilen App für die Geschäftsverwaltung unterwegs heraus", "Извлечете го максимумот од нашата мобилна апликација за управување со бизнис во движење"),
       duration: "9:50",
-      level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник"),
+      level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник", "Débutant", "Iniciante", "Principiante"),
       views: "14.2k",
       rating: 4.8,
       thumbnail: "/attached_assets/image_1753653135199.png",
@@ -129,13 +138,13 @@ export default function Tutorials() {
       title: sq(lang, "Pronar i Biznesit të Vogël", "Small Business Owner", "Propietario de Pequeña Empresa", "Kleinunternehmer", "Сопственик на Мал Бизнис"),
       description: sq(lang, "Perfekt për sipërmarrës individual dhe ekipe të vogla", "Perfect for solo entrepreneurs and small teams", "Perfecto para emprendedores individuales y equipos pequeños", "Perfekt für Einzelunternehmer und kleine Teams", "Совршено за поединечни претприемачи и мали тимови"),
       modules: [
-        sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток"),
+        sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток", "Pour commencer", "Para começar", "Per iniziare"),
         sq(lang, "Faturimi Bazik", "Basic Invoicing", "Facturación Básica", "Grundlegende Rechnungsstellung", "Основно Фактурирање"),
-        sq(lang, "Gjurmimi i Shpenzimeve", "Expense Tracking", "Seguimiento de Gastos", "Ausgabenverfolgung", "Следење на Трошоци"),
+        sq(lang, "Gjurmimi i Shpenzimeve", "Expense Tracking", "Seguimiento de Gastos", "Ausgabenverfolgung", "Следење на Трошоци", "Suivi des dépenses", "Controlo de despesas", "Monitoraggio spese"),
         sq(lang, "Raporte të Thjeshta", "Simple Reports", "Informes Simples", "Einfache Berichte", "Едноставни Извештаи")
       ],
       duration: sq(lang, "2 orë", "2 hours", "2 horas", "2 Stunden", "2 часа"),
-      level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник")
+      level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник", "Débutant", "Iniciante", "Principiante")
     },
     {
       title: sq(lang, "Profesionist Kontabiliteti", "Accounting Professional", "Profesional de Contabilidad", "Buchhaltungsexperte", "Професионалец за Сметководство"),
@@ -147,7 +156,7 @@ export default function Tutorials() {
         sq(lang, "Bashkëpunimi me Klientë", "Client Collaboration", "Colaboración con Clientes", "Kundenkollaboration", "Соработка со Клиенти")
       ],
       duration: sq(lang, "4 orë", "4 hours", "4 horas", "4 Stunden", "4 часа"),
-      level: sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден")
+      level: sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден", "Avancé", "Avançado", "Avanzato")
     },
     {
       title: sq(lang, "Integrim Zhvilluesi", "Developer Integration", "Integración para Desarrolladores", "Entwickler-Integration", "Интеграција за Програмери"),
@@ -185,16 +194,16 @@ export default function Tutorials() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
               <Button 
                 variant="ghost"
                 onClick={() => go("/subscribe")}
                 className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold"
               >
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
-              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
@@ -203,18 +212,18 @@ export default function Tutorials() {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави Се", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
               
               <Button 
                 onClick={() => go("/subscribe")}
                 className="bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               
               <Button 
                 onClick={() => go("/trial")}
                 className="bg-green-600 text-white hover:bg-green-700 font-medium"
-              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               
               <div className="pt-2">
                 <LanguageSelector />
@@ -236,16 +245,16 @@ export default function Tutorials() {
         {showMobileMenu && (
           <div className="lg:hidden glass-effect border-t border-white/20">
             <div className="px-6 py-4 space-y-4">
-              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
+              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
               <Button 
                 variant="ghost"
                 onClick={() => go("/subscribe")}
                 className="block py-2 text-muted-foreground hover:text-primary transition-colors"
               >
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
-              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
           </div>
         )}
@@ -265,7 +274,7 @@ export default function Tutorials() {
           <div className="text-center">
             <Badge className="mb-6 bg-black/20 text-black border-black/30 px-6 py-2 text-lg font-bold">
               <Video className="w-5 h-5 mr-2" />
-              {sq(lang, "Video Tutoriale", "Video Tutorials", "Tutoriales en Video", "Video-Tutorials", "Видео Упатства")}
+              {sq(lang, "Video Tutoriale", "Video Tutorials", "Tutoriales en Video", "Video-Tutorials", "Видео Упатства", "Tutoriels vidéo", "Tutoriais em vídeo", "Tutorial video")}
             </Badge>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 fade-in leading-tight tracking-tight">
               {sq(lang, "Mëso me", "Learn with ", "Aprende con ", "Lernen mit ", "Учи со ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Video", "Videos", "Videos", "Videos", "Видеа")}</span>
@@ -282,7 +291,7 @@ export default function Tutorials() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              {sq(lang, "Tutoriale", "Featured ", "Tutoriales ", "Empfohlene ", "Препорачани ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "të Veçanta", "Tutorials", "Destacados", "Tutorials", "Упатства")}</span>
+              {sq(lang, "Tutoriale", "Featured ", "Tutoriales ", "Empfohlene ", "Препорачани ", "En vedette", "Destaque", "In evidenza")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "të Veçanta", "Tutorials", "Destacados", "Tutorials", "Упатства", "Tutoriels", "Tutoriais", "Tutorial")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Filloni me këto udhëzues gjithëpërfshirëse për të zotëruar platformën", "Start with these comprehensive guides to master the platform", "Comience con estas guías completas para dominar la plataforma", "Beginnen Sie mit diesen umfassenden Anleitungen, um die Plattform zu meistern", "Започнете со овие сеопфатни водичи за да ја совладате платформата")}
@@ -313,7 +322,7 @@ export default function Tutorials() {
                     <Badge variant="secondary" className="text-xs">
                       {video.category}
                     </Badge>
-                    <Badge variant={video.level === sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник") ? 'default' : video.level === sq(lang, "Mesatar", "Intermediate", "Intermedio", "Fortgeschritten", "Средно") ? 'secondary' : 'destructive'} className="text-xs">
+                    <Badge variant={video.level === sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник", "Débutant", "Iniciante", "Principiante") ? 'default' : video.level === sq(lang, "Mesatar", "Intermediate", "Intermedio", "Fortgeschritten", "Средно", "Intermédiaire", "Intermédio", "Intermedio") ? 'secondary' : 'destructive'} className="text-xs">
                       {video.level}
                     </Badge>
                   </div>
@@ -395,7 +404,7 @@ export default function Tutorials() {
                 <CardContent className="p-6">
                   <div className="mb-4">
                     <div className="flex items-center justify-between mb-2">
-                      <Badge variant={path.level === sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник") ? 'default' : path.level === sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден") ? 'secondary' : 'destructive'}>
+                      <Badge variant={path.level === sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник", "Débutant", "Iniciante", "Principiante") ? 'default' : path.level === sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден", "Avancé", "Avançado", "Avanzato") ? 'secondary' : 'destructive'}>
                         {path.level}
                       </Badge>
                       <span className="text-sm text-muted-foreground">{path.duration}</span>
@@ -447,7 +456,7 @@ export default function Tutorials() {
             <Button 
               onClick={() => go("/trial")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg"
-            >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+            >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
             <Button 
               onClick={() => go("/help-center")}
               variant="outline"

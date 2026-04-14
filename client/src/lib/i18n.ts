@@ -13,6 +13,9 @@ export const SUPPORTED_LANGUAGES: Language[] = [
   { code: 'es', name: 'Español',     flag: '🇪🇸' },
   { code: 'de', name: 'Deutsch',     flag: '🇩🇪' },
   { code: 'mk', name: 'Македонски',  flag: '🇲🇰' },
+  { code: 'fr', name: 'Français',    flag: '🇫🇷' },
+  { code: 'pt', name: 'Português',   flag: '🇵🇹' },
+  { code: 'it', name: 'Italiano',    flag: '🇮🇹' },
 ];
 
 // Translation interfaces

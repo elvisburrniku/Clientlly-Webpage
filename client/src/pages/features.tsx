@@ -502,9 +502,18 @@ const categoryIcons: Record<Category, JSX.Element> = {
   hr:         <GraduationCap className="h-3.5 w-3.5" />,
 };
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 function pick(lang: string, obj: { sq: string; en: string; es: string; de: string; mk: string }): string {
   switch(lang) { case 'sq': return obj.sq; case 'es': return obj.es; case 'de': return obj.de; case 'mk': return obj.mk; default: return obj.en; }
@@ -535,11 +544,11 @@ export default function Features() {
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас")}</Link>
-              <Link href="/features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}</Link>
-              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
-              <button onClick={() => go("/contact")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</button>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+              <Link href="/features" className="text-sm font-semibold text-indigo-600">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</button>
+              <button onClick={() => go("/contact")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</button>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <LanguageSelector />
@@ -554,13 +563,13 @@ export default function Features() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас")}</Link>
-            <Link href="/features" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}</Link>
-            <button onClick={() => { setShowMobileMenu(false); go("/subscribe"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
-            <button onClick={() => { setShowMobileMenu(false); go("/contact"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</button>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+            <Link href="/features" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <button onClick={() => { setShowMobileMenu(false); go("/subscribe"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</button>
+            <button onClick={() => { setShowMobileMenu(false); go("/contact"); }} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</button>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => { setShowMobileMenu(false); go("/trial"); }} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial", "Prueba Gratis", "Kostenlose Testversion", "Бесплатна проба")}</button>
+              <button onClick={() => { setShowMobileMenu(false); go("/trial"); }} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial", "Prueba Gratis", "Kostenlose Testversion", "Бесплатна проба", "Essai gratuit", "Período de teste gratuito", "Prova gratuita")}</button>
             </div>
           </div>
         )}
@@ -1069,10 +1078,10 @@ export default function Features() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {[
               { icon: ClipboardList, label: sq(lang, "Ofertë", "Quote", "Cotización", "Angebot", "Понуда"), color: "bg-cyan-500" },
-              { icon: FileText, label: sq(lang, "Faturë", "Invoice", "Factura", "Rechnung", "Фактура"), color: "bg-blue-500", arrow: true },
+              { icon: FileText, label: sq(lang, "Faturë", "Invoice", "Factura", "Rechnung", "Фактура", "Facture", "Fatura", "Fattura"), color: "bg-blue-500", arrow: true },
               { icon: MapPin, label: sq(lang, "Prezencë GPS", "GPS Attendance", "Asistencia GPS", "GPS-Anwesenheit", "GPS присуство"), color: "bg-green-500" },
               { icon: Car, label: sq(lang, "Flotë + Servisim", "Fleet + Service", "Flota + Servicio", "Flotte + Service", "Флота + Сервис"), color: "bg-slate-500" },
-              { icon: CalendarDays, label: sq(lang, "Kalendar", "Calendar", "Calendario", "Kalender", "Календар"), color: "bg-sky-500" },
+              { icon: CalendarDays, label: sq(lang, "Kalendar", "Calendar", "Calendario", "Kalender", "Календар", "Calendrier", "Calendário", "Calendario"), color: "bg-sky-500" },
               { icon: BarChart3, label: sq(lang, "Raport Final", "Final Report", "Informe final", "Abschlussbericht", "Финален извештај"), color: "bg-violet-500" },
             ].map(({ icon: Icon, label, color }, i) => (
               <div key={i} className="flex flex-col items-center gap-2 text-center">
@@ -1143,11 +1152,11 @@ export default function Features() {
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
             <button onClick={() => go("/trial")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-indigo-700 font-semibold rounded-xl transition-all duration-200 shadow-sm hover:-translate-y-0.5">
-              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}
+              {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
               <ArrowRight className="h-4 w-4" />
             </button>
             <button onClick={() => window.location.href = "/subscribe"} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
-              {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+              {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
             </button>
           </div>
         </div>

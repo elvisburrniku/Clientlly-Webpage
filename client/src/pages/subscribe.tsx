@@ -25,9 +25,19 @@ import { useLocationDetection } from "@/hooks/useLocationDetection";
 import Footer from "@/components/Footer";
 import clientllyLogo from '@assets/CLIENTLLY_ICON_1753793353861.png';
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
+
 
 
 if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
@@ -151,7 +161,7 @@ const CheckoutForm = ({ userData, plan, billingPeriod, selectedCurrency }: {
               <div className="w-8 h-5 bg-red-500 rounded text-white text-[8px] font-bold flex items-center justify-center">MC</div>
               <div className="w-8 h-5 bg-blue-500 rounded text-white text-[8px] font-bold flex items-center justify-center">AMEX</div>
             </div>
-            <span className="text-[10px] text-gray-400">{sq(lang, "Enkriptim SSL 256-bit", "256-bit SSL encryption", "Cifrado SSL de 256 bits", "256-Bit SSL-Verschlüsselung", "256-битна SSL енкрипција")}</span>
+            <span className="text-[10px] text-gray-400">{sq(lang, "Enkriptim SSL 256-bit", "256-bit SSL encryption", "Cifrado SSL de 256 bits", "256-Bit SSL-Verschlüsselung", "256-битна SSL енкрипција", "Chiffrement SSL 256 bits", "Encriptação SSL de 256 bits", "Crittografia SSL a 256 bit")}</span>
           </div>
         </div>
 
@@ -208,10 +218,10 @@ export default function Subscribe() {
   const { t } = useTranslation();
   const { currentLanguage: lang } = useLanguage();
   const stepTitles = [
-    sq(lang, "Zgjidhni planin e përsosur", "Choose the perfect plan", "Elija el plan perfecto", "Wählen Sie den perfekten Plan", "Изберете го совршениот план"),
-    sq(lang, "Krijo Llogari", "Create Account", "Crear Cuenta", "Konto erstellen", "Создади Сметка"),
-    sq(lang, "Ekipi & Shtesa", "Team & Add-ons", "Equipo y Complementos", "Team & Erweiterungen", "Тим & Додатоци"),
-    sq(lang, "Rishiko & Paguaj", "Review & Pay", "Revisar y Pagar", "Überprüfen & Bezahlen", "Прегледај & Плати"),
+    sq(lang, "Zgjidhni planin e përsosur", "Choose the perfect plan", "Elija el plan perfecto", "Wählen Sie den perfekten Plan", "Изберете го совршениот план", "Choisissez le plan idéal", "Escolha o plano perfeito", "Scegli il piano perfetto"),
+    sq(lang, "Krijo Llogari", "Create Account", "Crear Cuenta", "Konto erstellen", "Создади Сметка", "Créer un compte", "Criar conta", "Crea account"),
+    sq(lang, "Ekipi & Shtesa", "Team & Add-ons", "Equipo y Complementos", "Team & Erweiterungen", "Тим & Додатоци", "Équipe & suppléments", "Equipa & extras", "Team & componenti aggiuntivi"),
+    sq(lang, "Rishiko & Paguaj", "Review & Pay", "Revisar y Pagar", "Überprüfen & Bezahlen", "Прегледај & Плати", "Vérifier & payer", "Rever & pagar", "Rivedi & paga"),
   ];
   const [selectedPlan, setSelectedPlan] = useState<string>('');
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
@@ -353,7 +363,7 @@ export default function Subscribe() {
               billingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно")}
+            {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно", "Mensuel", "Mensal", "Mensile")}
           </button>
           <button
             onClick={() => setBillingPeriod('yearly')}
@@ -361,7 +371,7 @@ export default function Subscribe() {
               billingPeriod === 'yearly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно")}
+            {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно", "Annuel", "Anual", "Annuale")}
             <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-15%</span>
           </button>
         </div>
@@ -404,7 +414,7 @@ export default function Subscribe() {
                 {isPopular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="inline-flex items-center px-3 py-1 bg-white text-indigo-600 text-xs font-bold rounded-full shadow-sm border border-indigo-100">
-                      ★ {sq(lang, "Më i Popullarizuari", "Most Popular", "El Más Popular", "Am Beliebtesten", "Најпопуларен")}
+                      ★ {sq(lang, "Më i Popullarizuari", "Most Popular", "El Más Popular", "Am Beliebtesten", "Најпопуларен", "Le plus populaire", "Mais popular", "Il più popolare")}
                     </span>
                   </div>
                 )}
@@ -419,7 +429,7 @@ export default function Subscribe() {
                   )}
                   <div className="flex items-baseline gap-1">
                     <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>{displayPrice}</span>
-                    <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.")}</span>
+                    <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.", "mois", "mês", "mese")}</span>
                   </div>
                   {billingPeriod === 'yearly' && (
                     <div className={`text-xs mt-1 space-y-0.5`}>
@@ -442,7 +452,7 @@ export default function Subscribe() {
                       const dash = translated.indexOf("—");
                       const growTitle = sq(lang, "Le të Rritemi Bashkë", "Let's Grow Together", "Crezcamos Juntos", "Lass uns gemeinsam wachsen", "Да Растеме Заедно");
                       const desc = dash !== -1 ? translated.slice(dash) : "";
-                      const detailsLabel = sq(lang, "Detajet", "Details", "Detalles", "Details", "Детали");
+                      const detailsLabel = sq(lang, "Detajet", "Details", "Detalles", "Details", "Детали", "Détails", "Detalhes", "Dettagli");
                       return (
                         <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={(e) => { e.stopPropagation(); window.location.href = '/collaboration'; }}>
                           <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
@@ -502,7 +512,7 @@ export default function Subscribe() {
               <Users className="h-6 w-6 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-extrabold text-gray-900">{sq(lang, "Krijoni Llogarinë", "Create Account", "Crear Cuenta", "Konto Erstellen", "Креирајте Сметка")}</h2>
+              <h2 className="text-xl font-extrabold text-gray-900">{sq(lang, "Krijoni Llogarinë", "Create Account", "Crear Cuenta", "Konto Erstellen", "Креирајте Сметка", "Créer un compte", "Criar conta", "Crea account")}</h2>
               <p className="text-sm text-gray-500 mt-0.5">{sq(lang, "Konfiguroni llogarinë tuaj Clientlly", "Set up your Clientlly account", "Configure su cuenta Clientlly", "Richten Sie Ihr Clientlly-Konto ein", "Поставете ја вашата Clientlly сметка")}</p>
             </div>
           </div>
@@ -510,11 +520,11 @@ export default function Subscribe() {
         <div className="px-8 py-7 space-y-5">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="firstName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Emri", "First Name", "Nombre", "Vorname", "Име")}</Label>
+              <Label htmlFor="firstName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Emri", "First Name", "Nombre", "Vorname", "Име", "Prénom", "Nome próprio", "Nome")}</Label>
               <Input id="firstName" value={userData.firstName} onChange={(e) => setUserData({...userData, firstName: e.target.value})} placeholder={sq(lang, "Artan", "John", "Juan", "Max", "Иван") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="lastName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Mbiemri", "Last Name", "Apellido", "Nachname", "Презиме")}</Label>
+              <Label htmlFor="lastName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Mbiemri", "Last Name", "Apellido", "Nachname", "Презиме", "Nom de famille", "Apelido", "Cognome")}</Label>
               <Input id="lastName" value={userData.lastName} onChange={(e) => setUserData({...userData, lastName: e.target.value})} placeholder={sq(lang, "Hoxha", "Smith", "García", "Müller", "Петров") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
             </div>
           </div>
@@ -523,7 +533,7 @@ export default function Subscribe() {
             <Input id="email" type="email" value={userData.email} onChange={(e) => setUserData({...userData, email: e.target.value})} placeholder={sq(lang, "artan@kompania.com", "john@company.com", "juan@empresa.com", "max@firma.com", "иван@компанија.мк") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="password" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Fjalëkalimi", "Password", "Contraseña", "Passwort", "Лозинка")}</Label>
+            <Label htmlFor="password" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Fjalëkalimi", "Password", "Contraseña", "Passwort", "Лозинка", "Mot de passe", "Palavra-passe", "Password")}</Label>
             <Input id="password" type="password" value={userData.password} onChange={(e) => setUserData({...userData, password: e.target.value})} placeholder={sq(lang, "Minimum 8 karaktere", "Minimum 8 characters", "Mínimo 8 caracteres", "Mindestens 8 Zeichen", "Минимум 8 карактери") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
           </div>
           <div className="space-y-1.5">
@@ -536,11 +546,11 @@ export default function Subscribe() {
           <div className="flex items-start gap-2.5 pt-1">
             <Checkbox id="terms" checked={userData.agreeToTerms} onCheckedChange={(checked) => setUserData({...userData, agreeToTerms: checked as boolean})} className="mt-0.5" />
             <Label htmlFor="terms" className="text-xs text-gray-500 leading-relaxed">
-              {sq(lang, "Pranoj", "I agree to the", "Acepto los", "Ich akzeptiere die", "Ги прифаќам")} <a href="/terms-of-service" target="_blank" className="text-indigo-600 hover:underline">{sq(lang, "Kushtet e Shërbimit", "Terms of Service", "Términos de Servicio", "Nutzungsbedingungen", "Услови за Користење")}</a> {sq(lang, "dhe", "and", "y", "und", "и")} <a href="/privacy-policy" target="_blank" className="text-indigo-600 hover:underline">{sq(lang, "Politikën e Privatësisë", "Privacy Policy", "Política de Privacidad", "Datenschutzrichtlinie", "Политика за Приватност")}</a>
+              {sq(lang, "Pranoj", "I agree to the", "Acepto los", "Ich akzeptiere die", "Ги прифаќам")} <a href="/terms-of-service" target="_blank" className="text-indigo-600 hover:underline">{sq(lang, "Kushtet e Shërbimit", "Terms of Service", "Términos de Servicio", "Nutzungsbedingungen", "Услови за Користење", "Conditions d'utilisation", "Termos de serviço", "Termini di servizio")}</a> {sq(lang, "dhe", "and", "y", "und", "и")} <a href="/privacy-policy" target="_blank" className="text-indigo-600 hover:underline">{sq(lang, "Politikën e Privatësisë", "Privacy Policy", "Política de Privacidad", "Datenschutzrichtlinie", "Политика за Приватност", "Politique de confidentialité", "Política de privacidade", "Informativa sulla privacy")}</a>
             </Label>
           </div>
           <p className="text-xs text-gray-400 text-center">
-            {sq(lang, "Keni tashmë llogari?", "Already have an account?", "Ya tiene una cuenta?", "Bereits ein Konto?", "Веќе имате сметка?")} <a href="/api/login" className="text-indigo-600 hover:underline font-semibold">{sq(lang, "Hyni", "Log in", "Iniciar sesión", "Anmelden", "Најавете се")}</a>
+            {sq(lang, "Keni tashmë llogari?", "Already have an account?", "Ya tiene una cuenta?", "Bereits ein Konto?", "Веќе имате сметка?", "Vous avez déjà un compte?", "Já tem uma conta?", "Hai già un account?")} <a href="/api/login" className="text-indigo-600 hover:underline font-semibold">{sq(lang, "Hyni", "Log in", "Iniciar sesión", "Anmelden", "Најавете се")}</a>
           </p>
         </div>
       </div>
@@ -563,7 +573,7 @@ export default function Subscribe() {
         </div>
         <div className="px-8 py-7 space-y-5">
           <div className="space-y-1.5">
-            <Label htmlFor="companyName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Emri i Kompanisë", "Company Name", "Nombre de la Empresa", "Firmenname", "Име на Компанијата")}</Label>
+            <Label htmlFor="companyName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Emri i Kompanisë", "Company Name", "Nombre de la Empresa", "Firmenname", "Име на Компанијата", "Nom de l'entreprise", "Nome da empresa", "Nome dell'azienda")}</Label>
             <Input id="companyName" value={userData.companyName} onChange={(e) => setUserData({...userData, companyName: e.target.value})} placeholder={sq(lang, "Kompania Juaj Sh.p.k.", "Your Company Ltd.", "Su Empresa S.L.", "Ihre Firma GmbH", "Ваша Компанија ДОО") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
           </div>
           <div className="space-y-1.5">
@@ -582,7 +592,7 @@ export default function Subscribe() {
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="industry" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Industria", "Industry", "Industria", "Branche", "Индустрија")}</Label>
+            <Label htmlFor="industry" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Industria", "Industry", "Industria", "Branche", "Индустрија", "Secteur", "Setor", "Settore")}</Label>
             <Select value={userData.industry} onValueChange={(value) => setUserData({...userData, industry: value})}>
               <SelectTrigger className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 text-sm">
                 <SelectValue placeholder={sq(lang, "Zgjidhni industrinë", "Select industry", "Seleccionar industria", "Branche wählen", "Изберете индустрија") as string} />
@@ -597,7 +607,7 @@ export default function Subscribe() {
                 <SelectItem value="manufacturing">{sq(lang, "Prodhim", "Manufacturing", "Manufactura", "Produktion", "Производство")}</SelectItem>
                 <SelectItem value="real-estate">{sq(lang, "Pasuri të paluajtshme", "Real Estate", "Bienes Raíces", "Immobilien", "Недвижнини")}</SelectItem>
                 <SelectItem value="legal">{sq(lang, "Shërbime Ligjore", "Legal Services", "Servicios Legales", "Rechtsdienstleistungen", "Правни Услуги")}</SelectItem>
-                <SelectItem value="other">{sq(lang, "Tjetër", "Other", "Otro", "Sonstiges", "Друго")}</SelectItem>
+                <SelectItem value="other">{sq(lang, "Tjetër", "Other", "Otro", "Sonstiges", "Друго", "Autre", "Outro", "Altro")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -622,7 +632,7 @@ export default function Subscribe() {
                 <CreditCard className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-extrabold text-gray-900">{sq(lang, "Rishiko & Paguaj", "Review & Pay", "Revisar y Pagar", "Überprüfen & Bezahlen", "Прегледај & Плати")}</h2>
+                <h2 className="text-xl font-extrabold text-gray-900">{sq(lang, "Rishiko & Paguaj", "Review & Pay", "Revisar y Pagar", "Überprüfen & Bezahlen", "Прегледај & Плати", "Vérifier & payer", "Rever & pagar", "Rivedi & paga")}</h2>
                 <p className="text-sm text-gray-500 mt-0.5">{sq(lang, "Konfirmoni porosinë dhe finalizoni abonimin", "Confirm your order and finalize the subscription", "Confirme su pedido y finalice la suscripción", "Bestätigen Sie Ihre Bestellung und schließen Sie das Abonnement ab", "Потврдете ја нарачката и финализирајте ја претплатата")}</p>
               </div>
             </div>
@@ -667,11 +677,11 @@ export default function Subscribe() {
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-              <Link href="/subscribe" className="text-sm font-semibold text-indigo-600">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Link href="/subscribe" className="text-sm font-semibold text-indigo-600">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
             <div className="hidden lg:flex items-center space-x-5 ml-auto">
               <LanguageSelector />
@@ -688,11 +698,11 @@ export default function Subscribe() {
         {/* Mobile Menu */}
         {showMobileMenu && (
           <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-            <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/subscribe" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             <div className="pt-2 flex flex-col gap-2">
             </div>
           </div>
@@ -706,7 +716,7 @@ export default function Subscribe() {
             <div className="text-center max-w-2xl mx-auto mb-10">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                {sq(lang, "Çmim transparent · Pa kosto të fshehura", "Transparent pricing · No hidden costs", "Precios transparentes · Sin costos ocultos", "Transparente Preise · Keine versteckten Kosten", "Транспарентни цени · Без скриени трошоци")}
+                {sq(lang, "Çmim transparent · Pa kosto të fshehura", "Transparent pricing · No hidden costs", "Precios transparentes · Sin costos ocultos", "Transparente Preise · Keine versteckten Kosten", "Транспарентни цени · Без скриени трошоци", "Tarification transparente · Aucun coût caché", "Preços transparentes · Sem custos ocultos", "Prezzi trasparenti · Nessun costo nascosto")}
               </div>
               <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
                 {sq(lang, <>Zgjidhni planin e <span className="text-indigo-600">duhur</span></>, <>Choose the <span className="text-indigo-600">right</span> plan</>, <>Elija el plan <span className="text-indigo-600">correcto</span></>, <>Wählen Sie den <span className="text-indigo-600">richtigen</span> Plan</>, <>Изберете го <span className="text-indigo-600">вистинскиот</span> план</>)}
@@ -721,7 +731,7 @@ export default function Subscribe() {
                 { icon: Shield, label: sq(lang, "Mbrojtje e të dhënave", "Data protection", "Protección de datos", "Datenschutz", "Заштита на податоци"), sub: "GDPR & SSL" },
                 { icon: CheckCircle, label: sq(lang, "Pa kartë kredie", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка"), sub: sq(lang, "14 ditë provë", "14 day trial", "14 días de prueba", "14 Tage Testversion", "14 дена проба") },
                 { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7"), sub: sq(lang, "Ekip real", "Real team", "Equipo real", "Echtes Team", "Реален тим") },
-                { icon: ArrowLeft, label: sq(lang, "Anuloni kur doni", "Cancel anytime", "Cancele cuando quiera", "Jederzeit kündigen", "Откажете кога сакате"), sub: sq(lang, "Pa detyrime", "No obligations", "Sin obligaciones", "Keine Verpflichtungen", "Без обврски") },
+                { icon: ArrowLeft, label: sq(lang, "Anuloni kur doni", "Cancel anytime", "Cancele cuando quiera", "Jederzeit kündigen", "Откажете кога сакате", "Résiliez à tout moment", "Cancele a qualquer momento", "Annulla quando vuoi"), sub: sq(lang, "Pa detyrime", "No obligations", "Sin obligaciones", "Keine Verpflichtungen", "Без обврски") },
               ].map(({ icon: Icon, label, sub }, i) => (
                 <div key={i} className="flex items-center gap-2.5 p-3 bg-white rounded-xl border border-gray-100 shadow-sm">
                   <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
@@ -755,7 +765,7 @@ export default function Subscribe() {
                 className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-gray-600 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
               >
                 <ArrowLeft className="h-4 w-4" />
-                {sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}
+                {sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}
               </button>
             )}
             {currentStep < 3 && (
@@ -764,7 +774,7 @@ export default function Subscribe() {
                 disabled={!canProceedToNext()}
                 className="inline-flex items-center gap-2 px-7 py-2.5 text-sm font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
-                {sq(lang, "Vazhdo", "Continue", "Continuar", "Weiter", "Продолжи")}
+                {sq(lang, "Vazhdo", "Continue", "Continuar", "Weiter", "Продолжи", "Continuer", "Continuar", "Continua")}
                 <ArrowRight className="h-4 w-4" />
               </button>
             )}

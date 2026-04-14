@@ -31,13 +31,16 @@ function pick(lang: string, t: T5): string {
   }
 }
 
-function sq(lang: string, alb: string, eng: string, es?: string, de?: string, mk?: string): string {
+function sq(lang: string, alb: string, eng: string, es?: string, de?: string, mk?: string, fr?: string, pt?: string, it?: string): string {
   switch (lang) {
     case 'sq': return alb;
     case 'es': return es ?? eng;
     case 'de': return de ?? eng;
     case 'mk': return mk ?? eng;
-    default: return eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
 }
 
@@ -58,10 +61,10 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/features" className="text-sm font-medium text-indigo-600 font-semibold">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/features" className="text-sm font-medium text-indigo-600 font-semibold">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
             <div className="hidden lg:flex items-center gap-3 ml-auto">
               <Link href="/features" className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
@@ -69,7 +72,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
                 {sq(lang, "Të gjitha veçoritë", "All features", "Todas las funciones", "Alle Funktionen", "Сите функции")}
               </Link>
               <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-                {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+                {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
               </Link>
               <LanguageSelector />
             </div>
@@ -83,12 +86,12 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-indigo-600 py-2">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-indigo-600 py-2">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             <Link href="/subscribe" className="block w-full text-center text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg mt-2">
-              {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+              {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
             </Link>
           </div>
         )}
@@ -235,7 +238,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
         <div className="absolute bottom-8 left-1/4 w-2 h-2 bg-white rounded-full animate-bounce opacity-40" style={{animationDelay:"0.5s"}}></div>
         <div className="max-w-3xl mx-auto text-center relative">
           <h2 className="text-3xl lg:text-4xl font-extrabold text-black mb-4 tracking-tight">
-            {sq(lang, "Gati të filloni?", "Ready to get started?", "Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?")}
+            {sq(lang, "Gati të filloni?", "Ready to get started?", "Listo para comenzar?", "Bereit loszulegen?", "Подготвени да започнете?", "Prêt à commencer?", "Pronto para começar?", "Pronto per iniziare?")}
           </h2>
           <p className="text-black/75 mb-8">
             {sq(lang, "Të 16 modulet të aktivizuara automatikisht me abonimin tuaj. Shtoni ekipin dhe nisni menjëherë.", "All 16 modules activated automatically with your subscription. Add your team and start right away.", "Los 16 módulos se activan automáticamente con su suscripción. Agregue su equipo y comience de inmediato.", "Alle 16 Module werden automatisch mit Ihrem Abonnement aktiviert. Fügen Sie Ihr Team hinzu und starten Sie sofort.", "Сите 16 модули се активираат автоматски со вашата претплата. Додајте го тимот и започнете веднаш.")}

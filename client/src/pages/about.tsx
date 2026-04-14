@@ -10,9 +10,19 @@ import Footer from "@/components/Footer";
 import logoPath from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useTranslation } from "@/hooks/useTranslation";
 
-function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return albanian; case 'es': return es ?? english; case 'de': return de ?? english; case 'mk': return mk ?? english; default: return english; }
+function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return albanian;
+    case 'es': return es ?? english;
+    case 'de': return de ?? english;
+    case 'mk': return mk ?? english;
+    case 'fr': return fr ?? english;
+    case 'pt': return pt ?? english;
+    case 'it': return it ?? english;
+    default:   return english;
+  }
 }
+
 
 const AboutPage = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -22,7 +32,7 @@ const AboutPage = () => {
   const stats = [
     { value: "200+", label: sq(lang, "Biznese na Besojnë", "Businesses Trust Us", "Empresas confían en nosotros", "Unternehmen vertrauen uns", "Бизниси ни веруваат"), icon: Building2 },
     { value: "12K+", label: sq(lang, "Fatura Mujore", "Monthly Invoices", "Facturas mensuales", "Monatliche Rechnungen", "Месечни фактури"), icon: FileText },
-    { value: "5", label: sq(lang, "Vende", "Countries", "Países", "Länder", "Земји"), icon: Globe },
+    { value: "5", label: sq(lang, "Vende", "Countries", "Países", "Länder", "Земји", "Pays", "Países", "Paesi"), icon: Globe },
     { value: "99.9%", label: sq(lang, "Kohë Pune", "Uptime", "Tiempo activo", "Betriebszeit", "Време на работа"), icon: Shield },
   ];
 
@@ -119,19 +129,19 @@ const AboutPage = () => {
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                {sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}
+                {sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}
               </Link>
               <Link href="/about" className="text-sm font-semibold text-indigo-600">
-                {sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас")}
+                {sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}
               </Link>
               <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}
+                {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </Link>
               <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Link>
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                {sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}
+                {sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}
               </Link>
             </div>
 
@@ -150,13 +160,13 @@ const AboutPage = () => {
 
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/about" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
-            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/about" className="block text-sm font-semibold text-indigo-600 py-2">{sq(lang, "Rreth Nesh", "About", "Sobre nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/subscribe" className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <Link href="/trial" className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial", "Prueba gratis", "Kostenlose Testversion", "Бесплатен пробен период")}</Link>
+              <Link href="/trial" className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Provo Falas", "Free Trial", "Prueba gratis", "Kostenlose Testversion", "Бесплатен пробен период", "Essai gratuit", "Período de teste gratuito", "Prova gratuita")}</Link>
             </div>
           </div>
         )}
@@ -213,7 +223,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Vlerat Tona", "Our Values", "Nuestros valores", "Unsere Werte", "Нашите вредности")}
+              {sq(lang, "Vlerat Tona", "Our Values", "Nuestros valores", "Unsere Werte", "Нашите вредности", "Nos valeurs", "Os nossos valores", "I nostri valori")}
             </p>
             <h2 className="anim-rise anim-d1 text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
               {sq(lang, "Çfarë na bën ndryshe", "What makes us different", "Lo que nos hace diferentes", "Was uns unterscheidet", "Што нè прави различни")}
@@ -238,7 +248,7 @@ const AboutPage = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Ekipi", "Team", "Equipo", "Team", "Тим")}
+              {sq(lang, "Ekipi", "Team", "Equipo", "Team", "Тим", "Équipe", "Equipa", "Team")}
             </p>
             <h2 className="anim-rise anim-d1 text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang, "Njerëzit që ndërtojnë Clientlly", "The people building Clientlly", "Las personas que construyen Clientlly", "Die Menschen, die Clientlly aufbauen", "Луѓето кои го градат Clientlly")}
@@ -267,7 +277,7 @@ const AboutPage = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-14">
             <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Historia Jonë", "Our Story", "Nuestra historia", "Unsere Geschichte", "Нашата приказна")}
+              {sq(lang, "Historia Jonë", "Our Story", "Nuestra historia", "Unsere Geschichte", "Нашата приказна", "Notre histoire", "A nossa história", "La nostra storia")}
             </p>
             <h2 className="anim-rise anim-d1 text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight">
               {sq(lang, "Nga ideja deri sot", "From idea to today", "De la idea hasta hoy", "Von der Idee bis heute", "Од идејата до денес")}
@@ -306,7 +316,7 @@ const AboutPage = () => {
                 {sq(lang, "Bashkëpunimi", "Collaboration", "Colaboración", "Zusammenarbeit", "Соработка")}
               </p>
               <h2 className="anim-rise anim-d1 text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
-                {sq(lang, "Le të rritemi bashkë", "Let's grow together", "Crezcamos juntos", "Lasst uns gemeinsam wachsen", "Да растеме заедно")}
+                {sq(lang, "Le të rritemi bashkë", "Let's grow together", "Crezcamos juntos", "Lasst uns gemeinsam wachsen", "Да растеме заедно", "Grandissons ensemble", "Crescemos juntos", "Cresciamo insieme")}
               </h2>
               <p className="anim-rise anim-d2 text-indigo-200 text-lg leading-relaxed mb-8">
                 {sq(lang,

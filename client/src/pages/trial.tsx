@@ -12,9 +12,19 @@ import {
   Lock, ChevronRight,
 } from "lucide-react";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
+
 
 export default function Trial() {
   const [, setLocation] = useLocation();
@@ -62,11 +72,11 @@ export default function Trial() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
-              <Link href="/compare-features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Krahaso Planet", "Compare Plans", "Comparar planes", "Pläne vergleichen", "Споредете планови")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</button>
+              <Link href="/compare-features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Krahaso Planet", "Compare Plans", "Comparar planes", "Pläne vergleichen", "Споредете планови", "Comparer les plans", "Comparar planos", "Confronta piani")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 ml-auto">
@@ -83,9 +93,9 @@ export default function Trial() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-1.5 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1.5">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-1.5 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</button>
             <div className="pt-2 flex gap-2">
             </div>
           </div>
@@ -132,7 +142,7 @@ export default function Trial() {
                 {[
                   { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка"), sub: sq(lang, "Asnjë ngarkesë e befasishme", "No surprise charges", "Sin cargos sorpresa", "Keine überraschenden Gebühren", "Без изненадувачки трошоци") },
                   { icon: Zap,    label: sq(lang, "Aktivizim i menjëhershëm", "Instant activation", "Activación instantánea", "Sofortige Aktivierung", "Моментална активација"), sub: sq(lang, "Gati brenda 60 sekondave", "Ready in 60 seconds", "Listo en 60 segundos", "Bereit in 60 Sekunden", "Подготвено за 60 секунди") },
-                  { icon: Check,  label: sq(lang, "Anulo kur dëshironi", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете кога сакате"), sub: sq(lang, "Pa penalizim, asnjëherë", "No penalty, ever", "Sin penalización, nunca", "Keine Strafe, niemals", "Без казна, никогаш") },
+                  { icon: Check,  label: sq(lang, "Anulo kur dëshironi", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете кога сакате", "Résiliez à tout moment", "Cancele a qualquer momento", "Annulla quando vuoi"), sub: sq(lang, "Pa penalizim, asnjëherë", "No penalty, ever", "Sin penalización, nunca", "Keine Strafe, niemals", "Без казна, никогаш") },
                   { icon: Star,   label: sq(lang, "Qasje e plotë", "Full access", "Acceso completo", "Voller Zugang", "Целосен пристап"), sub: sq(lang, "Të gjitha 16 modulet", "All 16 modules", "Los 16 módulos", "Alle 16 Module", "Сите 16 модули") },
                 ].map(({ icon: Icon, label, sub }, i) => (
                   <div key={i} className="flex items-start gap-3 p-3.5 bg-white border border-gray-200 rounded-xl shadow-sm">
@@ -196,7 +206,7 @@ export default function Trial() {
                   {sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}
                 </p>
                 <h2 className="text-xl font-extrabold text-white leading-tight">
-                  {sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}
+                  {sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
                 </h2>
                 <p className="text-sm text-indigo-200 mt-1">
                   {sq(lang, "Pa kartë krediti · Pa angazhim", "No credit card · No commitment", "Sin tarjeta de crédito · Sin compromiso", "Keine Kreditkarte · Keine Verpflichtung", "Без кредитна картичка · Без обврска")}
@@ -364,7 +374,7 @@ export default function Trial() {
       <section className="py-12 px-6 bg-gray-50 border-t border-gray-100">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-xl font-extrabold text-gray-900 mb-6 text-center">
-            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions", "Preguntas frecuentes", "Häufig gestellte Fragen", "Често поставувани прашања")}
+            {sq(lang, "Pyetje të Shpeshta", "Frequently Asked Questions", "Preguntas frecuentes", "Häufig gestellte Fragen", "Често поставувани прашања", "Questions fréquemment posées", "Perguntas frequentes", "Domande frequenti")}
           </h2>
           {[
             {
@@ -425,7 +435,7 @@ export default function Trial() {
             >
               <span className="flex flex-col items-start leading-tight">
                 <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
-                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar prueba gratuita", "Kostenlose Testversion starten", "Започнете бесплатна проба")}</span>
+                <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar prueba gratuita", "Kostenlose Testversion starten", "Започнете бесплатна проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>

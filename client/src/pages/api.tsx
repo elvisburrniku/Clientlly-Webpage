@@ -10,9 +10,18 @@ import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const BASE = "https://api.clientlly.com/v1";
 
@@ -173,10 +182,10 @@ export default function APIPage() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
-              <Link href="/integrations" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Integrime", "Integrations", "Integraciones", "Integrationen", "Интеграции")}</Link>
-              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Link href="/integrations" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Integrime", "Integrations", "Integraciones", "Integrationen", "Интеграции", "Intégrations", "Integrações", "Integrazioni")}</Link>
+              <button onClick={() => go("/subscribe")} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</button>
               <Link href="/api" className="text-sm font-semibold text-indigo-600">API</Link>
             </div>
 
@@ -187,7 +196,7 @@ export default function APIPage() {
               </button>
               <button onClick={() => go("/subscribe")}
                 className="text-sm font-semibold px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
-                {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+                {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
               </button>
               <LanguageSelector />
             </div>
@@ -202,10 +211,10 @@ export default function APIPage() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
-            <Link href="/integrations" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Integrime", "Integrations", "Integraciones", "Integrationen", "Интеграции")}</Link>
-            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</button>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/integrations" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Integrime", "Integrations", "Integraciones", "Integrationen", "Интеграции", "Intégrations", "Integrações", "Integrazioni")}</Link>
+            <button onClick={() => go("/subscribe")} className="block text-sm font-medium text-gray-700 py-2 w-full text-left">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</button>
             <div className="pt-2 flex flex-col gap-2">
               <button onClick={() => go("/trial")} className="text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg">{sq(lang, "Merr API Key", "Get API Key", "Obtener clave API", "API-Schlüssel erhalten", "Добијте API клуч")}</button>
             </div>
@@ -420,7 +429,7 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
               {/* Language */}
               <div>
                 <p className="text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-2">
-                  {sq(lang, "Gjuha", "Language", "Idioma", "Sprache", "Јазик")}
+                  {sq(lang, "Gjuha", "Language", "Idioma", "Sprache", "Јазик", "Langue", "Idioma", "Lingua")}
                 </p>
                 {(["javascript", "python", "curl"] as Lang[]).map(l => (
                   <button key={l} onClick={() => { setCodeLang(l); if (l === "curl" && codeSnippet !== "invoice") setCodeSnippet("invoice"); }}
@@ -711,7 +720,7 @@ console.<span style="color:#fbbf24">log</span>(invoice.id);  <span style="color:
             </button>
             <button onClick={() => go("/contact")}
               className="inline-flex items-center gap-2 px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
-              {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie uns", "Контактирајте нè")}
+              {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie uns", "Контактирајте нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
             </button>
           </div>
           <p className="text-xs text-gray-600 mt-5">

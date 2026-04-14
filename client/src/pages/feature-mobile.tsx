@@ -5,7 +5,18 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Smartphone, Download, Wifi, Bell, Shield, RefreshCw, Camera, FileText, Users, CheckCircle, Star, Zap } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
+}
 
 export default function FeatureMobile() {
   const [, setLocation] = useLocation();
@@ -50,7 +61,7 @@ export default function FeatureMobile() {
               className="px-2 sm:px-3"
             >
               <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-              <span className="text-sm sm:text-base">{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}</span>
+              <span className="text-sm sm:text-base">{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}</span>
             </Button>
           </div>
         </div>
@@ -146,7 +157,7 @@ export default function FeatureMobile() {
           <Card className="p-6 hover:shadow-xl transition-all duration-300">
             <div className="text-center mb-6">
               <h3 className="text-xl font-bold mb-2">{sq(lang, "Përdorimi i Veçorive", "Feature Usage", "Uso de Funciones", "Funktionsnutzung", "Употреба на функции")}</h3>
-              <Badge className="bg-green-100 text-green-700">{sq(lang, "Më Populloret", "Most Popular", "Más Populares", "Am Beliebtesten", "Најпопуларни")}</Badge>
+              <Badge className="bg-green-100 text-green-700">{sq(lang, "Më Populloret", "Most Popular", "Más Populares", "Am Beliebtesten", "Најпопуларни", "Le plus populaire", "Mais popular", "Il più popolare")}</Badge>
             </div>
             <div className="space-y-4">
               <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg">

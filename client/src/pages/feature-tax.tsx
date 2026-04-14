@@ -19,7 +19,18 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
+}
 
 export default function FeatureTax() {
   const [, setLocation] = useLocation();
@@ -61,7 +72,7 @@ export default function FeatureTax() {
               className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="h-5 w-5" />
-              <span>{sq(lang, "Kthehu te veçoritë", "Back to Features", "Volver a funciones", "Zurück zu Funktionen", "Назад кон функции")}</span>
+              <span>{sq(lang, "Kthehu te veçoritë", "Back to Features", "Volver a funciones", "Zurück zu Funktionen", "Назад кон функции", "Retour aux fonctionnalités", "Voltar às funcionalidades", "Torna alle funzionalità")}</span>
             </button>
             <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group transition-all duration-300">
               <div className="relative overflow-hidden rounded-lg">
@@ -78,7 +89,7 @@ export default function FeatureTax() {
               className="bg-orange-600 hover:bg-orange-700 text-white text-sm sm:text-base px-3 sm:px-4"
               size="sm"
             >
-              <span className="hidden sm:inline">{sq(lang, "Fillo Tani", "Get Started", "Comenzar", "Loslegen", "Започни")}</span>
+              <span className="hidden sm:inline">{sq(lang, "Fillo Tani", "Get Started", "Comenzar", "Loslegen", "Започни", "Commencer", "Começar", "Inizia")}</span>
               <span className="sm:hidden">{sq(lang, "Fillo", "Start", "Iniciar", "Start", "Почни")}</span>
             </Button>
           </div>
@@ -136,7 +147,7 @@ export default function FeatureTax() {
                   onClick={() => { window.location.href = "/trial"; window.scrollTo({ top: 0 }); }}
                   style={{outline: 'none', boxShadow: 'none'}}
                 >
-                  {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratuita", "Kostenlose Testversion Starten", "Започни бесплатна проба")}
+                  {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratuita", "Kostenlose Testversion Starten", "Започни бесплатна проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
                 </Button>
                 <Button 
                   size="lg" 
@@ -549,7 +560,7 @@ export default function FeatureTax() {
                 className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-5 text-xl font-semibold rounded-2xl shadow-2xl hover:shadow-orange-500/25 hover:scale-105 transition-all duration-300"
                 onClick={() => { window.location.href = "/subscribe"; window.scrollTo({ top: 0 }); }}
               >
-                {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratuita", "Kostenlose Testversion Starten", "Започни бесплатна проба")}
+                {sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratuita", "Kostenlose Testversion Starten", "Започни бесплатна проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
               </Button>
               <Button 
                 size="lg" 

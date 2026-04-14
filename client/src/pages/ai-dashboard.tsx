@@ -16,7 +16,18 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
+}
 
 export default function AIDashboard() {
   const { currentLanguage: lang } = useLanguage();
@@ -68,7 +79,7 @@ export default function AIDashboard() {
             </TabsTrigger>
             <TabsTrigger value="automation" className="flex items-center gap-2">
               <Zap className="h-4 w-4" />
-              {sq(lang, "Automatizimi", "Automation", "Automatización", "Automatisierung", "Автоматизација")}
+              {sq(lang, "Automatizimi", "Automation", "Automatización", "Automatisierung", "Автоматизација", "Automatisation", "Automatização", "Automazione")}
             </TabsTrigger>
             <TabsTrigger value="mobile" className="flex items-center gap-2">
               <Smartphone className="h-4 w-4" />

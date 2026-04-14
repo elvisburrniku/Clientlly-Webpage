@@ -7,9 +7,18 @@ import { Link, useLocation } from 'wouter';
 import { LanguageSelector } from '@/components/LanguageSelector';
 
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const SetupMigrationPage = () => {
   const { currentLanguage: lang } = useLanguage();
@@ -106,16 +115,16 @@ const SetupMigrationPage = () => {
             {/* Center - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
               <Button variant="ghost" onClick={() => go("/about")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="text-lg text-gray-600 dark:text-gray-300 hover:text-foreground font-bold">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
             </div>
 
@@ -126,17 +135,17 @@ const SetupMigrationPage = () => {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
               <Button 
                 variant="outline"
                 onClick={() => go("/subscribe")}
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium"
-              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               <Button 
                 onClick={() => go("/trial")}
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium"
-              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               <LanguageSelector />
             </div>
 
@@ -157,22 +166,22 @@ const SetupMigrationPage = () => {
           <div className="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
             <div className="px-6 py-4 space-y-4">
               <Button variant="ghost" onClick={() => go("/about")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Button>
               <Button variant="ghost" onClick={() => { setLocation("/"); setTimeout(() => { const el = document.getElementById("features"); if (el) el.scrollIntoView({ behavior: "smooth" }); }, 100); }} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}
+                {sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </Button>
               <Button variant="ghost" onClick={() => go("/subscribe")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Button>
               <Button variant="ghost" onClick={() => go("/contact")} className="w-full justify-start text-lg text-gray-600 dark:text-gray-300 font-bold">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Button>
               <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="w-full justify-start text-gray-600 dark:text-gray-300">
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
-              <Button onClick={() => go("/subscribe")} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
-              <Button onClick={() => go("/trial")} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              <Button onClick={() => go("/subscribe")} className="w-full bg-yellow-500 text-black hover:bg-yellow-600 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
+              <Button onClick={() => go("/trial")} className="w-full bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-0 focus:border-none active:outline-none" style={{outline: 'none', boxShadow: 'none'}}>{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
             </div>
           </div>
         )}
@@ -202,7 +211,7 @@ const SetupMigrationPage = () => {
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                {sq(lang, "Konfigurim", "Free", "Configuración", "Kostenlose", "Бесплатно")} <span className="animate-subtle-gradient">{sq(lang, "Falas", "Setup", "Gratis", "Einrichtung", "Поставување")}</span> {sq(lang, "&", "&", "y", "&", "и")}
+                {sq(lang, "Konfigurim", "Free", "Configuración", "Kostenlose", "Бесплатно", "Gratuit", "Gratuito", "Gratuito")} <span className="animate-subtle-gradient">{sq(lang, "Falas", "Setup", "Gratis", "Einrichtung", "Поставување")}</span> {sq(lang, "&", "&", "y", "&", "и")}
               </span>
               <br />
               <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Shërbim Migrimi", "Migration Service", "Servicio de Migración", "Migrationsdienst", "Услуга за Миграција")}</span>
@@ -376,28 +385,28 @@ const SetupMigrationPage = () => {
               className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
               <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-              <span className="font-bold text-sm">{sq(lang, "Mbrojtje dhe privatësi e të dhënave", "Data protection & privacy", "Protección de datos y privacidad", "Datenschutz & Privatsphäre", "Заштита на податоци и приватност")}</span>
+              <span className="font-bold text-sm">{sq(lang, "Mbrojtje dhe privatësi e të dhënave", "Data protection & privacy", "Protección de datos y privacidad", "Datenschutz & Privatsphäre", "Заштита на податоци и приватност", "Protection des données & confidentialité", "Proteção de dados & privacidade", "Protezione dei dati & privacy")}</span>
             </button>
             <button 
               onClick={() => go("/setup-migration")}
               className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
               <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-              <span className="font-bold text-sm">{sq(lang, "Konfigurim & migrim falas", "Free setup & migration", "Configuración y migración gratis", "Kostenlose Einrichtung & Migration", "Бесплатно поставување и миграција")}</span>
+              <span className="font-bold text-sm">{sq(lang, "Konfigurim & migrim falas", "Free setup & migration", "Configuración y migración gratis", "Kostenlose Einrichtung & Migration", "Бесплатно поставување и миграција", "Installation gratuite & migration", "Configuração gratuita & migração", "Configurazione gratuita & migrazione")}</span>
             </button>
             <button 
               onClick={() => go("/cancel-anytime")}
               className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
               <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-              <span className="font-bold text-sm">{sq(lang, "Anuloni në çdo kohë", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете во секое време")}</span>
+              <span className="font-bold text-sm">{sq(lang, "Anuloni në çdo kohë", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете во секое време", "Résiliez à tout moment", "Cancele a qualquer momento", "Annulla quando vuoi")}</span>
             </button>
             <button 
               onClick={() => go("/expert-support")}
               className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
               <Check className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-              <span className="font-bold text-sm">{sq(lang, "Mbështetje ekspertësh 24/7", "24/7 expert support", "Soporte experto 24/7", "24/7 Experten-Support", "24/7 експертска поддршка")}</span>
+              <span className="font-bold text-sm">{sq(lang, "Mbështetje ekspertësh 24/7", "24/7 expert support", "Soporte experto 24/7", "24/7 Experten-Support", "24/7 експертска поддршка", "Assistance d'experts 24h/24 et 7j/7", "Suporte especializado 24/7", "Supporto esperto 24/7")}</span>
             </button>
 
             <button 
@@ -405,7 +414,7 @@ const SetupMigrationPage = () => {
               className="flex items-center space-x-2 hover:scale-105 transition-all duration-300 cursor-pointer group"
             >
               <Shield className="h-5 w-5 text-green-500 group-hover:animate-pulse" />
-              <span className="font-bold text-sm">{sq(lang, "Siguri e nivelit bankar", "Bank-level security", "Seguridad de nivel bancario", "Sicherheit auf Bankniveau", "Безбедност на ниво на банка")}</span>
+              <span className="font-bold text-sm">{sq(lang, "Siguri e nivelit bankar", "Bank-level security", "Seguridad de nivel bancario", "Sicherheit auf Bankniveau", "Безбедност на ниво на банка", "Sécurité bancaire", "Segurança de nível bancário", "Sicurezza a livello bancario")}</span>
             </button>
 
           </div>
@@ -472,7 +481,7 @@ const SetupMigrationPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h4 className="font-bold text-lg mb-2">{sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte Experto", "Experten-Support", "Експертска Поддршка")}</h4>
+              <h4 className="font-bold text-lg mb-2">{sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte Experto", "Experten-Support", "Експертска Поддршка", "Assistance experte", "Suporte especializado", "Supporto esperto")}</h4>
               <p className="text-muted-foreground text-sm">{sq(lang, "Specialistë të dedikuar migrimi ju udhëzojnë përgjatë procesit", "Dedicated migration specialists guide you through the process", "Especialistas de migración dedicados lo guían a través del proceso", "Dedizierte Migrationsspezialisten begleiten Sie durch den Prozess", "Посветени специјалисти за миграција ве водат низ процесот")}</p>
             </div>
           </div>
@@ -506,7 +515,7 @@ const SetupMigrationPage = () => {
               className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <Star className="w-5 h-5 mr-2" />
-              {sq(lang, "Fillo Migrimin Falas", "Start Free Migration", "Iniciar Migración Gratis", "Kostenlose Migration Starten", "Започни Бесплатна Миграција")}
+              {sq(lang, "Fillo Migrimin Falas", "Start Free Migration", "Iniciar Migración Gratis", "Kostenlose Migration Starten", "Започни Бесплатна Миграција", "Commencer la migration gratuite", "Iniciar migração gratuita", "Inizia migrazione gratuita")}
             </Button>
             <Button 
               size="lg"

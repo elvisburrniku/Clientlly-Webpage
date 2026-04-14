@@ -24,59 +24,62 @@ interface SubscriptionPlan {
   features: string[];
 }
 
-function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, spanish?: string | JSX.Element, german?: string | JSX.Element, macedonian?: string | JSX.Element): string | JSX.Element {
+function sq(lang: string, albanian: string | JSX.Element, english: string | JSX.Element, spanish?: string | JSX.Element, german?: string | JSX.Element, macedonian?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
   switch (lang) {
     case 'sq': return albanian;
     case 'es': return spanish ?? english;
     case 'de': return german ?? english;
     case 'mk': return macedonian ?? english;
+    case 'fr': return fr ?? english;
+    case 'pt': return pt ?? english;
+    case 'it': return it ?? english;
     default:   return english;
   }
 }
 
 const moduleCategories = (lang: string) => [
   {
-    label: sq(lang, "Financa", "Finance", "Finanzas", "Finanzen", "Финансии"),
+    label: sq(lang, "Financa", "Finance", "Finanzas", "Finanzen", "Финансии", "Finance", "Finanças", "Finanza"),
     color: "bg-blue-50 text-blue-700 border-blue-100",
     dot: "bg-blue-500",
     items: [
-      { icon: FileCheck, title: sq(lang, "Kuotime Elektronike", "Electronic Quotes", "Cotizaciones Electrónicas", "Elektronische Angebote", "Електронски Понуди"), desc: sq(lang, "Krijo & dërgo kuotim profesional brenda sekondave", "Create & send professional quotes in seconds", "Cree y envíe cotizaciones profesionales en segundos", "Erstellen und senden Sie professionelle Angebote in Sekunden", "Создавајте и испраќајте професионални понуди за секунди") },
-      { icon: FileText, title: sq(lang, "Faturim Profesional", "Professional Invoicing", "Facturación Profesional", "Professionelle Rechnungsstellung", "Професионално Фактурирање"), desc: sq(lang, "Fatura automatike, reminders & gjurmim pagesash", "Auto invoices, reminders & payment tracking", "Facturas automáticas, recordatorios y seguimiento de pagos", "Automatische Rechnungen, Erinnerungen & Zahlungsverfolgung", "Автоматски фактури, потсетници и следење на плаќања") },
-      { icon: Receipt, title: sq(lang, "Gjurmim Shpenzimesh", "Expense Tracking", "Seguimiento de Gastos", "Ausgabenverfolgung", "Следење Трошоци"), desc: sq(lang, "Kategorizim automatik & raport tatimor", "Automatic categorization & tax reports", "Categorización automática e informes fiscales", "Automatische Kategorisierung & Steuerberichte", "Автоматска категоризација и даночни извештаи") },
-      { icon: CreditCard, title: sq(lang, "Menaxhim Borxhesh", "Debt Management", "Gestión de Deudas", "Schuldenmanagement", "Управување со Долгови"), desc: sq(lang, "Planifikoni shlyerjet, qëndroni pa borxhe", "Plan repayments, stay debt-free", "Planifique los reembolsos, manténgase libre de deudas", "Rückzahlungen planen, schuldenfrei bleiben", "Планирајте отплати, останете без долгови") },
-      { icon: BarChart3, title: sq(lang, "Raporte & Analitikë", "Insights & Reports", "Informes y Análisis", "Berichte & Analysen", "Извештаи & Аналитика"), desc: sq(lang, "Dashboard i plotë me KPI dhe parashikime", "Full dashboard with KPIs and forecasts", "Panel completo con KPIs y pronósticos", "Vollständiges Dashboard mit KPIs und Prognosen", "Целосен панел со KPI и прогнози") },
-      { icon: Wallet, title: sq(lang, "Kartelat e Blerësit", "Buyer Cards", "Tarjetas de Comprador", "Käuferkarten", "Картички на Купувачи"), desc: sq(lang, "Menaxhoni kartelat dhe historikun e blerësve", "Manage buyer cards and purchase history", "Gestione tarjetas de compradores e historial de compras", "Käuferkarten und Kaufhistorie verwalten", "Управувајте со картички и историја на купувачи") },
+      { icon: FileCheck, title: sq(lang, "Kuotime Elektronike", "Electronic Quotes", "Cotizaciones Electrónicas", "Elektronische Angebote", "Електронски Понуди", "Devis électroniques", "Orçamentos eletrónicos", "Preventivi elettronici"), desc: sq(lang, "Krijo & dërgo kuotim profesional brenda sekondave", "Create & send professional quotes in seconds", "Cree y envíe cotizaciones profesionales en segundos", "Erstellen und senden Sie professionelle Angebote in Sekunden", "Создавајте и испраќајте професионални понуди за секунди", "Créez et envoyez des devis professionnels en quelques secondes", "Crie e envie orçamentos profissionais em segundos", "Crea e invia preventivi professionali in secondi") },
+      { icon: FileText, title: sq(lang, "Faturim Profesional", "Professional Invoicing", "Facturación Profesional", "Professionelle Rechnungsstellung", "Професионално Фактурирање", "Facturation professionnelle", "Faturação profissional", "Fatturazione professionale"), desc: sq(lang, "Fatura automatike, reminders & gjurmim pagesash", "Auto invoices, reminders & payment tracking", "Facturas automáticas, recordatorios y seguimiento de pagos", "Automatische Rechnungen, Erinnerungen & Zahlungsverfolgung", "Автоматски фактури, потсетници и следење на плаќања", "Factures automatiques, rappels & suivi des paiements", "Faturas automáticas, lembretes & rastreamento de pagamentos", "Fatture automatiche, promemoria & monitoraggio pagamenti") },
+      { icon: Receipt, title: sq(lang, "Gjurmim Shpenzimesh", "Expense Tracking", "Seguimiento de Gastos", "Ausgabenverfolgung", "Следење Трошоци", "Suivi des dépenses", "Controlo de despesas", "Monitoraggio spese"), desc: sq(lang, "Kategorizim automatik & raport tatimor", "Automatic categorization & tax reports", "Categorización automática e informes fiscales", "Automatische Kategorisierung & Steuerberichte", "Автоматска категоризација и даночни извештаи", "Catégorisation automatique & rapports fiscaux", "Categorização automática & relatórios fiscais", "Categorizzazione automatica & rapporti fiscali") },
+      { icon: CreditCard, title: sq(lang, "Menaxhim Borxhesh", "Debt Management", "Gestión de Deudas", "Schuldenmanagement", "Управување со Долгови", "Gestion des dettes", "Gestão de dívidas", "Gestione dei debiti"), desc: sq(lang, "Planifikoni shlyerjet, qëndroni pa borxhe", "Plan repayments, stay debt-free", "Planifique los reembolsos, manténgase libre de deudas", "Rückzahlungen planen, schuldenfrei bleiben", "Планирајте отплати, останете без долгови", "Planifiez les remboursements, restez sans dettes", "Planeie os reembolsos, fique livre de dívidas", "Pianifica i rimborsi, resta senza debiti") },
+      { icon: BarChart3, title: sq(lang, "Raporte & Analitikë", "Insights & Reports", "Informes y Análisis", "Berichte & Analysen", "Извештаи & Аналитика", "Analyses & rapports", "Análises & relatórios", "Analisi & report"), desc: sq(lang, "Dashboard i plotë me KPI dhe parashikime", "Full dashboard with KPIs and forecasts", "Panel completo con KPIs y pronósticos", "Vollständiges Dashboard mit KPIs und Prognosen", "Целосен панел со KPI и прогнози", "Tableau de bord complet avec KPIs et prévisions", "Painel completo com KPIs e previsões", "Dashboard completo con KPI e previsioni") },
+      { icon: Wallet, title: sq(lang, "Kartelat e Blerësit", "Buyer Cards", "Tarjetas de Comprador", "Käuferkarten", "Картички на Купувачи", "Cartes acheteur", "Cartões de comprador", "Schede acquirenti"), desc: sq(lang, "Menaxhoni kartelat dhe historikun e blerësve", "Manage buyer cards and purchase history", "Gestione tarjetas de compradores e historial de compras", "Käuferkarten und Kaufhistorie verwalten", "Управувајте со картички и историја на купувачи", "Gérez les cartes acheteur et l'historique d'achats", "Gerencie cartões de comprador e histórico de compras", "Gestisci le schede acquirenti e la cronologia degli acquisti") },
     ],
   },
   {
-    label: sq(lang, "Operacione", "Operations", "Operaciones", "Betrieb", "Операции"),
+    label: sq(lang, "Operacione", "Operations", "Operaciones", "Betrieb", "Операции", "Opérations", "Operações", "Operazioni"),
     color: "bg-violet-50 text-violet-700 border-violet-100",
     dot: "bg-violet-500",
     items: [
-      { icon: Users, title: sq(lang, "Menaxhim Klientësh", "Client Management", "Gestión de Clientes", "Kundenverwaltung", "Управување со Клиенти"), desc: sq(lang, "CRM i plotë — historik, projekte & komunikim", "Full CRM — history, projects & communication", "CRM completo — historial, proyectos y comunicación", "Vollständiges CRM — Geschichte, Projekte & Kommunikation", "Целосен CRM — историја, проекти и комуникација") },
-      { icon: Building2, title: sq(lang, "Menaxhim Furnitorësh", "Vendor Management", "Gestión de Proveedores", "Lieferantenverwaltung", "Управување со Добавувачи"), desc: sq(lang, "Porosi, kontrata dhe vlerësim furnitorësh", "Orders, contracts and vendor evaluation", "Pedidos, contratos y evaluación de proveedores", "Bestellungen, Verträge und Lieferantenbewertung", "Нарачки, договори и евалуација на добавувачи") },
-      { icon: Package, title: sq(lang, "Menaxhim Inventari", "Inventory Management", "Gestión de Inventario", "Bestandsverwaltung", "Управување со Залихи"), desc: sq(lang, "Stok i saktë, alarme automatike & barkode", "Accurate stock, auto alerts & barcodes", "Stock preciso, alertas automáticas y códigos de barras", "Genauer Bestand, automatische Warnungen & Barcodes", "Точен залих, автоматски предупредувања и баркодови") },
-      { icon: CalendarCheck, title: sq(lang, "Kalendarit & Takime", "Calendar & Meetings", "Calendario y Reuniones", "Kalender & Meetings", "Календар и Состаноци"), desc: sq(lang, "Caktime inteligjente dhe njoftime automatike", "Smart scheduling and automatic reminders", "Programación inteligente y recordatorios automáticos", "Intelligente Terminplanung und automatische Erinnerungen", "Паметно закажување и автоматски потсетници") },
+      { icon: Users, title: sq(lang, "Menaxhim Klientësh", "Client Management", "Gestión de Clientes", "Kundenverwaltung", "Управување со Клиенти", "Gestion des clients", "Gestão de clientes", "Gestione clienti"), desc: sq(lang, "CRM i plotë — historik, projekte & komunikim", "Full CRM — history, projects & communication", "CRM completo — historial, proyectos y comunicación", "Vollständiges CRM — Geschichte, Projekte & Kommunikation", "Целосен CRM — историја, проекти и комуникација", "CRM complet — historique, projets & communication", "CRM completo — histórico, projetos & comunicação", "CRM completo — cronologia, progetti & comunicazione") },
+      { icon: Building2, title: sq(lang, "Menaxhim Furnitorësh", "Vendor Management", "Gestión de Proveedores", "Lieferantenverwaltung", "Управување со Добавувачи", "Gestion des fournisseurs", "Gestão de fornecedores", "Gestione fornitori"), desc: sq(lang, "Porosi, kontrata dhe vlerësim furnitorësh", "Orders, contracts and vendor evaluation", "Pedidos, contratos y evaluación de proveedores", "Bestellungen, Verträge und Lieferantenbewertung", "Нарачки, договори и евалуација на добавувачи", "Commandes, contrats et évaluation des fournisseurs", "Encomendas, contratos e avaliação de fornecedores", "Ordini, contratti e valutazione fornitori") },
+      { icon: Package, title: sq(lang, "Menaxhim Inventari", "Inventory Management", "Gestión de Inventario", "Bestandsverwaltung", "Управување со Залихи", "Gestion des stocks", "Gestão de inventário", "Gestione magazzino"), desc: sq(lang, "Stok i saktë, alarme automatike & barkode", "Accurate stock, auto alerts & barcodes", "Stock preciso, alertas automáticas y códigos de barras", "Genauer Bestand, automatische Warnungen & Barcodes", "Точен залих, автоматски предупредувања и баркодови", "Stock précis, alertes automatiques & codes-barres", "Stock preciso, alertas automáticas & códigos de barras", "Stock preciso, avvisi automatici & codici a barre") },
+      { icon: CalendarCheck, title: sq(lang, "Kalendarit & Takime", "Calendar & Meetings", "Calendario y Reuniones", "Kalender & Meetings", "Календар и Состаноци", "Calendrier & réunions", "Calendário & reuniões", "Calendario & riunioni"), desc: sq(lang, "Caktime inteligjente dhe njoftime automatike", "Smart scheduling and automatic reminders", "Programación inteligente y recordatorios automáticos", "Intelligente Terminplanung und automatische Erinnerungen", "Паметно закажување и автоматски потсетници", "Planification intelligente et rappels automatiques", "Agendamento inteligente e lembretes automáticos", "Pianificazione intelligente e promemoria automatici") },
     ],
   },
   {
-    label: sq(lang, "Flotë", "Fleet", "Flota", "Flotte", "Флота"),
+    label: sq(lang, "Flotë", "Fleet", "Flota", "Flotte", "Флота", "Flotte", "Frota", "Flotta"),
     color: "bg-amber-50 text-amber-700 border-amber-100",
     dot: "bg-amber-500",
     items: [
-      { icon: Car, title: sq(lang, "Menaxhim Floteje", "Fleet Management", "Gestión de Flotas", "Flottenmanagement", "Управување со Флота"), desc: sq(lang, "Gjurmoni automjetet, shpenzimet & mirëmbajtjen", "Track vehicles, costs & maintenance", "Rastrear vehículos, costos y mantenimiento", "Fahrzeuge, Kosten & Wartung verfolgen", "Следете возила, трошоци и одржување") },
-      { icon: Zap, title: sq(lang, "Mirëmbajtje & Servisim", "Maintenance & Service", "Mantenimiento y Servicio", "Wartung & Service", "Одржување & Сервис"), desc: sq(lang, "Planifikoni servisimet, reduktoni kohën e ndërprerjes", "Schedule service, reduce downtime", "Programe el mantenimiento, reduzca el tiempo de inactividad", "Wartung planen, Ausfallzeit reduzieren", "Закажете сервис, намалете застои") },
+      { icon: Car, title: sq(lang, "Menaxhim Floteje", "Fleet Management", "Gestión de Flotas", "Flottenmanagement", "Управување со Флота", "Gestion de flotte", "Gestão de frota", "Gestione flotta"), desc: sq(lang, "Gjurmoni automjetet, shpenzimet & mirëmbajtjen", "Track vehicles, costs & maintenance", "Rastrear vehículos, costos y mantenimiento", "Fahrzeuge, Kosten & Wartung verfolgen", "Следете возила, трошоци и одржување", "Suivre les véhicules, coûts & maintenance", "Acompanhar veículos, custos & manutenção", "Traccia veicoli, costi & manutenzione") },
+      { icon: Zap, title: sq(lang, "Mirëmbajtje & Servisim", "Maintenance & Service", "Mantenimiento y Servicio", "Wartung & Service", "Одржување & Сервис", "Maintenance & service", "Manutenção & serviço", "Manutenzione & servizio"), desc: sq(lang, "Planifikoni servisimet, reduktoni kohën e ndërprerjes", "Schedule service, reduce downtime", "Programe el mantenimiento, reduzca el tiempo de inactividad", "Wartung planen, Ausfallzeit reduzieren", "Закажете сервис, намалете застои", "Planifiez le service, réduisez les temps d'arrêt", "Agende serviços, reduza o tempo de inatividade", "Programma la manutenzione, riduci i tempi morti") },
     ],
   },
   {
-    label: sq(lang, "Burime Njerëzore", "Human Resources", "Recursos Humanos", "Personalwesen", "Човечки Ресурси"),
+    label: sq(lang, "Burime Njerëzore", "Human Resources", "Recursos Humanos", "Personalwesen", "Човечки Ресурси", "Ressources humaines", "Recursos humanos", "Risorse umane"),
     color: "bg-emerald-50 text-emerald-700 border-emerald-100",
     dot: "bg-emerald-500",
     items: [
-      { icon: Clock, title: sq(lang, "Prezencë (GPS)", "Attendance (GPS)", "Asistencia (GPS)", "Anwesenheit (GPS)", "Присуство (GPS)"), desc: sq(lang, "Check-in me GPS nga celulari, raporte automatike", "GPS mobile check-in, automatic reports", "Check-in GPS desde el móvil, informes automáticos", "GPS-Mobil-Check-in, automatische Berichte", "GPS мобилен Check-in, автоматски извештаи") },
-      { icon: DollarSign, title: sq(lang, "Pagat e Punonjësve", "Payroll", "Nómina", "Gehaltsabrechnung", "Плати"), desc: sq(lang, "Llogaritje automatike me zbritje dhe raporte", "Auto calculation with deductions & reports", "Cálculo automático con deducciones e informes", "Automatische Berechnung mit Abzügen & Berichten", "Автоматска пресметка со одбитоци и извештаи") },
-      { icon: Briefcase, title: sq(lang, "Menaxhim Lejesh", "Leave Management", "Gestión de Permisos", "Urlaubsverwaltung", "Управување со Отсуства"), desc: sq(lang, "Kërkesa, aprovim dhe bilanci i lejeve", "Requests, approval and leave balance", "Solicitudes, aprobación y saldo de permisos", "Anfragen, Genehmigung und Urlaubssaldo", "Барања, одобрување и салдо на отсуства") },
-      { icon: GraduationCap, title: sq(lang, "Trajnim & Kuize", "Training & Quizzes", "Formación y Cuestionarios", "Training & Quiz", "Обука и Тестови"), desc: sq(lang, "Trajnoni ekipin tuaj drejtpërdrejt në platformë", "Train your team directly in the platform", "Forme a su equipo directamente en la plataforma", "Trainieren Sie Ihr Team direkt auf der Plattform", "Тренирајте го вашиот тим директно на платформата") },
+      { icon: Clock, title: sq(lang, "Prezencë (GPS)", "Attendance (GPS)", "Asistencia (GPS)", "Anwesenheit (GPS)", "Присуство (GPS)", "Présence (GPS)", "Presença (GPS)", "Presenze (GPS)"), desc: sq(lang, "Check-in me GPS nga celulari, raporte automatike", "GPS mobile check-in, automatic reports", "Check-in GPS desde el móvil, informes automáticos", "GPS-Mobil-Check-in, automatische Berichte", "GPS мобилен Check-in, автоматски извештаи", "Check-in GPS mobile, rapports automatiques", "Check-in GPS móvel, relatórios automáticos", "Check-in GPS mobile, report automatici") },
+      { icon: DollarSign, title: sq(lang, "Pagat e Punonjësve", "Payroll", "Nómina", "Gehaltsabrechnung", "Плати", "Paie", "Salários", "Buste paga"), desc: sq(lang, "Llogaritje automatike me zbritje dhe raporte", "Auto calculation with deductions & reports", "Cálculo automático con deducciones e informes", "Automatische Berechnung mit Abzügen & Berichten", "Автоматска пресметка со одбитоци и извештаи", "Calcul automatique avec déductions & rapports", "Cálculo automático com deduções & relatórios", "Calcolo automatico con detrazioni & report") },
+      { icon: Briefcase, title: sq(lang, "Menaxhim Lejesh", "Leave Management", "Gestión de Permisos", "Urlaubsverwaltung", "Управување со Отсуства", "Gestion des congés", "Gestão de licenças", "Gestione ferie"), desc: sq(lang, "Kërkesa, aprovim dhe bilanci i lejeve", "Requests, approval and leave balance", "Solicitudes, aprobación y saldo de permisos", "Anfragen, Genehmigung und Urlaubssaldo", "Барања, одобрување и салдо на отсуства", "Demandes, approbation et solde de congés", "Pedidos, aprovação e saldo de licenças", "Richieste, approvazione e saldo ferie") },
+      { icon: GraduationCap, title: sq(lang, "Trajnim & Kuize", "Training & Quizzes", "Formación y Cuestionarios", "Training & Quiz", "Обука и Тестови", "Formation & quiz", "Formação & quizzes", "Formazione & quiz"), desc: sq(lang, "Trajnoni ekipin tuaj drejtpërdrejt në platformë", "Train your team directly in the platform", "Forme a su equipo directamente en la plataforma", "Trainieren Sie Ihr Team direkt auf der Plattform", "Тренирајте го вашиот тим директно на платформата", "Formez votre équipe directement sur la plateforme", "Forme a sua equipa diretamente na plataforma", "Forma il tuo team direttamente sulla piattaforma") },
     ],
   },
 ];
@@ -115,10 +118,10 @@ export default function Landing() {
   };
 
   const stats = [
-    { value: "200+", label: sq(lang, "Biznese", "Businesses", "Empresas", "Unternehmen", "Бизниси") },
-    { value: "16", label: sq(lang, "Module", "Modules", "Módulos", "Module", "Модули") },
-    { value: "5", label: sq(lang, "Vende", "Countries", "Países", "Länder", "Земји") },
-    { value: "99.9%", label: sq(lang, "Uptime", "Uptime", "Tiempo Activo", "Betriebszeit", "Работно Време") },
+    { value: "200+", label: sq(lang, "Biznese", "Businesses", "Empresas", "Unternehmen", "Бизниси", "Entreprises", "Empresas", "Aziende") },
+    { value: "16", label: sq(lang, "Module", "Modules", "Módulos", "Module", "Модули", "Modules", "Módulos", "Moduli") },
+    { value: "5", label: sq(lang, "Vende", "Countries", "Países", "Länder", "Земји", "Pays", "Países", "Paesi") },
+    { value: "99.9%", label: sq(lang, "Uptime", "Uptime", "Tiempo Activo", "Betriebszeit", "Работно Време", "Disponibilité", "Tempo de atividade", "Disponibilità") },
   ];
 
   const testimonials = [
@@ -127,39 +130,21 @@ export default function Landing() {
       role: "Truly Nolen",
       avatar: "AS",
       color: "from-blue-500 to-indigo-600",
-      text: sq(lang,
-        "Clientlly na kurseu mbi 12 orë në javë. Faturimi dhe gjurmimi i shpenzimeve janë bërë shumë të thjeshta.",
-        "Clientlly saved us over 12 hours a week. Invoicing and expense tracking became so simple.",
-        "Clientlly nos ahorró más de 12 horas a la semana. La facturación y el seguimiento de gastos se volvieron muy simples.",
-        "Clientlly sparte uns über 12 Stunden pro Woche. Rechnungsstellung und Ausgabenverfolgung wurden so einfach.",
-        "Clientlly ни заштеди над 12 часа неделно. Фактурирањето и следењето на трошоци станаа многу едноставни."
-      ),
+      text: sq(lang, "Clientlly na kurseu mbi 12 orë në javë. Faturimi dhe gjurmimi i shpenzimeve janë bërë shumë të thjeshta.", "Clientlly saved us over 12 hours a week. Invoicing and expense tracking became so simple.", "Clientlly nos ahorró más de 12 horas a la semana. La facturación y el seguimiento de gastos se volvieron muy simples.", "Clientlly sparte uns über 12 Stunden pro Woche. Rechnungsstellung und Ausgabenverfolgung wurden so einfach.", "Clientlly ни заштеди над 12 часа неделно. Фактурирањето и следењето на трошоци станаа многу едноставни.", "Clientlly nous a fait gagner plus de 12 heures par semaine. La facturation et le suivi des dépenses sont devenus si simples.", "A Clientlly poupou-nos mais de 12 horas por semana. A faturação e o controlo de despesas tornaram-se muito simples.", "Clientlly ci ha fatto risparmiare più di 12 ore a settimana. La fatturazione e il monitoraggio delle spese sono diventati semplicissimi."),
     },
     {
       name: "Blerta Krasniqi",
       role: "CEO, TechStart",
       avatar: "BK",
       color: "from-violet-500 to-purple-600",
-      text: sq(lang,
-        "Platforma më e mirë për biznese të vogla. Çdo gjë që nevojitet — në një vend, me mbështetje të jashtëzakonshme.",
-        "The best platform for small businesses. Everything needed — in one place, with outstanding support.",
-        "La mejor plataforma para pequeñas empresas. Todo lo necesario — en un solo lugar, con soporte excepcional.",
-        "Die beste Plattform für kleine Unternehmen. Alles Nötige — an einem Ort, mit hervorragendem Support.",
-        "Најдобрата платформа за мали бизниси. Сé потребно — на едно место, со извонредна поддршка."
-      ),
+      text: sq(lang, "Platforma më e mirë për biznese të vogla. Çdo gjë që nevojitet — në një vend, me mbështetje të jashtëzakonshme.", "The best platform for small businesses. Everything needed — in one place, with outstanding support.", "La mejor plataforma para pequeñas empresas. Todo lo necesario — en un solo lugar, con soporte excepcional.", "Die beste Plattform für kleine Unternehmen. Alles Nötige — an einem Ort, mit hervorragendem Support.", "Најдобрата платформа за мали бизниси. Сé потребно — на едно место, со извонредна поддршка.", "La meilleure plateforme pour les petites entreprises. Tout ce qu'il faut — en un seul endroit, avec un support exceptionnel.", "A melhor plataforma para pequenas empresas. Tudo o que é necessário — num único lugar, com suporte excelente.", "La migliore piattaforma per le piccole imprese. Tutto il necessario — in un unico posto, con un supporto eccellente."),
     },
     {
       name: "Mikel Doda",
-      role: sq(lang, "Drejtor Financiar, Scentlinqpro", "Finance Director, Scentlinqpro", "Director Financiero, Scentlinqpro", "Finanzdirektor, Scentlinqpro", "Финансиски Директор, Scentlinqpro"),
+      role: sq(lang, "Drejtor Financiar, Scentlinqpro", "Finance Director, Scentlinqpro", "Director Financiero, Scentlinqpro", "Finanzdirektor, Scentlinqpro", "Финансиски Директор, Scentlinqpro", "Directeur financier, Scentlinqpro", "Diretor financeiro, Scentlinqpro", "Direttore finanziario, Scentlinqpro"),
       avatar: "MD",
       color: "from-emerald-500 to-teal-600",
-      text: sq(lang,
-        "Raportet janë fantastike. Tani e di saktësisht si po shkon biznesi çdo ditë — pa asnjë spreadsheet.",
-        "The reports are fantastic. Now I know exactly how the business is doing every day — no spreadsheets.",
-        "Los informes son fantásticos. Ahora sé exactamente cómo va el negocio cada día, sin hojas de cálculo.",
-        "Die Berichte sind fantastisch. Jetzt weiß ich genau, wie das Geschäft jeden Tag läuft — ohne Tabellen.",
-        "Извештаите се фантастични. Сега точно знам како оди бизнисот секој ден — без табели."
-      ),
+      text: sq(lang, "Raportet janë fantastike. Tani e di saktësisht si po shkon biznesi çdo ditë — pa asnjë spreadsheet.", "The reports are fantastic. Now I know exactly how the business is doing every day — no spreadsheets.", "Los informes son fantásticos. Ahora sé exactamente cómo va el negocio cada día, sin hojas de cálculo.", "Die Berichte sind fantastisch. Jetzt weiß ich genau, wie das Geschäft jeden Tag läuft — ohne Tabellen.", "Извештаите се фантастични. Сега точно знам како оди бизнисот секој ден — без табели.", "Les rapports sont fantastiques. Je sais maintenant exactement comment se porte l'entreprise chaque jour — sans tableurs.", "Os relatórios são fantásticos. Agora sei exatamente como está o negócio todos os dias — sem folhas de cálculo.", "I report sono fantastici. Ora so esattamente come va l'azienda ogni giorno — senza fogli di calcolo."),
     },
   ];
 
@@ -167,19 +152,13 @@ export default function Landing() {
     {
       n: "01",
       icon: CheckCircle,
-      title: sq(lang, "Regjistrohuni Falas", "Sign Up Free", "Regístrese Gratis", "Kostenlos Registrieren", "Регистрирајте се Бесплатно"),
-      desc: sq(lang,
-        "Krijoni llogarinë në 2 minuta. Pa kartë kredie, pa detyrime. 14 ditë provë e plotë.",
-        "Create your account in 2 minutes. No credit card, no obligations. 14-day full trial.",
-        "Cree su cuenta en 2 minutos. Sin tarjeta de crédito, sin compromisos. 14 días de prueba completa.",
-        "Erstellen Sie Ihr Konto in 2 Minuten. Keine Kreditkarte, keine Verpflichtungen. 14 Tage volle Testversion.",
-        "Создадете сметка за 2 минути. Без кредитна картичка, без обврски. 14 дена целосна проба."
-      ),
+      title: sq(lang, "Regjistrohuni Falas", "Sign Up Free", "Regístrese Gratis", "Kostenlos Registrieren", "Регистрирајте се Бесплатно", "Inscription gratuite", "Inscrição gratuita", "Registrati gratis"),
+      desc: sq(lang, "Krijoni llogarinë në 2 minuta. Pa kartë kredie, pa detyrime. 14 ditë provë e plotë.", "Create your account in 2 minutes. No credit card, no obligations. 14-day full trial.", "Cree su cuenta en 2 minutos. Sin tarjeta de crédito, sin compromisos. 14 días de prueba completa.", "Erstellen Sie Ihr Konto in 2 Minuten. Keine Kreditkarte, keine Verpflichtungen. 14 Tage volle Testversion.", "Создадете сметка за 2 минути. Без кредитна картичка, без обврски. 14 дена целосна проба.", "Créez votre compte en 2 minutes. Aucune carte bancaire, aucune obligation. Essai complet de 14 jours.", "Crie a sua conta em 2 minutos. Sem cartão de crédito, sem obrigações. Período de teste completo de 14 dias.", "Crea il tuo account in 2 minuti. Nessuna carta di credito, nessun obbligo. Prova completa di 14 giorni."),
     },
     {
       n: "02",
       icon: Package,
-      title: sq(lang, "Të Gjitha Modulet të Përfshira", "All Modules Included", "Todos los Módulos Incluidos", "Alle Module Enthalten", "Сите Модули Вклучени"),
+      title: sq(lang, "Të Gjitha Modulet të Përfshira", "All Modules Included", "Todos los Módulos Incluidos", "Alle Module Enthalten", "Сите Модули Вклучени", "Tous les modules inclus", "Todos os módulos incluídos", "Tutti i moduli inclusi"),
       desc: sq(lang,
         "Të gjitha 16 modulet aktivizohen automatikisht me planin tuaj. Shtoni ekipin dhe nisni menjëherë.",
         "All 16 modules are automatically activated with your plan. Add your team and get started right away.",
@@ -216,11 +195,11 @@ export default function Landing() {
             </Link>
 
             <div className="hidden md:flex items-center space-x-7 flex-1 justify-center">
-              <Link href="/" className="text-sm font-semibold text-indigo-600">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <a href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</a>
-              <a href="#pricing-section" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</a>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-semibold text-indigo-600">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Sobre Nosotros", "Über Uns", "За Нас", "À propos", "Sobre", "Chi siamo")}</Link>
+              <a href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</a>
+              <a href="#pricing-section" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</a>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
 
             <div className="hidden md:flex items-center space-x-5 flex-shrink-0 relative z-[60]">
@@ -238,13 +217,13 @@ export default function Landing() {
 
         {showMobileMenu && (
           <div className="md:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-semibold text-indigo-600 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Rreth Nesh", "About", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-            <a href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</a>
-            <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</a>
-            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+            <Link href="/" className="block text-sm font-semibold text-indigo-600 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Rreth Nesh", "About", "Sobre Nosotros", "Über Uns", "За Нас", "À propos", "Sobre", "Chi siamo")}</Link>
+            <a href="/features" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</a>
+            <a href="#pricing-section" className="block text-sm font-medium text-gray-700 py-2">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</a>
+            <Link href="/contact" className="block text-sm font-medium text-gray-700 py-2" onClick={() => setShowMobileMenu(false)}>{sq(lang, "Kontakt", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             <div className="pt-2 flex flex-col gap-2">
-              <button onClick={() => { window.location.href = '/trial'; }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial", "Prueba Gratis", "Kostenlos Testen", "Бесплатна Проба")}</button>
+              <button onClick={() => { window.location.href = '/trial'; }} className="block text-center text-sm font-semibold px-4 py-2.5 bg-indigo-600 text-white rounded-lg w-full">{sq(lang, "Provo Falas", "Free Trial", "Prueba Gratis", "Kostenlos Testen", "Бесплатна Проба", "Essai gratuit", "Período de teste gratuito", "Prova gratuita")}</button>
             </div>
           </div>
         )}
@@ -298,7 +277,7 @@ export default function Landing() {
                 >
                   <span className="flex flex-col items-start leading-tight">
                     <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
-                    <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Testversion Starten", "Започни Бесплатна Проба")}</span>
+                    <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Testversion Starten", "Започни Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</span>
                   </span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>
@@ -307,15 +286,15 @@ export default function Landing() {
                   className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl border border-gray-700 transition-all duration-200 shadow-lg hover:-translate-y-0.5 text-sm"
                 >
                   <CreditCard className="h-4 w-4 text-indigo-400 group-hover:scale-110 transition-transform" />
-                  {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+                  {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
                 </button>
               </div>
 
               <div className="anim-fade anim-d3 flex flex-wrap gap-4 text-xs text-gray-400">
                 {[
                   { icon: Shield, label: sq(lang, "Mbrojtje e të dhënave", "Data protection", "Protección de datos", "Datenschutz", "Заштита на податоци"), href: "/data-protection" },
-                  { icon: Check, label: sq(lang, "Konfigurim falas", "Free setup", "Configuración gratuita", "Kostenlose Einrichtung", "Бесплатна поставка"), href: "/setup-migration" },
-                  { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7"), href: "/expert-support" },
+                  { icon: Check, label: sq(lang, "Konfigurim falas", "Free setup", "Configuración gratuita", "Kostenlose Einrichtung", "Бесплатна поставка", "Installation gratuite", "Configuração gratuita", "Configurazione gratuita"), href: "/setup-migration" },
+                  { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7", "Assistance 24h/24 et 7j/7", "Suporte 24/7", "Supporto 24/7"), href: "/expert-support" },
                 ].map(({ icon: Icon, label, href }) => (
                   <Link key={String(label)} href={href}
                     className="flex items-center gap-1 hover:text-indigo-600 transition-colors font-medium">
@@ -343,9 +322,9 @@ export default function Landing() {
                   {/* KPI row */}
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     {[
-                      { label: sq(lang, "Të ardhura", "Revenue", "Ingresos", "Einnahmen", "Приходи"), value: "€24,850", change: "+12%", color: "text-emerald-600 bg-emerald-50" },
-                      { label: sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци"), value: "€8,540", change: "-4%", color: "text-blue-600 bg-blue-50" },
-                      { label: sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти"), value: "32", change: "+3", color: "text-violet-600 bg-violet-50" },
+                      { label: sq(lang, "Të ardhura", "Revenue", "Ingresos", "Einnahmen", "Приходи", "Revenus", "Receitas", "Entrate"), value: "€24,850", change: "+12%", color: "text-emerald-600 bg-emerald-50" },
+                      { label: sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"), value: "€8,540", change: "-4%", color: "text-blue-600 bg-blue-50" },
+                      { label: sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti"), value: "32", change: "+3", color: "text-violet-600 bg-violet-50" },
                     ].map(({ label, value, change, color }) => (
                       <div key={String(label)} className="p-3 rounded-xl bg-gray-50 border border-gray-100">
                         <p className="text-[10px] text-gray-400 mb-1 font-medium">{label}</p>
@@ -371,11 +350,11 @@ export default function Landing() {
                   </div>
                   {/* Recent invoices */}
                   <div className="space-y-2">
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">{sq(lang, "Faturat e fundit", "Recent Invoices", "Facturas Recientes", "Letzte Rechnungen", "Последни Фактури")}</p>
+                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide">{sq(lang, "Faturat e fundit", "Recent Invoices", "Facturas Recientes", "Letzte Rechnungen", "Последни Фактури", "Factures récentes", "Faturas recentes", "Fatture recenti")}</p>
                     {[
-                      { client: "TechStart", amount: "€2,400", status: sq(lang, "Paguar", "Paid", "Pagado", "Bezahlt", "Платено"), dot: "bg-emerald-500" },
-                      { client: "Truly Nolen", amount: "€1,850", status: sq(lang, "Pritur", "Pending", "Pendiente", "Ausstehend", "Во Тек"), dot: "bg-amber-500" },
-                      { client: "Scentlinqpro", amount: "€3,200", status: sq(lang, "Paguar", "Paid", "Pagado", "Bezahlt", "Платено"), dot: "bg-emerald-500" },
+                      { client: "TechStart", amount: "€2,400", status: sq(lang, "Paguar", "Paid", "Pagado", "Bezahlt", "Платено", "Payé", "Pago", "Pagato"), dot: "bg-emerald-500" },
+                      { client: "Truly Nolen", amount: "€1,850", status: sq(lang, "Pritur", "Pending", "Pendiente", "Ausstehend", "Во Тек", "En attente", "Pendente", "In attesa"), dot: "bg-amber-500" },
+                      { client: "Scentlinqpro", amount: "€3,200", status: sq(lang, "Paguar", "Paid", "Pagado", "Bezahlt", "Платено", "Payé", "Pago", "Pagato"), dot: "bg-emerald-500" },
                     ].map(({ client, amount, status, dot }) => (
                       <div key={client} className="flex items-center justify-between py-1.5 px-2 rounded-lg hover:bg-gray-50 transition-colors">
                         <div className="flex items-center gap-2">
@@ -623,7 +602,7 @@ export default function Landing() {
                 {sq(lang, "Bashkëpunim", "Collaboration", "Colaboración", "Zusammenarbeit", "Соработка")}
               </p>
               <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                {sq(lang, "Le të rritemi bashkë", "Let's grow together", "Crezcamos juntos", "Wachsen wir gemeinsam", "Да растеме заедно")}
+                {sq(lang, "Le të rritemi bashkë", "Let's grow together", "Crezcamos juntos", "Wachsen wir gemeinsam", "Да растеме заедно", "Grandissons ensemble", "Crescemos juntos", "Cresciamo insieme")}
               </h2>
               <p className="anim-rise anim-d1 text-gray-500 leading-relaxed mb-8">
                 {sq(lang,
@@ -646,7 +625,7 @@ export default function Landing() {
               {[
                 { icon: Zap, title: sq(lang, "Zhvillim i Shpejtë", "Rapid Development", "Desarrollo Rápido", "Schnelle Entwicklung", "Брз Развој"), desc: sq(lang, "Idetë tuaja bëhen realitet brenda javësh", "Your ideas become reality within weeks", "Sus ideas se hacen realidad en semanas", "Ihre Ideen werden innerhalb von Wochen Realität", "Вашите идеи стануваат реалност за недели") },
                 { icon: Users, title: sq(lang, "Komuniteti i Parë", "Community First", "La Comunidad Primero", "Gemeinschaft Zuerst", "Заедницата Прва"), desc: sq(lang, "Platforma e ndërtuar mbi komentet tuaja", "Platform built on your feedback", "Plataforma construida sobre sus comentarios", "Plattform basierend auf Ihrem Feedback", "Платформа изградена врз основа на вашите коментари") },
-                { icon: Globe, title: sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte de Expertos", "Expertenunterstützung", "Поддршка од Експерти"), desc: sq(lang, "Qasje direkte te ekipi ynë", "Direct access to our expert team", "Acceso directo a nuestro equipo experto", "Direkter Zugang zu unserem Expertenteam", "Директен пристап до нашиот тим на експерти") },
+                { icon: Globe, title: sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte de Expertos", "Expertenunterstützung", "Поддршка од Експерти", "Assistance experte", "Suporte especializado", "Supporto esperto"), desc: sq(lang, "Qasje direkte te ekipi ynë", "Direct access to our expert team", "Acceso directo a nuestro equipo experto", "Direkter Zugang zu unserem Expertenteam", "Директен пристап до нашиот тим на експерти") },
                 { icon: TrendingUp, title: sq(lang, "Rritje e Përbashkët", "Shared Growth", "Crecimiento Compartido", "Gemeinsames Wachstum", "Заеднички Раст"), desc: sq(lang, "Ne rritemi kur rriteni edhe ju", "We grow when you grow", "Crecemos cuando usted crece", "Wir wachsen, wenn Sie wachsen", "Ние растеме кога растете и вие") },
               ].map(({ icon: Icon, title, desc }, i) => (
                 <div key={String(title)} className={`anim-scale anim-d${i + 1} p-5 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow`}>
@@ -665,7 +644,7 @@ export default function Landing() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+              {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
             </p>
             <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang, "Çmime të qarta, pa surpriza", "Clear pricing, no surprises", "Precios claros, sin sorpresas", "Klare Preise, keine Überraschungen", "Јасни цени, без изненадувања")}
@@ -676,11 +655,11 @@ export default function Landing() {
             <div className="anim-scale anim-d2 inline-flex items-center gap-1 p-1 bg-gray-100 rounded-xl">
               <button onClick={() => setBillingPeriod('monthly')}
                 className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all ${billingPeriod === 'monthly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}>
-                {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно")}
+                {sq(lang, "Mujor", "Monthly", "Mensual", "Monatlich", "Месечно", "Mensuel", "Mensal", "Mensile")}
               </button>
               <button onClick={() => setBillingPeriod('yearly')}
                 className={`px-5 py-2.5 text-sm font-semibold rounded-lg transition-all flex items-center gap-2 ${billingPeriod === 'yearly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}>
-                {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно")}
+                {sq(lang, "Vjetor", "Yearly", "Anual", "Jährlich", "Годишно", "Annuel", "Anual", "Annuale")}
                 <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-md">-15%</span>
               </button>
             </div>
@@ -710,7 +689,7 @@ export default function Landing() {
                   {isPopular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <span className="inline-flex items-center px-3 py-1 bg-white text-indigo-600 text-xs font-bold rounded-full shadow-sm border border-indigo-100">
-                        ★ {sq(lang, "Më i Popullarizuari", "Most Popular", "El Más Popular", "Am Beliebtesten", "Најпопуларен")}
+                        ★ {sq(lang, "Më i Popullarizuari", "Most Popular", "El Más Popular", "Am Beliebtesten", "Најпопуларен", "Le plus populaire", "Mais popular", "Il più popolare")}
                       </span>
                     </div>
                   )}
@@ -726,7 +705,7 @@ export default function Landing() {
                       <span className={`text-4xl font-extrabold ${isPopular ? 'text-white' : 'text-gray-900'}`}>
                         €{billingPeriod === 'yearly' ? (plan.yearlyPrice / 12 / 100).toFixed(2) : (plan.monthlyPrice / 100).toFixed(0)}
                       </span>
-                      <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.")}</span>
+                      <span className={`text-sm ${isPopular ? 'text-indigo-200' : 'text-gray-400'}`}>/{sq(lang, "muaj", "mo", "mes", "Mo.", "мес.", "mois", "mês", "mese")}</span>
                     </div>
                     {billingPeriod === 'yearly' && (
                       <div className={`text-xs mt-1 space-y-0.5`}>
@@ -757,7 +736,7 @@ export default function Landing() {
                         const dash = translated.indexOf("—");
                         const growTitle = sq(lang, "Le të Rritemi Bashkë", "Let's Grow Together", "Crezcamos Juntos", "Lass uns gemeinsam wachsen", "Да Растеме Заедно");
                         const desc = dash !== -1 ? translated.slice(dash) : "";
-                        const detailsLabel = sq(lang, "Detajet", "Details", "Detalles", "Details", "Детали");
+                        const detailsLabel = sq(lang, "Detajet", "Details", "Detalles", "Details", "Детали", "Détails", "Detalhes", "Dettagli");
                         return (
                           <li key={fi} className={`flex items-start gap-2.5 px-2.5 py-1.5 rounded-lg border cursor-pointer ${isPopular ? 'bg-amber-400/20 border-amber-300/40 hover:bg-amber-400/30' : 'bg-amber-50 border-amber-200 hover:bg-amber-100'} transition-colors`} onClick={() => { window.location.href = '/collaboration'; }}>
                             <span className={`mt-0.5 flex-shrink-0 text-xs font-black ${isPopular ? 'text-amber-300' : 'text-amber-500'}`}>✦</span>
@@ -783,12 +762,12 @@ export default function Landing() {
                       onClick={() => { window.location.href = `/subscribe?plan=${plan.id}&billing=${billingPeriod}`; }}
                       className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm text-center transition-all hover:opacity-90 hover:-translate-y-0.5 shadow-md ${isPopular ? 'bg-white text-indigo-700' : 'bg-indigo-600 text-white'}`}>
                       <CreditCard className="h-3.5 w-3.5" />
-                      {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}
+                      {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
                     </button>
                     <button
                       onClick={() => { window.location.href = '/trial'; }}
                       className={`block w-full py-2.5 rounded-xl font-medium text-sm text-center transition-all border ${isPopular ? 'border-indigo-400 text-indigo-100 hover:bg-white/10' : 'border-gray-200 text-gray-600 hover:bg-gray-50'}`}>
-                      {sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "14 Tage Testen", "Започни Проба")}
+                      {sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "14 Tage Testen", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}
                     </button>
                   </div>
                 </div>
@@ -798,13 +777,7 @@ export default function Landing() {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-400">
-              {sq(lang,
-                "Të gjithë planet përfshijnë 16 modulet dhe mbështetjen 24/7. Ndryshoni planin kur të dëshironi.",
-                "All plans include all 16 modules and 24/7 support. Change plans whenever you want.",
-                "Todos los planes incluyen los 16 módulos y soporte 24/7. Cambie de plan cuando quiera.",
-                "Alle Pläne umfassen alle 16 Module und 24/7-Support. Wechseln Sie Pläne, wann Sie wollen.",
-                "Сите планови ги вклучуваат сите 16 модули и поддршка 24/7. Менувајте планови кога сакате."
-              )}
+              {sq(lang, "Të gjithë planet përfshijnë 16 modulet dhe mbështetjen 24/7. Ndryshoni planin kur të dëshironi.", "All plans include all 16 modules and 24/7 support. Change plans whenever you want.", "Todos los planes incluyen los 16 módulos y soporte 24/7. Cambie de plan cuando quiera.", "Alle Pläne umfassen alle 16 Module und 24/7-Support. Wechseln Sie Pläne, wann Sie wollen.", "Сите планови ги вклучуваат сите 16 модули и поддршка 24/7. Менувајте планови кога сакате.", "Tous les plans incluent les 16 modules et l'assistance 24/7. Changez de plan quand vous le souhaitez.", "Todos os planos incluem os 16 módulos e suporte 24/7. Mude de plano quando quiser.", "Tutti i piani includono tutti i 16 moduli e il supporto 24/7. Cambia piano quando vuoi.")}
             </p>
           </div>
         </div>

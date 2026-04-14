@@ -5,7 +5,18 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, ArrowRight, Download, Upload, CheckCircle, RefreshCw, Users, FileText, Database, Clock, Zap, Shield } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element { switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; } }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
+}
 
 export default function FeatureMigration() {
   const [, setLocation] = useLocation();
@@ -49,7 +60,7 @@ export default function FeatureMigration() {
               className="px-2 sm:px-3"
             >
               <ArrowLeft className="h-4 w-4 mr-1 sm:mr-2" />
-              <span className="text-sm sm:text-base">{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}</span>
+              <span className="text-sm sm:text-base">{sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}</span>
             </Button>
           </div>
         </div>

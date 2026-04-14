@@ -23,9 +23,19 @@ import {
 import Footer from "../components/Footer";
 import { useLanguage } from "@/lib/i18n";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-  switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
+  }
 }
+
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
@@ -67,13 +77,13 @@ export default function Login() {
 
             {/* Center Section - Navigation Links */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}</Link>
+              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
               <Link href="/subscribe" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Link>
               <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 font-bold">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Link>
             </div>
 
@@ -84,14 +94,14 @@ export default function Login() {
                 onClick={() => window.location.href = "/api/login"}
                 className="text-muted-foreground hover:text-primary transition-all duration-300"
               >
-                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}
+                {sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}
               </Button>
               <Link href="/subscribe"
                 className="px-4 py-2 border border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 font-medium rounded-md text-sm inline-block"
-              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Link>
+              >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Link>
               <Link href="/trial"
                 className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 font-medium rounded-md text-sm inline-block"
-              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Link>
+              >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -111,14 +121,14 @@ export default function Login() {
         {/* Mobile Menu */}
         <div className={`lg:hidden ${showMobileMenu ? 'block' : 'hidden'} backdrop-blur-xl bg-white/70 dark:bg-gray-900/70 border-t border-white/20 dark:border-gray-700/20`}>
           <div className="px-4 py-4 space-y-3">
-            <Link href="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-            <Link href="/#features" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции")}</Link>
-            <Link href="/subscribe" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-            <Link href="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+            <Link href="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+            <Link href="/#features" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Funciones", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/subscribe" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+            <Link href="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             <div className="pt-2 border-t border-white/20">
-              <Button variant="ghost" className="w-full justify-start text-sm mb-2" onClick={handleLogin}>{sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава")}</Button>
-              <Link href="/subscribe" className="w-full text-sm mb-2 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Link>
-              <Link href="/trial" className="w-full text-sm inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Link>
+              <Button variant="ghost" className="w-full justify-start text-sm mb-2" onClick={handleLogin}>{sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најава", "Connexion", "Iniciar sessão", "Accedi")}</Button>
+              <Link href="/subscribe" className="w-full text-sm mb-2 inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Link>
+              <Link href="/trial" className="w-full text-sm inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground h-10 px-4 py-2">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Link>
             </div>
           </div>
         </div>
@@ -168,7 +178,7 @@ export default function Login() {
             <div className="space-y-8">
               <div className="text-center lg:text-left">
                 <h2 className="text-4xl font-black text-foreground mb-6 tracking-tight animate-professional-fade">
-                  {sq(lang, "Hyni në", "Sign In to Your", "Inicie Sesión en Su", "Melden Sie Sich bei Ihrem", "Најавете се во Вашиот")} <span className="animate-subtle-gradient">{sq(lang, "Panelin Tuaj", "Dashboard", "Panel", "Dashboard", "Панел")}</span>
+                  {sq(lang, "Hyni në", "Sign In to Your", "Inicie Sesión en Su", "Melden Sie Sich bei Ihrem", "Најавете се во Вашиот")} <span className="animate-subtle-gradient">{sq(lang, "Panelin Tuaj", "Dashboard", "Panel", "Dashboard", "Панел", "Tableau de bord", "Painel", "Pannello")}</span>
                 </h2>
                 <p className="text-lg text-muted-foreground">
                   {sq(lang, "Qasuni qendrës komanduese të biznesit tuaj me autentikim të sigurt nga Replit.", "Access your business command center with secure authentication powered by Replit.", "Acceda a su centro de comando empresarial con autenticación segura de Replit.", "Greifen Sie auf Ihr Geschäfts-Kommandozentrum mit sicherer Replit-Authentifizierung zu.", "Пристапете до вашиот деловен команден центар со безбедна автентикација од Replit.")}
@@ -207,7 +217,7 @@ export default function Login() {
                   <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl">
                     <div className="flex items-center space-x-2 text-green-700 dark:text-green-300">
                       <Shield className="h-4 w-4" />
-                      <span className="text-sm font-medium">{sq(lang, "Siguri e Nivelit Bankar", "Bank-Level Security", "Seguridad de Nivel Bancario", "Sicherheit auf Bankniveau", "Безбедност на Ниво на Банка")}</span>
+                      <span className="text-sm font-medium">{sq(lang, "Siguri e Nivelit Bankar", "Bank-Level Security", "Seguridad de Nivel Bancario", "Sicherheit auf Bankniveau", "Безбедност на Ниво на Банка", "Sécurité de niveau bancaire", "Segurança de nível bancário", "Sicurezza a livello bancario")}</span>
                     </div>
                     <p className="text-sm text-green-600 dark:text-green-400 mt-1">
                       {sq(lang, "Hyrja juaj mbrohet me enkriptim të nivelit enterprise dhe autentikim të sigurt OAuth 2.0.", "Your login is protected with enterprise-grade encryption and secure OAuth 2.0 authentication.", "Su inicio de sesión está protegido con cifrado de nivel empresarial y autenticación segura OAuth 2.0.", "Ihre Anmeldung ist mit Enterprise-Grade-Verschlüsselung und sicherer OAuth 2.0-Authentifizierung geschützt.", "Вашата најава е заштитена со енкрипција на ниво на претпријатие и безбедна OAuth 2.0 автентикација.")}
@@ -217,8 +227,8 @@ export default function Login() {
                   {/* Navigation Links */}
                   <div className="mt-8 space-y-3 text-center">
                     <div className="text-sm text-muted-foreground">
-                      {sq(lang, "Nuk keni llogari?", "Don't have an account?", "No tiene una cuenta?", "Haben Sie kein Konto?", "Немате сметка?")}{" "}
-                      <Link href="/trial" className="text-primary hover:underline font-medium">{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}</Link>
+                      {sq(lang, "Nuk keni llogari?", "Don't have an account?", "No tiene una cuenta?", "Haben Sie kein Konto?", "Немате сметка?", "Vous n'avez pas de compte?", "Não tem uma conta?", "Non hai un account?")}{" "}
+                      <Link href="/trial" className="text-primary hover:underline font-medium">{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</Link>
                     </div>
                     <div className="text-sm">
                       <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors">

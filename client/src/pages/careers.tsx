@@ -10,9 +10,18 @@ import {
   Users, Heart, TrendingUp, Coffee, Rocket, Calendar,
 } from "lucide-react";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const POSITIONS = [
   { sq: "Zhvillues Full-Stack Senior", en: "Senior Full-Stack Developer" },
@@ -79,19 +88,19 @@ export default function Careers() {
               <span className="text-base font-bold text-gray-900">Clientlly</span>
             </Link>
             <div className="hidden lg:flex items-center space-x-7 absolute left-1/2 -translate-x-1/2">
-              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
-              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Link>
-              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
-              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт")}</Link>
+              <Link href="/" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+              <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Link href="/subscribe" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Link>
+              <Link href="/about" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</Link>
             </div>
             <div className="hidden lg:flex items-center space-x-4 ml-auto">
-              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900">{sq(lang, "Hyr", "Login", "Iniciar sesión", "Anmelden", "Најави се")}</button>
+              <button onClick={() => window.location.href = "/api/login"} className="text-sm font-medium text-gray-600 hover:text-gray-900">{sq(lang, "Hyr", "Login", "Iniciar sesión", "Anmelden", "Најави се", "Connexion", "Iniciar sessão", "Accedi")}</button>
               <Link href="/trial"
                 className="group inline-flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all duration-200 text-sm">
                 <span className="flex flex-col items-start leading-tight">
                   <span className="text-[9px] text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
-                  <span className="text-xs">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</span>
+                  <span className="text-xs">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</span>
                 </span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </Link>
@@ -107,11 +116,11 @@ export default function Careers() {
         </div>
         {showMobileMenu && (
           <div className="lg:hidden border-t border-gray-100 bg-white px-6 py-4 space-y-3">
-            <Link href="/" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна")}</Link>
-            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции")}</Link>
-            <Link href="/about" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас")}</Link>
+            <Link href="/" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Ballina", "Home", "Inicio", "Startseite", "Почетна", "Accueil", "Início", "Home")}</Link>
+            <Link href="/features" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+            <Link href="/about" className="block text-sm font-medium text-gray-700 py-1">{sq(lang, "Rreth Nesh", "About", "Acerca de", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</Link>
             <div className="pt-2 flex gap-2">
-              <Link href="/trial" className="flex-1 text-sm font-bold py-2.5 bg-indigo-600 text-white rounded-lg text-center">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Link>
+              <Link href="/trial" className="flex-1 text-sm font-bold py-2.5 bg-indigo-600 text-white rounded-lg text-center">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Link>
             </div>
           </div>
         )}
@@ -211,7 +220,7 @@ export default function Careers() {
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Telefon", "Phone", "Teléfono", "Telefon", "Телефон")}</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Telefon", "Phone", "Teléfono", "Telefon", "Телефон", "Téléphone", "Telefone", "Telefono")}</label>
                       <input type="tel" value={form.phone} onChange={e => set("phone", e.target.value)}
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
@@ -270,7 +279,7 @@ export default function Careers() {
                     <Send className="h-4 w-4" />
                     <span className="flex flex-col items-start leading-tight">
                       <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "Dërguar te info@clientlly.com", "Sent to info@clientlly.com", "Enviado a info@clientlly.com", "Gesendet an info@clientlly.com", "Испратено до info@clientlly.com")}</span>
-                      <span className="text-sm">{sq(lang, "Dërgo Aplikimin", "Submit Application", "Enviar Solicitud", "Bewerbung absenden", "Испратете апликација")}</span>
+                      <span className="text-sm">{sq(lang, "Dërgo Aplikimin", "Submit Application", "Enviar Solicitud", "Bewerbung absenden", "Испратете апликација", "Soumettre la candidature", "Submeter candidatura", "Invia candidatura")}</span>
                     </span>
                   </button>
                 </div>
@@ -438,7 +447,7 @@ export default function Careers() {
                   className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md">
                   <span className="flex flex-col items-start leading-tight">
                     <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "Hapni aplikimin", "Open application", "Abrir solicitud", "Bewerbung öffnen", "Отворете апликација")}</span>
-                    <span className="text-sm">{sq(lang, "Apliko Tani", "Apply Now", "Aplicar ahora", "Jetzt bewerben", "Аплицирајте сега")}</span>
+                    <span className="text-sm">{sq(lang, "Apliko Tani", "Apply Now", "Aplicar ahora", "Jetzt bewerben", "Аплицирајте сега", "Postuler maintenant", "Candidatar-se agora", "Candidati ora")}</span>
                   </span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </button>

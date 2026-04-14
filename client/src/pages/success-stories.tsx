@@ -22,9 +22,18 @@ import {
 } from "lucide-react";
 
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 const SuccessStories = () => {
   const { currentLanguage: lang } = useLanguage();
@@ -136,16 +145,16 @@ const SuccessStories = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
               </Link>
               <button onClick={() => handleNavigation('/#features')} className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}
+                {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
               </button>
               <Link href="/subscribe" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
               </Link>
               <Link href="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors">
-                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
               </Link>
               
               <div className="flex items-center space-x-4">
@@ -154,12 +163,12 @@ const SuccessStories = () => {
                   size="sm"
                   onClick={() => go("/trial")}
                   className="border-blue-200 text-blue-700 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-900/20"
-                >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+                >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
                 <Button 
                   size="sm"
                   onClick={() => go("/subscribe")}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+                >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
               </div>
             </div>
 
@@ -181,16 +190,16 @@ const SuccessStories = () => {
             <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-b border-gray-200/20 dark:border-gray-700/20">
               <div className="px-4 pt-2 pb-4 space-y-2">
                 <Link href="/about" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}
+                  {sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}
                 </Link>
                 <button onClick={() => handleNavigation('/#features')} className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium text-left w-full">
-                  {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}
+                  {sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}
                 </button>
                 <Link href="/subscribe" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}
+                  {sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}
                 </Link>
                 <Link href="/contact" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium">
-                  {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}
+                  {sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}
                 </Link>
                 <div className="pt-4 space-y-2">
                   <Button 
@@ -198,12 +207,12 @@ const SuccessStories = () => {
                     size="sm" 
                     className="w-full border-blue-200 text-blue-700 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-blue-900/20"
                     onClick={() => go("/trial")}
-                  >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+                  >{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
                   <Button 
                     size="sm" 
                     className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
                     onClick={() => go("/subscribe")}
-                  >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
+                  >{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
                 </div>
               </div>
             </div>
@@ -234,7 +243,7 @@ const SuccessStories = () => {
             {sq(lang, "Rezultate Reale", "Real Results", "Resultados Reales", "Echte Ergebnisse", "Реални Резултати")}
           </Badge>
           <h1 className="text-5xl lg:text-6xl font-black text-black mb-6 tracking-tight animate-professional-fade">
-            {sq(lang, "Historitë e", "Customer ", "Historias de ", "Kunden", "Приказни за ")}<span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Suksesit të Klientëve", "Success Stories", "Éxito de Clientes", "Erfolgsgeschichten", "Успех на Клиенти")}</span>
+            {sq(lang, "Historitë e", "Customer ", "Historias de ", "Kunden", "Приказни за ")}<span className="animate-subtle-gradient bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Suksesit të Klientëve", "Success Stories", "Éxito de Clientes", "Erfolgsgeschichten", "Успех на Клиенти", "Histoires de succès", "Histórias de sucesso", "Storie di successo")}</span>
           </h1>
           <p className="text-xl text-black/80 mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Zbuloni se si bizneset në mbarë Evropën po transformojnë operacionet e tyre, rritin përfitueshmërinë dhe arrijnë rritje të qëndrueshme me platformën tonë gjithëpërfshirëse të menaxhimit.", "Discover how businesses across Europe are transforming their operations, increasing profitability, and achieving sustainable growth with our comprehensive management platform.", "Descubra cómo las empresas en toda Europa están transformando sus operaciones, aumentando la rentabilidad y logrando un crecimiento sostenible con nuestra plataforma integral de gestión.", "Entdecken Sie, wie Unternehmen in ganz Europa ihre Abläufe transformieren, die Rentabilität steigern und nachhaltiges Wachstum mit unserer umfassenden Management-Plattform erzielen.", "Откријте како бизнисите низ Европа ги трансформираат своите операции, ја зголемуваат профитабилноста и постигнуваат одржлив раст со нашата сеопфатна платформа за управување.")}
@@ -399,7 +408,7 @@ const SuccessStories = () => {
               <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white mb-4 mx-auto">
                 <Clock className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-black mb-2">{sq(lang, "Provë Falas 14-Ditore", "14-Day Free Trial", "Prueba Gratis de 14 Días", "14-Tage Kostenlose Testversion", "14-Дневна Бесплатна Проба")}</h3>
+              <h3 className="text-lg font-bold text-black mb-2">{sq(lang, "Provë Falas 14-Ditore", "14-Day Free Trial", "Prueba Gratis de 14 Días", "14-Tage Kostenlose Testversion", "14-Дневна Бесплатна Проба", "Essai gratuit de 14 jours", "Período de teste gratuito de 14 dias", "Prova gratuita di 14 giorni")}</h3>
               <p className="text-black/70 text-sm">{sq(lang, "Akses i plotë në të gjitha veçoritë pa kartë krediti", "Full access to all features with no credit card required", "Acceso completo a todas las funciones sin tarjeta de crédito", "Vollzugriff auf alle Funktionen ohne Kreditkarte", "Целосен пристап до сите функции без кредитна картичка")}</p>
             </div>
             
@@ -425,7 +434,7 @@ const SuccessStories = () => {
               size="lg"
               onClick={() => go("/trial")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-            >{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба")}<ArrowRight className="w-5 h-5 ml-2" />
+            >{sq(lang, "Fillo Provën Falas", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}<ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button 
               size="lg"

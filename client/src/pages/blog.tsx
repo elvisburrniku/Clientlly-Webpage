@@ -19,9 +19,18 @@ import {
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 export default function Blog() {
   const { currentLanguage: lang } = useLanguage();
@@ -56,7 +65,7 @@ export default function Blog() {
       author: "Jennifer Martinez",
       date: sq(lang, "22 Jan, 2025", "Jan 22, 2025", "22 Ene, 2025", "22. Jan. 2025", "22 Јан, 2025") as string,
       readTime: sq(lang, "10 min lexim", "10 min read", "10 min de lectura", "10 Min. Lesezeit", "10 мин читање") as string,
-      category: sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии") as string,
+      category: sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии", "Finance", "Finanças", "Finanza") as string,
       image: "/attached_assets/image_1753653135199.png",
       featured: false
     },
@@ -86,7 +95,7 @@ export default function Blog() {
       author: "Robert Wilson",
       date: sq(lang, "15 Jan, 2025", "Jan 15, 2025", "15 Ene, 2025", "15. Jan. 2025", "15 Јан, 2025") as string,
       readTime: sq(lang, "9 min lexim", "9 min read", "9 min de lectura", "9 Min. Lesezeit", "9 мін читање") as string,
-      category: sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string,
+      category: sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string,
       image: "/attached_assets/image_1753653135199.png",
       featured: false
     }
@@ -96,10 +105,10 @@ export default function Blog() {
     "All": sq(lang, "Të Gjitha", "All", "Todos", "Alle", "Сите") as string,
     "Business Tips": sq(lang, "Këshilla Biznesi", "Business Tips", "Consejos de Negocio", "Geschäftstipps", "Деловни Совети") as string,
     "Invoicing": sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање") as string,
-    "Finance": sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии") as string,
+    "Finance": sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии", "Finance", "Finanças", "Finanza") as string,
     "CRM": "CRM",
     "Technology": sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија") as string,
-    "Expenses": sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string,
+    "Expenses": sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string,
   };
 
   const categories = ["All", "Business Tips", "Invoicing", "Finance", "CRM", "Technology", "Expenses"];
@@ -128,16 +137,16 @@ export default function Blog() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-              <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Button>
-              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Button>
+              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="text-muted-foreground hover:text-primary transition-all duration-300">{sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави се")}</Button>
-              <Button onClick={() => go("/subscribe")} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
-              <Button onClick={() => go("/trial")} className="bg-green-600 text-white hover:bg-green-700 font-medium">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="text-muted-foreground hover:text-primary transition-all duration-300">{sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави се", "Connexion", "Iniciar sessão", "Accedi")}</Button>
+              <Button onClick={() => go("/subscribe")} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
+              <Button onClick={() => go("/trial")} className="bg-green-600 text-white hover:bg-green-700 font-medium">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               <div className="pt-2"><LanguageSelector /></div>
             </div>
 
@@ -153,10 +162,10 @@ export default function Blog() {
         {showMobileMenu && (
           <div className="lg:hidden glass-effect border-t border-white/20">
             <div className="px-6 py-4 space-y-4">
-              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-              <Button variant="ghost" onClick={() => go("/subscribe")} className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Button>
-              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Button variant="ghost" onClick={() => go("/subscribe")} className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Button>
+              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
           </div>
         )}
@@ -216,7 +225,7 @@ export default function Blog() {
                   <div className="relative h-64 lg:h-auto">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                     <div className="absolute top-4 left-4">
-                      <Badge className="bg-amber-500 text-black">{sq(lang, "Të Veçanta", "Featured", "Destacado", "Empfohlen", "Истакнато")}</Badge>
+                      <Badge className="bg-amber-500 text-black">{sq(lang, "Të Veçanta", "Featured", "Destacado", "Empfohlen", "Истакнато", "En vedette", "Destaque", "In evidenza")}</Badge>
                     </div>
                   </div>
                   <CardContent className="p-8 flex flex-col justify-center">
@@ -243,7 +252,7 @@ export default function Blog() {
                         <span className="text-sm text-muted-foreground">{post.author}</span>
                       </div>
                       <Button variant="ghost" className="group-hover:text-primary">
-                        {sq(lang, "Lexo Më Shumë", "Read More", "Leer Más", "Mehr Lesen", "Прочитај Повеќе")} <ArrowRight className="w-4 h-4 ml-2" />
+                        {sq(lang, "Lexo Më Shumë", "Read More", "Leer Más", "Mehr Lesen", "Прочитај Повеќе", "Lire plus", "Ler mais", "Leggi di più")} <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </div>
                   </CardContent>
@@ -325,7 +334,7 @@ export default function Blog() {
             {sq(lang, "Vendosni këto njohuri në veprim me BusinessFlow Pro. Filloni provën tuaj falas sot dhe transformoni operacionet e biznesit tuaj.", "Put these insights into action with BusinessFlow Pro. Start your free trial today and transform your business operations.", "Ponga estas ideas en acción con BusinessFlow Pro. Comience su prueba gratuita hoy y transforme las operaciones de su negocio.", "Setzen Sie diese Erkenntnisse mit BusinessFlow Pro in die Tat um. Starten Sie noch heute Ihre kostenlose Testversion und transformieren Sie Ihre Geschäftsabläufe.", "Ставете ги овие увиди во акција со BusinessFlow Pro. Започнете ја вашата бесплатна проба денес и трансформирајте ги вашите деловни операции.")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+            <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
             <Button onClick={() => go("/subscribe")} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">
               {sq(lang, "Shiko Çmimet", "View Pricing", "Ver Precios", "Preise Anzeigen", "Погледни Цени")}
             </Button>

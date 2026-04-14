@@ -10,9 +10,18 @@ import screenExpenses from "@assets/IMG_6935_1775317016363.jpeg";
 import screenReports  from "@assets/IMG_6936_1775317016363.jpeg";
 import screenDetail   from "@assets/IMG_6937_1775317016363.jpeg";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 
 export default function MobileApp() {
@@ -22,7 +31,7 @@ export default function MobileApp() {
     {
       icon: FileText,
       color: "bg-indigo-100 text-indigo-600",
-      title: sq(lang, "Fatura Profesionale", "Professional Invoicing", "Facturación Profesional", "Professionelle Rechnungsstellung", "Професионално фактурирање"),
+      title: sq(lang, "Fatura Profesionale", "Professional Invoicing", "Facturación Profesional", "Professionelle Rechnungsstellung", "Професионално фактурирање", "Facturation professionnelle", "Faturação profissional", "Fatturazione professionale"),
       desc:  sq(lang, "Krijo dhe dërgo fatura direkt nga telefoni. Klienti paguan me një klik.", "Create and send invoices from your phone. Clients pay with one click.", "Crea y envía facturas desde tu teléfono. Los clientes pagan con un clic.", "Erstellen und senden Sie Rechnungen direkt vom Telefon. Kunden zahlen mit einem Klick.", "Креирајте и испраќајте фактури директно од телефонот. Клиентите плаќаат со еден клик."),
     },
     {
@@ -40,7 +49,7 @@ export default function MobileApp() {
     {
       icon: Users,
       color: "bg-emerald-100 text-emerald-600",
-      title: sq(lang, "Menaxhim Klientësh", "Client Management", "Gestión de Clientes", "Kundenverwaltung", "Управување со клиенти"),
+      title: sq(lang, "Menaxhim Klientësh", "Client Management", "Gestión de Clientes", "Kundenverwaltung", "Управување со клиенти", "Gestion des clients", "Gestão de clientes", "Gestione clienti"),
       desc:  sq(lang, "360° profil për çdo klient, historiku i plotë i komunikimit.", "360° profile for each client, full communication history.", "Perfil 360° para cada cliente, historial completo de comunicación.", "360°-Profil für jeden Kunden, vollständige Kommunikationshistorie.", "360° профил за секој клиент, целосна историја на комуникација."),
     },
     {
@@ -58,7 +67,7 @@ export default function MobileApp() {
     {
       icon: Shield,
       color: "bg-slate-100 text-slate-600",
-      title: sq(lang, "Siguri Bankare", "Bank-Level Security", "Seguridad Bancaria", "Banksicherheit", "Банкарска безбедност"),
+      title: sq(lang, "Siguri Bankare", "Bank-Level Security", "Seguridad Bancaria", "Banksicherheit", "Банкарска безбедност", "Sécurité de niveau bancaire", "Segurança de nível bancário", "Sicurezza a livello bancario"),
       desc:  sq(lang, "Enkriptim 256-bit SSL. Të dhënat tuaja janë gjithmonë të sigurta.", "256-bit SSL encryption. Your data is always safe.", "Encriptación SSL de 256 bits. Sus datos siempre están seguros.", "256-Bit-SSL-Verschlüsselung. Ihre Daten sind immer sicher.", "256-битна SSL енкрипција. Вашите податоци се секогаш безбедни."),
     },
     {
@@ -109,11 +118,11 @@ export default function MobileApp() {
   ];
 
   const screens = [
-    { label: sq(lang, "Paneli Kryesor", "Dashboard", "Panel", "Dashboard", "Контролна табла"),       color: "from-indigo-500 to-indigo-700",  icon: BarChart3 },
-    { label: sq(lang, "Fatura",         "Invoices", "Facturas", "Rechnungen", "Фактури"),         color: "from-violet-500 to-violet-700",  icon: FileText },
-    { label: sq(lang, "Shpenzime",      "Expenses", "Gastos", "Ausgaben", "Трошоци"),         color: "from-emerald-500 to-emerald-700",icon: Camera },
-    { label: sq(lang, "Klientët",       "Clients", "Clientes", "Kunden", "Клиенти"),          color: "from-blue-500 to-blue-700",      icon: Users },
-    { label: sq(lang, "Raportet",       "Reports", "Informes", "Berichte", "Извештаи"),          color: "from-rose-500 to-rose-600",      icon: BarChart3 },
+    { label: sq(lang, "Paneli Kryesor", "Dashboard", "Panel", "Dashboard", "Контролна табла", "Tableau de bord", "Painel", "Pannello"),       color: "from-indigo-500 to-indigo-700",  icon: BarChart3 },
+    { label: sq(lang, "Fatura", "Invoices", "Facturas", "Rechnungen", "Фактури", "Factures", "Faturas", "Fatture"),         color: "from-violet-500 to-violet-700",  icon: FileText },
+    { label: sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"),         color: "from-emerald-500 to-emerald-700",icon: Camera },
+    { label: sq(lang, "Klientët", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti"),          color: "from-blue-500 to-blue-700",      icon: Users },
+    { label: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"),          color: "from-rose-500 to-rose-600",      icon: BarChart3 },
   ];
 
   return (
@@ -132,7 +141,7 @@ export default function MobileApp() {
               <button onClick={() => window.history.back()}
                 className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-900 transition-colors">
                 <ArrowLeft className="h-4 w-4" />
-                {sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад")}
+                {sq(lang, "Kthehu", "Back", "Volver", "Zurück", "Назад", "Retour", "Voltar", "Indietro")}
               </button>
             </div>
           </div>
@@ -149,7 +158,7 @@ export default function MobileApp() {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full mb-6">
                 <Smartphone className="h-3.5 w-3.5 text-indigo-600" />
                 <span className="text-xs font-semibold text-indigo-700">
-                  {sq(lang, "Aplikacioni Mobil", "Mobile App", "Aplicación móvil", "Mobile App", "Мобилна апликација")}
+                  {sq(lang, "Aplikacioni Mobil", "Mobile App", "Aplicación móvil", "Mobile App", "Мобилна апликација", "Application mobile", "Aplicação móvel", "App mobile")}
                 </span>
               </div>
 
@@ -237,7 +246,7 @@ export default function MobileApp() {
             { label: sq(lang, "Versioni", "Version", "Versión", "Version", "Верзија"),       value: "3.2.1" },
             { label: sq(lang, "Madhësia", "Size", "Tamaño", "Größe", "Големина"),          value: "78 MB" },
             { label: sq(lang, "Përditësuar", "Updated", "Actualizado", "Aktualisiert", "Ажурирано"),    value: sq(lang, "Janar 2025", "Jan 2025", "Ene 2025", "Jan 2025", "Јан 2025") },
-            { label: sq(lang, "Kategoria", "Category", "Categoría", "Kategorie", "Категорија"),     value: sq(lang, "Biznes", "Business", "Negocios", "Geschäft", "Бизнис") },
+            { label: sq(lang, "Kategoria", "Category", "Categoría", "Kategorie", "Категорија", "Catégorie", "Categoria", "Categoria"),     value: sq(lang, "Biznes", "Business", "Negocios", "Geschäft", "Бизнис") },
           ].map((item, i) => (
             <div key={i} className="text-center">
               <p className="text-xs text-gray-400 mb-0.5">{item.label}</p>
@@ -288,10 +297,10 @@ export default function MobileApp() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { src: screenInvoices, label: sq(lang, "Faturat",     "Invoices", "Facturas", "Rechnungen", "Фактури"),  caption: sq(lang, "Menaxhim i plotë i faturave me statusin e pagesës", "Complete invoice management with payment status", "Gestión completa de facturas con estado de pago", "Vollständige Rechnungsverwaltung mit Zahlungsstatus", "Целосно управување со фактури со статус на плаќање") },
-              { src: screenExpenses, label: sq(lang, "Shpenzimet",  "Expenses", "Gastos", "Ausgaben", "Трошоци"),  caption: sq(lang, "Ndjekja e shpenzimeve mujore me krahasim", "Monthly expense tracking with comparison", "Seguimiento mensual de gastos con comparación", "Monatliche Ausgabenverfolgung mit Vergleich", "Месечно следење на трошоци со споредба") },
-              { src: screenReports,  label: sq(lang, "Raportet",    "Reports", "Informes", "Berichte", "Извештаи"),   caption: sq(lang, "Raporte të ardhurash me grafikë interaktiv", "Revenue reports with interactive charts", "Informes de ingresos con gráficos interactivos", "Umsatzberichte mit interaktiven Diagrammen", "Извештаи за приходи со интерактивни графикони") },
-              { src: screenDetail,   label: sq(lang, "Detajet",     "Details", "Detalles", "Details", "Детали"),   caption: sq(lang, "Detajet e faturës me opsione pagese", "Invoice details with payment options", "Detalles de factura con opciones de pago", "Rechnungsdetails mit Zahlungsoptionen", "Детали за фактурата со опции за плаќање") },
+              { src: screenInvoices, label: sq(lang, "Faturat", "Invoices", "Facturas", "Rechnungen", "Фактури", "Factures", "Faturas", "Fatture"),  caption: sq(lang, "Menaxhim i plotë i faturave me statusin e pagesës", "Complete invoice management with payment status", "Gestión completa de facturas con estado de pago", "Vollständige Rechnungsverwaltung mit Zahlungsstatus", "Целосно управување со фактури со статус на плаќање") },
+              { src: screenExpenses, label: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"),  caption: sq(lang, "Ndjekja e shpenzimeve mujore me krahasim", "Monthly expense tracking with comparison", "Seguimiento mensual de gastos con comparación", "Monatliche Ausgabenverfolgung mit Vergleich", "Месечно следење на трошоци со споредба") },
+              { src: screenReports,  label: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"),   caption: sq(lang, "Raporte të ardhurash me grafikë interaktiv", "Revenue reports with interactive charts", "Informes de ingresos con gráficos interactivos", "Umsatzberichte mit interaktiven Diagrammen", "Извештаи за приходи со интерактивни графикони") },
+              { src: screenDetail,   label: sq(lang, "Detajet", "Details", "Detalles", "Details", "Детали", "Détails", "Detalhes", "Dettagli"),   caption: sq(lang, "Detajet e faturës me opsione pagese", "Invoice details with payment options", "Detalles de factura con opciones de pago", "Rechnungsdetails mit Zahlungsoptionen", "Детали за фактурата со опции за плаќање") },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center">
                 <div className="w-full max-w-[160px] rounded-[1.8rem] overflow-hidden border-[3px] border-gray-800 shadow-xl mx-auto"

@@ -20,9 +20,18 @@ import {
 import { LanguageSelector } from "@/components/LanguageSelector";
 import Footer from "@/components/Footer";
 
-function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element): string | JSX.Element {
-    switch(lang) { case 'sq': return alb; case 'es': return es ?? eng; case 'de': return de ?? eng; case 'mk': return mk ?? eng; default: return eng; }
+function sq(lang: string, alb: string | JSX.Element, eng: string | JSX.Element, es?: string | JSX.Element, de?: string | JSX.Element, mk?: string | JSX.Element, fr?: string | JSX.Element, pt?: string | JSX.Element, it?: string | JSX.Element): string | JSX.Element {
+  switch (lang) {
+    case 'sq': return alb;
+    case 'es': return es ?? eng;
+    case 'de': return de ?? eng;
+    case 'mk': return mk ?? eng;
+    case 'fr': return fr ?? eng;
+    case 'pt': return pt ?? eng;
+    case 'it': return it ?? eng;
+    default:   return eng;
   }
+}
 
 export default function Community() {
   const { currentLanguage: lang } = useLanguage();
@@ -34,7 +43,7 @@ export default function Community() {
     { label: sq(lang, "Anëtarë Aktivë", "Active Members", "Miembros Activos", "Aktive Mitglieder", "Активни Членови") as string, value: "12,500+", icon: Users },
     { label: sq(lang, "Diskutime Mujore", "Monthly Discussions", "Discusiones Mensuales", "Monatliche Diskussionen", "Месечни Дискусии") as string, value: "2,800+", icon: MessageSquare },
     { label: sq(lang, "Pyetje të Përgjigura", "Questions Answered", "Preguntas Respondidas", "Beantwortete Fragen", "Одговорени Прашања") as string, value: "45,000+", icon: Lightbulb },
-    { label: sq(lang, "Histori Suksesi", "Success Stories", "Historias de Éxito", "Erfolgsgeschichten", "Успешни Приказни") as string, value: "1,200+", icon: Award }
+    { label: sq(lang, "Histori Suksesi", "Success Stories", "Historias de Éxito", "Erfolgsgeschichten", "Успешни Приказни", "Histoires de succès", "Histórias de sucesso", "Storie di successo") as string, value: "1,200+", icon: Award }
   ];
 
   const recentDiscussions = [
@@ -50,7 +59,7 @@ export default function Community() {
       title: sq(lang, "Konfigurimi i kategorizimit automatik të shpenzimeve", "Setting up automated expense categorization", "Configuración de categorización automática de gastos", "Automatische Ausgabenkategorisierung einrichten", "Поставување автоматска категоризација на трошоци") as string,
       author: "Mike R.",
       replies: 18,
-      category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци") as string,
+      category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string,
       time: sq(lang, "4 orë më parë", "4h ago", "hace 4h", "vor 4 Std.", "пред 4ч") as string,
       avatar: "/attached_assets/image_1753653135199.png"
     },
@@ -58,7 +67,7 @@ export default function Community() {
       title: sq(lang, "Këshilla për raportimin tatimor të Q4", "Tax reporting tips for Q4", "Consejos de informes fiscales para Q4", "Tipps zur Steuerberichterstattung für Q4", "Совети за даночно известување за Q4") as string,
       author: "Jennifer L.",
       replies: 31,
-      category: sq(lang, "Raporte", "Reports", "Informes", "Berichte", "Извештаи") as string,
+      category: sq(lang, "Raporte", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report") as string,
       time: sq(lang, "6 orë më parë", "6h ago", "hace 6h", "vor 6 Std.", "пред 6ч") as string,
       avatar: "/attached_assets/image_1753653135199.png"
     },
@@ -115,16 +124,16 @@ export default function Community() {
             </Link>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-              <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Button>
-              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/about" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Button variant="ghost" onClick={() => go("/subscribe")} className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Button>
+              <Link href="/contact" className="text-lg text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 font-bold">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
 
             <div className="hidden lg:flex items-center space-x-4 slide-in-right">
-              <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="text-muted-foreground hover:text-primary transition-all duration-300">{sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави се")}</Button>
-              <Button onClick={() => go("/subscribe")} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега")}</Button>
-              <Button onClick={() => go("/trial")} className="bg-green-600 text-white hover:bg-green-700 font-medium">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+              <Button variant="ghost" onClick={() => window.location.href = "/api/login"} className="text-muted-foreground hover:text-primary transition-all duration-300">{sq(lang, "Hyr", "Login", "Iniciar Sesión", "Anmelden", "Најави се", "Connexion", "Iniciar sessão", "Accedi")}</Button>
+              <Button onClick={() => go("/subscribe")} className="bg-blue-600 text-white hover:bg-blue-700 font-medium">{sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}</Button>
+              <Button onClick={() => go("/trial")} className="bg-green-600 text-white hover:bg-green-700 font-medium">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
               <div className="pt-2"><LanguageSelector /></div>
             </div>
 
@@ -140,10 +149,10 @@ export default function Community() {
         {showMobileMenu && (
           <div className="lg:hidden glass-effect border-t border-white/20">
             <div className="px-6 py-4 space-y-4">
-              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас")}</Link>
-              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики")}</Link>
-              <Button variant="ghost" onClick={() => go("/subscribe")} className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени")}</Button>
-              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè")}</Link>
+              <Link href="/about" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Rreth Nesh", "About Us", "Sobre Nosotros", "Über Uns", "За Нас", "À propos de nous", "Sobre nós", "Chi siamo")}</Link>
+              <Link href="/#features" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Карактеристики", "Fonctionnalités", "Funcionalidades", "Funzionalità")}</Link>
+              <Button variant="ghost" onClick={() => go("/subscribe")} className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</Button>
+              <Link href="/contact" className="block py-2 text-muted-foreground hover:text-primary transition-colors">{sq(lang, "Na Kontaktoni", "Contact Us", "Contáctenos", "Kontaktieren Sie Uns", "Контактирајте Нè", "Contactez-nous", "Contacte-nos", "Contattaci")}</Link>
             </div>
           </div>
         )}
@@ -166,7 +175,7 @@ export default function Community() {
               {sq(lang, "Qendra e Komunitetit", "Community Hub", "Centro de la Comunidad", "Community-Hub", "Центар на Заедницата")}
             </Badge>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 fade-in leading-tight tracking-tight">
-              {sq(lang, "Bashkohu me ", "Join Our ", "Únete a Nuestra ", "Treten Sie unserer ", "Придружи се на ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Komunitetin", "Community", "Comunidad", "Community bei", "Заедницата")}</span>
+              {sq(lang, "Bashkohu me ", "Join Our ", "Únete a Nuestra ", "Treten Sie unserer ", "Придружи се на ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Komunitetin", "Community", "Comunidad", "Community bei", "Заедницата", "Communauté", "Comunidade", "Comunità")}</span>
             </h1>
             <p className="text-xl lg:text-2xl text-black font-medium max-w-4xl mx-auto leading-relaxed">
               {sq(lang, "Lidhuni me sipërmarrës të tjerë, ndani përvoja dhe rriteni biznesin tuaj së bashku me mijëra përdorues të BusinessFlow Pro.", "Connect with fellow entrepreneurs, share experiences, and grow your business together with thousands of BusinessFlow Pro users.", "Conéctese con otros emprendedores, comparta experiencias y haga crecer su negocio junto con miles de usuarios de BusinessFlow Pro.", "Verbinden Sie sich mit anderen Unternehmern, teilen Sie Erfahrungen und wachsen Sie gemeinsam mit Tausenden von BusinessFlow Pro-Nutzern.", "Поврзете се со други претприемачи, споделете искуства и растете го вашиот бизнис заедно со илјадници корисници на BusinessFlow Pro.")}
@@ -311,7 +320,7 @@ export default function Community() {
             <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">
               {sq(lang, "Bashkohu me Komunitetin", "Join Community", "Únete a la Comunidad", "Community Beitreten", "Придружи се на Заедницата")}
             </Button>
-            <Button onClick={() => go("/trial")} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба")}</Button>
+            <Button onClick={() => go("/trial")} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
           </div>
         </div>
       </section>
