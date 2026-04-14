@@ -41,7 +41,7 @@ export default function Tutorials() {
 
   const videoTutorials = [
     {
-      title: sq(lang, "Fillimi me BusinessFlow Pro", "Getting Started with BusinessFlow Pro", "Primeros Pasos con BusinessFlow Pro", "Erste Schritte mit BusinessFlow Pro", "Почеток со BusinessFlow Pro"),
+      title: sq(lang, "Fillimi me BusinessFlow Pro", "Getting Started with BusinessFlow Pro", "Primeros Pasos con BusinessFlow Pro", "Erste Schritte mit BusinessFlow Pro", "Почеток со BusinessFlow Pro", "Démarrer avec BusinessFlow Pro", "Começar com o BusinessFlow Pro", "Iniziare con BusinessFlow Pro"),
       description: sq(lang, "Udhëzim i plotë për vendosjen e llogarisë tuaj dhe krijimin e faturës së parë", "Complete walkthrough of setting up your account and creating your first invoice", "Guía completa para configurar su cuenta y crear su primera factura", "Komplette Anleitung zur Einrichtung Ihres Kontos und Erstellung Ihrer ersten Rechnung", "Целосен водич за поставување на сметката и креирање на вашата прва фактура"),
       duration: "12:30",
       level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник", "Débutant", "Iniciante", "Principiante"),
@@ -58,7 +58,7 @@ export default function Tutorials() {
       views: "18.7k",
       rating: 4.8,
       thumbnail: "/attached_assets/image_1753653135199.png",
-      category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање")
+      category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање", "Facturation", "Faturação", "Fatturazione")
     },
     {
       title: sq(lang, "Zotërimi i Gjurmimit të Shpenzimeve", "Expense Tracking Mastery", "Dominio del Seguimiento de Gastos", "Meisterung der Ausgabenverfolgung", "Совладување на Следење Трошоци"),
@@ -98,36 +98,36 @@ export default function Tutorials() {
       views: "14.2k",
       rating: 4.8,
       thumbnail: "/attached_assets/image_1753653135199.png",
-      category: sq(lang, "Mobil", "Mobile", "Móvil", "Mobil", "Мобилен")
+      category: sq(lang, "Mobil", "Mobile", "Móvil", "Mobil", "Мобилен", "Mobile", "Móvel", "Mobile")
     }
   ];
 
   const quickGuides = [
     {
-      title: sq(lang, "Udhëzues Vendosjeje 5-Minutësh", "5-Minute Setup Guide", "Guía de Configuración de 5 Minutos", "5-Minuten-Einrichtungsanleitung", "Водич за Поставување од 5 Минути"),
+      title: sq(lang, "Udhëzues Vendosjeje 5-Minutësh", "5-Minute Setup Guide", "Guía de Configuración de 5 Minutos", "5-Minuten-Einrichtungsanleitung", "Водич за Поставување од 5 Минути", "Guide de configuration en 5 minutes", "Guia de configuração em 5 minutos", "Guida alla configurazione in 5 minuti"),
       description: sq(lang, "Filloni shpejt dhe lehtë", "Get up and running quickly", "Comience rápidamente", "Schnell starten", "Започнете брзо"),
-      duration: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мин читање"),
+      duration: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мин читање", "5 min de lecture", "5 min de leitura", "5 min di lettura"),
       icon: Lightbulb,
       color: "from-green-500 to-emerald-500"
     },
     {
       title: sq(lang, "Shabllone Faturash", "Invoice Templates", "Plantillas de Facturas", "Rechnungsvorlagen", "Шаблони за Фактури"),
       description: sq(lang, "Personalizoni markën tuaj", "Customize your branding", "Personalice su marca", "Passen Sie Ihr Branding an", "Прилагодете го вашиот бренд"),
-      duration: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање"),
+      duration: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање", "8 min de lecture", "8 min de leitura", "8 min di lettura"),
       icon: FileText,
       color: "from-blue-500 to-cyan-500"
     },
     {
       title: sq(lang, "Vendosja e Pagesave", "Payment Setup", "Configuración de Pagos", "Zahlungseinrichtung", "Поставување на Плаќања"),
       description: sq(lang, "Filloni të pranoni pagesa", "Start accepting payments", "Comience a aceptar pagos", "Beginnen Sie Zahlungen zu akzeptieren", "Започнете да примате плаќања"),
-      duration: sq(lang, "12 min lexim", "12 min read", "12 min lectura", "12 Min. Lesezeit", "12 мін читање"),
+      duration: sq(lang, "12 min lexim", "12 min read", "12 min lectura", "12 Min. Lesezeit", "12 мін читање", "12 min de lecture", "12 min de leitura", "12 min di lettura"),
       icon: CheckCircle,
       color: "from-purple-500 to-pink-500"
     },
     {
-      title: sq(lang, "Bashkëpunimi i Ekipit", "Team Collaboration", "Colaboración en Equipo", "Teamzusammenarbeit", "Тимска Соработка"),
+      title: sq(lang, "Bashkëpunimi i Ekipit", "Team Collaboration", "Colaboración en Equipo", "Teamzusammenarbeit", "Тимска Соработка", "Collaboration d'équipe", "Colaboração em equipa", "Collaborazione in team"),
       description: sq(lang, "Shtoni dhe menaxhoni anëtarë ekipi", "Add and manage team members", "Agregue y gestione miembros del equipo", "Teammitglieder hinzufügen und verwalten", "Додајте и управувајте членови на тимот"),
-      duration: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање"),
+      duration: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање", "6 min de lecture", "6 min de leitura", "6 min di lettura"),
       icon: Users,
       color: "from-orange-500 to-red-500"
     }
@@ -143,7 +143,7 @@ export default function Tutorials() {
         sq(lang, "Gjurmimi i Shpenzimeve", "Expense Tracking", "Seguimiento de Gastos", "Ausgabenverfolgung", "Следење на Трошоци", "Suivi des dépenses", "Controlo de despesas", "Monitoraggio spese"),
         sq(lang, "Raporte të Thjeshta", "Simple Reports", "Informes Simples", "Einfache Berichte", "Едноставни Извештаи")
       ],
-      duration: sq(lang, "2 orë", "2 hours", "2 horas", "2 Stunden", "2 часа"),
+      duration: sq(lang, "2 orë", "2 hours", "2 horas", "2 Stunden", "2 часа", "2 heures", "2 horas", "2 ore"),
       level: sq(lang, "Fillestar", "Beginner", "Principiante", "Anfänger", "Почетник", "Débutant", "Iniciante", "Principiante")
     },
     {
@@ -155,7 +155,7 @@ export default function Tutorials() {
         sq(lang, "Veçoritë Tatimore", "Tax Features", "Funciones Fiscales", "Steuerfunktionen", "Даночни Функции"),
         sq(lang, "Bashkëpunimi me Klientë", "Client Collaboration", "Colaboración con Clientes", "Kundenkollaboration", "Соработка со Клиенти")
       ],
-      duration: sq(lang, "4 orë", "4 hours", "4 horas", "4 Stunden", "4 часа"),
+      duration: sq(lang, "4 orë", "4 hours", "4 horas", "4 Stunden", "4 часа", "4 heures", "4 horas", "4 ore"),
       level: sq(lang, "I Avancuar", "Advanced", "Avanzado", "Fortgeschritten", "Напреден", "Avancé", "Avançado", "Avanzato")
     },
     {
@@ -168,7 +168,7 @@ export default function Tutorials() {
         sq(lang, "Automatizim i Avancuar", "Advanced Automation", "Automatización Avanzada", "Erweiterte Automatisierung", "Напредна Автоматизација")
       ],
       duration: sq(lang, "6 orë", "6 hours", "6 horas", "6 Stunden", "6 часа"),
-      level: sq(lang, "Ekspert", "Expert", "Experto", "Experte", "Експерт")
+      level: sq(lang, "Ekspert", "Expert", "Experto", "Experte", "Експерт", "Expert", "Especialista", "Esperto")
     }
   ];
 
@@ -339,7 +339,7 @@ export default function Tutorials() {
                       <Star className="w-4 h-4 text-yellow-500 fill-current" />
                       <span>{video.rating}</span>
                     </div>
-                    <span>{video.views} {sq(lang, "shikime", "views", "vistas", "Aufrufe", "прегледи")}</span>
+                    <span>{video.views} {sq(lang, "shikime", "views", "vistas", "Aufrufe", "прегледи", "vues", "visualizações", "visualizzazioni")}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -447,7 +447,7 @@ export default function Tutorials() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Comenzar?", "Bereit Anzufangen?", "Подготвени да Започнете?")}
+            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Comenzar?", "Bereit Anzufangen?", "Подготвени да Започнете?", "Prêt à commencer?", "Pronto para começar?", "Pronto per iniziare?")}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Filloni udhëtimin tuaj të mësimit sot dhe bëhuni ekspert i BusinessFlow Pro në asnjë kohë.", "Start your learning journey today and become a BusinessFlow Pro expert in no time.", "Comience su viaje de aprendizaje hoy y conviértase en un experto de BusinessFlow Pro en poco tiempo.", "Starten Sie noch heute Ihre Lernreise und werden Sie im Handumdrehen ein BusinessFlow Pro-Experte.", "Започнете го вашето патување за учење денес и станете експерт за BusinessFlow Pro за кратко време.")}

@@ -99,7 +99,7 @@ export default function Careers() {
               <Link href="/trial"
                 className="group inline-flex items-center gap-2 px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition-all duration-200 text-sm">
                 <span className="flex flex-col items-start leading-tight">
-                  <span className="text-[9px] text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
+                  <span className="text-[9px] text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно", "14 jours gratuits", "14 dias grátis", "14 giorni gratis")}</span>
                   <span className="text-xs">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</span>
                 </span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -131,7 +131,7 @@ export default function Careers() {
         <div className="max-w-5xl mx-auto px-6 pt-16 pb-14 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-6">
             <Briefcase className="h-3.5 w-3.5" />
-            {sq(lang, "Bashkohuni me ekipin tonë", "Join our team", "Únase a nuestro equipo", "Treten Sie unserem Team bei", "Придружете се на нашиот тим")}
+            {sq(lang, "Bashkohuni me ekipin tonë", "Join our team", "Únase a nuestro equipo", "Treten Sie unserem Team bei", "Придружете се на нашиот тим", "Rejoignez notre équipe", "Junte-se à nossa equipa", "Unisciti al nostro team")}
           </div>
           <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight mb-4">
             {sq(lang,
@@ -184,10 +184,10 @@ export default function Careers() {
                 <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Check className="h-7 w-7 text-emerald-600" />
                 </div>
-                <h2 className="text-xl font-extrabold text-gray-900 mb-2">{sq(lang, "Aplikimi u dërgua!", "Application sent!", "¡Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!")}</h2>
+                <h2 className="text-xl font-extrabold text-gray-900 mb-2">{sq(lang, "Aplikimi u dërgua!", "Application sent!", "¡Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!", "Candidature envoyée!", "Candidatura enviada!", "Candidatura inviata!")}</h2>
                 <p className="text-sm text-gray-500 mb-6">{sq(lang, "Do t'ju kontaktojmë brenda 3-5 ditëve.", "We'll get back to you within 3-5 business days.", "Nos pondremos en contacto en 3-5 días hábiles.", "Wir melden uns innerhalb von 3-5 Werktagen.", "Ќе ви одговориме во рок од 3-5 работни дена.")}</p>
                 <button onClick={() => setSubmitted(false)} className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 underline underline-offset-2">
-                  {sq(lang, "Dërgoni aplikim tjetër", "Submit another application", "Enviar otra solicitud", "Weitere Bewerbung einreichen", "Испратете друга апликација")}
+                  {sq(lang, "Dërgoni aplikim tjetër", "Submit another application", "Enviar otra solicitud", "Weitere Bewerbung einreichen", "Испратете друга апликација", "Soumettre une autre candidature", "Enviar outra candidatura", "Invia un'altra candidatura")}
                 </button>
               </div>
             ) : (
@@ -201,12 +201,12 @@ export default function Careers() {
                   {/* Name */}
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Emri *", "First name *", "Nombre *", "Vorname *", "Име *")}</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Emri *", "First name *", "Nombre *", "Vorname *", "Име *", "Prénom *", "Primeiro nome *", "Nome *")}</label>
                       <input type="text" value={form.firstName} onChange={e => set("firstName", e.target.value)} required
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Mbiemri *", "Last name *", "Apellido *", "Nachname *", "Презиме *")}</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Mbiemri *", "Last name *", "Apellido *", "Nachname *", "Презиме *", "Nom *", "Apelido *", "Cognome *")}</label>
                       <input type="text" value={form.lastName} onChange={e => set("lastName", e.target.value)} required
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
@@ -215,7 +215,7 @@ export default function Careers() {
                   {/* Email + Phone */}
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Email *", "Email *", "Correo *", "E-Mail *", "Е-пошта *")}</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Email *", "Email *", "Correo *", "E-Mail *", "Е-пошта *", "E-mail *", "E-mail *", "E-mail *")}</label>
                       <input type="email" value={form.email} onChange={e => set("email", e.target.value)} required
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
@@ -239,7 +239,7 @@ export default function Careers() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Vendndodhja", "Location", "Ubicación", "Standort", "Локација")}</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Vendndodhja", "Location", "Ubicación", "Standort", "Локација", "Emplacement", "Localização", "Posizione")}</label>
                       <input type="text" placeholder={lang === "sq" ? "Prishtinë, Kosovë" : "City, Country"} value={form.location} onChange={e => set("location", e.target.value)}
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
@@ -278,7 +278,7 @@ export default function Careers() {
                     className="group w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md mt-2">
                     <Send className="h-4 w-4" />
                     <span className="flex flex-col items-start leading-tight">
-                      <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "Dërguar te info@clientlly.com", "Sent to info@clientlly.com", "Enviado a info@clientlly.com", "Gesendet an info@clientlly.com", "Испратено до info@clientlly.com")}</span>
+                      <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "Dërguar te info@clientlly.com", "Sent to info@clientlly.com", "Enviado a info@clientlly.com", "Gesendet an info@clientlly.com", "Испратено до info@clientlly.com", "Envoyé à info@clientlly.com", "Enviado para info@clientlly.com", "Inviato a info@clientlly.com")}</span>
                       <span className="text-sm">{sq(lang, "Dërgo Aplikimin", "Submit Application", "Enviar Solicitud", "Bewerbung absenden", "Испратете апликација", "Soumettre la candidature", "Submeter candidatura", "Invia candidatura")}</span>
                     </span>
                   </button>
@@ -307,26 +307,26 @@ export default function Careers() {
             ) : (
               <>
                 <div className="mb-8">
-                  <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{sq(lang, "Dërgoni CV-në tuaj", "Send your resume", "Envíe su CV", "Senden Sie Ihren Lebenslauf", "Испратете го вашето CV")}</h2>
+                  <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{sq(lang, "Dërgoni CV-në tuaj", "Send your resume", "Envíe su CV", "Senden Sie Ihren Lebenslauf", "Испратете го вашето CV", "Envoyez votre CV", "Envie o seu CV", "Invia il tuo CV")}</h2>
                   <p className="text-sm text-gray-500">{sq(lang, "S'ka pozitë aktive? Lëreni CV-në dhe do t'ju kontaktojmë kur kemi hapësira.", "No open position? Leave your resume and we'll reach out when we have openings.", "No hay puesto abierto? Deje su CV y nos pondremos en contacto cuando tengamos vacantes.", "Keine offene Stelle? Hinterlassen Sie Ihren Lebenslauf und wir melden uns, wenn wir offene Stellen haben.", "Нема отворена позиција? Оставете го вашето CV и ќе ве контактираме кога ќе имаме отворени позиции.")}</p>
                 </div>
 
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Emri *", "First name *", "Nombre *", "Vorname *", "Име *")}</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Emri *", "First name *", "Nombre *", "Vorname *", "Име *", "Prénom *", "Primeiro nome *", "Nome *")}</label>
                       <input type="text" value={form.firstName} onChange={e => set("firstName", e.target.value)} required
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Mbiemri *", "Last name *", "Apellido *", "Nachname *", "Презиме *")}</label>
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Mbiemri *", "Last name *", "Apellido *", "Nachname *", "Презиме *", "Nom *", "Apelido *", "Cognome *")}</label>
                       <input type="text" value={form.lastName} onChange={e => set("lastName", e.target.value)} required
                         className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Email *", "Email *", "Correo *", "E-Mail *", "Е-пошта *")}</label>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1.5">{sq(lang, "Email *", "Email *", "Correo *", "E-Mail *", "Е-пошта *", "E-mail *", "E-mail *", "E-mail *")}</label>
                     <input type="email" value={form.email} onChange={e => set("email", e.target.value)} required
                       className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" />
                   </div>
@@ -337,9 +337,9 @@ export default function Careers() {
                       className="w-full h-10 px-3 border border-gray-200 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
                       <option value="">{sq(lang, "Kur mund të filloni?", "When can you start?", "Cuándo puede empezar?", "Wann können Sie beginnen?", "Кога можете да почнете?")}</option>
                       <option value="immediately">{sq(lang, "Menjëherë", "Immediately", "Inmediatamente", "Sofort", "Веднаш")}</option>
-                      <option value="2weeks">{sq(lang, "2 javë njoftim", "2 weeks notice", "2 semanas de aviso", "2 Wochen Kündigungsfrist", "2 недели известување")}</option>
-                      <option value="1month">{sq(lang, "1 muaj njoftim", "1 month notice", "1 mes de aviso", "1 Monat Kündigungsfrist", "1 месец известување")}</option>
-                      <option value="3months">{sq(lang, "3 muaj njoftim", "3 months notice", "3 meses de aviso", "3 Monate Kündigungsfrist", "3 месеци известување")}</option>
+                      <option value="2weeks">{sq(lang, "2 javë njoftim", "2 weeks notice", "2 semanas de aviso", "2 Wochen Kündigungsfrist", "2 недели известување", "2 semaines de préavis", "2 semanas de aviso prévio", "2 settimane di preavviso")}</option>
+                      <option value="1month">{sq(lang, "1 muaj njoftim", "1 month notice", "1 mes de aviso", "1 Monat Kündigungsfrist", "1 месец известување", "1 mois de préavis", "1 mês de aviso prévio", "1 mese di preavviso")}</option>
+                      <option value="3months">{sq(lang, "3 muaj njoftim", "3 months notice", "3 meses de aviso", "3 Monate Kündigungsfrist", "3 месеци известување", "3 mois de préavis", "3 meses de aviso prévio", "3 mesi di preavviso")}</option>
                     </select>
                   </div>
 
@@ -360,8 +360,8 @@ export default function Careers() {
                     className="group w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md mt-2">
                     <Send className="h-4 w-4" />
                     <span className="flex flex-col items-start leading-tight">
-                      <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "Dërguar te info@clientlly.com", "Sent to info@clientlly.com", "Enviado a info@clientlly.com", "Gesendet an info@clientlly.com", "Испратено до info@clientlly.com")}</span>
-                      <span className="text-sm">{sq(lang, "Dërgo CV-në", "Send Resume", "Enviar CV", "Lebenslauf senden", "Испратете CV")}</span>
+                      <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "Dërguar te info@clientlly.com", "Sent to info@clientlly.com", "Enviado a info@clientlly.com", "Gesendet an info@clientlly.com", "Испратено до info@clientlly.com", "Envoyé à info@clientlly.com", "Enviado para info@clientlly.com", "Inviato a info@clientlly.com")}</span>
+                      <span className="text-sm">{sq(lang, "Dërgo CV-në", "Send Resume", "Enviar CV", "Lebenslauf senden", "Испратете CV", "Envoyer CV", "Enviar CV", "Invia CV")}</span>
                     </span>
                   </button>
                 </div>
@@ -453,7 +453,7 @@ export default function Careers() {
                 </button>
                 <button onClick={() => setActiveTab("resume")}
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-gray-50 text-gray-800 font-semibold rounded-xl border border-gray-200 transition-all text-sm shadow-sm">
-                  {sq(lang, "Dërgo CV", "Send Resume", "Enviar CV", "Lebenslauf senden", "Испратете CV")}
+                  {sq(lang, "Dërgo CV", "Send Resume", "Enviar CV", "Lebenslauf senden", "Испратете CV", "Envoyer CV", "Enviar CV", "Invia CV")}
                 </button>
               </div>
             </div>

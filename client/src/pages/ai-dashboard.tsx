@@ -50,7 +50,7 @@ export default function AIDashboard() {
                 </div>
                 <div>
                   <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    {sq(lang, "Inteligjenca Biznesore me AI", "AI-Powered Business Intelligence", "Inteligencia de Negocios con IA", "KI-gestützte Business Intelligence", "Деловна интелигенција со ВИ")}
+                    {sq(lang, "Inteligjenca Biznesore me AI", "AI-Powered Business Intelligence", "Inteligencia de Negocios con IA", "KI-gestützte Business Intelligence", "Деловна интелигенција со ВИ", "Intelligence d'affaires par IA", "Inteligência de negócios por IA", "Business intelligence con IA")}
                   </h1>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     {sq(lang, "Njohuri të zgjuara, automatizim dhe kontrolle zanore", "Smart insights, automation, and voice controls", "Perspectivas inteligentes, automatización y controles de voz", "Intelligente Einblicke, Automatisierung und Sprachsteuerung", "Паметни увиди, автоматизација и гласовни контроли")}
@@ -75,7 +75,7 @@ export default function AIDashboard() {
             </TabsTrigger>
             <TabsTrigger value="voice" className="flex items-center gap-2">
               <Mic className="h-4 w-4" />
-              {sq(lang, "Komandat Zanore", "Voice Commands", "Comandos de Voz", "Sprachbefehle", "Гласовни команди")}
+              {sq(lang, "Komandat Zanore", "Voice Commands", "Comandos de Voz", "Sprachbefehle", "Гласовни команди", "Commandes vocales", "Comandos de voz", "Comandi vocali")}
             </TabsTrigger>
             <TabsTrigger value="automation" className="flex items-center gap-2">
               <Zap className="h-4 w-4" />

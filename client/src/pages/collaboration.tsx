@@ -89,7 +89,7 @@ export default function CollaborationPage() {
       icon: Gift,
       color: "text-indigo-600",
       bg: "bg-indigo-50",
-      title: sq(lang, "100% Falas", "100% Free", "100% Gratis", "100% Kostenlos", "100% Бесплатно"),
+      title: sq(lang, "100% Falas", "100% Free", "100% Gratis", "100% Kostenlos", "100% Бесплатно", "100% gratuit", "100% gratuito", "100% gratuito"),
       desc: sq(lang, "Asnjë pagesë shtesë për zhvillim të personalizuar. Çdo gjë është e përfshirë në abonimin tuaj.", "No extra charge for custom development. Everything is included in your subscription.", "Sin cargos adicionales por desarrollo personalizado. Todo está incluido en su suscripción.", "Keine zusätzlichen Kosten für individuelle Entwicklung. Alles ist in Ihrem Abonnement enthalten.", "Без дополнителни трошоци за прилагоден развој. Сè е вклучено во вашата претплата."),
     },
     {
@@ -124,7 +124,7 @@ export default function CollaborationPage() {
       icon: TrendingUp,
       color: "text-rose-600",
       bg: "bg-rose-50",
-      title: sq(lang, "Rritje e Përbashkët", "Shared Growth", "Crecimiento compartido", "Gemeinsames Wachstum", "Заеднички раст"),
+      title: sq(lang, "Rritje e Përbashkët", "Shared Growth", "Crecimiento compartido", "Gemeinsames Wachstum", "Заеднички раст", "Croissance partagée", "Crescimento partilhado", "Crescita condivisa"),
       desc: sq(lang, "Ne investojmë në suksesin tuaj sepse suksesi juaj është suksesi ynë — partneriteti real.", "We invest in your success because your success is our success — a real partnership.", "Invertimos en su éxito porque su éxito es nuestro éxito — una verdadera asociación.", "Wir investieren in Ihren Erfolg, denn Ihr Erfolg ist unser Erfolg — eine echte Partnerschaft.", "Ние инвестираме во вашиот успех затоа што вашиот успех е наш успех — вистинско партнерство."),
     },
   ];
@@ -143,7 +143,7 @@ export default function CollaborationPage() {
         "Ich brauchte Standard-Kundenverträge — ich schlug die Idee vor und innerhalb von zwei Wochen hatte Clientlly ein vollständiges Modul gebaut. Jetzt wird jeder Vertrag digital unterschrieben und automatisch archiviert. Wir verlieren nie ein Dokument.",
         "Ми требаа стандардни договори за клиенти — ја предложив идејата и за две недели Clientlly изгради целосен модул. Сега секој договор се потпишува дигитално и се архивира автоматски. Никогаш не губиме документ."
       ),
-      stat: sq(lang, "100% kontrata të sigurta", "100% contracts secured", "100% contratos asegurados", "100% Verträge gesichert", "100% обезбедени договори"),
+      stat: sq(lang, "100% kontrata të sigurta", "100% contracts secured", "100% contratos asegurados", "100% Verträge gesichert", "100% обезбедени договори", "100% des contrats sécurisés", "100% dos contratos seguros", "100% dei contratti sicuri"),
       statIcon: "📝",
     },
     {
@@ -159,7 +159,7 @@ export default function CollaborationPage() {
         "Die Zusammenarbeit mit dem Clientlly-Team fühlt sich an, als hätte man seine eigene IT-Abteilung — ohne die monatliche Gehaltsabrechnung. Wir haben 5 Ideen eingereicht und 3 sind bereits live. Das passiert nur mit echten Partnern.",
         "Соработката со тимот на Clientlly се чувствува како да имате свој ИТ оддел — без месечната плата. Поднесовме 5 идеи и 3 веќе се активни. Тоа се случува само со вистински партнери."
       ),
-      stat: sq(lang, "3 nga 5 ide të realizuara", "3 of 5 ideas shipped", "3 de 5 ideas entregadas", "3 von 5 Ideen umgesetzt", "3 од 5 идеи реализирани"),
+      stat: sq(lang, "3 nga 5 ide të realizuara", "3 of 5 ideas shipped", "3 de 5 ideas entregadas", "3 von 5 Ideen umgesetzt", "3 од 5 идеи реализирани", "3 des 5 idées livrées", "3 das 5 ideias entregues", "3 di 5 idee consegnate"),
       statIcon: "🚀",
     },
     {
@@ -280,7 +280,7 @@ export default function CollaborationPage() {
               {sq(lang, "Procesi", "Process", "Proceso", "Prozess", "Процес")}
             </p>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
-              {sq(lang, "Si funksionon?", "How does it work?", "Cómo funciona?", "Wie funktioniert es?", "Како функционира?")}
+              {sq(lang, "Si funksionon?", "How does it work?", "Cómo funciona?", "Wie funktioniert es?", "Како функционира?", "Comment ça marche?", "Como funciona?", "Come funziona?")}
             </h2>
             <p className="text-lg text-gray-500 max-w-xl mx-auto">
               {sq(lang, "Katër hapa të thjeshtë — nga ideja deri te veçoria e gatshme në platformën tuaj.", "Four simple steps — from idea to finished feature in your platform.", "Cuatro pasos simples — desde la idea hasta la función terminada en su plataforma.", "Vier einfache Schritte — von der Idee zum fertigen Feature in Ihrer Plattform.", "Четири едноставни чекори — од идеја до готова функција во вашата платформа.")}
@@ -324,7 +324,7 @@ export default function CollaborationPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Përfitimet", "Benefits", "Beneficios", "Vorteile", "Придобивки")}
+              {sq(lang, "Përfitimet", "Benefits", "Beneficios", "Vorteile", "Придобивки", "Avantages", "Benefícios", "Vantaggi")}
             </p>
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang, "Pse bashkëpunimi funksionon?", "Why does collaboration work?", "Por qué funciona la colaboración?", "Warum funktioniert Zusammenarbeit?", "Зошто соработката функционира?")}
@@ -429,7 +429,7 @@ export default function CollaborationPage() {
               onClick={() => { window.location.href = '/subscribe'; }}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/20 transition-all border border-white/30 text-sm"
             >
-              {sq(lang, "Shiko Planet", "View Plans", "Ver planes", "Pläne ansehen", "Погледни планови")}
+              {sq(lang, "Shiko Planet", "View Plans", "Ver planes", "Pläne ansehen", "Погледни планови", "Voir les plans", "Ver planos", "Vedi i piani")}
               <ArrowRight className="h-4 w-4" />
             </button>
             <button

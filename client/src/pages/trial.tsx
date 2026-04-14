@@ -110,7 +110,7 @@ export default function Trial() {
           <div className="flex justify-center mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 border border-indigo-100 rounded-full text-sm font-semibold text-indigo-700">
               <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span>
-              {sq(lang, "14 Ditë Falas · Pa Kartë Krediti · Qasje e Plotë", "14 Days Free · No Credit Card · Full Access", "14 días gratis · Sin tarjeta de crédito · Acceso completo", "14 Tage kostenlos · Keine Kreditkarte · Voller Zugang", "14 дена бесплатно · Без кредитна картичка · Целосен пристап")}
+              {sq(lang, "14 Ditë Falas · Pa Kartë Krediti · Qasje e Plotë", "14 Days Free · No Credit Card · Full Access", "14 días gratis · Sin tarjeta de crédito · Acceso completo", "14 Tage kostenlos · Keine Kreditkarte · Voller Zugang", "14 дена бесплатно · Без кредитна картичка · Целосен пристап", "14 jours gratuits · Sans carte · Accès complet", "14 dias grátis · Sem cartão · Acesso total", "14 giorni gratis · Senza carta · Accesso completo")}
             </div>
           </div>
 
@@ -140,10 +140,10 @@ export default function Trial() {
               {/* Trust badges */}
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {[
-                  { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка"), sub: sq(lang, "Asnjë ngarkesë e befasishme", "No surprise charges", "Sin cargos sorpresa", "Keine überraschenden Gebühren", "Без изненадувачки трошоци") },
+                  { icon: Shield, label: sq(lang, "Pa kartë krediti", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка", "Sans carte de crédit", "Sem cartão de crédito", "Senza carta di credito"), sub: sq(lang, "Asnjë ngarkesë e befasishme", "No surprise charges", "Sin cargos sorpresa", "Keine überraschenden Gebühren", "Без изненадувачки трошоци") },
                   { icon: Zap,    label: sq(lang, "Aktivizim i menjëhershëm", "Instant activation", "Activación instantánea", "Sofortige Aktivierung", "Моментална активација"), sub: sq(lang, "Gati brenda 60 sekondave", "Ready in 60 seconds", "Listo en 60 segundos", "Bereit in 60 Sekunden", "Подготвено за 60 секунди") },
                   { icon: Check,  label: sq(lang, "Anulo kur dëshironi", "Cancel anytime", "Cancele en cualquier momento", "Jederzeit kündigen", "Откажете кога сакате", "Résiliez à tout moment", "Cancele a qualquer momento", "Annulla quando vuoi"), sub: sq(lang, "Pa penalizim, asnjëherë", "No penalty, ever", "Sin penalización, nunca", "Keine Strafe, niemals", "Без казна, никогаш") },
-                  { icon: Star,   label: sq(lang, "Qasje e plotë", "Full access", "Acceso completo", "Voller Zugang", "Целосен пристап"), sub: sq(lang, "Të gjitha 16 modulet", "All 16 modules", "Los 16 módulos", "Alle 16 Module", "Сите 16 модули") },
+                  { icon: Star,   label: sq(lang, "Qasje e plotë", "Full access", "Acceso completo", "Voller Zugang", "Целосен пристап", "Accès complet", "Acesso total", "Accesso completo"), sub: sq(lang, "Të gjitha 16 modulet", "All 16 modules", "Los 16 módulos", "Alle 16 Module", "Сите 16 модули") },
                 ].map(({ icon: Icon, label, sub }, i) => (
                   <div key={i} className="flex items-start gap-3 p-3.5 bg-white border border-gray-200 rounded-xl shadow-sm">
                     <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
@@ -192,7 +192,7 @@ export default function Trial() {
                     {[1,2,3,4,5].map(i => <Star key={i} className="h-3 w-3 text-amber-400 fill-amber-400" />)}
                   </div>
                   <p className="text-xs text-gray-500">
-                    {sq(lang, "200+ biznese tashmë e përdorin Clientlly", "200+ businesses already use Clientlly", "Más de 200 empresas ya usan Clientlly", "Über 200 Unternehmen nutzen bereits Clientlly", "200+ бизниси веќе го користат Clientlly")}
+                    {sq(lang, "200+ biznese tashmë e përdorin Clientlly", "200+ businesses already use Clientlly", "Más de 200 empresas ya usan Clientlly", "Über 200 Unternehmen nutzen bereits Clientlly", "200+ бизниси веќе го користат Clientlly", "Plus de 200 entreprises utilisent déjà Clientlly", "Mais de 200 empresas já usam o Clientlly", "Oltre 200 aziende usano già Clientlly")}
                   </p>
                 </div>
               </div>
@@ -203,7 +203,7 @@ export default function Trial() {
               {/* Card header */}
               <div className="bg-indigo-600 px-7 py-6">
                 <p className="text-[10px] font-semibold text-indigo-200 uppercase tracking-widest mb-1">
-                  {sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}
+                  {sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно", "14 jours gratuits", "14 dias grátis", "14 giorni gratis")}
                 </p>
                 <h2 className="text-xl font-extrabold text-white leading-tight">
                   {sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}
@@ -218,7 +218,7 @@ export default function Trial() {
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                      {sq(lang, "Emri *", "First name *", "Nombre *", "Vorname *", "Име *")}
+                      {sq(lang, "Emri *", "First name *", "Nombre *", "Vorname *", "Име *", "Prénom *", "Primeiro nome *", "Nome *")}
                     </label>
                     <input
                       type="text"
@@ -231,7 +231,7 @@ export default function Trial() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                      {sq(lang, "Mbiemri *", "Last name *", "Apellido *", "Nachname *", "Презиме *")}
+                      {sq(lang, "Mbiemri *", "Last name *", "Apellido *", "Nachname *", "Презиме *", "Nom *", "Apelido *", "Cognome *")}
                     </label>
                     <input
                       type="text"
@@ -300,7 +300,7 @@ export default function Trial() {
                     <>
                       <span className="flex flex-col items-start leading-tight">
                         <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">
-                          {sq(lang, "14 ditë falas · pa kartë krediti", "14 days free · no credit card", "14 días gratis · sin tarjeta de crédito", "14 Tage kostenlos · keine Kreditkarte", "14 дена бесплатно · без кредитна картичка")}
+                          {sq(lang, "14 ditë falas · pa kartë krediti", "14 days free · no credit card", "14 días gratis · sin tarjeta de crédito", "14 Tage kostenlos · keine Kreditkarte", "14 дена бесплатно · без кредитна картичка", "14 jours gratuits · sans carte", "14 dias grátis · sem cartão", "14 giorni gratis · senza carta")}
                         </span>
                         <span className="text-sm font-bold">{sq(lang, "Fillo Provën Tani", "Start Free Trial Now", "Iniciar prueba gratuita ahora", "Kostenlose Testversion starten", "Започнете бесплатна проба сега")}</span>
                       </span>
@@ -434,13 +434,13 @@ export default function Trial() {
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
-                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
+                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно", "14 jours gratuits", "14 dias grátis", "14 giorni gratis")}</span>
                 <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar prueba gratuita", "Kostenlose Testversion starten", "Започнете бесплатна проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
             <button onClick={() => go("/subscribe")} className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-sm">
-              {sq(lang, "Shiko Çmimet", "View Pricing", "Ver precios", "Preise ansehen", "Погледнете цени")}
+              {sq(lang, "Shiko Çmimet", "View Pricing", "Ver precios", "Preise ansehen", "Погледнете цени", "Voir les tarifs", "Ver preços", "Vedi i prezzi")}
             </button>
           </div>
         </div>

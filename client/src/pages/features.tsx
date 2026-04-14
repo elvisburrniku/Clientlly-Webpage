@@ -580,7 +580,7 @@ export default function Features() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="anim-fade inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-8 shadow-sm">
             <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            {sq(lang, "16 module të integruara plotësisht", "16 fully integrated modules", "16 módulos totalmente integrados", "16 vollständig integrierte Module", "16 целосно интегрирани модули")}
+            {sq(lang, "16 module të integruara plotësisht", "16 fully integrated modules", "16 módulos totalmente integrados", "16 vollständig integrierte Module", "16 целосно интегрирани модули", "16 modules entièrement intégrés", "16 módulos totalmente integrados", "16 moduli completamente integrati")}
           </div>
           <h1 className="anim-rise anim-d1 text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight mb-5 leading-[1.1]">
             {sq(lang,
@@ -604,7 +604,7 @@ export default function Features() {
           {/* Quick stats */}
           <div className="anim-rise anim-d3 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-lg mx-auto mb-10">
             {[
-              { v: "16", l: sq(lang, "Module", "Modules", "Módulos", "Module", "Модули") },
+              { v: "16", l: sq(lang, "Module", "Modules", "Módulos", "Module", "Модули", "Modules", "Módulos", "Moduli") },
               { v: "€0", l: sq(lang, "Setup", "Setup", "Configuración", "Einrichtung", "Поставување") },
               { v: "14", l: sq(lang, "Ditë Falas", "Days Free", "Días Gratis", "Tage Gratis", "Бесплатни дена") },
               { v: "200+", l: sq(lang, "Biznese", "Businesses", "Negocios", "Unternehmen", "Бизниси") },
@@ -966,7 +966,7 @@ export default function Features() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули")}
+              {sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули", "Modules", "Módulos", "Moduli")}
             </p>
             <h2 className="anim-rise anim-d1 text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang, "Eksploroni çdo modul", "Explore every module", "Explore cada módulo", "Erkunden Sie jedes Modul", "Истражете го секој модул")}

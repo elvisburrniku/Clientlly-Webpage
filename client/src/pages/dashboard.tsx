@@ -96,7 +96,7 @@ export default function Dashboard() {
     { month: sq(lang, 'Shk', 'Feb', 'Feb', 'Feb', 'Фев') as string, revenue: 52000, expenses: 35000, profit: 17000 },
     { month: sq(lang, 'Mar', 'Mar', 'Mar', 'Mär', 'Мар') as string, revenue: 48000, expenses: 33000, profit: 15000 },
     { month: sq(lang, 'Pri', 'Apr', 'Abr', 'Apr', 'Апр') as string, revenue: 61000, expenses: 38000, profit: 23000 },
-    { month: sq(lang, 'Maj', 'May', 'May', 'Mai', 'Мај') as string, revenue: 58000, expenses: 40000, profit: 18000 },
+    { month: sq(lang, 'Maj', 'May', 'May', 'Mai', 'Мај', "Mai", "Maio", "Maggio") as string, revenue: 58000, expenses: 40000, profit: 18000 },
     { month: sq(lang, 'Qer', 'Jun', 'Jun', 'Jun', 'Јун') as string, revenue: 67000, expenses: 42000, profit: 25000 },
   ];
 
@@ -117,7 +117,7 @@ export default function Dashboard() {
       color: "#dc2626",
     },
     profit: {
-      label: sq(lang, "Fitimi", "Profit", "Ganancia", "Gewinn", "Профит") as string,
+      label: sq(lang, "Fitimi", "Profit", "Ganancia", "Gewinn", "Профит", "Profit", "Lucro", "Profitto") as string,
       color: "#16a34a",
     },
   };
@@ -218,7 +218,7 @@ export default function Dashboard() {
     const badges = [];
     
     if (personalizedStats.invoices > 250) {
-      badges.push({ icon: "💰", title: sq(lang, "Master Faturash", "Invoice Master", "Maestro de Facturas", "Rechnungsmeister", "Мајстор на фактури") as string, desc: sq(lang, "250+ fatura të krijuara", "250+ invoices created", "250+ facturas creadas", "250+ Rechnungen erstellt", "250+ креирани фактури") as string });
+      badges.push({ icon: "💰", title: sq(lang, "Master Faturash", "Invoice Master", "Maestro de Facturas", "Rechnungsmeister", "Мајстор на фактури") as string, desc: sq(lang, "250+ fatura të krijuara", "250+ invoices created", "250+ facturas creadas", "250+ Rechnungen erstellt", "250+ креирани фактури", "Plus de 250 factures créées", "Mais de 250 faturas criadas", "Oltre 250 fatture create") as string });
     }
     
     if (personalizedStats.tasks > 40) {
@@ -412,7 +412,7 @@ export default function Dashboard() {
                   <div className="text-center p-6 bg-white/60 dark:bg-gray-800/60 rounded-3xl backdrop-blur-md border border-white/30 hover:scale-110 transition-all duration-500 delay-300 shadow-xl">
                     <Clock className="h-10 w-10 mx-auto mb-3 text-purple-600 animate-bounce" />
                     <div className="text-3xl font-bold text-foreground animate-pulse">{personalizedStats.todayActivities}</div>
-                    <div className="text-sm text-muted-foreground font-medium">{sq(lang, "Aktivitetet e Sotme", "Today's Activities", "Actividades de Hoy", "Heutige Aktivitäten", "Денешни активности")}</div>
+                    <div className="text-sm text-muted-foreground font-medium">{sq(lang, "Aktivitetet e Sotme", "Today's Activities", "Actividades de Hoy", "Heutige Aktivitäten", "Денешни активности", "Aujourd'hui", "Hoje", "Oggi")}</div>
                   </div>
                 </div>
               </div>
@@ -505,7 +505,7 @@ export default function Dashboard() {
                 </div>
                 <div className="flex items-center space-x-2 p-3 bg-white/30 dark:bg-gray-800/30 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors duration-300">
                   <Clock className="w-4 h-4 text-purple-500" />
-                  <span className="text-purple-700 dark:text-purple-300 text-sm font-medium">{personalizedStats.todayActivities} {sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес")}</span>
+                  <span className="text-purple-700 dark:text-purple-300 text-sm font-medium">{personalizedStats.todayActivities} {sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес", "Aujourd'hui", "Hoje", "Oggi")}</span>
                 </div>
               </div>
             </div>
@@ -644,7 +644,7 @@ export default function Dashboard() {
                   <ChartTooltip content={<ChartTooltipContent />} />
                   <Bar dataKey="revenue" fill="#2563eb" name={sq(lang, "Të ardhurat", "Revenue", "Ingresos", "Einnahmen", "Приходи", "Revenus", "Receitas", "Entrate") as string} />
                   <Bar dataKey="expenses" fill="#dc2626" name={sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string} />
-                  <Bar dataKey="profit" fill="#16a34a" name={sq(lang, "Fitimi", "Profit", "Ganancia", "Gewinn", "Профит") as string} />
+                  <Bar dataKey="profit" fill="#16a34a" name={sq(lang, "Fitimi", "Profit", "Ganancia", "Gewinn", "Профит", "Profit", "Lucro", "Profitto") as string} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
@@ -679,7 +679,7 @@ export default function Dashboard() {
             },
             { 
               icon: Bus, 
-              title: sq(lang, "BNJ", "HR", "RRHH", "Personal", "ЧР") as string,
+              title: sq(lang, "BNJ", "HR", "RRHH", "Personal", "ЧР", "RH", "RH", "HR") as string,
               description: sq(lang, "Menaxhimi i burimeve njerëzore", "Human resources management", "Gestión de recursos humanos", "Personalverwaltung", "Управување со човечки ресурси") as string,
               count: "23",
               color: "from-orange-500 to-orange-600",
@@ -749,7 +749,7 @@ export default function Dashboard() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                        {sq(lang, "Inteligjenca Biznesore me AI", "AI-Powered Business Intelligence", "Inteligencia de Negocios con IA", "KI-gestützte Business Intelligence", "Деловна интелигенција со ВИ")}
+                        {sq(lang, "Inteligjenca Biznesore me AI", "AI-Powered Business Intelligence", "Inteligencia de Negocios con IA", "KI-gestützte Business Intelligence", "Деловна интелигенција со ВИ", "Intelligence d'affaires par IA", "Inteligência de negócios por IA", "Business intelligence con IA")}
                       </h3>
                       <p className="text-gray-600">
                         {sq(lang, "Zbuloni njohuri të zgjuara, komanda zanore dhe automatizim", "Discover smart insights, voice commands, and automation", "Descubre perspectivas inteligentes, comandos de voz y automatización", "Entdecken Sie intelligente Einblicke, Sprachbefehle und Automatisierung", "Откријте паметни увиди, гласовни команди и автоматизација")}
@@ -770,7 +770,7 @@ export default function Dashboard() {
           <Card className="glass-effect border-green-200/20 hover-lift scale-in stagger-1 group">
             <CardContent className="p-6">
               <div className="text-3xl font-bold gradient-text group-hover:scale-105 transition-transform">€24,750</div>
-              <p className="text-sm text-muted-foreground">{sq(lang, "Të ardhurat Mujore", "Monthly Revenue", "Ingresos Mensuales", "Monatliche Einnahmen", "Месечни приходи")}</p>
+              <p className="text-sm text-muted-foreground">{sq(lang, "Të ardhurat Mujore", "Monthly Revenue", "Ingresos Mensuales", "Monatliche Einnahmen", "Месечни приходи", "Revenu mensuel", "Receita mensal", "Ricavi mensili")}</p>
               <div className="w-full bg-green-200 rounded-full h-2 mt-2">
                 <div className="bg-gradient-to-r from-green-400 to-green-600 h-2 rounded-full w-4/5"></div>
               </div>

@@ -238,7 +238,7 @@ export default function Landing() {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 shadow-sm">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                {sq(lang, "14 ditë provë falas · Pa kartë kredie", "14-day free trial · No credit card", "14 días de prueba gratuita · Sin tarjeta de crédito", "14-tägige kostenlose Testversion · Keine Kreditkarte", "14-дневна бесплатна проба · Без кредитна картичка")}
+                {sq(lang, "14 ditë provë falas · Pa kartë kredie", "14-day free trial · No credit card", "14 días de prueba gratuita · Sin tarjeta de crédito", "14-tägige kostenlose Testversion · Keine Kreditkarte", "14-дневна бесплатна проба · Без кредитна картичка", "14 jours d'essai gratuit · Sans carte", "14 dias de teste gratuito · Sem cartão", "14 giorni di prova gratuita · Senza carta")}
               </div>
 
               <h1 className="anim-rise text-5xl lg:text-[3.5rem] font-extrabold text-gray-900 leading-[1.1] tracking-tight">
@@ -258,7 +258,7 @@ export default function Landing() {
                   "Software de gestión empresarial para PYMEs.",
                   "Geschäftsmanagement-Software für KMU.",
                   "Софтвер за управување со бизнис за МСП."
-                )}
+                , "Logiciel de gestion pour PME.", "Software de gestão para PMEs.", "Software di gestione per PMI.")}
               </p>
               <p className="anim-rise anim-d1 text-xl font-bold text-indigo-600">
                 {sq(lang,
@@ -276,7 +276,7 @@ export default function Landing() {
                   className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <span className="flex flex-col items-start leading-tight">
-                    <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
+                    <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно", "14 jours gratuits", "14 dias grátis", "14 giorni gratis")}</span>
                     <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Testversion Starten", "Започни Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</span>
                   </span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
@@ -292,7 +292,7 @@ export default function Landing() {
 
               <div className="anim-fade anim-d3 flex flex-wrap gap-4 text-xs text-gray-400">
                 {[
-                  { icon: Shield, label: sq(lang, "Mbrojtje e të dhënave", "Data protection", "Protección de datos", "Datenschutz", "Заштита на податоци"), href: "/data-protection" },
+                  { icon: Shield, label: sq(lang, "Mbrojtje e të dhënave", "Data protection", "Protección de datos", "Datenschutz", "Заштита на податоци", "Protection des données", "Proteção de dados", "Protezione dei dati"), href: "/data-protection" },
                   { icon: Check, label: sq(lang, "Konfigurim falas", "Free setup", "Configuración gratuita", "Kostenlose Einrichtung", "Бесплатна поставка", "Installation gratuite", "Configuração gratuita", "Configurazione gratuita"), href: "/setup-migration" },
                   { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7", "Assistance 24h/24 et 7j/7", "Suporte 24/7", "Supporto 24/7"), href: "/expert-support" },
                 ].map(({ icon: Icon, label, href }) => (
@@ -335,7 +335,7 @@ export default function Landing() {
                   </div>
                   {/* Chart placeholder */}
                   <div className="mb-4 p-3 rounded-xl bg-gray-50 border border-gray-100">
-                    <p className="text-[10px] text-gray-400 mb-2 font-semibold uppercase tracking-wide">{sq(lang, "Të ardhura mujore", "Monthly Revenue", "Ingresos Mensuales", "Monatliche Einnahmen", "Месечни Приходи")}</p>
+                    <p className="text-[10px] text-gray-400 mb-2 font-semibold uppercase tracking-wide">{sq(lang, "Të ardhura mujore", "Monthly Revenue", "Ingresos Mensuales", "Monatliche Einnahmen", "Месечни Приходи", "Revenu mensuel", "Receita mensal", "Ricavi mensili")}</p>
                     <div className="flex items-end gap-1 h-16">
                       {[30, 55, 45, 70, 60, 85, 75, 90, 68, 95, 82, 100].map((h, i) => (
                         <div key={i} className="flex-1 rounded-t"
@@ -384,7 +384,7 @@ export default function Landing() {
                 <div className="w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center">
                   <Check className="h-3 w-3 text-emerald-600" />
                 </div>
-                <span className="text-[11px] font-semibold text-gray-700">{sq(lang, "16 module aktive", "16 active modules", "16 módulos activos", "16 aktive Module", "16 активни модули")}</span>
+                <span className="text-[11px] font-semibold text-gray-700">{sq(lang, "16 module aktive", "16 active modules", "16 módulos activos", "16 aktive Module", "16 активни модули", "16 modules actifs", "16 módulos ativos", "16 moduli attivi")}</span>
               </div>
             </div>
           </div>
@@ -410,7 +410,7 @@ export default function Landing() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Si funksionon", "How it works", "Cómo funciona", "So funktioniert es", "Како функционира")}
+              {sq(lang, "Si funksionon", "How it works", "Cómo funciona", "So funktioniert es", "Како функционира", "Comment ça marche", "Como funciona", "Come funziona")}
             </p>
             <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang,
@@ -449,7 +449,7 @@ export default function Landing() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="anim-fade text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-3">
-              {sq(lang, "Platforma", "Platform", "Plataforma", "Plattform", "Платформа")}
+              {sq(lang, "Platforma", "Platform", "Plataforma", "Plattform", "Платформа", "Plateforme", "Plataforma", "Piattaforma")}
             </p>
             <h2 id="features-title" className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
               {sq(lang,
@@ -549,10 +549,10 @@ export default function Landing() {
 
               <div className="space-y-5">
                 {[
-                  { icon: TrendingUp, color: "bg-indigo-50 text-indigo-600", stat: sq(lang, "15+ orë të kursyera/javë", "15+ hours saved per week", "15+ horas ahorradas/semana", "15+ Stunden gespart/Woche", "15+ часа заштедени/неделно"), desc: sq(lang, "Automatizim i plotë i detyrave të përsëritura", "Full automation of repetitive tasks", "Automatización completa de tareas repetitivas", "Vollautomatisierung wiederkehrender Aufgaben", "Целосна автоматизација на повторливи задачи") },
-                  { icon: Zap, color: "bg-emerald-50 text-emerald-600", stat: sq(lang, "+30% të ardhura mesatare", "+30% average revenue", "+30% ingresos promedio", "+30% durchschnittlicher Umsatz", "+30% просечни приходи"), desc: sq(lang, "Bizneset tona raportojnë rritje reale", "Our businesses report real growth", "Nuestras empresas reportan crecimiento real", "Unsere Unternehmen berichten von echtem Wachstum", "Нашите бизниси пријавуваат реален раст") },
+                  { icon: TrendingUp, color: "bg-indigo-50 text-indigo-600", stat: sq(lang, "15+ orë të kursyera/javë", "15+ hours saved per week", "15+ horas ahorradas/semana", "15+ Stunden gespart/Woche", "15+ часа заштедени/неделно", "15+ heures économisées par semaine", "15+ horas poupadas por semana", "15+ ore risparmiate a settimana"), desc: sq(lang, "Automatizim i plotë i detyrave të përsëritura", "Full automation of repetitive tasks", "Automatización completa de tareas repetitivas", "Vollautomatisierung wiederkehrender Aufgaben", "Целосна автоматизација на повторливи задачи") },
+                  { icon: Zap, color: "bg-emerald-50 text-emerald-600", stat: sq(lang, "+30% të ardhura mesatare", "+30% average revenue", "+30% ingresos promedio", "+30% durchschnittlicher Umsatz", "+30% просечни приходи", "+30% de revenus en moyenne", "+30% de receita em média", "+30% di ricavi in media"), desc: sq(lang, "Bizneset tona raportojnë rritje reale", "Our businesses report real growth", "Nuestras empresas reportan crecimiento real", "Unsere Unternehmen berichten von echtem Wachstum", "Нашите бизниси пријавуваат реален раст") },
                   { icon: Shield, color: "bg-violet-50 text-violet-600", stat: sq(lang, "95% më pak gabime", "95% fewer errors", "95% menos errores", "95% weniger Fehler", "95% помалку грешки"), desc: sq(lang, "Llogaritjet automatike eliminojnë gabimet njerëzore", "Automatic calculations eliminate human errors", "Los cálculos automáticos eliminan los errores humanos", "Automatische Berechnungen eliminieren menschliche Fehler", "Автоматските пресметки ги елиминираат човечките грешки") },
-                  { icon: Headphones, color: "bg-rose-50 text-rose-600", stat: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7"), desc: sq(lang, "Ekip real, jo vetëm bots — gjithmonë i gatshëm", "Real team, not just bots — always ready", "Equipo real, no solo bots — siempre disponible", "Echtes Team, nicht nur Bots — immer bereit", "Реален тим, не само ботови — секогаш подготвен") },
+                  { icon: Headphones, color: "bg-rose-50 text-rose-600", stat: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7", "Assistance 24h/7j", "Suporte 24h/7d", "Supporto 24h/7g"), desc: sq(lang, "Ekip real, jo vetëm bots — gjithmonë i gatshëm", "Real team, not just bots — always ready", "Equipo real, no solo bots — siempre disponible", "Echtes Team, nicht nur Bots — immer bereit", "Реален тим, не само ботови — секогаш подготвен") },
                 ].map(({ icon: Icon, color, stat, desc }, i) => (
                   <div key={String(stat)} className={`anim-rise anim-d${i + 2} flex items-center gap-4 p-4 bg-white rounded-2xl border border-gray-100 hover:border-indigo-100 hover:shadow-sm transition-all duration-200`}>
                     <div className={`flex-shrink-0 p-3 rounded-xl ${color}`}>
@@ -599,7 +599,7 @@ export default function Landing() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="anim-fade text-indigo-600 text-sm font-semibold uppercase tracking-widest mb-4">
-                {sq(lang, "Bashkëpunim", "Collaboration", "Colaboración", "Zusammenarbeit", "Соработка")}
+                {sq(lang, "Bashkëpunim", "Collaboration", "Colaboración", "Zusammenarbeit", "Соработка", "Collaboration", "Colaboração", "Collaborazione")}
               </p>
               <h2 className="anim-rise text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                 {sq(lang, "Le të rritemi bashkë", "Let's grow together", "Crezcamos juntos", "Wachsen wir gemeinsam", "Да растеме заедно", "Grandissons ensemble", "Crescemos juntos", "Cresciamo insieme")}
@@ -626,7 +626,7 @@ export default function Landing() {
                 { icon: Zap, title: sq(lang, "Zhvillim i Shpejtë", "Rapid Development", "Desarrollo Rápido", "Schnelle Entwicklung", "Брз Развој"), desc: sq(lang, "Idetë tuaja bëhen realitet brenda javësh", "Your ideas become reality within weeks", "Sus ideas se hacen realidad en semanas", "Ihre Ideen werden innerhalb von Wochen Realität", "Вашите идеи стануваат реалност за недели") },
                 { icon: Users, title: sq(lang, "Komuniteti i Parë", "Community First", "La Comunidad Primero", "Gemeinschaft Zuerst", "Заедницата Прва"), desc: sq(lang, "Platforma e ndërtuar mbi komentet tuaja", "Platform built on your feedback", "Plataforma construida sobre sus comentarios", "Plattform basierend auf Ihrem Feedback", "Платформа изградена врз основа на вашите коментари") },
                 { icon: Globe, title: sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte de Expertos", "Expertenunterstützung", "Поддршка од Експерти", "Assistance experte", "Suporte especializado", "Supporto esperto"), desc: sq(lang, "Qasje direkte te ekipi ynë", "Direct access to our expert team", "Acceso directo a nuestro equipo experto", "Direkter Zugang zu unserem Expertenteam", "Директен пристап до нашиот тим на експерти") },
-                { icon: TrendingUp, title: sq(lang, "Rritje e Përbashkët", "Shared Growth", "Crecimiento Compartido", "Gemeinsames Wachstum", "Заеднички Раст"), desc: sq(lang, "Ne rritemi kur rriteni edhe ju", "We grow when you grow", "Crecemos cuando usted crece", "Wir wachsen, wenn Sie wachsen", "Ние растеме кога растете и вие") },
+                { icon: TrendingUp, title: sq(lang, "Rritje e Përbashkët", "Shared Growth", "Crecimiento Compartido", "Gemeinsames Wachstum", "Заеднички Раст", "Croissance partagée", "Crescimento partilhado", "Crescita condivisa"), desc: sq(lang, "Ne rritemi kur rriteni edhe ju", "We grow when you grow", "Crecemos cuando usted crece", "Wir wachsen, wenn Sie wachsen", "Ние растеме кога растете и вие") },
               ].map(({ icon: Icon, title, desc }, i) => (
                 <div key={String(title)} className={`anim-scale anim-d${i + 1} p-5 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow`}>
                   <Icon className="h-5 w-5 text-indigo-500 mb-3" />

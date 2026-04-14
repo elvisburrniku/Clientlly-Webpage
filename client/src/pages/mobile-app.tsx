@@ -37,7 +37,7 @@ export default function MobileApp() {
     {
       icon: Camera,
       color: "bg-violet-100 text-violet-600",
-      title: sq(lang, "Skanim Faturash", "Receipt Scanner", "Escáner de Recibos", "Belegscanner", "Скенер на сметки"),
+      title: sq(lang, "Skanim Faturash", "Receipt Scanner", "Escáner de Recibos", "Belegscanner", "Скенер на сметки", "Scanner de reçus", "Scanner de recibos", "Scanner ricevute"),
       desc:  sq(lang, "Fotografo faturën dhe shpenzimet regjistrohen automatikisht.", "Photograph a receipt and expenses are recorded automatically.", "Fotografía un recibo y los gastos se registran automáticamente.", "Fotografieren Sie einen Beleg und die Ausgaben werden automatisch erfasst.", "Фотографирајте сметка и трошоците се евидентираат автоматски."),
     },
     {
@@ -68,7 +68,7 @@ export default function MobileApp() {
       icon: Shield,
       color: "bg-slate-100 text-slate-600",
       title: sq(lang, "Siguri Bankare", "Bank-Level Security", "Seguridad Bancaria", "Banksicherheit", "Банкарска безбедност", "Sécurité de niveau bancaire", "Segurança de nível bancário", "Sicurezza a livello bancario"),
-      desc:  sq(lang, "Enkriptim 256-bit SSL. Të dhënat tuaja janë gjithmonë të sigurta.", "256-bit SSL encryption. Your data is always safe.", "Encriptación SSL de 256 bits. Sus datos siempre están seguros.", "256-Bit-SSL-Verschlüsselung. Ihre Daten sind immer sicher.", "256-битна SSL енкрипција. Вашите податоци се секогаш безбедни."),
+      desc:  sq(lang, "Enkriptim 256-bit SSL. Të dhënat tuaja janë gjithmonë të sigurta.", "256-bit SSL encryption. Your data is always safe.", "Encriptación SSL de 256 bits. Sus datos siempre están seguros.", "256-Bit-SSL-Verschlüsselung. Ihre Daten sind immer sicher.", "256-битна SSL енкрипција. Вашите податоци се секогаш безбедни.", "Chiffrement SSL 256 bits. Vos données sont toujours en sécurité.", "Encriptação SSL 256 bits. Os seus dados estão sempre seguros.", "Crittografia SSL 256 bit. I tuoi dati sono sempre al sicuro."),
     },
     {
       icon: Zap,

@@ -76,7 +76,7 @@ export default function FeatureMobile() {
             </div>
           </div>
           <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-foreground mb-6 tracking-tight leading-tight animate-professional-fade">
-            {sq(lang, "Aplikacioni", "Mobile", "Aplicación", "Mobile", "Мобилна")} <span className="animate-subtle-gradient">{sq(lang, "Celular", "App", "Móvil", "App", "Апликација")}</span>
+            {sq(lang, "Aplikacioni", "Mobile", "Aplicación", "Mobile", "Мобилна", "Mobile", "Móvel", "Mobile")} <span className="animate-subtle-gradient">{sq(lang, "Celular", "App", "Móvil", "App", "Апликација")}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {sq(lang,
@@ -170,7 +170,7 @@ export default function FeatureMobile() {
               <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
                 <div className="flex items-center space-x-2">
                   <Camera className="h-4 w-4 text-green-600" />
-                  <span className="font-medium text-sm">{sq(lang, "Skanues Faturash", "Receipt Scanner", "Escáner de Recibos", "Beleg-Scanner", "Скенер за сметки")}</span>
+                  <span className="font-medium text-sm">{sq(lang, "Skanues Faturash", "Receipt Scanner", "Escáner de Recibos", "Beleg-Scanner", "Скенер за сметки", "Scanner de reçus", "Scanner de recibos", "Scanner ricevute")}</span>
                 </div>
                 <span className="font-bold text-green-600">76%</span>
               </div>
@@ -184,7 +184,7 @@ export default function FeatureMobile() {
               <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
                 <div className="flex items-center space-x-2">
                   <Bell className="h-4 w-4 text-orange-600" />
-                  <span className="font-medium text-sm">{sq(lang, "Njoftimet Push", "Push Notifications", "Notificaciones Push", "Push-Benachrichtigungen", "Push известувања")}</span>
+                  <span className="font-medium text-sm">{sq(lang, "Njoftimet Push", "Push Notifications", "Notificaciones Push", "Push-Benachrichtigungen", "Push известувања", "Notifications push", "Notificações push", "Notifiche push")}</span>
                 </div>
                 <span className="font-bold text-orange-600">92%</span>
               </div>
@@ -215,7 +215,7 @@ export default function FeatureMobile() {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
                 <Bell className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">{sq(lang, "Njoftimet Push", "Push Notifications", "Notificaciones Push", "Push-Benachrichtigungen", "Push известувања")}</h3>
+              <h3 className="text-xl font-bold mb-4">{sq(lang, "Njoftimet Push", "Push Notifications", "Notificaciones Push", "Push-Benachrichtigungen", "Push известувања", "Notifications push", "Notificações push", "Notifiche push")}</h3>
               <p className="text-muted-foreground">{sq(lang, "Qëndroni të përditësuar me njoftime në kohë reale për pagesa, afate dhe ngjarje të rëndësishme biznesi.", "Stay updated with real-time notifications for payments, due dates, and important business events.", "Manténgase actualizado con notificaciones en tiempo real para pagos, fechas de vencimiento y eventos comerciales importantes.", "Bleiben Sie mit Echtzeit-Benachrichtigungen für Zahlungen, Fälligkeitstermine und wichtige Geschäftsereignisse auf dem Laufenden.", "Останете ажурирани со известувања во реално време за плаќања, рокови и важни деловни настани.")}</p>
             </CardContent>
           </Card>
@@ -225,7 +225,7 @@ export default function FeatureMobile() {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
                 <Camera className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">{sq(lang, "Skanues Faturash", "Receipt Scanner", "Escáner de Recibos", "Beleg-Scanner", "Скенер за сметки")}</h3>
+              <h3 className="text-xl font-bold mb-4">{sq(lang, "Skanues Faturash", "Receipt Scanner", "Escáner de Recibos", "Beleg-Scanner", "Скенер за сметки", "Scanner de reçus", "Scanner de recibos", "Scanner ricevute")}</h3>
               <p className="text-muted-foreground">{sq(lang, "Kapni dhe kategorizoni menjëherë faturat duke përdorur teknologjinë e skanimit me fuqi AI.", "Instantly capture and categorize receipts using AI-powered scanning technology.", "Capture y categorice recibos instantáneamente utilizando tecnología de escaneo impulsada por IA.", "Erfassen und kategorisieren Sie Belege sofort mit KI-gestützter Scantechnologie.", "Моментално фатете и категоризирајте сметки користејќи технологија за скенирање со вештачка интелигенција.")}</p>
             </CardContent>
           </Card>
@@ -235,7 +235,7 @@ export default function FeatureMobile() {
               <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
                 <RefreshCw className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">{sq(lang, "Sinkronizim në Kohë Reale", "Real-time Sync", "Sincronización en Tiempo Real", "Echtzeit-Synchronisation", "Синхронизација во реално време")}</h3>
+              <h3 className="text-xl font-bold mb-4">{sq(lang, "Sinkronizim në Kohë Reale", "Real-time Sync", "Sincronización en Tiempo Real", "Echtzeit-Synchronisation", "Синхронизација во реално време", "Synchronisation en temps réel", "Sincronização em tempo real", "Sincronizzazione in tempo reale")}</h3>
               <p className="text-muted-foreground">{sq(lang, "Ndryshimet sinkronizohen menjëherë në të gjitha pajisjet. Ekipi juaj ka gjithmonë informacionin më të fundit.", "Changes sync instantly across all devices. Your team always has the latest information.", "Los cambios se sincronizan instantáneamente en todos los dispositivos. Su equipo siempre tiene la información más reciente.", "Änderungen werden sofort über alle Geräte synchronisiert. Ihr Team hat immer die neuesten Informationen.", "Промените се синхронизираат моментално на сите уреди. Вашиот тим секогаш ги има најновите информации.")}</p>
             </CardContent>
           </Card>
@@ -255,7 +255,7 @@ export default function FeatureMobile() {
               <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">{sq(lang, "Bashkëpunim Ekipor", "Team Collaboration", "Colaboración en Equipo", "Teamzusammenarbeit", "Тимска соработка")}</h3>
+              <h3 className="text-xl font-bold mb-4">{sq(lang, "Bashkëpunim Ekipor", "Team Collaboration", "Colaboración en Equipo", "Teamzusammenarbeit", "Тимска соработка", "Collaboration d'équipe", "Colaboração em equipa", "Collaborazione in team")}</h3>
               <p className="text-muted-foreground">{sq(lang, "Ndani projekte, caktoni detyra dhe komunikoni me ekipin tuaj nga kudo.", "Share projects, assign tasks, and communicate with your team from anywhere.", "Comparta proyectos, asigne tareas y comuníquese con su equipo desde cualquier lugar.", "Teilen Sie Projekte, weisen Sie Aufgaben zu und kommunizieren Sie mit Ihrem Team von überall.", "Споделувајте проекти, доделувајте задачи и комуницирајте со вашиот тим од секаде.")}</p>
             </CardContent>
           </Card>
@@ -310,7 +310,7 @@ export default function FeatureMobile() {
               <div className="flex items-start space-x-4">
                 <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-2">{sq(lang, "Komanda me Zë", "Voice Commands", "Comandos de Voz", "Sprachbefehle", "Гласовни команди")}</h3>
+                  <h3 className="font-semibold mb-2">{sq(lang, "Komanda me Zë", "Voice Commands", "Comandos de Voz", "Sprachbefehle", "Гласовни команди", "Commandes vocales", "Comandos de voz", "Comandi vocali")}</h3>
                   <p className="text-muted-foreground">{sq(lang, "Krijoni regjistrime dhe navigoni duke përdorur komandat me zë për operim pa duar.", "Create entries and navigate using voice commands for hands-free operation.", "Cree entradas y navegue usando comandos de voz para operación manos libres.", "Erstellen Sie Einträge und navigieren Sie mit Sprachbefehlen für freihändige Bedienung.", "Креирајте записи и навигирајте користејќи гласовни команди за работа без раце.")}</p>
                 </div>
               </div>
@@ -345,11 +345,11 @@ export default function FeatureMobile() {
           <div className="flex justify-center items-center space-x-6 text-blue-100">
             <div className="flex items-center space-x-2">
               <Star className="h-5 w-5 fill-current text-yellow-400" />
-              <span>{sq(lang, "4.8/5 Vlerësim", "4.8/5 Rating", "4.8/5 Calificación", "4.8/5 Bewertung", "4.8/5 Оценка")}</span>
+              <span>{sq(lang, "4.8/5 Vlerësim", "4.8/5 Rating", "4.8/5 Calificación", "4.8/5 Bewertung", "4.8/5 Оценка", "Note 4,8/5", "Classificação 4,8/5", "Valutazione 4,8/5")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Download className="h-5 w-5" />
-              <span>{sq(lang, "50K+ Shkarkime", "50K+ Downloads", "50K+ Descargas", "50K+ Downloads", "50K+ Преземања")}</span>
+              <span>{sq(lang, "50K+ Shkarkime", "50K+ Downloads", "50K+ Descargas", "50K+ Downloads", "50K+ Преземања", "50K+ téléchargements", "50K+ transferências", "50K+ download")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Zap className="h-5 w-5" />

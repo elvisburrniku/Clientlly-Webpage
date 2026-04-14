@@ -356,7 +356,7 @@ Sie können eine sofortige Löschung beantragen, indem Sie uns direkt kontaktier
               "Оваа политика објаснува како Clientlly ги собира, користи и заштитува вашите лични и деловни податоци. Целосно сме во согласност со GDPR и законите за заштита на податоци на ЕУ."
             )}
           </p>
-          <p className="text-xs text-gray-400">{sq(lang,"Përditësuar më:","Last updated:","Última actualización:","Letzte Aktualisierung:","Последно ажурирано:")} 1 {sq(lang,"Janar","January","Enero","Januar","Јануари")} 2025</p>
+          <p className="text-xs text-gray-400">{sq(lang,"Përditësuar më:","Last updated:","Última actualización:","Letzte Aktualisierung:","Последно ажурирано:")} 1 {sq(lang,"Janar","January","Enero","Januar","Јануари", "Janvier", "Janeiro", "Gennaio")} 2025</p>
         </div>
       </section>
 

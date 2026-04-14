@@ -44,7 +44,7 @@ export default function Webinars() {
       description: sq(lang, "Mësoni si të automatizoni të gjithë rrjedhën e punës së biznesit tuaj duke përdorur veçoritë e avancuara të BusinessFlow Pro", "Learn how to automate your entire business workflow using BusinessFlow Pro's advanced features", "Aprenda cómo automatizar todo el flujo de trabajo de su negocio usando las funciones avanzadas de BusinessFlow Pro", "Erfahren Sie, wie Sie Ihren gesamten Geschäftsworkflow mit den erweiterten Funktionen von BusinessFlow Pro automatisieren", "Научете како да го автоматизирате целиот работен тек на вашиот бизнис користејќи ги напредните функции на BusinessFlow Pro") as string,
       date: sq(lang, "15 Shkurt, 2025", "Feb 15, 2025", "15 Feb, 2025", "15. Feb. 2025", "15 Фев, 2025") as string,
       time: "2:00 PM EST",
-      duration: sq(lang, "60 minuta", "60 minutes", "60 minutos", "60 Minuten", "60 минути") as string,
+      duration: sq(lang, "60 minuta", "60 minutes", "60 minutos", "60 Minuten", "60 минути", "60 minutes", "60 minutos", "60 minuti") as string,
       presenter: sq(lang, "Sarah Johnson, Eksperte e Automatizimit të Biznesit", "Sarah Johnson, Business Automation Expert", "Sarah Johnson, Experta en Automatización de Negocios", "Sarah Johnson, Expertin für Geschäftsautomatisierung", "Sarah Johnson, Експерт за Деловна Автоматизација") as string,
       registrations: 342,
       spots: 158,
@@ -55,7 +55,7 @@ export default function Webinars() {
       description: sq(lang, "Përgatitni biznesin tuaj për sezonin tatimor me dokumentacion dhe strategji të duhura raportimi", "Get your business ready for tax season with proper documentation and reporting strategies", "Prepare su negocio para la temporada fiscal con documentación adecuada y estrategias de informes", "Bereiten Sie Ihr Unternehmen mit der richtigen Dokumentation und Berichtsstrategien auf die Steuersaison vor", "Подгответе го вашиот бизнис за даночната сезона со правилна документација и стратегии за известување") as string,
       date: sq(lang, "22 Shkurt, 2025", "Feb 22, 2025", "22 Feb, 2025", "22. Feb. 2025", "22 Фев, 2025") as string,
       time: "1:00 PM EST",
-      duration: sq(lang, "45 minuta", "45 minutes", "45 minutos", "45 Minuten", "45 минути") as string,
+      duration: sq(lang, "45 minuta", "45 minutes", "45 minutos", "45 Minuten", "45 минути", "45 minutes", "45 minutos", "45 minuti") as string,
       presenter: "Mike Chen, CPA",
       registrations: 567,
       spots: 233,
@@ -76,10 +76,10 @@ export default function Webinars() {
 
   const pastWebinars = [
     {
-      title: sq(lang, "Fillimi me BusinessFlow Pro", "Getting Started with BusinessFlow Pro", "Empezando con BusinessFlow Pro", "Erste Schritte mit BusinessFlow Pro", "Започнување со BusinessFlow Pro") as string,
+      title: sq(lang, "Fillimi me BusinessFlow Pro", "Getting Started with BusinessFlow Pro", "Empezando con BusinessFlow Pro", "Erste Schritte mit BusinessFlow Pro", "Започнување со BusinessFlow Pro", "Démarrer avec BusinessFlow Pro", "Começar com o BusinessFlow Pro", "Iniziare con BusinessFlow Pro") as string,
       description: sq(lang, "Udhëzim i plotë për përdoruesit e rinj", "Complete walkthrough for new users", "Tutorial completo para nuevos usuarios", "Vollständige Anleitung für neue Benutzer", "Комплетен водич за нови корисници") as string,
       date: sq(lang, "25 Jan, 2025", "Jan 25, 2025", "25 Ene, 2025", "25. Jan. 2025", "25 Јан, 2025") as string,
-      duration: sq(lang, "45 minuta", "45 minutes", "45 minutos", "45 Minuten", "45 минути") as string,
+      duration: sq(lang, "45 minuta", "45 minutes", "45 minutos", "45 Minuten", "45 минути", "45 minutes", "45 minutos", "45 minuti") as string,
       presenter: "Lisa Thompson",
       views: 2847,
       rating: 4.9,
@@ -89,7 +89,7 @@ export default function Webinars() {
       title: sq(lang, "Praktikat më të Mira për Automatizimin e Faturave", "Invoice Automation Best Practices", "Mejores Prácticas de Automatización de Facturas", "Best Practices für Rechnungsautomatisierung", "Најдобри Практики за Автоматизација на Фактури") as string,
       description: sq(lang, "Thjeshtoni procesin tuaj të faturimit", "Streamline your invoicing process", "Agilice su proceso de facturación", "Optimieren Sie Ihren Rechnungsprozess", "Поедноставете го вашиот процес на фактурирање") as string,
       date: sq(lang, "18 Jan, 2025", "Jan 18, 2025", "18 Ene, 2025", "18. Jan. 2025", "18 Јан, 2025") as string,
-      duration: sq(lang, "50 minuta", "50 minutes", "50 minutos", "50 Minuten", "50 минути") as string,
+      duration: sq(lang, "50 minuta", "50 minutes", "50 minutos", "50 Minuten", "50 минути", "50 minutes", "50 minutos", "50 minuti") as string,
       presenter: "Robert Wilson",
       views: 1924,
       rating: 4.8,
@@ -99,7 +99,7 @@ export default function Webinars() {
       title: sq(lang, "Raportimi Financiar për Biznese të Vogla", "Financial Reporting for Small Business", "Informes Financieros para Pequeñas Empresas", "Finanzberichte für Kleine Unternehmen", "Финансиско Известување за Мали Бизниси") as string,
       description: sq(lang, "Gjeneroni njohuri të fuqishme nga të dhënat tuaja", "Generate powerful insights from your data", "Genere perspectivas poderosas de sus datos", "Generieren Sie leistungsstarke Einblicke aus Ihren Daten", "Генерирајте моќни увиди од вашите податоци") as string,
       date: sq(lang, "11 Jan, 2025", "Jan 11, 2025", "11 Ene, 2025", "11. Jan. 2025", "11 Јан, 2025") as string,
-      duration: sq(lang, "60 minuta", "60 minutes", "60 minutos", "60 Minuten", "60 минути") as string,
+      duration: sq(lang, "60 minuta", "60 minutes", "60 minutos", "60 Minuten", "60 минути", "60 minutes", "60 minutos", "60 minuti") as string,
       presenter: "Jennifer Martinez",
       views: 3156,
       rating: 4.9,
@@ -177,7 +177,7 @@ export default function Webinars() {
               {sq(lang, "Trajnim Live", "Live Training", "Capacitación en Vivo", "Live-Training", "Обука во Живо")}
             </Badge>
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-black mb-6 fade-in leading-tight tracking-tight">
-              {sq(lang, "Webinare ", "Expert ", "Webinars de ", "Experten-", "Експертски ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Ekspertësh", "Webinars", "Expertos", "Webinare", "Вебинари")}</span>
+              {sq(lang, "Webinare ", "Expert ", "Webinars de ", "Experten-", "Експертски ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Ekspertësh", "Webinars", "Expertos", "Webinare", "Вебинари", "Webinaires", "Webinars", "Webinar")}</span>
             </h1>
             <p className="text-xl lg:text-2xl text-black font-medium max-w-4xl mx-auto leading-relaxed">
               {sq(lang, "Bashkohuni në sesionet e trajnimit live me ekspertë të industrisë. Mësoni teknika të avancuara, praktika më të mira dhe merrni përgjigje për pyetjet tuaja në kohë reale.", "Join live training sessions with industry experts. Learn advanced techniques, best practices, and get your questions answered in real-time.", "Únase a sesiones de capacitación en vivo con expertos de la industria. Aprenda técnicas avanzadas, mejores prácticas y obtenga respuestas a sus preguntas en tiempo real.", "Nehmen Sie an Live-Trainings mit Branchenexperten teil. Lernen Sie fortgeschrittene Techniken, Best Practices und erhalten Sie Antworten auf Ihre Fragen in Echtzeit.", "Придружете се на сесии за обука во живо со индустриски експерти. Научете напредни техники, најдобри практики и добијте одговори на вашите прашања во реално време.")}
@@ -191,7 +191,7 @@ export default function Webinars() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              {sq(lang, "Sesionet e ", "Upcoming ", "Próximas ", "Kommende ", "Претстојни ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Ardhshme", "Sessions", "Sesiones", "Sitzungen", "Сесии")}</span>
+              {sq(lang, "Sesionet e ", "Upcoming ", "Próximas ", "Kommende ", "Претстојни ", "À venir ", "Próximo ", "Prossimo ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Ardhshme", "Sessions", "Sesiones", "Sitzungen", "Сесии")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Regjistrohuni për këto sesione trajnimi live të ardhshme", "Register for these upcoming live training sessions", "Regístrese para estas próximas sesiones de capacitación en vivo", "Registrieren Sie sich für diese kommenden Live-Trainings", "Регистрирајте се за овие претстојни сесии за обука во живо")}
@@ -248,7 +248,7 @@ export default function Webinars() {
                         <div className="text-2xl font-bold text-green-500">{webinar.spots}</div>
                       </div>
                       <Button className="w-full">
-                        {sq(lang, "Regjistrohu Tani", "Register Now", "Regístrese Ahora", "Jetzt Registrieren", "Регистрирај се Сега")}
+                        {sq(lang, "Regjistrohu Tani", "Register Now", "Regístrese Ahora", "Jetzt Registrieren", "Регистрирај се Сега", "S'inscrire maintenant", "Registar agora", "Registrati ora")}
                       </Button>
                       <div className="text-xs text-muted-foreground text-center">
                         {sq(lang, "Falas për të gjithë abonentët", "Free for all subscribers", "Gratis para todos los suscriptores", "Kostenlos für alle Abonnenten", "Бесплатно за сите претплатници")}
@@ -267,7 +267,7 @@ export default function Webinars() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              {sq(lang, "Webinaret e ", "Past ", "Webinars ", "Vergangene ", "Минати ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Kaluara", "Webinars", "Anteriores", "Webinare", "Вебинари")}</span>
+              {sq(lang, "Webinaret e ", "Past ", "Webinars ", "Vergangene ", "Минати ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Kaluara", "Webinars", "Anteriores", "Webinare", "Вебинари", "Webinaires", "Webinars", "Webinar")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Shikoni regjistrimet e sesioneve tona të mëparshme të trajnimit", "Watch recordings of our previous training sessions", "Vea grabaciones de nuestras sesiones de capacitación anteriores", "Sehen Sie sich Aufzeichnungen unserer früheren Trainings an", "Гледајте снимки од нашите претходни сесии за обука")}
@@ -298,7 +298,7 @@ export default function Webinars() {
                   
                   <div className="flex items-center justify-between mb-4 text-sm text-muted-foreground">
                     <span>{webinar.date}</span>
-                    <span>{webinar.views} {sq(lang, "shikime", "views", "vistas", "Aufrufe", "прегледи")}</span>
+                    <span>{webinar.views} {sq(lang, "shikime", "views", "vistas", "Aufrufe", "прегледи", "vues", "visualizações", "visualizzazioni")}</span>
                   </div>
                   
                   <div className="flex items-center justify-between mb-4">

@@ -51,8 +51,8 @@ export default function Community() {
       title: sq(lang, "Praktikat më të mira për ndjekjen e faturave", "Best practices for invoice follow-ups", "Mejores prácticas para seguimiento de facturas", "Best Practices für Rechnungsverfolgung", "Најдобри практики за следење на фактури") as string,
       author: "Sarah M.",
       replies: 23,
-      category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање") as string,
-      time: sq(lang, "2 orë më parë", "2h ago", "hace 2h", "vor 2 Std.", "пред 2ч") as string,
+      category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање", "Facturation", "Faturação", "Fatturazione") as string,
+      time: sq(lang, "2 orë më parë", "2h ago", "hace 2h", "vor 2 Std.", "пред 2ч", "il y a 2h", "há 2h", "2h fa") as string,
       avatar: "/attached_assets/image_1753653135199.png"
     },
     {
@@ -60,7 +60,7 @@ export default function Community() {
       author: "Mike R.",
       replies: 18,
       category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string,
-      time: sq(lang, "4 orë më parë", "4h ago", "hace 4h", "vor 4 Std.", "пред 4ч") as string,
+      time: sq(lang, "4 orë më parë", "4h ago", "hace 4h", "vor 4 Std.", "пред 4ч", "il y a 4h", "há 4h", "4h fa") as string,
       avatar: "/attached_assets/image_1753653135199.png"
     },
     {
@@ -75,7 +75,7 @@ export default function Community() {
       title: sq(lang, "Optimizimi i rrjedhës së punës në aplikacionin celular", "Mobile app workflow optimization", "Optimización del flujo de trabajo de la app móvil", "Optimierung des mobilen App-Workflows", "Оптимизација на работниот тек на мобилната апликација") as string,
       author: "David K.",
       replies: 15,
-      category: sq(lang, "Celular", "Mobile", "Móvil", "Mobil", "Мобилен") as string,
+      category: sq(lang, "Celular", "Mobile", "Móvil", "Mobil", "Мобилен", "Mobile", "Móvel", "Mobile") as string,
       time: sq(lang, "8 orë më parë", "8h ago", "hace 8h", "vor 8 Std.", "пред 8ч") as string,
       avatar: "/attached_assets/image_1753653135199.png"
     }
@@ -257,7 +257,7 @@ export default function Community() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              {sq(lang, "Ngjarjet ", "Upcoming ", "Próximos ", "Kommende ", "Претстојни ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "e Ardhshme", "Events", "Eventos", "Veranstaltungen", "Настани")}</span>
+              {sq(lang, "Ngjarjet ", "Upcoming ", "Próximos ", "Kommende ", "Претстојни ", "À venir ", "Próximo ", "Prossimo ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "e Ardhshme", "Events", "Eventos", "Veranstaltungen", "Настани")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Bashkohuni në ngjarjet tona virtuale dhe lidhuni me komunitetin", "Join our virtual events and connect with the community", "Únase a nuestros eventos virtuales y conéctese con la comunidad", "Nehmen Sie an unseren virtuellen Veranstaltungen teil und verbinden Sie sich mit der Community", "Придружете се на нашите виртуелни настани и поврзете се со заедницата")}
@@ -292,7 +292,7 @@ export default function Community() {
                   </div>
                   
                   <Button className="w-full group-hover:bg-primary group-hover:text-white transition-colors">
-                    {sq(lang, "Regjistrohu Tani", "Register Now", "Regístrese Ahora", "Jetzt Registrieren", "Регистрирај се Сега")}
+                    {sq(lang, "Regjistrohu Tani", "Register Now", "Regístrese Ahora", "Jetzt Registrieren", "Регистрирај се Сега", "S'inscrire maintenant", "Registar agora", "Registrati ora")}
                   </Button>
                 </CardContent>
               </Card>
@@ -318,7 +318,7 @@ export default function Community() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">
-              {sq(lang, "Bashkohu me Komunitetin", "Join Community", "Únete a la Comunidad", "Community Beitreten", "Придружи се на Заедницата")}
+              {sq(lang, "Bashkohu me Komunitetin", "Join Community", "Únete a la Comunidad", "Community Beitreten", "Придружи се на Заедницата", "Rejoindre la communauté", "Juntar-me à comunidade", "Unisciti alla comunità")}
             </Button>
             <Button onClick={() => go("/trial")} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
           </div>

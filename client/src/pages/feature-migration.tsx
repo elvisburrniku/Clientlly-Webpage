@@ -75,7 +75,7 @@ export default function FeatureMigration() {
             </div>
           </div>
           <h1 className="text-5xl font-bold text-foreground mb-6 animate-professional-fade">
-            {sq(lang, "Migrim", "Easy", "Migración", "Einfache", "Лесна")} <span className="animate-subtle-gradient">{sq(lang, "i Lehtë", "Migration", "Fácil", "Migration", "Миграција")}</span>
+            {sq(lang, "Migrim", "Easy", "Migración", "Einfache", "Лесна", "Facile", "Fácil", "Facile")} <span className="animate-subtle-gradient">{sq(lang, "i Lehtë", "Migration", "Fácil", "Migration", "Миграција", "Migration", "Migração", "Migrazione")}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {sq(lang,
@@ -98,7 +98,7 @@ export default function FeatureMigration() {
             />
             <div className="absolute top-4 right-4 w-4 h-4 bg-green-500 rounded-full animate-ping"></div>
             <Badge className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-500 to-green-500 text-white">
-              {sq(lang, "100% Shkallë Suksesi", "100% Success Rate", "100% Tasa de Éxito", "100% Erfolgsrate", "100% Стапка на Успех")}
+              {sq(lang, "100% Shkallë Suksesi", "100% Success Rate", "100% Tasa de Éxito", "100% Erfolgsrate", "100% Стапка на Успех", "100% de taux de succès", "100% de taxa de sucesso", "100% di tasso di successo")}
             </Badge>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function FeatureMigration() {
               <div className="flex items-start space-x-4">
                 <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-2">{sq(lang, "Zero Humbje të Dhënash", "Zero Data Loss", "Cero Pérdida de Datos", "Kein Datenverlust", "Нула загуба на податоци")}</h3>
+                  <h3 className="font-semibold mb-2">{sq(lang, "Zero Humbje të Dhënash", "Zero Data Loss", "Cero Pérdida de Datos", "Kein Datenverlust", "Нула загуба на податоци", "Zéro perte de données", "Zero perda de dados", "Zero perdita di dati")}</h3>
                   <p className="text-muted-foreground">{sq(lang, "Procesi ynë i migrimit siguron 100% integritet të të dhënave me kontrolle gjithëpërfshirëse validimi.", "Our migration process ensures 100% data integrity with comprehensive validation checks.", "Nuestro proceso de migración asegura 100% de integridad de datos con verificaciones de validación exhaustivas.", "Unser Migrationsprozess gewährleistet 100% Datenintegrität mit umfassenden Validierungsprüfungen.", "Нашиот процес на миграција обезбедува 100% интегритет на податоците со сеопфатни проверки за валидација.")}</p>
                 </div>
               </div>
@@ -284,11 +284,11 @@ export default function FeatureMigration() {
           <div className="flex justify-center items-center space-x-6 text-teal-100">
             <div className="flex items-center space-x-2">
               <CheckCircle className="h-5 w-5" />
-              <span>{sq(lang, "Migrim Falas", "Free Migration", "Migración Gratuita", "Kostenlose Migration", "Бесплатна миграција")}</span>
+              <span>{sq(lang, "Migrim Falas", "Free Migration", "Migración Gratuita", "Kostenlose Migration", "Бесплатна миграција", "Migration gratuite", "Migração gratuita", "Migrazione gratuita")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Clock className="h-5 w-5" />
-              <span>{sq(lang, "24-48 Orë", "24-48 Hours", "24-48 Horas", "24-48 Stunden", "24-48 Часа")}</span>
+              <span>{sq(lang, "24-48 Orë", "24-48 Hours", "24-48 Horas", "24-48 Stunden", "24-48 Часа", "24-48 heures", "24-48 horas", "24-48 ore")}</span>
             </div>
             <div className="flex items-center space-x-2">
               <Zap className="h-5 w-5" />

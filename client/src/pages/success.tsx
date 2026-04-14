@@ -136,13 +136,13 @@ export default function Success() {
               </p>
               <div className="flex flex-col sm:flex-row gap-2 justify-center">
                 <Button variant="link" size="sm">
-                  {sq(lang, "Shiko Dokumentacionin", "View Documentation", "Ver Documentación", "Dokumentation anzeigen", "Прегледај документација")}
+                  {sq(lang, "Shiko Dokumentacionin", "View Documentation", "Ver Documentación", "Dokumentation anzeigen", "Прегледај документација", "Voir la documentation", "Ver documentação", "Vedi documentazione")}
                 </Button>
                 <Button variant="link" size="sm">
-                  {sq(lang, "Kontakto Mbështetjen", "Contact Support", "Contactar Soporte", "Support kontaktieren", "Контактирај поддршка")}
+                  {sq(lang, "Kontakto Mbështetjen", "Contact Support", "Contactar Soporte", "Support kontaktieren", "Контактирај поддршка", "Contacter l'assistance", "Contactar suporte", "Contatta il supporto")}
                 </Button>
                 <Button variant="link" size="sm">
-                  {sq(lang, "Bashkohu me Komunitetin", "Join Community", "Unirse a la Comunidad", "Community beitreten", "Придружи се на заедницата")}
+                  {sq(lang, "Bashkohu me Komunitetin", "Join Community", "Unirse a la Comunidad", "Community beitreten", "Придружи се на заедницата", "Rejoindre la communauté", "Juntar-me à comunidade", "Unisciti alla comunità")}
                 </Button>
               </div>
             </div>

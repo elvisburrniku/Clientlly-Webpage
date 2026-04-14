@@ -361,7 +361,7 @@ const MigrationRequestPage = () => {
                 <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 dark:text-white mb-8 tracking-tight leading-tight animate-professional-fade">
                   {sq(lang, "Filloni", "Start Your", "Inicie Su", "Starten Sie Ihre", "Започнете Ја Вашата")}{' '}
                   <span className="animate-subtle-gradient">
-                    {sq(lang, "Migrimin Falas", "Free Migration", "Migración Gratuita", "Kostenlose Migration", "Бесплатна Миграција")}
+                    {sq(lang, "Migrimin Falas", "Free Migration", "Migración Gratuita", "Kostenlose Migration", "Бесплатна Миграција", "Migration gratuite", "Migração gratuita", "Migrazione gratuita")}
                   </span>
                 </h1>
                 
@@ -378,7 +378,7 @@ const MigrationRequestPage = () => {
                       <Check className="h-6 w-6 text-white" />
                     </div>
                     <div className="text-left">
-                      <div className="font-bold text-gray-900 dark:text-white">{sq(lang, "100% Falas", "100% Free", "100% Gratis", "100% Kostenlos", "100% Бесплатно")}</div>
+                      <div className="font-bold text-gray-900 dark:text-white">{sq(lang, "100% Falas", "100% Free", "100% Gratis", "100% Kostenlos", "100% Бесплатно", "100% gratuit", "100% gratuito", "100% gratuito")}</div>
                       <div className="text-sm text-gray-800 dark:text-gray-200">{sq(lang, "Pa Kosto të Fshehura", "No Hidden Costs", "Sin Costos Ocultos", "Keine Versteckten Kosten", "Без Скриени Трошоци")}</div>
                     </div>
                   </div>
@@ -388,7 +388,7 @@ const MigrationRequestPage = () => {
                       <Calendar className="h-6 w-6 text-white" />
                     </div>
                     <div className="text-left">
-                      <div className="font-bold text-gray-900 dark:text-white">{sq(lang, "24-48 Orë", "24-48 Hours", "24-48 Horas", "24-48 Stunden", "24-48 Часа")}</div>
+                      <div className="font-bold text-gray-900 dark:text-white">{sq(lang, "24-48 Orë", "24-48 Hours", "24-48 Horas", "24-48 Stunden", "24-48 Часа", "24-48 heures", "24-48 horas", "24-48 ore")}</div>
                       <div className="text-sm text-gray-800 dark:text-gray-200">{sq(lang, "Vendosje e Shpejtë", "Quick Setup", "Configuración Rápida", "Schnelle Einrichtung", "Брзо Поставување")}</div>
                     </div>
                   </div>
@@ -485,7 +485,7 @@ const MigrationRequestPage = () => {
                     id="firstName"
                     value={formData.firstName}
                     onChange={(e) => handleInputChange('firstName', e.target.value)}
-                    placeholder={sq(lang, "Filan", "John", "Juan", "Johann", "Иван") as string}
+                    placeholder={sq(lang, "Filan", "John", "Juan", "Johann", "Иван", "Jean", "João", "Giovanni") as string}
                     required
                     className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-emerald-500 focus:ring-emerald-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-emerald-400"
                   />
@@ -517,7 +517,7 @@ const MigrationRequestPage = () => {
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    placeholder={sq(lang, "filan@kompania.com", "john@company.com", "juan@empresa.com", "johann@firma.com", "иван@компанија.com") as string}
+                    placeholder={sq(lang, "filan@kompania.com", "john@company.com", "juan@empresa.com", "johann@firma.com", "иван@компанија.com", "jean@entreprise.fr", "joao@empresa.pt", "giovanni@azienda.it") as string}
                     required
                     className="h-14 text-lg border-2 border-gray-200 dark:border-gray-600 focus:border-purple-500 focus:ring-purple-500 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm transition-all duration-300 hover:border-purple-400"
                   />
@@ -635,10 +635,10 @@ const MigrationRequestPage = () => {
                 />
                 <Label htmlFor="terms" className="text-sm">
                   {formData.contactType === 'Request Full Migration' 
-                    ? sq(lang, "Pranoj të kontaktohem nga ekipi i migrimit të BusinessFlow Pro në lidhje me kërkesën time për migrim falas", "I agree to be contacted by BusinessFlow Pro's migration team regarding my free migration request", "Acepto ser contactado por el equipo de migración de BusinessFlow Pro con respecto a mi solicitud de migración gratuita", "Ich stimme zu, vom Migrationsteam von BusinessFlow Pro bezüglich meiner kostenlosen Migrationsanfrage kontaktiert zu werden", "Се согласувам да бидам контактиран од тимот за миграција на BusinessFlow Pro во врска со мојата бесплатна барање за миграција")
+                    ? sq(lang, "Pranoj të kontaktohem nga ekipi i migrimit të BusinessFlow Pro në lidhje me kërkesën time për migrim falas", "I agree to be contacted by BusinessFlow Pro's migration team regarding my free migration request", "Acepto ser contactado por el equipo de migración de BusinessFlow Pro con respecto a mi solicitud de migración gratuita", "Ich stimme zu, vom Migrationsteam von BusinessFlow Pro bezüglich meiner kostenlosen Migrationsanfrage kontaktiert zu werden", "Се согласувам да бидам контактиран од тимот за миграција на BusinessFlow Pro во врска со мојата бесплатна барање за миграција", "J'accepte d'être contacté par BusinessFlow Pro", "Aceito ser contactado pelo BusinessFlow Pro", "Accetto di essere contattato da BusinessFlow Pro")
                     : formData.contactType === 'Consultation First'
-                    ? sq(lang, "Pranoj të kontaktohem nga ekipi i BusinessFlow Pro për një telefonatë konsultimi", "I agree to be contacted by BusinessFlow Pro's team for a consultation call", "Acepto ser contactado por el equipo de BusinessFlow Pro para una llamada de consulta", "Ich stimme zu, vom Team von BusinessFlow Pro für ein Beratungsgespräch kontaktiert zu werden", "Се согласувам да бидам контактиран од тимот на BusinessFlow Pro за консултативен повик")
-                    : sq(lang, "Pranoj të kontaktohem nga ekipi teknik i BusinessFlow Pro në lidhje me pyetjet e mia", "I agree to be contacted by BusinessFlow Pro's technical team regarding my questions", "Acepto ser contactado por el equipo técnico de BusinessFlow Pro con respecto a mis preguntas", "Ich stimme zu, vom technischen Team von BusinessFlow Pro bezüglich meiner Fragen kontaktiert zu werden", "Се согласувам да бидам контактиран од техничкиот тим на BusinessFlow Pro во врска со моите прашања")
+                    ? sq(lang, "Pranoj të kontaktohem nga ekipi i BusinessFlow Pro për një telefonatë konsultimi", "I agree to be contacted by BusinessFlow Pro's team for a consultation call", "Acepto ser contactado por el equipo de BusinessFlow Pro para una llamada de consulta", "Ich stimme zu, vom Team von BusinessFlow Pro für ein Beratungsgespräch kontaktiert zu werden", "Се согласувам да бидам контактиран од тимот на BusinessFlow Pro за консултативен повик", "J'accepte d'être contacté par BusinessFlow Pro", "Aceito ser contactado pelo BusinessFlow Pro", "Accetto di essere contattato da BusinessFlow Pro")
+                    : sq(lang, "Pranoj të kontaktohem nga ekipi teknik i BusinessFlow Pro në lidhje me pyetjet e mia", "I agree to be contacted by BusinessFlow Pro's technical team regarding my questions", "Acepto ser contactado por el equipo técnico de BusinessFlow Pro con respecto a mis preguntas", "Ich stimme zu, vom technischen Team von BusinessFlow Pro bezüglich meiner Fragen kontaktiert zu werden", "Се согласувам да бидам контактиран од техничкиот тим на BusinessFlow Pro во врска со моите прашања", "J'accepte d'être contacté par BusinessFlow Pro", "Aceito ser contactado pelo BusinessFlow Pro", "Accetto di essere contattato da BusinessFlow Pro")
                   }
                 </Label>
               </div>

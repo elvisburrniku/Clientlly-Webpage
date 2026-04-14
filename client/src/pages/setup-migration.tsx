@@ -58,7 +58,7 @@ const SetupMigrationPage = () => {
       description: sq(lang, "Prezantim gjithëpërfshirës për ekipin tuaj për të siguruar që të gjithë dinë si ta përdorin platformën efektivisht.", "Comprehensive onboarding for your team to ensure everyone knows how to use the platform effectively.", "Incorporación integral para su equipo para asegurar que todos sepan cómo usar la plataforma de manera efectiva.", "Umfassendes Onboarding für Ihr Team, um sicherzustellen, dass jeder die Plattform effektiv nutzen kann.", "Сеопфатно воведување за вашиот тим за да се осигурате дека секој знае како ефективно да ја користи платформата."),
       features: [
         sq(lang, "Sesione trajnimi live", "Live training sessions", "Sesiones de capacitación en vivo", "Live-Schulungssitzungen", "Живи сесии за обука") as string,
-        sq(lang, "Video tutoriale", "Video tutorials", "Tutoriales en video", "Video-Tutorials", "Видео упатства") as string,
+        sq(lang, "Video tutoriale", "Video tutorials", "Tutoriales en video", "Video-Tutorials", "Видео упатства", "Tutoriels vidéo", "Tutoriais em vídeo", "Tutorial video") as string,
         sq(lang, "Dokumentacion & udhëzues", "Documentation & guides", "Documentación y guías", "Dokumentation & Anleitungen", "Документација и водичи") as string
       ]
     },
@@ -92,7 +92,7 @@ const SetupMigrationPage = () => {
     { name: "InfoSoft Group", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTIwIDIwTDI1IDE1VjI1TDIwIDIwWiIgZmlsbD0iIzAwOEI4QiIvPgo8L2c+Cjwvc3ZnPg==", region: "Kosovo", description: "Regional technology leader" },
     { name: "RSM Kosovo", icon: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTAwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMTAgMTBIMzBWMzBIMTBWMTBaTTE1IDE1SDI1VjI1SDE1VjE1WiIgZmlsbD0iI0M4MTAyRSIvPgo8L2c+Cjwvc3ZnPg==", region: "Kosovo", description: "Global audit network member" },
 
-    { name: sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи") as string, icon: "⚙️", region: "Global" }
+    { name: sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи", "Systèmes personnalisés", "Sistemas personalizados", "Sistemi personalizzati") as string, icon: "⚙️", region: "Global" }
   ];
 
   return (
@@ -206,7 +206,7 @@ const SetupMigrationPage = () => {
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold mb-8">
               <Download className="w-4 h-4 mr-2 text-gray-700" />
-              <span className="animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Konfigurim & Migrim 100% Falas", "100% Free Setup & Migration", "Configuración y Migración 100% Gratis", "100% Kostenlose Einrichtung & Migration", "100% Бесплатно Поставување и Миграција")}</span>
+              <span className="animate-gradient-x bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Konfigurim & Migrim 100% Falas", "100% Free Setup & Migration", "Configuración y Migración 100% Gratis", "100% Kostenlose Einrichtung & Migration", "100% Бесплатно Поставување и Миграција", "Configuration & Migration 100% gratuites", "Configuração & Migração 100% gratuitas", "Configurazione e migrazione 100% gratuite")}</span>
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
@@ -228,7 +228,7 @@ const SetupMigrationPage = () => {
               </div>
               <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
                 <Shield className="h-5 w-5 text-gray-700" />
-                <span className="font-bold text-gray-800">{sq(lang, "100% Siguri e të dhënave", "100% Data security", "100% Seguridad de datos", "100% Datensicherheit", "100% Безбедност на податоци")}</span>
+                <span className="font-bold text-gray-800">{sq(lang, "100% Siguri e të dhënave", "100% Data security", "100% Seguridad de datos", "100% Datensicherheit", "100% Безбедност на податоци", "100% sécurité des données", "100% segurança de dados", "100% sicurezza dei dati")}</span>
               </div>
               <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
                 <Zap className="h-5 w-5 text-gray-700" />
@@ -289,7 +289,7 @@ const SetupMigrationPage = () => {
             </p>
             <div className="inline-flex items-center space-x-2 bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded-full">
               <Check className="w-5 h-5 text-green-600" />
-              <span className="text-green-700 dark:text-green-300 font-semibold">{sq(lang, "100% Garanci e Integritetit të të Dhënave", "100% Data Integrity Guaranteed", "100% Integridad de Datos Garantizada", "100% Datenintegrität Garantiert", "100% Гарантиран Интегритет на Податоци")}</span>
+              <span className="text-green-700 dark:text-green-300 font-semibold">{sq(lang, "100% Garanci e Integritetit të të Dhënave", "100% Data Integrity Guaranteed", "100% Integridad de Datos Garantizada", "100% Datenintegrität Garantiert", "100% Гарантиран Интегритет на Податоци", "100% d'intégrité des données garantie", "100% de integridade de dados garantida", "100% di integrità dei dati garantita")}</span>
             </div>
           </div>
 
@@ -307,7 +307,7 @@ const SetupMigrationPage = () => {
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-8">
-              {supportedPlatforms.filter(platform => platform.region === "Global" && platform.name !== "Custom Systems" && platform.name !== sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи")).map((platform, index) => (
+              {supportedPlatforms.filter(platform => platform.region === "Global" && platform.name !== "Custom Systems" && platform.name !== sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи", "Systèmes personnalisés", "Sistemas personalizados", "Sistemi personalizzati")).map((platform, index) => (
                 <Card key={index} className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-blue-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <CardContent className="relative p-6 text-center">
@@ -334,7 +334,7 @@ const SetupMigrationPage = () => {
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-8">
-              {supportedPlatforms.filter(platform => platform.region !== "Global" && platform.name !== "Custom Systems" && platform.name !== sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи")).map((platform, index) => (
+              {supportedPlatforms.filter(platform => platform.region !== "Global" && platform.name !== "Custom Systems" && platform.name !== sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи", "Systèmes personnalisés", "Sistemas personalizados", "Sistemi personalizzati")).map((platform, index) => (
                 <Card key={index} className="group relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-700/50 hover:border-emerald-400/50 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <CardContent className="relative p-6 text-center">
@@ -447,7 +447,7 @@ const SetupMigrationPage = () => {
         
         <div className="relative z-10 text-center max-w-7xl mx-auto">
           <div className="text-6xl mb-8">⚙️</div>
-          <h2 className="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">{sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи")}</h2>
+          <h2 className="text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">{sq(lang, "Sisteme të Personalizuara", "Custom Systems", "Sistemas Personalizados", "Benutzerdefinierte Systeme", "Прилагодени Системи", "Systèmes personnalisés", "Sistemas personalizados", "Sistemi personalizzati")}</h2>
           <p className="text-xl text-gray-800 dark:text-gray-200 mb-8 max-w-3xl mx-auto">
             {sq(lang, "Keni një platformë unike? Ekspertët tanë të migrimit mund të trajtojnë çdo sistem ose format baze të dhënash.", "Have a unique platform? Our migration experts can handle any custom system or database format.", "Tiene una plataforma única? Nuestros expertos en migración pueden manejar cualquier sistema personalizado o formato de base de datos.", "Haben Sie eine einzigartige Plattform? Unsere Migrationsexperten können jedes benutzerdefinierte System oder Datenbankformat handhaben.", "Имате уникатна платформа? Нашите експерти за миграција можат да се справат со кој било прилагоден систем или формат на база на податоци.")}
           </p>
@@ -467,14 +467,14 @@ const SetupMigrationPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-white" />
               </div>
-              <h4 className="font-bold text-lg mb-2">{sq(lang, "Zero Humbje të Dhënash", "Zero Data Loss", "Cero Pérdida de Datos", "Null Datenverlust", "Нула Губење на Податоци")}</h4>
+              <h4 className="font-bold text-lg mb-2">{sq(lang, "Zero Humbje të Dhënash", "Zero Data Loss", "Cero Pérdida de Datos", "Null Datenverlust", "Нула Губење на Податоци", "Zéro perte de données", "Zero perda de dados", "Zero perdita di dati")}</h4>
               <p className="text-muted-foreground text-sm">{sq(lang, "Validimi i avancuar siguron 100% integritet të të dhënave gjatë migrimit", "Advanced validation ensures 100% data integrity during migration", "La validación avanzada garantiza 100% de integridad de datos durante la migración", "Erweiterte Validierung gewährleistet 100% Datenintegrität bei der Migration", "Напредната валидација обезбедува 100% интегритет на податоците за време на миграцијата")}</p>
             </div>
             <div className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-white" />
               </div>
-              <h4 className="font-bold text-lg mb-2">{sq(lang, "24-48 Orë", "24-48 Hours", "24-48 Horas", "24-48 Stunden", "24-48 Часа")}</h4>
+              <h4 className="font-bold text-lg mb-2">{sq(lang, "24-48 Orë", "24-48 Hours", "24-48 Horas", "24-48 Stunden", "24-48 Часа", "24-48 heures", "24-48 horas", "24-48 ore")}</h4>
               <p className="text-muted-foreground text-sm">{sq(lang, "Shumica e migrimeve përfundojnë brenda 1-2 ditëve pune", "Most migrations completed within 1-2 business days", "La mayoría de migraciones completadas en 1-2 días hábiles", "Die meisten Migrationen werden innerhalb von 1-2 Werktagen abgeschlossen", "Повеќето миграции се завршуваат за 1-2 работни дена")}</p>
             </div>
             <div className="text-center p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50">
@@ -502,7 +502,7 @@ const SetupMigrationPage = () => {
         
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
-            <span className="animate-text-wave">{sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Comenzar?", "Bereit Loszulegen?", "Подготвени да Започнете?")}</span>
+            <span className="animate-text-wave">{sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Comenzar?", "Bereit Loszulegen?", "Подготвени да Започнете?", "Prêt à commencer?", "Pronto para começar?", "Pronto per iniziare?")}</span>
           </h2>
           <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
             {sq(lang, "Bashkohuni me mijëra biznese që kanë migruar me sukses në BusinessFlow Pro. Ekipi ynë ekspert është gati t'ju ndihmojë të bëni kalimin pa probleme.", "Join thousands of businesses who have successfully migrated to BusinessFlow Pro. Our expert team is ready to help you make the switch seamlessly.", "Únase a miles de empresas que han migrado exitosamente a BusinessFlow Pro. Nuestro equipo de expertos está listo para ayudarlo a hacer el cambio sin problemas.", "Schließen Sie sich Tausenden von Unternehmen an, die erfolgreich zu BusinessFlow Pro migriert haben. Unser Experten-Team steht bereit, um Ihnen den nahtlosen Umstieg zu ermöglichen.", "Придружете се на илјадници бизниси кои успешно мигрираа на BusinessFlow Pro. Нашиот експертски тим е подготвен да ви помогне да го направите преминот беспрекорно.")}

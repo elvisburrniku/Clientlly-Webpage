@@ -33,7 +33,7 @@ const AboutPage = () => {
     { value: "200+", label: sq(lang, "Biznese na Besojnë", "Businesses Trust Us", "Empresas confían en nosotros", "Unternehmen vertrauen uns", "Бизниси ни веруваат"), icon: Building2 },
     { value: "12K+", label: sq(lang, "Fatura Mujore", "Monthly Invoices", "Facturas mensuales", "Monatliche Rechnungen", "Месечни фактури"), icon: FileText },
     { value: "5", label: sq(lang, "Vende", "Countries", "Países", "Länder", "Земји", "Pays", "Países", "Paesi"), icon: Globe },
-    { value: "99.9%", label: sq(lang, "Kohë Pune", "Uptime", "Tiempo activo", "Betriebszeit", "Време на работа"), icon: Shield },
+    { value: "99.9%", label: sq(lang, "Kohë Pune", "Uptime", "Tiempo activo", "Betriebszeit", "Време на работа", "Disponibilité", "Disponibilidade", "Uptime"), icon: Shield },
   ];
 
   const principles = [
@@ -66,7 +66,7 @@ const AboutPage = () => {
   const team = [
     {
       name: "Alban Gunga",
-      role: sq(lang, "CEO & Themelues", "CEO & Founder", "CEO y Fundador", "CEO & Gründer", "CEO и Основач"),
+      role: sq(lang, "CEO & Themelues", "CEO & Founder", "CEO y Fundador", "CEO & Gründer", "CEO и Основач", "PDG & Fondateur", "CEO & Fundador", "CEO e Fondatore"),
       desc: sq(lang, "Lider vizionar dhe themelues i Clientlly. Merret me ndërtimin e platformës, dizajnin e produktit dhe zhvillimin frontend. Me pasion për fuqizimin e bizneseve të vogla dhe të mesme përmes teknologjisë së thjeshtë dhe të bukur.", "Visionary leader and founder of Clientlly. Handles platform architecture, product design, and frontend development. Passionate about empowering small and medium businesses through simple and beautiful technology.", "Líder visionario y fundador de Clientlly. Se encarga de la arquitectura de la plataforma, diseño de producto y desarrollo frontend. Apasionado por empoderar a las pequeñas y medianas empresas a través de tecnología simple y hermosa.", "Visionärer Leiter und Gründer von Clientlly. Verantwortlich für Plattformarchitektur, Produktdesign und Frontend-Entwicklung. Leidenschaftlich für die Stärkung kleiner und mittlerer Unternehmen durch einfache und schöne Technologie.", "Визионерски лидер и основач на Clientlly. Се занимава со архитектура на платформата, дизајн на производот и фронтенд развој. Со страст за зајакнување на малите и средните бизниси преку едноставна и убава технологија."),
       icon: Crown,
       color: "from-blue-500 to-indigo-600",
@@ -110,7 +110,7 @@ const AboutPage = () => {
     },
     {
       year: "2025",
-      title: sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес"),
+      title: sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес", "Aujourd'hui", "Hoje", "Oggi"),
       desc: sq(lang, "Mbi 200 biznese aktive, 5 vende dhe ekspansion i vazhdueshëm. Misioni mbetet i njëjtë: bizneset tuaja të rriten.", "Over 200 active businesses, 5 countries and continuous expansion. The mission stays the same: your businesses grow.", "Más de 200 empresas activas, 5 países y expansión continua. La misión sigue siendo la misma: que sus negocios crezcan.", "Über 200 aktive Unternehmen, 5 Länder und kontinuierliche Expansion. Die Mission bleibt dieselbe: Ihre Unternehmen wachsen.", "Над 200 активни бизниси, 5 земји и континуирана експанзија. Мисијата останува иста: вашите бизниси да растат."),
     },
   ];
@@ -313,7 +313,7 @@ const AboutPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="anim-fade text-indigo-200 text-sm font-semibold uppercase tracking-widest mb-4">
-                {sq(lang, "Bashkëpunimi", "Collaboration", "Colaboración", "Zusammenarbeit", "Соработка")}
+                {sq(lang, "Bashkëpunimi", "Collaboration", "Colaboración", "Zusammenarbeit", "Соработка", "Collaboration", "Colaboração", "Collaborazione")}
               </p>
               <h2 className="anim-rise anim-d1 text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
                 {sq(lang, "Le të rritemi bashkë", "Let's grow together", "Crezcamos juntos", "Lasst uns gemeinsam wachsen", "Да растеме заедно", "Grandissons ensemble", "Crescemos juntos", "Cresciamo insieme")}
@@ -377,7 +377,7 @@ const AboutPage = () => {
           </p>
           <div className="anim-rise anim-d2 flex flex-wrap justify-center gap-3">
             <Link href="/subscribe" className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-200">
-              {sq(lang, "Shiko Çmimet", "View Pricing", "Ver precios", "Preise ansehen", "Погледни цени")}
+              {sq(lang, "Shiko Çmimet", "View Pricing", "Ver precios", "Preise ansehen", "Погледни цени", "Voir les tarifs", "Ver preços", "Vedi i prezzi")}
             </Link>
           </div>
         </div>

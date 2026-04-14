@@ -40,12 +40,12 @@ export default function Blog() {
 
   const blogPosts = [
     {
-      title: sq(lang, "10 Veçori Thelbësore që Çdo Biznes i Vogël ka Nevojë", "10 Essential Features Every Small Business Needs", "10 Características Esenciales que Todo Pequeño Negocio Necesita", "10 Wesentliche Funktionen, die Jedes Kleine Unternehmen Braucht", "10 Основни Карактеристики што ги Треба Секој Мал Бизнис") as string,
+      title: sq(lang, "10 Veçori Thelbësore që Çdo Biznes i Vogël ka Nevojë", "10 Essential Features Every Small Business Needs", "10 Características Esenciales que Todo Pequeño Negocio Necesita", "10 Wesentliche Funktionen, die Jedes Kleine Unternehmen Braucht", "10 Основни Карактеристики што ги Треба Секој Мал Бизнис", "10 fonctionnalités essentielles pour les PME", "10 funcionalidades essenciais para PMEs", "10 funzionalità essenziali per le PMI") as string,
       excerpt: sq(lang, "Zbuloni mjetet e domosdoshme që mund të transformojnë operacionet e biznesit tuaj dhe të rrisin produktivitetin.", "Discover the must-have tools that can transform your business operations and boost productivity.", "Descubra las herramientas imprescindibles que pueden transformar las operaciones de su negocio y aumentar la productividad.", "Entdecken Sie die unverzichtbaren Tools, die Ihre Geschäftsabläufe transformieren und die Produktivität steigern können.", "Откријте ги неопходните алатки што можат да ги трансформираат вашите деловни операции и да ја зголемат продуктивноста.") as string,
       author: "Sarah Johnson",
       date: sq(lang, "28 Jan, 2025", "Jan 28, 2025", "28 Ene, 2025", "28. Jan. 2025", "28 Јан, 2025") as string,
-      readTime: sq(lang, "8 min lexim", "8 min read", "8 min de lectura", "8 Min. Lesezeit", "8 мин читање") as string,
-      category: sq(lang, "Këshilla Biznesi", "Business Tips", "Consejos de Negocio", "Geschäftstipps", "Деловни Совети") as string,
+      readTime: sq(lang, "8 min lexim", "8 min read", "8 min de lectura", "8 Min. Lesezeit", "8 мин читање", "8 min de lecture", "8 min de leitura", "8 min di lettura") as string,
+      category: sq(lang, "Këshilla Biznesi", "Business Tips", "Consejos de Negocio", "Geschäftstipps", "Деловни Совети", "Conseils d'affaires", "Dicas de negócios", "Consigli aziendali") as string,
       image: "/attached_assets/image_1753653135199.png",
       featured: true
     },
@@ -54,8 +54,8 @@ export default function Blog() {
       excerpt: sq(lang, "Mësoni strategji të provuara për të thjeshtuar procesin tuaj të faturimit dhe për të përmirësuar rrjedhën e parave.", "Learn proven strategies to streamline your invoicing process and improve cash flow.", "Aprenda estrategias probadas para agilizar su proceso de facturación y mejorar el flujo de efectivo.", "Lernen Sie bewährte Strategien, um Ihren Rechnungsprozess zu optimieren und den Cashflow zu verbessern.", "Научете докажани стратегии за да го поедноставите процесот на фактурирање и да го подобрите готовинскиот тек.") as string,
       author: "Mike Chen",
       date: sq(lang, "25 Jan, 2025", "Jan 25, 2025", "25 Ene, 2025", "25. Jan. 2025", "25 Јан, 2025") as string,
-      readTime: sq(lang, "6 min lexim", "6 min read", "6 min de lectura", "6 Min. Lesezeit", "6 мин читање") as string,
-      category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање") as string,
+      readTime: sq(lang, "6 min lexim", "6 min read", "6 min de lectura", "6 Min. Lesezeit", "6 мин читање", "6 min de lecture", "6 min de leitura", "6 min di lettura") as string,
+      category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање", "Facturation", "Faturação", "Fatturazione") as string,
       image: "/attached_assets/image_1753653135199.png",
       featured: false
     },
@@ -64,7 +64,7 @@ export default function Blog() {
       excerpt: sq(lang, "Organizohuni për sezonin tatimor me listën tonë të plotë kontrolli dhe mjetet e raportimit.", "Get organized for tax season with our comprehensive checklist and reporting tools.", "Organícese para la temporada fiscal con nuestra lista de verificación completa y herramientas de informes.", "Organisieren Sie sich für die Steuersaison mit unserer umfassenden Checkliste und Reporting-Tools.", "Организирајте се за даночната сезона со нашата сеопфатна листа за проверка и алатки за известување.") as string,
       author: "Jennifer Martinez",
       date: sq(lang, "22 Jan, 2025", "Jan 22, 2025", "22 Ene, 2025", "22. Jan. 2025", "22 Јан, 2025") as string,
-      readTime: sq(lang, "10 min lexim", "10 min read", "10 min de lectura", "10 Min. Lesezeit", "10 мин читање") as string,
+      readTime: sq(lang, "10 min lexim", "10 min read", "10 min de lectura", "10 Min. Lesezeit", "10 мин читање", "10 min de lecture", "10 min de leitura", "10 min di lettura") as string,
       category: sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии", "Finance", "Finanças", "Finanza") as string,
       image: "/attached_assets/image_1753653135199.png",
       featured: false
@@ -74,7 +74,7 @@ export default function Blog() {
       excerpt: sq(lang, "Transformoni ndërveprimet tuaja me klientët me strategji të zgjuara CRM dhe automatizim.", "Transform your customer interactions with smart CRM strategies and automation.", "Transforme las interacciones con sus clientes con estrategias CRM inteligentes y automatización.", "Transformieren Sie Ihre Kundeninteraktionen mit intelligenten CRM-Strategien und Automatisierung.", "Трансформирајте ги вашите интеракции со клиентите со паметни CRM стратегии и автоматизација.") as string,
       author: "David Kim",
       date: sq(lang, "20 Jan, 2025", "Jan 20, 2025", "20 Ene, 2025", "20. Jan. 2025", "20 Јан, 2025") as string,
-      readTime: sq(lang, "7 min lexim", "7 min read", "7 min de lectura", "7 Min. Lesezeit", "7 мін читање") as string,
+      readTime: sq(lang, "7 min lexim", "7 min read", "7 min de lectura", "7 Min. Lesezeit", "7 мін читање", "7 min de lecture", "7 min de leitura", "7 min di lettura") as string,
       category: "CRM",
       image: "/attached_assets/image_1753653135199.png",
       featured: false
@@ -84,8 +84,8 @@ export default function Blog() {
       excerpt: sq(lang, "Eksploroni tendencat e reja në automatizimin e biznesit dhe si do të ndikojnë në bizneset e vogla.", "Explore emerging trends in business automation and how they'll impact small businesses.", "Explore las tendencias emergentes en automatización de negocios y cómo impactarán a las pequeñas empresas.", "Erkunden Sie aufkommende Trends in der Geschäftsautomatisierung und wie sie kleine Unternehmen beeinflussen werden.", "Истражете ги новите трендови во деловната автоматизација и како ќе влијаат на малите бизниси.") as string,
       author: "Lisa Thompson",
       date: sq(lang, "18 Jan, 2025", "Jan 18, 2025", "18 Ene, 2025", "18. Jan. 2025", "18 Јан, 2025") as string,
-      readTime: sq(lang, "12 min lexim", "12 min read", "12 min de lectura", "12 Min. Lesezeit", "12 мін читање") as string,
-      category: sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија") as string,
+      readTime: sq(lang, "12 min lexim", "12 min read", "12 min de lectura", "12 Min. Lesezeit", "12 мін читање", "12 min de lecture", "12 min de leitura", "12 min di lettura") as string,
+      category: sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија", "Technologie", "Tecnologia", "Tecnologia") as string,
       image: "/attached_assets/image_1753653135199.png",
       featured: false
     },
@@ -102,12 +102,12 @@ export default function Blog() {
   ];
 
   const categoriesMap: Record<string, string> = {
-    "All": sq(lang, "Të Gjitha", "All", "Todos", "Alle", "Сите") as string,
-    "Business Tips": sq(lang, "Këshilla Biznesi", "Business Tips", "Consejos de Negocio", "Geschäftstipps", "Деловни Совети") as string,
-    "Invoicing": sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање") as string,
+    "All": sq(lang, "Të Gjitha", "All", "Todos", "Alle", "Сите", "Tout", "Tudo", "Tutto") as string,
+    "Business Tips": sq(lang, "Këshilla Biznesi", "Business Tips", "Consejos de Negocio", "Geschäftstipps", "Деловни Совети", "Conseils d'affaires", "Dicas de negócios", "Consigli aziendali") as string,
+    "Invoicing": sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање", "Facturation", "Faturação", "Fatturazione") as string,
     "Finance": sq(lang, "Financë", "Finance", "Finanzas", "Finanzen", "Финансии", "Finance", "Finanças", "Finanza") as string,
     "CRM": "CRM",
-    "Technology": sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија") as string,
+    "Technology": sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија", "Technologie", "Tecnologia", "Tecnologia") as string,
     "Expenses": sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese") as string,
   };
 
@@ -268,7 +268,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              {sq(lang, "Artikujt ", "Latest ", "Últimos ", "Neueste ", "Најнови ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "e Fundit", "Articles", "Artículos", "Artikel", "Статии")}</span>
+              {sq(lang, "Artikujt ", "Latest ", "Últimos ", "Neueste ", "Најнови ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "e Fundit", "Articles", "Artículos", "Artikel", "Статии", "Articles", "Artigos", "Articoli")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Qëndroni të përditësuar me njohuritë më të fundit të biznesit dhe përditësimet e platformës", "Stay updated with the latest business insights and platform updates", "Manténgase actualizado con las últimas perspectivas de negocio y actualizaciones de la plataforma", "Bleiben Sie mit den neuesten Geschäftseinblicken und Plattform-Updates auf dem Laufenden", "Останете ажурирани со најновите деловни увиди и ажурирања на платформата")}
@@ -328,7 +328,7 @@ export default function Blog() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 fade-in">
-            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Empezar?", "Bereit Loszulegen?", "Подготвени да Започнете?")}
+            {sq(lang, "Gati për të Filluar?", "Ready to Get Started?", "Listo para Empezar?", "Bereit Loszulegen?", "Подготвени да Започнете?", "Prêt à commencer?", "Pronto para começar?", "Pronto per iniziare?")}
           </h2>
           <p className="text-xl text-black mb-8 leading-relaxed max-w-3xl mx-auto">
             {sq(lang, "Vendosni këto njohuri në veprim me BusinessFlow Pro. Filloni provën tuaj falas sot dhe transformoni operacionet e biznesit tuaj.", "Put these insights into action with BusinessFlow Pro. Start your free trial today and transform your business operations.", "Ponga estas ideas en acción con BusinessFlow Pro. Comience su prueba gratuita hoy y transforme las operaciones de su negocio.", "Setzen Sie diese Erkenntnisse mit BusinessFlow Pro in die Tat um. Starten Sie noch heute Ihre kostenlose Testversion und transformieren Sie Ihre Geschäftsabläufe.", "Ставете ги овие увиди во акција со BusinessFlow Pro. Започнете ја вашата бесплатна проба денес и трансформирајте ги вашите деловни операции.")}
@@ -336,7 +336,7 @@ export default function Blog() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button onClick={() => go("/trial")} className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg">{sq(lang, "Fillo Provën", "Start Trial", "Iniciar Prueba", "Testversion Starten", "Започни Проба", "Commencer l'essai", "Iniciar período de teste", "Inizia la prova")}</Button>
             <Button onClick={() => go("/subscribe")} variant="outline" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg">
-              {sq(lang, "Shiko Çmimet", "View Pricing", "Ver Precios", "Preise Anzeigen", "Погледни Цени")}
+              {sq(lang, "Shiko Çmimet", "View Pricing", "Ver Precios", "Preise Anzeigen", "Погледни Цени", "Voir les tarifs", "Ver preços", "Vedi i prezzi")}
             </Button>
           </div>
         </div>

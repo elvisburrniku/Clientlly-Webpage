@@ -118,7 +118,7 @@ export default function FeatureSecurity() {
               <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
                 <UserCheck className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">{sq(lang, "Autentifikim me Shumë Faktorë", "Multi-Factor Authentication", "Autenticación Multifactor", "Multi-Faktor-Authentifizierung", "Повеќефакторска автентикација")}</h3>
+              <h3 className="text-xl font-bold mb-4">{sq(lang, "Autentifikim me Shumë Faktorë", "Multi-Factor Authentication", "Autenticación Multifactor", "Multi-Faktor-Authentifizierung", "Повеќефакторска автентикација", "Authentification multi-facteurs", "Autenticação multi-fator", "Autenticazione multi-fattore")}</h3>
               <p className="text-muted-foreground">{sq(lang, "Akses i sigurt me SMS, email dhe autentifikim me dy faktorë bazuar në aplikacion.", "Secure access with SMS, email, and authenticator app-based two-factor authentication.", "Acceso seguro con autenticación de dos factores basada en SMS, correo electrónico y aplicación autenticadora.", "Sicherer Zugang mit SMS, E-Mail und Authenticator-App-basierter Zwei-Faktor-Authentifizierung.", "Безбеден пристап со SMS, е-пошта и автентикација со два фактори базирана на апликација.")}</p>
             </CardContent>
           </Card>
@@ -158,7 +158,7 @@ export default function FeatureSecurity() {
               <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-12 transition-transform duration-300">
                 <Clock className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-4">{sq(lang, "Kopje Sigurie Automatike", "Automated Backups", "Copias de Seguridad Automatizadas", "Automatisierte Backups", "Автоматизирани резервни копии")}</h3>
+              <h3 className="text-xl font-bold mb-4">{sq(lang, "Kopje Sigurie Automatike", "Automated Backups", "Copias de Seguridad Automatizadas", "Automatisierte Backups", "Автоматизирани резервни копии", "Sauvegardes automatisées", "Cópias de segurança automatizadas", "Backup automatizzati")}</h3>
               <p className="text-muted-foreground">{sq(lang, "Kopje sigurie ditore të enkriptuara me rikuperim në pikë kohore dhe garanci funksionimi 99.9%.", "Daily encrypted backups with point-in-time recovery and 99.9% uptime guarantee.", "Copias de seguridad diarias cifradas con recuperación en un punto en el tiempo y garantía de disponibilidad del 99.9%.", "Tägliche verschlüsselte Backups mit Point-in-Time-Recovery und 99,9% Verfügbarkeitsgarantie.", "Дневни шифрирани резервни копии со обнова во одредено време и гаранција за 99.9% работоспособност.")}</p>
             </CardContent>
           </Card>
@@ -216,8 +216,8 @@ export default function FeatureSecurity() {
               <div className="flex items-start space-x-4">
                 <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold mb-2">{sq(lang, "Përgjigje ndaj Incidenteve", "Incident Response", "Respuesta a Incidentes", "Vorfallreaktion", "Одговор на инциденти")}</h3>
-                  <p className="text-muted-foreground">{sq(lang, "Monitorim sigurie 24/7 me përgjigje të shpejtë ndaj incidenteve dhe protokolle njoftimi.", "24/7 security monitoring with rapid incident response and notification protocols.", "Monitoreo de seguridad 24/7 con respuesta rápida a incidentes y protocolos de notificación.", "24/7-Sicherheitsüberwachung mit schneller Vorfallreaktion und Benachrichtigungsprotokollen.", "24/7 безбедносен мониторинг со брз одговор на инциденти и протоколи за известување.")}</p>
+                  <h3 className="font-semibold mb-2">{sq(lang, "Përgjigje ndaj Incidenteve", "Incident Response", "Respuesta a Incidentes", "Vorfallreaktion", "Одговор на инциденти", "Réponse aux incidents", "Resposta a incidentes", "Risposta agli incidenti")}</h3>
+                  <p className="text-muted-foreground">{sq(lang, "Monitorim sigurie 24/7 me përgjigje të shpejtë ndaj incidenteve dhe protokolle njoftimi.", "24/7 security monitoring with rapid incident response and notification protocols.", "Monitoreo de seguridad 24/7 con respuesta rápida a incidentes y protocolos de notificación.", "24/7-Sicherheitsüberwachung mit schneller Vorfallreaktion und Benachrichtigungsprotokollen.", "24/7 безбедносен мониторинг со брз одговор на инциденти и протоколи за известување.", "Surveillance de sécurité 24h/7j avec protocoles de réponse aux incidents.", "Monitorização de segurança 24h/7d com protocolos de resposta a incidentes.", "Monitoraggio di sicurezza 24h/7g con protocolli di risposta agli incidenti.")}</p>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@ export default function FeatureSecurity() {
             </div>
             <div className="flex items-center space-x-2">
               <Zap className="h-5 w-5" />
-              <span>{sq(lang, "Monitorim 24/7", "24/7 Monitoring", "Monitoreo 24/7", "24/7-Überwachung", "24/7 мониторинг")}</span>
+              <span>{sq(lang, "Monitorim 24/7", "24/7 Monitoring", "Monitoreo 24/7", "24/7-Überwachung", "24/7 мониторинг", "Surveillance 24h/7j", "Monitorização 24h/7d", "Monitoraggio 24h/7g")}</span>
             </div>
           </div>
         </div>

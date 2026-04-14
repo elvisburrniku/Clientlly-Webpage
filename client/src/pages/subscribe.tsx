@@ -521,7 +521,7 @@ export default function Subscribe() {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="firstName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Emri", "First Name", "Nombre", "Vorname", "Име", "Prénom", "Nome próprio", "Nome")}</Label>
-              <Input id="firstName" value={userData.firstName} onChange={(e) => setUserData({...userData, firstName: e.target.value})} placeholder={sq(lang, "Artan", "John", "Juan", "Max", "Иван") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+              <Input id="firstName" value={userData.firstName} onChange={(e) => setUserData({...userData, firstName: e.target.value})} placeholder={sq(lang, "Artan", "John", "Juan", "Max", "Иван", "Jean", "João", "Giovanni") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="lastName" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Mbiemri", "Last Name", "Apellido", "Nachname", "Презиме", "Nom de famille", "Apelido", "Cognome")}</Label>
@@ -530,7 +530,7 @@ export default function Subscribe() {
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="email" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">Email</Label>
-            <Input id="email" type="email" value={userData.email} onChange={(e) => setUserData({...userData, email: e.target.value})} placeholder={sq(lang, "artan@kompania.com", "john@company.com", "juan@empresa.com", "max@firma.com", "иван@компанија.мк") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            <Input id="email" type="email" value={userData.email} onChange={(e) => setUserData({...userData, email: e.target.value})} placeholder={sq(lang, "artan@kompania.com", "john@company.com", "juan@empresa.com", "max@firma.com", "иван@компанија.мк", "jean@entreprise.fr", "joao@empresa.pt", "giovanni@azienda.it") as string} required className="h-11 rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="password" className="text-xs font-semibold text-gray-700 uppercase tracking-wide">{sq(lang, "Fjalëkalimi", "Password", "Contraseña", "Passwort", "Лозинка", "Mot de passe", "Palavra-passe", "Password")}</Label>
@@ -583,11 +583,11 @@ export default function Subscribe() {
                 <SelectValue placeholder={sq(lang, "Zgjidhni madhësinë", "Select size", "Seleccionar tamaño", "Größe wählen", "Изберете големина") as string} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="1-5">{sq(lang, "1-5 punonjës", "1-5 employees", "1-5 empleados", "1-5 Mitarbeiter", "1-5 вработени")}</SelectItem>
+                <SelectItem value="1-5">{sq(lang, "1-5 punonjës", "1-5 employees", "1-5 empleados", "1-5 Mitarbeiter", "1-5 вработени", "1-5 employés", "1-5 funcionários", "1-5 dipendenti")}</SelectItem>
                 <SelectItem value="6-20">{sq(lang, "6-20 punonjës", "6-20 employees", "6-20 empleados", "6-20 Mitarbeiter", "6-20 вработени")}</SelectItem>
-                <SelectItem value="21-50">{sq(lang, "21-50 punonjës", "21-50 employees", "21-50 empleados", "21-50 Mitarbeiter", "21-50 вработени")}</SelectItem>
-                <SelectItem value="51-200">{sq(lang, "51-200 punonjës", "51-200 employees", "51-200 empleados", "51-200 Mitarbeiter", "51-200 вработени")}</SelectItem>
-                <SelectItem value="200+">{sq(lang, "200+ punonjës", "200+ employees", "200+ empleados", "200+ Mitarbeiter", "200+ вработени")}</SelectItem>
+                <SelectItem value="21-50">{sq(lang, "21-50 punonjës", "21-50 employees", "21-50 empleados", "21-50 Mitarbeiter", "21-50 вработени", "21-50 employés", "21-50 funcionários", "21-50 dipendenti")}</SelectItem>
+                <SelectItem value="51-200">{sq(lang, "51-200 punonjës", "51-200 employees", "51-200 empleados", "51-200 Mitarbeiter", "51-200 вработени", "51-200 employés", "51-200 funcionários", "51-200 dipendenti")}</SelectItem>
+                <SelectItem value="200+">{sq(lang, "200+ punonjës", "200+ employees", "200+ empleados", "200+ Mitarbeiter", "200+ вработени", "200+ employés", "200+ funcionários", "200+ dipendenti")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -598,13 +598,13 @@ export default function Subscribe() {
                 <SelectValue placeholder={sq(lang, "Zgjidhni industrinë", "Select industry", "Seleccionar industria", "Branche wählen", "Изберете индустрија") as string} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="technology">{sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија")}</SelectItem>
-                <SelectItem value="consulting">{sq(lang, "Konsulencë", "Consulting", "Consultoría", "Beratung", "Консалтинг")}</SelectItem>
+                <SelectItem value="technology">{sq(lang, "Teknologji", "Technology", "Tecnología", "Technologie", "Технологија", "Technologie", "Tecnologia", "Tecnologia")}</SelectItem>
+                <SelectItem value="consulting">{sq(lang, "Konsulencë", "Consulting", "Consultoría", "Beratung", "Консалтинг", "Conseil", "Consultoria", "Consulenza")}</SelectItem>
                 <SelectItem value="finance">{sq(lang, "Financë & Kontabilitet", "Finance & Accounting", "Finanzas y Contabilidad", "Finanzen & Buchhaltung", "Финансии и Сметководство")}</SelectItem>
-                <SelectItem value="healthcare">{sq(lang, "Shëndetësi", "Healthcare", "Salud", "Gesundheitswesen", "Здравство")}</SelectItem>
-                <SelectItem value="education">{sq(lang, "Arsim", "Education", "Educación", "Bildung", "Образование")}</SelectItem>
-                <SelectItem value="retail">{sq(lang, "Shitje me pakicë", "Retail", "Comercio", "Einzelhandel", "Малопродажба")}</SelectItem>
-                <SelectItem value="manufacturing">{sq(lang, "Prodhim", "Manufacturing", "Manufactura", "Produktion", "Производство")}</SelectItem>
+                <SelectItem value="healthcare">{sq(lang, "Shëndetësi", "Healthcare", "Salud", "Gesundheitswesen", "Здравство", "Santé", "Saúde", "Sanità")}</SelectItem>
+                <SelectItem value="education">{sq(lang, "Arsim", "Education", "Educación", "Bildung", "Образование", "Éducation", "Educação", "Istruzione")}</SelectItem>
+                <SelectItem value="retail">{sq(lang, "Shitje me pakicë", "Retail", "Comercio", "Einzelhandel", "Малопродажба", "Commerce de détail", "Retalho", "Commercio al dettaglio")}</SelectItem>
+                <SelectItem value="manufacturing">{sq(lang, "Prodhim", "Manufacturing", "Manufactura", "Produktion", "Производство", "Fabrication", "Fabricação", "Produzione")}</SelectItem>
                 <SelectItem value="real-estate">{sq(lang, "Pasuri të paluajtshme", "Real Estate", "Bienes Raíces", "Immobilien", "Недвижнини")}</SelectItem>
                 <SelectItem value="legal">{sq(lang, "Shërbime Ligjore", "Legal Services", "Servicios Legales", "Rechtsdienstleistungen", "Правни Услуги")}</SelectItem>
                 <SelectItem value="other">{sq(lang, "Tjetër", "Other", "Otro", "Sonstiges", "Друго", "Autre", "Outro", "Altro")}</SelectItem>
@@ -728,9 +728,9 @@ export default function Subscribe() {
             {/* Trust row */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
               {[
-                { icon: Shield, label: sq(lang, "Mbrojtje e të dhënave", "Data protection", "Protección de datos", "Datenschutz", "Заштита на податоци"), sub: "GDPR & SSL" },
-                { icon: CheckCircle, label: sq(lang, "Pa kartë kredie", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка"), sub: sq(lang, "14 ditë provë", "14 day trial", "14 días de prueba", "14 Tage Testversion", "14 дена проба") },
-                { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7"), sub: sq(lang, "Ekip real", "Real team", "Equipo real", "Echtes Team", "Реален тим") },
+                { icon: Shield, label: sq(lang, "Mbrojtje e të dhënave", "Data protection", "Protección de datos", "Datenschutz", "Заштита на податоци", "Protection des données", "Proteção de dados", "Protezione dei dati"), sub: "GDPR & SSL" },
+                { icon: CheckCircle, label: sq(lang, "Pa kartë kredie", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка", "Sans carte de crédit", "Sem cartão de crédito", "Senza carta di credito"), sub: sq(lang, "14 ditë provë", "14 day trial", "14 días de prueba", "14 Tage Testversion", "14 дена проба", "Essai de 14 jours", "Teste de 14 dias", "Prova di 14 giorni") },
+                { icon: Headphones, label: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7-Support", "Поддршка 24/7", "Assistance 24h/7j", "Suporte 24h/7d", "Supporto 24h/7g"), sub: sq(lang, "Ekip real", "Real team", "Equipo real", "Echtes Team", "Реален тим") },
                 { icon: ArrowLeft, label: sq(lang, "Anuloni kur doni", "Cancel anytime", "Cancele cuando quiera", "Jederzeit kündigen", "Откажете кога сакате", "Résiliez à tout moment", "Cancele a qualquer momento", "Annulla quando vuoi"), sub: sq(lang, "Pa detyrime", "No obligations", "Sin obligaciones", "Keine Verpflichtungen", "Без обврски") },
               ].map(({ icon: Icon, label, sub }, i) => (
                 <div key={i} className="flex items-center gap-2.5 p-3 bg-white rounded-xl border border-gray-100 shadow-sm">

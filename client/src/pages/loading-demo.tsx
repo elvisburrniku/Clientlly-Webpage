@@ -73,7 +73,7 @@ export default function LoadingDemo() {
             </Button>
             <Button disabled className="flex items-center space-x-2">
               <InlineSpinner size="xs" />
-              <span>{sq(lang, "Duke ngarkuar", "Loading", "Cargando", "Laden", "Вчитување")}</span>
+              <span>{sq(lang, "Duke ngarkuar", "Loading", "Cargando", "Laden", "Вчитување", "Chargement", "A carregar", "Caricamento")}</span>
             </Button>
           </div>
           <div className="flex items-center space-x-3">
@@ -85,7 +85,7 @@ export default function LoadingDemo() {
     },
     {
       id: 'success-animation',
-      title: sq(lang, "Animacioni i Suksesit", "Success Animation", "Animación de Éxito", "Erfolgsanimation", "Анимација на успех") as string,
+      title: sq(lang, "Animacioni i Suksesit", "Success Animation", "Animación de Éxito", "Erfolgsanimation", "Анимација на успех", "Animation de succès", "Animação de sucesso", "Animazione di successo") as string,
       description: sq(lang, "Animacion festimi për veprimet e përfunduara", "Celebration animation for completed actions", "Animación de celebración para acciones completadas", "Feieranimation für abgeschlossene Aktionen", "Анимација за прославување на завршени дејства") as string,
       component: <SuccessAnimation message={sq(lang, "Pagesa e suksesshme!", "Payment successful!", "¡Pago exitoso!", "Zahlung erfolgreich!", "Плаќањето е успешно!") as string} />
     }
@@ -104,7 +104,7 @@ export default function LoadingDemo() {
             <Link href="/">
               <Button variant="ghost" className="flex items-center space-x-2">
                 <ArrowLeft className="h-4 w-4" />
-                <span>{sq(lang, "Kthehu në Ballë", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад на почетна")}</span>
+                <span>{sq(lang, "Kthehu në Ballë", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад на почетна", "Retour à l'accueil", "Voltar ao início", "Torna alla home")}</span>
               </Button>
             </Link>
             <h1 className="text-xl font-bold text-foreground">{sq(lang, "Demo e Gjendjes së Ngarkimit", "Loading States Demo", "Demo de Estados de Carga", "Ladezustände Demo", "Демо на состојби на вчитување")}</h1>
@@ -152,7 +152,7 @@ export default function LoadingDemo() {
                     className="flex items-center space-x-2"
                   >
                     <Play className="h-4 w-4" />
-                    <span>{activeDemo === demo.id ? sq(lang, "Fshih", "Hide", "Ocultar", "Ausblenden", "Сокриј") : sq(lang, "Demo", "Demo", "Demo", "Demo", "Демо")}</span>
+                    <span>{activeDemo === demo.id ? sq(lang, "Fshih", "Hide", "Ocultar", "Ausblenden", "Сокриј", "Masquer", "Ocultar", "Nascondi") : sq(lang, "Demo", "Demo", "Demo", "Demo", "Демо")}</span>
                   </Button>
                 </div>
               </CardHeader>
@@ -206,7 +206,7 @@ export default function LoadingDemo() {
                 className="flex items-center space-x-2 bg-green-50 hover:bg-green-100 text-green-700 border-green-200"
               >
                 <Play className="h-4 w-4" />
-                <span>{sq(lang, "Animacioni i Suksesit", "Success Animation", "Animación de Éxito", "Erfolgsanimation", "Анимација на успех")}</span>
+                <span>{sq(lang, "Animacioni i Suksesit", "Success Animation", "Animación de Éxito", "Erfolgsanimation", "Анимација на успех", "Animation de succès", "Animação de sucesso", "Animazione di successo")}</span>
               </Button>
             </div>
 

@@ -34,7 +34,7 @@ const BankSecurityPage = () => {
   const securityFeatures = [
     {
       icon: <Lock className="w-8 h-8" />,
-      title: sq(lang, "Enkriptimi SSL 256-Bit", "256-Bit SSL Encryption", "Cifrado SSL de 256 bits", "256-Bit SSL-Verschlüsselung", "256-Битна SSL Енкрипција"),
+      title: sq(lang, "Enkriptimi SSL 256-Bit", "256-Bit SSL Encryption", "Cifrado SSL de 256 bits", "256-Bit SSL-Verschlüsselung", "256-Битна SSL Енкрипција", "Chiffrement SSL 256 bits", "Encriptação SSL 256 bits", "Crittografia SSL 256 bit"),
       description: sq(lang, "Të gjitha të dhënat e transmetuara ndërmjet shfletuesit tuaj dhe serverëve tanë mbrohen me enkriptim të nivelit ushtarak.", "All data transmitted between your browser and our servers is protected with military-grade encryption.", "Todos los datos transmitidos entre su navegador y nuestros servidores están protegidos con cifrado de grado militar.", "Alle zwischen Ihrem Browser und unseren Servern übertragenen Daten sind mit militärischer Verschlüsselung geschützt.", "Сите податоци пренесени помеѓу вашиот прелистувач и нашите сервери се заштитени со воена енкрипција."),
       certifications: ["SOC 2 Type II", "ISO 27001", "PCI DSS Level 1"]
     },
@@ -46,7 +46,7 @@ const BankSecurityPage = () => {
     },
     {
       icon: <KeyRound className="w-8 h-8" />,
-      title: sq(lang, "Autentifikimi Shumëfaktorësh", "Multi-Factor Authentication", "Autenticación Multifactor", "Multi-Faktor-Authentifizierung", "Мулти-Факторска Автентикација"),
+      title: sq(lang, "Autentifikimi Shumëfaktorësh", "Multi-Factor Authentication", "Autenticación Multifactor", "Multi-Faktor-Authentifizierung", "Мулти-Факторска Автентикација", "Authentification multi-facteurs", "Autenticação multi-fator", "Autenticazione multi-fattore"),
       description: sq(lang, "Shtoni një shtresë shtesë sigurie me autentifikim dyfaktorësh dhe opsione identifikimi biometrik.", "Add an extra layer of security with two-factor authentication and biometric login options.", "Agregue una capa adicional de seguridad con autenticación de dos factores y opciones de inicio de sesión biométrico.", "Fügen Sie eine zusätzliche Sicherheitsebene mit Zwei-Faktor-Authentifizierung und biometrischen Anmeldeoptionen hinzu.", "Додајте дополнителен слој безбедност со двофакторска автентикација и биометриски опции за најава."),
       certifications: ["FIDO2 Certified", "WebAuthn", "TOTP Support"]
     },
@@ -107,7 +107,7 @@ const BankSecurityPage = () => {
       icon: <FileCheck className="w-6 h-6" />
     },
     {
-      title: sq(lang, "Kopje Rezervë Automatike", "Automated Backups", "Copias de Seguridad Automatizadas", "Automatisierte Backups", "Автоматски Резервни Копии"),
+      title: sq(lang, "Kopje Rezervë Automatike", "Automated Backups", "Copias de Seguridad Automatizadas", "Automatisierte Backups", "Автоматски Резервни Копии", "Sauvegardes automatisées", "Cópias de segurança automatizadas", "Backup automatizzati"),
       description: sq(lang, "Kopje rezervë të shumta ditore të ruajtura në lokacione të shpërndara gjeografikisht", "Multiple daily backups stored in geographically distributed locations", "Múltiples copias de seguridad diarias almacenadas en ubicaciones distribuidas geográficamente", "Mehrere tägliche Backups an geografisch verteilten Standorten gespeichert", "Повеќе дневни резервни копии складирани на географски дистрибуирани локации"),
       icon: <Server className="w-6 h-6" />
     },
@@ -122,8 +122,8 @@ const BankSecurityPage = () => {
       icon: <KeyRound className="w-6 h-6" />
     },
     {
-      title: sq(lang, "Përgjigje ndaj Incidenteve", "Incident Response", "Respuesta a Incidentes", "Vorfallreaktion", "Одговор на Инциденти"),
-      description: sq(lang, "Ekip sigurie 24/7 me protokolle të shpejta të përgjigjes ndaj incidenteve", "24/7 security team with rapid incident response protocols", "Equipo de seguridad 24/7 con protocolos rápidos de respuesta a incidentes", "24/7-Sicherheitsteam mit schnellen Vorfallreaktionsprotokollen", "Безбедносен тим 24/7 со брзи протоколи за одговор на инциденти"),
+      title: sq(lang, "Përgjigje ndaj Incidenteve", "Incident Response", "Respuesta a Incidentes", "Vorfallreaktion", "Одговор на Инциденти", "Réponse aux incidents", "Resposta a incidentes", "Risposta agli incidenti"),
+      description: sq(lang, "Ekip sigurie 24/7 me protokolle të shpejta të përgjigjes ndaj incidenteve", "24/7 security team with rapid incident response protocols", "Equipo de seguridad 24/7 con protocolos rápidos de respuesta a incidentes", "24/7-Sicherheitsteam mit schnellen Vorfallreaktionsprotokollen", "Безбедносен тим 24/7 со брзи протоколи за одговор на инциденти", "Équipe de sécurité 24h/7j avec protocoles de réponse rapide", "Equipa de segurança 24h/7d com protocolos de resposta rápida", "Team di sicurezza 24h/7g con protocolli di risposta rapida"),
       icon: <Zap className="w-6 h-6" />
     }
   ];
@@ -236,7 +236,7 @@ const BankSecurityPage = () => {
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
               <Shield className="w-4 h-4 mr-2 text-gray-700" />
-              {sq(lang, "Provoni Pa Rrezik Sot", "Try Risk-Free Today", "Pruebe Sin Riesgo Hoy", "Heute Risikofrei Testen", "Пробајте Без Ризик Денес")}
+              {sq(lang, "Provoni Pa Rrezik Sot", "Try Risk-Free Today", "Pruebe Sin Riesgo Hoy", "Heute Risikofrei Testen", "Пробајте Без Ризик Денес", "Essayer sans risque aujourd'hui", "Experimentar sem risco hoje", "Prova senza rischi oggi")}
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
@@ -248,7 +248,7 @@ const BankSecurityPage = () => {
             </h1>
             
             <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
-              {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.")}
+              {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.", "Commencez votre essai gratuit en sachant que vous pouvez annuler à tout moment sans complication.", "Inicie o seu teste gratuito sabendo que pode cancelar a qualquer momento sem complicações.", "Inizia la tua prova gratuita sapendo che puoi annullare in qualsiasi momento senza complicazioni.")}
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-16">
@@ -263,7 +263,7 @@ const BankSecurityPage = () => {
                 variant="outline"
                 className="px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
               >
-                {sq(lang, "Shiko Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Ansehen", "Погледни Ценовни Планови")}
+                {sq(lang, "Shiko Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Ansehen", "Погледни Ценовни Планови", "Voir les plans tarifaires", "Ver planos de preços", "Vedi i piani tariffari")}
               </Button>
             </div>
           </div>
@@ -313,7 +313,7 @@ const BankSecurityPage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl lg:text-6xl font-black text-foreground mb-6 tracking-tight">
-              {sq(lang, "Pajtueshmëria me", "Industry", "Cumplimiento de la", "Branchenkonformität", "Индустриска", "Secteur", "Setor", "Settore")} <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Industrinë", "Compliance", "Industria", "Compliance", "Усогласеност")}</span>
+              {sq(lang, "Pajtueshmëria me", "Industry", "Cumplimiento de la", "Branchenkonformität", "Индустриска", "Secteur", "Setor", "Settore")} <span className="animate-gradient-x bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">{sq(lang, "Industrinë", "Compliance", "Industria", "Compliance", "Усогласеност", "Conformité", "Conformidade", "Conformità")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Ne plotësojmë ose tejkalojmë të gjitha standardet kryesore të sigurisë dhe privatësisë.", "We meet or exceed all major security and privacy compliance standards.", "Cumplimos o superamos todos los principales estándares de seguridad y privacidad.", "Wir erfüllen oder übertreffen alle wichtigen Sicherheits- und Datenschutzstandards.", "Ги исполнуваме или надминуваме сите главни стандарди за безбедност и приватност.")}

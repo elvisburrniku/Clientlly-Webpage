@@ -297,10 +297,10 @@ function ApiDocs({ lang, sq }: { lang: string; sq: Function }) {
   const [activeTab, setActiveTab] = useState<'auth' | 'endpoints' | 'webhooks' | 'sdk'>('auth');
 
   const tabs = [
-    { id: 'auth' as const, label: sq(lang, 'Autentifikimi', 'Authentication', 'Autenticación', 'Authentifizierung', 'Автентикација') },
+    { id: 'auth' as const, label: sq(lang, 'Autentifikimi', 'Authentication', 'Autenticación', 'Authentifizierung', 'Автентикација', "Authentification", "Autenticação", "Autenticazione") },
     { id: 'endpoints' as const, label: sq(lang, 'Endpoint-et', 'Endpoints', 'Endpoints', 'Endpunkte', 'Точки на крај') },
     { id: 'webhooks' as const, label: 'Webhooks' },
-    { id: 'sdk' as const, label: sq(lang, 'Shembuj Kodi', 'Code Examples', 'Ejemplos de Código', 'Code-Beispiele', 'Примери на Код') },
+    { id: 'sdk' as const, label: sq(lang, 'Shembuj Kodi', 'Code Examples', 'Ejemplos de Código', 'Code-Beispiele', 'Примери на Код', "Exemples de code", "Exemplos de código", "Esempi di codice") },
   ];
 
   return (
@@ -803,7 +803,7 @@ export default function Integrations() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-indigo-100 rounded-full text-xs font-semibold text-indigo-700 mb-5 shadow-sm">
               <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-              {sq(lang, "12 integrime aktive · Të gjitha planet", "12 active integrations · All plans", "12 integraciones activas · Todos los planes", "12 aktive Integrationen · Alle Pläne", "12 активни интеграции · Сите планови")}
+              {sq(lang, "12 integrime aktive · Të gjitha planet", "12 active integrations · All plans", "12 integraciones activas · Todos los planes", "12 aktive Integrationen · Alle Pläne", "12 активни интеграции · Сите планови", "12 intégrations actives · Tous les plans", "12 integrações ativas · Todos os planos", "12 integrazioni attive · Tutti i piani")}
             </div>
             <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4 leading-tight">
               {sq(lang,
@@ -1048,7 +1048,7 @@ export default function Integrations() {
               className="group inline-flex items-center gap-3 px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all duration-200 shadow-lg hover:shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5"
             >
               <span className="flex flex-col items-start leading-tight">
-                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно")}</span>
+                <span className="text-[10px] font-medium text-indigo-200 uppercase tracking-widest">{sq(lang, "14 ditë falas", "14 days free", "14 días gratis", "14 Tage kostenlos", "14 дена бесплатно", "14 jours gratuits", "14 dias grátis", "14 giorni gratis")}</span>
                 <span className="text-sm">{sq(lang, "Fillo Provën Tani", "Start Free Trial", "Iniciar Prueba Gratis", "Kostenlose Testversion", "Бесплатна Проба", "Commencer l'essai gratuit", "Iniciar período de teste gratuito", "Inizia la prova gratuita")}</span>
               </span>
               <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
@@ -1063,8 +1063,8 @@ export default function Integrations() {
           <div className="flex flex-wrap justify-center gap-5 mt-8">
             {[
               { icon: Shield, text: sq(lang, "SSL & GDPR", "SSL & GDPR", "SSL & GDPR", "SSL & DSGVO", "SSL & GDPR") },
-              { icon: Headphones, text: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7 Unterstützung", "Поддршка 24/7") },
-              { icon: CheckCircle, text: sq(lang, "Pa kartë kredie", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка") },
+              { icon: Headphones, text: sq(lang, "Mbështetje 24/7", "24/7 Support", "Soporte 24/7", "24/7 Unterstützung", "Поддршка 24/7", "Assistance 24h/7j", "Suporte 24h/7d", "Supporto 24h/7g") },
+              { icon: CheckCircle, text: sq(lang, "Pa kartë kredie", "No credit card", "Sin tarjeta de crédito", "Keine Kreditkarte", "Без кредитна картичка", "Sans carte de crédit", "Sem cartão de crédito", "Senza carta di credito") },
             ].map(({ icon: Icon, text }, i) => (
               <div key={i} className="flex items-center gap-1.5 text-gray-400 text-xs font-medium">
                 <Icon className="h-3.5 w-3.5" />

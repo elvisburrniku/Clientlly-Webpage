@@ -153,7 +153,7 @@ export default function Affiliate() {
         setSent(true);
         setForm({ name: '', email: '', phone: '', method: '' });
         toast({
-          title: sq(lang, "Aplikimi u dërgua!", "Application sent!", "Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!") as string,
+          title: sq(lang, "Aplikimi u dërgua!", "Application sent!", "Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!", "Candidature envoyée!", "Candidatura enviada!", "Candidatura inviata!") as string,
           description: sq(lang,
             "Faleminderit! Do t'ju kontaktojmë brenda 24-48 orësh.",
             "Thank you! We'll contact you within 24-48 hours.",
@@ -186,7 +186,7 @@ export default function Affiliate() {
             <span className="font-bold text-lg text-gray-900">Clientlly</span>
           </Link>
           <div className="hidden md:flex items-center gap-6 text-sm font-semibold text-gray-600">
-            <a href="/#features" className="hover:text-indigo-600 transition-colors">{sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули")}</a>
+            <a href="/#features" className="hover:text-indigo-600 transition-colors">{sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули", "Modules", "Módulos", "Moduli")}</a>
             <a href="/subscribe" className="hover:text-indigo-600 transition-colors">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</a>
             <a href="/about" className="hover:text-indigo-600 transition-colors">{sq(lang, "Rreth nesh", "About", "Nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</a>
             <a href="/contact" className="hover:text-indigo-600 transition-colors">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</a>
@@ -201,7 +201,7 @@ export default function Affiliate() {
         </div>
         {mobileOpen && (
           <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
-            <a href="/#features" className="block text-gray-700 font-medium">{sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули")}</a>
+            <a href="/#features" className="block text-gray-700 font-medium">{sq(lang, "Modulet", "Modules", "Módulos", "Module", "Модули", "Modules", "Módulos", "Moduli")}</a>
             <a href="/subscribe" className="block text-gray-700 font-medium">{sq(lang, "Çmimet", "Pricing", "Precios", "Preise", "Цени", "Tarifs", "Preços", "Prezzi")}</a>
             <a href="/about" className="block text-gray-700 font-medium">{sq(lang, "Rreth nesh", "About", "Nosotros", "Über uns", "За нас", "À propos", "Sobre", "Chi siamo")}</a>
             <a href="/contact" className="block text-gray-700 font-medium">{sq(lang, "Kontakti", "Contact", "Contacto", "Kontakt", "Контакт", "Contact", "Contacto", "Contatti")}</a>
@@ -264,9 +264,9 @@ export default function Affiliate() {
       <section id="how-it-works" className="py-20 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
-            <p className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">{sq(lang, "Si funksionon", "How it works", "Cómo funciona", "So funktioniert es", "Како функционира")}</p>
+            <p className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">{sq(lang, "Si funksionon", "How it works", "Cómo funciona", "So funktioniert es", "Како функционира", "Comment ça marche", "Como funciona", "Come funziona")}</p>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
-              {sq(lang, "3 hapa të thjeshtë për të filluar", "3 simple steps to get started", "3 pasos simples para comenzar", "3 einfache Schritte zum Starten", "3 едноставни чекори за почеток")}
+              {sq(lang, "3 hapa të thjeshtë për të filluar", "3 simple steps to get started", "3 pasos simples para comenzar", "3 einfache Schritte zum Starten", "3 едноставни чекори за почеток", "3 étapes simples pour commencer", "3 passos simples para começar", "3 semplici passi per iniziare")}
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -288,7 +288,7 @@ export default function Affiliate() {
       <section className="py-20">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
-            <p className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">{sq(lang, "Përfitime", "Benefits", "Beneficios", "Vorteile", "Придобивки")}</p>
+            <p className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-3">{sq(lang, "Përfitime", "Benefits", "Beneficios", "Vorteile", "Придобивки", "Avantages", "Benefícios", "Vantaggi")}</p>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight">
               {sq(lang, "Pse të bashkoheni me programin tonë?", "Why join our program?", "Por qué unirse a nuestro programa?", "Warum unserem Programm beitreten?", "Зошто да се приклучите на нашата програма?")}
             </h2>
@@ -525,13 +525,13 @@ export default function Affiliate() {
                 <CheckCircle className="h-8 w-8 text-emerald-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                {sq(lang, "Aplikimi u dërgua!", "Application sent!", "Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!")}
+                {sq(lang, "Aplikimi u dërgua!", "Application sent!", "Solicitud enviada!", "Bewerbung gesendet!", "Апликацијата е испратена!", "Candidature envoyée!", "Candidatura enviada!", "Candidatura inviata!")}
               </h3>
               <p className="text-gray-500 mb-6">
                 {sq(lang, "Faleminderit! Do t'ju kontaktojmë brenda 24-48 orësh me linkun tuaj unik të afilimit.", "Thank you! We'll contact you within 24-48 hours with your unique affiliate link.", "Gracias! Le contactaremos en 24-48 horas con su enlace único de afiliado.", "Danke! Wir melden uns innerhalb von 24-48 Stunden mit Ihrem einzigartigen Affiliate-Link.", "Благодариме! Ќе ве контактираме во рок од 24-48 часа со вашиот уникатен афилијатски линк.")}
               </p>
               <button onClick={() => setSent(false)} className="text-indigo-600 font-semibold hover:underline">
-                {sq(lang, "Dërgo aplikim tjetër", "Submit another application", "Enviar otra solicitud", "Weitere Bewerbung senden", "Испрати друга апликација")}
+                {sq(lang, "Dërgo aplikim tjetër", "Submit another application", "Enviar otra solicitud", "Weitere Bewerbung senden", "Испрати друга апликација", "Soumettre une autre candidature", "Enviar outra candidatura", "Invia un'altra candidatura")}
               </button>
             </div>
           ) : (
@@ -539,7 +539,7 @@ export default function Affiliate() {
               {/* Emri */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                  {sq(lang, "Emri i plotë", "Full name", "Nombre completo", "Vollständiger Name", "Целосно ime")} <span className="text-red-500">*</span>
+                  {sq(lang, "Emri i plotë", "Full name", "Nombre completo", "Vollständiger Name", "Целосно ime", "Nom complet", "Nome completo", "Nome completo")} <span className="text-red-500">*</span>
                 </label>
                 <input type="text" required value={form.name}
                   onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
@@ -550,7 +550,7 @@ export default function Affiliate() {
               {/* Email */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                  {sq(lang, "Adresa email", "Email address", "Dirección de email", "E-Mail-Adresse", "Е-пошта адреса")} <span className="text-red-500">*</span>
+                  {sq(lang, "Adresa email", "Email address", "Dirección de email", "E-Mail-Adresse", "Е-пошта адреса", "Adresse e-mail", "Endereço de e-mail", "Indirizzo e-mail")} <span className="text-red-500">*</span>
                 </label>
                 <input type="email" required value={form.email}
                   onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
@@ -561,7 +561,7 @@ export default function Affiliate() {
               {/* Telefoni */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                  {sq(lang, "Numri i telefonit", "Phone number", "Número de teléfono", "Telefonnummer", "Телефонски број")} <span className="text-gray-400 font-normal text-xs ml-1">({sq(lang, "opsional", "optional", "opcional", "optional", "опционално")})</span>
+                  {sq(lang, "Numri i telefonit", "Phone number", "Número de teléfono", "Telefonnummer", "Телефонски број", "Numéro de téléphone", "Número de telefone", "Numero di telefono")} <span className="text-gray-400 font-normal text-xs ml-1">({sq(lang, "opsional", "optional", "opcional", "optional", "опционално")})</span>
                 </label>
                 <input type="tel" value={form.phone}
                   onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
@@ -592,7 +592,7 @@ export default function Affiliate() {
                 {sending ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    {sq(lang, "Duke dërguar...", "Sending...", "Enviando...", "Senden...", "Испраќање...")}
+                    {sq(lang, "Duke dërguar...", "Sending...", "Enviando...", "Senden...", "Испраќање...", "Envoi en cours...", "A enviar...", "Invio in corso...")}
                   </>
                 ) : (
                   <>

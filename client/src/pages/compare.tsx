@@ -97,7 +97,7 @@ export default function Compare() {
             </div>
             <Button variant="ghost" onClick={() => navigate("/")}>
               <ArrowLeft className="h-4 w-4 mr-2" />
-              {sq(lang, "Kthehu në Ballë", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад на почетна")}
+              {sq(lang, "Kthehu në Ballë", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад на почетна", "Retour à l'accueil", "Voltar ao início", "Torna alla home")}
             </Button>
           </div>
         </div>
@@ -186,7 +186,7 @@ export default function Compare() {
                 <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
                 <div className="text-4xl font-bold text-primary mt-4">
                   ${Math.floor((billingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice / 12) / 100)}
-                  <span className="text-lg text-muted-foreground font-normal">/{sq(lang, "muaj", "month", "mes", "Monat", "месец") as string}</span>
+                  <span className="text-lg text-muted-foreground font-normal">/{sq(lang, "muaj", "month", "mes", "Monat", "месец", "mois", "mês", "mese") as string}</span>
                 </div>
                 {billingPeriod === 'yearly' && (
                   <div className="text-sm text-muted-foreground mt-2">
@@ -360,7 +360,7 @@ export default function Compare() {
               variant="outline"
               onClick={() => navigate("/#contact")}
             >
-              {sq(lang, "Kontakto Shitjet", "Contact Sales", "Contactar Ventas", "Vertrieb kontaktieren", "Контактирај продажби")}
+              {sq(lang, "Kontakto Shitjet", "Contact Sales", "Contactar Ventas", "Vertrieb kontaktieren", "Контактирај продажби", "Contacter les ventes", "Contactar vendas", "Contatta le vendite")}
             </Button>
           </div>
         </div>

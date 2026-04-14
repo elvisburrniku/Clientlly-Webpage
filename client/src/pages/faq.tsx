@@ -45,7 +45,7 @@ export default function FAQ() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
-    { id: "all", label: sq(lang, "Të gjitha", "All", "Todos", "Alle", "Сите"), icon: HelpCircle },
+    { id: "all", label: sq(lang, "Të gjitha", "All", "Todos", "Alle", "Сите", "Tout", "Tudo", "Tutto"), icon: HelpCircle },
     { id: "general", label: sq(lang, "Të përgjithshme", "General", "General", "Allgemein", "Општо"), icon: Globe },
     { id: "pricing", label: sq(lang, "Çmimet & Planet", "Pricing & Plans", "Precios y Planes", "Preise & Pläne", "Цени и Планови"), icon: CreditCard },
     { id: "features", label: sq(lang, "Veçoritë", "Features", "Características", "Funktionen", "Функции", "Fonctionnalités", "Funcionalidades", "Funzionalità"), icon: Zap },

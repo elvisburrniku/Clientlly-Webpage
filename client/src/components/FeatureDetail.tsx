@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import clientllyLogo from "@assets/CLIENTLLY_ICON_1753793353861.png";
 import { useTranslation } from "@/hooks/useTranslation";
 
-type T5 = { sq: string; en: string; es?: string; de?: string; mk?: string };
+type T5 = { sq: string; en: string; es?: string; de?: string; mk?: string; fr?: string; pt?: string; it?: string };
 
 export interface FeatureDetailData {
   category: T5;
@@ -27,6 +27,9 @@ function pick(lang: string, t: T5): string {
     case 'es': return t.es ?? t.en;
     case 'de': return t.de ?? t.en;
     case 'mk': return t.mk ?? t.en;
+    case 'fr': return t.fr ?? t.en;
+    case 'pt': return t.pt ?? t.en;
+    case 'it': return t.it ?? t.en;
     default: return t.en;
   }
 }
@@ -69,7 +72,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
             <div className="hidden lg:flex items-center gap-3 ml-auto">
               <Link href="/features" className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">
                 <ArrowLeft className="h-4 w-4" />
-                {sq(lang, "Të gjitha veçoritë", "All features", "Todas las funciones", "Alle Funktionen", "Сите функции")}
+                {sq(lang, "Të gjitha veçoritë", "All features", "Todas las funciones", "Alle Funktionen", "Сите функции", "Toutes les fonctionnalités", "Todas as funcionalidades", "Tutte le funzionalità")}
               </Link>
               <Link href="/subscribe" className="text-sm font-semibold px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
                 {sq(lang, "Blej Tani", "Buy Now", "Comprar Ahora", "Jetzt Kaufen", "Купи Сега", "Acheter maintenant", "Comprar agora", "Acquista ora")}
@@ -135,7 +138,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3">
               <h2 className="text-2xl font-extrabold text-gray-900 mb-4">
-                {sq(lang, "Si funksionon?", "How does it work?", "Cómo funciona?", "Wie funktioniert es?", "Како функционира?")}
+                {sq(lang, "Si funksionon?", "How does it work?", "Cómo funciona?", "Wie funktioniert es?", "Како функционира?", "Comment ça marche?", "Como funciona?", "Come funziona?")}
               </h2>
               <p className="text-gray-600 leading-relaxed text-base mb-8">
                 {pick(lang, data.description)}
@@ -167,7 +170,7 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
                     onClick={() => { window.location.href = '/subscribe'; }}
                     className="w-full py-3 bg-white text-indigo-600 font-semibold rounded-xl hover:bg-indigo-50 transition-colors text-sm"
                   >
-                    {sq(lang, "Shiko Planet", "View Plans", "Ver Planes", "Pläne ansehen", "Погледни Планови")}
+                    {sq(lang, "Shiko Planet", "View Plans", "Ver Planes", "Pläne ansehen", "Погледни Планови", "Voir les plans", "Ver planos", "Vedi i piani")}
                   </button>
                 </div>
 
@@ -248,10 +251,10 @@ export default function FeatureDetail({ data }: { data: FeatureDetailData }) {
               onClick={() => { window.location.href = '/subscribe'; }}
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-gray-900 transition-all hover:scale-105 shadow-lg"
             >
-              {sq(lang, "Shiko Planet", "View Plans", "Ver Planes", "Pläne ansehen", "Погледни Планови")}
+              {sq(lang, "Shiko Planet", "View Plans", "Ver Planes", "Pläne ansehen", "Погледни Планови", "Voir les plans", "Ver planos", "Vedi i piani")}
             </button>
             <Link href="/features" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/30 backdrop-blur-sm text-black font-semibold rounded-xl hover:bg-white/50 transition-all border border-black/10">
-              {sq(lang, "Të gjitha veçoritë", "All features", "Todas las funciones", "Alle Funktionen", "Сите функции")}
+              {sq(lang, "Të gjitha veçoritë", "All features", "Todas las funciones", "Alle Funktionen", "Сите функции", "Toutes les fonctionnalités", "Todas as funcionalidades", "Tutte le funzionalità")}
             </Link>
           </div>
         </div>

@@ -51,20 +51,20 @@ const BestPractices = () => {
         {
           title: sq(lang, "Automatizo Gjurmimin e Faturave", "Automate Invoice Tracking", "Automatizar Seguimiento de Facturas", "Rechnungsverfolgung Automatisieren", "Автоматизирај Следење на Фактури"),
           description: sq(lang, "Vendos numërimin automatik të faturave dhe kujtesave të pagesave për të reduktuar gabimet manuale dhe përmirësuar rrjedhën e parave.", "Set up automatic invoice numbering and payment reminders to reduce manual errors and improve cash flow.", "Configure la numeración automática de facturas y recordatorios de pago para reducir errores manuales y mejorar el flujo de caja.", "Richten Sie automatische Rechnungsnummerierung und Zahlungserinnerungen ein, um manuelle Fehler zu reduzieren und den Cashflow zu verbessern.", "Поставете автоматско нумерирање на фактури и потсетници за плаќање за да ги намалите грешките и подобрите готовинскиот тек."),
-          impact: sq(lang, "30% arkëtim më i shpejtë", "30% faster payment collection", "30% cobro más rápido", "30% schnellere Zahlungseinziehung", "30% побрзо наплаќање"),
-          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно")
+          impact: sq(lang, "30% arkëtim më i shpejtë", "30% faster payment collection", "30% cobro más rápido", "30% schnellere Zahlungseinziehung", "30% побрзо наплаќање", "30% plus rapide pour la collecte des paiements", "30% mais rápido na cobrança de pagamentos", "30% più veloce nella raccolta dei pagamenti"),
+          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно", "Facile", "Fácil", "Facile")
         },
         {
           title: sq(lang, "Rishikime Mujore Financiare", "Monthly Financial Reviews", "Revisiones Financieras Mensuales", "Monatliche Finanzprüfungen", "Месечни Финансиски Прегледи"),
           description: sq(lang, "Planifikoni kontrolle të rregullta të shëndetit financiar për të identifikuar tendencat dhe mundësitë herët.", "Schedule regular financial health checks to identify trends and opportunities early.", "Programe revisiones regulares de salud financiera para identificar tendencias y oportunidades temprano.", "Planen Sie regelmäßige Finanzgesundheitschecks, um Trends und Chancen frühzeitig zu erkennen.", "Закажете редовни проверки на финансиското здравје за рано идентификување на трендови и можности."),
-          impact: sq(lang, "25% saktësi më e mirë e buxhetit", "25% better budget accuracy", "25% mejor precisión presupuestaria", "25% bessere Budgetgenauigkeit", "25% подобра точност на буџетот"),
-          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно")
+          impact: sq(lang, "25% saktësi më e mirë e buxhetit", "25% better budget accuracy", "25% mejor precisión presupuestaria", "25% bessere Budgetgenauigkeit", "25% подобра точност на буџетот", "25% de précision budgétaire améliorée", "25% de melhor precisão orçamental", "25% di maggiore precisione del budget"),
+          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно", "Moyen", "Médio", "Medio")
         },
         {
           title: sq(lang, "Kategorizimi i Shpenzimeve", "Expense Categorization", "Categorización de Gastos", "Ausgabenkategorisierung", "Категоризација на Трошоци"),
           description: sq(lang, "Përdorni kategori dhe etiketa të qëndrueshme të shpenzimeve për raportim më të mirë dhe përgatitje taksash.", "Use consistent expense categories and tags for better reporting and tax preparation.", "Use categorías y etiquetas de gastos consistentes para mejores informes y preparación de impuestos.", "Verwenden Sie konsistente Ausgabenkategorien und Tags für bessere Berichte und Steuervorbereitung.", "Користете конзистентни категории и ознаки за трошоци за подобро известување и подготовка на даноци."),
-          impact: sq(lang, "40% kursim kohe gjatë sezonit të taksave", "40% time savings during tax season", "40% ahorro de tiempo en temporada de impuestos", "40% Zeitersparnis in der Steuersaison", "40% заштеда на време за време на даночната сезона"),
-          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно")
+          impact: sq(lang, "40% kursim kohe gjatë sezonit të taksave", "40% time savings during tax season", "40% ahorro de tiempo en temporada de impuestos", "40% Zeitersparnis in der Steuersaison", "40% заштеда на време за време на даночната сезона", "40% de gain de temps en période fiscale", "40% de poupança de tempo na época fiscal", "40% di risparmio di tempo durante il periodo fiscale"),
+          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно", "Facile", "Fácil", "Facile")
         }
       ]
     },
@@ -77,19 +77,19 @@ const BestPractices = () => {
           title: sq(lang, "Gjurmimi Digjital i Kohës", "Digital Time Tracking", "Seguimiento Digital de Tiempo", "Digitale Zeiterfassung", "Дигитално Следење на Време"),
           description: sq(lang, "Zbatoni sisteme digjitale të frekuentimit me akses mobil për përpunim të saktë të pagave.", "Implement digital attendance systems with mobile access for accurate payroll processing.", "Implemente sistemas de asistencia digital con acceso móvil para un procesamiento preciso de nóminas.", "Implementieren Sie digitale Anwesenheitssysteme mit mobilem Zugang für eine genaue Gehaltsabrechnung.", "Имплементирајте дигитални системи за присуство со мобилен пристап за точна обработка на плати."),
           impact: sq(lang, "95% saktësi e frekuentimit", "95% attendance accuracy", "95% precisión de asistencia", "95% Anwesenheitsgenauigkeit", "95% точност на присуство"),
-          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно")
+          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно", "Facile", "Fácil", "Facile")
         },
         {
           title: sq(lang, "Metrika të Performancës", "Performance Metrics", "Métricas de Rendimiento", "Leistungskennzahlen", "Метрики за Перформанси"),
           description: sq(lang, "Vendosni KPI të qarta dhe gjurmoni performancën e punonjësve me seanca të rregullta reagimi.", "Set clear KPIs and track employee performance with regular feedback sessions.", "Establezca KPIs claros y rastree el rendimiento de los empleados con sesiones de retroalimentación regulares.", "Setzen Sie klare KPIs und verfolgen Sie die Mitarbeiterleistung mit regelmäßigen Feedback-Sitzungen.", "Поставете јасни KPI и следете ги перформансите на вработените со редовни сесии за повратна информација."),
-          impact: sq(lang, "20% rritje e produktivitetit", "20% productivity increase", "20% aumento de productividad", "20% Produktivitätssteigerung", "20% зголемување на продуктивноста"),
-          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно")
+          impact: sq(lang, "20% rritje e produktivitetit", "20% productivity increase", "20% aumento de productividad", "20% Produktivitätssteigerung", "20% зголемување на продуктивноста", "Augmentation de 20% de la productivité", "Aumento de 20% de produtividade", "Aumento del 20% di produttività"),
+          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно", "Moyen", "Médio", "Medio")
         },
         {
           title: sq(lang, "Udhëzime për Punë në Distancë", "Remote Work Guidelines", "Pautas de Trabajo Remoto", "Richtlinien für Fernarbeit", "Упатства за Далечинска Работа"),
           description: sq(lang, "Vendosni protokolle të qarta komunikimi dhe rrjedha pune të menaxhimit të projekteve për ekipet në distancë.", "Establish clear communication protocols and project management workflows for remote teams.", "Establezca protocolos de comunicación claros y flujos de trabajo de gestión de proyectos para equipos remotos.", "Erstellen Sie klare Kommunikationsprotokolle und Projektmanagement-Workflows für Remote-Teams.", "Воспоставете јасни протоколи за комуникација и работни текови за управување со проекти за далечински тимови."),
-          impact: sq(lang, "35% bashkëpunim më i mirë", "35% better collaboration", "35% mejor colaboración", "35% bessere Zusammenarbeit", "35% подобра соработка"),
-          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно")
+          impact: sq(lang, "35% bashkëpunim më i mirë", "35% better collaboration", "35% mejor colaboración", "35% bessere Zusammenarbeit", "35% подобра соработка", "35% de meilleure collaboration", "35% de melhor colaboração", "35% di migliore collaborazione"),
+          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно", "Moyen", "Médio", "Medio")
         }
       ]
     },
@@ -101,20 +101,20 @@ const BestPractices = () => {
         {
           title: sq(lang, "Automatizimi i Inventarit", "Inventory Automation", "Automatización de Inventario", "Bestandsautomatisierung", "Автоматизација на Инвентар"),
           description: sq(lang, "Vendosni pika automatike të riporositjes dhe alarme të nivelit të stokut për të parandaluar mungesa.", "Set up automatic reorder points and stock level alerts to prevent stockouts.", "Configure puntos de reorden automáticos y alertas de nivel de stock para prevenir desabastecimientos.", "Richten Sie automatische Nachbestellpunkte und Lagerbestandswarnungen ein, um Engpässe zu vermeiden.", "Поставете автоматски точки за нарачки и аларми за ниво на залихи за спречување на недостиг."),
-          impact: sq(lang, "50% reduktim i mungesave", "50% reduction in stockouts", "50% reducción de desabastecimientos", "50% Reduzierung von Engpässen", "50% намалување на недостиг"),
-          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно")
+          impact: sq(lang, "50% reduktim i mungesave", "50% reduction in stockouts", "50% reducción de desabastecimientos", "50% Reduzierung von Engpässen", "50% намалување на недостиг", "50% de réduction des ruptures de stock", "50% de redução das ruturas de stock", "50% di riduzione delle rotture di stock"),
+          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно", "Moyen", "Médio", "Medio")
         },
         {
           title: sq(lang, "Menaxhimi i Marrëdhënieve me Furnitorët", "Vendor Relationship Management", "Gestión de Relaciones con Proveedores", "Lieferantenbeziehungsmanagement", "Управување со Односи со Добавувачи"),
           description: sq(lang, "Mbani profile të detajuara të furnitorëve me metrika performancës dhe kushte pagese.", "Maintain detailed vendor profiles with performance metrics and payment terms.", "Mantenga perfiles detallados de proveedores con métricas de rendimiento y términos de pago.", "Pflegen Sie detaillierte Lieferantenprofile mit Leistungskennzahlen und Zahlungsbedingungen.", "Одржувајте детални профили на добавувачи со метрики за перформанси и услови за плаќање."),
-          impact: sq(lang, "15% kursim në blerje", "15% cost savings on purchases", "15% ahorro en compras", "15% Kosteneinsparung bei Einkäufen", "15% заштеда на трошоци при купување"),
-          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно")
+          impact: sq(lang, "15% kursim në blerje", "15% cost savings on purchases", "15% ahorro en compras", "15% Kosteneinsparung bei Einkäufen", "15% заштеда на трошоци при купување", "15% d'économies sur les achats", "15% de poupança nos custos de compras", "15% di risparmio sui costi di acquisto"),
+          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно", "Facile", "Fácil", "Facile")
         },
         {
           title: sq(lang, "Dokumentimi i Proceseve", "Process Documentation", "Documentación de Procesos", "Prozessdokumentation", "Документирање на Процеси"),
           description: sq(lang, "Dokumentoni të gjitha proceset e biznesit për të siguruar qëndrueshmëri dhe për të mundësuar hyrje të lehtë.", "Document all business processes to ensure consistency and enable easy onboarding.", "Documente todos los procesos empresariales para garantizar consistencia y facilitar la incorporación.", "Dokumentieren Sie alle Geschäftsprozesse, um Konsistenz zu gewährleisten und einfaches Onboarding zu ermöglichen.", "Документирајте ги сите бизнис процеси за обезбедување конзистентност и овозможување лесно вработување."),
           impact: sq(lang, "60% hyrje më e shpejtë e punonjësve", "60% faster employee onboarding", "60% incorporación más rápida", "60% schnelleres Mitarbeiter-Onboarding", "60% побрзо вработување"),
-          difficulty: sq(lang, "E Vështirë", "Hard", "Difícil", "Schwer", "Тешко")
+          difficulty: sq(lang, "E Vështirë", "Hard", "Difícil", "Schwer", "Тешко", "Difficile", "Difícil", "Difficile")
         }
       ]
     },
@@ -126,20 +126,20 @@ const BestPractices = () => {
         {
           title: sq(lang, "Menaxhimi i të Dhënave të Klientëve", "Customer Data Management", "Gestión de Datos de Clientes", "Kundendatenmanagement", "Управување со Податоци на Клиенти"),
           description: sq(lang, "Centralizoni informacionin e klientit me historikun e ndërveprimeve dhe gjurmimin e preferencave.", "Centralize customer information with interaction history and preferences tracking.", "Centralice la información del cliente con historial de interacciones y seguimiento de preferencias.", "Zentralisieren Sie Kundeninformationen mit Interaktionsverlauf und Präferenzverfolgung.", "Централизирајте ги информациите за клиентите со историја на интеракции и следење на преференции."),
-          impact: sq(lang, "45% përmirësim i kënaqësisë së klientëve", "45% improvement in customer satisfaction", "45% mejora en satisfacción del cliente", "45% Verbesserung der Kundenzufriedenheit", "45% подобрување на задоволството на клиентите"),
-          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно")
+          impact: sq(lang, "45% përmirësim i kënaqësisë së klientëve", "45% improvement in customer satisfaction", "45% mejora en satisfacción del cliente", "45% Verbesserung der Kundenzufriedenheit", "45% подобрување на задоволството на клиентите", "45% d'amélioration de la satisfaction client", "45% de melhoria na satisfação do cliente", "45% di miglioramento della soddisfazione del cliente"),
+          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно", "Facile", "Fácil", "Facile")
         },
         {
           title: sq(lang, "Automatizimi i Ndjekjes", "Follow-up Automation", "Automatización de Seguimiento", "Follow-up-Automatisierung", "Автоматизација на Следење"),
           description: sq(lang, "Vendosni sekuenca automatike ndjekjeje për oferta, propozime dhe kujdes pas blerjes.", "Set up automated follow-up sequences for quotes, proposals, and post-purchase care.", "Configure secuencias de seguimiento automatizadas para cotizaciones, propuestas y atención post-compra.", "Richten Sie automatisierte Follow-up-Sequenzen für Angebote, Vorschläge und Nachkaufbetreuung ein.", "Поставете автоматизирани секвенци за следење за понуди, предлози и пост-купувачка грижа."),
-          impact: sq(lang, "25% rritje e normës së konvertimit", "25% increase in conversion rates", "25% aumento en tasas de conversión", "25% Steigerung der Konversionsraten", "25% зголемување на стапките на конверзија"),
-          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно")
+          impact: sq(lang, "25% rritje e normës së konvertimit", "25% increase in conversion rates", "25% aumento en tasas de conversión", "25% Steigerung der Konversionsraten", "25% зголемување на стапките на конверзија", "25% d'augmentation des taux de conversion", "25% de aumento nas taxas de conversão", "25% di aumento dei tassi di conversione"),
+          difficulty: sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно", "Moyen", "Médio", "Medio")
         },
         {
           title: sq(lang, "Mbledhja e Reagimit", "Feedback Collection", "Recopilación de Comentarios", "Feedback-Sammlung", "Собирање Повратна Информација"),
           description: sq(lang, "Zbatoni mbledhje sistematike të reagimit dhe procese përgjigje.", "Implement systematic feedback collection and response processes.", "Implemente procesos sistemáticos de recopilación y respuesta de comentarios.", "Implementieren Sie systematische Feedback-Erfassung und Reaktionsprozesse.", "Имплементирајте систематско собирање повратна информација и процеси за одговор."),
-          impact: sq(lang, "30% mbajtje më e mirë e klientëve", "30% better customer retention", "30% mejor retención de clientes", "30% bessere Kundenbindung", "30% подобро задржување на клиенти"),
-          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно")
+          impact: sq(lang, "30% mbajtje më e mirë e klientëve", "30% better customer retention", "30% mejor retención de clientes", "30% bessere Kundenbindung", "30% подобро задржување на клиенти", "30% de meilleure fidélisation des clients", "30% de melhor retenção de clientes", "30% di migliore fidelizzazione dei clienti"),
+          difficulty: sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно", "Facile", "Fácil", "Facile")
         }
       ]
     }
@@ -329,7 +329,7 @@ const BestPractices = () => {
                             {practice.title}
                           </CardTitle>
                           <Badge 
-                            variant={practice.difficulty === sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно") ? 'default' : practice.difficulty === sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно") ? 'secondary' : 'destructive'}
+                            variant={practice.difficulty === sq(lang, "E Lehtë", "Easy", "Fácil", "Einfach", "Лесно", "Facile", "Fácil", "Facile") ? 'default' : practice.difficulty === sq(lang, "Mesatare", "Medium", "Medio", "Mittel", "Средно", "Moyen", "Médio", "Medio") ? 'secondary' : 'destructive'}
                             className="text-xs"
                           >
                             {practice.difficulty}
@@ -392,7 +392,7 @@ const BestPractices = () => {
                 <Users className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{sq(lang, "Mbështetje Ekspertësh", "Expert Support", "Soporte Experto", "Experten-Support", "Стручна Поддршка", "Assistance experte", "Suporte especializado", "Supporto esperto")}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">{sq(lang, "Akses 24/7 tek ekspertë dhe konsulentë të optimizimit të biznesit", "24/7 access to business optimization experts and consultants", "Acceso 24/7 a expertos en optimización empresarial y consultores", "24/7-Zugang zu Experten für Geschäftsoptimierung und Beratern", "24/7 пристап до експерти за оптимизација на бизнис и консултанти")}</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">{sq(lang, "Akses 24/7 tek ekspertë dhe konsulentë të optimizimit të biznesit", "24/7 access to business optimization experts and consultants", "Acceso 24/7 a expertos en optimización empresarial y consultores", "24/7-Zugang zu Experten für Geschäftsoptimierung und Beratern", "24/7 пристап до експерти за оптимизација на бизнис и консултанти", "Accès 24h/7j aux experts en optimisation des entreprises", "Acesso 24h/7d a especialistas em otimização empresarial", "Accesso 24h/7g a esperti in ottimizzazione aziendale")}</p>
             </div>
           </div>
           
@@ -408,7 +408,7 @@ const BestPractices = () => {
               onClick={() => go("/subscribe")}
               className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 px-8 py-4 text-lg font-bold transition-all duration-300"
             >
-              {sq(lang, "Shiko Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Anzeigen", "Видете Ценовни Планови")}
+              {sq(lang, "Shiko Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Anzeigen", "Видете Ценовни Планови", "Voir les plans tarifaires", "Ver planos de preços", "Vedi i piani tariffari")}
             </Button>
           </div>
         </div>

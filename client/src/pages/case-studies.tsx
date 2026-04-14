@@ -25,15 +25,15 @@ export default function CaseStudies() {
     {
       logo: "TN", color: "bg-indigo-600",
       company: "Truly Nolen",
-      industry: sq(lang, "Shërbime Profesionale & Kontrolli i Dëmtuesve", "Professional Services & Pest Control", "Servicios profesionales y control de plagas", "Professionelle Dienstleistungen & Schädlingsbekämpfung", "Професионални услуги и контрола на штетници"),
+      industry: sq(lang, "Shërbime Profesionale & Kontrolli i Dëmtuesve", "Professional Services & Pest Control", "Servicios profesionales y control de plagas", "Professionelle Dienstleistungen & Schädlingsbekämpfung", "Професионални услуги и контрола на штетници", "Services professionnels & lutte antiparasitaire", "Serviços profissionais & controlo de pragas", "Servizi professionali & lotta ai parassiti"),
       location: "Prishtinë, Kosovë",
-      size: sq(lang, "45 punonjës", "45 employees", "45 empleados", "45 Mitarbeiter", "45 вработени"),
+      size: sq(lang, "45 punonjës", "45 employees", "45 empleados", "45 Mitarbeiter", "45 вработени", "45 employés", "45 funcionários", "45 dipendenti"),
       metrics: [
-        { v: "72%", l: sq(lang, "Kursim kohe administrative", "Administrative time saved", "Tiempo administrativo ahorrado", "Verwaltungszeit gespart", "Заштедено административно време"), icon: Clock },
-        { v: "€95K", l: sq(lang, "Arkëtuar brenda 30 ditësh", "Collected within 30 days", "Cobrado en 30 días", "Innerhalb von 30 Tagen eingezogen", "Наплатено во рок од 30 дена"), icon: TrendingUp },
-        { v: "4×", l: sq(lang, "Shpejtësi fakturimi", "Invoicing speed", "Velocidad de facturación", "Rechnungsgeschwindigkeit", "Брзина на фактурирање"), icon: FileText },
+        { v: "72%", l: sq(lang, "Kursim kohe administrative", "Administrative time saved", "Tiempo administrativo ahorrado", "Verwaltungszeit gespart", "Заштедено административно време", "Temps administratif économisé", "Tempo administrativo poupado", "Tempo amministrativo risparmiato"), icon: Clock },
+        { v: "€95K", l: sq(lang, "Arkëtuar brenda 30 ditësh", "Collected within 30 days", "Cobrado en 30 días", "Innerhalb von 30 Tagen eingezogen", "Наплатено во рок од 30 дена", "Collecté dans les 30 jours", "Cobrado em 30 dias", "Raccolto entro 30 giorni"), icon: TrendingUp },
+        { v: "4×", l: sq(lang, "Shpejtësi fakturimi", "Invoicing speed", "Velocidad de facturación", "Rechnungsgeschwindigkeit", "Брзина на фактурирање", "Vitesse de facturation", "Velocidade de faturação", "Velocità di fatturazione"), icon: FileText },
       ],
-      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti"), sq(lang, "Raporte", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"), sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese")],
+      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање", "Facturation", "Faturação", "Fatturazione"), sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti"), sq(lang, "Raporte", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"), sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese")],
       challenge: sq(lang,
         "Truly Nolen menaxhonte qindra kontrata shërbimi dhe fatura mujore për klientë biznesi e rezidencial. Procesi manual në Excel shkaktonte gabime dhe vonesa — shumë klientë nuk merrnin faturën në kohë dhe ekipi humbisnin orë duke ndjekur pagesat.",
         "Truly Nolen managed hundreds of service contracts and monthly invoices for business and residential clients. The manual Excel process caused errors and delays — many clients didn't receive invoices on time and the team wasted hours chasing payments.",
@@ -55,20 +55,20 @@ export default function CaseStudies() {
         "Clientlly hat uns geholfen, innerhalb von Tagen von chaotischem Excel zu einem professionellen System zu wechseln. Zahlungen kommen 3x schneller.",
         "Clientlly ни помогна да преминеме од хаотичен Excel кон професионален систем за неколку дена. Плаќањата пристигнуваат 3 пати побрзо."
       ),
-      author: "Erjon Malaj", role: sq(lang, "Drejtor Operacionesh", "Operations Director", "Director de Operaciones", "Betriebsleiter", "Директор на операции"),
+      author: "Erjon Malaj", role: sq(lang, "Drejtor Operacionesh", "Operations Director", "Director de Operaciones", "Betriebsleiter", "Директор на операции", "Directeur des opérations", "Diretor de operações", "Direttore delle operazioni"),
     },
     {
       logo: "SL", color: "bg-violet-600",
       company: "Scentlinqpro",
-      industry: sq(lang, "Produkte & Tregti Online", "Products & E-commerce", "Productos y comercio electrónico", "Produkte & E-Commerce", "Производи и е-трговија"),
+      industry: sq(lang, "Produkte & Tregti Online", "Products & E-commerce", "Productos y comercio electrónico", "Produkte & E-Commerce", "Производи и е-трговија", "Produits & e-commerce", "Produtos & e-commerce", "Prodotti & e-commerce"),
       location: "Prishtinë, Kosovë",
-      size: sq(lang, "18 punonjës", "18 employees", "18 empleados", "18 Mitarbeiter", "18 вработени"),
+      size: sq(lang, "18 punonjës", "18 employees", "18 empleados", "18 Mitarbeiter", "18 вработени", "18 employés", "18 funcionários", "18 dipendenti"),
       metrics: [
-        { v: "98%", l: sq(lang, "Fatura të paguara në kohë", "Invoices paid on time", "Facturas pagadas a tiempo", "Rechnungen pünktlich bezahlt", "Фактури платени навреме"), icon: CheckCircle },
-        { v: "€180K", l: sq(lang, "Xhiro vjetore e menaxhuar", "Annual revenue managed", "Ingresos anuales gestionados", "Verwalteter Jahresumsatz", "Управуван годишен приход"), icon: BarChart3 },
-        { v: "55%", l: sq(lang, "Ulje e kohës së administrimit", "Reduction in admin time", "Reducción del tiempo administrativo", "Reduzierung der Verwaltungszeit", "Намалување на административното време"), icon: TrendingUp },
+        { v: "98%", l: sq(lang, "Fatura të paguara në kohë", "Invoices paid on time", "Facturas pagadas a tiempo", "Rechnungen pünktlich bezahlt", "Фактури платени навреме", "Factures payées à temps", "Faturas pagas a tempo", "Fatture pagate in tempo"), icon: CheckCircle },
+        { v: "€180K", l: sq(lang, "Xhiro vjetore e menaxhuar", "Annual revenue managed", "Ingresos anuales gestionados", "Verwalteter Jahresumsatz", "Управуван годишен приход", "Revenus annuels gérés", "Receita anual gerida", "Ricavi annuali gestiti"), icon: BarChart3 },
+        { v: "55%", l: sq(lang, "Ulje e kohës së administrimit", "Reduction in admin time", "Reducción del tiempo administrativo", "Reduzierung der Verwaltungszeit", "Намалување на административното време", "Réduction du temps administratif", "Redução do tempo administrativo", "Riduzione del tempo amministrativo"), icon: TrendingUp },
       ],
-      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"), sq(lang, "Inventar", "Inventory", "Inventario", "Inventar", "Инвентар", "Stock", "Inventário", "Magazzino"), sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti")],
+      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање", "Facturation", "Faturação", "Fatturazione"), sq(lang, "Shpenzime", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"), sq(lang, "Inventar", "Inventory", "Inventario", "Inventar", "Инвентар", "Stock", "Inventário", "Magazzino"), sq(lang, "Klientë", "Clients", "Clientes", "Kunden", "Клиенти", "Clients", "Clientes", "Clienti")],
       challenge: sq(lang,
         "Scentlinqpro, distributor i parfumeve premium, kishte vështirësi në gjurmimin e stokut, faturimin e shpërndarësve dhe menaxhimin e shpenzimeve të importit. Tre sisteme të ndryshme krijonte konfuzion dhe të dhëna jo të sinkronizuara.",
         "Scentlinqpro, a premium fragrance distributor, struggled with tracking stock, invoicing distributors and managing import expenses. Three separate systems created confusion and unsynchronised data.",
@@ -90,20 +90,20 @@ export default function CaseStudies() {
         "Jetzt wissen wir genau, wie viel wir mit jedem Produkt verdienen. Clientlly gab uns die vollständige Geschäftskontrolle.",
         "Сега знаеме точно колку заработуваме од секој производ. Clientlly ни даде целосна контрола над бизнисот."
       ),
-      author: "Drita Krasniqi", role: sq(lang, "Pronare & CEO", "Owner & CEO", "Propietaria y CEO", "Inhaberin & CEO", "Сопственичка и CEO"),
+      author: "Drita Krasniqi", role: sq(lang, "Pronare & CEO", "Owner & CEO", "Propietaria y CEO", "Inhaberin & CEO", "Сопственичка и CEO", "Propriétaire & PDG", "Proprietário & CEO", "Proprietario & CEO"),
     },
     {
       logo: "ME", color: "bg-emerald-600",
       company: "Mediterra Import-Export",
-      industry: sq(lang, "Tregti dhe Shpërndarje", "Trade & Distribution", "Comercio y distribución", "Handel & Vertrieb", "Трговија и дистрибуција"),
+      industry: sq(lang, "Tregti dhe Shpërndarje", "Trade & Distribution", "Comercio y distribución", "Handel & Vertrieb", "Трговија и дистрибуција", "Commerce & Distribution", "Comércio & Distribuição", "Commercio & Distribuzione"),
       location: "Shkup, Maqedoni e Veriut",
-      size: sq(lang, "45 punonjës", "45 employees", "45 empleados", "45 Mitarbeiter", "45 вработени"),
+      size: sq(lang, "45 punonjës", "45 employees", "45 empleados", "45 Mitarbeiter", "45 вработени", "45 employés", "45 funcionários", "45 dipendenti"),
       metrics: [
-        { v: "€2.1M", l: sq(lang, "Fatura të menaxhuara/vit", "Invoices managed/year", "Facturas gestionadas/año", "Verwaltete Rechnungen/Jahr", "Управувани фактури/година"), icon: FileText },
-        { v: "22%", l: sq(lang, "Ulje e borxheve të këqija", "Bad debt reduction", "Reducción de deudas incobrables", "Reduzierung von Forderungsausfällen", "Намалување на лоши долгови"), icon: TrendingUp },
-        { v: "8 min", l: sq(lang, "Kohë mesatare fakturimi", "Average invoicing time", "Tiempo promedio de facturación", "Durchschnittliche Rechnungszeit", "Просечно време за фактурирање"), icon: Clock },
+        { v: "€2.1M", l: sq(lang, "Fatura të menaxhuara/vit", "Invoices managed/year", "Facturas gestionadas/año", "Verwaltete Rechnungen/Jahr", "Управувани фактури/година", "Factures gérées/an", "Faturas geridas/ano", "Fatture gestite/anno"), icon: FileText },
+        { v: "22%", l: sq(lang, "Ulje e borxheve të këqija", "Bad debt reduction", "Reducción de deudas incobrables", "Reduzierung von Forderungsausfällen", "Намалување на лоши долгови", "Réduction des créances douteuses", "Redução de dívidas incobráveis", "Riduzione dei crediti inesigibili"), icon: TrendingUp },
+        { v: "8 min", l: sq(lang, "Kohë mesatare fakturimi", "Average invoicing time", "Tiempo promedio de facturación", "Durchschnittliche Rechnungszeit", "Просечно време за фактурирање", "Temps de facturation moyen", "Tempo médio de faturação", "Tempo medio di fatturazione"), icon: Clock },
       ],
-      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање"), sq(lang, "Furnitorë", "Vendors", "Proveedores", "Lieferanten", "Добавувачи", "Fournisseurs", "Fornecedores", "Fornitori"), sq(lang, "Inventar", "Inventory", "Inventario", "Inventar", "Инвентар", "Stock", "Inventário", "Magazzino"), sq(lang,"Borxhe","Debt","Deudas","Schulden","Долгови")],
+      modules: [sq(lang,"Faturim","Invoicing","Facturación","Rechnungsstellung","Фактурирање", "Facturation", "Faturação", "Fatturazione"), sq(lang, "Furnitorë", "Vendors", "Proveedores", "Lieferanten", "Добавувачи", "Fournisseurs", "Fornecedores", "Fornitori"), sq(lang, "Inventar", "Inventory", "Inventario", "Inventar", "Инвентар", "Stock", "Inventário", "Magazzino"), sq(lang,"Borxhe","Debt","Deudas","Schulden","Долгови", "Dette", "Dívida", "Debito")],
       challenge: sq(lang,
         "Mediterra menaxhonte mbi 200 furnitorë dhe 150 klientë në sisteme të ndryshme. Borxhet e vonuara dhe inventari ishin të pa-sinkronizuara, duke shkaktuar humbje financiare. Menaxheri duhej të kontrollonte 3 sisteme çdo ditë.",
         "Mediterra managed over 200 suppliers and 150 clients across different systems. Overdue debts and inventory were unsynchronized, causing financial losses. The manager had to check 3 systems daily.",
@@ -125,7 +125,7 @@ export default function CaseStudies() {
         "Wir haben über 15.000 € pro Jahr gespart, allein durch die Beseitigung doppelter Rechnungen und nicht verfolgter Schulden.",
         "Заштедивме над 15.000 € годишно само со елиминирање на дупликат фактури и неследени долгови."
       ),
-      author: "Besnik Aliu", role: sq(lang, "Drejtor i Operacioneve", "Director of Operations", "Director de Operaciones", "Betriebsleiter", "Директор на операции"),
+      author: "Besnik Aliu", role: sq(lang, "Drejtor i Operacioneve", "Director of Operations", "Director de Operaciones", "Betriebsleiter", "Директор на операции", "Directeur des opérations", "Diretor de operações", "Direttore delle operazioni"),
     },
   ];
 
@@ -171,13 +171,13 @@ export default function CaseStudies() {
               "Historias reales de negocios que han transformado sus operaciones usando Clientlly.",
               "Echte Geschichten von Unternehmen, die ihre Abläufe mit Clientlly transformiert haben.",
               "Вистински приказни од бизниси кои ги трансформирале своите операции користејќи Clientlly."
-            )}
+            , "Des histoires vraies d'entreprises qui ont transformé leurs opérations avec Clientlly.", "Histórias reais de empresas que transformaram as suas operações com o Clientlly.", "Storie reali di aziende che hanno trasformato le loro operazioni con Clientlly.")}
           </p>
           <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-100 max-w-sm">
             {[
-              { v:"200+", l: sq(lang,"Biznese aktive","Active businesses","Negocios activos","Aktive Unternehmen","Активни бизниси") },
+              { v:"200+", l: sq(lang,"Biznese aktive","Active businesses","Negocios activos","Aktive Unternehmen","Активни бизниси", "Entreprises actives", "Empresas ativas", "Aziende attive") },
               { v:"98%",  l: sq(lang, "Kënaqësi klientësh", "Customer satisfaction", "Satisfacción del cliente", "Kundenzufriedenheit", "Задоволство на клиентите", "Satisfaction client", "Satisfação do cliente", "Soddisfazione del cliente") },
-              { v:"€12M+",l: sq(lang,"Fatura të përpunuara","Invoices processed","Facturas procesadas","Verarbeitete Rechnungen","Обработени фактури") },
+              { v:"€12M+",l: sq(lang,"Fatura të përpunuara","Invoices processed","Facturas procesadas","Verarbeitete Rechnungen","Обработени фактури", "Factures traitées", "Faturas processadas", "Fatture elaborate") },
             ].map((s,i) => (
               <div key={i}>
                 <p className="text-2xl font-extrabold text-gray-900">{s.v}</p>
@@ -228,11 +228,11 @@ export default function CaseStudies() {
               {/* Challenge / Solution */}
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div>
-                  <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">{sq(lang,"Sfida","Challenge","Desafío","Herausforderung","Предизвик")}</p>
+                  <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">{sq(lang,"Sfida","Challenge","Desafío","Herausforderung","Предизвик", "Défi", "Desafio", "Sfida")}</p>
                   <p className="text-gray-600 leading-relaxed text-sm">{s.challenge}</p>
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">{sq(lang,"Zgjidhja","Solution","Solución","Lösung","Решение")}</p>
+                  <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">{sq(lang,"Zgjidhja","Solution","Solución","Lösung","Решение", "Solution", "Solução", "Soluzione")}</p>
                   <p className="text-gray-600 leading-relaxed text-sm">{s.solution}</p>
                 </div>
               </div>
@@ -271,7 +271,7 @@ export default function CaseStudies() {
             )}
           </h2>
           <p className="text-gray-400 mb-8">
-            {sq(lang,"Bashkohuni me 200+ biznese që po rriten me Clientlly. 14-ditë provë falas.","Join 200+ businesses growing with Clientlly. 14-day free trial.","Únase a más de 200 negocios que crecen con Clientlly. Prueba gratuita de 14 días.","Schließen Sie sich über 200 Unternehmen an, die mit Clientlly wachsen. 14 Tage kostenlose Testversion.","Придружете се на 200+ бизниси кои растат со Clientlly. 14-дневна бесплатна проба.")}
+            {sq(lang,"Bashkohuni me 200+ biznese që po rriten me Clientlly. 14-ditë provë falas.","Join 200+ businesses growing with Clientlly. 14-day free trial.","Únase a más de 200 negocios que crecen con Clientlly. Prueba gratuita de 14 días.","Schließen Sie sich über 200 Unternehmen an, die mit Clientlly wachsen. 14 Tage kostenlose Testversion.","Придружете се на 200+ бизниси кои растат со Clientlly. 14-дневна бесплатна проба.", "Rejoignez 200+ entreprises en croissance avec Clientlly. Essai gratuit de 14 jours.", "Junte-se a 200+ empresas em crescimento com o Clientlly. Teste gratuito de 14 dias.", "Unisciti a 200+ aziende in crescita con Clientlly. Prova gratuita di 14 giorni.")}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link href="/trial"
@@ -280,7 +280,7 @@ export default function CaseStudies() {
             </Link>
             <Link href="/contact"
               className="px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all">
-              {sq(lang,"Kontakto Sales","Contact Sales","Contactar ventas","Vertrieb kontaktieren","Контактирајте продажба")}
+              {sq(lang,"Kontakto Sales","Contact Sales","Contactar ventas","Vertrieb kontaktieren","Контактирајте продажба", "Contacter les ventes", "Contactar vendas", "Contatta le vendite")}
             </Link>
           </div>
         </div>

@@ -233,7 +233,7 @@ export default function Login() {
                     <div className="text-sm">
                       <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors">
                         <ArrowLeft className="h-4 w-4 mr-1" />
-                        {sq(lang, "Kthehu në Faqen Kryesore", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад кон Почетна")}
+                        {sq(lang, "Kthehu në Faqen Kryesore", "Back to Home", "Volver al Inicio", "Zurück zur Startseite", "Назад кон Почетна", "Retour à l'accueil", "Voltar ao início", "Torna alla home")}
                       </Link>
                     </div>
                   </div>
@@ -327,7 +327,7 @@ export default function Login() {
                 </Badge>
                 <Badge variant="secondary" className="flex items-center space-x-2 px-4 py-2 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 text-yellow-700 dark:text-yellow-300">
                   <Star className="h-4 w-4" />
-                  <span className="font-medium">{sq(lang, "4.9/5 Vlerësim", "4.9/5 Rating", "4.9/5 Calificación", "4.9/5 Bewertung", "4.9/5 Оценка")}</span>
+                  <span className="font-medium">{sq(lang, "4.9/5 Vlerësim", "4.9/5 Rating", "4.9/5 Calificación", "4.9/5 Bewertung", "4.9/5 Оценка", "Note 4,9/5", "Classificação 4,9/5", "Valutazione 4,9/5")}</span>
                 </Badge>
                 <Badge variant="secondary" className="flex items-center space-x-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300">
                   <Award className="h-4 w-4" />
@@ -365,7 +365,7 @@ export default function Login() {
             </Link>
             <Link href="/subscribe">
               <Button variant="outline" className="px-8 py-3 text-lg font-semibold rounded-2xl border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300">
-                {sq(lang, "Shikoni Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Ansehen", "Погледнете Ценовни Планови")}
+                {sq(lang, "Shikoni Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Ansehen", "Погледнете Ценовни Планови", "Voir les plans tarifaires", "Ver planos de preços", "Vedi i piani tariffari")}
               </Button>
             </Link>
           </div>

@@ -59,7 +59,7 @@ const CancelAnytimePage = () => {
       benefits: [
         sq(lang, "Eksport i plotë i të dhënave", "Complete data export", "Exportación completa de datos", "Vollständiger Datenexport", "Целосен извоз на податоци") as string,
         sq(lang, "Formate të shumta skedarësh", "Multiple file formats", "Múltiples formatos de archivo", "Mehrere Dateiformate", "Повеќе формати на датотеки") as string,
-        sq(lang, "Periudhë pritjeje 30-ditore", "30-day grace period", "Período de gracia de 30 días", "30-Tage-Gnadenfrist", "30-дневен грејс период") as string
+        sq(lang, "Periudhë pritjeje 30-ditore", "30-day grace period", "Período de gracia de 30 días", "30-Tage-Gnadenfrist", "30-дневен грејс период", "Période de grâce de 30 jours", "Período de carência de 30 dias", "Periodo di grazia di 30 giorni") as string
       ]
     },
     {
@@ -205,7 +205,7 @@ const CancelAnytimePage = () => {
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-sm font-bold text-gray-800 mb-8">
               <AlertCircle className="w-4 h-4 mr-2 text-gray-700" />
-              {sq(lang, "Provoni Pa Rrezik Sot", "Try Risk-Free Today", "Pruebe Sin Riesgo Hoy", "Heute Risikofrei Testen", "Пробајте Без Ризик Денес")}
+              {sq(lang, "Provoni Pa Rrezik Sot", "Try Risk-Free Today", "Pruebe Sin Riesgo Hoy", "Heute Risikofrei Testen", "Пробајте Без Ризик Денес", "Essayer sans risque aujourd'hui", "Experimentar sem risco hoje", "Prova senza rischi oggi")}
             </div>
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
@@ -213,11 +213,11 @@ const CancelAnytimePage = () => {
                 {sq(lang, "Provoni", "Try", "Pruebe", "Testen Sie", "Пробајте")} <span className="animate-subtle-gradient">{sq(lang, "Pa Rrezik", "Risk-Free", "Sin Riesgo", "Risikofrei", "Без Ризик")}</span>
               </span>
               <br />
-              <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес")}</span>
+              <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес", "Aujourd'hui", "Hoje", "Oggi")}</span>
             </h1>
             
             <p className="text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed mb-12 drop-shadow-sm">
-              {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.")}
+              {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.", "Commencez votre essai gratuit en sachant que vous pouvez annuler à tout moment sans complication.", "Inicie o seu teste gratuito sabendo que pode cancelar a qualquer momento sem complicações.", "Inizia la tua prova gratuita sapendo che puoi annullare in qualsiasi momento senza complicazioni.")}
             </p>
 
 
@@ -305,10 +305,10 @@ const CancelAnytimePage = () => {
 
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6 drop-shadow-lg">
-            {sq(lang, "Provoni Pa Rrezik", "Try Risk-Free", "Pruebe Sin Riesgo", "Risikofrei Testen", "Пробајте Без Ризик")} <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес")}</span>
+            {sq(lang, "Provoni Pa Rrezik", "Try Risk-Free", "Pruebe Sin Riesgo", "Risikofrei Testen", "Пробајте Без Ризик")} <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Sot", "Today", "Hoy", "Heute", "Денес", "Aujourd'hui", "Hoje", "Oggi")}</span>
           </h2>
           <p className="text-xl text-gray-800 mb-8 leading-relaxed drop-shadow-sm">
-            {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.")}
+            {sq(lang, "Filloni provën tuaj falas duke ditur se mund ta anuloni në çdo kohë pa asnjë komplikim. Përjetoni fuqinë e plotë të BusinessFlow Pro me qetësi të plotë mendore.", "Start your free trial knowing you can cancel anytime without any complications. Experience the full power of BusinessFlow Pro with complete peace of mind.", "Comience su prueba gratuita sabiendo que puede cancelar en cualquier momento sin complicaciones. Experimente todo el poder de BusinessFlow Pro con total tranquilidad.", "Starten Sie Ihre kostenlose Testversion in dem Wissen, dass Sie jederzeit ohne Komplikationen kündigen können. Erleben Sie die volle Leistung von BusinessFlow Pro mit völliger Gelassenheit.", "Започнете ја вашата бесплатна проба знаејќи дека можете да откажете во секое време без компликации. Искусете ја целосната моќ на BusinessFlow Pro со целосен мир.", "Commencez votre essai gratuit en sachant que vous pouvez annuler à tout moment sans complication.", "Inicie o seu teste gratuito sabendo que pode cancelar a qualquer momento sem complicações.", "Inizia la tua prova gratuita sapendo che puoi annullare in qualsiasi momento senza complicazioni.")}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -326,7 +326,7 @@ const CancelAnytimePage = () => {
               onClick={() => go("/subscribe")}
               className="px-8 py-4 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white rounded-lg text-lg font-bold transition-all duration-300 hover:scale-105"
             >
-              {sq(lang, "Shiko Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Ansehen", "Погледни Ценовни Планови")}
+              {sq(lang, "Shiko Planet e Çmimeve", "View Pricing Plans", "Ver Planes de Precios", "Preispläne Ansehen", "Погледни Ценовни Планови", "Voir les plans tarifaires", "Ver planos de preços", "Vedi i piani tariffari")}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>

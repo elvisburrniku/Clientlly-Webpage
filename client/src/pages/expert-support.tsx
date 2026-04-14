@@ -38,7 +38,7 @@ const ExpertSupportPage = () => {
       description: sq(lang, "Merrni ndihmë të menjëhershme nga ekipi ynë ekspert i mbështetjes përmes chat-it të drejtpërdrejtë - i disponueshëm 24/7.", "Get instant help from our expert support team through live chat - available 24/7.", "Obtenga ayuda instantánea de nuestro equipo de soporte experto a través del chat en vivo - disponible 24/7.", "Erhalten Sie sofortige Hilfe von unserem Experten-Support-Team über den Live-Chat - rund um die Uhr verfügbar.", "Добијте моментална помош од нашиот експертски тим за поддршка преку жив чат - достапен 24/7."),
       features: [
         sq(lang, "Përgjigje të menjëhershme", "Instant responses", "Respuestas instantáneas", "Sofortige Antworten", "Моментални одговори") as string,
-        sq(lang, "Ndarje ekrani", "Screen sharing", "Compartir pantalla", "Bildschirmfreigabe", "Споделување екран") as string,
+        sq(lang, "Ndarje ekrani", "Screen sharing", "Compartir pantalla", "Bildschirmfreigabe", "Споделување екран", "Partage d'écran", "Partilha de ecrã", "Condivisione schermo") as string,
         sq(lang, "Transferim skedarësh", "File transfers", "Transferencia de archivos", "Dateiübertragungen", "Пренос на датотеки") as string
       ],
       availability: "24/7"
@@ -59,7 +59,7 @@ const ExpertSupportPage = () => {
       title: sq(lang, "Mbështetje me Video", "Video Support", "Soporte por Video", "Video-Support", "Видео Поддршка"),
       description: sq(lang, "Sesione video një-për-një për trajnim të personalizuar dhe zgjidhje problemesh.", "One-on-one video sessions for personalized training and problem-solving.", "Sesiones de video uno a uno para capacitación personalizada y resolución de problemas.", "Eins-zu-eins-Videositzungen für personalisiertes Training und Problemlösung.", "Индивидуални видео сесии за персонализирана обука и решавање проблеми."),
       features: [
-        sq(lang, "Ndarje ekrani", "Screen sharing", "Compartir pantalla", "Bildschirmfreigabe", "Споделување екран") as string,
+        sq(lang, "Ndarje ekrani", "Screen sharing", "Compartir pantalla", "Bildschirmfreigabe", "Споделување екран", "Partage d'écran", "Partilha de ecrã", "Condivisione schermo") as string,
         sq(lang, "Trajnim personal", "Personal training", "Entrenamiento personal", "Persönliches Training", "Лична обука") as string,
         sq(lang, "Ndihmë për konfigurim", "Setup assistance", "Asistencia de configuración", "Einrichtungsassistenz", "Помош при поставување") as string
       ],
@@ -67,11 +67,11 @@ const ExpertSupportPage = () => {
     },
     {
       icon: <BookOpen className="w-8 h-8" />,
-      title: sq(lang, "Baza e Njohurive", "Knowledge Base", "Base de Conocimientos", "Wissensdatenbank", "База на Знаење"),
+      title: sq(lang, "Baza e Njohurive", "Knowledge Base", "Base de Conocimientos", "Wissensdatenbank", "База на Знаење", "Base de connaissances", "Base de conhecimento", "Knowledge base"),
       description: sq(lang, "Dokumentacion gjithëpërfshirës, tutoriale dhe udhëzues për mbështetje vetë-shërbim.", "Comprehensive documentation, tutorials, and guides for self-service support.", "Documentación completa, tutoriales y guías para soporte de autoservicio.", "Umfassende Dokumentation, Tutorials und Anleitungen für Self-Service-Support.", "Сеопфатна документација, упатства и водичи за самопослужна поддршка."),
       features: [
         sq(lang, "Udhëzues hap-pas-hapi", "Step-by-step guides", "Guías paso a paso", "Schritt-für-Schritt-Anleitungen", "Водичи чекор по чекор") as string,
-        sq(lang, "Video tutoriale", "Video tutorials", "Tutoriales en video", "Video-Tutorials", "Видео упатства") as string,
+        sq(lang, "Video tutoriale", "Video tutorials", "Tutoriales en video", "Video-Tutorials", "Видео упатства", "Tutoriels vidéo", "Tutoriais em vídeo", "Tutorial video") as string,
         sq(lang, "Seksion FAQ", "FAQ section", "Sección de preguntas frecuentes", "FAQ-Bereich", "Секција за ЧПП") as string
       ],
       availability: sq(lang, "Gjithmonë e disponueshme", "Always available", "Siempre disponible", "Immer verfügbar", "Секогаш достапно") as string
@@ -83,7 +83,7 @@ const ExpertSupportPage = () => {
       icon: <Award className="w-8 h-8" />,
       title: sq(lang, "Ekspertë të Certifikuar", "Certified Experts", "Expertos Certificados", "Zertifizierte Experten", "Сертифицирани Експерти"),
       description: sq(lang, "Ekipi ynë i mbështetjes përbëhet nga ekspertë të certifikuar të softuerit biznesor me vite përvojë.", "Our support team consists of certified business software experts with years of experience.", "Nuestro equipo de soporte está compuesto por expertos certificados en software empresarial con años de experiencia.", "Unser Support-Team besteht aus zertifizierten Business-Software-Experten mit jahrelanger Erfahrung.", "Нашиот тим за поддршка се состои од сертифицирани експерти за бизнис софтвер со години искуство."),
-      stats: sq(lang, "50+ profesionistë të certifikuar", "50+ certified professionals", "50+ profesionales certificados", "50+ zertifizierte Fachleute", "50+ сертифицирани професионалци") as string
+      stats: sq(lang, "50+ profesionistë të certifikuar", "50+ certified professionals", "50+ profesionales certificados", "50+ zertifizierte Fachleute", "50+ сертифицирани професионалци", "50+ professionnels certifiés", "50+ profissionais certificados", "50+ professionisti certificati") as string
     },
     {
       icon: <Clock className="w-8 h-8" />,
@@ -95,7 +95,7 @@ const ExpertSupportPage = () => {
       icon: <Users className="w-8 h-8" />,
       title: sq(lang, "Menaxherë të Dedikuar Llogarish", "Dedicated Account Managers", "Gerentes de Cuenta Dedicados", "Dedizierte Account Manager", "Посветени Менаџери на Сметки"),
       description: sq(lang, "Klientët enterprise marrin menaxherë të dedikuar llogarish për mbështetje të personalizuar.", "Enterprise customers get dedicated account managers for personalized support.", "Los clientes empresariales obtienen gerentes de cuenta dedicados para soporte personalizado.", "Unternehmenskunden erhalten dedizierte Account Manager für personalisierten Support.", "Претпријатијата добиваат посветени менаџери на сметки за персонализирана поддршка."),
-      stats: sq(lang, "1:1 vëmendje personale", "1:1 personal attention", "1:1 atención personal", "1:1 persönliche Betreuung", "1:1 лично внимание") as string
+      stats: sq(lang, "1:1 vëmendje personale", "1:1 personal attention", "1:1 atención personal", "1:1 persönliche Betreuung", "1:1 лично внимание", "Attention personnelle 1:1", "Atenção pessoal 1:1", "Attenzione personale 1:1") as string
     }
   ];
 
@@ -212,7 +212,7 @@ const ExpertSupportPage = () => {
             
             <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black mb-8 tracking-tight leading-tight animate-professional-fade">
               <span className="text-gray-900 drop-shadow-lg">
-                {sq(lang, "Mbështetje", "Expert", "Soporte", "Experten-", "Експертска")} <span className="animate-subtle-gradient">{sq(lang, "Ekspertësh", "Support", "Experto", "Support", "Поддршка", "Assistance", "Suporte", "Supporto")}</span>
+                {sq(lang, "Mbështetje", "Expert", "Soporte", "Experten-", "Експертска", "Expert", "Especialista", "Esperto")} <span className="animate-subtle-gradient">{sq(lang, "Ekspertësh", "Support", "Experto", "Support", "Поддршка", "Assistance", "Suporte", "Supporto")}</span>
               </span>
               <br />
               <span className="text-gray-900 drop-shadow-lg">{sq(lang, "Kur Ju Nevojitet", "When You Need It", "Cuando Lo Necesite", "Wenn Sie Es Brauchen", "Кога Ви Треба")}</span>
@@ -225,7 +225,7 @@ const ExpertSupportPage = () => {
             <div className="flex flex-wrap justify-center gap-6 mb-16">
               <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
                 <Clock className="h-5 w-5 text-gray-700" />
-                <span className="font-bold text-gray-800">{sq(lang, "Disponueshmëri 24/7", "24/7 availability", "Disponibilidad 24/7", "24/7 Verfügbarkeit", "24/7 достапност")}</span>
+                <span className="font-bold text-gray-800">{sq(lang, "Disponueshmëri 24/7", "24/7 availability", "Disponibilidad 24/7", "24/7 Verfügbarkeit", "24/7 достапност", "Disponibilité 24h/7j", "Disponibilidade 24h/7d", "Disponibilità 24h/7g")}</span>
               </div>
               <div className="flex items-center space-x-2 px-4 py-2 bg-white/90 backdrop-blur-sm border border-white/50 rounded-lg">
                 <Award className="h-5 w-5 text-gray-700" />
@@ -322,7 +322,7 @@ const ExpertSupportPage = () => {
           <div className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 p-1 rounded-3xl">
             <div className="bg-white dark:bg-gray-900 rounded-3xl p-12">
               <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6">
-                {sq(lang, "Përjetoni Mbështetje", "Experience", "Experimente", "Erleben Sie", "Искусете")} <span className="animate-gradient-x bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">{sq(lang, "të Klasit Botëror", "World-Class Support", "Soporte de Clase Mundial", "Erstklassigen Support", "Поддршка од Светска Класа")}</span>
+                {sq(lang, "Përjetoni Mbështetje", "Experience", "Experimente", "Erleben Sie", "Искусете", "Expérience", "Experiência", "Esperienza")} <span className="animate-gradient-x bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">{sq(lang, "të Klasit Botëror", "World-Class Support", "Soporte de Clase Mundial", "Erstklassigen Support", "Поддршка од Светска Класа")}</span>
               </h2>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                 {sq(lang, "Bashkohuni me mijëra biznese që mbështeten në ekipin tonë ekspert të mbështetjes për suksesin e tyre. Merrni ndihmën që ju nevojitet, kur ju nevojitet.", "Join thousands of businesses who rely on our expert support team for their success. Get the help you need, when you need it.", "Únase a miles de empresas que confían en nuestro equipo de soporte experto para su éxito. Obtenga la ayuda que necesita, cuando la necesita.", "Schließen Sie sich Tausenden von Unternehmen an, die auf unser Experten-Support-Team für ihren Erfolg vertrauen. Erhalten Sie die Hilfe, die Sie brauchen, wenn Sie sie brauchen.", "Придружете се на илјадници бизниси кои се потпираат на нашиот експертски тим за поддршка за нивниот успех. Добијте ја помошта што ви треба, кога ви треба.")}

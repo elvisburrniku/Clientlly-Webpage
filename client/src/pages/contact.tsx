@@ -139,7 +139,7 @@ export default function Contact() {
           <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
             {[
               { label: sq(lang, "Kohë Përgjigje", "Response Time", "Tiempo de respuesta", "Antwortzeit", "Време на одговор"), value: "< 24h", sub: sq(lang, "mesatare", "average", "promedio", "Durchschnitt", "просечно"), color: "text-indigo-600", bg: "bg-indigo-50" },
-              { label: sq(lang, "Kënaqësi", "Satisfaction", "Satisfacción", "Zufriedenheit", "Задоволство"), value: "98%", sub: sq(lang, "nga klientët", "from clients", "de los clientes", "von Kunden", "од клиентите"), color: "text-emerald-600", bg: "bg-emerald-50" },
+              { label: sq(lang, "Kënaqësi", "Satisfaction", "Satisfacción", "Zufriedenheit", "Задоволство", "Satisfaction", "Satisfação", "Soddisfazione"), value: "98%", sub: sq(lang, "nga klientët", "from clients", "de los clientes", "von Kunden", "од клиентите"), color: "text-emerald-600", bg: "bg-emerald-50" },
               { label: sq(lang, "Disponueshëm", "Available", "Disponible", "Verfügbar", "Достапно"), value: "24/7", sub: sq(lang, "për abonimi", "for subscribers", "para suscriptores", "für Abonnenten", "за претплатници"), color: "text-violet-600", bg: "bg-violet-50" },
             ].map(({ label, value, sub, color, bg }, i) => (
               <div key={i} className={`${bg} rounded-2xl p-5 text-center`}>
@@ -184,7 +184,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">
-                        {sq(lang, "Mesazhi u dërgua!", "Message sent!", "¡Mensaje enviado!", "Nachricht gesendet!", "Пораката е испратена!")}
+                        {sq(lang, "Mesazhi u dërgua!", "Message sent!", "¡Mensaje enviado!", "Nachricht gesendet!", "Пораката е испратена!", "Message envoyé!", "Mensagem enviada!", "Messaggio inviato!")}
                       </h3>
                       <p className="text-sm text-gray-500 mt-2 max-w-xs mx-auto">
                         {sq(lang,
@@ -208,7 +208,7 @@ export default function Contact() {
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                          {sq(lang, "Emri", "First name", "Nombre", "Vorname", "Име")} *
+                          {sq(lang, "Emri", "First name", "Nombre", "Vorname", "Име", "Prénom", "Primeiro nome", "Nome")} *
                         </label>
                         <input name="firstName" value={form.firstName} onChange={handle} required
                           placeholder={sq(lang, "Emri juaj", "Your first name", "Su nombre", "Ihr Vorname", "Вашето име") as string}
@@ -216,7 +216,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest mb-1.5">
-                          {sq(lang, "Mbiemri", "Last name", "Apellido", "Nachname", "Презиме")} *
+                          {sq(lang, "Mbiemri", "Last name", "Apellido", "Nachname", "Презиме", "Nom de famille", "Apelido", "Cognome")} *
                         </label>
                         <input name="lastName" value={form.lastName} onChange={handle} required
                           placeholder={sq(lang, "Mbiemri juaj", "Your last name", "Su apellido", "Ihr Nachname", "Вашето презиме") as string}
@@ -239,7 +239,7 @@ export default function Contact() {
                           {sq(lang, "Kompania", "Company", "Empresa", "Unternehmen", "Компанија", "Entreprise", "Empresa", "Azienda")}
                         </label>
                         <input name="company" value={form.company} onChange={handle}
-                          placeholder={sq(lang, "Emri i kompanisë", "Company name", "Nombre de la empresa", "Firmenname", "Име на компанијата") as string}
+                          placeholder={sq(lang, "Emri i kompanisë", "Company name", "Nombre de la empresa", "Firmenname", "Име на компанијата", "Nom de l'entreprise", "Nome da empresa", "Nome dell'azienda") as string}
                           className="w-full px-3.5 py-2.5 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent hover:border-gray-300 transition-colors placeholder:text-gray-400" />
                       </div>
                     </div>
@@ -257,7 +257,7 @@ export default function Contact() {
                         <option value="support">{sq(lang, "Mbështetje teknike", "Technical support", "Soporte técnico", "Technischer Support", "Техничка поддршка")}</option>
                         <option value="billing">{sq(lang, "Faturim dhe pagesa", "Billing & payments", "Facturación y pagos", "Abrechnung & Zahlungen", "Фактурирање и плаќања")}</option>
                         <option value="partnership">{sq(lang, "Partneritet biznesi", "Business partnership", "Asociación comercial", "Geschäftspartnerschaft", "Деловно партнерство")}</option>
-                        <option value="migration">{sq(lang, "Migrim të dhënash", "Data migration", "Migración de datos", "Datenmigration", "Миграција на податоци")}</option>
+                        <option value="migration">{sq(lang, "Migrim të dhënash", "Data migration", "Migración de datos", "Datenmigration", "Миграција на податоци", "Migration des données", "Migração de dados", "Migrazione dati")}</option>
                         <option value="other">{sq(lang, "Tjetër", "Other", "Otro", "Andere", "Друго", "Autre", "Outro", "Altro")}</option>
                       </select>
                     </div>
@@ -292,7 +292,7 @@ export default function Contact() {
                       {contactMutation.isPending ? (
                         <span className="flex items-center gap-2">
                           <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin"></span>
-                          {sq(lang, "Duke dërguar...", "Sending...", "Enviando...", "Wird gesendet...", "Се испраќа...")}
+                          {sq(lang, "Duke dërguar...", "Sending...", "Enviando...", "Wird gesendet...", "Се испраќа...", "Envoi en cours...", "A enviar...", "Invio in corso...")}
                         </span>
                       ) : (
                         <>
@@ -318,7 +318,7 @@ export default function Contact() {
               <div className="space-y-4">
                 {[
                   { icon: Mail, label: "Email", value: "info@clientlly.com", sub: sq(lang, "Përgjigje brenda 24h", "Reply within 24h", "Respuesta en 24h", "Antwort innerhalb von 24h", "Одговор во рок од 24ч") },
-                  { icon: MapPin, label: sq(lang, "Zyra", "Office", "Oficina", "Büro", "Канцеларија"), value: sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo", "Pristina, Kosovo", "Pristina, Kosovo", "Приштина, Косово"), sub: "Linda Premium Residence nr 9, Prishtina e re" },
+                  { icon: MapPin, label: sq(lang, "Zyra", "Office", "Oficina", "Büro", "Канцеларија", "Bureau", "Escritório", "Ufficio"), value: sq(lang, "Prishtinë, Kosovë", "Pristina, Kosovo", "Pristina, Kosovo", "Pristina, Kosovo", "Приштина, Косово"), sub: "Linda Premium Residence nr 9, Prishtina e re" },
                 ].map(({ icon: Icon, label, value, sub }, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-indigo-500/50 flex items-center justify-center flex-shrink-0 mt-0.5">

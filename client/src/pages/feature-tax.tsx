@@ -132,7 +132,7 @@ export default function FeatureTax() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span className="font-medium">{sq(lang, "Llogaritje taksash në kohë reale", "Real-time tax calculations", "Cálculos fiscales en tiempo real", "Echtzeit-Steuerberechnungen", "Пресметки на данок во реално време")}</span>
+                  <span className="font-medium">{sq(lang, "Llogaritje taksash në kohë reale", "Real-time tax calculations", "Cálculos fiscales en tiempo real", "Echtzeit-Steuerberechnungen", "Пресметки на данок во реално време", "Calculs fiscaux en temps réel", "Cálculos fiscais em tempo real", "Calcoli fiscali in tempo reale")}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="h-5 w-5 text-green-500" />
@@ -155,7 +155,7 @@ export default function FeatureTax() {
                   className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-8 py-4 text-lg font-semibold rounded-2xl transition-all duration-300"
                 >
                   <Calculator className="h-5 w-5 mr-2" />
-                  {sq(lang, "Llogaritësi i Taksave", "Tax Calculator", "Calculadora de Impuestos", "Steuerrechner", "Калкулатор за данок")}
+                  {sq(lang, "Llogaritësi i Taksave", "Tax Calculator", "Calculadora de Impuestos", "Steuerrechner", "Калкулатор за данок", "Calculateur fiscal", "Calculadora fiscal", "Calcolatrice fiscale")}
                 </Button>
               </div>
             </div>
@@ -166,12 +166,12 @@ export default function FeatureTax() {
                 <Card className="glass-effect border-white/20 p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-lg font-semibold">{sq(lang, "Përmbledhje Taksash - T4 2024", "Tax Summary - Q4 2024", "Resumen Fiscal - T4 2024", "Steuerübersicht - Q4 2024", "Даночен преглед - Q4 2024")}</h3>
-                    <Badge className="bg-green-100 text-green-700">{sq(lang, "Në Pajtueshmëri", "Compliant", "Conforme", "Konform", "Усогласено")}</Badge>
+                    <Badge className="bg-green-100 text-green-700">{sq(lang, "Në Pajtueshmëri", "Compliant", "Conforme", "Konform", "Усогласено", "Conforme", "Conforme", "Conforme")}</Badge>
                   </div>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-orange-600">€12,450</div>
-                      <div className="text-sm text-muted-foreground">{sq(lang, "Zbritje Totale", "Total Deductions", "Deducciones Totales", "Gesamtabzüge", "Вкупни одбитоци")}</div>
+                      <div className="text-sm text-muted-foreground">{sq(lang, "Zbritje Totale", "Total Deductions", "Deducciones Totales", "Gesamtabzüge", "Вкупни одбитоци", "Déductions totales", "Deduções totais", "Deduzioni totali")}</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-green-600">€3,280</div>
@@ -180,9 +180,9 @@ export default function FeatureTax() {
                   </div>
                   <div className="space-y-2">
                     {[
-                      { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци") as string, amount: "€2,450", rate: "50%" },
-                      { category: sq(lang, "Furnizime Zyre", "Office Supplies", "Suministros de Oficina", "Bürobedarf", "Канцелариски материјали") as string, amount: "€1,890", rate: "100%" },
-                      { category: sq(lang, "Udhëtime", "Travel", "Viajes", "Reisen", "Патувања") as string, amount: "€3,120", rate: "100%" }
+                      { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци", "Repas d'affaires", "Refeições de negócios", "Pasti di lavoro") as string, amount: "€2,450", rate: "50%" },
+                      { category: sq(lang, "Furnizime Zyre", "Office Supplies", "Suministros de Oficina", "Bürobedarf", "Канцелариски материјали", "Fournitures de bureau", "Material de escritório", "Forniture per ufficio") as string, amount: "€1,890", rate: "100%" },
+                      { category: sq(lang, "Udhëtime", "Travel", "Viajes", "Reisen", "Патувања", "Voyage", "Viagem", "Viaggio") as string, amount: "€3,120", rate: "100%" }
                     ].map((item, index) => (
                       <div key={index} className="flex justify-between items-center p-2 bg-white/50 rounded">
                         <span className="text-sm">{item.category}</span>
@@ -228,7 +228,7 @@ export default function FeatureTax() {
               { id: "categories", label: sq(lang, "Kategoritë Tatimore", "Tax Categories", "Categorías Fiscales", "Steuerkategorien", "Даночни категории") as string, icon: PieChart },
               { id: "calculations", label: sq(lang, "Llogaritjet", "Calculations", "Cálculos", "Berechnungen", "Пресметки") as string, icon: Calculator },
               { id: "deductions", label: sq(lang, "Zbritjet", "Deductions", "Deducciones", "Abzüge", "Одбитоци") as string, icon: Target },
-              { id: "compliance", label: sq(lang, "Pajtueshmëria", "Compliance", "Cumplimiento", "Compliance", "Усогласеност") as string, icon: FileText }
+              { id: "compliance", label: sq(lang, "Pajtueshmëria", "Compliance", "Cumplimiento", "Compliance", "Усогласеност", "Conformité", "Conformidade", "Conformità") as string, icon: FileText }
             ].map((tab, index) => {
               const Icon = tab.icon;
               return (
@@ -281,12 +281,12 @@ export default function FeatureTax() {
                   <h4 className="text-lg font-semibold mb-4">{sq(lang, "Kategoritë Tatimore Popullore", "Popular Tax Categories", "Categorías Fiscales Populares", "Beliebte Steuerkategorien", "Популарни даночни категории")}</h4>
                   <div className="grid gap-3">
                     {[
-                      { name: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци") as string, code: sq(lang, "Vakte & Argëtime", "Meals & Entertainment", "Comidas y Entretenimiento", "Mahlzeiten & Unterhaltung", "Оброци и забава") as string, deductible: "50%", color: "bg-red-500" },
-                      { name: sq(lang, "Furnizime Zyre", "Office Supplies", "Suministros de Oficina", "Bürobedarf", "Канцелариски материјали") as string, code: sq(lang, "Shpenzime Zyre", "Office Expenses", "Gastos de Oficina", "Bürokosten", "Канцелариски трошоци") as string, deductible: "100%", color: "bg-blue-500" },
-                      { name: sq(lang, "Udhëtime", "Travel", "Viajes", "Reisen", "Патувања") as string, code: sq(lang, "Shpenzime Udhëtimi", "Travel Expenses", "Gastos de Viaje", "Reisekosten", "Трошоци за патување") as string, deductible: "100%", color: "bg-green-500" },
+                      { name: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци", "Repas d'affaires", "Refeições de negócios", "Pasti di lavoro") as string, code: sq(lang, "Vakte & Argëtime", "Meals & Entertainment", "Comidas y Entretenimiento", "Mahlzeiten & Unterhaltung", "Оброци и забава") as string, deductible: "50%", color: "bg-red-500" },
+                      { name: sq(lang, "Furnizime Zyre", "Office Supplies", "Suministros de Oficina", "Bürobedarf", "Канцелариски материјали", "Fournitures de bureau", "Material de escritório", "Forniture per ufficio") as string, code: sq(lang, "Shpenzime Zyre", "Office Expenses", "Gastos de Oficina", "Bürokosten", "Канцелариски трошоци") as string, deductible: "100%", color: "bg-blue-500" },
+                      { name: sq(lang, "Udhëtime", "Travel", "Viajes", "Reisen", "Патувања", "Voyage", "Viagem", "Viaggio") as string, code: sq(lang, "Shpenzime Udhëtimi", "Travel Expenses", "Gastos de Viaje", "Reisekosten", "Трошоци за патување") as string, deductible: "100%", color: "bg-green-500" },
                       { name: sq(lang, "Shërbime Profesionale", "Professional Services", "Servicios Profesionales", "Professionelle Dienstleistungen", "Професионални услуги") as string, code: sq(lang, "Tarifa Profesionale", "Professional Fees", "Honorarios Profesionales", "Professionelle Gebühren", "Професионални такси") as string, deductible: "100%", color: "bg-purple-500" },
                       { name: sq(lang, "Softuer", "Software", "Software", "Software", "Софтвер") as string, code: sq(lang, "Kompjuter & Internet", "Computer & Internet", "Computadora e Internet", "Computer & Internet", "Компјутер и интернет") as string, deductible: "100%", color: "bg-orange-500" },
-                      { name: sq(lang, "Automjet", "Vehicle", "Vehículo", "Fahrzeug", "Возило") as string, code: sq(lang, "Shpenzime Automjeti", "Vehicle Expenses", "Gastos de Vehículo", "Fahrzeugkosten", "Трошоци за возило") as string, deductible: sq(lang, "Ndryshon", "Varies", "Varía", "Variiert", "Варира") as string, color: "bg-teal-500" }
+                      { name: sq(lang, "Automjet", "Vehicle", "Vehículo", "Fahrzeug", "Возило", "Véhicule", "Veículo", "Veicolo") as string, code: sq(lang, "Shpenzime Automjeti", "Vehicle Expenses", "Gastos de Vehículo", "Fahrzeugkosten", "Трошоци за возило") as string, deductible: sq(lang, "Ndryshon", "Varies", "Varía", "Variiert", "Варира") as string, color: "bg-teal-500" }
                     ].map((category, index) => (
                       <Card key={index} className="p-4 hover:shadow-lg transition-all duration-300">
                         <div className="flex items-center justify-between">
@@ -312,7 +312,7 @@ export default function FeatureTax() {
             {activeTab === "calculations" && (
               <div className="grid md:grid-cols-2 gap-12 items-center fade-in">
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold text-foreground">{sq(lang, "Llogaritje taksash në kohë reale", "Real-time tax calculations", "Cálculos fiscales en tiempo real", "Echtzeit-Steuerberechnungen", "Пресметки на данок во реално време")}</h3>
+                  <h3 className="text-3xl font-bold text-foreground">{sq(lang, "Llogaritje taksash në kohë reale", "Real-time tax calculations", "Cálculos fiscales en tiempo real", "Echtzeit-Steuerberechnungen", "Пресметки на данок во реално време", "Calculs fiscaux en temps réel", "Cálculos fiscais em tempo real", "Calcoli fiscali in tempo reale")}</h3>
                   <p className="text-lg text-muted-foreground">
                     {sq(lang,
                       "Gjurmoni detyrimin tuaj tatimor gjatë gjithë vitit me llogaritje në kohë reale. Merrni pagesa tremujore të vlerësuara dhe projeksione të fundit të vitit për të shmangur surprizat.",
@@ -339,14 +339,14 @@ export default function FeatureTax() {
                 </div>
                 <div className="space-y-6">
                   <Card className="p-6">
-                    <h4 className="text-lg font-semibold mb-4">{sq(lang, "Projeksioni Tatimor 2024", "2024 Tax Projection", "Proyección Fiscal 2024", "Steuerprojektion 2024", "Даночна проекција 2024")}</h4>
+                    <h4 className="text-lg font-semibold mb-4">{sq(lang, "Projeksioni Tatimor 2024", "2024 Tax Projection", "Proyección Fiscal 2024", "Steuerprojektion 2024", "Даночна проекција 2024", "Projection fiscale 2024", "Projeção fiscal 2024", "Proiezione fiscale 2024")}</h4>
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span className="text-muted-foreground">{sq(lang, "Të Ardhura Bruto", "Gross Income", "Ingresos Brutos", "Bruttoeinkommen", "Бруто приход")}</span>
                         <span className="font-bold text-2xl">€156,000</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-muted-foreground">{sq(lang, "Zbritje Totale", "Total Deductions", "Deducciones Totales", "Gesamtabzüge", "Вкупни одбитоци")}</span>
+                        <span className="text-muted-foreground">{sq(lang, "Zbritje Totale", "Total Deductions", "Deducciones Totales", "Gesamtabzüge", "Вкупни одбитоци", "Déductions totales", "Deduções totais", "Deduzioni totali")}</span>
                         <span className="font-bold text-green-600">-€28,450</span>
                       </div>
                       <div className="flex justify-between items-center">
@@ -423,9 +423,9 @@ export default function FeatureTax() {
                     <div className="space-y-4">
                       {[
                         { category: sq(lang, "Zyra e Shtëpisë", "Home Office", "Oficina en Casa", "Homeoffice", "Домашна канцеларија") as string, current: "€4,200", potential: "€5,400", status: "opportunity" },
-                        { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци") as string, current: "€2,450", potential: "€2,450", status: "maximized" },
-                        { category: sq(lang, "Automjet", "Vehicle", "Vehículo", "Fahrzeug", "Возило") as string, current: "€3,200", potential: "€4,100", status: "opportunity" },
-                        { category: sq(lang, "Edukim", "Education", "Educación", "Bildung", "Образование") as string, current: "€800", potential: "€1,200", status: "opportunity" }
+                        { category: sq(lang, "Vakte Biznesi", "Business Meals", "Comidas de Negocios", "Geschäftsessen", "Деловни оброци", "Repas d'affaires", "Refeições de negócios", "Pasti di lavoro") as string, current: "€2,450", potential: "€2,450", status: "maximized" },
+                        { category: sq(lang, "Automjet", "Vehicle", "Vehículo", "Fahrzeug", "Возило", "Véhicule", "Veículo", "Veicolo") as string, current: "€3,200", potential: "€4,100", status: "opportunity" },
+                        { category: sq(lang, "Edukim", "Education", "Educación", "Bildung", "Образование", "Éducation", "Educação", "Istruzione") as string, current: "€800", potential: "€1,200", status: "opportunity" }
                       ].map((item, index) => (
                         <div key={index} className="space-y-2">
                           <div className="flex justify-between items-center">
@@ -492,7 +492,7 @@ export default function FeatureTax() {
                   <Card className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <h4 className="text-lg font-semibold">{sq(lang, "Statusi i Pajtueshmërisë", "Compliance Status", "Estado de Cumplimiento", "Compliance-Status", "Статус на усогласеност")}</h4>
-                      <Badge className="bg-green-100 text-green-700">{sq(lang, "Në Pajtueshmëri", "Compliant", "Conforme", "Konform", "Усогласено")}</Badge>
+                      <Badge className="bg-green-100 text-green-700">{sq(lang, "Në Pajtueshmëri", "Compliant", "Conforme", "Konform", "Усогласено", "Conforme", "Conforme", "Conforme")}</Badge>
                     </div>
                     <div className="space-y-4">
                       {[
@@ -568,7 +568,7 @@ export default function FeatureTax() {
                 className="border-2 border-foreground/30 hover:bg-foreground hover:text-background px-10 py-5 text-xl font-semibold rounded-2xl transition-all duration-300"
               >
                 <Calculator className="h-5 w-5 mr-2" />
-                {sq(lang, "Llogaritësi i Taksave", "Tax Calculator", "Calculadora de Impuestos", "Steuerrechner", "Калкулатор за данок")}
+                {sq(lang, "Llogaritësi i Taksave", "Tax Calculator", "Calculadora de Impuestos", "Steuerrechner", "Калкулатор за данок", "Calculateur fiscal", "Calculadora fiscal", "Calcolatrice fiscale")}
               </Button>
             </div>
           </div>

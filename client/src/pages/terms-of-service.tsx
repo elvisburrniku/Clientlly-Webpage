@@ -24,7 +24,7 @@ export default function TermsOfService() {
   const sections = [
     {
       icon: FileText,
-      title: sq(lang, "Pranimi i kushteve", "Acceptance of terms", "Aceptación de términos", "Annahme der Bedingungen", "Прифаќање на условите"),
+      title: sq(lang, "Pranimi i kushteve", "Acceptance of terms", "Aceptación de términos", "Annahme der Bedingungen", "Прифаќање на условите", "Acceptation des conditions", "Aceitação dos termos", "Accettazione dei termini"),
       content: sq(lang,
         `Duke u regjistruar ose duke përdorur platformën Clientlly, ju pranoni të gjitha kushtet e shërbimit të listuara në këtë dokument.
 
@@ -55,7 +55,7 @@ Clientlly е обезбедена од Clientlly Sh.p.k., регистриран
     },
     {
       icon: Users,
-      title: sq(lang, "Llogaria juaj", "Your account", "Su cuenta", "Ihr Konto", "Вашата сметка"),
+      title: sq(lang, "Llogaria juaj", "Your account", "Su cuenta", "Ihr Konto", "Вашата сметка", "Votre compte", "A sua conta", "Il tuo account"),
       content: sq(lang,
         `Kur krijoni një llogari Clientlly, jeni përgjegjës për:
 
@@ -101,7 +101,7 @@ Das Teilen Ihres Kontos mit unbefugten Personen oder das Erstellen gefälschter 
     },
     {
       icon: CheckCircle,
-      title: sq(lang, "Përdorimi i pranueshëm", "Acceptable use", "Uso aceptable", "Akzeptable Nutzung", "Прифатлива употреба"),
+      title: sq(lang, "Përdorimi i pranueshëm", "Acceptable use", "Uso aceptable", "Akzeptable Nutzung", "Прифатлива употреба", "Utilisation acceptable", "Uso aceitável", "Uso accettabile"),
       content: sq(lang,
         `Clientlly lejon përdorimin e platformës për aktivitete legjitime biznesi. Ndalohet kategorikisht:
 
@@ -157,7 +157,7 @@ Schwerwiegende Verstöße führen zur sofortigen Kontosperrung.`,
     },
     {
       icon: CreditCard,
-      title: sq(lang, "Abonimi dhe pagesat", "Subscription and payments", "Suscripción y pagos", "Abonnement und Zahlungen", "Претплата и плаќања"),
+      title: sq(lang, "Abonimi dhe pagesat", "Subscription and payments", "Suscripción y pagos", "Abonnement und Zahlungen", "Претплата и плаќања", "Abonnement et paiements", "Subscrição e pagamentos", "Abbonamento e pagamenti"),
       content: sq(lang,
         `Clientlly ofron plane abonimi mujore dhe vjetore:
 
@@ -208,7 +208,7 @@ Sie können Ihr Abonnement jederzeit über das Konto-Panel kündigen. Nach der K
     },
     {
       icon: Shield,
-      title: sq(lang, "Pronësia intelektuale", "Intellectual property", "Propiedad intelectual", "Geistiges Eigentum", "Интелектуална сопственост"),
+      title: sq(lang, "Pronësia intelektuale", "Intellectual property", "Propiedad intelectual", "Geistiges Eigentum", "Интелектуална сопственост", "Propriété intellectuelle", "Propriedade intelectual", "Proprietà intellettuale"),
       content: sq(lang,
         `Të gjitha të drejtat e pronësisë intelektuale lidhur me platformën Clientlly (kodi, dizajni, logoja, dokumentacioni) i takojnë Clientlly Sh.p.k.
 
@@ -239,7 +239,7 @@ Ihre Geschäftsdaten (Rechnungen, Kunden, Berichte) sind und bleiben Ihr Eigentu
     },
     {
       icon: AlertTriangle,
-      title: sq(lang, "Kufizimi i përgjegjësisë", "Limitation of liability", "Limitación de responsabilidad", "Haftungsbeschränkung", "Ограничување на одговорност"),
+      title: sq(lang, "Kufizimi i përgjegjësisë", "Limitation of liability", "Limitación de responsabilidad", "Haftungsbeschränkung", "Ограничување на одговорност", "Limitation de responsabilité", "Limitação de responsabilidade", "Limitazione di responsabilità"),
       content: sq(lang,
         `Clientlly ofrohet "si është" dhe "si disponohet". Nuk garantojmë:
 
@@ -305,7 +305,7 @@ Clientlly не е одговорен за:
     },
     {
       icon: Clock,
-      title: sq(lang, "Ndryshimet dhe përfundimi", "Changes and termination", "Cambios y terminación", "Änderungen und Beendigung", "Промени и прекин"),
+      title: sq(lang, "Ndryshimet dhe përfundimi", "Changes and termination", "Cambios y terminación", "Änderungen und Beendigung", "Промени и прекин", "Modifications et résiliation", "Alterações e rescisão", "Modifiche e risoluzione"),
       content: sq(lang,
         `Ne rezervojmë të drejtën:
 
@@ -371,7 +371,7 @@ Sie können Ihr Konto jederzeit schließen. Nach der Kontoschließung haben Sie 
             <span className="text-xs font-semibold text-indigo-700">{sq(lang, "Kushtet e Shërbimit", "Terms of Service", "Términos de Servicio", "Nutzungsbedingungen", "Услови за Користење", "Conditions d'utilisation", "Termos de serviço", "Termini di servizio")}</span>
           </div>
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
-            {sq(lang,"Kushtet e Shërbimit Clientlly","Clientlly Terms of Service","Términos de Servicio de Clientlly","Clientlly Nutzungsbedingungen","Услови за Користење на Clientlly")}
+            {sq(lang,"Kushtet e Shërbimit Clientlly","Clientlly Terms of Service","Términos de Servicio de Clientlly","Clientlly Nutzungsbedingungen","Услови за Користење на Clientlly", "Conditions d'utilisation de Clientlly", "Termos de serviço do Clientlly", "Termini di servizio di Clientlly")}
           </h1>
           <p className="text-gray-500 max-w-2xl mb-4">
             {sq(lang,
@@ -382,7 +382,7 @@ Sie können Ihr Konto jederzeit schließen. Nach der Kontoschließung haben Sie 
               "Ве молиме внимателно прочитајте ги овие услови пред да ја користите платформата Clientlly. Со регистрирање, ги прифаќате сите следни услови."
             )}
           </p>
-          <p className="text-xs text-gray-400">{sq(lang,"Hyrë në fuqi:","Effective date:","Fecha de vigencia:","Gültig ab:","Датум на важење:")} 1 {sq(lang,"Janar","January","Enero","Januar","Јануари")} 2025</p>
+          <p className="text-xs text-gray-400">{sq(lang,"Hyrë në fuqi:","Effective date:","Fecha de vigencia:","Gültig ab:","Датум на важење:", "Date d'entrée en vigueur:", "Data de vigência:", "Data di entrata in vigore:")} 1 {sq(lang,"Janar","January","Enero","Januar","Јануари", "Janvier", "Janeiro", "Gennaio")} 2025</p>
         </div>
       </section>
 
@@ -391,7 +391,7 @@ Sie können Ihr Konto jederzeit schließen. Nach der Kontoschließung haben Sie 
           <div className="grid md:grid-cols-[240px_1fr] gap-10">
 
             <nav className="hidden md:block">
-              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">{sq(lang,"Seksionet","Sections","Secciones","Abschnitte","Секции")}</p>
+              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-3">{sq(lang,"Seksionet","Sections","Secciones","Abschnitte","Секции", "Sections", "Secções", "Sezioni")}</p>
               <ul className="space-y-2">
                 {sections.map((s,i) => (
                   <li key={i}>
@@ -426,9 +426,9 @@ Sie können Ihr Konto jederzeit schließen. Nach der Kontoschließung haben Sie 
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold text-gray-900 mb-1">{sq(lang,"Pyetje ligjore","Legal questions","Preguntas legales","Rechtliche Fragen","Правни прашања")}</h3>
+                    <h3 className="font-bold text-gray-900 mb-1">{sq(lang,"Pyetje ligjore","Legal questions","Preguntas legales","Rechtliche Fragen","Правни прашања", "Questions juridiques", "Questões jurídicas", "Domande legali")}</h3>
                     <p className="text-sm text-gray-600 mb-2">
-                      {sq(lang,"Për çdo pyetje lidhur me kushtet e shërbimit:","For any questions about the terms of service:","Para cualquier pregunta sobre los términos de servicio:","Für Fragen zu den Nutzungsbedingungen:","За прашања за условите за користење:")}
+                      {sq(lang,"Për çdo pyetje lidhur me kushtet e shërbimit:","For any questions about the terms of service:","Para cualquier pregunta sobre los términos de servicio:","Für Fragen zu den Nutzungsbedingungen:","За прашања за условите за користење:", "Pour toute question sur les conditions d'utilisation:", "Para qualquer pergunta sobre os termos de serviço:", "Per qualsiasi domanda sui termini di servizio:")}
                     </p>
                     <p className="text-sm font-semibold text-gray-700">legal@clientlly.com</p>
                   </div>

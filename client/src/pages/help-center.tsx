@@ -48,22 +48,22 @@ export default function HelpCenter() {
       icon: Lightbulb,
       description: sq(lang, "Konfiguroni llogarinë tuaj dhe mësoni bazat", "Set up your account and learn the basics", "Configure su cuenta y aprenda lo básico", "Richten Sie Ihr Konto ein und lernen Sie die Grundlagen", "Поставете ја вашата сметка и научете ги основите"),
       articles: [
-        { title: sq(lang, "Krijimi i faturës së parë", "Creating your first invoice", "Creando su primera factura", "Ihre erste Rechnung erstellen", "Креирање на вашата прва фактура"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мин читање") },
-        { title: sq(lang, "Vendosja e profilit të kompanisë", "Setting up your company profile", "Configurando el perfil de su empresa", "Ihr Unternehmensprofil einrichten", "Поставување на профилот на компанијата"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мин читање") },
-        { title: sq(lang, "Shtimi i anëtarëve të ekipit", "Adding team members", "Agregando miembros del equipo", "Teammitglieder hinzufügen", "Додавање членови на тимот"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мин читање") },
-        { title: sq(lang, "Lidhja e llogarisë bankare", "Connecting your bank account", "Conectando su cuenta bancaria", "Ihr Bankkonto verbinden", "Поврзување на вашата банкарска сметка"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мин читање") }
+        { title: sq(lang, "Krijimi i faturës së parë", "Creating your first invoice", "Creando su primera factura", "Ihre erste Rechnung erstellen", "Креирање на вашата прва фактура"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мин читање", "5 min de lecture", "5 min de leitura", "5 min di lettura") },
+        { title: sq(lang, "Vendosja e profilit të kompanisë", "Setting up your company profile", "Configurando el perfil de su empresa", "Ihr Unternehmensprofil einrichten", "Поставување на профилот на компанијата"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мин читање", "3 min de lecture", "3 min de leitura", "3 min di lettura") },
+        { title: sq(lang, "Shtimi i anëtarëve të ekipit", "Adding team members", "Agregando miembros del equipo", "Teammitglieder hinzufügen", "Додавање членови на тимот"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мин читање", "4 min de lecture", "4 min de leitura", "4 min di lettura") },
+        { title: sq(lang, "Lidhja e llogarisë bankare", "Connecting your bank account", "Conectando su cuenta bancaria", "Ihr Bankkonto verbinden", "Поврзување на вашата банкарска сметка"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мин читање", "6 min de lecture", "6 min de leitura", "6 min di lettura") }
       ],
       color: "from-green-500 to-emerald-500"
     },
     {
-      title: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање"),
+      title: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање", "Facturation", "Faturação", "Fatturazione"),
       icon: FileText,
       description: sq(lang, "Zotëroni veçoritë tona të faturimit", "Master our invoicing features", "Domine nuestras funciones de facturación", "Beherrschen Sie unsere Rechnungsfunktionen", "Совладајте ги нашите функции за фактурирање"),
       articles: [
-        { title: sq(lang, "Krijimi i faturave periodike", "Creating recurring invoices", "Creando facturas recurrentes", "Wiederkehrende Rechnungen erstellen", "Креирање повторувачки фактури"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мін читање") },
-        { title: sq(lang, "Vendosja e kushteve të pagesës", "Setting up payment terms", "Configurando términos de pago", "Zahlungsbedingungen einrichten", "Поставување услови за плаќање"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мін читање") },
-        { title: sq(lang, "Personalizimi i shablloneve të faturave", "Customizing invoice templates", "Personalizando plantillas de facturas", "Rechnungsvorlagen anpassen", "Прилагодување на шаблони за фактури"), time: sq(lang, "7 min lexim", "7 min read", "7 min lectura", "7 Min. Lesezeit", "7 мін читање") },
-        { title: sq(lang, "Menaxhimi i faturave të vonuara", "Managing overdue invoices", "Gestionando facturas vencidas", "Überfällige Rechnungen verwalten", "Управување со задоцнети фактури"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање") }
+        { title: sq(lang, "Krijimi i faturave periodike", "Creating recurring invoices", "Creando facturas recurrentes", "Wiederkehrende Rechnungen erstellen", "Креирање повторувачки фактури"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мін читање", "4 min de lecture", "4 min de leitura", "4 min di lettura") },
+        { title: sq(lang, "Vendosja e kushteve të pagesës", "Setting up payment terms", "Configurando términos de pago", "Zahlungsbedingungen einrichten", "Поставување услови за плаќање"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мін читање", "3 min de lecture", "3 min de leitura", "3 min di lettura") },
+        { title: sq(lang, "Personalizimi i shablloneve të faturave", "Customizing invoice templates", "Personalizando plantillas de facturas", "Rechnungsvorlagen anpassen", "Прилагодување на шаблони за фактури"), time: sq(lang, "7 min lexim", "7 min read", "7 min lectura", "7 Min. Lesezeit", "7 мін читање", "7 min de lecture", "7 min de leitura", "7 min di lettura") },
+        { title: sq(lang, "Menaxhimi i faturave të vonuara", "Managing overdue invoices", "Gestionando facturas vencidas", "Überfällige Rechnungen verwalten", "Управување со задоцнети фактури"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање", "5 min de lecture", "5 min de leitura", "5 min di lettura") }
       ],
       color: "from-blue-500 to-cyan-500"
     },
@@ -72,10 +72,10 @@ export default function HelpCenter() {
       icon: MessageSquare,
       description: sq(lang, "Pranoni dhe gjurmoni pagesat në mënyrë efikase", "Accept and track payments efficiently", "Acepte y rastree pagos eficientemente", "Zahlungen effizient akzeptieren und verfolgen", "Прифаќајте и следете плаќања ефикасно"),
       articles: [
-        { title: sq(lang, "Vendosja e pagesave Stripe", "Setting up Stripe payments", "Configurando pagos con Stripe", "Stripe-Zahlungen einrichten", "Поставување Stripe плаќања"), time: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање") },
-        { title: sq(lang, "Regjistrimi i pagesave manuale", "Recording manual payments", "Registrando pagos manuales", "Manuelle Zahlungen erfassen", "Запишување рачни плаќања"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мін читање") },
-        { title: sq(lang, "Kuptimi i tarifave të pagesave", "Understanding payment fees", "Entendiendo las comisiones de pago", "Zahlungsgebühren verstehen", "Разбирање на провизии за плаќање"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мін читање") },
-        { title: sq(lang, "Trajtimi i rimbursimeve", "Handling refunds", "Procesando reembolsos", "Rückerstattungen bearbeiten", "Обработка на рефундирања"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање") }
+        { title: sq(lang, "Vendosja e pagesave Stripe", "Setting up Stripe payments", "Configurando pagos con Stripe", "Stripe-Zahlungen einrichten", "Поставување Stripe плаќања"), time: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање", "8 min de lecture", "8 min de leitura", "8 min di lettura") },
+        { title: sq(lang, "Regjistrimi i pagesave manuale", "Recording manual payments", "Registrando pagos manuales", "Manuelle Zahlungen erfassen", "Запишување рачни плаќања"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мін читање", "3 min de lecture", "3 min de leitura", "3 min di lettura") },
+        { title: sq(lang, "Kuptimi i tarifave të pagesave", "Understanding payment fees", "Entendiendo las comisiones de pago", "Zahlungsgebühren verstehen", "Разбирање на провизии за плаќање"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мін читање", "4 min de lecture", "4 min de leitura", "4 min di lettura") },
+        { title: sq(lang, "Trajtimi i rimbursimeve", "Handling refunds", "Procesando reembolsos", "Rückerstattungen bearbeiten", "Обработка на рефундирања"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање", "5 min de lecture", "5 min de leitura", "5 min di lettura") }
       ],
       color: "from-purple-500 to-pink-500"
     },
@@ -84,10 +84,10 @@ export default function HelpCenter() {
       icon: BookOpen,
       description: sq(lang, "Gjurmoni dhe kategorizoni shpenzimet e biznesit", "Track and categorize business expenses", "Rastree y categorice los gastos empresariales", "Geschäftsausgaben verfolgen und kategorisieren", "Следете и категоризирајте деловни трошоци"),
       articles: [
-        { title: sq(lang, "Ngarkimi i fotove të faturave", "Uploading receipt photos", "Subiendo fotos de recibos", "Belegfotos hochladen", "Поставување фотографии од сметки"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мін читање") },
-        { title: sq(lang, "Vendosja e kategorive të shpenzimeve", "Setting expense categories", "Configurando categorías de gastos", "Ausgabenkategorien festlegen", "Поставување категории на трошоци"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мін читање") },
-        { title: sq(lang, "Krijimi i raporteve të shpenzimeve", "Creating expense reports", "Creando informes de gastos", "Spesenberichte erstellen", "Креирање извештаи за трошоци"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање") },
-        { title: sq(lang, "Dokumentim i gatshëm për taksa", "Tax-ready documentation", "Documentación lista para impuestos", "Steuerfertige Dokumentation", "Документација готова за даноци"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање") }
+        { title: sq(lang, "Ngarkimi i fotove të faturave", "Uploading receipt photos", "Subiendo fotos de recibos", "Belegfotos hochladen", "Поставување фотографии од сметки"), time: sq(lang, "3 min lexim", "3 min read", "3 min lectura", "3 Min. Lesezeit", "3 мін читање", "3 min de lecture", "3 min de leitura", "3 min di lettura") },
+        { title: sq(lang, "Vendosja e kategorive të shpenzimeve", "Setting expense categories", "Configurando categorías de gastos", "Ausgabenkategorien festlegen", "Поставување категории на трошоци"), time: sq(lang, "4 min lexim", "4 min read", "4 min lectura", "4 Min. Lesezeit", "4 мін читање", "4 min de lecture", "4 min de leitura", "4 min di lettura") },
+        { title: sq(lang, "Krijimi i raporteve të shpenzimeve", "Creating expense reports", "Creando informes de gastos", "Spesenberichte erstellen", "Креирање извештаи за трошоци"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање", "6 min de lecture", "6 min de leitura", "6 min di lettura") },
+        { title: sq(lang, "Dokumentim i gatshëm për taksa", "Tax-ready documentation", "Documentación lista para impuestos", "Steuerfertige Dokumentation", "Документација готова за даноци"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање", "5 min de lecture", "5 min de leitura", "5 min di lettura") }
       ],
       color: "from-orange-500 to-red-500"
     },
@@ -96,10 +96,10 @@ export default function HelpCenter() {
       icon: Video,
       description: sq(lang, "Gjeneroni njohuri dhe raporte financiare", "Generate insights and financial reports", "Genere información y reportes financieros", "Erkenntnisse und Finanzberichte generieren", "Генерирајте увид и финансиски извештаи"),
       articles: [
-        { title: sq(lang, "Kuptimi i fitimit dhe humbjes", "Understanding profit & loss", "Entendiendo ganancias y pérdidas", "Gewinn & Verlust verstehen", "Разбирање на добивка и загуба"), time: sq(lang, "7 min lexim", "7 min read", "7 min lectura", "7 Min. Lesezeit", "7 мін читање") },
-        { title: sq(lang, "Raportimi i rrjedhës së parave", "Cash flow reporting", "Reportes de flujo de caja", "Cashflow-Berichte", "Извештаи за готовински тек"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање") },
-        { title: sq(lang, "Veçoritë e raportimit tatimor", "Tax reporting features", "Funciones de reportes fiscales", "Steuerberichtsfunktionen", "Функции за даночно известување"), time: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање") },
-        { title: sq(lang, "Krijimi i raporteve të personalizuara", "Custom report creation", "Creación de informes personalizados", "Benutzerdefinierte Berichte erstellen", "Креирање прилагодени извештаи"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање") }
+        { title: sq(lang, "Kuptimi i fitimit dhe humbjes", "Understanding profit & loss", "Entendiendo ganancias y pérdidas", "Gewinn & Verlust verstehen", "Разбирање на добивка и загуба"), time: sq(lang, "7 min lexim", "7 min read", "7 min lectura", "7 Min. Lesezeit", "7 мін читање", "7 min de lecture", "7 min de leitura", "7 min di lettura") },
+        { title: sq(lang, "Raportimi i rrjedhës së parave", "Cash flow reporting", "Reportes de flujo de caja", "Cashflow-Berichte", "Извештаи за готовински тек"), time: sq(lang, "5 min lexim", "5 min read", "5 min lectura", "5 Min. Lesezeit", "5 мін читање", "5 min de lecture", "5 min de leitura", "5 min di lettura") },
+        { title: sq(lang, "Veçoritë e raportimit tatimor", "Tax reporting features", "Funciones de reportes fiscales", "Steuerberichtsfunktionen", "Функции за даночно известување"), time: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање", "8 min de lecture", "8 min de leitura", "8 min di lettura") },
+        { title: sq(lang, "Krijimi i raporteve të personalizuara", "Custom report creation", "Creación de informes personalizados", "Benutzerdefinierte Berichte erstellen", "Креирање прилагодени извештаи"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање", "6 min de lecture", "6 min de leitura", "6 min di lettura") }
       ],
       color: "from-amber-500 to-orange-500"
     },
@@ -108,10 +108,10 @@ export default function HelpCenter() {
       icon: Users,
       description: sq(lang, "Lidhuni me mjete të tjera biznesi", "Connect with other business tools", "Conéctese con otras herramientas empresariales", "Mit anderen Geschäftstools verbinden", "Поврзете се со други деловни алатки"),
       articles: [
-        { title: sq(lang, "Sinkronizimi me QuickBooks", "QuickBooks synchronization", "Sincronización con QuickBooks", "QuickBooks-Synchronisierung", "Синхронизација со QuickBooks"), time: sq(lang, "10 min lexim", "10 min read", "10 min lectura", "10 Min. Lesezeit", "10 мін читање") },
-        { title: sq(lang, "Vendosja e automatizimit Zapier", "Zapier automation setup", "Configuración de automatización Zapier", "Zapier-Automatisierung einrichten", "Поставување автоматизација со Zapier"), time: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање") },
-        { title: sq(lang, "Integrimi me Google Workspace", "Google Workspace integration", "Integración con Google Workspace", "Google Workspace-Integration", "Интеграција со Google Workspace"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање") },
-        { title: sq(lang, "Dokumentimi i API", "API documentation", "Documentación de API", "API-Dokumentation", "API документација"), time: sq(lang, "15 min lexim", "15 min read", "15 min lectura", "15 Min. Lesezeit", "15 мін читање") }
+        { title: sq(lang, "Sinkronizimi me QuickBooks", "QuickBooks synchronization", "Sincronización con QuickBooks", "QuickBooks-Synchronisierung", "Синхронизација со QuickBooks"), time: sq(lang, "10 min lexim", "10 min read", "10 min lectura", "10 Min. Lesezeit", "10 мін читање", "10 min de lecture", "10 min de leitura", "10 min di lettura") },
+        { title: sq(lang, "Vendosja e automatizimit Zapier", "Zapier automation setup", "Configuración de automatización Zapier", "Zapier-Automatisierung einrichten", "Поставување автоматизација со Zapier"), time: sq(lang, "8 min lexim", "8 min read", "8 min lectura", "8 Min. Lesezeit", "8 мін читање", "8 min de lecture", "8 min de leitura", "8 min di lettura") },
+        { title: sq(lang, "Integrimi me Google Workspace", "Google Workspace integration", "Integración con Google Workspace", "Google Workspace-Integration", "Интеграција со Google Workspace"), time: sq(lang, "6 min lexim", "6 min read", "6 min lectura", "6 Min. Lesezeit", "6 мін читање", "6 min de lecture", "6 min de leitura", "6 min di lettura") },
+        { title: sq(lang, "Dokumentimi i API", "API documentation", "Documentación de API", "API-Dokumentation", "API документација"), time: sq(lang, "15 min lexim", "15 min read", "15 min lectura", "15 Min. Lesezeit", "15 мін читање", "15 min de lecture", "15 min de leitura", "15 min di lettura") }
       ],
       color: "from-indigo-500 to-blue-500"
     }
@@ -119,7 +119,7 @@ export default function HelpCenter() {
 
   const popularArticles = [
     { title: sq(lang, "Si të krijoni faturën tuaj të parë", "How to create your first invoice", "Cómo crear su primera factura", "So erstellen Sie Ihre erste Rechnung", "Како да ја креирате вашата прва фактура"), category: sq(lang, "Fillimi", "Getting Started", "Primeros Pasos", "Erste Schritte", "Почеток", "Pour commencer", "Para começar", "Per iniziare"), views: "12.5k", rating: 4.9 },
-    { title: sq(lang, "Vendosja e kujtesave automatike të pagesave", "Setting up automatic payment reminders", "Configuración de recordatorios automáticos de pago", "Automatische Zahlungserinnerungen einrichten", "Поставување автоматски потсетници за плаќање"), category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање"), views: "8.2k", rating: 4.8 },
+    { title: sq(lang, "Vendosja e kujtesave automatike të pagesave", "Setting up automatic payment reminders", "Configuración de recordatorios automáticos de pago", "Automatische Zahlungserinnerungen einrichten", "Поставување автоматски потсетници за плаќање"), category: sq(lang, "Faturimi", "Invoicing", "Facturación", "Rechnungsstellung", "Фактурирање", "Facturation", "Faturação", "Fatturazione"), views: "8.2k", rating: 4.8 },
     { title: sq(lang, "Lidhja e Stripe për pagesa online", "Connecting Stripe for online payments", "Conectando Stripe para pagos en línea", "Stripe für Online-Zahlungen verbinden", "Поврзување на Stripe за онлајн плаќања"), category: sq(lang, "Pagesat", "Payments", "Pagos", "Zahlungen", "Плаќања", "Paiements", "Pagamentos", "Pagamenti"), views: "6.8k", rating: 4.7 },
     { title: sq(lang, "Kuptimi i kategorive tatimore", "Understanding tax categories", "Entendiendo categorías fiscales", "Steuerkategorien verstehen", "Разбирање на даночни категории"), category: sq(lang, "Shpenzimet", "Expenses", "Gastos", "Ausgaben", "Трошоци", "Dépenses", "Despesas", "Spese"), views: "5.4k", rating: 4.6 },
     { title: sq(lang, "Krijimi i raporteve financiare mujore", "Creating monthly financial reports", "Creando informes financieros mensuales", "Monatliche Finanzberichte erstellen", "Креирање месечни финансиски извештаи"), category: sq(lang, "Raportet", "Reports", "Informes", "Berichte", "Извештаи", "Rapports", "Relatórios", "Report"), views: "4.9k", rating: 4.8 }
@@ -257,7 +257,7 @@ export default function HelpCenter() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-black text-foreground mb-6 fade-in">
-              {sq(lang, "Artikujt", "Popular ", "Artículos ", "Beliebte ", "Популарни ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Popullorë", "Articles", "Populares", "Artikel", "Статии")}</span>
+              {sq(lang, "Artikujt", "Popular ", "Artículos ", "Beliebte ", "Популарни ")}<span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">{sq(lang, "Popullorë", "Articles", "Populares", "Artikel", "Статии", "Articles", "Artigos", "Articoli")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {sq(lang, "Udhëzuesit më të dobishëm të zgjedhur nga komuniteti ynë", "Most helpful guides chosen by our community", "Las guías más útiles elegidas por nuestra comunidad", "Die hilfreichsten Anleitungen, ausgewählt von unserer Community", "Најкорисни водичи избрани од нашата заедница")}
@@ -278,7 +278,7 @@ export default function HelpCenter() {
                           <Star className="w-4 h-4 text-yellow-500 fill-current" />
                           <span>{article.rating}</span>
                         </div>
-                        <span className="text-sm text-muted-foreground">{article.views} {sq(lang, "shikime", "views", "vistas", "Aufrufe", "прегледи")}</span>
+                        <span className="text-sm text-muted-foreground">{article.views} {sq(lang, "shikime", "views", "vistas", "Aufrufe", "прегледи", "vues", "visualizações", "visualizzazioni")}</span>
                       </div>
                       <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                         {article.title}
@@ -365,14 +365,14 @@ export default function HelpCenter() {
               onClick={() => go("/contact")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg"
             >
-              {sq(lang, "Kontakto Mbështetjen", "Contact Support", "Contactar Soporte", "Support Kontaktieren", "Контактирај Поддршка")}
+              {sq(lang, "Kontakto Mbështetjen", "Contact Support", "Contactar Soporte", "Support Kontaktieren", "Контактирај Поддршка", "Contacter l'assistance", "Contactar suporte", "Contatta il supporto")}
             </Button>
             <Button 
               onClick={() => go("/community")}
               variant="outline"
               className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg"
             >
-              {sq(lang, "Bashkohu me Komunitetin", "Join Community", "Unirse a la Comunidad", "Community Beitreten", "Придружи се на Заедницата")}
+              {sq(lang, "Bashkohu me Komunitetin", "Join Community", "Unirse a la Comunidad", "Community Beitreten", "Придружи се на Заедницата", "Rejoindre la communauté", "Juntar-me à comunidade", "Unisciti alla comunità")}
             </Button>
           </div>
         </div>
